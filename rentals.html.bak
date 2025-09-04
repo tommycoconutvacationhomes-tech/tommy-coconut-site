@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Rentals - Tommy Coconut | Premium Curaçao Homes</title>
+    <meta name="description" content="Discover our curated collection of premium vacation homes in Curaçao. Each property offers the Tommy Coconut Standard with vehicle, boat trips, and concierge service.">
+    <meta name="keywords" content="Curaçao vacation rentals, luxury villas, beachfront properties, Tommy Coconut rentals, Caribbean vacation homes, Jan Thiel, Westpunt, Willemstad">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tommycoconut.com/rentals.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tommycoconut.com/rentals.html">
+    <meta property="og:title" content="Premium Curaçao Vacation Rentals - Tommy Coconut">
+    <meta property="og:description" content="Discover our curated collection of premium vacation homes in Curaçao. Each property offers the Tommy Coconut Standard with vehicle, boat trips, and concierge service.">
+    <meta property="og:image" content="https://tommycoconut.com/images/properties/villa-hero.jpg">
+    <meta property="og:site_name" content="Tommy Coconut">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tommycoconut.com/rentals.html">
+    <meta name="twitter:title" content="Premium Curaçao Vacation Rentals - Tommy Coconut">
+    <meta name="twitter:description" content="Discover our curated collection of premium vacation homes in Curaçao. Each property offers the Tommy Coconut Standard with vehicle, boat trips, and concierge service.">
+    <meta name="twitter:image" content="https://tommycoconut.com/images/properties/villa-hero.jpg">
+    
+    <!-- Tommy Coconut CSS Architecture -->
+    <link rel="stylesheet" href="styles/globals.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages.css">
+    
+    <!-- Safe Mode CSS Fallback -->
+    <link rel="stylesheet" href="/css/safe-mode.css">
+    
+    <!-- External Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/icons/tommy-coconut-logo.png" alt="Tommy Coconut Logo" style="height: 56px; width: auto; display: block;">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rentals.html" class="active">Vacation Rentals</a></li>
+                <li><a href="experiences.html">The Experience</a></li>
+                <li><a href="ownership.html">Fractional Ownership</a></li>
+                <li><a href="cartel.html">Coconut Cartel</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Your Private Oasis Awaits</h1>
+            <p>Each of our properties is more than a place to stay—it's your meticulously prepared home base. Selected for its location, comfort, and character, it's the private stage where your Curaçao story will unfold. And no matter which you choose, the full Tommy Coconut experience is always included.</p>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="properties-section">
+        <div class="container">
+            <!-- Property Filter System -->
+            <div class="property-filters">
+                <div class="filter-header">
+                    <h2>Find Your Perfect Stay</h2>
+                    <p>Filter by location, amenities, or price to find the ideal property for your Curaçao adventure.</p>
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="location-filter">Location</label>
+                        <select id="location-filter" class="filter-select">
+                            <option value="all">All Locations</option>
+                            <option value="jan-thiel">Jan Thiel</option>
+                            <option value="westpunt">Westpunt</option>
+                            <option value="willemstad">Willemstad</option>
+                            <option value="beachfront">Beachfront</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="guests-filter">Guests</label>
+                        <select id="guests-filter" class="filter-select">
+                            <option value="all">Any Size</option>
+                            <option value="1-2">1-2 Guests</option>
+                            <option value="3-4">3-4 Guests</option>
+                            <option value="5-6">5-6 Guests</option>
+                            <option value="7+">7+ Guests</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="price-filter">Price Range</label>
+                        <select id="price-filter" class="filter-select">
+                            <option value="all">Any Price</option>
+                            <option value="200-300">$200-$300/night</option>
+                            <option value="300-400">$300-$400/night</option>
+                            <option value="400-500">$400-$500/night</option>
+                            <option value="500+">$500+/night</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="amenities-filter">Must Have</label>
+                        <select id="amenities-filter" class="filter-select">
+                            <option value="all">Any Amenities</option>
+                            <option value="pool">Private Pool</option>
+                            <option value="ocean-view">Ocean View</option>
+                            <option value="beach-access">Beach Access</option>
+                            <option value="kitchen">Full Kitchen</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button id="clear-filters" class="btn btn-secondary">Clear Filters</button>
+                    <div class="results-count">
+                        <span id="filtered-count">8</span> properties available
+                    </div>
+                </div>
+            </div>
+
+            <div class="properties-grid" id="properties-grid">
+                <!-- Villa Bayside Hill -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/properties/bayside-hill.jpeg.avif" alt="Villa Bayside Hill">
+                        <div class="property-badge">Most Popular</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Villa Bayside Hill</h3>
+                        <div class="property-location">Jan Thiel, Curaçao</div>
+                        <p class="property-description">Some mornings change everything. At Villa Bayside Hill, your coffee comes with the Caribbean Sea stretching to infinity. This isn't just our most popular villa – it's where dreams feel real and paradise feels like home.</p>
+                        <div class="property-features">
+                            <span class="feature">Private Pool</span>
+                            <span class="feature">Ocean View</span>
+                            <span class="feature">Full Kitchen</span>
+                        </div>
+                        <div class="property-highlight" style="margin:0.5rem 0; padding:0.5rem 0.8rem; background:#E8F5E8; border-left:3px solid #62D0C9; border-radius:4px; font-size:0.9rem;">
+                            <span style="color:#005A5B; font-weight:600;">🏆 Most Popular:</span>
+                            <span style="color:#005A5B;">Guest favorite for ocean views</span>
+                        </div>
+                        <div class="property-price">From $450/night</div>
+                        <div class="property-cta" style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+                            <a href="villa-bayside-hill.html" class="btn btn-primary" style="flex:1; min-width:140px;">View Details</a>
+                            <a href="https://wa.me/59996707977?text=Hi!%20I'm%20interested%20in%20Villa%20Bayside%20Hill.%20Can%20you%20check%20availability%20and%20send%20me%20rates%20for%20my%20dates?" 
+                               target="_blank" 
+                               rel="noopener"
+                               class="btn btn-whatsapp" 
+                               style="background:#25D366; color:white; display:flex; align-items:center; gap:0.5rem; padding:12px 16px; min-width:120px;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.548"/>
+                                </svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Villa Palm Breeze -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/properties/palm-breeze.jpg" alt="Villa Palm Breeze">
+                        <div class="property-badge">New</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Villa Palm Breeze</h3>
+                        <div class="property-location">Westpunt, Curaçao</div>
+                        <p class="property-description">Where luxury meets the sea. Villa Palm Breeze whispers sophistication with every wave that kisses its shore. Step from your pool directly onto pristine sand – this is beachfront living at its most elegant.</p>
+                        <div class="property-features">
+                            <span class="feature">Beach Access</span>
+                            <span class="feature">Smart Home</span>
+                            <span class="feature">Private Pool</span>
+                        </div>
+                        <div class="property-price">From $400/night</div>
+                        <div class="property-cta" style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+                            <a href="villa-palm-breeze.html" class="btn btn-primary" style="flex:1; min-width:140px;">View Details</a>
+                            <a href="https://wa.me/59996707977?text=Hi!%20I'm%20interested%20in%20Villa%20Palm%20Breeze%20with%20beach%20access.%20Can%20you%20check%20availability%20and%20send%20me%20rates%20for%20my%20dates?" 
+                               target="_blank" 
+                               rel="noopener"
+                               class="btn btn-whatsapp" 
+                               style="background:#25D366; color:white; display:flex; align-items:center; gap:0.5rem; padding:12px 16px; min-width:120px;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.548"/>
+                                </svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dushi Hideaway -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/properties/dushi-hideaway.jpeg.avif" alt="Dushi Hideaway">
+                    </div>
+                    <div class="property-info">
+                        <h3>Dushi Hideaway</h3>
+                        <div class="property-location">Willemstad, Curaçao</div>
+                        <p class="property-description">Some places are made for two hearts. Dushi Hideaway tucks you away from the world where time stops, conversations flow like rum, and every sunset belongs to you. Romance found its home here.</p>
+                        <div class="property-features">
+                            <span class="feature">Mountain Views</span>
+                            <span class="feature">Private Terrace</span>
+                            <span class="feature">Hammock</span>
+                        </div>
+                        <div class="property-highlight" style="margin:0.5rem 0; padding:0.5rem 0.8rem; background:#FFF0F5; border-left:3px solid #F7B7A3; border-radius:4px; font-size:0.9rem;">
+                            <span style="color:#005A5B; font-weight:600;">💕 Perfect for Couples:</span>
+                            <span style="color:#005A5B;">Intimate romantic setting</span>
+                        </div>
+                        <div class="property-price">From $300/night</div>
+                        <div class="property-cta" style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+                            <a href="dushi-hideaway.html" class="btn btn-primary" style="flex:1; min-width:140px;">View Details</a>
+                            <a href="https://wa.me/59996707977?text=Hi!%20I'm%20interested%20in%20Dushi%20Hideaway%20for%20a%20romantic%20getaway.%20Can%20you%20check%20availability%20and%20send%20me%20rates%20for%20my%20dates?" 
+                               target="_blank" 
+                               rel="noopener"
+                               class="btn btn-whatsapp" 
+                               style="background:#25D366; color:white; display:flex; align-items:center; gap:0.5rem; padding:12px 16px; min-width:120px;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.548"/>
+                                </svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Happy Hideaway -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/properties/happy-hideaway.jpg" alt="Happy Hideaway">
+                    </div>
+                    <div class="property-info">
+                        <h3>Happy Hideaway</h3>
+                        <div class="property-location">Jan Thiel, Curaçao</div>
+                        <p class="property-description">Welcome to Happy Hideaway, where family memories are made. With ample space for everyone, this villa blends modern comforts with authentic island charm, creating the perfect backdrop for laughter, relaxation, and shared adventures.</p>
+                        <div class="property-features">
+                            <span class="feature">Beach Access</span>
+                            <span class="feature">Garden</span>
+                            <span class="feature">Multiple Bedrooms</span>
+                        </div>
+                        <div class="property-price">From $350/night</div>
+                        <div class="property-cta">
+                            <a href="happy-hideaway.html" class="btn btn-primary">View Details & Rates</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Castaway Beach -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/properties/castaway-beach.jpg" alt="Castaway Beach">
+                    </div>
+                    <div class="property-info">
+                        <h3>Castaway Beach</h3>
+                        <div class="property-location">Westpunt, Curaçao</div>
+                        <p class="property-description">Live the beachfront dream at Castaway Beach. With the ocean as your constant companion from every room, this stunning property masterfully blends luxurious living with the raw beauty of Curaçao's shoreline. Your Dushi Life, right on the sand.</p>
+                        <div class="property-features">
+                            <span class="feature">Direct Beach Access</span>
+                            <span class="feature">Ocean View</span>
+                            <span class="feature">Outdoor Shower</span>
+                        </div>
+                        <div class="property-price">From $380/night</div>
+                        <div class="property-cta" style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+                            <a href="castaway-beach.html" class="btn btn-primary" style="flex:1; min-width:140px;">View Details</a>
+                            <a href="https://wa.me/59996707977?text=Hi!%20I'm%20interested%20in%20Castaway%20Beach%20with%20direct%20beach%20access.%20Can%20you%20check%20availability%20and%20send%20me%20rates%20for%20my%20dates?" 
+                               target="_blank" 
+                               rel="noopener"
+                               class="btn btn-whatsapp" 
+                               style="background:#25D366; color:white; display:flex; align-items:center; gap:0.5rem; padding:12px 16px; min-width:120px;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.548"/>
+                                </svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sailaway Beach -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/properties/sailaway-beach.jpeg.avif" alt="Sailaway Beach">
+                    </div>
+                    <div class="property-info">
+                        <h3>Sailaway Beach</h3>
+                        <div class="property-location">Willemstad, Curaçao</div>
+                        <p class="property-description">Set sail for serenity at Sailaway Beach. Designed for those who appreciate ultimate comfort and style, this villa offers panoramic vistas where luxury meets Curaçao's legendary sunsets, night after unforgettable night.</p>
+                        <div class="property-features">
+                            <span class="feature">Rooftop Terrace</span>
+                            <span class="feature">Smart Home</span>
+                            <span class="feature">Gym</span>
+                        </div>
+                        <div class="property-price">From $420/night</div>
+                        <div class="property-cta">
+                            <a href="sailaway-beach.html" class="btn btn-primary">View Details & Rates</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunshine Bay -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/properties/sunshine-bay.jpg" alt="Sunshine Bay">
+                    </div>
+                    <div class="property-info">
+                        <h3>Sunshine Bay</h3>
+                        <div class="property-location">Jan Thiel, Curaçao</div>
+                        <p class="property-description">Bask in the glow of Sunshine Bay. This intimate villa is your private haven, flooded with Caribbean light and offering stunning bay views. It's the perfect sun-drenched escape for radiant days and romantic, starlit nights.</p>
+                        <div class="property-features">
+                            <span class="feature">Bay Views</span>
+                            <span class="feature">Private Terrace</span>
+                            <span class="feature">BBQ Area</span>
+                        </div>
+                        <div class="property-price">From $320/night</div>
+                        <div class="property-cta">
+                            <a href="sunshine-bay.html" class="btn btn-primary">View Details & Rates</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tropical Haven -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/properties/tropical-haven.jpg" alt="Tropical Haven">
+                    </div>
+                    <div class="property-info">
+                        <h3>Tropical Haven</h3>
+                        <div class="property-location">Westpunt, Curaçao</div>
+                        <p class="property-description">Escape to your own Tropical Haven. Surrounded by lush island beauty, this spacious retreat offers families a perfect blend of modern comfort and immersive nature. It's more than a stay; it's your private slice of paradise.</p>
+                        <div class="property-features">
+                            <span class="feature">Beach Access</span>
+                            <span class="feature">Garden</span>
+                            <span class="feature">Hammock</span>
+                        </div>
+                        <div class="property-price">From $360/night</div>
+                        <div class="property-cta">
+                            <a href="tropical-haven.html" class="btn btn-primary">View Details & Rates</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tommy Coconut Standard -->
+    <section class="standard-section">
+        <div class="container">
+            <div class="standard-content">
+                <div class="standard-text">
+                    <h2>The Tommy Coconut Standard</h2>
+                    <p>Every booking is an all-inclusive experience. We've bundled our signature services—your iconic ride, legendary boat trips, and personal concierge—so there are no hidden fees and no surprises. It's the entire story, not just a room.</p>
+                </div>
+                <div class="standard-inclusions-grid">
+                    <div class="inclusion-card">
+                        <div class="inclusion-icon">
+                            <!-- Placeholder SVG for Jeep/iCar -->
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="18" width="36" height="16" rx="6" stroke="#78E4D9" stroke-width="4" fill="#FAFAF8"/><circle cx="14" cy="38" r="4" fill="#78E4D9"/><circle cx="34" cy="38" r="4" fill="#78E4D9"/></svg>
+                        </div>
+                        <h4>Your Iconic Ride</h4>
+                        <p>Explore Curaçao on your terms. Your iconic Jeep or iCar is included for your entire stay. No rental counters, no hassle.</p>
+                    </div>
+                    <div class="inclusion-card">
+                        <div class="inclusion-icon">
+                            <!-- Placeholder SVG for Boat/Sunset -->
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="24" cy="36" rx="16" ry="6" fill="#78E4D9"/><rect x="18" y="12" width="12" height="12" rx="3" fill="#FAFAF8" stroke="#78E4D9" stroke-width="3"/><path d="M24 12V6" stroke="#78E4D9" stroke-width="3" stroke-linecap="round"/></svg>
+                        </div>
+                        <h4>Legendary Boat Trips</h4>
+                        <p>Join the 'Coconut Cartel' for our legendary sunset cruise or a private boat adventure. An exclusive social event just for our guests.</p>
+                    </div>
+                    <div class="inclusion-card">
+                        <div class="inclusion-icon">
+                            <!-- Placeholder SVG for Concierge/Star -->
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="24,6 28,18 40,18 30,26 34,38 24,30 14,38 18,26 8,18 20,18" fill="#78E4D9"/></svg>
+                        </div>
+                        <h4>Personal Concierge</h4>
+                        <p>From pre-stocking your groceries to local recommendations and 24/7 WhatsApp support, we manage the details so you can focus on relaxing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Start Your Story?</h2>
+            <p>Let our personal concierge match you with the perfect villa for your Curaçao adventure. Your treasure awaits.</p>
+            <a href="treasure-map.html" class="btn btn-primary">DISCOVER YOUR IDEAL STAY</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🌴 Tommy Coconut</h3>
+                    <p>Your gateway to the authentic Curaçao experience.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="rentals.html">Vacation Rentals</a></li>
+                        <li><a href="experiences.html">The Experience</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener">🎵</a>
+                        <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener">📸</a>
+                        <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener">📺</a>
+                        <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener">👥</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Get insider tips & exclusive offers</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="analytics.js"></script>
+</body>
+</html> 

@@ -1,0 +1,506 @@
+/* Treasure Map Specific Styles */
+
+.treasure-map-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(12,45,58,0.55) 65%, rgba(12,45,58,0.72) 100%), 
+               url('../images/properties/villa-hero.jpg') center/cover;
+    background-attachment: fixed;
+    color: var(--tc-cream);
+    font-family: var(--font-family-primary);
+}
+
+.treasure-header {
+    background: white;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid rgba(12, 91, 107, 0.1);
+}
+
+.treasure-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.treasure-nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.nav-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-full);
+    transition: var(--transition-normal);
+    border: 1px solid rgba(120, 228, 217, 0.4);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(120, 228, 217, 0.15);
+}
+
+.nav-back-btn:hover,
+.nav-back-btn:focus-visible {
+    background: rgba(120, 228, 217, 0.1);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(120, 228, 217, 0.25);
+    text-decoration: none;
+}
+
+.treasure-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+.treasure-logo a:hover {
+    transform: scale(1.05);
+}
+
+.treasure-logo img {
+    height: 50px;
+    width: auto;
+}
+
+.treasure-map-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8) var(--space-4);
+    position: relative;
+}
+
+.treasure-map-content {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.treasure-map-header h1 {
+    font-weight: 800;
+    line-height: 1.1;
+    font-size: clamp(32px, 5.2vw, 48px);
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,.4);
+    margin-bottom: var(--space-6);
+}
+
+.treasure-map-header p {
+    font-weight: var(--font-weight-semibold);
+    color: #E9F2F3;
+    font-size: clamp(16px, 1.6vw, 20px);
+    margin: 0 auto var(--space-8);
+    max-width: 600px;
+    background: rgba(255,255,255,.08);
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-xl);
+    backdrop-filter: saturate(120%) blur(2px);
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+.treasure-islands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin: var(--space-8) 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--space-4);
+}
+
+.treasure-island {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    border: 2px solid rgba(120, 228, 217, 0.3);
+    cursor: pointer;
+    transition: var(--transition-slow);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.treasure-island:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(120, 228, 217, 0.3);
+    border-color: var(--tc-teal);
+}
+
+.treasure-island:active {
+    transform: translateY(-4px) scale(0.98);
+}
+
+.treasure-island .island-icon {
+    font-size: 4rem;
+    margin-bottom: var(--space-4);
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+}
+
+.island-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--tc-navy);
+    margin-bottom: var(--space-2);
+}
+
+.island-subtitle {
+    color: var(--secondary);
+    font-size: var(--text-base);
+    opacity: 0.8;
+}
+
+/* Villa Modal */
+.villa-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-normal);
+}
+
+.villa-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.villa-modal-content {
+    background: var(--neutral-white);
+    border-radius: var(--radius-xl);
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.villa-modal-header {
+    position: relative;
+}
+
+.villa-modal-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.villa-modal-close {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: var(--radius-full);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-2xl);
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.villa-modal-close:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.villa-modal-body {
+    padding: var(--space-6);
+}
+
+.villa-modal-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--dark-navy);
+    margin-bottom: var(--space-4);
+}
+
+.villa-modal-description {
+    color: var(--secondary);
+    margin-bottom: var(--space-6);
+    line-height: 1.6;
+}
+
+.villa-modal-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-8);
+}
+
+.villa-feature-tag {
+    background: rgba(0, 140, 149, 0.1);
+    color: var(--primary);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.villa-modal-cta {
+    background: var(--primary);
+    color: var(--neutral-white);
+    border: none;
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    width: 100%;
+}
+
+.villa-modal-cta:hover {
+    background: var(--tc-teal-700);
+    transform: translateY(-2px);
+}
+
+.treasure-footer {
+    background: white;
+    padding: var(--space-4) 0;
+    border-top: 1px solid rgba(12, 91, 107, 0.1);
+    text-align: center;
+}
+
+.treasure-footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    color: var(--secondary);
+    opacity: 0.7;
+}
+
+/* Quiz-specific styles */
+.quiz-step {
+    animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    padding: var(--space-8);
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.option-grid.group-size {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 400px;
+}
+
+.option-btn {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(120, 228, 217, 0.3);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    font-family: var(--font-family-primary);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 60px;
+    box-shadow: 0 8px 32px rgba(120, 228, 217, 0.1);
+}
+
+.option-btn:hover,
+.option-btn:focus {
+    border-color: var(--primary);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(120, 228, 217, 0.25);
+    background: linear-gradient(135deg, rgba(120, 228, 217, 0.08), rgba(248,250,252,1));
+}
+
+.option-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-2);
+}
+
+.option-text {
+    font-weight: var(--font-weight-semibold);
+    color: var(--secondary);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+}
+
+.option-subtext {
+    font-size: var(--text-sm);
+    color: #666;
+    opacity: 0.8;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.3;
+}
+
+.size-btn {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    color: #005A5B;
+}
+
+.primary-cta-button {
+    background: var(--tommy-teal);
+    color: white;
+    padding: var(--space-5) var(--space-10);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-primary);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    box-shadow: 0 8px 30px rgba(0, 128, 128, 0.3);
+    min-height: 60px;
+    min-width: 280px;
+    margin: var(--space-4) 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-cta-button:hover,
+.primary-cta-button:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 128, 128, 0.4);
+}
+
+.primary-cta-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .treasure-islands-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+}
+
+@media (max-width: 768px) {
+    .treasure-nav {
+        flex-direction: column;
+        gap: var(--space-4);
+        padding: var(--space-4);
+    }
+    
+    .treasure-nav-links {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .nav-back-btn {
+        min-width: 200px;
+        justify-content: center;
+        padding: var(--space-4) var(--space-6);
+    }
+
+    .treasure-islands-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+        padding: 0 var(--space-3);
+    }
+
+    .treasure-island {
+        min-height: 160px;
+        padding: var(--space-4);
+    }
+
+    .treasure-island .island-icon {
+        font-size: 3rem;
+    }
+
+    .option-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .option-grid.group-size {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .primary-cta-button {
+        min-width: 100%;
+        font-size: var(--text-lg);
+    }
+
+    .quiz-step {
+        padding: var(--space-6);
+    }
+}
+
+@media (max-width: 480px) {
+    .treasure-map-container {
+        padding: var(--space-6) var(--space-3);
+    }
+
+    .treasure-island {
+        min-height: 140px;
+        padding: var(--space-3);
+    }
+
+    .treasure-island .island-icon {
+        font-size: 2.5rem;
+    }
+
+    .island-title {
+        font-size: var(--text-lg);
+    }
+
+    .villa-modal-body {
+        padding: var(--space-4);
+    }
+
+    .quiz-step {
+        padding: var(--space-4);
+    }
+}
