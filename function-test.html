@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        button { background: #00CFCF; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 10px 0; }
+        .result { margin: 20px 0; padding: 15px; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Netlify Functions Test</h1>
+    
+    <p>Testing if Netlify functions are working...</p>
+    
+    <button onclick="testSimpleFunction()">Test Simple Function</button>
+    <button onclick="testAirtableFunction()">Test Airtable Function</button>
+    
+    <div id="result"></div>
+    
+    <h3>Function URLs to check:</h3>
+    <ul>
+        <li><a href="/.netlify/functions/test" target="_blank">/.netlify/functions/test</a></li>
+        <li><a href="/.netlify/functions/submit-to-airtable" target="_blank">/.netlify/functions/submit-to-airtable</a></li>
+    </ul>
+
+    <script>
+        async function testSimpleFunction() {
+            const resultDiv = document.getElementById('result');
+            
+            try {
+                const response = await fetch('/.netlify/functions/test');
+                const result = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `✅ Simple function works!<br>Message: ${result.message}<br>Time: ${result.timestamp}`;
+                } else {
+                    throw new Error('Function failed');
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `❌ Simple function failed: ${error.message}`;
+            }
+        }
+        
+        async function testAirtableFunction() {
+            const resultDiv = document.getElementById('result');
+            
+            try {
+                // Just test if the function exists (should return Method not allowed for GET)
+                const response = await fetch('/.netlify/functions/submit-to-airtable');
+                
+                if (response.status === 405) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `✅ Airtable function exists! (Got expected 405 Method Not Allowed)`;
+                } else if (response.status === 404) {
+                    throw new Error('Function not found (404)');
+                } else {
+                    const text = await response.text();
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `⚠️ Unexpected response: ${response.status}<br>${text}`;
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `❌ Airtable function test failed: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

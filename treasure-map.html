@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Curation Experience | Tommy Coconut</title>
+    <meta name="description" content="Let us curate the perfect villa experience for your dream vacation in Curaçao.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- External Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Flatpickr CSS for Date Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <style>
+        :root {
+            /* Tommy Coconut Brand Colors */
+            --primary: #00CFCF;
+            --primary-hover: #00B8B8;
+            --primary-active: #009999;
+            --secondary: #002F3D;
+            --accent: #2C7C6F;
+            --surface: #FFFFFF;
+            --surface-soft: #92E3DA;
+            --text-primary: #002F3D;
+            --text-secondary: #2C7C6F;
+            --text-muted: #64748B;
+            --text-light: #94A3B8;
+            --surface-warm: #F4E1C6;
+            
+            /* Spacing & Layout */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            
+            /* Typography */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-2xl: 1rem;
+            --radius-3xl: 1.5rem;
+            --radius-full: 9999px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            /* Transitions */
+            --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', system-ui, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Full Screen Modal Container */
+        .curation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 207, 207, 0.05) 0%, rgba(146, 227, 218, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 1001;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--surface-soft));
+            width: 0%;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px rgba(0, 207, 207, 0.5);
+        }
+        
+        /* Step Container */
+        .step-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-8);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
+        }
+        
+        .step-container.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .step-container.exiting {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        
+        /* Step Content Styling */
+        .step-title {
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            letter-spacing: -0.025em;
+        }
+        
+        .step-question {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-10);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Option Buttons */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-6);
+            margin: var(--space-8) 0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .option-button {
+            background: white;
+            border: 2px solid rgba(0, 207, 207, 0.2);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+        }
+        
+        .option-button:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            background: linear-gradient(135deg, rgba(0, 207, 207, 0.02), white);
+        }
+        
+        .option-button:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+        
+        .option-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 207, 207, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .option-button:hover::before {
+            left: 100%;
+        }
+        
+        .option-text {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+        
+        /* Date Picker Styling */
+        .date-picker-container {
+            max-width: 400px;
+            margin: var(--space-8) auto;
+        }
+        
+        .date-input {
+            width: 100%;
+            padding: var(--space-6);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-xl);
+            font-size: var(--text-lg);
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            background: white;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        
+        .date-input:focus {
+            outline: none;
+            border-color: var(--primary-hover);
+            box-shadow: 0 0 0 4px rgba(0, 207, 207, 0.1);
+        }
+        
+        /* Villa Reveal Styling */
+        .villa-reveal {
+            background: white;
+            border-radius: var(--radius-3xl);
+            padding: var(--space-10);
+            box-shadow: var(--shadow-xl);
+            border: 3px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .villa-reveal::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--surface-soft), var(--primary));
+            border-radius: var(--radius-3xl);
+            z-index: -1;
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .villa-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--radius-2xl);
+            margin-bottom: var(--space-6);
+        }
+        
+        .villa-name {
+            font-size: var(--text-3xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .villa-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-6);
+        }
+        
+        .villa-feature {
+            background: linear-gradient(135deg, var(--primary), var(--surface-soft));
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Form Styling */
+        .form-container {
+            max-width: 500px;
+            margin: var(--space-8) auto;
+            background: white;
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-6);
+            text-align: left;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: var(--space-4);
+            border: 2px solid rgba(0, 207, 207, 0.2);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-base);
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition-normal);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 207, 207, 0.1);
+        }
+        
+        .form-input.required:invalid {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+        
+        .form-input.required:valid {
+            border-color: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+        }
+        
+        /* Primary CTA Button */
+        .primary-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            padding: var(--space-6) var(--space-12);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            box-shadow: 0 8px 25px rgba(0, 207, 207, 0.3);
+            position: relative;
+            overflow: hidden;
+            min-height: 60px;
+            margin: var(--space-6) auto;
+            display: block;
+        }
+        
+        .primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 207, 207, 0.4);
+        }
+        
+        .primary-button:active {
+            transform: translateY(-1px);
+        }
+        
+        .primary-button:disabled {
+            background: var(--text-light);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* WhatsApp Link Styling */
+        .whatsapp-link {
+            color: var(--primary);
+            text-decoration: underline;
+            font-weight: 600;
+            transition: var(--transition-normal);
+        }
+        
+        .whatsapp-link:hover {
+            color: var(--primary-hover);
+        }
+        
+        /* Thank You Page Styling */
+        .thank-you-container {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .thank-you-title {
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .thank-you-message {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-10);
+            line-height: 1.6;
+        }
+        
+        .experience-proposal {
+            background: linear-gradient(135deg, rgba(0, 207, 207, 0.05), rgba(146, 227, 218, 0.1));
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            border: 1px solid rgba(0, 207, 207, 0.2);
+            margin: var(--space-8) 0;
+        }
+        
+        .experience-title {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .experience-description {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .experience-question {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .experience-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .experience-btn {
+            padding: var(--space-3) var(--space-6);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-full);
+            font-size: var(--text-base);
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .experience-btn.primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .experience-btn.primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+        
+        .experience-btn.secondary {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .experience-btn.secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Close Button */
+        .close-button {
+            position: fixed;
+            top: var(--space-6);
+            right: var(--space-6);
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+            transition: var(--transition-normal);
+            backdrop-filter: blur(10px);
+            z-index: 1002;
+        }
+        
+        .close-button:hover {
+            background: white;
+            color: var(--text-primary);
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .step-container {
+                padding: var(--space-4);
+            }
+            
+            .step-title {
+                font-size: var(--text-3xl);
+            }
+            
+            .step-question {
+                font-size: var(--text-xl);
+                margin-bottom: var(--space-8);
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+                max-width: none;
+            }
+            
+            .option-button {
+                padding: var(--space-6);
+                min-height: 120px;
+            }
+            
+            .option-text {
+                font-size: var(--text-base);
+            }
+            
+            .villa-reveal {
+                padding: var(--space-6);
+            }
+            
+            .villa-image {
+                height: 200px;
+            }
+            
+            .villa-name {
+                font-size: var(--text-2xl);
+            }
+            
+            .form-container {
+                padding: var(--space-6);
+                margin: var(--space-6) auto;
+            }
+            
+            .primary-button {
+                padding: var(--space-4) var(--space-8);
+                font-size: var(--text-base);
+                width: 100%;
+            }
+            
+            .experience-buttons {
+                flex-direction: column;
+            }
+            
+            .experience-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .step-title {
+                font-size: var(--text-2xl);
+            }
+            
+            .step-question {
+                font-size: var(--text-lg);
+            }
+            
+            .option-button {
+                padding: var(--space-4);
+                min-height: 100px;
+            }
+            
+            .thank-you-title {
+                font-size: var(--text-3xl);
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Hide steps by default */
+        .step-container {
+            display: none;
+        }
+        
+        .step-container.active {
+            display: block;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* Custom flatpickr styling to match design */
+        .flatpickr-calendar {
+            border-radius: var(--radius-xl) !important;
+            border: 2px solid var(--primary) !important;
+            box-shadow: var(--shadow-xl) !important;
+        }
+        
+        .flatpickr-day.selected {
+            background: var(--primary) !important;
+            border-color: var(--primary) !important;
+        }
+        
+        .flatpickr-day:hover {
+            background: rgba(0, 207, 207, 0.1) !important;
+            border-color: var(--primary) !important;
+        }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PVETEG7EB4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PVETEG7EB4');
+    </script>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- Close Button -->
+    <button class="close-button" onclick="closeCuration()">×</button>
+    
+    <!-- Main Curation Container -->
+    <div class="curation-container">
+        
+        <!-- Step 1: The Opening Question -->
+        <div class="step-container active" id="step1">
+            <div class="step-title">Tell Us About Your Escape</div>
+            <div class="step-question">What does your perfect time in Curaçao look like?</div>
+            <div class="options-grid">
+                <button class="option-button" onclick="selectOption('romantic')">
+                    <div class="option-text">A secluded, romantic hideaway for two</div>
+                </button>
+                <button class="option-button" onclick="selectOption('family')">
+                    <div class="option-text">A vibrant home base for family adventures</div>
+                </button>
+                <button class="option-button" onclick="selectOption('friends')">
+                    <div class="option-text">An elegant retreat to celebrate with friends</div>
+                </button>
+                <button class="option-button" onclick="selectOption('solitary')">
+                    <div class="option-text">A quiet, solitary space to disconnect and recharge</div>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Step 2: The Defining Detail -->
+        <div class="step-container" id="step2">
+            <div class="step-title">The One Thing</div>
+            <div class="step-question">Every dream stay has one detail that makes it perfect. What is yours?</div>
+            <div class="options-grid">
+                <button class="option-button" onclick="selectDetail('oceanview')">
+                    <div class="option-text">Waking up to an endless ocean view</div>
+                </button>
+                <button class="option-button" onclick="selectDetail('privatepool')">
+                    <div class="option-text">Stepping directly from my terrace into a private pool</div>
+                </button>
+                <button class="option-button" onclick="selectDetail('dining')">
+                    <div class="option-text">Hosting a beautiful dinner under the stars</div>
+                </button>
+                <button class="option-button" onclick="selectDetail('minimalist')">
+                    <div class="option-text">The effortless style of modern, minimalist design</div>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Step 3: The Timeline -->
+        <div class="step-container" id="step3">
+            <div class="step-title">Your Timeline</div>
+            <div class="step-question">When are you dreaming of visiting?</div>
+            <div class="date-picker-container">
+                <input type="text" id="dateRange" class="date-input" placeholder="Select your travel dates" readonly>
+            </div>
+            <button class="primary-button" onclick="proceedToReveal()" id="dateConfirm" disabled>Continue to Your Match</button>
+        </div>
+        
+        <!-- Step 4: The Generous Reveal -->
+        <div class="step-container" id="step4">
+            <div class="step-title">We Believe This Is The One...</div>
+            <div class="villa-reveal" id="villaReveal">
+                <img class="villa-image" id="villaImage" src="" alt="Your Perfect Villa">
+                <div class="villa-name" id="villaName"></div>
+                <div class="villa-features" id="villaFeatures"></div>
+            </div>
+            <button class="primary-button" onclick="showConciergeForm()">Does this feel like the place?</button>
+        </div>
+        
+        <!-- Step 5: The Concierge Connection -->
+        <div class="step-container" id="step5">
+            <div class="step-title">Connect With Your Concierge</div>
+            <div class="form-container">
+                <form id="conciergeForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="userName">Name *</label>
+                        <input type="text" id="userName" name="name" class="form-input required" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="userEmail">Email *</label>
+                        <input type="email" id="userEmail" name="email" class="form-input required" required>
+                    </div>
+                    <button type="submit" class="primary-button">Connect With My Concierge to Confirm Details</button>
+                </form>
+                <p style="text-align: center; margin-top: var(--space-4); color: var(--text-muted); font-size: var(--text-sm);">
+                    We'll send you a personal note with full details and answer any questions you have. 
+                    Or, if you prefer, we can <a href="#" class="whatsapp-link" id="instantWhatsApp">chat instantly on WhatsApp</a>.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Step 6: The Confirmation & Experience Proposal -->
+        <div class="step-container" id="step6">
+            <div class="thank-you-container">
+                <div class="thank-you-title">Thank you, <span id="thankYouName"></span>.</div>
+                <div class="thank-you-message">
+                    Your personal concierge will be in touch shortly. We are confirming availability for your chosen dates at <strong id="selectedVilla"></strong>.
+                </div>
+                
+                <div class="experience-proposal">
+                    <div class="experience-title">A Thought For Your Itinerary...</div>
+                    <div class="experience-description">
+                        As we prepare your details, we find that guests enjoying a <span id="userVibe"></span> also love our Legendary Sunset Boat Trip. It is a truly unforgettable experience.
+                    </div>
+                    <div class="experience-question">Would you like us to include details in our note?</div>
+                    <div class="experience-buttons">
+                        <button class="experience-btn primary" onclick="addSunsetTrip(true)">Yes, Please Tell Me More</button>
+                        <button class="experience-btn secondary" onclick="addSunsetTrip(false)">No, Thank You</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <script>
+        // Personal Curation Experience Controller
+        class CurationExperience {
+            constructor() {
+                this.currentStep = 1;
+                this.totalSteps = 6;
+                this.responses = {
+                    vibe: '',
+                    detail: '',
+                    dates: '',
+                    name: '',
+                    email: '',
+                    villa: '',
+                    sunsetTrip: null
+                };
+                this.init();
+            }
+            
+            init() {
+                this.updateProgress();
+                this.initializeDatePicker();
+                this.setupVillaData();
+            }
+            
+            setupVillaData() {
+                this.villas = {
+                    'romantic_oceanview': {
+                        name: 'Dushi Hideaway',
+                        image: 'images/properties/dushi-hideaway.jpeg.avif',
+                        features: ['Your Private Ocean Views', 'Romantic Sunset Terrace', 'Intimate Pool Setting', 'Couples Retreat Design']
+                    },
+                    'romantic_privatepool': {
+                        name: 'Villa Bayside Hill',
+                        image: 'images/properties/bayside-hill.jpeg.avif',
+                        features: ['Your Private Pool Awaits', 'Panoramic Ocean Views', 'Luxury Amenities', 'Romantic Atmosphere']
+                    },
+                    'romantic_dining': {
+                        name: 'Castaway Beach Villa',
+                        image: 'images/properties/castaway-beach.jpg',
+                        features: ['Perfect Dinner Settings', 'Beachfront Dining', 'Private Chef Available', 'Romantic Ambiance']
+                    },
+                    'romantic_minimalist': {
+                        name: 'Modern Zen Villa',
+                        image: 'images/properties/villa-hero.jpg',
+                        features: ['Minimalist Design', 'Clean Modern Lines', 'Peaceful Setting', 'Architectural Beauty']
+                    },
+                    'family_oceanview': {
+                        name: 'Happy Hideaway',
+                        image: 'images/properties/happy-hideaway.jpg',
+                        features: ['Family Ocean Views', 'Kids Play Areas', 'Safe Environment', 'Family Memories Made']
+                    },
+                    'family_privatepool': {
+                        name: 'Happy Hideaway',
+                        image: 'images/properties/happy-hideaway.jpg',
+                        features: ['Your Private Pool Awaits', 'Kids Love The Pool', 'Family Fun Space', 'Safe Swimming Area']
+                    },
+                    'family_dining': {
+                        name: 'Sailaway Beach',
+                        image: 'images/properties/sailaway-beach.jpeg.avif',
+                        features: ['Family Dining Spaces', 'Large Gathering Areas', 'BBQ Facilities', 'Group Entertainment']
+                    },
+                    'family_minimalist': {
+                        name: 'Villa Bayside Hill',
+                        image: 'images/properties/bayside-hill.jpeg.avif',
+                        features: ['Clean Family Design', 'Spacious Layouts', 'Modern Comfort', 'Family Relaxation']
+                    },
+                    'friends_oceanview': {
+                        name: 'Sailaway Beach',
+                        image: 'images/properties/sailaway-beach.jpeg.avif',
+                        features: ['Group Ocean Views', 'Entertainment Spaces', 'Party Perfect Layout', 'Celebration Ready']
+                    },
+                    'friends_privatepool': {
+                        name: 'Sailaway Beach',
+                        image: 'images/properties/sailaway-beach.jpeg.avif',
+                        features: ['Your Private Pool Awaits', 'Group Fun Area', 'Pool Party Ready', 'Entertainment Paradise']
+                    },
+                    'friends_dining': {
+                        name: 'Sailaway Beach',
+                        image: 'images/properties/sailaway-beach.jpeg.avif',
+                        features: ['Perfect Dinner Settings', 'Large Dining Spaces', 'Group Entertainment', 'Celebration Central']
+                    },
+                    'friends_minimalist': {
+                        name: 'Villa Bayside Hill',
+                        image: 'images/properties/bayside-hill.jpeg.avif',
+                        features: ['Elegant Group Design', 'Sophisticated Spaces', 'Modern Entertaining', 'Stylish Gatherings']
+                    },
+                    'solitary_oceanview': {
+                        name: 'Villa Bayside Hill',
+                        image: 'images/properties/bayside-hill.jpeg.avif',
+                        features: ['Your Private Ocean Views', 'Peaceful Solitude', 'Meditation Spaces', 'Quiet Reflection']
+                    },
+                    'solitary_privatepool': {
+                        name: 'Dushi Hideaway',
+                        image: 'images/properties/dushi-hideaway.jpeg.avif',
+                        features: ['Your Private Pool Awaits', 'Personal Sanctuary', 'Quiet Retreat', 'Solo Relaxation']
+                    },
+                    'solitary_dining': {
+                        name: 'Tropical Haven Villa',
+                        image: 'images/properties/villa-hero.jpg',
+                        features: ['Intimate Dining Spaces', 'Peaceful Settings', 'Personal Chef Available', 'Quiet Elegance']
+                    },
+                    'solitary_minimalist': {
+                        name: 'Modern Zen Villa',
+                        image: 'images/properties/villa-hero.jpg',
+                        features: ['The Effortless Style of Modern Design', 'Minimalist Perfection', 'Zen Atmosphere', 'Peaceful Aesthetics']
+                    }
+                };
+            }
+            
+            initializeDatePicker() {
+                const today = new Date();
+                const maxDate = new Date();
+                maxDate.setFullYear(today.getFullYear() + 2);
+                
+                this.datePicker = flatpickr("#dateRange", {
+                    mode: "range",
+                    minDate: "today",
+                    maxDate: maxDate,
+                    dateFormat: "M j, Y",
+                    showMonths: window.innerWidth > 768 ? 2 : 1,
+                    onChange: (selectedDates) => {
+                        if (selectedDates.length === 2) {
+                            const startDate = selectedDates[0];
+                            const endDate = selectedDates[1];
+                            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                            const dateString = `${startDate.toLocaleDateString('en-US', options)} - ${endDate.toLocaleDateString('en-US', options)}`;
+                            this.responses.dates = dateString;
+                            document.getElementById('dateConfirm').disabled = false;
+                        }
+                    }
+                });
+            }
+            
+            selectOption(vibe) {
+                this.responses.vibe = vibe;
+                this.nextStep();
+            }
+            
+            selectDetail(detail) {
+                this.responses.detail = detail;
+                this.nextStep();
+            }
+            
+            proceedToReveal() {
+                if (this.responses.dates) {
+                    this.matchVilla();
+                    this.nextStep();
+                }
+            }
+            
+            matchVilla() {
+                const matchKey = `${this.responses.vibe}_${this.responses.detail}`;
+                const villa = this.villas[matchKey];
+                
+                if (villa) {
+                    this.responses.villa = villa.name;
+                    document.getElementById('villaName').textContent = villa.name;
+                    document.getElementById('villaImage').src = villa.image;
+                    document.getElementById('villaImage').alt = villa.name;
+                    
+                    const featuresContainer = document.getElementById('villaFeatures');
+                    featuresContainer.innerHTML = villa.features
+                        .map(feature => `<span class="villa-feature">${feature}</span>`)
+                        .join('');
+                }
+                
+                // Track villa match in analytics
+                gtag('event', 'villa_matched', {
+                    'villa_name': villa.name,
+                    'vibe': this.responses.vibe,
+                    'detail': this.responses.detail,
+                    'event_category': 'curation_experience',
+                    'event_label': 'villa_match'
+                });
+            }
+            
+            showConciergeForm() {
+                this.nextStep();
+                this.setupWhatsAppLink();
+            }
+            
+            setupWhatsAppLink() {
+                const whatsappLink = document.getElementById('instantWhatsApp');
+                const message = `Hi! I just completed your Personal Curation Experience and found my perfect villa: ${this.responses.villa}. I'd love to chat instantly about availability for ${this.responses.dates}.`;
+                whatsappLink.href = `https://wa.me/59996707977?text=${encodeURIComponent(message)}`;
+            }
+            
+            handleFormSubmit(event) {
+                event.preventDefault();
+                const formData = new FormData(event.target);
+                this.responses.name = formData.get('name');
+                this.responses.email = formData.get('email');
+                
+                // Simulate form submission
+                this.submitToServer();
+            }
+            
+            async submitToServer() {
+                // Track form submission
+                gtag('event', 'form_submit', {
+                    'villa_name': this.responses.villa,
+                    'event_category': 'conversion',
+                    'event_label': 'concierge_form'
+                });
+                
+                // Prepare data for Airtable
+                const formData = {
+                    name: this.responses.name,
+                    email: this.responses.email,
+                    phone: this.responses.phone || '',
+                    travelVibe: this.getVibeDescription(),
+                    groupSize: this.responses.groupSize || 2,
+                    mustHaveFeature: this.responses.location || '',
+                    budgetRange: '$600-800/night', // You can make this dynamic
+                    travelDates: this.responses.travelDates || 'Flexible',
+                    villaMatch: this.responses.villa,
+                    notes: `Interests: ${this.responses.vibe}, ${this.responses.groupType}, ${this.responses.location}`
+                };
+                
+                try {
+                    // Send to Netlify Function
+                    const response = await fetch('/.netlify/functions/submit-to-airtable', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(result.error || 'Submission failed');
+                    }
+                    
+                    console.log('Lead captured successfully:', result.recordId);
+                } catch (error) {
+                    console.error('Error submitting to Airtable:', error);
+                    // Continue anyway - don't block the user experience
+                }
+                
+                // Show thank you page
+                document.getElementById('thankYouName').textContent = this.responses.name;
+                document.getElementById('selectedVilla').textContent = this.responses.villa;
+                document.getElementById('userVibe').textContent = this.getVibeDescription();
+                
+                this.nextStep();
+            }
+            
+            getVibeDescription() {
+                const descriptions = {
+                    'romantic': 'romantic hideaway',
+                    'family': 'family adventure',
+                    'friends': 'elegant retreat with friends',
+                    'solitary': 'peaceful solitary escape'
+                };
+                return descriptions[this.responses.vibe] || 'perfect escape';
+            }
+            
+            addSunsetTrip(includeTrip) {
+                this.responses.sunsetTrip = includeTrip;
+                
+                // Track sunset trip interest
+                gtag('event', 'sunset_trip_interest', {
+                    'interested': includeTrip,
+                    'event_category': 'upsell',
+                    'event_label': 'sunset_boat_trip'
+                });
+                
+                // Send final WhatsApp message with all details
+                const finalMessage = this.buildFinalMessage(includeTrip);
+                window.open(`https://wa.me/59996707977?text=${encodeURIComponent(finalMessage)}`, '_blank');
+                
+                // Close the experience after a short delay
+                setTimeout(() => {
+                    this.closeCuration();
+                }, 2000);
+            }
+            
+            buildFinalMessage(includeSunsetTrip) {
+                let message = `Hi! I just completed your Personal Curation Experience. Here are my details:\n\n`;
+                message += `👤 Name: ${this.responses.name}\n`;
+                message += `📧 Email: ${this.responses.email}\n`;
+                message += `🏡 Perfect Villa: ${this.responses.villa}\n`;
+                message += `📅 Travel Dates: ${this.responses.dates}\n`;
+                message += `✨ Vibe: ${this.getVibeDescription()}\n\n`;
+                
+                if (includeSunsetTrip) {
+                    message += `🌅 Please include details about the Legendary Sunset Boat Trip!\n\n`;
+                } else {
+                    message += `🌅 No need for sunset trip details this time.\n\n`;
+                }
+                
+                message += `I'm excited to confirm availability and get the full details. Thank you!`;
+                return message;
+            }
+            
+            nextStep() {
+                if (this.currentStep < this.totalSteps) {
+                    // Hide current step
+                    const currentStepEl = document.getElementById(`step${this.currentStep}`);
+                    currentStepEl.classList.remove('active');
+                    currentStepEl.classList.add('exiting');
+                    
+                    setTimeout(() => {
+                        currentStepEl.style.display = 'none';
+                        currentStepEl.classList.remove('exiting');
+                        
+                        // Show next step
+                        this.currentStep++;
+                        const nextStepEl = document.getElementById(`step${this.currentStep}`);
+                        nextStepEl.style.display = 'block';
+                        
+                        setTimeout(() => {
+                            nextStepEl.classList.add('active');
+                        }, 50);
+                        
+                        this.updateProgress();
+                    }, 300);
+                }
+            }
+            
+            updateProgress() {
+                const progress = (this.currentStep / this.totalSteps) * 100;
+                document.getElementById('progressBar').style.width = `${progress}%`;
+            }
+            
+            closeCuration() {
+                // Track abandonment
+                gtag('event', 'curation_closed', {
+                    'step': this.currentStep,
+                    'event_category': 'user_behavior',
+                    'event_label': 'experience_abandoned'
+                });
+                
+                // Redirect back to homepage
+                window.location.href = 'index.html';
+            }
+        }
+        
+        // Global functions for HTML onclick handlers
+        let curationExperience;
+        
+        function selectOption(vibe) {
+            curationExperience.selectOption(vibe);
+        }
+        
+        function selectDetail(detail) {
+            curationExperience.selectDetail(detail);
+        }
+        
+        function proceedToReveal() {
+            curationExperience.proceedToReveal();
+        }
+        
+        function showConciergeForm() {
+            curationExperience.showConciergeForm();
+        }
+        
+        function handleFormSubmit(event) {
+            curationExperience.handleFormSubmit(event);
+        }
+        
+        function addSunsetTrip(include) {
+            curationExperience.addSunsetTrip(include);
+        }
+        
+        function closeCuration() {
+            curationExperience.closeCuration();
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            curationExperience = new CurationExperience();
+            
+            // Track experience start
+            gtag('event', 'curation_started', {
+                'event_category': 'conversion_funnel',
+                'event_label': 'personal_curation_experience'
+            });
+        });
+        
+        // Prevent accidental navigation away
+        window.addEventListener('beforeunload', function(e) {
+            if (curationExperience && curationExperience.currentStep > 1 && curationExperience.currentStep < 6) {
+                e.preventDefault();
+                e.returnValue = 'Are you sure you want to leave? Your curation progress will be lost.';
+            }
+        });
+    </script>
+</body>
+</html>

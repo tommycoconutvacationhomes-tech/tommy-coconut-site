@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Coconut Cartel - Tommy Coconut | Exclusive Loyalty Community</title>
+    <meta name="description" content="Join the exclusive Coconut Cartel - Tommy Coconut's loyalty community. Enjoy special perks, exclusive experiences, and become part of our family of repeat guests.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cartel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/icons/tommy-coconut-logo.png" alt="Tommy Coconut Logo" style="height: 56px; width: auto; display: block;">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rentals.html">Vacation Rentals</a></li>
+                <li><a href="experiences.html">The Experience</a></li>
+                <li><a href="ownership.html">Fractional Ownership</a></li>
+                <li><a href="cartel.html" class="active">Coconut Cartel</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Welcome to the Coconut Cartel</h1>
+            <p class="header-subtitle">Our exclusive community of repeat guests, loyal friends, and honorary family members who've discovered that once you experience the Tommy Coconut magic, you'll never want to vacation anywhere else.</p>
+        </div>
+    </section>
+
+    <!-- What is the Coconut Cartel -->
+    <section class="cartel-intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>What is the Coconut Cartel?</h2>
+                    <p>The Coconut Cartel is more than just a loyalty program — it's a family. When you return to Tommy Coconut, you're not just a repeat guest, you're coming home to people who know your name, remember your preferences, and genuinely care about making your stay perfect.</p>
+                    <p>Membership is automatic after your first stay, and the perks get better with each visit. From exclusive experiences to personal touches, we believe that loyalty should be rewarded with the same warmth and care you show us by choosing to return.</p>
+                    <div class="cartel-features">
+                        <div class="feature-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Personalized welcome back gifts</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-star"></i>
+                            <span>Priority booking and special rates</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-gift"></i>
+                            <span>Exclusive member-only experiences</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-image">
+                    <img src="images/properties/villa-hero.jpg" alt="Welcome to the Coconut Cartel - Exclusive villa experience">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perks by Visit Level -->
+    <section class="perks-section">
+        <div class="container">
+            <h2>Perks by Visit Level</h2>
+            <div class="perks-grid">
+                <div class="perk-card">
+                    <div class="perk-level">
+                        <h3>BRONZE MEMBER</h3>
+                        <div class="level-badge">Your 2nd Visit</div>
+                    </div>
+                    <div class="perk-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Welcome back gift basket</li>
+                            <li><i class="fas fa-check"></i> 10% discount on your stay</li>
+                            <li><i class="fas fa-check"></i> A 'Welcome Back' credit to apply to your next stay</li>
+                            <li><i class="fas fa-check"></i> Priority booking window</li>
+                            <li><i class="fas fa-check"></i> Personalized room preferences</li>
+                            <li><i class="fas fa-check"></i> Early check-in when available</li>
+                            <li><i class="fas fa-check"></i> Welcome cocktail on arrival</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="perk-card featured">
+                    <div class="perk-level">
+                        <h3>SILVER MEMBER</h3>
+                        <div class="level-badge">Your 3rd Visit</div>
+                    </div>
+                    <div class="perk-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Complimentary boat tour</li>
+                            <li><i class="fas fa-check"></i> 15% discount on your stay</li>
+                            <li><i class="fas fa-check"></i> Exclusive Tommy Coconut mug</li>
+                            <li><i class="fas fa-check"></i> Early check-in guarantee</li>
+                            <li><i class="fas fa-check"></i> Member-only events access</li>
+                            <li><i class="fas fa-check"></i> Personalized welcome note</li>
+                            <li><i class="fas fa-check"></i> Priority restaurant reservations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="perk-card">
+                    <div class="perk-level">
+                        <h3>GOLD MEMBER</h3>
+                        <div class="level-badge">Your 5th+ Visit</div>
+                    </div>
+                    <div class="perk-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Private chef dinner experience</li>
+                            <li><i class="fas fa-check"></i> 20% discount on your stay</li>
+                            <li><i class="fas fa-check"></i> Enhanced 'Welcome Back' credit & priority booking for your next adventure</li>
+                            <li><i class="fas fa-check"></i> Custom Tommy Coconut robe</li>
+                            <li><i class="fas fa-check"></i> VIP airport transfer</li>
+                            <li><i class="fas fa-check"></i> Exclusive rum tasting session</li>
+                            <li><i class="fas fa-check"></i> Birthday/anniversary surprises</li>
+                            <li><i class="fas fa-check"></i> Priority access to new properties</li>
+                            <li><i class="fas fa-check"></i> Personal concierge service</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Loyalty is Your Treasure -->
+    <section class="loyalty-treasure">
+        <div class="container">
+            <div class="treasure-content">
+                <div class="treasure-header">
+                    <h2>Your Loyalty is Your Treasure</h2>
+                    <div class="treasure-icon">🏴‍☠️</div>
+                </div>
+                <div class="treasure-description">
+                    <p>As part of the Coconut Cartel, a portion of every stay you complete with us can be credited towards your next booking within 18 months. It's our way of saying 'Masha danki' and ensuring your Curaçao story continues. The more you stay, the more you save for your next escape.</p>
+                </div>
+                <div class="treasure-features">
+                    <div class="treasure-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>How It Works</h3>
+                            <p>Earn credits automatically with every completed stay. Bronze members earn standard credits, while Gold members receive enhanced credits for even greater savings.</p>
+                        </div>
+                    </div>
+                    <div class="treasure-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>18-Month Window</h3>
+                            <p>Your Welcome Back credits remain valid for 18 months, giving you plenty of time to plan your next perfect Tommy Coconut escape.</p>
+                        </div>
+                    </div>
+                    <div class="treasure-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Family Rewards</h3>
+                            <p>The more you visit, the more we reward your loyalty. It's our way of keeping the Coconut Cartel family together.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="treasure-cta">
+                    <p class="cta-text">Ready to start earning your treasure?</p>
+                    <a href="rentals.html" class="btn btn-primary">Plan Your Next Adventure</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Stories -->
+    <section class="community-stories">
+        <div class="container">
+            <h2>Community Stories</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-content">
+                        <p>"We've been coming back to Tommy Coconut for 5 years now. The team remembers our kids' names, our favorite restaurants, and even that I love extra pillows. It's like visiting family every time."</p>
+                        <div class="story-author">
+                            <strong>The Rodriguez Family</strong>
+                            <span>5 visits, Gold Members</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-content">
+                        <p>"The Coconut Cartel perks are amazing! On our third visit, they surprised us with a private sunset boat tour. It was magical and something we never would have experienced otherwise."</p>
+                        <div class="story-author">
+                            <strong>Sarah & Mike</strong>
+                            <span>3 visits, Silver Members</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-content">
+                        <p>"What makes the Cartel special isn't just the perks — it's the genuine relationships. We've made friends with other repeat guests and the Tommy Coconut team. It's our home away from home."</p>
+                        <div class="story-author">
+                            <strong>Jennifer & David</strong>
+                            <span>4 visits, Silver Members</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Benefits -->
+    <section class="member-benefits">
+        <div class="container">
+            <h2>Exclusive Member Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Priority Booking</h3>
+                    <p>Cartel members get first access to new dates and peak season availability, ensuring you never miss your preferred time in paradise.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Exclusive Discounts</h3>
+                    <p>Enjoy increasing discounts with each visit, plus special rates on experiences, spa services, and premium add-ons.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Personalized Touches</h3>
+                    <p>From welcome back gifts to birthday surprises, we remember the details that make your stay extra special.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Events</h3>
+                    <p>Join exclusive member-only events, from cocktail parties to local cultural experiences with other Cartel members.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>VIP Concierge</h3>
+                    <p>Priority access to our concierge services, including restaurant reservations, activity bookings, and special requests.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Family Treatment</h3>
+                    <p>Experience the genuine warmth and care that comes from being part of the Tommy Coconut family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Invitation -->
+    <section class="join-section">
+        <div class="container">
+            <div class="join-content">
+                <h2>Ready to Join the Cartel?</h2>
+                <p>Your first stay automatically enrolls you in the Coconut Cartel. Start earning perks and become part of our exclusive community of repeat guests who've discovered the magic of the Tommy Coconut experience.</p>
+                <div class="join-options">
+                    <div class="join-option">
+                        <h3>New to Tommy Coconut?</h3>
+                        <p>Book your first stay and automatically become a Cartel member</p>
+                        <a href="rentals.html" class="btn btn-primary">Book Your First Stay</a>
+                    </div>
+                    <div class="join-option">
+                        <h3>Already a Member?</h3>
+                        <p>Check your current level and upcoming perks</p>
+                        <a href="contact.html" class="btn btn-secondary">Check Your Status</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Gallery -->
+    <section class="member-gallery">
+        <div class="container">
+            <h2>Cartel Members in Action</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/properties/tropical-haven.jpg" alt="Cartel member enjoying tropical paradise">
+                    <div class="gallery-overlay">
+                        <p>Tropical paradise experiences</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/properties/happy-hideaway.jpg" alt="Cartel member relaxing in exclusive hideaway">
+                    <div class="gallery-overlay">
+                        <p>Exclusive hideaway relaxation</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/scenes/scene-1-overture.png" alt="Cartel member sunset celebration">
+                    <div class="gallery-overlay">
+                        <p>Sunset celebrations with Cartel members</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/scenes/scene-3-overture.png" alt="Cartel member adventure activities">
+                    <div class="gallery-overlay">
+                        <p>Member-only adventure experiences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Ultimate Chapter -->
+    <section class="ultimate-chapter">
+        <div class="container">
+            <div class="chapter-content">
+                <div class="chapter-text">
+                    <h3>The Ultimate Chapter in Your Story</h3>
+                    <p>For our most dedicated Cartel members who have truly found their home in Curaçao, the journey doesn't have to end. We offer a limited number of opportunities to own a piece of paradise through our Fractional Ownership program. It's the ultimate way to make the Dushi Life a permanent part of your own.</p>
+                    <div class="chapter-cta">
+                        <a href="ownership.html" class="btn btn-secondary">Explore Ownership</a>
+                    </div>
+                </div>
+                <div class="chapter-visual">
+                    <div class="ownership-badge">
+                        <div class="badge-icon">🏝️</div>
+                        <div class="badge-text">
+                            <span class="badge-title">Own Paradise</span>
+                            <span class="badge-subtitle">Limited Opportunities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🌴 Tommy Coconut</h3>
+                    <p>Arrive as Guests, Leave as Family</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rentals.html">Vacation Rentals</a></li>
+                        <li><a href="experiences.html">Experiences</a></li>
+                        <li><a href="ownership.html">Fractional Ownership</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Join the Coconut Cartel</h4>
+                    <p>Get insider tips & exclusive offers</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="cartel.js"></script>
+    <script src="analytics.js"></script>
+</body>
+</html> 
