@@ -43,6 +43,9 @@ exports.handler = async (event, context) => {
   }
 
   // Map form data to Airtable fields
+  // Log the mapping for debugging
+  console.log('Mapping form data:', formData);
+  
   const airtableData = {
     fields: {
       'Name': formData.name || '',
@@ -58,6 +61,8 @@ exports.handler = async (event, context) => {
       'Notes': formData.notes || `Villa Match: ${formData.villaMatch || 'Not specified'}`
     }
   };
+  
+  console.log('Sending to Airtable:', JSON.stringify(airtableData));
 
   // Send to Airtable
   try {
