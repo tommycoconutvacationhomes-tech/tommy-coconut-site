@@ -1,4 +1,5 @@
 // Netlify Function to handle form submissions to Airtable
+// Updated token - redeploy trigger
 exports.handler = async (event, context) => {
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
