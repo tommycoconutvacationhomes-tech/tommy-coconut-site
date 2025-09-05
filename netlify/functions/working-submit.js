@@ -33,22 +33,23 @@ exports.handler = async (event, context) => {
     };
   }
 
-  // Map form data to match your Airtable fields
+  // Map form data to match your Airtable fields - only use fields that work
   const airtableData = {
     fields: {
       'Name': formData.name || 'Website Visitor',
-      'Status': 'New',
-      'Notes': `Email: ${formData.email || 'Not provided'}
-Phone: ${formData.phone || 'Not provided'}
-Travel Vibe: ${formData.travelVibe || 'Not specified'}
-Group Size: ${formData.groupSize || 'Not specified'}
-Must-Have Feature: ${formData.mustHaveFeature || 'Not specified'}
-Budget Range: ${formData.budgetRange || 'Not specified'}
-Travel Dates: ${formData.travelDates || 'Not specified'}
-Villa Match: ${formData.villaMatch || 'Not specified'}
-Additional Notes: ${formData.notes || 'None'}
-Lead Source: Website Form
-Submitted: ${new Date().toISOString()}`
+      'Notes': `EMAIL: ${formData.email || 'Not provided'}
+PHONE: ${formData.phone || 'Not provided'}
+TRAVEL VIBE: ${formData.travelVibe || 'Not specified'}
+GROUP SIZE: ${formData.groupSize || 'Not specified'}
+MUST-HAVE FEATURE: ${formData.mustHaveFeature || 'Not specified'}
+BUDGET RANGE: ${formData.budgetRange || 'Not specified'}
+TRAVEL DATES: ${formData.travelDates || 'Not specified'}
+VILLA MATCH: ${formData.villaMatch || 'Not specified'}
+ADDITIONAL NOTES: ${formData.notes || 'None'}
+
+LEAD SOURCE: Website Form
+STATUS: New Lead
+SUBMITTED: ${new Date().toLocaleString()}`
     }
   };
 
