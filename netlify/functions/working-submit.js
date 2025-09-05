@@ -33,10 +33,11 @@ exports.handler = async (event, context) => {
     };
   }
 
-  // Map form data to match your Airtable fields (no Status field)
+  // Map form data to match your Airtable fields
   const airtableData = {
     fields: {
       'Name': formData.name || 'Website Visitor',
+      'Status': 'New',
       'Notes': `Email: ${formData.email || 'Not provided'}
 Phone: ${formData.phone || 'Not provided'}
 Travel Vibe: ${formData.travelVibe || 'Not specified'}
@@ -47,7 +48,6 @@ Travel Dates: ${formData.travelDates || 'Not specified'}
 Villa Match: ${formData.villaMatch || 'Not specified'}
 Additional Notes: ${formData.notes || 'None'}
 Lead Source: Website Form
-Status: New (set manually)
 Submitted: ${new Date().toISOString()}`
     }
   };
