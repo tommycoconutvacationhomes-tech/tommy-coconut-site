@@ -142,7 +142,9 @@
                 debugDiv.textContent = JSON.stringify({
                     status: response.status,
                     response: result,
-                    timestamp: new Date().toISOString()
+                    timestamp: new Date().toISOString(),
+                    fullError: result.details || result.error,
+                    hint: result.hint || 'Check function logs in Netlify dashboard'
                 }, null, 2);
                 
                 if (response.ok && result.success) {
