@@ -24,10 +24,21 @@ exports.handler = async (event, context) => {
   const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
   
   if (!AIRTABLE_PAT || !AIRTABLE_BASE_ID) {
-    console.error('Missing Airtable credentials');
+    console.error('Missing Airtable credentials:', {
+      hasToken: !!AIRTABLE_PAT,
+      hasBaseId: !!AIRTABLE_BASE_ID,
+      tokenLength: AIRTABLE_PAT ? AIRTABLE_PAT.length : 0,
+      baseIdLength: AIRTABLE_BASE_ID ? AIRTABLE_BASE_ID.length : 0
+    });
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Server configuration error' })
+      body: JSON.stringify({ 
+        error: 'Server configuration error',
+        details: {
+          hasToken: !!AIRTABLE_PAT,
+          hasBaseId: !!AIRTABLE_BASE_ID
+        }
+      })
     };
   }
 
@@ -63,9 +74,38 @@ exports.handler = async (event, context) => {
     );
 
     if (!response.ok) {
-      const error = await response.text();
-      console.error('Airtable error:', error);
-      throw new Error('Failed to save to Airtable');
+      const errorText = await response.text();
+      console.error('Airtable API error:', {
+        status: response.status,
+        statusText: response.statusText,
+        error: errorText,
+        url: `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/Leads`
+      });
+      
+      // Parse error for more details
+      let errorDetails = {};
+      try {
+        errorDetails = JSON.parse(errorText);
+      } catch (e) {
+        errorDetails = { rawError: errorText };
+      }
+      
+      return {
+        statusCode: response.status,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({ 
+          error: 'Airtable API error',
+          status: response.status,
+          details: errorDetails,
+          hint: response.status === 404 ? 'Check that your base ID is correct and table is named "Leads"' :
+                response.status === 401 ? 'Check your Personal Access Token' :
+                response.status === 403 ? 'Check token permissions (needs data.records:write)' :
+                'Check Airtable configuration'
+        })
+      };
     }
 
     const result = await response.json();
