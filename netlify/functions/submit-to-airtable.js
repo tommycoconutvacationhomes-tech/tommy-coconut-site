@@ -47,19 +47,21 @@ exports.handler = async (event, context) => {
   // Log the mapping for debugging
   console.log('Mapping form data:', formData);
   
+  // Only send fields that exist in your Airtable
   const airtableData = {
     fields: {
-      'Name': formData.name || '',
-      'Email': formData.email || '',
-      'Phone': formData.phone || '',
-      'Travel Vibe': formData.travelVibe || '',
-      'Group Size': parseInt(formData.groupSize) || 0,
-      'Must-Have Feature': formData.mustHaveFeature || '',
-      'Budget Range': formData.budgetRange || '',
-      'Travel Dates': formData.travelDates || '',
-      'Lead Source': 'Website Funnel',
+      'Name': formData.name || 'Website Visitor',
       'Status': 'New',
-      'Notes': formData.notes || `Villa Match: ${formData.villaMatch || 'Not specified'}`
+      'Notes': `Email: ${formData.email || 'Not provided'}
+Phone: ${formData.phone || 'Not provided'}
+Travel Vibe: ${formData.travelVibe || 'Not specified'}
+Group Size: ${formData.groupSize || 'Not specified'}
+Must-Have Feature: ${formData.mustHaveFeature || 'Not specified'}
+Budget Range: ${formData.budgetRange || 'Not specified'}
+Travel Dates: ${formData.travelDates || 'Not specified'}
+Villa Match: ${formData.villaMatch || 'Not specified'}
+Additional Notes: ${formData.notes || 'None'}
+Lead Source: Website Funnel`
     }
   };
   
