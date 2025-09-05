@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Airtable Integration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #00CFCF;
+            margin-bottom: 10px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #00CFCF;
+            border-radius: 5px;
+        }
+        button {
+            background: #00CFCF;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #00B8B8;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .loading {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Your Airtable Integration</h1>
+        <p>This page will help you verify that your form submissions are working correctly.</p>
+        
+        <div class="test-section">
+            <h2>Test 1: Simple Connection Test</h2>
+            <p>This sends a basic test record to your Airtable.</p>
+            <button onclick="testBasicSubmission()">Send Test Data to Airtable</button>
+            <div id="result1" class="result"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 2: Full Form Test</h2>
+            <p>This simulates a complete form submission with all fields.</p>
+            <button onclick="testFullSubmission()">Send Complete Form Data</button>
+            <div id="result2" class="result"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📋 Checklist</h2>
+            <ul>
+                <li>✅ Site is deployed on Netlify</li>
+                <li id="check-env">⏳ Environment variables configured</li>
+                <li id="check-airtable">⏳ Airtable connection working</li>
+                <li id="check-function">⏳ Netlify Function responding</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>🔍 Debug Information</h2>
+            <pre id="debug-info">Click a test button to see debug information...</pre>
+        </div>
+    </div>
+
+    <script>
+        // Test basic submission
+        async function testBasicSubmission() {
+            const resultDiv = document.getElementById('result1');
+            const debugDiv = document.getElementById('debug-info');
+            
+            // Show loading
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result loading';
+            resultDiv.innerHTML = '⏳ Sending test data...';
+            
+            const testData = {
+                name: 'Test User',
+                email: 'test@example.com',
+                phone: '123-456-7890',
+                travelVibe: 'Relaxation',
+                groupSize: 2,
+                mustHaveFeature: 'Beach Access',
+                budgetRange: '$500-700/night',
+                travelDates: 'Next Month',
+                notes: 'This is a test submission from test-integration.html'
+            };
+            
+            try {
+                const response = await fetch('/.netlify/functions/submit-to-airtable', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(testData)
+                });
+                
+                const result = await response.json();
+                
+                debugDiv.textContent = JSON.stringify({
+                    status: response.status,
+                    response: result,
+                    timestamp: new Date().toISOString()
+                }, null, 2);
+                
+                if (response.ok && result.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `✅ Success! Record created with ID: ${result.recordId}<br>
+                                          Check your Airtable "Leads" table for the new entry.`;
+                    document.getElementById('check-airtable').innerHTML = '✅ Airtable connection working';
+                    document.getElementById('check-function').innerHTML = '✅ Netlify Function responding';
+                    document.getElementById('check-env').innerHTML = '✅ Environment variables configured';
+                } else {
+                    throw new Error(result.error || 'Submission failed');
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `❌ Error: ${error.message}<br>
+                                       <small>Check the debug information below for details.</small>`;
+                
+                debugDiv.textContent = JSON.stringify({
+                    error: error.message,
+                    timestamp: new Date().toISOString(),
+                    hint: 'Common issues: Missing environment variables, incorrect Airtable credentials, or table name mismatch'
+                }, null, 2);
+                
+                // Update checklist based on error
+                if (error.message.includes('Server configuration')) {
+                    document.getElementById('check-env').innerHTML = '❌ Environment variables missing';
+                }
+                document.getElementById('check-function').innerHTML = '⚠️ Function reached but error occurred';
+            }
+        }
+        
+        // Test full submission with all fields
+        async function testFullSubmission() {
+            const resultDiv = document.getElementById('result2');
+            const debugDiv = document.getElementById('debug-info');
+            
+            // Show loading
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result loading';
+            resultDiv.innerHTML = '⏳ Sending complete form data...';
+            
+            const fullData = {
+                name: 'Jane Smith',
+                email: 'jane.smith@example.com',
+                phone: '555-0123',
+                travelVibe: 'Adventure and Relaxation',
+                groupSize: 4,
+                mustHaveFeature: 'Private Pool',
+                budgetRange: '$800-1000/night',
+                travelDates: 'July 2024',
+                villaMatch: 'Villa Coral Vista',
+                notes: 'Full test with all fields from test-integration.html'
+            };
+            
+            try {
+                const response = await fetch('/.netlify/functions/submit-to-airtable', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(fullData)
+                });
+                
+                const result = await response.json();
+                
+                debugDiv.textContent = JSON.stringify({
+                    status: response.status,
+                    sentData: fullData,
+                    response: result,
+                    timestamp: new Date().toISOString()
+                }, null, 2);
+                
+                if (response.ok && result.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `✅ Complete form submitted successfully!<br>
+                                          Record ID: ${result.recordId}<br>
+                                          <strong>Your Airtable integration is working perfectly!</strong>`;
+                } else {
+                    throw new Error(result.error || 'Submission failed');
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `❌ Error: ${error.message}`;
+                
+                debugDiv.textContent = JSON.stringify({
+                    error: error.message,
+                    sentData: fullData,
+                    timestamp: new Date().toISOString()
+                }, null, 2);
+            }
+        }
+        
+        // Check if we're on Netlify
+        window.addEventListener('load', () => {
+            if (window.location.hostname.includes('netlify')) {
+                console.log('✅ Running on Netlify');
+            } else {
+                console.log('⚠️ Not running on Netlify - some features may not work');
+            }
+        });
+    </script>
+</body>
+</html>
