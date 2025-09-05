@@ -1026,28 +1026,24 @@
                 };
                 
                 try {
-                    // TODO: Replace with your actual Zapier webhook URL
-                    const webhookURL = 'YOUR_ZAPIER_WEBHOOK_URL_HERE';
+                    // Send to working Netlify function
+                    const response = await fetch('/.netlify/functions/working-submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
                     
-                    if (webhookURL !== 'YOUR_ZAPIER_WEBHOOK_URL_HERE') {
-                        const response = await fetch(webhookURL, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(formData)
-                        });
-                        
-                        if (response.ok) {
-                            console.log('Lead sent successfully to Zapier!');
-                        } else {
-                            console.log('Zapier webhook response:', response.status);
-                        }
+                    const result = await response.json();
+                    
+                    if (response.ok && result.success) {
+                        console.log('Lead captured successfully:', result.recordId);
                     } else {
-                        console.log('Zapier webhook not configured yet');
+                        console.log('Submission error:', result.error);
                     }
                 } catch (error) {
-                    console.log('Webhook submission:', error.message);
+                    console.log('Submission error:', error.message);
                     // Continue anyway - don't block the user experience
                 }
                 
