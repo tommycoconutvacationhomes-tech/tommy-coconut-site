@@ -35,7 +35,7 @@ coverage/
 *.bak
 .cache/
 
-# Large media files (optional - uncomment if needed)
-# *.mp4
-# *.mov
-# *.avi
+# Large media files
+videos/hero-video-original.mp4
+*.mov
+*.avi
