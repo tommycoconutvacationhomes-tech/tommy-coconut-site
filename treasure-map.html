@@ -1008,39 +1008,46 @@
                     'event_label': 'concierge_form'
                 });
                 
-                // Prepare data for Airtable
+                // Prepare data for Zapier
                 const formData = {
                     name: this.responses.name,
                     email: this.responses.email,
                     phone: this.responses.phone || '',
-                    travelVibe: this.getVibeDescription(),
-                    groupSize: this.responses.groupSize || 2,
-                    mustHaveFeature: this.responses.location || '',
-                    budgetRange: '$600-800/night', // You can make this dynamic
-                    travelDates: this.responses.travelDates || 'Flexible',
-                    villaMatch: this.responses.villa,
-                    notes: `Interests: ${this.responses.vibe}, ${this.responses.groupType}, ${this.responses.location}`
+                    travel_vibe: this.getVibeDescription(),
+                    group_size: this.responses.groupSize || 2,
+                    must_have_feature: this.responses.location || '',
+                    budget_range: '$600-800/night',
+                    travel_dates: this.responses.travelDates || 'Flexible',
+                    villa_match: this.responses.villa,
+                    user_preferences: `${this.responses.vibe}, ${this.responses.groupType}, ${this.responses.location}`,
+                    lead_source: 'Personal Curation Experience',
+                    timestamp: new Date().toISOString(),
+                    website_url: window.location.href
                 };
                 
                 try {
-                    // Send to Netlify Function
-                    const response = await fetch('/.netlify/functions/submit-to-airtable', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(formData)
-                    });
+                    // TODO: Replace with your actual Zapier webhook URL
+                    const webhookURL = 'YOUR_ZAPIER_WEBHOOK_URL_HERE';
                     
-                    const result = await response.json();
-                    
-                    if (!response.ok) {
-                        throw new Error(result.error || 'Submission failed');
+                    if (webhookURL !== 'YOUR_ZAPIER_WEBHOOK_URL_HERE') {
+                        const response = await fetch(webhookURL, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(formData)
+                        });
+                        
+                        if (response.ok) {
+                            console.log('Lead sent successfully to Zapier!');
+                        } else {
+                            console.log('Zapier webhook response:', response.status);
+                        }
+                    } else {
+                        console.log('Zapier webhook not configured yet');
                     }
-                    
-                    console.log('Lead captured successfully:', result.recordId);
                 } catch (error) {
-                    console.error('Error submitting to Airtable:', error);
+                    console.log('Webhook submission:', error.message);
                     // Continue anyway - don't block the user experience
                 }
                 
