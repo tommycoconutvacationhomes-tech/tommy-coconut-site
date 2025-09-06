@@ -79,6 +79,19 @@ SUBMITTED: ${new Date().toLocaleString()}`
 
     const result = await response.json();
     
+    // Also send to Zapier webhook for email notifications
+    try {
+      await fetch('https://hooks.zapier.com/hooks/catch/12863026/uddzzjj/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+    } catch (zapierError) {
+      console.log('Zapier webhook error (non-critical):', zapierError.message);
+    }
+
     return {
       statusCode: 200,
       headers: {
