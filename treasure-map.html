@@ -1099,6 +1099,171 @@
             0% { opacity: 0; transform: translateY(10px); }
             100% { opacity: 1; transform: translateY(0); }
         }
+        
+        /* WhatsApp Conversion Bridge Styles */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-button {
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: whatsappPulse 3s infinite;
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-icon {
+            color: white;
+            font-size: 24px;
+        }
+        
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: var(--space-3) var(--space-4);
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            border-left: 3px solid #25d366;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-widget:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .tooltip-text {
+            color: var(--text-primary);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            margin-bottom: var(--space-1);
+        }
+        
+        .tooltip-subtext {
+            color: var(--text-muted);
+            font-size: var(--text-xs);
+        }
+        
+        @keyframes whatsappPulse {
+            0% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3); }
+            50% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+            100% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3); }
+        }
+        
+        .whatsapp-options {
+            position: fixed;
+            bottom: 150px;
+            right: 20px;
+            background: white;
+            border-radius: 12px;
+            padding: var(--space-4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+        
+        .whatsapp-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .whatsapp-option {
+            display: flex;
+            align-items: center;
+            padding: var(--space-3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: var(--space-2);
+        }
+        
+        .whatsapp-option:hover {
+            background: rgba(37, 211, 102, 0.05);
+        }
+        
+        .whatsapp-option:last-child {
+            margin-bottom: 0;
+        }
+        
+        .option-icon {
+            width: 35px;
+            height: 35px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--text-sm);
+            margin-right: var(--space-3);
+        }
+        
+        .option-content {
+            flex-grow: 1;
+        }
+        
+        .option-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-1);
+        }
+        
+        .option-description {
+            color: var(--text-muted);
+            font-size: var(--text-xs);
+        }
+        
+        .whatsapp-inline-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: #25d366;
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: var(--text-sm);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin-top: var(--space-3);
+        }
+        
+        .whatsapp-inline-cta:hover {
+            background: #128c7e;
+            transform: translateY(-1px);
+        }
+        
+        .whatsapp-inline-cta .whatsapp-icon {
+            font-size: var(--text-base);
+        }
     </style>
     
     <!-- Google Analytics -->
@@ -1379,6 +1544,7 @@
                 this.initializeDatePicker();
                 this.setupVillaData();
                 this.initSocialProof();
+                this.updateWhatsAppContext();
             }
             
             setupVillaData() {
@@ -1745,6 +1911,7 @@
                         }, 50);
                         
                         this.updateProgress();
+                        this.updateWhatsAppContext();
                     }, 300);
                 }
             }
@@ -1844,6 +2011,75 @@
                     slides[this.currentTestimonialIndex].classList.add('active');
                 }, 6000); // Change every 6 seconds
             }
+            
+            // WhatsApp Conversion Bridge Methods
+            updateWhatsAppContext() {
+                const tooltip = document.getElementById('whatsappTooltip');
+                const tooltipText = document.getElementById('tooltipText');
+                const tooltipSubtext = document.getElementById('tooltipSubtext');
+                
+                switch(this.currentStep) {
+                    case 1:
+                        tooltipText.textContent = 'Questions about villas?';
+                        tooltipSubtext.textContent = 'Chat with our concierge instantly';
+                        break;
+                    case 2:
+                        tooltipText.textContent = 'Need help deciding?';
+                        tooltipSubtext.textContent = 'Get personalized recommendations';
+                        break;
+                    case 3:
+                        tooltipText.textContent = 'Check availability?';
+                        tooltipSubtext.textContent = 'Instant date and pricing info';
+                        break;
+                    case 4:
+                        tooltipText.textContent = 'Love your villa match?';
+                        tooltipSubtext.textContent = 'Secure it now via WhatsApp';
+                        break;
+                    case 5:
+                        tooltipText.textContent = 'Prefer instant chat?';
+                        tooltipSubtext.textContent = 'Connect directly with your concierge';
+                        break;
+                    default:
+                        tooltipText.textContent = 'Chat with our concierge';
+                        tooltipSubtext.textContent = 'Get instant answers';
+                }
+            }
+            
+            buildContextualWhatsAppMessage(messageType) {
+                const baseMessage = 'Hi! I found you through your Personal Curation Experience. ';
+                let contextMessage = '';
+                
+                // Build context based on current responses
+                if (this.responses.vibe) {
+                    const vibeDescriptions = {
+                        'romantic': 'a romantic getaway for two',
+                        'family': 'a family vacation',
+                        'friends': 'a friends celebration',
+                        'solitary': 'a peaceful solo retreat'
+                    };
+                    contextMessage += `I'm planning ${vibeDescriptions[this.responses.vibe]} `;
+                }
+                
+                if (this.responses.dates) {
+                    contextMessage += `for ${this.responses.dates} `;
+                }
+                
+                if (this.responses.villa) {
+                    contextMessage += `and I'm interested in ${this.responses.villa} `;
+                }
+                
+                // Add specific message based on type
+                switch(messageType) {
+                    case 'quick':
+                        return baseMessage + contextMessage + '. I have a few quick questions about availability and pricing.';
+                    case 'booking':
+                        return baseMessage + contextMessage + '. I\'d like to discuss booking this villa and the bonus packages.';
+                    case 'concierge':
+                        return baseMessage + contextMessage + '. I\'m interested in the concierge services and planning assistance.';
+                    default:
+                        return baseMessage + contextMessage + '. Can you help me with more details?';
+                }
+            }
         }
         
         // Global functions for HTML onclick handlers
@@ -1877,6 +2113,56 @@
             curationExperience.closeCuration();
         }
         
+        // WhatsApp Conversion Bridge Global Functions
+        function toggleWhatsAppOptions() {
+            const options = document.getElementById('whatsappOptions');
+            if (options.classList.contains('show')) {
+                options.classList.remove('show');
+            } else {
+                options.classList.add('show');
+                
+                // Hide after 10 seconds of no interaction
+                setTimeout(() => {
+                    options.classList.remove('show');
+                }, 10000);
+            }
+            
+            // Track WhatsApp widget interaction
+            gtag('event', 'whatsapp_widget_clicked', {
+                'event_category': 'engagement',
+                'event_label': 'whatsapp_options_toggle'
+            });
+        }
+        
+        function sendWhatsAppMessage(messageType) {
+            const message = curationExperience.buildContextualWhatsAppMessage(messageType);
+            const whatsappURL = `https://wa.me/59996707977?text=${encodeURIComponent(message)}`;
+            
+            // Track WhatsApp conversion
+            gtag('event', 'whatsapp_message_sent', {
+                'message_type': messageType,
+                'funnel_step': curationExperience.currentStep,
+                'event_category': 'conversion',
+                'event_label': 'whatsapp_bridge'
+            });
+            
+            // Hide options menu
+            document.getElementById('whatsappOptions').classList.remove('show');
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+        }
+        
+        // Close WhatsApp options when clicking outside
+        document.addEventListener('click', function(event) {
+            const whatsappWidget = document.getElementById('whatsappWidget');
+            const whatsappOptions = document.getElementById('whatsappOptions');
+            
+            if (!whatsappWidget.contains(event.target) && !whatsappOptions.contains(event.target)) {
+                whatsappOptions.classList.remove('show');
+            }
+        });
+        
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
             curationExperience = new CurationExperience();
@@ -1905,6 +2191,44 @@
                 <div class="booking-guest" id="bookingGuest"></div>
                 <div class="booking-action" id="bookingAction"></div>
                 <div class="booking-time" id="bookingTime"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- WhatsApp Conversion Bridge -->
+    <div class="whatsapp-widget" id="whatsappWidget">
+        <div class="whatsapp-tooltip" id="whatsappTooltip">
+            <div class="tooltip-text" id="tooltipText">Chat with our concierge</div>
+            <div class="tooltip-subtext" id="tooltipSubtext">Get instant answers about your villa match</div>
+        </div>
+        <div class="whatsapp-button" onclick="toggleWhatsAppOptions()">
+            <i class="fab fa-whatsapp whatsapp-icon"></i>
+        </div>
+    </div>
+    
+    <!-- WhatsApp Options Menu -->
+    <div class="whatsapp-options" id="whatsappOptions">
+        <div class="whatsapp-option" onclick="sendWhatsAppMessage('quick')">
+            <div class="option-icon">💬</div>
+            <div class="option-content">
+                <div class="option-title">Quick Question</div>
+                <div class="option-description">Ask about villas, dates, or pricing</div>
+            </div>
+        </div>
+        
+        <div class="whatsapp-option" onclick="sendWhatsAppMessage('booking')">
+            <div class="option-icon">🏖️</div>
+            <div class="option-content">
+                <div class="option-title">Booking Inquiry</div>
+                <div class="option-description">Get help with your reservation</div>
+            </div>
+        </div>
+        
+        <div class="whatsapp-option" onclick="sendWhatsAppMessage('concierge')">
+            <div class="option-icon">🤝</div>
+            <div class="option-content">
+                <div class="option-title">Concierge Services</div>
+                <div class="option-description">Planning and special requests</div>
             </div>
         </div>
     </div>
