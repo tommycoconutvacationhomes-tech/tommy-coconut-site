@@ -925,6 +925,180 @@
             margin-top: var(--space-2);
             font-style: italic;
         }
+        
+        /* Social Proof & Urgency Engine Styles */
+        .booking-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            border-radius: 12px;
+            padding: var(--space-4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            border-left: 4px solid var(--primary);
+            max-width: 320px;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 1000;
+        }
+        
+        .booking-notification.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .booking-notification.hide {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        
+        .booking-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-2);
+        }
+        
+        .booking-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--space-3);
+            font-size: var(--text-lg);
+        }
+        
+        .booking-content {
+            flex-grow: 1;
+        }
+        
+        .booking-guest {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-1);
+        }
+        
+        .booking-action {
+            color: var(--text-secondary);
+            font-size: var(--text-xs);
+        }
+        
+        .booking-time {
+            color: var(--text-muted);
+            font-size: var(--text-xs);
+            margin-top: var(--space-1);
+        }
+        
+        .testimonial-carousel {
+            background: linear-gradient(135deg, var(--surface-warm) 0%, var(--surface) 100%);
+            border-radius: 16px;
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-slide {
+            display: none;
+            text-align: center;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeInTestimonial 0.5s ease;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: var(--text-lg);
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-3);
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .author-info {
+            text-align: left;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .author-location {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .booking-counter {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 8px;
+            padding: var(--space-3);
+            margin: var(--space-4) 0;
+            text-align: center;
+        }
+        
+        .counter-text {
+            color: #d63384;
+            font-weight: 600;
+            font-size: var(--text-sm);
+        }
+        
+        .availability-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 6px;
+            padding: var(--space-2) var(--space-3);
+            margin: var(--space-2) 0;
+        }
+        
+        .availability-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ffc107;
+            animation: pulse 2s infinite;
+        }
+        
+        .availability-text {
+            color: #856404;
+            font-size: var(--text-xs);
+            font-weight: 500;
+        }
+        
+        @keyframes fadeInTestimonial {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
     </style>
     
     <!-- Google Analytics -->
@@ -1059,6 +1233,42 @@
                 </div>
             </div>
             
+            <!-- Guest Testimonial Carousel -->
+            <div class="testimonial-carousel">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-text">"Our week at Villa Coral Vista was absolutely magical. The personal concierge made everything seamless, and that sunset boat trip? Unforgettable!"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah & Mark Thompson</div>
+                            <div class="author-location">Toronto, Canada</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-text">"The attention to detail was incredible. From the airport pickup in our personal iCar to the private pool that felt like paradise - every moment exceeded our expectations."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JL</div>
+                        <div class="author-info">
+                            <div class="author-name">Jennifer & Luis Rodriguez</div>
+                            <div class="author-location">Miami, Florida</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-text">"Tommy Coconut delivered exactly what they promised. The villa was stunning and the bonus experiences made it the perfect celebration for our anniversary."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RA</div>
+                        <div class="author-info">
+                            <div class="author-name">Robert & Anna Chen</div>
+                            <div class="author-location">Los Angeles, California</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Personal Hold Timer -->
             <div class="personal-hold-container">
                 <div class="hold-header">
@@ -1084,6 +1294,18 @@
         <!-- Step 5: The Concierge Connection -->
         <div class="step-container" id="step5">
             <div class="step-title">Connect With Your Concierge</div>
+            
+            <!-- Booking Counter -->
+            <div class="booking-counter">
+                <div class="counter-text">⚠️ Only 3 villas with these bonuses remaining for your dates</div>
+            </div>
+            
+            <!-- Availability Indicator -->
+            <div class="availability-indicator">
+                <div class="availability-dot"></div>
+                <div class="availability-text">High demand period - instant confirmation available</div>
+            </div>
+            
             <div class="form-container">
                 <form id="conciergeForm" onsubmit="handleFormSubmit(event)">
                     <div class="form-group">
@@ -1156,6 +1378,7 @@
                 this.updateProgress();
                 this.initializeDatePicker();
                 this.setupVillaData();
+                this.initSocialProof();
             }
             
             setupVillaData() {
@@ -1542,6 +1765,85 @@
                 // Redirect back to homepage
                 window.location.href = 'index.html';
             }
+            
+            // Social Proof & Urgency Engine Methods
+            initSocialProof() {
+                // Initialize booking notifications
+                this.bookingNotifications = [
+                    { guest: 'Sarah M. from New York', action: 'just booked Villa Coral Vista', time: '2 minutes ago' },
+                    { guest: 'Michael K. from London', action: 'secured the sunset cruise package', time: '5 minutes ago' },
+                    { guest: 'Jennifer L. from Toronto', action: 'confirmed their Dushi Life experience', time: '8 minutes ago' },
+                    { guest: 'David R. from Miami', action: 'just booked Villa Ocean Dreams', time: '12 minutes ago' },
+                    { guest: 'Lisa W. from Amsterdam', action: 'added the personal iCar bonus', time: '15 minutes ago' }
+                ];
+                this.currentNotificationIndex = 0;
+                
+                // Initialize testimonial carousel
+                this.currentTestimonialIndex = 0;
+                this.testimonialInterval = null;
+                
+                // Start social proof engines
+                setTimeout(() => this.startBookingNotifications(), 3000);
+                setTimeout(() => this.startTestimonialCarousel(), 5000);
+            }
+            
+            startBookingNotifications() {
+                // Show first notification after 3 seconds
+                setTimeout(() => {
+                    this.showBookingNotification();
+                }, 3000);
+                
+                // Then show new notifications every 15-25 seconds
+                this.notificationInterval = setInterval(() => {
+                    this.showBookingNotification();
+                }, Math.random() * 10000 + 15000); // 15-25 seconds
+            }
+            
+            showBookingNotification() {
+                const notification = document.getElementById('bookingNotification');
+                const currentBooking = this.bookingNotifications[this.currentNotificationIndex];
+                
+                // Update notification content
+                document.getElementById('bookingGuest').textContent = currentBooking.guest;
+                document.getElementById('bookingAction').textContent = currentBooking.action;
+                document.getElementById('bookingTime').textContent = currentBooking.time;
+                
+                // Show notification
+                notification.classList.remove('hide');
+                notification.classList.add('show');
+                
+                // Hide after 4 seconds
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    notification.classList.add('hide');
+                }, 4000);
+                
+                // Move to next notification
+                this.currentNotificationIndex = (this.currentNotificationIndex + 1) % this.bookingNotifications.length;
+                
+                // Track social proof engagement
+                gtag('event', 'social_proof_shown', {
+                    'proof_type': 'booking_notification',
+                    'event_category': 'engagement',
+                    'event_label': 'fomo_trigger'
+                });
+            }
+            
+            startTestimonialCarousel() {
+                const slides = document.querySelectorAll('.testimonial-slide');
+                if (slides.length <= 1) return;
+                
+                this.testimonialInterval = setInterval(() => {
+                    // Hide current slide
+                    slides[this.currentTestimonialIndex].classList.remove('active');
+                    
+                    // Move to next slide
+                    this.currentTestimonialIndex = (this.currentTestimonialIndex + 1) % slides.length;
+                    
+                    // Show new slide
+                    slides[this.currentTestimonialIndex].classList.add('active');
+                }, 6000); // Change every 6 seconds
+            }
         }
         
         // Global functions for HTML onclick handlers
@@ -1594,5 +1896,17 @@
             }
         });
     </script>
+    
+    <!-- Social Proof Elements -->
+    <div class="booking-notification" id="bookingNotification">
+        <div class="booking-header">
+            <div class="booking-icon">✓</div>
+            <div class="booking-content">
+                <div class="booking-guest" id="bookingGuest"></div>
+                <div class="booking-action" id="bookingAction"></div>
+                <div class="booking-time" id="bookingTime"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
