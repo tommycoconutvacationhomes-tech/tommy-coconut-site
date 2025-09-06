@@ -1266,13 +1266,266 @@
         }
     </style>
     
-    <!-- Google Analytics -->
+    <!-- Google Analytics Enhanced -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PVETEG7EB4"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-PVETEG7EB4');
+      gtag('config', 'G-PVETEG7EB4', {
+        custom_map: {
+          custom_parameter_1: 'funnel_step',
+          custom_parameter_2: 'villa_preference',
+          custom_parameter_3: 'user_segment'
+        }
+      });
+      
+      // Enhanced Analytics Tracking Class
+      class TommyAnalytics {
+        constructor() {
+          this.sessionStart = Date.now();
+          this.interactions = [];
+          this.initTracking();
+        }
+        
+        initTracking() {
+          // Track scroll depth
+          this.trackScrollDepth();
+          
+          // Track time on each step
+          this.stepTimers = {};
+          
+          // Track mouse movement patterns
+          this.trackUserBehavior();
+        }
+        
+        trackScrollDepth() {
+          let maxScroll = 0;
+          window.addEventListener('scroll', () => {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll) {
+              maxScroll = scrollPercent;
+              if (maxScroll % 25 === 0) { // Track at 25%, 50%, 75%, 100%
+                gtag('event', 'scroll_depth', {
+                  event_category: 'engagement',
+                  event_label: \`scroll_\${maxScroll}%\`,
+                  value: maxScroll
+                });
+              }
+            }
+          });
+        }
+        
+        trackUserBehavior() {
+          let mouseMovements = 0;
+          let totalTime = 0;
+          
+          document.addEventListener('mousemove', () => {
+            mouseMovements++;
+          });
+          
+          // Track engagement level every 30 seconds
+          setInterval(() => {
+            totalTime += 30;
+            const engagementLevel = mouseMovements > 10 ? 'high' : mouseMovements > 3 ? 'medium' : 'low';
+            
+            gtag('event', 'engagement_level', {
+              event_category: 'user_behavior',
+              event_label: engagementLevel,
+              value: totalTime
+            });
+            
+            mouseMovements = 0;
+          }, 30000);
+        }
+        
+        trackStepEntry(stepNumber, stepName) {
+          this.stepTimers[stepNumber] = Date.now();
+          
+          gtag('event', 'funnel_step_enter', {
+            event_category: 'conversion_funnel',
+            event_label: stepName,
+            funnel_step: stepNumber,
+            value: stepNumber
+          });
+        }
+        
+        trackStepExit(stepNumber, stepName, completed = true) {
+          const timeOnStep = this.stepTimers[stepNumber] ? 
+            Date.now() - this.stepTimers[stepNumber] : 0;
+          
+          gtag('event', completed ? 'funnel_step_complete' : 'funnel_step_abandon', {
+            event_category: 'conversion_funnel',
+            event_label: stepName,
+            funnel_step: stepNumber,
+            value: Math.round(timeOnStep / 1000) // seconds
+          });
+        }
+        
+        trackInteraction(type, element, details = {}) {
+          this.interactions.push({
+            type,
+            element,
+            timestamp: Date.now(),
+            ...details
+          });
+          
+          gtag('event', 'user_interaction', {
+            event_category: 'engagement',
+            event_label: \`\${type}_\${element}\`,
+            interaction_type: type,
+            element_name: element
+          });
+        }
+        
+        trackConversionMilestone(milestone, value = null) {
+          gtag('event', 'conversion_milestone', {
+            event_category: 'conversion',
+            event_label: milestone,
+            value: value
+          });
+        }
+        
+        trackError(errorType, errorMessage, step) {
+          gtag('event', 'error_occurred', {
+            event_category: 'errors',
+            event_label: errorType,
+            error_message: errorMessage,
+            funnel_step: step
+          });
+        }
+        
+        getSessionSummary() {
+          return {
+            duration: Date.now() - this.sessionStart,
+            interactions: this.interactions.length,
+            lastInteraction: this.interactions[this.interactions.length - 1]
+          };
+        }
+      }
+      
+      // Initialize analytics
+      window.tommyAnalytics = new TommyAnalytics();
+      
+      // A/B Testing Infrastructure
+      class ABTestManager {
+        constructor() {
+          this.tests = {
+            'cta_color': {
+              variants: ['primary', 'orange', 'green'],
+              active: true
+            },
+            'social_proof_frequency': {
+              variants: ['normal', 'high_frequency'],
+              active: true
+            },
+            'testimonial_position': {
+              variants: ['after_offer', 'before_offer'],
+              active: false
+            }
+          };
+          this.userVariants = this.assignVariants();
+        }
+        
+        assignVariants() {
+          const userId = this.getUserId();
+          const variants = {};
+          
+          Object.entries(this.tests).forEach(([testName, test]) => {
+            if (test.active) {
+              const variantIndex = this.hashUserId(userId + testName) % test.variants.length;
+              variants[testName] = test.variants[variantIndex];
+            }
+          });
+          
+          // Track AB test assignment
+          gtag('event', 'ab_test_assignment', {
+            event_category: 'ab_testing',
+            event_label: JSON.stringify(variants)
+          });
+          
+          return variants;
+        }
+        
+        getUserId() {
+          let userId = localStorage.getItem('tommy_user_id');
+          if (!userId) {
+            userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('tommy_user_id', userId);
+          }
+          return userId;
+        }
+        
+        hashUserId(str) {
+          let hash = 0;
+          for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // Convert to 32-bit integer
+          }
+          return Math.abs(hash);
+        }
+        
+        getVariant(testName) {
+          return this.userVariants[testName] || null;
+        }
+        
+        trackConversion(testName, conversionType) {
+          const variant = this.getVariant(testName);
+          if (variant) {
+            gtag('event', 'ab_test_conversion', {
+              event_category: 'ab_testing',
+              test_name: testName,
+              variant: variant,
+              conversion_type: conversionType
+            });
+          }
+        }
+      }
+      
+      // Initialize AB Testing
+      window.abTestManager = new ABTestManager();
+    </script>
+    
+    <!-- Heat Mapping & User Session Recording -->
+    <script>
+      (function() {
+        // Hotjar-style heat mapping simulation
+        const heatMapData = [];
+        let clickHeatMap = {};
+        
+        document.addEventListener('click', function(e) {
+          const x = e.pageX;
+          const y = e.pageY;
+          const element = e.target;
+          
+          // Record click position
+          const clickKey = \`\${Math.floor(x/50)}_\${Math.floor(y/50)}\`;
+          clickHeatMap[clickKey] = (clickHeatMap[clickKey] || 0) + 1;
+          
+          // Track specific element clicks
+          gtag('event', 'element_click', {
+            event_category: 'heatmap',
+            event_label: element.tagName.toLowerCase(),
+            element_id: element.id || 'no_id',
+            element_class: element.className || 'no_class',
+            click_x: x,
+            click_y: y
+          });
+        });
+        
+        // Send heatmap data every 2 minutes
+        setInterval(() => {
+          if (Object.keys(clickHeatMap).length > 0) {
+            gtag('event', 'heatmap_data', {
+              event_category: 'analytics',
+              event_label: 'click_patterns',
+              custom_parameter: JSON.stringify(clickHeatMap)
+            });
+            clickHeatMap = {}; // Reset
+          }
+        }, 120000);
+      })();
     </script>
 </head>
 <body>
@@ -1545,6 +1798,10 @@
                 this.setupVillaData();
                 this.initSocialProof();
                 this.updateWhatsAppContext();
+                
+                // Track funnel start with enhanced analytics
+                window.tommyAnalytics.trackStepEntry(1, 'vibe_selection');
+                window.tommyAnalytics.trackConversionMilestone('funnel_started');
             }
             
             setupVillaData() {
@@ -1657,19 +1914,41 @@
             }
             
             selectOption(vibe) {
+                // Track step completion and user choice
+                window.tommyAnalytics.trackStepExit(1, 'vibe_selection', true);
+                window.tommyAnalytics.trackInteraction('selection', 'vibe', { choice: vibe });
+                
                 this.responses.vibe = vibe;
                 this.nextStep();
+                
+                // Track next step entry
+                window.tommyAnalytics.trackStepEntry(2, 'detail_preference');
             }
             
             selectDetail(detail) {
+                // Track step completion and user choice
+                window.tommyAnalytics.trackStepExit(2, 'detail_preference', true);
+                window.tommyAnalytics.trackInteraction('selection', 'detail', { choice: detail });
+                
                 this.responses.detail = detail;
                 this.nextStep();
+                
+                // Track next step entry
+                window.tommyAnalytics.trackStepEntry(3, 'date_selection');
             }
             
             proceedToReveal() {
                 if (this.responses.dates) {
+                    // Track date selection completion
+                    window.tommyAnalytics.trackStepExit(3, 'date_selection', true);
+                    window.tommyAnalytics.trackInteraction('date_input', 'dates', { dates: this.responses.dates });
+                    
                     this.matchVilla();
                     this.nextStep();
+                    
+                    // Track villa reveal step
+                    window.tommyAnalytics.trackStepEntry(4, 'villa_reveal');
+                    window.tommyAnalytics.trackConversionMilestone('villa_matched', 4200);
                 }
             }
             
@@ -1766,6 +2045,11 @@
             }
             
             showConciergeForm() {
+                // Track villa reveal completion and concierge form entry
+                window.tommyAnalytics.trackStepExit(4, 'villa_reveal', true);
+                window.tommyAnalytics.trackStepEntry(5, 'concierge_form');
+                window.tommyAnalytics.trackConversionMilestone('form_displayed');
+                
                 this.nextStep();
                 this.setupWhatsAppLink();
             }
@@ -1782,6 +2066,14 @@
                 this.responses.name = formData.get('name');
                 this.responses.email = formData.get('email');
                 this.responses.phone = formData.get('phone');
+                
+                // Track form completion - major conversion milestone
+                window.tommyAnalytics.trackStepExit(5, 'concierge_form', true);
+                window.tommyAnalytics.trackConversionMilestone('form_completed', 4200);
+                window.tommyAnalytics.trackInteraction('form_submit', 'concierge_form', {
+                    hasPhone: !!this.responses.phone,
+                    totalTime: window.tommyAnalytics.getSessionSummary().duration
+                });
                 
                 // Simulate form submission
                 this.submitToServer();
