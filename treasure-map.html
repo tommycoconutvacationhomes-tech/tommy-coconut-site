@@ -670,6 +670,261 @@
             background: rgba(0, 207, 207, 0.1) !important;
             border-color: var(--primary) !important;
         }
+        
+        /* Grand Slam Offer Stack Styles */
+        .step-subtitle {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: var(--space-8);
+            font-style: italic;
+        }
+        
+        .offer-stack-container {
+            background: linear-gradient(135deg, var(--surface-warm) 0%, var(--surface) 100%);
+            border-radius: 20px;
+            padding: var(--space-8);
+            margin: var(--space-6) 0;
+            border: 2px solid var(--surface-soft);
+            box-shadow: 0 10px 30px rgba(0, 207, 207, 0.1);
+        }
+        
+        .offer-items {
+            margin-bottom: var(--space-6);
+        }
+        
+        .offer-item {
+            display: flex;
+            align-items: center;
+            padding: var(--space-4);
+            margin-bottom: var(--space-3);
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .offer-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 207, 207, 0.15);
+        }
+        
+        .primary-offer {
+            border: 2px solid var(--primary);
+            background: rgba(0, 207, 207, 0.05);
+        }
+        
+        .bonus-item {
+            border-left: 4px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bonus-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-top: 30px solid var(--primary);
+        }
+        
+        .bonus-item::after {
+            content: 'BONUS';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            transform: rotate(45deg);
+            transform-origin: center;
+        }
+        
+        .offer-icon {
+            font-size: var(--text-2xl);
+            margin-right: var(--space-4);
+            flex-shrink: 0;
+        }
+        
+        .offer-details {
+            flex-grow: 1;
+        }
+        
+        .offer-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+            font-size: var(--text-lg);
+        }
+        
+        .offer-value {
+            color: var(--text-secondary);
+            font-size: var(--text-base);
+        }
+        
+        .bonus-value {
+            font-weight: 500;
+        }
+        
+        .included {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: var(--text-sm);
+            background: rgba(0, 207, 207, 0.1);
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        
+        .priceless {
+            color: var(--accent);
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        .offer-check {
+            color: var(--primary);
+            font-size: var(--text-xl);
+            font-weight: bold;
+            margin-left: var(--space-3);
+        }
+        
+        .bonus-check {
+            color: var(--primary);
+            background: rgba(0, 207, 207, 0.1);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .offer-divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            margin: var(--space-6) 0;
+        }
+        
+        .offer-total {
+            text-align: center;
+            padding: var(--space-4);
+            background: rgba(0, 207, 207, 0.05);
+            border-radius: 12px;
+        }
+        
+        .total-value {
+            font-size: var(--text-xl);
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: var(--space-2);
+        }
+        
+        .investment-line {
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .bonus-trigger {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        /* Personal Hold Timer Styles */
+        .personal-hold-container {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 16px;
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+            text-align: center;
+        }
+        
+        .hold-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-4);
+            gap: var(--space-3);
+        }
+        
+        .hold-icon {
+            font-size: var(--text-2xl);
+        }
+        
+        .hold-message {
+            text-align: left;
+        }
+        
+        .hold-title {
+            font-size: var(--text-lg);
+            font-weight: 700;
+            margin-bottom: var(--space-1);
+        }
+        
+        .hold-description {
+            font-size: var(--text-sm);
+            opacity: 0.9;
+        }
+        
+        .countdown-display {
+            margin: var(--space-4) 0;
+        }
+        
+        .countdown-timer {
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            font-family: 'Courier New', monospace;
+            margin-bottom: var(--space-2);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .countdown-timer.urgent {
+            color: #ff6b6b;
+            animation: pulse 1s infinite;
+        }
+        
+        .countdown-label {
+            font-size: var(--text-sm);
+            opacity: 0.8;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        /* Enhanced CTA Styles */
+        .cta-secure {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            padding: var(--space-4) var(--space-8);
+            margin-top: var(--space-6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 24px rgba(0, 207, 207, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-secure:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 207, 207, 0.4);
+        }
+        
+        .cta-note {
+            text-align: center;
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            margin-top: var(--space-2);
+            font-style: italic;
+        }
     </style>
     
     <!-- Google Analytics -->
@@ -743,15 +998,87 @@
             <button class="primary-button" onclick="proceedToReveal()" id="dateConfirm" disabled>Continue to Your Match</button>
         </div>
         
-        <!-- Step 4: The Generous Reveal -->
+        <!-- Step 4: The Grand Slam Offer Stack -->
         <div class="step-container" id="step4">
-            <div class="step-title">We Believe This Is The One...</div>
+            <div class="step-title">Your Personal Dushi Life Package</div>
+            <div class="step-subtitle">Everything curated just for you...</div>
+            
+            <!-- Villa Reveal -->
             <div class="villa-reveal" id="villaReveal">
                 <img class="villa-image" id="villaImage" src="" alt="Your Perfect Villa">
                 <div class="villa-name" id="villaName"></div>
                 <div class="villa-features" id="villaFeatures"></div>
             </div>
-            <button class="primary-button" onclick="showConciergeForm()">Does this feel like the place?</button>
+            
+            <!-- Grand Slam Offer Stack -->
+            <div class="offer-stack-container">
+                <div class="offer-items">
+                    <div class="offer-item primary-offer">
+                        <span class="offer-icon">🏝️</span>
+                        <div class="offer-details">
+                            <div class="offer-name">Your 7-Night Stay at <span id="offerVillaName"></span></div>
+                            <div class="offer-value">Starting from $4,200</div>
+                        </div>
+                        <div class="offer-check">✓</div>
+                    </div>
+                    
+                    <div class="offer-item bonus-item">
+                        <span class="offer-icon">🌅</span>
+                        <div class="offer-details">
+                            <div class="offer-name">The Legendary Sunset Boat Trip</div>
+                            <div class="offer-value bonus-value">Value: $650 → <span class="included">INCLUDED</span></div>
+                        </div>
+                        <div class="offer-check bonus-check">✓</div>
+                    </div>
+                    
+                    <div class="offer-item bonus-item">
+                        <span class="offer-icon">🚗</span>
+                        <div class="offer-details">
+                            <div class="offer-name">Your Personal iCar for the Week</div>
+                            <div class="offer-value bonus-value">Value: $700 → <span class="included">INCLUDED</span></div>
+                        </div>
+                        <div class="offer-check bonus-check">✓</div>
+                    </div>
+                    
+                    <div class="offer-item bonus-item">
+                        <span class="offer-icon">🤝</span>
+                        <div class="offer-details">
+                            <div class="offer-name">Personal Concierge Service</div>
+                            <div class="offer-value bonus-value"><span class="priceless">Priceless</span></div>
+                        </div>
+                        <div class="offer-check bonus-check">✓</div>
+                    </div>
+                </div>
+                
+                <div class="offer-divider"></div>
+                
+                <div class="offer-total">
+                    <div class="total-value">Total Value: Over $5,550</div>
+                    <div class="investment-line">Your Investment: <span id="finalPrice">$4,200</span></div>
+                    <div class="bonus-trigger">*Bonuses included when you book within 24 hours</div>
+                </div>
+            </div>
+            
+            <!-- Personal Hold Timer -->
+            <div class="personal-hold-container">
+                <div class="hold-header">
+                    <span class="hold-icon">🤝</span>
+                    <div class="hold-message">
+                        <div class="hold-title">Your Personal Hold is Active</div>
+                        <div class="hold-description">Our concierge has placed a complimentary 15-minute hold on this villa for you</div>
+                    </div>
+                </div>
+                
+                <div class="countdown-display">
+                    <div class="countdown-timer">
+                        <span id="minutes">15</span>:<span id="seconds">00</span>
+                    </div>
+                    <div class="countdown-label">Minutes remaining on your hold</div>
+                </div>
+            </div>
+            
+            <button class="primary-button cta-secure" onclick="showConciergeForm()">Secure This Villa Package Now</button>
+            <div class="cta-note">No commitment required to maintain your hold</div>
         </div>
         
         <!-- Step 5: The Concierge Connection -->
@@ -766,6 +1093,10 @@
                     <div class="form-group">
                         <label class="form-label" for="userEmail">Email *</label>
                         <input type="email" id="userEmail" name="email" class="form-input required" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="userPhone">Phone Number</label>
+                        <input type="tel" id="userPhone" name="phone" class="form-input" placeholder="+1 (555) 123-4567">
                     </div>
                     <button type="submit" class="primary-button">Connect With My Concierge to Confirm Details</button>
                 </form>
@@ -963,10 +1294,16 @@
                     document.getElementById('villaImage').src = villa.image;
                     document.getElementById('villaImage').alt = villa.name;
                     
+                    // Update offer stack villa name
+                    document.getElementById('offerVillaName').textContent = villa.name;
+                    
                     const featuresContainer = document.getElementById('villaFeatures');
                     featuresContainer.innerHTML = villa.features
                         .map(feature => `<span class="villa-feature">${feature}</span>`)
                         .join('');
+                    
+                    // Start the personal hold timer
+                    this.startHoldTimer();
                 }
                 
                 // Track villa match in analytics
@@ -976,6 +1313,66 @@
                     'detail': this.responses.detail,
                     'event_category': 'curation_experience',
                     'event_label': 'villa_match'
+                });
+            }
+            
+            startHoldTimer() {
+                this.holdTimeRemaining = 15 * 60; // 15 minutes in seconds
+                this.updateHoldDisplay();
+                
+                this.holdTimerInterval = setInterval(() => {
+                    this.holdTimeRemaining--;
+                    this.updateHoldDisplay();
+                    
+                    if (this.holdTimeRemaining <= 0) {
+                        this.handleHoldExpiry();
+                    }
+                }, 1000);
+            }
+            
+            updateHoldDisplay() {
+                const minutes = Math.floor(this.holdTimeRemaining / 60);
+                const seconds = this.holdTimeRemaining % 60;
+                
+                const minutesEl = document.getElementById('minutes');
+                const secondsEl = document.getElementById('seconds');
+                
+                if (minutesEl && secondsEl) {
+                    minutesEl.textContent = minutes.toString().padStart(2, '0');
+                    secondsEl.textContent = seconds.toString().padStart(2, '0');
+                    
+                    // Add urgency styling when under 5 minutes
+                    const timerEl = document.querySelector('.countdown-timer');
+                    if (this.holdTimeRemaining <= 300 && timerEl) { // Last 5 minutes
+                        timerEl.classList.add('urgent');
+                    }
+                }
+            }
+            
+            handleHoldExpiry() {
+                if (this.holdTimerInterval) {
+                    clearInterval(this.holdTimerInterval);
+                }
+                
+                // Update timer display to show hold extended
+                const holdContainer = document.querySelector('.personal-hold-container');
+                if (holdContainer) {
+                    holdContainer.innerHTML = `
+                        <div class="hold-header">
+                            <span class="hold-icon">✅</span>
+                            <div class="hold-message">
+                                <div class="hold-title">Hold Extended</div>
+                                <div class="hold-description">No worries! Our concierge has extended your personal hold. Contact us to secure this villa.</div>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                // Track hold expiry
+                gtag('event', 'hold_expired', {
+                    'villa_name': this.responses.villa,
+                    'event_category': 'engagement',
+                    'event_label': 'timer_expired'
                 });
             }
             
@@ -995,6 +1392,7 @@
                 const formData = new FormData(event.target);
                 this.responses.name = formData.get('name');
                 this.responses.email = formData.get('email');
+                this.responses.phone = formData.get('phone');
                 
                 // Simulate form submission
                 this.submitToServer();
