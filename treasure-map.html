@@ -1104,6 +1104,217 @@
             font-style: italic;
         }
         
+        /* VSL Styles */
+        .vsl-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-6);
+        }
+        
+        .vsl-video-wrapper {
+            position: relative;
+            margin-bottom: var(--space-8);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .vsl-video {
+            width: 100%;
+            height: auto;
+            min-height: 300px;
+            background: var(--surface-warm);
+        }
+        
+        .vsl-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .vsl-play-overlay:hover {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
+        }
+        
+        .vsl-play-button {
+            transform: scale(1);
+            transition: transform 0.3s ease;
+            margin-bottom: var(--space-4);
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+        }
+        
+        .vsl-play-overlay:hover .vsl-play-button {
+            transform: scale(1.1);
+        }
+        
+        .vsl-play-text {
+            color: white;
+            font-size: var(--text-lg);
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+        
+        .vsl-content {
+            text-align: center;
+        }
+        
+        .vsl-headline {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-3);
+            background: var(--gradient-tropical);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .vsl-subheadline {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-8);
+            line-height: 1.4;
+        }
+        
+        .vsl-benefits {
+            display: grid;
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+            text-align: left;
+        }
+        
+        .vsl-benefit {
+            display: flex;
+            gap: var(--space-4);
+            align-items: flex-start;
+            padding: var(--space-4);
+            background: var(--surface-overlay);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .benefit-icon {
+            font-size: var(--text-2xl);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        
+        .benefit-text {
+            font-size: var(--text-base);
+            line-height: 1.5;
+        }
+        
+        .benefit-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .vsl-testimonial {
+            background: var(--surface-overlay);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin: var(--space-8) 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-text {
+            font-size: var(--text-lg);
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+            line-height: 1.4;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .author-photo {
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .author-location {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+        }
+        
+        .vsl-urgency {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #F59E0B 100%);
+            color: white;
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-6);
+        }
+        
+        .urgency-badge {
+            font-weight: 700;
+            font-size: var(--text-base);
+            margin-bottom: var(--space-2);
+        }
+        
+        .urgency-text {
+            font-size: var(--text-sm);
+            opacity: 0.95;
+        }
+        
+        .vsl-continue {
+            font-size: var(--text-lg);
+            font-weight: 700;
+            padding: var(--space-4) var(--space-8);
+            margin-bottom: var(--space-4);
+        }
+        
+        .vsl-skip {
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .vsl-skip:hover {
+            color: var(--text-secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .vsl-container {
+                padding: var(--space-4);
+            }
+            
+            .vsl-benefits {
+                gap: var(--space-4);
+            }
+            
+            .vsl-benefit {
+                padding: var(--space-3);
+            }
+            
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
         /* Social Proof & Urgency Engine Styles */
         .booking-notification {
             position: fixed;
@@ -1887,8 +2098,92 @@
             <div class="cta-note">No commitment required to maintain your hold</div>
         </div>
         
-        <!-- Step 5: The Concierge Connection -->
+        <!-- Step 5: VSL - See What Awaits You -->
         <div class="step-container" id="step5">
+            <div class="step-title">Experience Your Perfect Curaçao Escape</div>
+            <div class="step-subtitle">See what makes this the vacation of a lifetime...</div>
+            
+            <!-- VSL Container -->
+            <div class="vsl-container">
+                <!-- Video Player -->
+                <div class="vsl-video-wrapper">
+                    <video class="vsl-video" id="vslVideo" controls poster="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/villas/villa-hero">
+                        <source src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/video-output-2DF885B0-E272-4C20-A5A5-BFF4B2FB300B_e1zkdo" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <!-- Custom Play Button Overlay -->
+                    <div class="vsl-play-overlay" id="vslPlayOverlay">
+                        <div class="vsl-play-button">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                <path d="M23 20L42 30L23 40V20Z" fill="#00CFCF"/>
+                            </svg>
+                        </div>
+                        <div class="vsl-play-text">Watch: Your Curaçao Experience</div>
+                    </div>
+                </div>
+                
+                <!-- VSL Content Below Video -->
+                <div class="vsl-content">
+                    <div class="vsl-headline">This Is More Than Just a Vacation...</div>
+                    <div class="vsl-subheadline">It's your gateway to the Caribbean lifestyle you've been dreaming of</div>
+                    
+                    <!-- Key Benefits -->
+                    <div class="vsl-benefits">
+                        <div class="vsl-benefit">
+                            <span class="benefit-icon">🌊</span>
+                            <div class="benefit-text">
+                                <strong>Private Ocean Access</strong><br>
+                                Your villa comes with exclusive beach access - no crowded resorts
+                            </div>
+                        </div>
+                        
+                        <div class="vsl-benefit">
+                            <span class="benefit-icon">🏝️</span>
+                            <div class="benefit-text">
+                                <strong>Local Insider Experiences</strong><br>
+                                Hidden gems and authentic experiences tourists never find
+                            </div>
+                        </div>
+                        
+                        <div class="vsl-benefit">
+                            <span class="benefit-icon">✨</span>
+                            <div class="benefit-text">
+                                <strong>Full Concierge Service</strong><br>
+                                We handle everything so you can focus on making memories
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Proof -->
+                    <div class="vsl-testimonial">
+                        <div class="testimonial-text">
+                            "The attention to detail was incredible. From the airport pickup in our personal car to the private pool that felt like paradise - every moment exceeded our expectations."
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_60,h_60,c_fill,r_30/252_nukm7c" alt="Jennifer & Luis Rodriguez" class="author-photo">
+                            <div class="author-info">
+                                <div class="author-name">Jennifer & Luis Rodriguez</div>
+                                <div class="author-location">Miami, Florida</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Urgency Element -->
+                    <div class="vsl-urgency">
+                        <div class="urgency-badge">⚡ Limited Time Bonus Package</div>
+                        <div class="urgency-text">The sunset boat experience and concierge services are only included when you secure your villa within the next 24 hours</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="primary-button vsl-continue" onclick="proceedToConcierge()">Yes, I Want This Experience</button>
+            <div class="vsl-skip" onclick="proceedToConcierge()">Skip video and continue →</div>
+        </div>
+
+        <!-- Step 6: The Concierge Connection -->
+        <div class="step-container" id="step6">
             <div class="step-title">Connect With Your Concierge</div>
             
             <!-- Booking Counter -->
@@ -2243,13 +2538,65 @@
             }
             
             showConciergeForm() {
-                // Track villa reveal completion and concierge form entry
+                // Track villa reveal completion and VSL entry
                 window.tommyAnalytics.trackStepExit(4, 'villa_reveal', true);
-                window.tommyAnalytics.trackStepEntry(5, 'concierge_form');
+                window.tommyAnalytics.trackStepEntry(5, 'vsl_experience');
+                window.tommyAnalytics.trackConversionMilestone('vsl_displayed');
+                
+                this.nextStep();
+                this.setupVSLVideo();
+            }
+            
+            proceedToConcierge() {
+                // Track VSL completion and concierge form entry
+                window.tommyAnalytics.trackStepExit(5, 'vsl_experience', true);
+                window.tommyAnalytics.trackStepEntry(6, 'concierge_form');
                 window.tommyAnalytics.trackConversionMilestone('form_displayed');
                 
                 this.nextStep();
                 this.setupWhatsAppLink();
+            }
+            
+            setupVSLVideo() {
+                const video = document.getElementById('vslVideo');
+                const overlay = document.getElementById('vslPlayOverlay');
+                
+                if (video && overlay) {
+                    // Hide overlay and play video when clicked
+                    overlay.addEventListener('click', () => {
+                        overlay.style.display = 'none';
+                        video.play();
+                        
+                        // Track video play
+                        window.tommyAnalytics.trackInteraction('video_play', 'vsl_video', { action: 'play' });
+                    });
+                    
+                    // Track video engagement
+                    video.addEventListener('play', () => {
+                        window.tommyAnalytics.trackInteraction('video_engagement', 'vsl_video', { action: 'started' });
+                    });
+                    
+                    video.addEventListener('ended', () => {
+                        window.tommyAnalytics.trackInteraction('video_engagement', 'vsl_video', { action: 'completed' });
+                    });
+                    
+                    // Track video progress at 25%, 50%, 75%
+                    let progress25 = false, progress50 = false, progress75 = false;
+                    video.addEventListener('timeupdate', () => {
+                        const percent = (video.currentTime / video.duration) * 100;
+                        
+                        if (percent >= 25 && !progress25) {
+                            progress25 = true;
+                            window.tommyAnalytics.trackInteraction('video_progress', 'vsl_video', { progress: '25%' });
+                        } else if (percent >= 50 && !progress50) {
+                            progress50 = true;
+                            window.tommyAnalytics.trackInteraction('video_progress', 'vsl_video', { progress: '50%' });
+                        } else if (percent >= 75 && !progress75) {
+                            progress75 = true;
+                            window.tommyAnalytics.trackInteraction('video_progress', 'vsl_video', { progress: '75%' });
+                        }
+                    });
+                }
             }
             
             setupWhatsAppLink() {
