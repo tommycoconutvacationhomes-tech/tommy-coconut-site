@@ -1922,26 +1922,42 @@
             
             selectOption(vibe) {
                 // Track step completion and user choice
-                window.tommyAnalytics.trackStepExit(1, 'vibe_selection', true);
-                window.tommyAnalytics.trackInteraction('selection', 'vibe', { choice: vibe });
+                try {
+                    window.tommyAnalytics?.trackStepExit(1, 'vibe_selection', true);
+                    window.tommyAnalytics?.trackInteraction('selection', 'vibe', { choice: vibe });
+                } catch (e) {
+                    console.warn('Analytics tracking failed:', e);
+                }
                 
                 this.responses.vibe = vibe;
                 this.nextStep();
                 
                 // Track next step entry
-                window.tommyAnalytics.trackStepEntry(2, 'detail_preference');
+                try {
+                    window.tommyAnalytics?.trackStepEntry(2, 'detail_preference');
+                } catch (e) {
+                    console.warn('Analytics tracking failed:', e);
+                }
             }
             
             selectDetail(detail) {
                 // Track step completion and user choice
-                window.tommyAnalytics.trackStepExit(2, 'detail_preference', true);
-                window.tommyAnalytics.trackInteraction('selection', 'detail', { choice: detail });
+                try {
+                    window.tommyAnalytics?.trackStepExit(2, 'detail_preference', true);
+                    window.tommyAnalytics?.trackInteraction('selection', 'detail', { choice: detail });
+                } catch (e) {
+                    console.warn('Analytics tracking failed:', e);
+                }
                 
                 this.responses.detail = detail;
                 this.nextStep();
                 
                 // Track next step entry
-                window.tommyAnalytics.trackStepEntry(3, 'date_selection');
+                try {
+                    window.tommyAnalytics?.trackStepEntry(3, 'date_selection');
+                } catch (e) {
+                    console.warn('Analytics tracking failed:', e);
+                }
             }
             
             proceedToReveal() {
