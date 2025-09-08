@@ -2178,27 +2178,6 @@
             </div>
         </div>
         
-        <!-- Step 7: The Confirmation & Experience Proposal -->
-        <div class="step-container" id="step7">
-            <div class="thank-you-container">
-                <div class="thank-you-title">Thank you, <span id="thankYouName"></span>.</div>
-                <div class="thank-you-message">
-                    Your personal concierge will be in touch shortly. We are confirming availability for your chosen dates at <strong id="selectedVilla"></strong>.
-                </div>
-                
-                <div class="experience-proposal">
-                    <div class="experience-title">A Thought For Your Itinerary...</div>
-                    <div class="experience-description">
-                        As we prepare your details, we find that guests enjoying a <span id="userVibe"></span> also love our Legendary Sunset Boat Trip. It is a truly unforgettable experience.
-                    </div>
-                    <div class="experience-question">Would you like us to include details in our note?</div>
-                    <div class="experience-buttons">
-                        <button class="experience-btn primary" onclick="addSunsetTrip(true)">Yes, Please Tell Me More</button>
-                        <button class="experience-btn secondary" onclick="addSunsetTrip(false)">No, Thank You</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         
     </div>
     
@@ -2210,7 +2189,7 @@
         class CurationExperience {
             constructor() {
                 this.currentStep = 1;
-                this.totalSteps = 7;
+                this.totalSteps = 6;
                 this.responses = {
                     vibe: '',
                     detail: '',
@@ -2502,9 +2481,40 @@
                 window.tommyAnalytics.trackConversionMilestone('form_displayed');
                 
                 // Skip VSL step - go directly to concierge form (step 6)
-                this.currentStep = 5; // Set to 5 so nextStep() goes to 6
-                this.nextStep();
+                this.goToStep(6);
                 this.setupWhatsAppLink();
+            }
+            
+            goToStep(targetStep) {
+                // Hide current step
+                const currentStepEl = document.getElementById(`step${this.currentStep}`);
+                if (currentStepEl) {
+                    currentStepEl.classList.remove('active');
+                    currentStepEl.classList.add('exiting');
+                }
+                
+                // Show target step after animation
+                setTimeout(() => {
+                    if (currentStepEl) {
+                        currentStepEl.style.display = 'none';
+                        currentStepEl.classList.remove('exiting');
+                    }
+                    
+                    // Update current step
+                    this.currentStep = targetStep;
+                    
+                    // Show target step
+                    const targetStepEl = document.getElementById(`step${targetStep}`);
+                    if (targetStepEl) {
+                        targetStepEl.style.display = 'block';
+                        setTimeout(() => {
+                            targetStepEl.classList.add('active');
+                        }, 50);
+                    }
+                    
+                    this.updateProgress();
+                    this.updateWhatsAppContext();
+                }, 300);
             }
             
             proceedToConcierge() {
