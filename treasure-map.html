@@ -2178,8 +2178,8 @@
             </div>
         </div>
         
-        <!-- Step 6: The Confirmation & Experience Proposal -->
-        <div class="step-container" id="step6">
+        <!-- Step 7: The Confirmation & Experience Proposal -->
+        <div class="step-container" id="step7">
             <div class="thank-you-container">
                 <div class="thank-you-title">Thank you, <span id="thankYouName"></span>.</div>
                 <div class="thank-you-message">
@@ -2210,7 +2210,7 @@
         class CurationExperience {
             constructor() {
                 this.currentStep = 1;
-                this.totalSteps = 6;
+                this.totalSteps = 7;
                 this.responses = {
                     vibe: '',
                     detail: '',
@@ -2571,7 +2571,7 @@
                 this.responses.phone = formData.get('phone');
                 
                 // Track form completion - major conversion milestone
-                window.tommyAnalytics.trackStepExit(5, 'concierge_form', true);
+                window.tommyAnalytics.trackStepExit(6, 'concierge_form', true);
                 window.tommyAnalytics.trackConversionMilestone('form_completed', 4200);
                 window.tommyAnalytics.trackInteraction('form_submit', 'concierge_form', {
                     hasPhone: !!this.responses.phone,
