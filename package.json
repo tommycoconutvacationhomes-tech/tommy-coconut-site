@@ -1,0 +1,24 @@
+{
+  "name": "tommy-coconut-site",
+  "version": "1.0.0",
+  "description": "Tommy Coconut vacation rental website with Cloudinary integration",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Build completed'",
+    "dev": "echo 'Development server would start here'"
+  },
+  "dependencies": {
+    "cloudinary": "^1.41.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "vacation-rentals",
+    "curacao",
+    "cloudinary",
+    "netlify"
+  ],
+  "author": "Tommy Coconut",
+  "license": "MIT"
+}
