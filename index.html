@@ -36,7 +36,7 @@
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="styles/globals.css" as="style">
-    <link rel="preload" href="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/icons/tommy-coconut-logo.png" as="image">
+    <link rel="preload" href="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" as="image">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -96,7 +96,7 @@
         "name": "Tommy Coconut",
         "description": "Premium vacation rental company in Curaçao offering luxury villas with included vehicles, sunset boat trips, and concierge services. Experience the authentic Caribbean lifestyle with the Tommy Coconut family.",
         "url": "https://tommycoconut.com/",
-        "logo": "https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/icons/tommy-coconut-logo.png",
+        "logo": "https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu",
         "image": [
           "https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/hero/hero-main.jpg",
           "https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/properties/villa-hero.jpg",
@@ -250,6 +250,124 @@
       }
     ]
     </script>
+    
+    <style>
+        /* Hero Section Styles */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .hero-cta {
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #00CFCF;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #00B8B8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #002F3D;
+        }
+        
+        .btn-accent {
+            background: #25D366;
+            color: white;
+        }
+        
+        .hero-contact-buttons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .hero-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
     
@@ -277,7 +395,7 @@
             <!-- Centered Logo -->
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/icons/tommy-coconut-logo.png" alt="Tommy Coconut Logo">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut Logo">
                 </a>
             </div>
             
@@ -737,7 +855,7 @@
         <div class="container">
             <!-- Logo & Tagline -->
             <div style="margin-bottom: var(--space-6);">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/icons/tommy-coconut-logo.png" alt="Tommy Coconut Logo" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut Logo" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
                 <p style="color: rgba(255, 255, 255, 0.9); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
             </div>
             
