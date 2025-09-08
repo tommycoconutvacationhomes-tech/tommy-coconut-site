@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Funnel Test</title>
+</head>
+<body>
+    <h1>Testing Tommy Coconut Funnel</h1>
+    <p><a href="https://tommy-coconut-site.netlify.app/">Go to Homepage</a></p>
+    <p><a href="https://tommy-coconut-site.netlify.app/treasure-map">Go to Treasure Map</a></p>
+    
+    <script>
+        console.log('Simple test page loaded');
+        
+        // Test if we can reach the treasure map and interact with it
+        function testTreasureMap() {
+            window.open('https://tommy-coconut-site.netlify.app/treasure-map', '_blank');
+        }
+    </script>
+    
+    <button onclick="testTreasureMap()">Open Treasure Map</button>
+    
+    <h2>Manual Test Steps:</h2>
+    <ol>
+        <li>Click "Open Treasure Map" above</li>
+        <li>Try clicking on one of the 4 options (romantic, family, friends, solitary)</li>
+        <li>Check if step 2 appears with different options</li>
+        <li>Report back what happens</li>
+    </ol>
+</body>
+</html>
