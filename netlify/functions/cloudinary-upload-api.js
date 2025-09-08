@@ -1,12 +1,17 @@
 // Secure Cloudinary Upload via API
 const cloudinary = require('cloudinary').v2;
 
-// Configure Cloudinary with API credentials
+// Configure Cloudinary with API credentials from environment variables
 cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME || 'dhschyq40',
-    api_key: process.env.CLOUDINARY_API_KEY || '442886661115165',
-    api_secret: process.env.CLOUDINARY_API_SECRET || 'SWrlQ8KBn5_zRLzAjGSvmgHsBwY'
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
 });
+
+// Validate environment variables are present
+if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+    console.error('Missing required Cloudinary environment variables');
+}
 
 exports.handler = async (event, context) => {
     // Only allow POST requests
