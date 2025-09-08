@@ -92,7 +92,8 @@
         
         body {
             font-family: 'Montserrat', system-ui, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
+                        url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920,c_fill,e_blur:400/Happy_Hideaway_Final-1_xa0int') center/cover no-repeat;
             background-attachment: fixed;
             color: var(--text-primary);
             line-height: 1.6;
@@ -105,14 +106,32 @@
         .curation-container {
             width: 100%;
             min-height: 100vh;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
-            padding: var(--space-4) 0;
+            background: transparent;
+            padding: calc(var(--space-12) + 20px) var(--space-4) var(--space-4) var(--space-4);
+        }
+        
+        /* Narrative Progress Bar */
+        .progress-narrative {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: var(--space-3);
+            text-align: center;
+            z-index: 1002;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(0, 128, 128, 0.1);
         }
         
         /* Progress Bar */
         .progress-container {
             position: fixed;
-            top: 0;
+            top: 48px;
             left: 0;
             width: 100%;
             height: 4px;
@@ -1403,8 +1422,8 @@
         }
         
         .booking-counter {
-            background: rgba(255, 107, 107, 0.1);
-            border: 1px solid rgba(255, 107, 107, 0.3);
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.4);
             border-radius: 8px;
             padding: var(--space-3);
             margin: var(--space-4) 0;
@@ -1412,7 +1431,7 @@
         }
         
         .counter-text {
-            color: #d63384;
+            color: #B8860B;
             font-weight: 600;
             font-size: var(--text-sm);
         }
@@ -1610,6 +1629,32 @@
         
         .whatsapp-inline-cta .whatsapp-icon {
             font-size: var(--text-base);
+        }
+        
+        /* Subtle Brand Watermark */
+        .brand-watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 500;
+            background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_100/tommy-coconut-logo_ubfctu');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: opacity 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .brand-watermark {
+                width: 60px;
+                height: 60px;
+                bottom: 15px;
+                right: 15px;
+            }
         }
     </style>
     
@@ -1876,6 +1921,11 @@
     </script>
 </head>
 <body>
+    <!-- Narrative Progress -->
+    <div class="progress-narrative">
+        <p>Crafting Your Escape...</p>
+    </div>
+    
     <!-- Progress Bar -->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
@@ -1883,6 +1933,9 @@
     
     <!-- Close Button -->
     <button class="close-button" onclick="closeCuration()">×</button>
+    
+    <!-- Brand Watermark -->
+    <div class="brand-watermark"></div>
     
     <!-- Main Curation Container -->
     <div class="curation-container">
@@ -2146,7 +2199,7 @@
             
             <!-- Booking Counter -->
             <div class="booking-counter">
-                <div class="counter-text">⚠️ Only 3 villas with these bonuses remaining for your dates</div>
+                <div class="counter-text">✨ Only 3 villas with these bonuses remaining for your dates</div>
             </div>
             
             <!-- Availability Indicator -->
