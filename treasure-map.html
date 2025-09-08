@@ -2401,7 +2401,22 @@
         let curationExperience;
         
         function selectOption(vibe) {
-            curationExperience.selectOption(vibe);
+            console.log('selectOption called with:', vibe);
+            console.log('curationExperience exists:', typeof curationExperience !== 'undefined');
+            console.log('curationExperience value:', curationExperience);
+            
+            if (typeof curationExperience === 'undefined') {
+                console.error('curationExperience is undefined! Cannot call selectOption.');
+                return;
+            }
+            
+            try {
+                curationExperience.selectOption(vibe);
+                console.log('selectOption completed successfully');
+            } catch (error) {
+                console.error('Error in selectOption:', error);
+                console.error('Error stack:', error.stack);
+            }
         }
         
         function selectDetail(detail) {
@@ -2480,13 +2495,32 @@
         
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            curationExperience = new CurationExperience();
+            console.log('DOM loaded, initializing curationExperience...');
+            
+            try {
+                curationExperience = new CurationExperience();
+                console.log('CurationExperience initialized successfully:', curationExperience);
+            } catch (error) {
+                console.error('Failed to initialize CurationExperience:', error);
+                console.error('Error stack:', error.stack);
+            }
             
             // Track experience start
-            gtag('event', 'curation_started', {
-                'event_category': 'conversion_funnel',
-                'event_label': 'personal_curation_experience'
-            });
+            try {
+                gtag('event', 'curation_started', {
+                    'event_category': 'conversion_funnel',
+                    'event_label': 'personal_curation_experience'
+                });
+            } catch (error) {
+                console.warn('Failed to track curation start:', error);
+            }
+            
+            // Debug info
+            console.log('=== INITIALIZATION DEBUG ===');
+            console.log('CurationExperience class available:', typeof CurationExperience);
+            console.log('TommyAnalytics available:', typeof TommyAnalytics);
+            console.log('window.tommyAnalytics:', window.tommyAnalytics);
+            console.log('curationExperience variable:', typeof curationExperience !== 'undefined' ? curationExperience : 'UNDEFINED');
         });
         
         // Prevent accidental navigation away
