@@ -1311,7 +1311,7 @@
               if (maxScroll % 25 === 0) { // Track at 25%, 50%, 75%, 100%
                 gtag('event', 'scroll_depth', {
                   event_category: 'engagement',
-                  event_label: \`scroll_\${maxScroll}%\`,
+                  event_label: `scroll_${maxScroll}%`,
                   value: maxScroll
                 });
               }
@@ -1375,7 +1375,7 @@
           
           gtag('event', 'user_interaction', {
             event_category: 'engagement',
-            event_label: \`\${type}_\${element}\`,
+            event_label: `${type}_${element}`,
             interaction_type: type,
             element_name: element
           });
@@ -1503,7 +1503,7 @@
           const element = e.target;
           
           // Record click position
-          const clickKey = \`\${Math.floor(x/50)}_\${Math.floor(y/50)}\`;
+          const clickKey = `${Math.floor(x/50)}_${Math.floor(y/50)}`;
           clickHeatMap[clickKey] = (clickHeatMap[clickKey] || 0) + 1;
           
           // Track specific element clicks
