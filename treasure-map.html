@@ -14,6 +14,9 @@
     <!-- Flatpickr CSS for Date Picker -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
+    <!-- Cloudinary Configuration -->
+    <script src="cloudinary-config.js"></script>
+    
     <style>
         :root {
             /* Tommy Coconut Brand Colors */
@@ -1805,85 +1808,89 @@
             }
             
             setupVillaData() {
+                // Using Cloudinary for optimized image delivery
+                const cloudinaryBase = 'https://res.cloudinary.com/dhschyq40/image/upload';
+                const imageTransform = 'f_auto,q_auto,w_800,c_fill,g_center';
+                
                 this.villas = {
                     'romantic_oceanview': {
                         name: 'Dushi Hideaway',
-                        image: 'images/properties/dushi-hideaway.jpeg.avif',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/dushi-hideaway`,
                         features: ['Your Private Ocean Views', 'Romantic Sunset Terrace', 'Intimate Pool Setting', 'Couples Retreat Design']
                     },
                     'romantic_privatepool': {
                         name: 'Villa Bayside Hill',
-                        image: 'images/properties/bayside-hill.jpeg.avif',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/bayside-hill`,
                         features: ['Your Private Pool Awaits', 'Panoramic Ocean Views', 'Luxury Amenities', 'Romantic Atmosphere']
                     },
                     'romantic_dining': {
                         name: 'Castaway Beach Villa',
-                        image: 'images/properties/castaway-beach.jpg',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/castaway-beach`,
                         features: ['Perfect Dinner Settings', 'Beachfront Dining', 'Private Chef Available', 'Romantic Ambiance']
                     },
                     'romantic_minimalist': {
                         name: 'Modern Zen Villa',
-                        image: 'images/properties/villa-hero.jpg',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/villa-hero`,
                         features: ['Minimalist Design', 'Clean Modern Lines', 'Peaceful Setting', 'Architectural Beauty']
                     },
                     'family_oceanview': {
                         name: 'Happy Hideaway',
-                        image: 'images/properties/happy-hideaway.jpg',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/happy-hideaway`,
                         features: ['Family Ocean Views', 'Kids Play Areas', 'Safe Environment', 'Family Memories Made']
                     },
                     'family_privatepool': {
                         name: 'Happy Hideaway',
-                        image: 'images/properties/happy-hideaway.jpg',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/happy-hideaway`,
                         features: ['Your Private Pool Awaits', 'Kids Love The Pool', 'Family Fun Space', 'Safe Swimming Area']
                     },
                     'family_dining': {
                         name: 'Sailaway Beach',
-                        image: 'images/properties/sailaway-beach.jpeg.avif',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/sailaway-beach`,
                         features: ['Family Dining Spaces', 'Large Gathering Areas', 'BBQ Facilities', 'Group Entertainment']
                     },
                     'family_minimalist': {
                         name: 'Villa Bayside Hill',
-                        image: 'images/properties/bayside-hill.jpeg.avif',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/bayside-hill`,
                         features: ['Clean Family Design', 'Spacious Layouts', 'Modern Comfort', 'Family Relaxation']
                     },
                     'friends_oceanview': {
                         name: 'Sailaway Beach',
-                        image: 'images/properties/sailaway-beach.jpeg.avif',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/sailaway-beach`,
                         features: ['Group Ocean Views', 'Entertainment Spaces', 'Party Perfect Layout', 'Celebration Ready']
                     },
                     'friends_privatepool': {
                         name: 'Sailaway Beach',
-                        image: 'images/properties/sailaway-beach.jpeg.avif',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/sailaway-beach`,
                         features: ['Your Private Pool Awaits', 'Group Fun Area', 'Pool Party Ready', 'Entertainment Paradise']
                     },
                     'friends_dining': {
                         name: 'Sailaway Beach',
-                        image: 'images/properties/sailaway-beach.jpeg.avif',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/sailaway-beach`,
                         features: ['Perfect Dinner Settings', 'Large Dining Spaces', 'Group Entertainment', 'Celebration Central']
                     },
                     'friends_minimalist': {
                         name: 'Villa Bayside Hill',
-                        image: 'images/properties/bayside-hill.jpeg.avif',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/bayside-hill`,
                         features: ['Elegant Group Design', 'Sophisticated Spaces', 'Modern Entertaining', 'Stylish Gatherings']
                     },
                     'solitary_oceanview': {
                         name: 'Villa Bayside Hill',
-                        image: 'images/properties/bayside-hill.jpeg.avif',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/bayside-hill`,
                         features: ['Your Private Ocean Views', 'Peaceful Solitude', 'Meditation Spaces', 'Quiet Reflection']
                     },
                     'solitary_privatepool': {
                         name: 'Dushi Hideaway',
-                        image: 'images/properties/dushi-hideaway.jpeg.avif',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/dushi-hideaway`,
                         features: ['Your Private Pool Awaits', 'Personal Sanctuary', 'Quiet Retreat', 'Solo Relaxation']
                     },
                     'solitary_dining': {
                         name: 'Tropical Haven Villa',
-                        image: 'images/properties/villa-hero.jpg',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/villa-hero`,
                         features: ['Intimate Dining Spaces', 'Peaceful Settings', 'Personal Chef Available', 'Quiet Elegance']
                     },
                     'solitary_minimalist': {
                         name: 'Modern Zen Villa',
-                        image: 'images/properties/villa-hero.jpg',
+                        image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/villa-hero`,
                         features: ['The Effortless Style of Modern Design', 'Minimalist Perfection', 'Zen Atmosphere', 'Peaceful Aesthetics']
                     }
                 };
