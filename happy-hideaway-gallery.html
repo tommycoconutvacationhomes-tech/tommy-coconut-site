@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Hideaway Villa Gallery | Tommy Coconut</title>
+    
+    <style>
+        :root {
+            --primary: #00CFCF;
+            --primary-hover: #00B8B8;
+            --secondary: #002F3D;
+            --white: #FFFFFF;
+            --gray-light: #F7FAFC;
+            --gray-medium: #E2E8F0;
+            --text-primary: #1A202C;
+            --text-secondary: #4A5568;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #00CFCF 0%, #002F3D 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .header {
+            background: var(--secondary);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .stats-bar {
+            background: var(--gray-light);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .gallery-controls {
+            padding: 30px 40px;
+            background: white;
+            border-bottom: 1px solid var(--gray-medium);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--gray-medium);
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .view-toggle {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .view-btn {
+            padding: 8px 12px;
+            border: 1px solid var(--gray-medium);
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .view-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .gallery {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery.list-view {
+            grid-template-columns: 1fr;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+            cursor: pointer;
+            background: white;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .list-view .gallery-item {
+            display: flex;
+            height: 200px;
+        }
+        
+        .list-view .gallery-item img {
+            width: 300px;
+            height: 100%;
+        }
+        
+        .item-info {
+            padding: 15px;
+        }
+        
+        .list-view .item-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .item-number {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .item-category {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .lightbox-prev {
+            left: -60px;
+        }
+        
+        .lightbox-next {
+            right: -60px;
+        }
+        
+        .lightbox-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .list-view .gallery-item {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .list-view .gallery-item img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏝️ Happy Hideaway Villa</h1>
+            <p>Complete Photo Gallery - Your Perfect Family Vacation Home in Curaçao</p>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">54</div>
+                <div class="stat-label">Total Photos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Bedrooms</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Bathrooms</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Guests</div>
+            </div>
+        </div>
+        
+        <div class="gallery-controls">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterImages('all')">All Photos</button>
+                <button class="filter-btn" onclick="filterImages('exterior')">Exterior</button>
+                <button class="filter-btn" onclick="filterImages('interior')">Interior</button>
+                <button class="filter-btn" onclick="filterImages('pool')">Pool Area</button>
+                <button class="filter-btn" onclick="filterImages('views')">Ocean Views</button>
+            </div>
+            <div class="view-toggle">
+                <button class="view-btn active" onclick="setView('grid')">⊞ Grid</button>
+                <button class="view-btn" onclick="setView('list')">☰ List</button>
+            </div>
+        </div>
+        
+        <div class="gallery" id="gallery"></div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">‹</button>
+            <img id="lightbox-image" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">›</button>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+    </div>
+    
+    <script>
+        // All Happy Hideaway image IDs
+        const imageIds = [
+            'Happy_Hideaway_Final-1_xa0int', 'Happy_Hideaway_Final-4_jxqo9o', 
+            'Happy_Hideaway_Final-6_pglrby', 'Happy_Hideaway_Final-7_ha0zfe',
+            'Happy_Hideaway_Final-9_xtxn1e', 'Happy_Hideaway_Final-12_2_qnumuz',
+            'Happy_Hideaway_Final-5_c85rvi', 'Happy_Hideaway_Final-13_2_ufyn4q',
+            'Happy_Hideaway_Final-10_hav6cz', 'Happy_Hideaway_Final-2_bgnmnn',
+            'Happy_Hideaway_Final-14_vxz9uo', 'Happy_Hideaway_Final-16_ksloy3',
+            'Happy_Hideaway_Final-22_c5r5q8', 'Happy_Hideaway_Final-19_xzikhm',
+            'Happy_Hideaway_Final-25_iuvdnc', 'Happy_Hideaway_Final-24_vknyvp',
+            'Happy_Hideaway_Final-27_zmlbd1', 'Happy_Hideaway_Final-23_2_xb5p1r',
+            'Happy_Hideaway_Final-31_ntywgl', 'Happy_Hideaway_Final-29_u4vc1n',
+            'Happy_Hideaway_Final-32_2_apjfl0', 'Happy_Hideaway_Final-28_yw5pe6',
+            'Happy_Hideaway_Final-36_kp4vux', 'Happy_Hideaway_Final-37_gfwweb',
+            'Happy_Hideaway_Final-34_socmzs', 'Happy_Hideaway_Final-40_pmlygt',
+            'Happy_Hideaway_Final-41_wvdh6u', 'Happy_Hideaway_Final-38_zhvcs8',
+            'Happy_Hideaway_Final-35_knqz7o', 'Happy_Hideaway_Final-42_thmemx',
+            'Happy_Hideaway_Final-45_2_kbc6ua', 'Happy_Hideaway_Final-46_xqqcsr',
+            'Happy_Hideaway_Final-52_monq4x', 'Happy_Hideaway_Final-50_eofu68',
+            'Happy_Hideaway_Final-47_2_qfkswi', 'Happy_Hideaway_Final-51_vqkadn',
+            'Happy_Hideaway_Final-55_aur7ou', 'Happy_Hideaway_Final-48_btqeaq',
+            'Happy_Hideaway_Final-56_ud39c9', 'Happy_Hideaway_Final-60_kqxsq8',
+            'Happy_Hideaway_Final-57_fwz97d', 'Happy_Hideaway_Final-59_hcdrkd',
+            'Happy_Hideaway_Final-62_2_gcu6zk', 'Happy_Hideaway_Final-74_td8ug6',
+            'Happy_Hideaway_Final-73_djuwnd', 'Happy_Hideaway_Final-69_zvzx19',
+            'Happy_Hideaway_Final-75_2_ewaxc9', 'Happy_Hideaway_Final-70_zpdz1y',
+            'Happy_Hideaway_Final-64_jtvauj', 'Happy_Hideaway_Final-65_wijncp',
+            'Happy_Hideaway_Final-77_njb71w', 'Happy_Hideaway_Final-78_ryleo2',
+            'Happy_Hideaway_Final-80_ac7q1n', 'Happy_Hideaway_Final-81_fsogfo',
+            'Happy_Hideaway_Final-79_ipmchx'
+        ];
+        
+        const cloudinaryBase = 'https://res.cloudinary.com/dhschyq40/image/upload';
+        let currentFilter = 'all';
+        let currentView = 'grid';
+        let currentLightboxIndex = 0;
+        
+        // Categorize images (you can adjust these based on actual content)
+        const imageCategories = {
+            exterior: [1, 79, 80, 81, 77, 78],
+            interior: [2, 5, 9, 10, 14, 16, 19, 22, 24, 25, 27, 28, 31, 32],
+            pool: [4, 6, 7, 12, 13, 34, 35, 36, 37, 38],
+            views: [40, 41, 42, 45, 46, 47, 48, 50, 51, 52]
+        };
+        
+        function initGallery() {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+            
+            imageIds.forEach((id, index) => {
+                const item = createGalleryItem(id, index);
+                gallery.appendChild(item);
+            });
+        }
+        
+        function createGalleryItem(id, index) {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.dataset.index = index;
+            div.dataset.category = getImageCategory(index + 1);
+            div.onclick = () => openLightbox(index);
+            
+            const img = document.createElement('img');
+            img.src = `${cloudinaryBase}/f_auto,q_auto,w_400,c_fill/${id}`;
+            img.alt = `Happy Hideaway - Photo ${index + 1}`;
+            img.loading = 'lazy';
+            
+            const info = document.createElement('div');
+            info.className = 'item-info';
+            info.innerHTML = `
+                <div class="item-number">Photo ${index + 1} of ${imageIds.length}</div>
+                <div class="item-category">${getImageCategory(index + 1)}</div>
+            `;
+            
+            div.appendChild(img);
+            div.appendChild(info);
+            
+            return div;
+        }
+        
+        function getImageCategory(number) {
+            for (const [category, numbers] of Object.entries(imageCategories)) {
+                if (numbers.includes(number)) {
+                    return category.charAt(0).toUpperCase() + category.slice(1);
+                }
+            }
+            return 'General';
+        }
+        
+        function filterImages(category) {
+            currentFilter = category;
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(category) || 
+                    (category === 'all' && btn.textContent === 'All Photos')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            items.forEach(item => {
+                if (category === 'all' || 
+                    item.dataset.category.toLowerCase() === category) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        function setView(view) {
+            currentView = view;
+            const gallery = document.getElementById('gallery');
+            const buttons = document.querySelectorAll('.view-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if (view === 'grid') {
+                gallery.classList.remove('list-view');
+                buttons[0].classList.add('active');
+            } else {
+                gallery.classList.add('list-view');
+                buttons[1].classList.add('active');
+            }
+        }
+        
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const image = document.getElementById('lightbox-image');
+            const counter = document.getElementById('lightbox-counter');
+            
+            image.src = `${cloudinaryBase}/f_auto,q_auto,w_1920/${imageIds[index]}`;
+            counter.textContent = `${index + 1} / ${imageIds.length}`;
+            lightbox.classList.add('active');
+            
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        function navigateLightbox(direction) {
+            currentLightboxIndex += direction;
+            
+            if (currentLightboxIndex < 0) {
+                currentLightboxIndex = imageIds.length - 1;
+            } else if (currentLightboxIndex >= imageIds.length) {
+                currentLightboxIndex = 0;
+            }
+            
+            openLightbox(currentLightboxIndex);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('lightbox').classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                if (e.key === 'ArrowRight') navigateLightbox(1);
+            }
+        });
+        
+        // Initialize gallery on load
+        document.addEventListener('DOMContentLoaded', initGallery);
+    </script>
+</body>
+</html>
