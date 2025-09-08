@@ -2052,7 +2052,7 @@
                 </div>
             </div>
             
-            <button class="primary-button cta-secure" onclick="showConciergeForm()">Secure This Villa Package Now</button>
+            <button class="primary-button cta-secure" onclick="showConciergeForm()">Connect With My Concierge to Secure This Package</button>
             <div class="cta-note">No commitment required to maintain your hold</div>
         </div>
         
@@ -2496,13 +2496,15 @@
             }
             
             showConciergeForm() {
-                // Track villa reveal completion and VSL entry
+                // Track villa reveal completion and direct concierge form entry
                 window.tommyAnalytics.trackStepExit(4, 'villa_reveal', true);
-                window.tommyAnalytics.trackStepEntry(5, 'vsl_experience');
-                window.tommyAnalytics.trackConversionMilestone('vsl_displayed');
+                window.tommyAnalytics.trackStepEntry(6, 'concierge_form');
+                window.tommyAnalytics.trackConversionMilestone('form_displayed');
                 
+                // Skip VSL step - go directly to concierge form (step 6)
+                this.currentStep = 5; // Set to 5 so nextStep() goes to 6
                 this.nextStep();
-                this.setupVSLVideo();
+                this.setupWhatsAppLink();
             }
             
             proceedToConcierge() {
@@ -2629,12 +2631,8 @@
                     // Continue anyway - don't block the user experience
                 }
                 
-                // Show thank you page
-                document.getElementById('thankYouName').textContent = this.responses.name;
-                document.getElementById('selectedVilla').textContent = this.responses.villa;
-                document.getElementById('userVibe').textContent = this.getVibeDescription();
-                
-                this.nextStep();
+                // Redirect to thank you page
+                window.location.href = 'thank-you.html';
             }
             
             getVibeDescription() {

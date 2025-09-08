@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Your Personal Hold is Confirmed | Tommy Coconut</title>
+    
+    <!-- Montserrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Tommy Coconut Brand Colors - Non-Negotiable */
+            --teal: #008080;
+            --white: #FFFFFF;
+            --off-white: #F5F5F5;
+            --charcoal: #333333;
+            
+            /* Spacing */
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            
+            /* Typography */
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            
+            /* Border radius */
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            background: linear-gradient(135deg, var(--off-white) 0%, var(--white) 100%);
+            color: var(--charcoal);
+            min-height: 100vh;
+            padding: var(--space-4);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--space-8) 0;
+        }
+        
+        /* Headlines - Montserrat Bold */
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl));
+            color: var(--charcoal);
+            text-align: center;
+            margin-bottom: var(--space-4);
+        }
+        
+        /* Sub-headline - Body Copy */
+        .sub-headline {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: var(--text-lg);
+            color: var(--charcoal);
+            text-align: center;
+            margin-bottom: var(--space-12);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Video Container - Most Prominent Element */
+        .video-container {
+            margin-bottom: var(--space-16);
+            text-align: center;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background: var(--white);
+        }
+        
+        .dushi-video {
+            width: 100%;
+            height: auto;
+            min-height: 400px;
+            background: var(--off-white);
+        }
+        
+        /* Custom Play Button Overlay - Strong Visual Invitation */
+        .video-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .video-play-overlay:hover {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-4);
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 128, 128, 0.3);
+        }
+        
+        .video-play-overlay:hover .play-button {
+            transform: scale(1.1);
+        }
+        
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid var(--white);
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 4px;
+        }
+        
+        .video-title {
+            color: var(--white);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+        
+        /* Additional Content */
+        .additional-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content-text {
+            font-size: var(--text-base);
+            color: var(--charcoal);
+            margin-bottom: var(--space-6);
+        }
+        
+        .highlight-text {
+            color: var(--teal);
+            font-weight: 600;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-4) 0;
+            }
+            
+            h1 {
+                font-size: var(--text-2xl);
+                margin-bottom: var(--space-3);
+            }
+            
+            .sub-headline {
+                font-size: var(--text-base);
+                margin-bottom: var(--space-8);
+                padding: 0 var(--space-4);
+            }
+            
+            .video-wrapper {
+                margin: 0 var(--space-4);
+            }
+            
+            .dushi-video {
+                min-height: 250px;
+            }
+            
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .play-button::after {
+                border-left: 15px solid var(--white);
+                border-top: 9px solid transparent;
+                border-bottom: 9px solid transparent;
+            }
+            
+            .video-title {
+                font-size: var(--text-lg);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: var(--space-2);
+            }
+            
+            .container {
+                padding: var(--space-2) 0;
+            }
+            
+            .dushi-video {
+                min-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Headline -->
+        <h1>Thank You! Your Personal Hold is Confirmed.</h1>
+        
+        <!-- Sub-headline -->
+        <p class="sub-headline">
+            Your concierge will be calling you from <span class="highlight-text">+599 9 670 7977</span> in the next 5 minutes. While you wait, Tommy has a personal message for you...
+        </p>
+        
+        <!-- Primary Video Content - Most Prominent Element -->
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video 
+                    class="dushi-video" 
+                    id="dushiVideo" 
+                    controls 
+                    poster="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/villas/villa-hero"
+                    preload="metadata"
+                >
+                    <source src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/video-output-2DF885B0-E272-4C20-A5A5-BFF4B2FB300B_e1zkdo" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Custom Play Button Overlay - Strong Visual Invitation -->
+                <div class="video-play-overlay" id="videoPlayOverlay">
+                    <div class="play-button"></div>
+                    <div class="video-title">The Dushi Life Film</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Additional Content -->
+        <div class="additional-content">
+            <p class="content-text">
+                This is more than just a vacation... it's your gateway to the <span class="highlight-text">Caribbean lifestyle</span> you've been dreaming of.
+            </p>
+            <p class="content-text">
+                Your concierge has all the details about your curated villa experience and will answer any questions you have about your upcoming escape to Curaçao.
+            </p>
+        </div>
+    </div>
+    
+    <!-- JavaScript for Video Interaction -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('dushiVideo');
+            const overlay = document.getElementById('videoPlayOverlay');
+            
+            if (video && overlay) {
+                // Handle play button click
+                overlay.addEventListener('click', function() {
+                    overlay.style.display = 'none';
+                    video.play();
+                });
+                
+                // Handle video play event
+                video.addEventListener('play', function() {
+                    overlay.style.display = 'none';
+                });
+                
+                // Handle video pause event
+                video.addEventListener('pause', function() {
+                    // Don't show overlay again once user has interacted
+                    // This keeps the UX clean and focused
+                });
+                
+                // Optional: Attempt autoplay with sound (browser dependent)
+                // Note: Most browsers block autoplay with sound unless user has interacted
+                try {
+                    video.muted = false;
+                    video.autoplay = true;
+                } catch (error) {
+                    console.log('Autoplay with sound blocked by browser');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
