@@ -1076,6 +1076,93 @@
             });
         }
     </script>
+    
+    <!-- Review Carousel JavaScript -->
+    <script>
+        // Review Carousel Functionality
+        let currentReviewSlide = 0;
+        const reviewSlides = document.querySelectorAll('.review-slide');
+        const reviewIndicators = document.querySelectorAll('.reviews-indicator');
+        const totalReviewSlides = reviewSlides.length;
+        let reviewInterval;
+
+        // Initialize carousel
+        function initReviewCarousel() {
+            showReviewSlide(0);
+            startAutoAdvance();
+        }
+
+        // Show specific slide
+        function showReviewSlide(n) {
+            // Remove active class from all slides and indicators
+            reviewSlides.forEach(slide => slide.classList.remove('active'));
+            reviewIndicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Handle wrap around
+            if (n >= totalReviewSlides) currentReviewSlide = 0;
+            if (n < 0) currentReviewSlide = totalReviewSlides - 1;
+            
+            // Show current slide
+            reviewSlides[currentReviewSlide].classList.add('active');
+            reviewIndicators[currentReviewSlide].classList.add('active');
+        }
+
+        // Next slide
+        function nextReviewSlide() {
+            currentReviewSlide++;
+            showReviewSlide(currentReviewSlide);
+        }
+
+        // Previous slide
+        function prevReviewSlide() {
+            currentReviewSlide--;
+            showReviewSlide(currentReviewSlide);
+        }
+
+        // Start auto advance
+        function startAutoAdvance() {
+            reviewInterval = setInterval(nextReviewSlide, 3000); // Auto-advance every 3 seconds
+        }
+
+        // Stop auto advance (when user interacts)
+        function stopAutoAdvance() {
+            clearInterval(reviewInterval);
+        }
+
+        // Restart auto advance after user interaction
+        function restartAutoAdvance() {
+            stopAutoAdvance();
+            setTimeout(startAutoAdvance, 5000); // Wait 5 seconds before restarting auto-advance
+        }
+
+        // Event listeners for navigation buttons
+        document.querySelector('.reviews-nav-btn.prev').addEventListener('click', function() {
+            prevReviewSlide();
+            restartAutoAdvance();
+        });
+
+        document.querySelector('.reviews-nav-btn.next').addEventListener('click', function() {
+            nextReviewSlide();
+            restartAutoAdvance();
+        });
+
+        // Event listeners for indicators
+        reviewIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', function() {
+                currentReviewSlide = index;
+                showReviewSlide(currentReviewSlide);
+                restartAutoAdvance();
+            });
+        });
+
+        // Pause on hover, resume on leave
+        const carouselContainer = document.querySelector('.reviews-carousel-container');
+        carouselContainer.addEventListener('mouseenter', stopAutoAdvance);
+        carouselContainer.addEventListener('mouseleave', startAutoAdvance);
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initReviewCarousel);
+    </script>
 
     <!-- Exit Intent Modal -->
     <div id="exitIntentModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9999; align-items: center; justify-content: center;">
