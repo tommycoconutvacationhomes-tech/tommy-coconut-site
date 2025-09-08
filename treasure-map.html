@@ -103,18 +103,9 @@
         
         /* Full Screen Modal Container */
         .curation-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
+            width: 100%;
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 207, 207, 0.05) 0%, rgba(146, 227, 218, 0.1) 100%);
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            z-index: 1000;
-            overflow-y: auto;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
             padding: var(--space-4) 0;
         }
         
@@ -205,7 +196,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            backdrop-filter: blur(20px);
         }
         
         .option-button:hover {
@@ -269,32 +259,15 @@
         
         /* Villa Reveal Styling - Enhanced */
         .villa-reveal {
-            background: var(--surface-overlay);
-            backdrop-filter: blur(20px);
-            border-radius: var(--radius-3xl);
+            background: white;
+            border-radius: var(--radius-xl);
             padding: var(--space-10);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 207, 207, 0.1);
-            border: 2px solid rgba(0, 207, 207, 0.2);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
             max-width: 650px;
             margin: 0 auto;
-            transform: translateZ(0);
         }
         
-        .villa-reveal::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--surface-soft), var(--primary));
-            border-radius: var(--radius-3xl);
-            z-index: -1;
-            background-size: 400% 400%;
-            animation: gradientShift 3s ease infinite;
-        }
         
         @keyframes gradientShift {
             0%, 100% { background-position: 0% 50%; }
@@ -349,7 +322,6 @@
             box-shadow: 0 4px 12px rgba(0, 207, 207, 0.25);
             transition: var(--transition-normal);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
         }
         
         .villa-feature:hover {
@@ -561,7 +533,6 @@
             font-size: var(--text-xl);
             color: var(--text-secondary);
             transition: var(--transition-normal);
-            backdrop-filter: blur(10px);
             z-index: 1002;
         }
         
@@ -796,27 +767,14 @@
         }
         
         .offer-stack-container {
-            background: var(--gradient-subtle);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
+            background: white;
+            border-radius: 20px;
             padding: var(--space-10);
             margin: var(--space-8) 0 var(--space-16) 0;
-            border: 1px solid rgba(0, 207, 207, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        .offer-stack-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-tropical);
-            opacity: 0.6;
-        }
         
         .offer-items {
             margin-bottom: var(--space-6);
@@ -828,7 +786,6 @@
             padding: var(--space-6);
             margin-bottom: var(--space-4);
             background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
             border-radius: 16px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.1);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -965,7 +922,6 @@
             text-align: center;
             padding: var(--space-8);
             background: var(--gradient-subtle);
-            backdrop-filter: blur(15px);
             border-radius: 20px;
             border: 1px solid rgba(0, 207, 207, 0.2);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -1203,7 +1159,6 @@
             align-items: flex-start;
             padding: var(--space-4);
             background: var(--surface-overlay);
-            backdrop-filter: blur(10px);
             border-radius: var(--radius-lg);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -1226,7 +1181,6 @@
         
         .vsl-testimonial {
             background: var(--surface-overlay);
-            backdrop-filter: blur(10px);
             border-radius: var(--radius-lg);
             padding: var(--space-6);
             margin: var(--space-8) 0;
