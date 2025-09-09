@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enhanced SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="See the difference between a common vacation and the Dushi Life. Compare a day of stress and tasks with Tommy Coconut's effortless luxury experience in Curaçao.">
+    <meta name="keywords" content="Tommy Coconut day comparison, Dushi Life vs common vacation, luxury vacation experience, effortless travel Curaçao, vacation stress vs relaxation">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://tommycoconut.com/day-in-the-life/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="A Tale of Two Vacations: The Dushi Life Difference | Tommy Coconut">
+    <meta property="og:description" content="One is a checklist of tasks. The other is a story. See the difference between common vacation stress and Tommy Coconut's effortless luxury.">
+    <meta property="og:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/comparison/dushi-life-comparison">
+    <meta property="og:site_name" content="Tommy Coconut">
+    
+    <title>A Tale of Two Vacations: The Dushi Life Difference | Tommy Coconut</title>
+    
+    <!-- Tommy Coconut Complete Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Page-Specific Styles */
+        .comparison-page {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--tc-navy);
+        }
+        
+        .page-header {
+            text-align: center;
+            padding: var(--tc-space-4xl) var(--tc-space-xl);
+            background: linear-gradient(135deg, var(--tc-primary-light) 0%, rgba(255, 255, 255, 0.9) 100%);
+        }
+        
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-h1);
+            font-weight: 700;
+            color: var(--tc-navy);
+            margin: 0 0 var(--tc-space-lg);
+            line-height: 1.2;
+        }
+        
+        .page-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-body-xl);
+            color: var(--tc-navy);
+            margin: 0;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+        
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--tc-space-4xl) var(--tc-space-xl);
+        }
+        
+        .timeline-headers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--tc-space-xl);
+            margin-bottom: var(--tc-space-3xl);
+        }
+        
+        .column-header {
+            text-align: center;
+            padding: var(--tc-space-xl);
+            border-radius: var(--tc-radius-xl);
+        }
+        
+        .common-header {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 2px solid #dee2e6;
+        }
+        
+        .dushi-header {
+            background: linear-gradient(135deg, var(--tc-primary-light), var(--tc-primary-medium));
+            border: 2px solid var(--tc-primary);
+        }
+        
+        .column-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-h2);
+            font-weight: 700;
+            margin: 0;
+            color: var(--tc-navy);
+        }
+        
+        .timeline-events {
+            display: flex;
+            flex-direction: column;
+            gap: var(--tc-space-4xl);
+        }
+        
+        .timeline-row {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            gap: var(--tc-space-lg);
+            align-items: center;
+        }
+        
+        .time-marker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--tc-primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: var(--tc-font-small);
+            text-align: center;
+            position: relative;
+            z-index: var(--tc-z-base);
+        }
+        
+        .time-marker::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 80px;
+            background: var(--tc-primary);
+            opacity: 0.3;
+        }
+        
+        .timeline-row:last-child .time-marker::before {
+            display: none;
+        }
+        
+        .timeline-card {
+            background: white;
+            padding: var(--tc-space-xl);
+            border-radius: var(--tc-radius-lg);
+            box-shadow: var(--tc-shadow-md);
+            transition: all var(--tc-transition-normal);
+            position: relative;
+        }
+        
+        .timeline-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--tc-shadow-lg);
+        }
+        
+        .common-card {
+            border-left: 4px solid #dc3545;
+        }
+        
+        .common-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #dc3545, #ffc107);
+            border-radius: var(--tc-radius-lg) var(--tc-radius-lg) 0 0;
+        }
+        
+        .dushi-card {
+            border-left: 4px solid var(--tc-primary);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.02), rgba(255, 255, 255, 1));
+        }
+        
+        .dushi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--tc-primary), var(--tc-gold));
+            border-radius: var(--tc-radius-lg) var(--tc-radius-lg) 0 0;
+        }
+        
+        .card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: var(--tc-space-md);
+            font-size: 20px;
+        }
+        
+        .common-card .card-icon {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
+        .dushi-card .card-icon {
+            background: var(--tc-primary-light);
+            color: var(--tc-primary);
+        }
+        
+        .card-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-body-lg);
+            line-height: 1.6;
+            margin: 0;
+            color: var(--tc-navy);
+        }
+        
+        /* Final CTA Section */
+        .final-cta {
+            margin-top: var(--tc-space-4xl);
+            padding: var(--tc-space-4xl);
+            background: linear-gradient(135deg, var(--tc-navy) 0%, var(--tc-navy-light) 100%);
+            border-radius: var(--tc-radius-xl);
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-h2);
+            font-weight: 700;
+            margin: 0 0 var(--tc-space-lg);
+            line-height: 1.3;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--tc-space-sm);
+            padding: var(--tc-space-lg) var(--tc-space-2xl);
+            background: var(--tc-primary);
+            color: var(--tc-navy);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-body-lg);
+            font-weight: 600;
+            border-radius: var(--tc-radius-full);
+            transition: all var(--tc-transition-normal);
+            box-shadow: var(--tc-shadow-md);
+        }
+        
+        .cta-button:hover {
+            background: var(--tc-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--tc-shadow-lg);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline-headers {
+                grid-template-columns: 1fr;
+                gap: var(--tc-space-lg);
+            }
+            
+            .timeline-row {
+                grid-template-columns: 1fr;
+                gap: var(--tc-space-lg);
+                text-align: center;
+            }
+            
+            .time-marker {
+                margin: 0 auto;
+            }
+            
+            .time-marker::before {
+                display: none;
+            }
+            
+            .comparison-container {
+                padding: var(--tc-space-2xl) var(--tc-space-lg);
+            }
+            
+            .page-header {
+                padding: var(--tc-space-2xl) var(--tc-space-lg);
+            }
+        }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PVETEG7EB4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PVETEG7EB4');
+    </script>
+</head>
+<body class="comparison-page">
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-title">A Tale of Two Vacations</h1>
+        <p class="page-subtitle">One is a checklist of tasks. The other is a story. See the difference.</p>
+    </header>
+
+    <!-- Comparison Content -->
+    <main class="comparison-container">
+        <!-- Timeline Column Headers -->
+        <div class="timeline-headers">
+            <div class="column-header common-header">
+                <h2>The Common Vacation</h2>
+            </div>
+            <div class="column-header dushi-header">
+                <h2>The Dushi Life</h2>
+            </div>
+        </div>
+
+        <!-- Timeline Events -->
+        <div class="timeline-events">
+            <!-- 9:00 AM -->
+            <div class="timeline-row">
+                <div class="timeline-card common-card">
+                    <div class="card-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <p class="card-text">Debate where to go for the day. Spend 30 minutes searching Google for a "hidden gem."</p>
+                </div>
+                
+                <div class="time-marker">9:00 AM</div>
+                
+                <div class="timeline-card dushi-card">
+                    <div class="card-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <p class="card-text">Enjoy a slow coffee on your private terrace, then grab the keys to your included iCar and head to a secluded beach from Tommy's personal map.</p>
+                </div>
+            </div>
+
+            <!-- 12:00 PM -->
+            <div class="timeline-row">
+                <div class="timeline-card common-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <p class="card-text">Arrive at a crowded beach. Hunt for a parking spot. Pay $20 for two worn-out beach chairs.</p>
+                </div>
+                
+                <div class="time-marker">12:00 PM</div>
+                
+                <div class="timeline-card dushi-card">
+                    <div class="card-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <p class="card-text">Arrive at a pristine cove. Unpack your complimentary beach kit, complete with cooler, chairs, and snorkels. Your only neighbor is a pelican.</p>
+                </div>
+            </div>
+
+            <!-- 5:00 PM -->
+            <div class="timeline-row">
+                <div class="timeline-card common-card">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <p class="card-text">Rush back from the beach to get ready for dinner. Realize you have no reservations and everywhere is booked.</p>
+                </div>
+                
+                <div class="time-marker">5:00 PM</div>
+                
+                <div class="timeline-card dushi-card">
+                    <div class="card-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <p class="card-text">Return from your private boat trip as the sun sets. Your personal concierge has already arranged for a private chef to prepare dinner on your terrace.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta">
+            <h2 class="cta-title">Your Story Awaits</h2>
+            <a href="treasure-map.html" class="cta-button">
+                <i class="fas fa-compass"></i>
+                Curate Your Perfect Escape
+            </a>
+        </section>
+    </main>
+
+    <!-- Navigation Link Back to Main Site -->
+    <nav style="text-align: center; padding: var(--tc-space-xl); background: var(--tc-navy-fade);">
+        <a href="index.html" style="color: var(--tc-navy); font-family: 'Montserrat', sans-serif; font-weight: 600; text-decoration: none; font-size: var(--tc-font-body-lg);">
+            <i class="fas fa-arrow-left" style="margin-right: var(--tc-space-sm);"></i>
+            Back to Tommy Coconut
+        </a>
+    </nav>
+</body>
+</html>

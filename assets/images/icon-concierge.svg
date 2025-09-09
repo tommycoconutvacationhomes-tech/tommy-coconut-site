@@ -1,0 +1,44 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Person Silhouette -->
+  <circle cx="32" cy="18" r="8" fill="#008080"/>
+  <path d="M18 42 Q18 36 24 36 L40 36 Q46 36 46 42 L46 52 Q46 54 44 54 L20 54 Q18 54 18 52 Z" fill="#008080"/>
+  
+  <!-- Bow Tie/Professional Touch -->
+  <path d="M28 32 L32 28 L36 32 L32 36 Z" fill="#006666"/>
+  
+  <!-- Service Elements Around -->
+  <!-- Phone/Communication -->
+  <rect x="8" y="12" width="8" height="12" rx="2" fill="#008080" opacity="0.7"/>
+  <rect x="9" y="13" width="6" height="8" rx="1" fill="#fff" opacity="0.9"/>
+  <line x1="10" y1="15" x2="14" y2="15" stroke="#008080" stroke-width="0.5"/>
+  <line x1="10" y1="17" x2="14" y2="17" stroke="#008080" stroke-width="0.5"/>
+  <line x1="10" y1="19" x2="13" y2="19" stroke="#008080" stroke-width="0.5"/>
+  
+  <!-- Key/Access -->
+  <circle cx="52" cy="16" r="3" fill="#008080" opacity="0.7"/>
+  <rect x="50" y="19" width="4" height="6" rx="1" fill="#008080" opacity="0.7"/>
+  <rect x="51" y="21" width="1" height="1" fill="#fff"/>
+  <rect x="51" y="23" width="1" height="1" fill="#fff"/>
+  
+  <!-- Bell/Service -->
+  <path d="M8 44 Q8 40 12 40 L16 40 Q20 40 20 44 L20 46 L8 46 Z" fill="#008080" opacity="0.7"/>
+  <rect x="12" y="38" width="4" height="2" rx="1" fill="#008080" opacity="0.7"/>
+  <circle cx="14" cy="48" r="1" fill="#008080" opacity="0.7"/>
+  
+  <!-- Heart/Care Symbol -->
+  <path d="M48 44 Q48 40 52 40 Q56 40 56 44 Q56 48 52 52 Q48 48 48 44 Z" fill="#008080" opacity="0.7"/>
+  
+  <!-- Stars/Excellence -->
+  <g fill="#FFD700" opacity="0.8">
+    <polygon points="12,58 13,60 15,60 13.5,61.5 14,64 12,62.5 10,64 10.5,61.5 9,60 11,60" transform="scale(0.6)"/>
+    <polygon points="52,58 53,60 55,60 53.5,61.5 54,64 52,62.5 50,64 50.5,61.5 49,60 51,60" transform="scale(0.6) translate(5,0)"/>
+  </g>
+  
+  <!-- Central Focus Lines -->
+  <g stroke="#008080" stroke-width="1" opacity="0.3">
+    <line x1="16" y1="18" x2="24" y2="18"/>
+    <line x1="40" y1="18" x2="48" y2="18"/>
+    <line x1="14" y1="45" x2="24" y2="48"/>
+    <line x1="50" y1="45" x2="40" y2="48"/>
+  </g>
+</svg>
