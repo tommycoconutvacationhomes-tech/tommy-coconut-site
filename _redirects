@@ -1,0 +1,5 @@
+# Tommy Coconut Redirects
+# Preserve SEO value from old Cartel URL to new Clan URL
+
+/cartel.html    /clan.html    301!
+/cartel         /clan.html    301!

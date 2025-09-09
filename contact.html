@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's Start the Conversation - Tommy Coconut | Contact Us</title>
+    <title>Let's Start the Conversation | Tommy Coconut</title>
     <meta name="description" content="Get in touch with the Tommy Coconut family. Whether you have questions, are ready to book, or just want to say 'Bon Bini,' we'd love to hear from you.">
+    <meta name="keywords" content="Contact Tommy Coconut, Curaçao vacation contact, get in touch, booking inquiries, family vacation planning">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tommycoconut.com/contact.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tommycoconut.com/contact.html">
+    <meta property="og:title" content="Let's Start the Conversation | Tommy Coconut">
+    <meta property="og:description" content="Get in touch with the Tommy Coconut family. Whether you have questions, are ready to book, or just want to say 'Bon Bini,' we'd love to hear from you.">
+    <meta property="og:image" content="https://tommycoconut.com/images/family/tommy-coconut-family.jpg">
+    <meta property="og:site_name" content="Tommy Coconut">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tommycoconut.com/contact.html">
+    <meta name="twitter:title" content="Let's Start the Conversation | Tommy Coconut">
+    <meta name="twitter:description" content="Get in touch with the Tommy Coconut family. Whether you have questions, are ready to book, or just want to say 'Bon Bini,' we'd love to hear from you.">
+    <meta name="twitter:image" content="https://tommycoconut.com/images/family/tommy-coconut-family.jpg">
     <!-- Tommy Coconut CSS Architecture -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
     
     
     
@@ -18,6 +37,42 @@
     <!-- External Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Mobile-Optimized Contact Styles -->
+    <style>
+        @media (max-width: 768px) {
+            .instant-call-btn, .instant-whatsapp-btn {
+                min-width: 280px !important;
+                padding: 20px 24px !important;
+                font-size: 1.1rem !important;
+                margin-bottom: 0.5rem;
+            }
+            
+            .contact-form .form-row {
+                flex-direction: column !important;
+            }
+            
+            .contact-form .form-group {
+                margin-bottom: 1.5rem;
+            }
+            
+            .contact-form input,
+            .contact-form select,
+            .contact-form textarea {
+                font-size: 16px !important; /* Prevents iOS zoom */
+                padding: 12px 16px !important;
+            }
+            
+            .treasure-map-integration {
+                padding: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .treasure-map-integration h3 {
+                font-size: 1.2rem !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Skip Link for Accessibility -->
@@ -41,7 +96,7 @@
             <ul class="nav-menu-left">
                 <li><a href="rentals.html">Rentals</a></li>
                 <li><a href="experiences.html">Experiences</a></li>
-                <li><a href="about.html">Our Story</a></li>
+                <li><a href="about.html">Meet the Clan</a></li>
             </ul>
             
             <!-- Centered Logo -->
@@ -53,11 +108,10 @@
             
             <!-- Right Menu -->
             <ul class="nav-menu-right">
-                <li><a href="cartel.html">Cartel</a></li>
+                <li><a href="clan.html">Clan</a></li>
                 <li><a href="blog.html">Guide</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
-                <li><a href="treasure-map.html" class="nav-book-btn">Book Now</a></li>
             </ul>
             
             <!-- Mobile Menu Toggle -->
@@ -68,336 +122,153 @@
             </div>
         </div>
     </nav>
-    <!-- Luxury Contact Header -->
+    <!-- Page Header -->
     <section class="section" style="background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%); padding-top: calc(var(--section-padding) * 1.2); text-align: center;" id="main-content">
         <div class="container">
             <div class="content-spotlight">
                 <h1 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(3.2rem, 6vw, 4.5rem); color: var(--dark-navy); letter-spacing: -0.02em; line-height: 1.1; text-shadow: 0 1px 2px rgba(0, 47, 61, 0.1); margin-bottom: var(--space-8);">Let's Start the Conversation</h1>
-                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 300; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">Whether you have a specific question, are ready to start planning the details of your trip, or just want to say 'Bon Bini,' we'd love to hear from you. Reaching us is easy. A real member of the Tommy Coconut family reads and responds to every single message.</p>
             </div>
         </div>
     </section>
 
-    <!-- Instant Contact Section -->
-    <section class="instant-contact" style="background:#F8FFFE; padding:3rem 0; border-bottom:1px solid rgba(98, 208, 201, 0.2);">
-        <div class="container" style="max-width:900px; margin:0 auto; text-align:center;">
-            <h2 style="color:#005A5B; margin-bottom:1rem; font-size:1.8rem;">Need to Speak With Us Right Now?</h2>
-            <p style="color:#666; font-size:1.1rem; margin-bottom:2.5rem; line-height:1.6;">Skip the form and connect instantly. Our team is available 7 days a week to answer your questions and help you start planning your perfect Curaçao experience.</p>
-            
-            <!-- Mobile-First Contact Options -->
-            <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:2rem;">
-                <a href="tel:+59996707977" 
-                   class="instant-call-btn"
-                   style="display:flex; align-items:center; gap:1rem; padding:20px 30px; background:#005A5B; color:white; border-radius:50px; text-decoration:none; font-weight:700; font-size:1.1rem; transition:all 0.3s ease; min-width:220px; justify-content:center; box-shadow:0 6px 20px rgba(0, 90, 91, 0.3);"
-                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(0, 90, 91, 0.4)'"
-                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0, 90, 91, 0.3)'">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                    </svg>
-                    <div>
-                        <div>Call Now</div>
-                        <div style="font-size:0.9rem; font-weight:400; opacity:0.8;">+5999 670 7977</div>
-                    </div>
-                </a>
-                
-                <a href="https://wa.me/59996707977?text=Hi! I have questions about Tommy Coconut properties and would love to speak with someone about planning my trip to Curaçao." 
-                   target="_blank" 
-                   rel="noopener"
-                   class="instant-whatsapp-btn"
-                   style="display:flex; align-items:center; gap:1rem; padding:20px 30px; background:#25D366; color:white; border-radius:50px; text-decoration:none; font-weight:700; font-size:1.1rem; transition:all 0.3s ease; min-width:220px; justify-content:center; box-shadow:0 6px 20px rgba(37, 211, 102, 0.3);"
-                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(37, 211, 102, 0.4)'"
-                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(37, 211, 102, 0.3)'">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.548"/>
-                    </svg>
-                    <div>
-                        <div>WhatsApp Chat</div>
-                        <div style="font-size:0.9rem; font-weight:400; opacity:0.8;">Instant response</div>
-                    </div>
-                </a>
-            </div>
-            
-            <!-- Contact Info Cards -->
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:1.5rem; margin-top:2rem;">
-                <div style="background:white; padding:1.5rem; border-radius:12px; border-left:4px solid #62D0C9; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-                        <i class="fas fa-clock" style="color:#62D0C9;"></i>
-                        <h4 style="color:#005A5B; margin:0; font-size:1.1rem;">Response Time</h4>
-                    </div>
-                    <p style="margin:0; color:#666; font-size:0.95rem;">Usually within 2 hours<br>Always within 24 hours</p>
-                </div>
-                
-                <div style="background:white; padding:1.5rem; border-radius:12px; border-left:4px solid #62D0C9; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-                        <i class="fas fa-calendar-alt" style="color:#62D0C9;"></i>
-                        <h4 style="color:#005A5B; margin:0; font-size:1.1rem;">Available</h4>
-                    </div>
-                    <p style="margin:0; color:#666; font-size:0.95rem;">7 days a week<br>8am - 8pm Curaçao time</p>
-                </div>
-                
-                <div style="background:white; padding:1.5rem; border-radius:12px; border-left:4px solid #62D0C9; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-                        <i class="fas fa-envelope" style="color:#62D0C9;"></i>
-                        <h4 style="color:#005A5B; margin:0; font-size:1.1rem;">Email</h4>
-                    </div>
-                    <p style="margin:0; color:#666; font-size:0.95rem;"><a href="mailto:info@tommycoconut.com" style="color:#62D0C9; text-decoration:none;">info@tommycoconut.com</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section class="contact-form-section">
+    <!-- Family Photo Section -->
+    <section class="section" style="background: var(--surface); padding: 0;">
         <div class="container">
-            <div class="contact-form-container">
-                <div class="form-header">
-                    <h2>Let's Start Your Story</h2>
-                    <p>Ready to experience the Tommy Coconut difference? Fill out the form below and we'll get back to you within 24 hours with personalized recommendations for your perfect Curaçao adventure.</p>
+            <div style="max-width: 1000px; margin: 0 auto; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
+                <img src="images/family/tommy-coconut-family.jpg" alt="The Tommy Coconut Family - Warm and welcoming hosts ready to make your Curaçao vacation perfect" style="width: 100%; height: 400px; object-fit: cover;">
+            </div>
+            <div style="text-align: center; margin-top: var(--space-8);">
+                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 300; color: var(--text-secondary); max-width: 900px; margin: 0 auto;">Whether you have a specific question, are ready to start planning the details of your trip, or just want to say 'Bon Bini,' we'd love to hear from you. Reaching us is easy. A real member of the Tommy Coconut family reads and responds to every single message.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: The Direct Line (Contact Form) -->
+    <section class="section" style="background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%);">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: var(--space-12);">
+                    <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-4);">Send Us a Message</h2>
                 </div>
                 
-                <form id="contact-form" class="contact-form" novalidate>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="first-name">First Name *</label>
-                            <input type="text" id="first-name" name="firstName" required>
-                            <div class="error-message" id="first-name-error"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="last-name">Last Name *</label>
-                            <input type="text" id="last-name" name="lastName" required>
-                            <div class="error-message" id="last-name-error"></div>
-                        </div>
+                <form style="background: var(--surface); padding: var(--space-10); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); border: 1px solid rgba(0, 207, 207, 0.08);">
+                    <div style="margin-bottom: var(--space-6);">
+                        <label for="full-name" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Full Name</label>
+                        <input type="text" id="full-name" name="fullName" required style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'">
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                            <div class="error-message" id="email-error"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
-                            <div class="error-message" id="phone-error"></div>
-                        </div>
+
+                    <div style="margin-bottom: var(--space-6);">
+                        <label for="email" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Email Address</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'">
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="travel-dates">When are you planning to visit?</label>
-                        <div class="date-inputs">
-                            <input type="date" id="arrival-date" name="arrivalDate" placeholder="Arrival Date">
-                            <span class="date-separator">to</span>
-                            <input type="date" id="departure-date" name="departureDate" placeholder="Departure Date">
-                        </div>
+
+                    <div style="margin-bottom: var(--space-6);">
+                        <label for="subject" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Subject</label>
+                        <input type="text" id="subject" name="subject" required style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'">
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="guests">Number of Guests</label>
-                            <select id="guests" name="guests">
-                                <option value="">Select number of guests</option>
-                                <option value="1-2">1-2 Guests</option>
-                                <option value="3-4">3-4 Guests</option>
-                                <option value="5-6">5-6 Guests</option>
-                                <option value="7+">7+ Guests</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="budget">Budget Range</label>
-                            <select id="budget" name="budget">
-                                <option value="">Select budget range</option>
-                                <option value="200-300">$200-$300/night</option>
-                                <option value="300-400">$300-$400/night</option>
-                                <option value="400-500">$400-$500/night</option>
-                                <option value="500+">$500+/night</option>
-                            </select>
-                        </div>
+
+                    <div style="margin-bottom: var(--space-8);">
+                        <label for="message" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Your Message</label>
+                        <textarea id="message" name="message" rows="6" required style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); resize: vertical; transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'"></textarea>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="interests">What interests you most about Curaçao?</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="beach">
-                                <span class="checkmark">🏖️ Beach & Water Activities</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="culture">
-                                <span class="checkmark">🏛️ Culture & History</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="adventure">
-                                <span class="checkmark">🏃‍♂️ Adventure & Outdoor</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="relaxation">
-                                <span class="checkmark">🧘‍♀️ Relaxation & Wellness</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="food">
-                                <span class="checkmark">🍽️ Food & Dining</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="nightlife">
-                                <span class="checkmark">🌙 Nightlife & Entertainment</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Tell us about your dream vacation *</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Share your vision for the perfect Curaçao experience..." required></textarea>
-                        <div class="error-message" id="message-error"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="newsletter" name="newsletter">
-                            <span class="checkmark">📧 Subscribe to the Coconut Cartel for exclusive offers and island tips</span>
-                        </label>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary" id="submit-btn">
-                            <span class="btn-text">Send Message</span>
-                            <span class="btn-loading" style="display: none;">
-                                <i class="fas fa-spinner fa-spin"></i> Sending...
-                            </span>
+
+                    <div style="text-align: center;">
+                        <button type="submit" style="background: var(--primary); color: white; border: none; padding: var(--space-5) var(--space-10); border-radius: var(--radius-full); font-size: var(--text-lg); font-weight: var(--font-weight-bold); cursor: pointer; transition: all var(--transition-normal); box-shadow: 0 6px 20px rgba(98, 208, 201, 0.3); min-width: 200px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(98, 208, 201, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(98, 208, 201, 0.3)'">
+                            SEND MESSAGE
                         </button>
                     </div>
                 </form>
-                
-                <!-- Success Message -->
-                <div id="success-message" class="success-message" style="display: none;">
-                    <div class="success-icon">🥥</div>
-                    <h3>Message Sent Successfully!</h3>
-                    <p>Thank you for reaching out! We've received your message and will get back to you within 24 hours with personalized recommendations for your Curaçao adventure.</p>
-                    <p>In the meantime, why not explore our properties or join the Coconut Cartel for exclusive island insights?</p>
-                    <div class="success-actions">
-                        <a href="rentals.html" class="btn btn-secondary">Explore Properties</a>
-                        <a href="cartel.html" class="btn btn-primary">Join the Cartel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Other Ways to Reach the Family -->
+    <section class="section" style="background: var(--surface);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--space-12);">
+                <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy);">Other Ways to Reach the Family</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--space-8); max-width: 800px; margin: 0 auto;">
+                <!-- Email -->
+                <div style="background: var(--surface); padding: var(--space-8); border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg); border: 1px solid rgba(0, 207, 207, 0.08); text-align: center;">
+                    <div style="width: 80px; height: 80px; background: rgba(0, 207, 207, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-6);">
+                        <i class="fas fa-envelope" style="font-size: 2rem; color: var(--primary);"></i>
                     </div>
+                    <h3 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-4);">Email</h3>
+                    <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-6);">For direct inquiries or if you just prefer email, you can reach us at:</p>
+                    <a href="mailto:experience@tommycoconut.com" style="color: var(--primary); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); text-decoration: none; padding: var(--space-3) var(--space-6); border: 2px solid var(--primary); border-radius: var(--radius-lg); display: inline-block; transition: all var(--transition-normal);" onmouseover="this.style.background='var(--primary)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--primary)'">
+                        experience@tommycoconut.com
+                    </a>
+                </div>
+
+                <!-- WhatsApp -->
+                <div style="background: var(--surface); padding: var(--space-8); border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg); border: 1px solid rgba(0, 207, 207, 0.08); text-align: center;">
+                    <div style="width: 80px; height: 80px; background: rgba(37, 211, 102, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-6);">
+                        <i class="fab fa-whatsapp" style="font-size: 2rem; color: #25D366;"></i>
+                    </div>
+                    <h3 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-4);">WhatsApp</h3>
+                    <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-6);">Need a quick answer? This is the fastest way to chat with one of us. It's the same direct line our guests use during their stay.</p>
+                    <a href="https://wa.me/59996707977" target="_blank" rel="noopener" style="color: #25D366; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); text-decoration: none; padding: var(--space-3) var(--space-6); border: 2px solid #25D366; border-radius: var(--radius-lg); display: inline-block; transition: all var(--transition-normal);" onmouseover="this.style.background='#25D366'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#25D366'">
+                        Chat on WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: More Ways to Reach the Family -->
-    <section class="contact-methods-section">
+    <!-- Section 3: The Reassurance Statement -->
+    <section class="section" style="background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 30%, #2C5F5F 70%, #1A4B52 100%); color: var(--text-inverse); text-align: center;">
         <div class="container">
-            <h2>More Ways to Reach the Family</h2>
-            <div class="contact-methods-grid">
-                <!-- Email Method -->
-                <div class="contact-method-card">
-                    <div class="method-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="method-content">
-                        <h3>Email</h3>
-                        <p>For direct inquiries or if you just prefer email, you can reach us at:</p>
-                        <a href="mailto:info@tommycoconut.com" class="method-link">
-                            info@tommycoconut.com
-                        </a>
-                    </div>
-                </div>
-
-                <!-- WhatsApp Method -->
-                <div class="contact-method-card">
-                    <div class="method-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="method-content">
-                        <h3>WhatsApp</h3>
-                        <p>Need a quick answer? This is the fastest way to chat with one of us. It's the same direct line our guests use during their stay.</p>
-                        <a href="https://wa.me/59996707977" class="method-link" target="_blank" rel="noopener">
-                            Chat on WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Social Media Method -->
-                <div class="contact-method-card">
-                    <div class="method-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2"/>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="method-content">
-                        <h3>Social Media</h3>
-                        <p>Follow the story, see what the 'Coconut Cartel' is up to, and connect with us on social.</p>
-                        <div class="social-links">
-                            <a href="https://bitly.ws/39WZF" class="social-link" target="_blank" rel="noopener" aria-label="TikTok">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                            <a href="https://www.instagram.com/tommy.coconut/" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" class="social-link" target="_blank" rel="noopener" aria-label="YouTube">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                            <a href="https://www.facebook.com/TommyCoconut" class="social-link" target="_blank" rel="noopener" aria-label="Facebook">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Reassurance Statement -->
-    <section class="reassurance-section">
-        <div class="container">
-            <div class="reassurance-content">
-                <p>We do our best to respond to all inquiries within 24 hours. If your message is about an existing booking, please mention your reservation dates. Masha danki!</p>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: var(--text-xl); color: rgba(255, 255, 255, 0.9); line-height: 1.7; font-weight: 300;">We do our best to respond to all inquiries within 24 hours. If your message is about an existing booking, please mention your reservation dates. Masha danki!</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>🌴 Tommy Coconut</h3>
-                    <p>Your gateway to the authentic Curaçao experience.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="rentals.html">Vacation Rentals</a></li>
-                        <li><a href="experiences.html">The Experience</a></li>
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    </div>
-                </div>
+            <!-- Logo & Tagline -->
+            <div style="margin-bottom: var(--space-6);">
+                <img src="images/icons/tommy-coconut-logo.png" alt="Tommy Coconut Logo" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
+                <p style="color: rgba(255, 255, 255, 0.9); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            
+            <!-- Social Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-6);">
+                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            
+            <!-- Quick Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-6); font-size: var(--text-sm);">
+                <a href="rentals.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Rentals</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="experiences.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Experiences</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="about.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Meet the Clan</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="contact.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Contact</a>
+            </div>
+            
+            <!-- Copyright -->
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
+                <p style="color: rgba(255, 255, 255, 0.5); font-size: var(--text-sm); margin: 0;">&copy; 2024 Tommy Coconut. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="analytics.js"></script>
 </body>
