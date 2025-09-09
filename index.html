@@ -21,8 +21,8 @@
     <meta name="business-type" content="Vacation Rental, Travel Agency, Hospitality">
     <meta name="service-area" content="Jan Thiel, Westpunt, Willemstad, Curaçao">
     <meta name="local-business-type" content="Lodging, Vacation Rental Property">
-    <meta name="rating" content="4.9">
-    <meta name="review-count" content="523">
+    <meta name="rating" content="4.99">
+    <meta name="review-count" content="648">
     <meta name="author" content="Tommy Coconut">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -158,8 +158,8 @@
         ],
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "523",
+          "ratingValue": "4.99",
+          "reviewCount": "648",
           "bestRating": "5",
           "worstRating": "1"
         },
@@ -424,34 +424,77 @@
             <!-- Social Proof Bar -->
             <div style="display: flex; justify-content: center; align-items: center; gap: var(--space-12); flex-wrap: wrap; margin-bottom: var(--space-16);">
                 <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">1,247+</div>
+                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">1,347+</div>
                     <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">Happy Guests</div>
                 </div>
                 <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">4.9★</div>
+                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">4.99★</div>
                     <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">Average Rating</div>
                 </div>
                 <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">523</div>
+                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">648</div>
                     <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">5-Star Reviews</div>
                 </div>
                 <div style="text-align: center;">
                     <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">98%</div>
-                    <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">Repeat Guests</div>
+                    <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">Would Recommend</div>
                 </div>
             </div>
 
-            <!-- Single Powerful Testimonial -->
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="background: white; padding: var(--space-8); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); border: 1px solid rgba(0, 207, 207, 0.08); text-align: center;">
-                    <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); color: #FFD700;">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <!-- Review Carousel -->
+            <div style="max-width: 800px; margin: 0 auto; position: relative;">
+                <!-- Navigation Arrows -->
+                <button onclick="previousReview()" style="position: absolute; left: -20px; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255, 255, 255, 0.9); border: 2px solid var(--primary); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 128, 128, 0.15);" onmouseover="this.style.background='var(--primary)'; this.style.color='white';" onmouseout="this.style.background='rgba(255, 255, 255, 0.9)'; this.style.color='var(--primary)';">
+                    <i class="fas fa-chevron-left" style="font-size: 18px; color: var(--primary);"></i>
+                </button>
+                <button onclick="nextReview()" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255, 255, 255, 0.9); border: 2px solid var(--primary); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 128, 128, 0.15);" onmouseover="this.style.background='var(--primary)'; this.style.color='white'; this.querySelector('i').style.color='white';" onmouseout="this.style.background='rgba(255, 255, 255, 0.9)'; this.style.color='var(--primary)'; this.querySelector('i').style.color='var(--primary)';">
+                    <i class="fas fa-chevron-right" style="font-size: 18px; color: var(--primary);"></i>
+                </button>
+                
+                <div id="reviewCarousel" style="background: white; padding: var(--space-8); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); border: 1px solid rgba(0, 207, 207, 0.08); text-align: center; overflow: hidden;">
+                    
+                    <!-- Review 1 -->
+                    <div class="review-slide active" style="opacity: 1; transition: opacity 0.6s ease-in-out;">
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); color: #FFD700;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."</p>
+                        <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
+                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Johnson Family</div>
+                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">5th time guests, now part of the Coconut Clan</div>
+                        </div>
                     </div>
-                    <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."</p>
-                    <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
-                        <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Johnson Family</div>
-                        <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">5th time guests, now part of the Coconut Clan</div>
+                    
+                    <!-- Review 2 -->
+                    <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-8); transition: opacity 0.6s ease-in-out;">
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); color: #FFD700;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"From the moment we arrived, Tommy's team treated us like family. The villa was pristine, the boat trip was magical, and the concierge service was beyond anything we've experienced. We're already planning our return!"</p>
+                        <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
+                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">Sarah & Mike Thompson</div>
+                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">3rd time guests, Silver Clan Members</div>
+                        </div>
                     </div>
+                    
+                    <!-- Review 3 -->
+                    <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-8); transition: opacity 0.6s ease-in-out;">
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); color: #FFD700;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"Every detail was perfect. The welcome coconut, the sunset cruise, the incredible villa — but what made it special was the genuine care from Tommy's family. This is how vacation should be done."</p>
+                        <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
+                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Rodriguez Family</div>
+                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">2nd time guests, Bronze Clan Members</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Indicators -->
+                <div style="display: flex; justify-content: center; gap: var(--space-2); margin-top: var(--space-4);">
+                    <button class="review-indicator active" onclick="showReview(0)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 1;"></button>
+                    <button class="review-indicator" onclick="showReview(1)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 0.3;"></button>
+                    <button class="review-indicator" onclick="showReview(2)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 0.3;"></button>
                 </div>
             </div>
         </div>
@@ -613,6 +656,86 @@
             </div>
         </div>
     </footer>
+
+    <!-- Review Carousel JavaScript -->
+    <script>
+        let currentReview = 0;
+        const totalReviews = 3;
+        let reviewInterval;
+
+        function showReview(index) {
+            // Hide all slides
+            const slides = document.querySelectorAll('.review-slide');
+            const indicators = document.querySelectorAll('.review-indicator');
+            
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+            });
+            
+            indicators.forEach((indicator, i) => {
+                indicator.style.opacity = i === index ? '1' : '0.3';
+            });
+            
+            currentReview = index;
+        }
+
+        function nextReview() {
+            currentReview = (currentReview + 1) % totalReviews;
+            showReview(currentReview);
+        }
+
+        function previousReview() {
+            currentReview = (currentReview - 1 + totalReviews) % totalReviews;
+            showReview(currentReview);
+        }
+
+        // Auto-rotate reviews every 8 seconds
+        function startReviewCarousel() {
+            reviewInterval = setInterval(nextReview, 8000);
+        }
+
+        // Pause auto-rotation when user interacts
+        function pauseReviewCarousel() {
+            clearInterval(reviewInterval);
+            // Resume after 15 seconds of no interaction
+            setTimeout(startReviewCarousel, 15000);
+        }
+
+        // Initialize carousel when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers to indicators
+            document.querySelectorAll('.review-indicator').forEach((indicator, index) => {
+                indicator.addEventListener('click', function() {
+                    showReview(index);
+                    pauseReviewCarousel();
+                });
+            });
+            
+            // Add click handlers to arrow buttons
+            const prevButton = document.querySelector('[onclick="previousReview()"]');
+            const nextButton = document.querySelector('[onclick="nextReview()"]');
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    pauseReviewCarousel();
+                });
+            }
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    pauseReviewCarousel();
+                });
+            }
+            
+            // Start auto-rotation
+            startReviewCarousel();
+            
+            // Pause on hover over carousel
+            const carousel = document.getElementById('reviewCarousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', () => clearInterval(reviewInterval));
+                carousel.addEventListener('mouseleave', startReviewCarousel);
+            }
+        });
+    </script>
 
     <!-- Lodgify Loader Script -->
     <script src="https://app.lodgify.com/portable-search-bar/stable/renderPortableSearchBar.js" defer></script>
