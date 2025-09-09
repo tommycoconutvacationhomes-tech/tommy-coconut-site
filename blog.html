@@ -14,7 +14,7 @@
     
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Blog Schema -->
@@ -64,7 +64,7 @@
                 <li><a href="rentals.html">Rentals</a></li>
                 <li><a href="experiences.html">Experiences</a></li>
                 <li><a href="ownership.html">Ownership</a></li>
-                <li><a href="about.html">Meet the Clan</a></li>
+                <li><a href="clan.html">Meet the Clan</a></li>
             </ul>
             
             <!-- Centered Logo -->
@@ -78,8 +78,13 @@
             <ul class="nav-menu-right">
                 <li><a href="clan.html">Clan</a></li>
                 <li><a href="blog.html">Guide</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-dropdown">
+                    <a href="contact.html">Contact</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="contact.html">Contact Us</a>
+                        <a href="faq.html">FAQ</a>
+                    </div>
+                </li>
             </ul>
             
             <!-- Mobile Menu Toggle -->
@@ -172,6 +177,90 @@
         </div>
     </section>
 
+    <!-- From the Family Archives Section -->
+    <section class="family-archives" style="padding:4rem 0; background:#FDFEFE;">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:3rem;">
+                <h2 style="color:#005A5B; font-size:2rem; margin-bottom:1rem; font-weight:700;">From the Family Archives</h2>
+                <p style="color:#666; font-size:1.1rem;">Behind-the-scenes stories that reveal the heart of our family's approach</p>
+            </div>
+            
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(350px, 1fr)); gap:2rem; max-width:1200px; margin:0 auto;">
+                <!-- Card 1: The Art of the Perfect Arrival -->
+                <article style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,90,91,0.08); transition:all 0.3s ease; border:1px solid rgba(98,208,201,0.1);" 
+                         onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 48px rgba(0,90,91,0.12)'" 
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,90,91,0.08)'">
+                    <div style="position:relative; height:240px; overflow:hidden;">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/insider-guide/perfect-arrival-hero" 
+                             alt="The Art of the Perfect Arrival - handwritten note and coconut" 
+                             style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease;">
+                        <div style="position:absolute; top:1rem; left:1rem;">
+                            <span style="background:rgba(98,208,201,0.95); color:#005A5B; padding:0.5rem 1rem; border-radius:20px; font-size:0.85rem; font-weight:600; backdrop-filter:blur(10px);">Behind the Dushi Life</span>
+                        </div>
+                    </div>
+                    <div style="padding:1.5rem;">
+                        <h3 style="color:#005A5B; font-size:1.4rem; margin-bottom:0.75rem; font-weight:700; line-height:1.3;">The Art of the Perfect Arrival</h3>
+                        <p style="color:#666; font-size:1rem; line-height:1.6; margin-bottom:1.5rem;">A look inside our family's obsessive protocol for creating a flawless first impression.</p>
+                        <a href="the-art-of-perfect-arrival.html" 
+                           style="display:inline-block; background:linear-gradient(135deg, #62D0C9, #00CFCF); color:white; padding:0.75rem 1.5rem; border-radius:25px; text-decoration:none; font-weight:600; font-size:0.95rem; transition:all 0.3s ease; box-shadow:0 4px 16px rgba(98,208,201,0.3);"
+                           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(98,208,201,0.4)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(98,208,201,0.3)'">
+                            Read the Story
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Card 2: Meet Captain Mike -->
+                <article style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,90,91,0.08); transition:all 0.3s ease; border:1px solid rgba(98,208,201,0.1);" 
+                         onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 48px rgba(0,90,91,0.12)'" 
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,90,91,0.08)'">
+                    <div style="position:relative; height:240px; overflow:hidden;">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/island-insiders/captain-mike-portrait" 
+                             alt="Meet Captain Mike - portrait of Captain Mike" 
+                             style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease;">
+                        <div style="position:absolute; top:1rem; left:1rem;">
+                            <span style="background:rgba(44,124,111,0.95); color:white; padding:0.5rem 1rem; border-radius:20px; font-size:0.85rem; font-weight:600; backdrop-filter:blur(10px);">Island Insiders</span>
+                        </div>
+                    </div>
+                    <div style="padding:1.5rem;">
+                        <h3 style="color:#005A5B; font-size:1.4rem; margin-bottom:0.75rem; font-weight:700; line-height:1.3;">Meet Captain Mike</h3>
+                        <p style="color:#666; font-size:1rem; line-height:1.6; margin-bottom:1.5rem;">The story of the man who is the heart and soul of our legendary Friends & Family Cruise.</p>
+                        <a href="meet-captain-mike.html" 
+                           style="display:inline-block; background:linear-gradient(135deg, #2C7C6F, #1A5A4F); color:white; padding:0.75rem 1.5rem; border-radius:25px; text-decoration:none; font-weight:600; font-size:0.95rem; transition:all 0.3s ease; box-shadow:0 4px 16px rgba(44,124,111,0.3);"
+                           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(44,124,111,0.4)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(44,124,111,0.3)'">
+                            Read His Story
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Card 3: Meet the Fisherman -->
+                <article style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,90,91,0.08); transition:all 0.3s ease; border:1px solid rgba(98,208,201,0.1);" 
+                         onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 16px 48px rgba(0,90,91,0.12)'" 
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,90,91,0.08)'">
+                    <div style="position:relative; height:240px; overflow:hidden;">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/island-legends/captain-emilio-sunrise" 
+                             alt="Captain Emilio on his boat at sunrise, holding up a magnificent tuna" 
+                             style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s ease;">
+                        <div style="position:absolute; top:1rem; left:1rem;">
+                            <span style="background:rgba(0,47,61,0.95); color:white; padding:0.5rem 1rem; border-radius:20px; font-size:0.85rem; font-weight:600; backdrop-filter:blur(10px);">Island Legends</span>
+                        </div>
+                    </div>
+                    <div style="padding:1.5rem;">
+                        <h3 style="color:#005A5B; font-size:1.4rem; margin-bottom:0.75rem; font-weight:700; line-height:1.3;">Meet the Fisherman</h3>
+                        <p style="color:#666; font-size:1rem; line-height:1.6; margin-bottom:1.5rem;">Why Captain Emilio's tuna is the only one we serve - a 40-year partnership built on trust and excellence.</p>
+                        <a href="meet-the-fisherman.html" 
+                           style="display:inline-block; background:linear-gradient(135deg, #0A1E2A, #1B3B47); color:white; padding:0.75rem 1.5rem; border-radius:25px; text-decoration:none; font-weight:600; font-size:0.95rem; transition:all 0.3s ease; box-shadow:0 4px 16px rgba(26,59,71,0.3);"
+                           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(26,59,71,0.4)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26,59,71,0.3)'">
+                            Read the Legend
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- Quick Tips Section -->
     <section class="quick-tips" style="padding:4rem 0; background:#F8FFFE;">
         <div class="container">
@@ -210,7 +299,7 @@
                         <i class="fas fa-language" style="color:#62D0C9;"></i>
                         Local Language
                     </h4>
-                    <p style="color:#666; font-size:0.95rem; line-height:1.6; margin:0;">Dutch and Papiamentu are official, but English is widely spoken. Learn "Dushi" (sweet/beautiful) and "Bon Bini" (welcome) - locals love it!</p>
+                    <p style="color:#666; font-size:0.95rem; line-height:1.6; margin:0;">Dutch and Papiamentu are official, but English is widely spoken. Learn <span class="dushi-word" data-papiamento="Dushi" data-translation="Sweet, nice, good, lovely. The soul of the island in one word.">"Dushi"</span> and <span class="dushi-word" data-papiamento="Bon Bini" data-translation="Welcome! The traditional warm greeting of our island, and our promise to you.">"Bon Bini"</span> - locals love it! Don't forget to say <span class="dushi-word" data-papiamento="Masha Danki" data-translation="Thank you very much. A sign of genuine, heartfelt gratitude.">"Masha Danki"</span> when they help you!</p>
                 </div>
                 
                 <div style="background:white; padding:1.5rem; border-radius:12px; border-left:4px solid #62D0C9; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
@@ -333,6 +422,7 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/dushi-dictionary.js"></script>
     <script src="analytics.js"></script>
 </body>
 </html>

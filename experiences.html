@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/design-system.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
             <ul class="nav-menu-left">
                 <li><a href="rentals.html">Rentals</a></li>
                 <li><a href="experiences.html" class="active">Experiences</a></li>
-                <li><a href="about.html">Meet the Clan</a></li>
+                <li><a href="clan.html">Meet the Clan</a></li>
             </ul>
             
             <!-- Centered Logo -->
@@ -46,8 +46,13 @@
             <ul class="nav-menu-right">
                 <li><a href="clan.html">Clan</a></li>
                 <li><a href="blog.html">Guide</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-dropdown">
+                    <a href="contact.html">Contact</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="contact.html">Contact Us</a>
+                        <a href="faq.html">FAQ</a>
+                    </div>
+                </li>
             </ul>
             
             <!-- Mobile Menu Toggle -->
@@ -111,8 +116,23 @@
                 </div>
                 <div style="padding-left: var(--space-8);">
                     <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 2: The Welcome</h2>
-                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400;">Land and relax. We greet you at the airport with a cold drink and a warm smile. No taxi lines, no stress. Your vehicle is waiting, your villa is prepared, and your adventure is about to begin. From the moment you step off the plane, you're in our care.</p>
+                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400;">Land and <span class="dushi-word" data-papiamento="Trankil" data-translation="Tranquil, at peace, calm. The ultimate goal of every Dushi Life moment.">trankil</span>. We greet you at the airport with a cold drink and a warm smile. No taxi lines, no stress. Your vehicle is waiting, your villa is prepared, and your adventure is about to begin. From the moment you step off the plane, you're in our care.</p>
                 </div>
+            </div>
+        </div>
+
+        <!-- See The Difference CTA -->
+        <div style="background: linear-gradient(135deg, #F8FFFE 0%, #E8F8F6 100%); padding: 4rem 0; margin-bottom: var(--space-16);">
+            <div class="container" style="text-align: center;">
+                <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">See The Difference.</h2>
+                <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400; max-width: 600px; margin: 0 auto var(--space-8) auto;">Want a side-by-side look at how a perfectly scripted day compares to a common vacation? We've created the ultimate comparison.</p>
+                <a href="day-in-the-life.html" 
+                   class="cta-secondary"
+                   style="display: inline-block; background: transparent; color: var(--dark-navy); border: 2px solid var(--dark-navy); padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: var(--text-base); letter-spacing: 0.025em; transition: all 0.3s ease; text-transform: uppercase;"
+                   onmouseover="this.style.background='var(--dark-navy)'; this.style.color='white'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0, 47, 61, 0.25)'"
+                   onmouseout="this.style.background='transparent'; this.style.color='var(--dark-navy)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    View a Day in the Dushi Life
+                </a>
             </div>
         </div>
 
@@ -268,7 +288,7 @@
                 </div>
                 <div style="padding-left: var(--space-8);">
                     <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 6: The Fond Farewell</h2>
-                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400;">Leave with more than a tan. You leave with new friends and a plan to return. The goodbye hugs, the promises to stay in touch, the knowledge that you've found your place in the world. This isn't the end of your story with Tommy Coconut — it's just the beginning.</p>
+                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400;">Leave with more than a tan. You leave with new friends and a plan to return. The <span class="dushi-word" data-papiamento="Ayo" data-translation="Goodbye. A warm, simple farewell until we see you again.">ayo</span> hugs, the promises to stay in touch, the knowledge that you've found your place in the world. This isn't the end of your story with Tommy Coconut — it's just the beginning.</p>
                 </div>
             </div>
         </div>
@@ -425,6 +445,7 @@
     </script>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/dushi-dictionary.js"></script>
     <script src="analytics.js"></script>
 </body>
 </html> 

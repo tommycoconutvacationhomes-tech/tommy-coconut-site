@@ -2183,3 +2183,108 @@ a:hover, a:focus {
     flex-direction: column;
     justify-content: center;
 }
+
+/* === DUSHI LIFE DICTIONARY PROTOCOL === */
+
+/* Dushi Word Styling - Subtle Interactive Indicator */
+.dushi-word {
+    border-bottom: 1px dotted var(--primary);
+    cursor: help;
+    position: relative;
+    transition: all 0.2s ease;
+    color: var(--text-primary);
+}
+
+.dushi-word:hover {
+    border-bottom-color: var(--tc-turquoise-bold);
+    color: var(--primary);
+}
+
+/* Dushi Tooltip - Premium Elegant Design */
+.dushi-tooltip {
+    position: absolute;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 255, 254, 0.98) 100%);
+    border: 1px solid rgba(98, 208, 201, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
+    box-shadow: 0 12px 40px rgba(0, 47, 61, 0.15), 
+                0 4px 12px rgba(98, 208, 201, 0.1);
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    max-width: 280px;
+    min-width: 200px;
+}
+
+.dushi-tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dushi-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(255, 255, 255, 0.98);
+}
+
+.dushi-tooltip::after {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid rgba(98, 208, 201, 0.2);
+}
+
+.dushi-tooltip.below::before {
+    top: auto;
+    bottom: -6px;
+    border-bottom: none;
+    border-top: 6px solid rgba(255, 255, 255, 0.98);
+}
+
+.dushi-tooltip.below::after {
+    top: auto;
+    bottom: -7px;
+    border-bottom: none;
+    border-top: 7px solid rgba(98, 208, 201, 0.2);
+}
+
+.dushi-word-papiamento {
+    font-weight: var(--weight-semibold);
+    color: var(--primary);
+    font-style: italic;
+    margin-bottom: var(--space-2);
+    font-size: var(--text-sm);
+    letter-spacing: 0.025em;
+}
+
+.dushi-word-translation {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    font-weight: var(--weight-regular);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dushi-tooltip {
+        max-width: 240px;
+        min-width: 180px;
+        padding: var(--space-3) var(--space-4);
+    }
+}
