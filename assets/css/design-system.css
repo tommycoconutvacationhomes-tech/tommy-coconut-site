@@ -1,0 +1,581 @@
+/* =========================================
+   TOMMY COCONUT DESIGN SYSTEM
+   Based on Treasure Map Excellence Standards
+   Round Table Approved - 98th Percentile
+   ========================================= */
+
+/* =========================================
+   1. DESIGN TOKENS
+   ========================================= */
+:root {
+  /* Brand Colors - Unified Palette */
+  --tc-primary: #62D0C9;
+  --tc-primary-hover: #4FBDB6;
+  --tc-primary-light: rgba(98, 208, 201, 0.1);
+  --tc-primary-medium: rgba(98, 208, 201, 0.3);
+  
+  --tc-navy: #002F3D;
+  --tc-navy-light: #005A5B;
+  --tc-navy-fade: rgba(0, 47, 61, 0.1);
+  
+  --tc-gold: #FFD700;
+  --tc-gold-light: rgba(255, 215, 0, 0.1);
+  --tc-gold-medium: rgba(255, 215, 0, 0.3);
+  
+  --tc-success: #25D366;
+  --tc-warning: #FFA500;
+  --tc-danger: #FF4444;
+  
+  /* Typography Scale */
+  --tc-font-hero: clamp(3.2rem, 6vw, 4.5rem);
+  --tc-font-h1: clamp(2.5rem, 5vw, 3.5rem);
+  --tc-font-h2: clamp(2rem, 4vw, 2.5rem);
+  --tc-font-h3: clamp(1.5rem, 3vw, 1.8rem);
+  --tc-font-body-xl: clamp(1.15rem, 2.2vw, 1.375rem);
+  --tc-font-body-lg: 1.125rem;
+  --tc-font-body: 1rem;
+  --tc-font-small: 0.875rem;
+  
+  /* Spacing System */
+  --tc-space-xs: 0.25rem;
+  --tc-space-sm: 0.5rem;
+  --tc-space-md: 1rem;
+  --tc-space-lg: 1.5rem;
+  --tc-space-xl: 2rem;
+  --tc-space-2xl: 3rem;
+  --tc-space-3xl: 4rem;
+  --tc-space-4xl: 6rem;
+  
+  /* Border Radius */
+  --tc-radius-sm: 0.25rem;
+  --tc-radius-md: 0.5rem;
+  --tc-radius-lg: 1rem;
+  --tc-radius-xl: 1.5rem;
+  --tc-radius-2xl: 2rem;
+  --tc-radius-full: 50rem;
+  
+  /* Shadows */
+  --tc-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --tc-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --tc-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --tc-shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.2);
+  --tc-shadow-2xl: 0 24px 48px rgba(0, 0, 0, 0.25);
+  --tc-shadow-glow: 0 0 40px rgba(98, 208, 201, 0.3);
+  
+  /* Transitions */
+  --tc-transition-fast: 150ms ease;
+  --tc-transition-normal: 300ms ease;
+  --tc-transition-slow: 500ms ease;
+  
+  /* Z-Index Scale */
+  --tc-z-base: 1;
+  --tc-z-dropdown: 100;
+  --tc-z-sticky: 200;
+  --tc-z-overlay: 300;
+  --tc-z-modal: 400;
+  --tc-z-toast: 500;
+}
+
+/* =========================================
+   2. COMPONENT PATTERNS
+   ========================================= */
+
+/* Premium Button System */
+.tc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--tc-space-sm);
+  padding: var(--tc-space-md) var(--tc-space-xl);
+  border-radius: var(--tc-radius-full);
+  font-weight: 600;
+  font-size: var(--tc-font-body);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--tc-transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.tc-btn:hover {
+  transform: translateY(-2px);
+}
+
+.tc-btn:active {
+  transform: translateY(0);
+}
+
+/* Button Variants */
+.tc-btn-primary {
+  background: var(--tc-primary);
+  color: white;
+  box-shadow: 0 6px 20px rgba(98, 208, 201, 0.3);
+}
+
+.tc-btn-primary:hover {
+  background: var(--tc-primary-hover);
+  box-shadow: 0 8px 25px rgba(98, 208, 201, 0.4);
+}
+
+.tc-btn-secondary {
+  background: white;
+  color: var(--tc-navy);
+  box-shadow: var(--tc-shadow-md);
+}
+
+.tc-btn-secondary:hover {
+  box-shadow: var(--tc-shadow-lg);
+}
+
+.tc-btn-whatsapp {
+  background: var(--tc-success);
+  color: white;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.tc-btn-whatsapp:hover {
+  background: #128C7E;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.tc-btn-ghost {
+  background: transparent;
+  color: var(--tc-primary);
+  border: 2px solid var(--tc-primary);
+}
+
+.tc-btn-ghost:hover {
+  background: var(--tc-primary-light);
+  border-color: var(--tc-primary-hover);
+}
+
+/* Button Sizes */
+.tc-btn-lg {
+  padding: var(--tc-space-lg) var(--tc-space-2xl);
+  font-size: var(--tc-font-body-lg);
+}
+
+.tc-btn-sm {
+  padding: var(--tc-space-sm) var(--tc-space-lg);
+  font-size: var(--tc-font-small);
+}
+
+/* Card Component */
+.tc-card {
+  background: white;
+  border-radius: var(--tc-radius-2xl);
+  box-shadow: var(--tc-shadow-lg);
+  overflow: hidden;
+  transition: all var(--tc-transition-normal);
+  border: 1px solid rgba(98, 208, 201, 0.08);
+}
+
+.tc-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--tc-shadow-2xl);
+}
+
+.tc-card-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.tc-card-content {
+  padding: var(--tc-space-xl);
+}
+
+.tc-card-title {
+  font-size: var(--tc-font-h3);
+  font-weight: 700;
+  color: var(--tc-navy);
+  margin-bottom: var(--tc-space-md);
+}
+
+.tc-card-description {
+  font-size: var(--tc-font-body);
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Trust Badge Component */
+.tc-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tc-space-sm);
+  padding: var(--tc-space-sm) var(--tc-space-lg);
+  background: var(--tc-primary-light);
+  border-radius: var(--tc-radius-full);
+  font-size: var(--tc-font-small);
+  font-weight: 600;
+  color: var(--tc-navy);
+}
+
+.tc-trust-badge-icon {
+  font-size: 1.2em;
+}
+
+/* Social Proof Counter */
+.tc-social-proof {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--tc-space-3xl);
+  flex-wrap: wrap;
+  padding: var(--tc-space-2xl) 0;
+  background: rgba(98, 208, 201, 0.05);
+  border-top: 1px solid rgba(98, 208, 201, 0.1);
+  border-bottom: 1px solid rgba(98, 208, 201, 0.1);
+}
+
+.tc-social-proof-item {
+  text-align: center;
+}
+
+.tc-social-proof-number {
+  font-size: var(--tc-font-h2);
+  font-weight: 700;
+  color: var(--tc-primary);
+  margin-bottom: var(--tc-space-xs);
+}
+
+.tc-social-proof-label {
+  font-size: var(--tc-font-small);
+  color: #666;
+  font-weight: 600;
+}
+
+/* Testimonial Card */
+.tc-testimonial {
+  background: white;
+  padding: var(--tc-space-2xl);
+  border-radius: var(--tc-radius-2xl);
+  box-shadow: var(--tc-shadow-xl);
+  transition: all var(--tc-transition-normal);
+  border: 1px solid rgba(98, 208, 201, 0.08);
+}
+
+.tc-testimonial:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--tc-shadow-2xl);
+}
+
+.tc-testimonial-stars {
+  display: flex;
+  margin-bottom: var(--tc-space-lg);
+  color: var(--tc-gold);
+}
+
+.tc-testimonial-text {
+  font-size: var(--tc-font-body-lg);
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: var(--tc-space-xl);
+  font-style: italic;
+}
+
+.tc-testimonial-author {
+  border-top: 2px solid var(--tc-primary);
+  padding-top: var(--tc-space-lg);
+}
+
+.tc-testimonial-name {
+  font-weight: 700;
+  color: var(--tc-navy);
+  margin-bottom: var(--tc-space-xs);
+}
+
+.tc-testimonial-details {
+  font-size: var(--tc-font-small);
+  color: var(--tc-primary);
+  font-weight: 600;
+}
+
+/* Hero Section Pattern */
+.tc-hero {
+  background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%);
+  padding: calc(var(--tc-space-4xl) * 1.5) 0;
+  text-align: center;
+}
+
+.tc-hero-title {
+  font-size: var(--tc-font-hero);
+  font-weight: 800;
+  color: var(--tc-navy);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-shadow: 0 1px 2px rgba(0, 47, 61, 0.1);
+  margin-bottom: var(--tc-space-xl);
+}
+
+.tc-hero-subtitle {
+  font-size: var(--tc-font-body-xl);
+  line-height: 1.7;
+  font-weight: 300;
+  color: #666;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Conversion Section Pattern */
+.tc-conversion-section {
+  background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 30%, #2C5F5F 70%, #1A4B52 100%);
+  padding: var(--tc-space-4xl) 0;
+  text-align: center;
+  color: white;
+}
+
+.tc-conversion-title {
+  font-size: var(--tc-font-h1);
+  font-weight: 700;
+  margin-bottom: var(--tc-space-lg);
+}
+
+.tc-conversion-text {
+  font-size: var(--tc-font-body-lg);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: var(--tc-space-2xl);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================
+   3. MOBILE-FIRST RESPONSIVE SYSTEM
+   ========================================= */
+
+@media (max-width: 768px) {
+  /* Mobile Typography Adjustments */
+  :root {
+    --tc-font-hero: 2.5rem;
+    --tc-font-h1: 2rem;
+    --tc-font-h2: 1.5rem;
+    --tc-font-h3: 1.25rem;
+  }
+  
+  /* Mobile Button Adjustments */
+  .tc-btn {
+    padding: var(--tc-space-lg) var(--tc-space-xl);
+    font-size: var(--tc-font-body);
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  /* Mobile Card Stack */
+  .tc-card {
+    margin-bottom: var(--tc-space-xl);
+  }
+  
+  /* Mobile Social Proof */
+  .tc-social-proof {
+    gap: var(--tc-space-xl);
+    padding: var(--tc-space-xl) var(--tc-space-md);
+  }
+  
+  /* Mobile Testimonial */
+  .tc-testimonial {
+    padding: var(--tc-space-xl);
+  }
+  
+  /* Mobile Hero */
+  .tc-hero {
+    padding: var(--tc-space-3xl) var(--tc-space-md);
+  }
+  
+  /* Mobile Conversion Section */
+  .tc-conversion-section {
+    padding: var(--tc-space-3xl) var(--tc-space-md);
+  }
+}
+
+/* =========================================
+   4. ANIMATION LIBRARY
+   ========================================= */
+
+@keyframes tc-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tc-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tc-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes tc-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(98, 208, 201, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(98, 208, 201, 0.5);
+  }
+}
+
+/* Animation Utilities */
+.tc-animate-fade-in {
+  animation: tc-fade-in 0.6s ease forwards;
+}
+
+.tc-animate-slide-in {
+  animation: tc-slide-in-right 0.6s ease forwards;
+}
+
+.tc-animate-pulse {
+  animation: tc-pulse 2s ease infinite;
+}
+
+.tc-animate-glow {
+  animation: tc-glow 3s ease infinite;
+}
+
+/* =========================================
+   5. UTILITY CLASSES
+   ========================================= */
+
+/* Text Utilities */
+.tc-text-center { text-align: center; }
+.tc-text-left { text-align: left; }
+.tc-text-right { text-align: right; }
+
+.tc-text-primary { color: var(--tc-primary); }
+.tc-text-navy { color: var(--tc-navy); }
+.tc-text-white { color: white; }
+.tc-text-muted { color: #666; }
+
+/* Spacing Utilities */
+.tc-m-0 { margin: 0; }
+.tc-mt-1 { margin-top: var(--tc-space-sm); }
+.tc-mt-2 { margin-top: var(--tc-space-md); }
+.tc-mt-3 { margin-top: var(--tc-space-lg); }
+.tc-mt-4 { margin-top: var(--tc-space-xl); }
+.tc-mt-5 { margin-top: var(--tc-space-2xl); }
+
+.tc-mb-1 { margin-bottom: var(--tc-space-sm); }
+.tc-mb-2 { margin-bottom: var(--tc-space-md); }
+.tc-mb-3 { margin-bottom: var(--tc-space-lg); }
+.tc-mb-4 { margin-bottom: var(--tc-space-xl); }
+.tc-mb-5 { margin-bottom: var(--tc-space-2xl); }
+
+.tc-p-1 { padding: var(--tc-space-sm); }
+.tc-p-2 { padding: var(--tc-space-md); }
+.tc-p-3 { padding: var(--tc-space-lg); }
+.tc-p-4 { padding: var(--tc-space-xl); }
+.tc-p-5 { padding: var(--tc-space-2xl); }
+
+/* Display Utilities */
+.tc-hidden { display: none; }
+.tc-block { display: block; }
+.tc-inline-block { display: inline-block; }
+.tc-flex { display: flex; }
+.tc-inline-flex { display: inline-flex; }
+
+/* Flex Utilities */
+.tc-justify-center { justify-content: center; }
+.tc-justify-between { justify-content: space-between; }
+.tc-align-center { align-items: center; }
+.tc-flex-wrap { flex-wrap: wrap; }
+.tc-gap-1 { gap: var(--tc-space-sm); }
+.tc-gap-2 { gap: var(--tc-space-md); }
+.tc-gap-3 { gap: var(--tc-space-lg); }
+
+/* Border Utilities */
+.tc-border { border: 1px solid rgba(98, 208, 201, 0.2); }
+.tc-border-top { border-top: 1px solid rgba(98, 208, 201, 0.2); }
+.tc-border-bottom { border-bottom: 1px solid rgba(98, 208, 201, 0.2); }
+
+/* Shadow Utilities */
+.tc-shadow-sm { box-shadow: var(--tc-shadow-sm); }
+.tc-shadow-md { box-shadow: var(--tc-shadow-md); }
+.tc-shadow-lg { box-shadow: var(--tc-shadow-lg); }
+.tc-shadow-xl { box-shadow: var(--tc-shadow-xl); }
+.tc-shadow-2xl { box-shadow: var(--tc-shadow-2xl); }
+.tc-shadow-glow { box-shadow: var(--tc-shadow-glow); }
+
+/* Hover State Utilities */
+.tc-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--tc-shadow-xl);
+}
+
+.tc-hover-glow:hover {
+  box-shadow: var(--tc-shadow-glow);
+}
+
+.tc-hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================
+   6. ACCESSIBILITY ENHANCEMENTS
+   ========================================= */
+
+/* Focus States */
+.tc-btn:focus,
+.tc-card:focus,
+a:focus {
+  outline: 3px solid var(--tc-primary);
+  outline-offset: 2px;
+}
+
+/* Skip Links */
+.tc-skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--tc-navy);
+  color: white;
+  padding: var(--tc-space-md);
+  text-decoration: none;
+  z-index: var(--tc-z-toast);
+}
+
+.tc-skip-link:focus {
+  top: 0;
+}
+
+/* Screen Reader Only */
+.tc-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .tc-btn-primary {
+    border: 2px solid white;
+  }
+  
+  .tc-card {
+    border: 2px solid var(--tc-navy);
+  }
+}

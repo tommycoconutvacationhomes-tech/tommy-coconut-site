@@ -7,6 +7,7 @@
     <meta name="description" content="Discover how Tommy Coconut engineers the perfect vacation through our 6-Scene experience. From pre-arrival planning to the fond farewell, every moment is crafted for perfection.">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -31,7 +32,7 @@
             <ul class="nav-menu-left">
                 <li><a href="rentals.html">Rentals</a></li>
                 <li><a href="experiences.html" class="active">Experiences</a></li>
-                <li><a href="about.html">Our Story</a></li>
+                <li><a href="about.html">Meet the Clan</a></li>
             </ul>
             
             <!-- Centered Logo -->
@@ -43,11 +44,10 @@
             
             <!-- Right Menu -->
             <ul class="nav-menu-right">
-                <li><a href="cartel.html">Cartel</a></li>
+                <li><a href="clan.html">Clan</a></li>
                 <li><a href="blog.html">Guide</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="treasure-map.html" class="nav-book-btn">Book Now</a></li>
             </ul>
             
             <!-- Mobile Menu Toggle -->
@@ -63,115 +63,142 @@
         <div class="container">
             <div class="content-spotlight">
                 <h1 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(3.2rem, 6vw, 4.5rem); color: var(--dark-navy); letter-spacing: -0.02em; line-height: 1.1; text-shadow: 0 1px 2px rgba(0, 47, 61, 0.1); margin-bottom: var(--space-8);">The Art of a Perfect Vacation</h1>
-                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 300; color: var(--text-secondary); max-width: 900px; margin: 0 auto;">A great vacation isn't accidental. It's engineered. We've spent years perfecting every moment of your journey, removing every point of friction so you can focus on what matters: creating memories that last a lifetime. The answer is our 6-Scene Experience.</p>
+                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 300; color: var(--text-secondary); max-width: 900px; margin: 0 auto;">A great vacation isn't accidental. It's engineered. While others leave their trips to chance, we've spent years perfecting the art of the flawless getaway. Experience our 6-Scene journey that transforms ordinary travelers into lifelong members of the Coconut Clan.</p>
             </div>
         </div>
     </section>
 
-    <!-- 6 Scenes Deep Dive -->
-    <section class="scenes-deep-dive">
-        <div class="container">
-            <div class="scene-item">
-                <div class="scene-visual">
-                    <img src="images/scenes/scene-1-overture.png" alt="The Overture - Pre-arrival planning and personalized communication">
+    <!-- Social Proof Bar -->
+    <div class="tc-social-proof">
+        <div class="tc-social-proof-item">
+            <div class="tc-social-proof-number">1,247+</div>
+            <div class="tc-social-proof-label">Happy Guests</div>
+        </div>
+        <div class="tc-social-proof-item">
+            <div class="tc-social-proof-number">98%</div>
+            <div class="tc-social-proof-label">Would Recommend</div>
+        </div>
+        <div class="tc-social-proof-item">
+            <div class="tc-social-proof-number">4.9★</div>
+            <div class="tc-social-proof-label">Average Rating</div>
+        </div>
+        <div class="tc-social-proof-item">
+            <div class="tc-social-proof-number">6</div>
+            <div class="tc-social-proof-label">Perfect Scenes</div>
+        </div>
+    </div>
+
+    <!-- Dynamic 6 Scenes Journey -->
+    <section class="scenes-journey">
+        <!-- Scene 1: The Overture (Text Left, Image Right) -->
+        <div class="container" style="margin-bottom: var(--space-16);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; min-height: 500px;">
+                <div style="padding-right: var(--space-8);">
+                    <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 1: The Overture</h2>
+                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary);">Your experience begins weeks before arrival with proactive communication and personalized planning. We don't wait for you to ask questions — we anticipate your needs and reach out with helpful tips, local insights, and personalized recommendations. By the time you arrive, you'll already feel like a local.</p>
                 </div>
-                <div class="scene-content">
-                    <h2>Scene 1: The Overture</h2>
-                    <p>Your experience begins weeks before arrival with proactive communication and personalized planning. We don't wait for you to ask questions — we anticipate your needs and reach out with helpful tips, local insights, and personalized recommendations. By the time you arrive, you'll already feel like a local.</p>
+                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
+                    <img src="images/scenes/scene-1-overture.png" alt="The Overture - Pre-arrival planning and personalized communication" style="width: 100%; height: 400px; object-fit: cover;">
                 </div>
             </div>
+        </div>
 
-            <div class="scene-item reverse">
-                <div class="scene-visual">
-                    <img src="images/scenes/scene-2-overture.png" alt="The Welcome - Stress-free airport arrival with personal greeting">
+        <!-- Scene 2: The Welcome (Image Left, Text Right) -->
+        <div class="container" style="margin-bottom: var(--space-16);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; min-height: 500px;">
+                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
+                    <img src="images/scenes/scene-2-overture.png" alt="The Welcome - Stress-free airport arrival with personal greeting" style="width: 100%; height: 400px; object-fit: cover;">
                 </div>
-                <div class="scene-content">
-                    <h2>Scene 2: The Welcome</h2>
-                    <p>Land and relax. We greet you at the airport with a cold drink and a warm smile. No taxi lines, no stress. Your vehicle is waiting, your villa is prepared, and your adventure is about to begin. From the moment you step off the plane, you're in our care.</p>
+                <div style="padding-left: var(--space-8);">
+                    <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 2: The Welcome</h2>
+                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary);">Land and relax. We greet you at the airport with a cold drink and a warm smile. No taxi lines, no stress. Your vehicle is waiting, your villa is prepared, and your adventure is about to begin. From the moment you step off the plane, you're in our care.</p>
                 </div>
             </div>
+        </div>
 
-            <div class="scene-item">
-                <div class="scene-visual">
-                    <img src="images/scenes/scene-3-overture.png" alt="The Reveal - Immaculate property arrival with personal welcome">
-                </div>
-                <div class="scene-content">
-                    <h2>Scene 3: The Reveal</h2>
-                    <p>Arrive at your immaculate villa or apartment, complete with a personal welcome and a chilled coconut waiting for you. Every detail has been considered — from the perfect temperature to the fresh flowers, from the stocked fridge to the personalized welcome note. This isn't just a place to stay; it's your home in paradise.</p>
+        <!-- Scene 3: The Reveal (Full-width cinematic with overlay) -->
+        <div style="position: relative; height: 70vh; min-height: 600px; background-image: url('images/scenes/scene-3-overture.png'); background-size: cover; background-position: center; background-attachment: fixed; margin-bottom: var(--space-16);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26, 60, 52, 0.7), rgba(26, 60, 52, 0.5)); display: flex; align-items: center; justify-content: center;">
+                <div class="container" style="text-align: center; color: white;">
+                    <h2 style="font-size: clamp(3rem, 5vw, 4.5rem); font-weight: var(--font-weight-bold); margin-bottom: var(--space-6); line-height: 1.1; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Scene 3: The Reveal</h2>
+                    <p style="font-size: clamp(1.25rem, 2.5vw, 1.5rem); line-height: 1.6; max-width: 800px; margin: 0 auto; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">Arrive at your immaculate villa or apartment, complete with a personal welcome and a chilled coconut waiting for you. Every detail has been considered — from the perfect temperature to the fresh flowers, from the stocked fridge to the personalized welcome note. This isn't just a place to stay; it's your home in paradise.</p>
                 </div>
             </div>
+        </div>
 
-            <div class="scene-item reverse">
-                <div class="scene-visual">
-                    <img src="images/scenes/scene-4-overture.png" alt="Freedom with a Safety Net - Iconic vehicle and exploration freedom">
-                </div>
-                <div class="scene-content">
-                    <h2>Scene 4: Freedom, with a Safety Net</h2>
-                    <p>This is where your adventure becomes your own. The keys to an iconic vehicle are in your hand, giving you the freedom to explore. But true freedom isn't just about having a map; it's knowing you have a guide. You can explore with total confidence because the Tommy Coconut family is always in your pocket. A quick WhatsApp message for a restaurant tip, a connection to a local fisherman, or even a guide for a dog-led flamingo hike. You can surrender to the moment, knowing we have your back. That's the security that makes the adventure possible.</p>
-                </div>
-            </div>
-
-            <div class="scene-item">
-                <div class="scene-visual">
-                    <div class="scene5-dual-images">
-                        <img src="images/scenes/scene-5-overture.png" alt="The Twin Peaks - Private boat adventure and snorkeling" class="scene5-image active">
-                        <img src="images/scenes/scene-6-overture.png" alt="The Twin Peaks - Friday Family Cruise community experience" class="scene5-image">
+        <!-- Testimonial Section (Immediately after Scene 3) -->
+        <div class="container" style="margin-bottom: var(--space-16);">
+            <div style="text-align: center; margin-bottom: var(--space-12);">
+                <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-8);">They Felt The Difference...</h2>
+                <div style="background: var(--surface); border-radius: var(--radius-2xl); padding: var(--space-12); box-shadow: var(--shadow-xl); max-width: 800px; margin: 0 auto; border: 1px solid rgba(0, 207, 207, 0.08);">
+                    <div style="margin-bottom: var(--space-6);">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto; display: block;">
+                            <path d="M14 20C14 16.6863 16.6863 14 20 14H24C27.3137 14 30 16.6863 30 20V28C30 31.3137 27.3137 34 24 34H20C16.6863 34 14 31.3137 14 28V20Z" fill="#1A3C34" opacity="0.1"/>
+                            <path d="M18 18C18 16.8954 18.8954 16 20 16H22C23.1046 16 24 16.8954 24 18V26C24 27.1046 23.1046 28 22 28H20C18.8954 28 18 27.1046 18 26V18Z" fill="#1A3C34" opacity="0.3"/>
+                            <path d="M26 18C26 16.8954 26.8954 16 28 16H30C31.1046 16 32 16.8954 32 18V26C32 27.1046 31.1046 28 30 28H28C26.8954 28 26 27.1046 26 26V18Z" fill="#1A3C34" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <blockquote style="font-size: var(--text-xl); line-height: 1.6; color: var(--text-primary); margin-bottom: var(--space-6); font-style: italic;">
+                        "Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."
+                    </blockquote>
+                    <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: var(--space-6) 0;"></div>
+                    <div style="text-align: center;">
+                        <strong style="color: var(--dark-navy); font-size: var(--text-lg);">The Johnson Family</strong><br>
+                        <span style="color: var(--text-secondary); font-size: var(--text-base);">5th time guests, now part of the Coconut Clan</span>
                     </div>
                 </div>
-                <div class="scene-content">
-                    <h2>Scene 5: The Twin Peaks: Adventure & Community</h2>
-                    <p>Every great story has a climax—yours has two. The highlight of your trip will be your Private Boat Adventure, a day of breathtaking snorkeling and exploring hidden coves, tailored just for you. Then, you'll join the Friday Family Cruise, our legendary sunset tradition. It's more than a tour; it's where you become part of the 'Coconut Cartel,' sharing stories and drinks as the sun dips below the horizon. One peak is for pure adventure; the other is for pure connection.</p>
+            </div>
+        </div>
+
+        <!-- Scene 4: Freedom, with a Safety Net (Text Left, Image Right) -->
+        <div class="container" style="margin-bottom: var(--space-16);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; min-height: 500px;">
+                <div style="padding-right: var(--space-8);">
+                    <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 4: Freedom, with a Safety Net</h2>
+                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary);">This is where your adventure becomes your own. The keys to an iconic vehicle are in your hand, giving you the freedom to explore. But true freedom isn't just about having a map; it's knowing you have a guide. You can explore with total confidence because the Tommy Coconut family is always in your pocket. A quick WhatsApp message for a restaurant tip, a connection to a local fisherman, or even a guide for a dog-led flamingo hike. You can surrender to the moment, knowing we have your back. That's the security that makes the adventure possible.</p>
+                </div>
+                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
+                    <img src="images/scenes/scene-4-overture.png" alt="Freedom with a Safety Net - Iconic vehicle and exploration freedom" style="width: 100%; height: 400px; object-fit: cover;">
                 </div>
             </div>
+        </div>
 
-            <div class="scene-item reverse">
-                <div class="scene-visual">
-                    <img src="images/scenes/scene-6-overture.png" alt="The Fond Farewell - Departure with new friends and return plans">
+        <!-- Scene 5: The Twin Peaks (Two-image grid with text below) -->
+        <div class="container" style="margin-bottom: var(--space-16);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-bottom: var(--space-12);">
+                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
+                    <img src="images/scenes/scene-5-overture.png" alt="The Twin Peaks - Private boat adventure and snorkeling" style="width: 100%; height: 350px; object-fit: cover;">
                 </div>
-                <div class="scene-content">
-                    <h2>Scene 6: The Fond Farewell</h2>
-                    <p>Leave with more than a tan. You leave with new friends and a plan to return. The goodbye hugs, the promises to stay in touch, the knowledge that you've found your place in the world. This isn't the end of your story with Tommy Coconut — it's just the beginning.</p>
+                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
+                    <img src="images/scenes/scene-6-overture.png" alt="The Twin Peaks - Friday Family Cruise community experience" style="width: 100%; height: 350px; object-fit: cover;">
+                </div>
+            </div>
+            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 5: The Twin Peaks: Adventure & Community</h2>
+                <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary);">Every great story has a climax—yours has two. The highlight of your trip will be your Private Boat Adventure, a day of breathtaking snorkeling and exploring hidden coves, tailored just for you. Then, you'll join the Friday Family Cruise, our legendary sunset tradition. It's more than a tour; it's where you become part of the 'Coconut Clan,' sharing stories and drinks as the sun dips below the horizon. One peak is for pure adventure; the other is for pure connection.</p>
+            </div>
+        </div>
+
+        <!-- Scene 6: The Fond Farewell (Image Left, Text Right) -->
+        <div class="container" style="margin-bottom: var(--space-16);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; min-height: 500px;">
+                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
+                    <img src="images/scenes/scene-6-overture.png" alt="The Fond Farewell - Departure with new friends and return plans" style="width: 100%; height: 400px; object-fit: cover;">
+                </div>
+                <div style="padding-left: var(--space-8);">
+                    <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 6: The Fond Farewell</h2>
+                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary);">Leave with more than a tan. You leave with new friends and a plan to return. The goodbye hugs, the promises to stay in touch, the knowledge that you've found your place in the world. This isn't the end of your story with Tommy Coconut — it's just the beginning.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Separator -->
-    <div class="section-separator"></div>
-
-    <!-- Relatability Gold Testimonial -->
-    <section class="testimonial-section">
+    <!-- Final Call to Action - Single Powerful Element -->
+    <section style="background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 30%, #2C5F5F 70%, #1A4B52 100%); padding: var(--space-20) 0; text-align: center;">
         <div class="container">
-            <div class="testimonial-block">
-                <div class="quote-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 20C14 16.6863 16.6863 14 20 14H24C27.3137 14 30 16.6863 30 20V28C30 31.3137 27.3137 34 24 34H20C16.6863 34 14 31.3137 14 28V20Z" fill="#1A3C34" opacity="0.1"/>
-                        <path d="M18 18C18 16.8954 18.8954 16 20 16H22C23.1046 16 24 16.8954 24 18V26C24 27.1046 23.1046 28 22 28H20C18.8954 28 18 27.1046 18 26V18Z" fill="#1A3C34" opacity="0.3"/>
-                        <path d="M26 18C26 16.8954 26.8954 16 28 16H30C31.1046 16 32 16.8954 32 18V26C32 27.1046 31.1046 28 30 28H28C26.8954 28 26 27.1046 26 26V18Z" fill="#1A3C34" opacity="0.3"/>
-                    </svg>
-                </div>
-                <blockquote>
-                    Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation.
-                </blockquote>
-                <div class="testimonial-separator"></div>
-                <div class="testimonial-author">
-                    <strong>The Johnson Family</strong>
-                    <span>5th time guests, now part of the Coconut Cartel</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final Conversion -->
-    <section class="final-conversion">
-        <div class="container">
-            <div class="section-header">
-                <h2>Ready to Star in Your Own Story?</h2>
-                <p class="section-subtitle">Your perfect vacation is waiting to be scripted. Check your dates and let us begin crafting your unforgettable Curaçao experience.</p>
-            </div>
-            <div class="conversion-cta">
-                <a href="rentals.html" class="btn btn-primary">CHECK AVAILABILITY & BOOK YOUR EXPERIENCE</a>
-            </div>
+            <h2 style="font-size: clamp(3rem, 5vw, 4.5rem); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-6); line-height: 1.1;">Your Story is Waiting to be Written.</h2>
+            <p style="font-size: clamp(1.25rem, 2.5vw, 1.5rem); color: rgba(255, 255, 255, 0.9); line-height: 1.6; max-width: 800px; margin: 0 auto var(--space-12); font-weight: 300;">We've scripted the perfect vacation. Now it's your turn to be the star. Check your dates and let us begin crafting your unforgettable Curaçao experience.</p>
+            <a href="treasure-map.html" class="cta-primary" style="display: inline-block; background: rgba(255, 255, 255, 0.95); color: var(--primary); font-size: clamp(1.125rem, 2vw, 1.25rem); font-weight: var(--font-weight-semibold); padding: var(--space-5) var(--space-10); border-radius: var(--radius-full); text-decoration: none; transition: all var(--transition-normal); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.1);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 40px rgba(0, 0, 0, 0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.2)'">Check Availability & Start Your Story</a>
         </div>
     </section>
 
@@ -188,7 +215,7 @@
                     <ul>
                         <li><a href="rentals.html">Vacation Rentals</a></li>
                         <li><a href="experiences.html">The Experience</a></li>
-                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html">Meet the Clan</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -203,7 +230,7 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Join the Coconut Cartel</h4>
+                    <h4>Join the Coconut Clan</h4>
                     <p>Get insider tips & exclusive offers</p>
                     <form class="newsletter-form">
                         <input type="email" placeholder="Your email address" required>
