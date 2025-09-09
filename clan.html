@@ -42,7 +42,7 @@
             <ul class="nav-menu-left">
                 <li><a href="rentals.html">Rentals</a></li>
                 <li><a href="experiences.html">Experiences</a></li>
-                <li><a href="about.html">Meet the Clan</a></li>
+                <li><a href="clan.html" class="active">Meet the Clan</a></li>
             </ul>
             
             <!-- Centered Logo -->
@@ -56,8 +56,13 @@
             <ul class="nav-menu-right">
                 <li><a href="clan.html" class="active">Clan</a></li>
                 <li><a href="blog.html">Guide</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-dropdown">
+                    <a href="contact.html">Contact</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="contact.html">Contact Us</a>
+                        <a href="faq.html">FAQ</a>
+                    </div>
+                </li>
             </ul>
             
             <!-- Mobile Menu Toggle -->
@@ -324,6 +329,23 @@
         </div>
     </section>
 
+    <!-- Our Family's Promise, in Action -->
+    <section class="section" style="background: linear-gradient(135deg, #F8FFFE 0%, #E8F8F6 100%);">
+        <div class="container">
+            <div class="content-spotlight" style="text-align: center;">
+                <h2 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--dark-navy); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: var(--space-8);">Our Family's Promise, in Action.</h2>
+                <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; max-width: 700px; margin: 0 auto var(--space-10) auto;">Our family's obsession with perfection is what makes your stay feel so effortless. To understand the soul of our brand, here's a look at the philosophy behind our signature 'perfect arrival.'</p>
+                <a href="the-art-of-perfect-arrival.html" 
+                   class="cta-secondary"
+                   style="display: inline-block; background: transparent; color: var(--dark-navy); border: 2px solid var(--dark-navy); padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: var(--text-base); letter-spacing: 0.025em; transition: all 0.3s ease; text-transform: uppercase;"
+                   onmouseover="this.style.background='var(--dark-navy)'; this.style.color='white'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0, 47, 61, 0.25)'"
+                   onmouseout="this.style.background='transparent'; this.style.color='var(--dark-navy)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    Read the Story
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Member Benefits -->
     <section class="section" style="background: var(--surface);">
         <div class="container">
@@ -440,7 +462,7 @@
             <div class="chapter-content">
                 <div class="chapter-text">
                     <h3>The Ultimate Chapter in Your Story</h3>
-                    <p>For our most dedicated Clan members who have truly found their home in Curaçao, the journey doesn't have to end. We offer a limited number of opportunities to own a piece of paradise through our Fractional Ownership program. It's the ultimate way to make the Dushi Life a permanent part of your own.</p>
+                    <p>For our most dedicated Clan members who have truly found their home in Curaçao, the journey doesn't have to end. We offer a limited number of opportunities to own a piece of paradise through our Fractional Ownership program. It's the ultimate way to make the <span class="dushi-word" data-papiamento="Dushi Life" data-translation="The Good Life. A feeling of sweetness, beauty, and peace.">Dushi Life</span> a permanent part of your own.</p>
                     <div class="chapter-cta">
                         <a href="ownership.html" class="btn btn-secondary">Explore Ownership</a>
                     </div>
@@ -504,6 +526,7 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/dushi-dictionary.js"></script>
     <script src="analytics.js"></script>
 </body>
 </html> 
