@@ -189,22 +189,63 @@
             z-index: var(--tc-z-base);
         }
         
-        /* Article CTA Section */
+        /* Premium Article CTA Section - Tommy Coconut Design System */
         .article-cta {
             margin-top: var(--tc-space-4xl);
-            padding: var(--tc-space-3xl);
-            background: #F4E1C6;
-            border-radius: var(--tc-radius-xl);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                var(--tc-navy) 0%, 
+                #0A1E2A 35%, 
+                #1B3B47 65%, 
+                var(--tc-navy) 100%);
+            padding: var(--tc-space-4xl) var(--tc-space-3xl);
+            border-radius: var(--tc-radius-2xl);
             text-align: center;
-            color: var(--tc-navy);
+            color: white;
+            box-shadow: var(--tc-shadow-2xl);
+        }
+        
+        .article-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(98, 208, 201, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(98, 208, 201, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .article-cta-content {
+            position: relative;
+            z-index: var(--tc-z-base);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .article-cta-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: var(--tc-font-h2);
-            font-weight: 700;
+            font-size: var(--tc-font-h1);
+            font-weight: 800;
             margin: 0 0 var(--tc-space-lg);
-            line-height: 1.3;
+            line-height: 1.2;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, white 0%, rgba(98, 208, 201, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .article-cta-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-body-lg);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin: 0 0 var(--tc-space-2xl);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
         }
         
         .article-cta-button {
@@ -212,22 +253,53 @@
             align-items: center;
             justify-content: center;
             gap: var(--tc-space-sm);
-            padding: var(--tc-space-lg) var(--tc-space-2xl);
-            background: var(--tc-primary);
-            color: var(--tc-navy);
+            padding: var(--tc-space-lg) var(--tc-space-3xl);
+            background: linear-gradient(135deg, var(--tc-primary) 0%, #4FBDB6 100%);
+            color: white;
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             font-size: var(--tc-font-body-lg);
-            font-weight: 600;
+            font-weight: 700;
             border-radius: var(--tc-radius-full);
             transition: all var(--tc-transition-normal);
-            box-shadow: var(--tc-shadow-md);
+            box-shadow: 0 8px 30px rgba(98, 208, 201, 0.4),
+                        0 2px 8px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .article-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+            border-radius: var(--tc-radius-full);
+            opacity: 0;
+            transition: opacity var(--tc-transition-normal);
         }
         
         .article-cta-button:hover {
-            background: var(--tc-primary-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--tc-shadow-lg);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(98, 208, 201, 0.5),
+                        0 4px 12px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .article-cta-button:hover::before {
+            opacity: 1;
+        }
+        
+        .article-cta-button i {
+            font-size: 1.1em;
+            transition: transform var(--tc-transition-normal);
+        }
+        
+        .article-cta-button:hover i {
+            transform: rotate(15deg) scale(1.1);
         }
         
         /* Photo Direction Styling */
@@ -265,7 +337,7 @@
                 padding: var(--tc-space-2xl) var(--tc-space-lg);
             }
         }
-    </style>
+        \n        /* Additional Mobile Styles for New CTA */\n        @media (max-width: 768px) {\n            .article-cta {\n                padding: var(--tc-space-3xl) var(--tc-space-lg) !important;\n                margin-top: var(--tc-space-3xl) !important;\n            }\n            \n            .article-cta-title {\n                font-size: var(--tc-font-h2) !important;\n            }\n            \n            .article-cta-subtitle {\n                font-size: var(--tc-font-body) !important;\n                margin-bottom: var(--tc-space-xl) !important;\n            }\n            \n            .article-cta-button {\n                padding: var(--tc-space-md) var(--tc-space-xl) !important;\n                font-size: var(--tc-font-body) !important;\n                width: 100% !important;\n                max-width: 280px !important;\n            }\n        }\n    </style>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PVETEG7EB4"></script>
@@ -342,16 +414,15 @@
     <!-- Article Content -->
     <article class="article-container">
         <div class="article-body">
-            <!-- Captain Mike Video -->
-            <div class="article-image">
-                <video controls style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
-                    <source src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/1e996a78-468a-45c6-8bae-a2e8d2240989_igvejr" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
             <!-- 1. The Opening: The Hook -->
             <p>You can't truly know a place without knowing its people. At Tommy Coconut, our greatest treasures aren't our villas; they are the relationships we've built with the true custodians of the <span class="dushi-word" data-papiamento="Dushi Life" data-translation="The Good Life. A feeling of sweetness, beauty, and peace.">Dushi Life</span>. Today, we want to introduce you to a vital member of our extended <span class="dushi-word" data-papiamento="Mi famia" data-translation="My family. How we think of our most cherished guests, the Coconut Clan.">famia</span>: Captain Mike.</p>
+
+            <!-- Captain Mike with Guests -->
+            <div class="article-image">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/Generated_Image_September_10_2025_-_3_39PM_j6rmsl" 
+                     alt="Captain Mike sharing a joyful moment with guests on the boat, showcasing the authentic connection of the Friends & Family Cruise" 
+                     style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+            </div>
 
             <!-- 2. The Captain and His Craft (The Character) -->
             <h2>The Captain and His Waters</h2>
@@ -360,11 +431,12 @@
 
             <p>We don't partner with him because he's a "tour operator." We partner with him because when you're on his boat, you feel the authentic, joyful heart of the island. Every wave has a memory. Every coastline holds a tale. And Mike? He's the storyteller who brings it all to life.</p>
 
-            <!-- Captain Mike with Guests -->
+            <!-- Captain Mike Video -->
             <div class="article-image">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/Generated_Image_September_10_2025_-_3_39PM_j6rmsl" 
-                     alt="Captain Mike sharing a joyful moment with guests on the boat, showcasing the authentic connection of the Friends & Family Cruise" 
-                     style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+                <video controls style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+                    <source src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/1e996a78-468a-45c6-8bae-a2e8d2240989_igvejr" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
 
             <!-- 3. The Tommy Coconut Connection (The Proof of Authenticity) -->
@@ -391,13 +463,16 @@
             <p>Welcome to the island, through the eyes of those who call it home.</p>
         </div>
 
-        <!-- Standard Article CTA -->
+        <!-- Premium Tommy Coconut CTA -->
         <section class="article-cta">
-            <h2 class="article-cta-title">Your Story Awaits</h2>
-            <a href="treasure-map.html" class="article-cta-button">
-                <i class="fas fa-compass"></i>
-                Curate Your Perfect Escape
-            </a>
+            <div class="article-cta-content">
+                <h2 class="article-cta-title">Your Story Awaits</h2>
+                <p class="article-cta-subtitle">Join Captain Mike and discover the authentic heart of Curaçao. Let us curate an unforgettable island experience crafted just for you.</p>
+                <a href="treasure-map.html" class="article-cta-button">
+                    <i class="fas fa-compass"></i>
+                    Curate Your Perfect Escape
+                </a>
+            </div>
         </section>
     </article>
 
