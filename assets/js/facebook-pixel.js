@@ -1,7 +1,7 @@
 /**
  * Facebook Pixel Tracking Implementation
  * Tommy Coconut - Advanced Marketing Analytics
- * Pixel ID: 108792360703880
+ * Pixel ID: 2243630632819568
  */
 
 (function() {
@@ -18,7 +18,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     
     // Initialize Pixel with your ID
-    fbq('init', '108792360703880');
+    fbq('init', '2243630632819568');
     
     // Track page view on all pages
     fbq('track', 'PageView');
@@ -209,4 +209,4 @@ window.trackBookingIntent = function(propertyName, checkIn, checkOut, guests) {
     }
 };
 
-console.log('Facebook Pixel initialized with ID: 108792360703880');
+console.log('Facebook Pixel initialized with ID: 2243630632819568');
