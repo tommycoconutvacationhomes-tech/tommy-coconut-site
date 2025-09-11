@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enhanced SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Meet Kim 'Queen of Clean' - the stylist who transforms Tommy Coconut villas into immaculate sanctuaries. Discover how Kim's attention to detail creates your perfect Curaçao oasis.">
+    <meta name="keywords" content="Kim Queen of Clean Tommy Coconut, Curaçao villa styling, luxury accommodation preparation, island insiders, villa management Curaçao, authentic Caribbean hospitality">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://tommycoconut.com/meet-kim/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Island Insiders: Meet Kim 'Queen of Clean', The Villa Stylist | Tommy Coconut">
+    <meta property="og:description" content="Behind every immaculate Tommy Coconut villa is Kim's styling expertise. Meet the queen who transforms accommodations into sanctuaries of perfection.">
+    <meta property="og:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/island-insiders/kim-portrait">
+    <meta property="og:site_name" content="Tommy Coconut">
+    
+    <title>The Island Insiders: Meet Kim 'Queen of Clean', The Villa Stylist | Tommy Coconut</title>
+    
+    <!-- Tommy Coconut Complete Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Article-Specific Styles */
+        .article-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            max-height: 700px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .article-hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .article-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 47, 61, 0.4) 0%,
+                rgba(0, 47, 61, 0.6) 50%,
+                rgba(0, 47, 61, 0.8) 100%
+            );
+        }
+        
+        .article-hero-content {
+            position: relative;
+            z-index: var(--tc-z-base);
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: var(--tc-space-xl);
+        }
+        
+        .article-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-h1);
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .article-byline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-body-lg);
+            font-weight: 400;
+            color: white;
+            opacity: 0.9;
+            margin-top: var(--tc-space-md);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .article-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: var(--tc-space-4xl) var(--tc-space-xl);
+        }
+        
+        .article-body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-body);
+            line-height: 1.8;
+            color: var(--tc-text-primary);
+        }
+        
+        .article-body h2 {
+            font-size: var(--tc-font-h3);
+            font-weight: 600;
+            color: var(--tc-navy);
+            margin: var(--tc-space-2xl) 0 var(--tc-space-lg);
+            line-height: 1.3;
+        }
+        
+        .article-body p {
+            margin-bottom: var(--tc-space-lg);
+        }
+        
+        .article-cta {
+            background: linear-gradient(135deg, var(--tc-navy) 0%, #0A1E2A 35%, #1B3B47 65%, var(--tc-navy) 100%);
+            color: white;
+            text-align: center;
+            padding: var(--tc-space-4xl) var(--tc-space-xl);
+            margin: var(--tc-space-4xl) 0;
+            border-radius: var(--tc-radius-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .article-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .article-cta h3 {
+            font-size: var(--tc-font-h2);
+            font-weight: 700;
+            margin-bottom: var(--tc-space-md);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .article-cta p {
+            font-size: var(--tc-font-body-lg);
+            opacity: 0.9;
+            margin-bottom: var(--tc-space-xl);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .article-cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: var(--tc-space-md) var(--tc-space-2xl);
+            border-radius: var(--tc-radius-full);
+            font-weight: 600;
+            font-size: var(--tc-font-body-lg);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-cta-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2243630632819568');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2243630632819568&ev=PageView&noscript=1"
+    /></noscript>
+</head>
+<body>
+    
+    <!-- Top Banner - Social Proof -->
+    <div class="top-banner">
+        <div class="container">
+            <a href="reviews.html" class="banner-link">
+                <span class="banner-icon">🏖️</span>
+                <span class="banner-text">Over 1,000+ Happy Guests</span>
+                <span class="banner-cta">• Read Reviews</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left Menu -->
+            <ul class="nav-menu-left">
+                <li><a href="rentals.html">Rentals</a></li>
+                <li><a href="experiences.html">The Journey</a></li>
+                <li><a href="about.html">Meet the Family</a></li>
+            </ul>
+            
+            <!-- Centered Logo -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut Logo">
+                </a>
+            </div>
+            
+            <!-- Right Menu -->
+            <ul class="nav-menu-right">
+                <li><a href="clan.html">Clan</a></li>
+                <li><a href="blog.html">Guide</a></li>
+                <li class="nav-dropdown">
+                    <a href="contact.html">Contact</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="contact.html">Contact Us</a>
+                        <a href="faq.html">FAQ</a>
+                    </div>
+                </li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Hero Section -->
+    <section class="article-hero">
+        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/island-insiders/kim-villa-styling" 
+             alt="Kim 'Queen of Clean' perfecting every detail of a luxurious villa setup" 
+             class="article-hero-image">
+        <div class="article-hero-overlay"></div>
+        <div class="article-hero-content">
+            <h1 class="article-title">The Island Insiders: Meet Kim "Queen of Clean", The Villa Stylist</h1>
+            <p class="article-byline">Words by Tommy Coconut | September 2025</p>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="article-container">
+        <div class="article-body">
+            <p>There's a moment in every Tommy Coconut arrival that takes guests by surprise. It's not just that the villa is clean—it's that every detail feels intentionally perfect. The towels aren't just folded, they're sculpted. The welcome amenities aren't just placed, they're composed. The entire space doesn't just look ready, it feels like it was designed specifically for you. That moment is the signature of Kim, known throughout Curaçao as the "Queen of Clean."</p>
+            
+            <p>But calling Kim the "Queen of Clean" undersells her artistry. She's not just maintaining spaces—she's creating sanctuaries. With a background in luxury hotel management and an eye for detail that borders on the supernatural, Kim has elevated villa preparation from a service into an <span class="dushi-word" data-papiamento="arte" data-translation="Art. What Kim brings to every space she touches.">arte</span> form.</p>
+
+            <h2>Beyond Clean: The Science of Sanctuary</h2>
+            
+            <p>"Anyone can make a place clean," Kim explains, adjusting a throw pillow with the precision of a museum curator. "But making a place feel like home—your home—while you're thousands of miles from your actual home? That's <span class="dushi-word" data-papiamento="magi" data-translation="Magic. The unexplainable feeling of perfection.">magi</span>."</p>
+            
+            <p>Kim's process begins days before guest arrival. She studies each guest's preferences, previous stay notes, and even social media to understand their aesthetic sensibilities. A minimalist couple gets clean lines and uncluttered spaces. A family with young children gets soft edges and easily cleanable surfaces strategically positioned. First-time visitors get carefully curated local touches that feel authentic, not touristy.</p>
+            
+            <p>Her checklist reads like a luxury hotel's opening protocol: thread count verification, temperature calibration, scent coordination, lighting optimization, and what she calls "sightline curation"—ensuring that the first thing guests see when they enter each room creates the emotional response she's designed for.</p>
+
+            <h2>The Details That Make the Difference</h2>
+            
+            <p>Walk through a Kim-prepared villa, and you'll notice details that you can't quite put your finger on, but somehow make everything feel perfect. The bathroom mirrors are positioned to catch the best natural light. The bedroom temperature is set exactly two degrees cooler than the rest of the villa (because people sleep better slightly cool, and most guests arrive feeling warm from travel).</p>
+            
+            <p>The welcome basket isn't just stocked—it's choreographed. Local treats are positioned to be discovered gradually. The Tommy Coconut rum is placed at the perfect angle to catch the afternoon light. Even the placement of extra towels follows Kim's "intuitive access" principle: where you'd instinctively look for them is exactly where they'll be.</p>
+            
+            <p>"Most people don't consciously notice the details," Kim says, repositioning a tropical flower arrangement for optimal visual impact. "But subconsciously, they feel everything. When someone walks into a space and immediately feels <span class="dushi-word" data-papiamento="trankil" data-translation="Tranquil, at peace, calm. The ultimate goal of every space Kim prepares.">trankil</span>, that's not accident—that's intention."</p>
+
+            <h2>The Queen's Standards</h2>
+            
+            <p>Kim's reputation as the "Queen of Clean" was earned through standards that go far beyond typical villa management. She operates on what the team calls "Kim Time"—arriving hours earlier than necessary, staying until everything meets not just her standards, but what she imagines the guest's highest expectations might be.</p>
+            
+            <p>Her quality control process involves what she calls "the guest walk-through"—experiencing the space exactly as a guest would, from the moment they first glimpse the entrance to the last thing they'll see before bed. She notes every sensory detail: how the door handle feels, what scents greet you in the entryway, whether the first glimpse of the living space creates excitement or calm.</p>
+            
+            <p>This isn't perfectionism for perfectionism's sake—it's understanding that for many guests, this villa represents their dream vacation, their anniversary getaway, their family's most anticipated trip of the year. "I'm not just preparing a space," Kim reflects. "I'm preparing the stage for people's most important memories."</p>
+
+            <h2>The Heart Behind the Science</h2>
+            
+            <p>What distinguishes Kim from other luxury property managers isn't just her technical excellence—it's her emotional intelligence. She understands that arriving at a vacation rental can be a vulnerable moment. You're in an unfamiliar place, hoping your investment in this experience will pay off in joy, relaxation, and connection.</p>
+            
+            <p>Kim's styling creates what psychologists call "environmental confidence"—the feeling that this space was designed for your comfort and success. Every detail whispers: "You belong here. You're taken care of. You can relax now."</p>
+            
+            <p>It's Kim who notices that repeat guests always gravitate toward the same spot on the balcony, so she ensures that area has the fluffiest cushions and the best view. It's Kim who remembers that certain guests prefer their welcome amenities in the kitchen rather than the bedroom, making the space feel immediately familiar and personalized.</p>
+
+            <h2>Creating the Invisible Infrastructure of Joy</h2>
+            
+            <p>Perhaps Kim's greatest achievement is making her work invisible. Guests don't notice the dozens of hours she spends crafting their environment—they just notice that everything feels exactly right. They don't see the backup systems for backup systems—they just experience seamless comfort.</p>
+            
+            <p>That's the mark of true mastery: when technique disappears and only the experience remains. In Kim's villas, guests don't think about the work that went into their comfort—they just feel at home in paradise.</p>
+            
+            <p>"The Queen of Clean" isn't just a title—it's recognition that Kim has elevated the science of space into the art of <span class="dushi-word" data-papiamento="akogida" data-translation="Welcome. Not just greeting, but embracing with warmth and care.">akogida</span>. Because when you're trusting someone with your most precious vacation memories, nothing less than royal treatment will do.</p>
+        </div>
+    </article>
+
+    <!-- Premium CTA Section -->
+    <section class="article-cta">
+        <h3>Experience Kim's Styling Mastery</h3>
+        <p>Ready to stay in a villa where every detail has been crafted for your comfort? Kim and the Tommy Coconut team are preparing your perfect sanctuary right now.</p>
+        <a href="treasure-map.html" class="article-cta-button">Reserve Your Villa</a>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
+        <div class="container">
+            <!-- Logo & Tagline -->
+            <div style="margin-bottom: var(--space-6);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut Logo" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
+                <p style="color: rgba(255, 255, 255, 0.9); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
+            </div>
+            
+            <!-- Social Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-6);">
+                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            
+            <!-- Quick Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-6); font-size: var(--text-sm);">
+                <a href="rentals.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Rentals</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="experiences.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">The Journey</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="ownership.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Ownership</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="about.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">About</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="contact.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Contact</a>
+            </div>
+            
+            <!-- Copyright -->
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
+                <p style="color: rgba(255, 255, 255, 0.5); font-size: var(--text-sm); margin: 0;">&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dushi-dictionary.js"></script>
+    <script src="assets/js/facebook-pixel.js"></script>
+    <script src="analytics.js"></script>
+    
+    <!-- Initialize Dushi Dictionary -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof initializeDushiDictionary === 'function') {
+                initializeDushiDictionary();
+            }
+        });
+    </script>
+</body>
+</html>
