@@ -24,278 +24,229 @@
     
     <!-- External Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.mini.css">
     
     <style>
-        /* Page-Specific Styles */
-        .comparison-page {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: var(--tc-navy);
+        /* Cinematic Comparison Scroller Styles */
+        .cinematic-comparison-scroller {
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #1A1A1A 100%);
         }
         
-        .page-header {
-            text-align: center;
-            padding: var(--tc-space-4xl) var(--tc-space-xl);
-            background: linear-gradient(135deg, var(--tc-primary-light) 0%, rgba(255, 255, 255, 0.9) 100%);
+        .comparison-track {
+            display: flex;
+            height: 100vh;
+            width: 800vw; /* 8 comparison slides */
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
         }
         
-        .page-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: var(--tc-font-h1);
+        .comparison-slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 3%;
+        }
+        
+        .comparison-content {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: stretch;
+            z-index: 2;
+        }
+        
+        /* Split screen styling */
+        .vacation-side {
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .common-vacation {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.9) 0%, rgba(101, 67, 33, 0.95) 100%);
+            color: rgba(255, 255, 255, 0.95);
+            border-left: 4px solid #8B4513;
+        }
+        
+        .dushi-life {
+            background: linear-gradient(135deg, rgba(0, 207, 207, 0.9) 0%, rgba(26, 60, 52, 0.95) 100%);
+            color: white;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .vacation-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .vacation-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 700;
-            color: var(--tc-navy);
-            margin: 0 0 var(--tc-space-lg);
+            margin-bottom: 1.5rem;
             line-height: 1.2;
         }
         
-        .page-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: var(--tc-font-body-xl);
-            color: var(--tc-navy);
-            margin: 0;
-            opacity: 0.8;
-            font-weight: 400;
+        .vacation-content {
+            font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+            line-height: 1.6;
+            opacity: 0.95;
         }
         
-        .comparison-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--tc-space-4xl) var(--tc-space-xl);
+        .stress-indicator {
+            color: #FF6B6B;
+            font-weight: 600;
         }
         
-        .timeline-headers {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--tc-space-xl);
-            margin-bottom: var(--tc-space-3xl);
+        .bliss-indicator {
+            color: #4ECDC4;
+            font-weight: 600;
         }
         
-        .column-header {
-            text-align: center;
-            padding: var(--tc-space-xl);
-            border-radius: var(--tc-radius-xl);
+        /* Time indicators */
+        .time-stamp {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
         
-        .common-header {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border: 2px solid #dee2e6;
-        }
-        
-        .dushi-header {
-            background: linear-gradient(135deg, var(--tc-primary-light), var(--tc-primary-medium));
-            border: 2px solid var(--tc-primary);
-        }
-        
-        .column-header h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: var(--tc-font-h2);
-            font-weight: 700;
-            margin: 0;
-            color: var(--tc-navy);
-        }
-        
-        .timeline-events {
+        /* Navigation indicators */
+        .comparison-indicator {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: var(--tc-space-4xl);
+            gap: 0.5rem;
+            z-index: 100;
         }
         
-        .timeline-row {
-            display: grid;
-            grid-template-columns: 1fr 60px 1fr;
-            gap: var(--tc-space-lg);
-            align-items: center;
-        }
-        
-        .time-marker {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: var(--tc-primary);
-            color: white;
+        .comparison-dot {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            font-weight: 700;
-            font-size: var(--tc-font-small);
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .comparison-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+        
+        /* Final revelation slide */
+        .revelation-slide {
+            background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 30%, #2C5F5F 70%, #1A4B52 100%);
             text-align: center;
-            position: relative;
-            z-index: var(--tc-z-base);
+            color: white;
+            padding: 0 2rem;
         }
         
-        .time-marker::before {
-            content: '';
-            position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 80px;
-            background: var(--tc-primary);
-            opacity: 0.3;
+        .revelation-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .timeline-row:last-child .time-marker::before {
-            display: none;
+        .revelation-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         
-        .timeline-card {
-            background: white;
-            padding: var(--tc-space-xl);
-            border-radius: var(--tc-radius-lg);
-            box-shadow: var(--tc-shadow-md);
-            transition: all var(--tc-transition-normal);
-            position: relative;
-        }
-        
-        .timeline-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--tc-shadow-lg);
-        }
-        
-        .common-card {
-            border-left: 4px solid #dc3545;
-        }
-        
-        .common-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #dc3545, #ffc107);
-            border-radius: var(--tc-radius-lg) var(--tc-radius-lg) 0 0;
-        }
-        
-        .dushi-card {
-            border-left: 4px solid var(--tc-primary);
-            background: linear-gradient(135deg, rgba(98, 208, 201, 0.02), rgba(255, 255, 255, 1));
-        }
-        
-        .dushi-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--tc-primary), var(--tc-gold));
-            border-radius: var(--tc-radius-lg) var(--tc-radius-lg) 0 0;
-        }
-        
-        .card-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-bottom: var(--tc-space-md);
-            font-size: 20px;
-        }
-        
-        .common-card .card-icon {
-            background: rgba(220, 53, 69, 0.1);
-            color: #dc3545;
-        }
-        
-        .dushi-card .card-icon {
-            background: var(--tc-primary-light);
-            color: var(--tc-primary);
-        }
-        
-        .card-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: var(--tc-font-body-lg);
+        .revelation-text {
+            font-size: clamp(1.1rem, 2vw, 1.375rem);
             line-height: 1.6;
-            margin: 0;
-            color: var(--tc-navy);
+            margin-bottom: 3rem;
+            opacity: 0.9;
         }
         
-        /* Final CTA Section */
-        .final-cta {
-            margin-top: var(--tc-space-4xl);
-            padding: var(--tc-space-4xl);
-            background: linear-gradient(135deg, var(--tc-navy) 0%, var(--tc-navy-light) 100%);
-            border-radius: var(--tc-radius-xl);
-            text-align: center;
-            color: white;
-        }
-        
-        .cta-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: var(--tc-font-h2);
-            font-weight: 700;
-            margin: 0 0 var(--tc-space-lg);
-            line-height: 1.3;
-        }
-        
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--tc-space-sm);
-            padding: var(--tc-space-lg) var(--tc-space-2xl);
-            background: var(--tc-primary);
-            color: var(--tc-navy);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: var(--tc-font-body-lg);
+        .revelation-cta {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.125rem;
             font-weight: 600;
-            border-radius: var(--tc-radius-full);
-            transition: all var(--tc-transition-normal);
-            box-shadow: var(--tc-shadow-md);
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
         }
         
-        .cta-button:hover {
-            background: var(--tc-primary-hover);
+        .revelation-cta:hover {
             transform: translateY(-2px);
-            box-shadow: var(--tc-shadow-lg);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
         }
         
-        /* Responsive Design */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .timeline-headers {
+            .comparison-content {
                 grid-template-columns: 1fr;
-                gap: var(--tc-space-lg);
+                gap: 1rem;
             }
             
-            .timeline-row {
-                grid-template-columns: 1fr;
-                gap: var(--tc-space-lg);
-                text-align: center;
+            .vacation-side {
+                padding: 2rem 1.5rem;
+                min-height: 300px;
             }
             
-            .time-marker {
-                margin: 0 auto;
-            }
-            
-            .time-marker::before {
+            .comparison-indicator {
                 display: none;
             }
-            
-            .comparison-container {
-                padding: var(--tc-space-2xl) var(--tc-space-lg);
-            }
-            
-            .page-header {
-                padding: var(--tc-space-2xl) var(--tc-space-lg);
-            }
+        }
+        
+        /* Icon animations */
+        .stress-icon {
+            color: #FF6B6B;
+            animation: stress-pulse 2s infinite;
+        }
+        
+        .bliss-icon {
+            color: #4ECDC4;
+            animation: bliss-glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes stress-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        @keyframes bliss-glow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
         }
     </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PVETEG7EB4"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PVETEG7EB4');
-    </script>
 </head>
-<body class="comparison-page">
+<body>
+    
     <!-- Top Banner - Social Proof -->
     <div class="top-banner">
         <div class="container">
@@ -307,13 +258,13 @@
         </div>
     </div>
     
-    <!-- Navigation - Baoase-Inspired Split Design -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <!-- Left Menu -->
             <ul class="nav-menu-left">
                 <li><a href="rentals.html">Rentals</a></li>
-                <li><a href="experiences.html">Experiences</a></li>
+                <li><a href="experiences.html">The Journey</a></li>
                 <li><a href="about.html">Meet the Family</a></li>
             </ul>
             
@@ -347,92 +298,244 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header">
-        <h1 class="page-title">A Tale of Two Vacations</h1>
-        <p class="page-subtitle">One is a checklist of tasks. The other is a story. See the difference.</p>
-    </header>
-
-    <!-- Comparison Content -->
-    <main class="comparison-container">
-        <!-- Timeline Column Headers -->
-        <div class="timeline-headers">
-            <div class="column-header common-header">
-                <h2>The Common Vacation</h2>
-            </div>
-            <div class="column-header dushi-header">
-                <h2>The Dushi Life</h2>
+    <section class="section" style="background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%); padding-top: calc(var(--section-padding) * 1.2); text-align: center;" id="main-content">
+        <div class="container">
+            <div class="content-spotlight">
+                <h1 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(3.2rem, 6vw, 4.5rem); color: var(--dark-navy); letter-spacing: -0.02em; line-height: 1.1; text-shadow: 0 1px 2px rgba(0, 47, 61, 0.1); margin-bottom: var(--space-8);">A Tale of Two Vacations</h1>
+                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 300; color: var(--text-secondary); max-width: 900px; margin: 0 auto;">One is a checklist of tasks. The other is a story. Experience the dramatic difference between a common vacation filled with stress and decisions, and the Dushi Life where everything flows effortlessly.</p>
             </div>
         </div>
+    </section>
 
-        <!-- Timeline Events -->
-        <div class="timeline-events">
-            <!-- 9:00 AM -->
-            <div class="timeline-row">
-                <div class="timeline-card common-card">
-                    <div class="card-icon">
-                        <i class="fas fa-map"></i>
+    <!-- The Cinematic Comparison Scroller -->
+    <section class="cinematic-comparison-scroller" id="cinematic-comparison">
+        <div class="comparison-track" id="comparisonTrack">
+            
+            <!-- Slide 1: Morning Arrival -->
+            <div class="comparison-slide">
+                <div class="comparison-content">
+                    <div class="vacation-side common-vacation">
+                        <div class="time-stamp">7:30 AM</div>
+                        <div class="vacation-label">Common Vacation</div>
+                        <h2 class="vacation-title">The Taxi Hunt Begins</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-exclamation-triangle stress-icon" style="margin-right: 0.5rem;"></i>
+                            Land exhausted after the red-eye flight. Stand in a chaotic taxi line for 45 minutes while kids complain and luggage piles up. <span class="stress-indicator">Stress level: Rising</span>. 
+                            <br><br>
+                            Finally get a taxi with a driver who doesn't speak English and doesn't know your rental address. Use broken WiFi to translate directions while traffic crawls through construction.
+                        </div>
                     </div>
-                    <p class="card-text">Debate where to go for the day. Spend 30 minutes searching Google for a "hidden gem."</p>
-                </div>
-                
-                <div class="time-marker">9:00 AM</div>
-                
-                <div class="timeline-card dushi-card">
-                    <div class="card-icon">
-                        <i class="fas fa-coffee"></i>
+                    <div class="vacation-side dushi-life">
+                        <div class="time-stamp">7:30 AM</div>
+                        <div class="vacation-label">The Dushi Life</div>
+                        <h2 class="vacation-title">The Welcome Ceremony</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-heart bliss-icon" style="margin-right: 0.5rem;"></i>
+                            Step off the plane to find Jerimiah holding a sign with your name and a genuine smile. Cold coconut water in hand before you've even processed you're in paradise. 
+                            <br><br>
+                            <span class="bliss-indicator">Trankil level: Maximum</span>. Air-conditioned vehicle waiting, luggage handled, and already receiving insider tips about tonight's perfect sunset spot.
+                        </div>
                     </div>
-                    <p class="card-text">Enjoy a slow coffee on your private terrace, then grab the keys to your included iCar and head to a secluded beach from Tommy's personal map.</p>
                 </div>
             </div>
 
-            <!-- 12:00 PM -->
-            <div class="timeline-row">
-                <div class="timeline-card common-card">
-                    <div class="card-icon">
-                        <i class="fas fa-users"></i>
+            <!-- Slide 2: Accommodation Check-in -->
+            <div class="comparison-slide">
+                <div class="comparison-content">
+                    <div class="vacation-side common-vacation">
+                        <div class="time-stamp">10:00 AM</div>
+                        <div class="vacation-label">Common Vacation</div>
+                        <h2 class="vacation-title">The Key Hunt Drama</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-search stress-icon" style="margin-right: 0.5rem;"></i>
+                            Arrive at rental property. Lockbox code doesn't work. Call owner—goes to voicemail. Wait 30 minutes for callback. <span class="stress-indicator">Anxiety building</span>.
+                            <br><br>
+                            Finally get inside to find: no toilet paper, broken WiFi, dirty dishes, and the AC hasn't been on for weeks. Spend your first 3 hours cleaning and shopping for basics instead of relaxing.
+                        </div>
                     </div>
-                    <p class="card-text">Arrive at a crowded beach. Hunt for a parking spot. Pay $20 for two worn-out beach chairs.</p>
-                </div>
-                
-                <div class="time-marker">12:00 PM</div>
-                
-                <div class="timeline-card dushi-card">
-                    <div class="card-icon">
-                        <i class="fas fa-umbrella-beach"></i>
+                    <div class="vacation-side dushi-life">
+                        <div class="time-stamp">10:00 AM</div>
+                        <div class="vacation-label">The Dushi Life</div>
+                        <h2 class="vacation-title">The Reveal Moment</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-key bliss-icon" style="margin-right: 0.5rem;"></i>
+                            Walk into your immaculate villa where everything is perfect: fresh flowers, welcome note, chilled Tommy Coconut rum waiting. 
+                            <br><br>
+                            Fridge stocked with your favorites (we asked beforehand), AC at perfect temperature, <span class="bliss-indicator">pure luxury</span> from moment one. Your vacation starts now—not after hours of setup.
+                        </div>
                     </div>
-                    <p class="card-text">Arrive at a pristine cove. Unpack your complimentary beach kit, complete with cooler, chairs, and snorkels. Your only neighbor is a pelican.</p>
                 </div>
             </div>
 
-            <!-- 5:00 PM -->
-            <div class="timeline-row">
-                <div class="timeline-card common-card">
-                    <div class="card-icon">
-                        <i class="fas fa-clock"></i>
+            <!-- Slide 3: Beach Day Planning -->
+            <div class="comparison-slide">
+                <div class="comparison-content">
+                    <div class="vacation-side common-vacation">
+                        <div class="time-stamp">11:30 AM</div>
+                        <div class="vacation-label">Common Vacation</div>
+                        <h2 class="vacation-title">The Research Rabbit Hole</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-laptop stress-icon" style="margin-right: 0.5rem;"></i>
+                            Spend 2 hours on Google and TripAdvisor trying to figure out which beaches are worth visiting. Read conflicting reviews. <span class="stress-indicator">Decision fatigue setting in</span>.
+                            <br><br>
+                            Finally pick a beach, rent a car at inflated tourist prices, drive 45 minutes only to find it's crowded, overpriced, and nothing like the photos.
+                        </div>
                     </div>
-                    <p class="card-text">Rush back from the beach to get ready for dinner. Realize you have no reservations and everywhere is booked.</p>
-                </div>
-                
-                <div class="time-marker">5:00 PM</div>
-                
-                <div class="timeline-card dushi-card">
-                    <div class="card-icon">
-                        <i class="fas fa-sun"></i>
+                    <div class="vacation-side dushi-life">
+                        <div class="time-stamp">11:30 AM</div>
+                        <div class="vacation-label">The Dushi Life</div>
+                        <h2 class="vacation-title">The Insider's Secret</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-compass bliss-icon" style="margin-right: 0.5rem;"></i>
+                            Ray texts: "Perfect day for Cas Abao—I've reserved your loungers at the quiet end. Beach bag is packed in your car with snacks and cold drinks."
+                            <br><br>
+                            <span class="bliss-indicator">Zero decisions needed</span>. Drive 15 minutes to a pristine beach where locals nod hello and you feel like you discovered paradise (even though we've orchestrated every detail).
+                        </div>
                     </div>
-                    <p class="card-text">Return from your private boat trip as the sun sets. Your personal concierge has already arranged for a private chef to prepare dinner on your terrace.</p>
                 </div>
             </div>
+
+            <!-- Slide 4: Lunch Dilemma -->
+            <div class="comparison-slide">
+                <div class="comparison-content">
+                    <div class="vacation-side common-vacation">
+                        <div class="time-stamp">1:30 PM</div>
+                        <div class="vacation-label">Common Vacation</div>
+                        <h2 class="vacation-title">The Meal Roulette</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-question-circle stress-icon" style="margin-right: 0.5rem;"></i>
+                            Everyone's hungry and cranky. Find the nearest restaurant—a tourist trap with mediocre food at premium prices. <span class="stress-indicator">Disappointment builds</span>.
+                            <br><br>
+                            Service is slow, food is bland, and you realize you're having the same experience as everyone else who didn't know where locals actually eat.
+                        </div>
+                    </div>
+                    <div class="vacation-side dushi-life">
+                        <div class="time-stamp">1:30 PM</div>
+                        <div class="vacation-label">The Dushi Life</div>
+                        <h2 class="vacation-title">The Local's Table</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-utensils bliss-icon" style="margin-right: 0.5rem;"></i>
+                            Walk into Jaanchie's (the hidden gem we recommended) where Maria greets you by name. "The usual spot is ready," she smiles.
+                            <br><br>
+                            Fresh iguana stew (if you're adventurous) or the perfect fish that was caught this morning. <span class="bliss-indicator">Authentic flavors</span> you'll talk about for years, not just another tourist meal.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Afternoon Activities -->
+            <div class="comparison-slide">
+                <div class="comparison-content">
+                    <div class="vacation-side common-vacation">
+                        <div class="time-stamp">3:00 PM</div>
+                        <div class="vacation-label">Common Vacation</div>
+                        <h2 class="vacation-title">The Activity Scramble</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-clock stress-icon" style="margin-right: 0.5rem;"></i>
+                            Try to book a snorkeling trip—everything's either full or overpriced. Settle for a crowded group tour with 30 other tourists. <span class="stress-indicator">FOMO intensifying</span>.
+                            <br><br>
+                            Wait in line, get herded onto an overcrowded boat, and fight for space at a reef that's been picked clean by previous tour groups.
+                        </div>
+                    </div>
+                    <div class="vacation-side dushi-life">
+                        <div class="time-stamp">3:00 PM</div>
+                        <div class="vacation-label">The Dushi Life</div>
+                        <h2 class="vacation-title">The Captain's Secret Spot</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-anchor bliss-icon" style="margin-right: 0.5rem;"></i>
+                            Captain Mike picks you up in his private boat for your pre-arranged afternoon adventure. Just your family and the crew who've become friends.
+                            <br><br>
+                            <span class="bliss-indicator">Exclusive access</span> to a pristine reef no tour boats know about. Swim with sea turtles while Mike shares stories only locals know.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Evening Plans -->
+            <div class="comparison-slide">
+                <div class="comparison-content">
+                    <div class="vacation-side common-vacation">
+                        <div class="time-stamp">6:00 PM</div>
+                        <div class="vacation-label">Common Vacation</div>
+                        <h2 class="vacation-title">The Sunset Disappointment</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-frown stress-icon" style="margin-right: 0.5rem;"></i>
+                            Rush to a "popular sunset spot" you found online. Arrive to find 200 other tourists with the same idea. <span class="stress-indicator">Overcrowded chaos</span>.
+                            <br><br>
+                            Fight for a view between selfie sticks and tour groups. The sunset is pretty, but the experience is generic—just like everyone else's vacation photos.
+                        </div>
+                    </div>
+                    <div class="vacation-side dushi-life">
+                        <div class="time-stamp">6:00 PM</div>
+                        <div class="vacation-label">The Dushi Life</div>
+                        <h2 class="vacation-title">The Private Theater</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-sun bliss-icon" style="margin-right: 0.5rem;"></i>
+                            Follow TCam's directions to a hidden cove where locals watch the sunset. You're one of only five people here.
+                            <br><br>
+                            Cold drinks from your villa's cooler, <span class="bliss-indicator">front-row seats</span> to nature's daily masterpiece, and the feeling that you've discovered something magical that most visitors never find.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Night Out -->
+            <div class="comparison-slide">
+                <div class="comparison-content">
+                    <div class="vacation-side common-vacation">
+                        <div class="time-stamp">8:00 PM</div>
+                        <div class="vacation-label">Common Vacation</div>
+                        <h2 class="vacation-title">The Tourist Trap Dinner</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-tired stress-icon" style="margin-right: 0.5rem;"></i>
+                            End up at a restaurant near your hotel—expensive, mediocre, and filled with other exhausted tourists comparing notes on their stressful day. <span class="stress-indicator">Energy depleted</span>.
+                            <br><br>
+                            Realize you've spent more time planning, researching, and problem-solving than actually relaxing. Tomorrow will be more of the same.
+                        </div>
+                    </div>
+                    <div class="vacation-side dushi-life">
+                        <div class="time-stamp">8:00 PM</div>
+                        <div class="vacation-label">The Dushi Life</div>
+                        <h2 class="vacation-title">The Family Invitation</h2>
+                        <div class="vacation-content">
+                            <i class="fas fa-glass-cheers bliss-icon" style="margin-right: 0.5rem;"></i>
+                            Britt texts: "Come to Scampi's tonight—I've told Carlos you're family. Ask for the off-menu fish special and tell him I sent you."
+                            <br><br>
+                            <span class="bliss-indicator">VIP treatment everywhere</span>. You're not just tourists—you're temporary locals with insider access to the real Curaçao that most visitors never experience.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: The Revelation -->
+            <div class="comparison-slide revelation-slide">
+                <div class="revelation-content">
+                    <h2 class="revelation-title">The Truth Revealed</h2>
+                    <p class="revelation-text">
+                        One vacation is a series of problems to solve. The other is a story to live. 
+                        <br><br>
+                        The difference isn't just luxury—it's the transformation from tourist to insider, from visitor to family member, from vacation to <span class="dushi-word" data-papiamento="stima" data-translation="To love, to cherish. How we feel about our guests and island.">stima</span>.
+                        <br><br>
+                        Which story do you want to live?
+                    </p>
+                    <a href="treasure-map.html" class="revelation-cta">Choose Your Story</a>
+                </div>
+            </div>
+
         </div>
-
-        <!-- Final CTA Section -->
-        <section class="final-cta">
-            <h2 class="cta-title">Your Story Awaits</h2>
-            <a href="treasure-map.html" class="cta-button">
-                <i class="fas fa-compass"></i>
-                Curate Your Perfect Escape
-            </a>
-        </section>
-    </main>
+        
+        <!-- Comparison Navigation Indicators -->
+        <div class="comparison-indicator">
+            <div class="comparison-dot active" onclick="goToComparisonSlide(0)"></div>
+            <div class="comparison-dot" onclick="goToComparisonSlide(1)"></div>
+            <div class="comparison-dot" onclick="goToComparisonSlide(2)"></div>
+            <div class="comparison-dot" onclick="goToComparisonSlide(3)"></div>
+            <div class="comparison-dot" onclick="goToComparisonSlide(4)"></div>
+            <div class="comparison-dot" onclick="goToComparisonSlide(5)"></div>
+            <div class="comparison-dot" onclick="goToComparisonSlide(6)"></div>
+            <div class="comparison-dot" onclick="goToComparisonSlide(7)"></div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
@@ -463,9 +566,11 @@
             <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-6); font-size: var(--text-sm);">
                 <a href="rentals.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Rentals</a>
                 <span style="color: rgba(255, 255, 255, 0.3);">•</span>
-                <a href="experiences.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Experiences</a>
+                <a href="experiences.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">The Journey</a>
                 <span style="color: rgba(255, 255, 255, 0.3);">•</span>
-                <a href="about.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Meet the Family</a>
+                <a href="ownership.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Ownership</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="about.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">About</a>
                 <span style="color: rgba(255, 255, 255, 0.3);">•</span>
                 <a href="contact.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Contact</a>
             </div>
@@ -481,5 +586,119 @@
     <script src="assets/js/dushi-dictionary.js"></script>
     <script src="assets/js/facebook-pixel.js"></script>
     <script src="analytics.js"></script>
+    
+    <!-- Cinematic Comparison Scroller JavaScript -->
+    <script>
+        let currentComparisonSlide = 0;
+        const totalComparisonSlides = 8;
+        let isComparisonScrolling = false;
+        let comparisonScrollTimeout;
+        
+        const comparisonTrack = document.getElementById('comparisonTrack');
+        const comparisonSection = document.getElementById('cinematic-comparison');
+        const comparisonDots = document.querySelectorAll('.comparison-dot');
+        
+        function updateComparisonPosition() {
+            const translateX = -currentComparisonSlide * 100;
+            comparisonTrack.style.transform = `translateX(${translateX}vw)`;
+            
+            // Update comparison indicators
+            comparisonDots.forEach((dot, index) => {
+                if (index === currentComparisonSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        function goToComparisonSlide(slideIndex) {
+            if (slideIndex >= 0 && slideIndex < totalComparisonSlides) {
+                currentComparisonSlide = slideIndex;
+                updateComparisonPosition();
+            }
+        }
+        
+        // Handle scroll events for comparison
+        function handleComparisonScroll(event) {
+            const comparisonRect = comparisonSection.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            // Check if we're in the comparison section
+            if (comparisonRect.top <= 0 && comparisonRect.bottom > viewportHeight) {
+                // Lock vertical scroll
+                event.preventDefault();
+                
+                if (!isComparisonScrolling) {
+                    isComparisonScrolling = true;
+                    
+                    if (event.deltaY > 0) {
+                        // Scroll down - next slide
+                        if (currentComparisonSlide < totalComparisonSlides - 1) {
+                            currentComparisonSlide++;
+                            updateComparisonPosition();
+                        } else {
+                            // Reached end, allow natural scroll to continue
+                            window.removeEventListener('wheel', handleComparisonScroll);
+                            setTimeout(() => {
+                                window.addEventListener('wheel', handleComparisonScroll, { passive: false });
+                            }, 1000);
+                        }
+                    } else {
+                        // Scroll up - previous slide
+                        if (currentComparisonSlide > 0) {
+                            currentComparisonSlide--;
+                            updateComparisonPosition();
+                        } else {
+                            // At beginning, allow natural scroll to continue
+                            window.removeEventListener('wheel', handleComparisonScroll);
+                            setTimeout(() => {
+                                window.addEventListener('wheel', handleComparisonScroll, { passive: false });
+                            }, 1000);
+                        }
+                    }
+                    
+                    // Reset scrolling flag
+                    clearTimeout(comparisonScrollTimeout);
+                    comparisonScrollTimeout = setTimeout(() => {
+                        isComparisonScrolling = false;
+                    }, 1000);
+                }
+            }
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateComparisonPosition();
+            
+            // Add scroll event listener
+            window.addEventListener('wheel', handleComparisonScroll, { passive: false });
+            
+            // Initialize Dushi Dictionary if available
+            if (typeof initializeDushiDictionary === 'function') {
+                initializeDushiDictionary();
+            }
+        });
+        
+        // Handle keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                if (currentComparisonSlide < totalComparisonSlides - 1) {
+                    currentComparisonSlide++;
+                    updateComparisonPosition();
+                }
+            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                if (currentComparisonSlide > 0) {
+                    currentComparisonSlide--;
+                    updateComparisonPosition();
+                }
+            }
+        });
+        
+        // Handle resize
+        window.addEventListener('resize', function() {
+            updateComparisonPosition();
+        });
+    </script>
 </body>
 </html>

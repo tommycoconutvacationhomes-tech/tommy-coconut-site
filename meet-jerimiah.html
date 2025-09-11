@@ -3,19 +3,19 @@
 <head>
     <!-- Enhanced SEO Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="description" content="Discover the meticulous artistry behind Tommy Coconut's 'Reveal' protocol. How we transform vacation arrivals from anxious checklists into perfect sensory experiences in Curaçao.">
-    <meta name="keywords" content="Tommy Coconut arrival experience, luxury vacation arrival, Curaçao villa welcome, behind the scenes luxury, vacation concierge service, effortless luxury travel">
+    <meta name="description" content="Meet Jerimiah, Driver of the Stars - the trusted navigator who transforms every journey into an island adventure. Discover the man who knows every hidden gem in Curaçao.">
+    <meta name="keywords" content="Jerimiah Driver of the Stars, Tommy Coconut driver, Curaçao transportation, island navigator, luxury travel Curaçao, local expert driver">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://tommycoconut.com/the-art-of-perfect-arrival/">
+    <link rel="canonical" href="https://tommycoconut.com/meet-jerimiah/">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="The Art of the Perfect Arrival: A Look Inside Our 'Reveal' Protocol | Tommy Coconut">
-    <meta property="og:description" content="At Tommy Coconut, we believe the moment you walk through the door isn't the start of your vacation—it's the climax of a story we've been writing since you booked.">
-    <meta property="og:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/insider-guide/perfect-arrival-hero">
+    <meta property="og:title" content="The Island Insiders: Meet Jerimiah, Driver of the Stars | Tommy Coconut">
+    <meta property="og:description" content="Every journey tells a story. Meet Jerimiah, the man who transforms transportation into adventure, making every mile a memory worth keeping.">
+    <meta property="og:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/team/jerimiah-hero">
     <meta property="og:site_name" content="Tommy Coconut">
     
-    <title>The Art of the Perfect Arrival: A Look Inside Our "Reveal" Protocol | Tommy Coconut</title>
+    <title>The Island Insiders: Meet Jerimiah, Driver of the Stars | Tommy Coconut</title>
     
     <!-- Tommy Coconut Complete Styles -->
     <link rel="stylesheet" href="assets/css/main.css">
@@ -56,44 +56,41 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                135deg,
-                rgba(0, 47, 61, 0.4) 0%,
-                rgba(0, 47, 61, 0.6) 50%,
-                rgba(0, 47, 61, 0.8) 100%
-            );
+            background: linear-gradient(to bottom, 
+                rgba(0, 47, 61, 0.3) 0%, 
+                rgba(0, 47, 61, 0.5) 50%, 
+                rgba(0, 47, 61, 0.8) 100%);
+            z-index: 1;
         }
         
         .article-hero-content {
             position: relative;
-            z-index: var(--tc-z-base);
+            z-index: 2;
             text-align: center;
-            color: white;
-            max-width: 800px;
-            padding: var(--tc-space-xl);
+            padding: var(--tc-space-2xl);
+            max-width: 900px;
         }
         
         .article-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: var(--tc-font-h1);
-            font-weight: 700;
-            line-height: 1.2;
-            margin: 0;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: white;
+            margin: 0 0 var(--tc-space-lg);
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
         .article-byline {
             font-family: 'Montserrat', sans-serif;
             font-size: var(--tc-font-body-lg);
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 400;
-            color: white;
-            opacity: 0.9;
-            margin-top: var(--tc-space-md);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
+        /* Article Content Styles */
         .article-container {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
             padding: var(--tc-space-4xl) var(--tc-space-xl);
         }
@@ -101,51 +98,33 @@
         .article-body {
             font-family: 'Montserrat', sans-serif;
             font-size: var(--tc-font-body-lg);
-            line-height: 1.7;
+            line-height: 1.8;
             color: var(--tc-navy);
-        }
-        
-        .article-body p {
-            margin-bottom: var(--tc-space-xl);
         }
         
         .article-body h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: var(--tc-font-h3);
+            font-size: var(--tc-font-h2);
             font-weight: 700;
             color: var(--tc-navy);
-            margin: var(--tc-space-3xl) 0 var(--tc-space-lg);
+            margin: var(--tc-space-3xl) 0 var(--tc-space-xl);
             line-height: 1.3;
         }
         
         .article-body h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: var(--tc-font-body-xl);
+            font-size: var(--tc-font-h3);
             font-weight: 600;
             color: var(--tc-navy);
-            margin: var(--tc-space-2xl) 0 var(--tc-space-md);
+            margin: var(--tc-space-2xl) 0 var(--tc-space-lg);
             line-height: 1.4;
         }
         
-        /* Full-width Image Support */
-        .article-image-full {
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            margin: var(--tc-space-3xl) -50vw;
+        .article-body p {
+            margin-bottom: var(--tc-space-lg);
         }
         
-        .article-image-full img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            display: block;
-        }
-        
-        /* Standard Image Support */
+        /* Article Image Styling */
         .article-image {
             margin: var(--tc-space-2xl) 0;
             border-radius: var(--tc-radius-lg);
@@ -190,7 +169,6 @@
             z-index: var(--tc-z-base);
         }
         
-        /* Article CTA Section */
         /* Premium Article CTA Section - Tommy Coconut Design System */
         .article-cta {
             margin-top: var(--tc-space-4xl);
@@ -286,35 +264,10 @@
             transform: rotate(15deg);
         }
         
-        /* Photo Direction Styling */
-        .photo-direction {
-            background: var(--tc-gold-light);
-            border: 2px dashed var(--tc-gold);
-            border-radius: var(--tc-radius-md);
-            padding: var(--tc-space-lg);
-            margin: var(--tc-space-xl) 0;
-            font-style: italic;
-            color: var(--tc-navy);
-        }
-        
-        /* Responsive Design */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .article-hero {
-                height: 60vh;
-                min-height: 400px;
-            }
-            
             .article-container {
                 padding: var(--tc-space-2xl) var(--tc-space-lg);
-            }
-            
-            .article-body {
-                font-size: var(--tc-font-body);
-            }
-            
-            .article-body blockquote {
-                padding: var(--tc-space-lg);
-                margin: var(--tc-space-2xl) 0;
             }
             
             .article-cta {
@@ -385,81 +338,85 @@
 
     <!-- Article Hero Section -->
     <section class="article-hero">
-        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/IMG_1036_mpd6jm" 
-             alt="Handwritten welcome note beside cold bottle of Tommy Coconut rum with pristine pool in background" 
+        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/team/jerimiah-hero" 
+             alt="Jerimiah behind the wheel, smiling with the confidence of someone who knows every road leads to paradise" 
              class="article-hero-image">
         <div class="article-hero-overlay"></div>
         <div class="article-hero-content">
-            <h1 class="article-title">The Art of the Perfect Arrival: A Look Inside Our "Reveal" Protocol</h1>
-            <p class="article-byline">Words by Tommy Coconut | September 2025</p>
+            <h1 class="article-title">The Island Insiders: Meet Jerimiah, Driver of the Stars</h1>
+            <p class="article-byline">Words by Tommy Coconut | December 2024</p>
         </div>
     </section>
 
     <!-- Article Content -->
     <article class="article-container">
         <div class="article-body">
+            <!-- 1. The Opening: The Hook -->
+            <p>They call him "Driver of the Stars," but Jerimiah would be the first to tell you he's just a man who loves his island and knows its roads like the lines on his hands. In a world of GPS and Google Maps, Jerimiah navigates by memory, by story, and by the kind of intuition that only comes from a lifetime of <span class="dushi-word" data-papiamento="koriendo" data-translation="Driving, running. Moving through life with purpose.">koriendo</span> these sun-soaked streets.</p>
 
-            <!-- 1. The Opening: The Philosophy -->
-            <p>At Tommy Coconut, we believe the moment you walk through the door of your villa isn't the start of your vacation. It's the climax of a story we've been writing for you since the day you booked. We call this story "The Reveal," and we are obsessed with getting it perfect.</p>
-
-            <!-- 2. The "Common Vacation" Arrival (The Problem) -->
-            <h2>The Common Vacation Arrival</h2>
-            <p>For most, arrival is a checklist of anxieties. Fumbling with a lockbox. Discovering the photos were... optimistic. The immediate, desperate run to a crowded grocery store. That is not the <span class="dushi-word" data-papiamento="Dushi Life" data-translation="The Good Life. A feeling of sweetness, beauty, and peace.">Dushi Life</span>.</p>
-
-            <!-- 3. The Anatomy of "The Reveal" (The Proof) -->
-            <h2>The Anatomy of "The Reveal"</h2>
+            <!-- 2. More Than a Driver -->
+            <h2>More Than Just Transportation</h2>
             
-            <h3>The Senses</h3>
-            <p>Your arrival should be a sensory experience. The first thing you'll hear is the soundtrack to your escape—a playlist of our family's favorite island music, playing softly on the Sonos. The first thing you'll taste is paradise itself: a cold bottle of Tommy Coconut rum, waiting for you.</p>
+            <p>When you step into Jerimiah's immaculate vehicle, you're not just getting a ride—you're getting a mobile concierge, a cultural ambassador, and sometimes, a therapist who prescribes beach therapy and <span class="dushi-word" data-papiamento="trankilidad" data-translation="Tranquility, peace. The state of island calm.">trankilidad</span>.</p>
 
-            <!-- Second Picture: Sonos and Tommy Coconut Rum -->
+            <p>"Every guest has a story," Jerimiah says, adjusting his rearview mirror with the precision of a ship's captain setting course. "My job isn't just to get them from point A to point B. It's to understand what kind of journey they need."</p>
+
+            <!-- Jerimiah in Action Image Placeholder -->
             <div class="article-image">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/7ada9e15-5f89-49a0-a1c7-6750c487d190_zva82e" 
-                     alt="Sonos speaker with Tommy Coconut rum bottle creating the perfect arrival atmosphere">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/team/jerimiah-driving" 
+                     alt="Jerimiah sharing island stories with guests during a scenic drive" 
+                     style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
             </div>
 
-            <h3>The Sanctuary</h3>
-            <p>We believe in <span class="dushi-word" data-papiamento="poko stressings" data-translation="No stress. The island way of leaving worries behind.">poko stressings</span>—no stress. That's why your personal concierge ensures the A/C is already humming, the fridge is stocked with the groceries you requested, the beds are perfectly made with our signature bamboo linens, and even the ICAR is already charging for your adventures. Your only job is to <span class="dushi-word" data-papiamento="hala rosea" data-translation="Take a breath. Pause and appreciate the moment.">hala rosea</span>—exhale.</p>
-
-            <!-- Third Picture: Perfect Bedroom Setup -->
-            <div class="article-image">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/5de26963-11e5-42bb-9048-2af3bd6262ec-EDIT_ih8me3" 
-                     alt="Perfectly made bed with bamboo linens and fresh flowers, showcasing villa sanctuary preparation">
-            </div>
-
-            <h3>The Personal Touch</h3>
-            <p>You are not a reservation number. You are family. That's why every arrival is greeted with a handwritten note. If we know you're celebrating an anniversary, there will be champagne. If it's a family trip, we'll have the pool toys ready. It's these small details that turn a stay into a memory.</p>
-
-            <!-- Fourth Picture: Personal Touch Details -->
-            <div class="article-image">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/IMG_4585-EDIT_e4jimj" 
-                     alt="Handwritten welcome note with personal touches showcasing Tommy Coconut's family approach">
-            </div>
+            <!-- 3. The Navigator's Wisdom -->
+            <h2>The Navigator's Secret Knowledge</h2>
+            
+            <p>Ask Jerimiah about the best beach, and he won't give you just one answer. He'll ask: "Are you looking for waves or whispers? Crowds or solitude? Sunset or sunrise?" Because in Jerimiah's world, every beach has its moment, every road has its story, and every journey should match your mood.</p>
 
             <blockquote>
-                <p>This is what we mean by "perfectly scripted." It is the art of obsessing over every detail so that you don't have to think about any of them. Every element is choreographed to create that perfect moment when you step inside and simply... <span class="dushi-word" data-papiamento="Trankil" data-translation="Tranquil, at peace, calm. The ultimate goal of every Dushi Life moment.">trankil</span>.</p>
+                <p>"The tourists, they always want to go to the same five places. But Curaçao? She has a hundred secrets. My job is to match the right secret with the right soul."</p>
             </blockquote>
 
-            <!-- 4. The Closing (The Invitation) -->
-            <h2>Behind Every Effortless Moment</h2>
-            <p>This is what we mean by "perfectly scripted." It is the art of obsessing over every detail so that you don't have to. It's the work we do behind the scenes to ensure your vacation is truly, completely effortless.</p>
+            <p>This is the difference between a driver and Jerimiah. He doesn't just know where the flamingos gather at dawn (though he does). He knows which bakery opens earliest for fresh <span class="dushi-word" data-papiamento="pan bati" data-translation="Johnny cake. A beloved local bread that pairs perfectly with cheese.">pan bati</span>, where the locals go for authentic <span class="dushi-word" data-papiamento="kabritu stoba" data-translation="Stewed goat. A traditional island delicacy.">kabritu stoba</span>, and exactly which unmarked road leads to that hidden cove where the water is so clear you can see your future.</p>
 
-            <p>The Reveal isn't just about a beautiful arrival—it's about understanding that true luxury isn't about showing off. It's about disappearing. It's about creating an experience so seamless, so thoughtfully crafted, that our guests forget they're staying in a rental at all. They're <span class="dushi-word" data-papiamento="Kas" data-translation="House or home. As in, 'Bon bini na bo kas' – Welcome to your home.">kas</span>.</p>
+            <!-- 4. The Tommy Coconut Connection -->
+            <h2>Why Jerimiah Is Family</h2>
+            
+            <p>When Tommy Coconut was looking for someone to ensure our guests' journeys were as memorable as their destinations, we didn't post a job listing. We asked the island: "Who would you trust with your grandmother, your children, and your secrets?" Every finger pointed to Jerimiah.</p>
 
-            <p>Every handwritten note, every perfectly placed bottle of Tommy Coconut rum, every playlist curated just for you—these aren't just touches. They're love letters. They're proof that when you choose Tommy Coconut, you're not just booking a stay. You're joining a family that believes your perfect vacation deserves nothing less than obsessive care.</p>
+            <p>He's the one who remembers that Mrs. Johnson from last year loves to stop at the fruit stand for fresh <span class="dushi-word" data-papiamento="sorsaka" data-translation="Soursop. A tropical fruit with creamy, sweet flesh.">sorsaka</span>. He's the one who keeps a cooler of cold water in the trunk during hot season. He's the one who will take the long way just to show you the sunset from that perfect cliff, timing it so you arrive exactly when the sky explodes in gold.</p>
 
-            <!-- Final Picture: The Complete Experience -->
+            <!-- Jerimiah with Guests Image Placeholder -->
             <div class="article-image">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/IMG_7349_yxuha4" 
-                     alt="The complete Tommy Coconut arrival experience showcasing effortless luxury and family hospitality">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/team/jerimiah-guests" 
+                     alt="Jerimiah helping guests with their luggage, always with his signature warm smile" 
+                     style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
             </div>
+
+            <!-- 5. The Philosophy of the Journey -->
+            <h2>Every Mile Is a Memory</h2>
+            
+            <p>Jerimiah doesn't believe in rushing. "The Americans, they always want to go fast, fast, fast," he says with a gentle laugh. "But in Curaçao, we know: the journey is the destination. Why race past paradise?"</p>
+
+            <p>This philosophy extends to everything he does. He'll stop if you want to photograph that perfect view. He'll wait patiently while you buy fresh coconut water from a roadside vendor. He'll turn the music down when you want to hear the waves, and turn it up when you need to feel the island rhythm in your bones.</p>
+
+            <!-- 6. The Closer -->
+            <h2>The Star Treatment</h2>
+            
+            <p>They say everyone is famous in a small town, but in Jerimiah's vehicle, everyone truly is a star. He treats each guest like visiting royalty—not with stiff formality, but with the genuine warmth of someone who believes every person deserves to feel special.</p>
+
+            <p>This is why we call him Driver of the Stars. Not because he chauffeurs celebrities (though he has stories he'll never tell), but because he makes everyone feel like one. In Jerimiah's care, you're not just another tourist. You're family exploring their island home, with the best guide imaginable at the wheel.</p>
+
+            <blockquote>
+                <p>"When my guests leave, I want them to remember more than just where we went. I want them to remember how Curaçao made them feel. That's the <span class="dushi-word" data-papiamento="dushi" data-translation="Sweet, good, nice. The essence of all things pleasant.">dushi</span> way."</p>
+            </blockquote>
         </div>
 
         <!-- Standard Article CTA -->
         <section class="article-cta">
             <div class="article-cta-content">
-                <h2 class="article-cta-title">Your Story Awaits</h2>
-                <p class="article-cta-subtitle">Experience the art of perfect arrival with Tommy Coconut. Let us transform your Curaçao vacation into an unforgettable story of effortless luxury.</p>
+                <h2 class="article-cta-title">Your Journey Awaits</h2>
+                <p class="article-cta-subtitle">Let Jerimiah and the Tommy Coconut family transform your Curaçao transportation into an unforgettable island adventure.</p>
                 <a href="treasure-map.html" class="article-cta-button">
                     <i class="fas fa-compass"></i>
                     Curate Your Perfect Escape

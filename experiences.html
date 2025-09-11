@@ -3,14 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Experience - Tommy Coconut | The Art of a Perfect Vacation</title>
-    <meta name="description" content="Discover how Tommy Coconut engineers the perfect vacation through our 6-Scene experience. From pre-arrival planning to the fond farewell, every moment is crafted for perfection.">
+    <title>The Journey - Tommy Coconut | The Art of a Perfect Vacation</title>
+    <meta name="description" content="Discover how Tommy Coconut engineers the perfect vacation through our cinematic 6-Scene experience. From pre-arrival planning to the fond farewell, every moment is crafted for perfection.">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/design-system.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Cinematic Horizontal Scroller Styles */
+        .cinematic-scroller {
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 100%);
+        }
+        
+        .scroller-track {
+            display: flex;
+            height: 100vh;
+            width: 700vw; /* 7 slides × 100vw each */
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+        
+        .scene-slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 5%;
+        }
+        
+        .scene-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .scene-text {
+            color: white;
+            z-index: 3;
+        }
+        
+        .scene-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scene-description {
+            font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+            line-height: 1.7;
+            opacity: 0.95;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scene-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        .scene-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        /* Full-screen reveal slide */
+        .reveal-slide {
+            background-image: url('images/scenes/scene-3-overture.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .reveal-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26, 60, 52, 0.7), rgba(26, 60, 52, 0.5));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .reveal-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        
+        /* Testimonial slide styles */
+        .testimonial-slide-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 3rem;
+            color: var(--dark-navy);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-item {
+            opacity: 0;
+            position: absolute;
+            inset: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+        
+        .testimonial-item.active {
+            opacity: 1;
+            position: relative;
+        }
+        
+        /* Navigation indicators */
+        .scroll-indicator {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 100;
+        }
+        
+        .scroll-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+        
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 30%, #2C5F5F 70%, #1A4B52 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .final-cta-content {
+            max-width: 700px;
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .final-cta p {
+            font-size: clamp(1.1rem, 2vw, 1.375rem);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .final-cta-button {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .final-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .scene-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .scene-image {
+                order: -1;
+            }
+            
+            .scene-image img {
+                height: 250px;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     
@@ -25,13 +247,13 @@
         </div>
     </div>
     
-    <!-- Navigation - Baoase-Inspired Split Design -->
+    <!-- Navigation - Refined without Book Now -->
     <nav class="navbar">
         <div class="nav-container">
             <!-- Left Menu -->
             <ul class="nav-menu-left">
                 <li><a href="rentals.html">Rentals</a></li>
-                <li><a href="experiences.html" class="active">Experiences</a></li>
+                <li><a href="experiences.html" class="active">The Journey</a></li>
                 <li><a href="about.html">Meet the Family</a></li>
             </ul>
             
@@ -63,12 +285,13 @@
             </div>
         </div>
     </nav>
-    <!-- Luxury Page Header -->
+
+    <!-- Page Header -->
     <section class="section" style="background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%); padding-top: calc(var(--section-padding) * 1.2); text-align: center;" id="main-content">
         <div class="container">
             <div class="content-spotlight">
                 <h1 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(3.2rem, 6vw, 4.5rem); color: var(--dark-navy); letter-spacing: -0.02em; line-height: 1.1; text-shadow: 0 1px 2px rgba(0, 47, 61, 0.1); margin-bottom: var(--space-8);">The Art of a Perfect Vacation</h1>
-                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 300; color: var(--text-secondary); max-width: 900px; margin: 0 auto;">A great vacation isn't accidental. It's engineered. While others leave their trips to chance, we've spent years perfecting the art of the flawless getaway. Experience our 6-Scene journey that transforms ordinary travelers into lifelong members of the Coconut Clan.</p>
+                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 300; color: var(--text-secondary); max-width: 900px; margin: 0 auto;">A great vacation isn't accidental. It's engineered. While others leave their trips to chance, we've spent years perfecting the art of the flawless getaway. Experience our cinematic 6-Scene journey that transforms ordinary travelers into lifelong members of the Coconut Clan.</p>
             </div>
         </div>
     </section>
@@ -93,224 +316,177 @@
         </div>
     </div>
 
-    <!-- Dynamic 6 Scenes Journey -->
-    <section class="scenes-journey">
-        <!-- Scene 1: The Overture (Text Left, Image Right) -->
-        <div class="container" style="margin-bottom: var(--space-16);">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; min-height: 500px;">
-                <div style="padding-right: var(--space-8);">
-                    <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 1: The Overture</h2>
-                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400;">Your experience begins weeks before arrival with proactive communication and personalized planning. We don't wait for you to ask questions — we anticipate your needs and reach out with helpful tips, local insights, and personalized recommendations. By the time you arrive, you'll already feel like a local.</p>
-                </div>
-                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
-                    <img src="images/scenes/scene-1-overture.png" alt="The Overture - Pre-arrival planning and personalized communication" style="width: 100%; height: 400px; object-fit: cover;">
-                </div>
-            </div>
-        </div>
-
-        <!-- Scene 2: The Welcome (Image Left, Text Right) -->
-        <div class="container" style="margin-bottom: var(--space-16);">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; min-height: 500px;">
-                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
-                    <img src="images/scenes/scene-2-overture.png" alt="The Welcome - Stress-free airport arrival with personal greeting" style="width: 100%; height: 400px; object-fit: cover;">
-                </div>
-                <div style="padding-left: var(--space-8);">
-                    <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 2: The Welcome</h2>
-                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400;">Land and <span class="dushi-word" data-papiamento="trankil" data-translation="Tranquil, at peace, calm. The ultimate goal of every Dushi Life moment.">trankil</span>. We greet you at the airport with a cold drink and a warm smile. No taxi lines, no stress. Your vehicle is waiting, your villa is prepared, and your <span class="dushi-word" data-papiamento="aventura" data-translation="Adventure. What awaits around every Curaçao corner.">aventura</span> is about to begin. From the moment you step off the plane, you're in our care.</p>
+    <!-- The Cinematic Story Scroller -->
+    <section class="cinematic-scroller" id="cinematic-journey">
+        <div class="scroller-track" id="scrollerTrack">
+            
+            <!-- Slide 1: Scene 1 - The Overture -->
+            <div class="scene-slide">
+                <div class="scene-content">
+                    <div class="scene-text">
+                        <h2 class="scene-title">Scene 1: The Overture</h2>
+                        <p class="scene-description">Your experience begins weeks before arrival with proactive communication and personalized planning. We don't wait for you to ask questions — we anticipate your needs and reach out with helpful tips, local insights, and personalized recommendations. By the time you arrive, you'll already feel like a local.</p>
+                    </div>
+                    <div class="scene-image">
+                        <img src="images/scenes/scene-1-overture.png" alt="The Overture - Pre-arrival planning and personalized communication">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- See The Difference CTA -->
-        <div style="background: linear-gradient(135deg, #F8FFFE 0%, #E8F8F6 100%); padding: 4rem 0; margin-bottom: var(--space-16);">
-            <div class="container" style="text-align: center;">
-                <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">See The Difference.</h2>
-                <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400; max-width: 600px; margin: 0 auto var(--space-8) auto;">Want a side-by-side look at how a perfectly scripted day compares to a common vacation? We've created the ultimate comparison.</p>
-                <a href="day-in-the-life.html" 
-                   class="cta-secondary"
-                   style="display: inline-block; background: transparent; color: var(--dark-navy); border: 2px solid var(--dark-navy); padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: var(--text-base); letter-spacing: 0.025em; transition: all 0.3s ease; text-transform: uppercase;"
-                   onmouseover="this.style.background='var(--dark-navy)'; this.style.color='white'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0, 47, 61, 0.25)'"
-                   onmouseout="this.style.background='transparent'; this.style.color='var(--dark-navy)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                    View a Day in the Dushi Life
-                </a>
-            </div>
-        </div>
-
-        <!-- Scene 3: The Reveal (Full-width cinematic with overlay) -->
-        <div style="position: relative; height: 70vh; min-height: 600px; background-image: url('images/scenes/scene-3-overture.png'); background-size: cover; background-position: center; background-attachment: fixed; margin-bottom: var(--space-16);">
-            <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26, 60, 52, 0.7), rgba(26, 60, 52, 0.5)); display: flex; align-items: center; justify-content: center;">
-                <div class="container" style="text-align: center; color: #FFFFFF;">
-                    <h2 style="font-size: clamp(3rem, 5vw, 4.5rem); font-weight: var(--font-weight-bold); margin-bottom: var(--space-6); line-height: 1.1; color: #FFFFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Scene 3: The Reveal</h2>
-                    <p style="font-size: clamp(1.25rem, 2.5vw, 1.5rem); line-height: 1.6; max-width: 800px; margin: 0 auto; color: #FFFFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-weight: 400;">Arrive at your immaculate villa or apartment, complete with a personal welcome and a chilled coconut waiting for you. Every detail has been considered — from the perfect temperature to the fresh flowers, from the stocked fridge to the personalized welcome note. This isn't just a place to stay; it's your home in paradise.</p>
+            <!-- Slide 2: Scene 2 - The Welcome -->
+            <div class="scene-slide">
+                <div class="scene-content">
+                    <div class="scene-image">
+                        <img src="images/scenes/scene-2-overture.png" alt="The Welcome - Stress-free airport arrival with personal greeting">
+                    </div>
+                    <div class="scene-text">
+                        <h2 class="scene-title">Scene 2: The Welcome</h2>
+                        <p class="scene-description">Land and <span class="dushi-word" data-papiamento="trankil" data-translation="Tranquil, at peace, calm. The ultimate goal of every Dushi Life moment.">trankil</span>. We greet you at the airport with a cold drink and a warm smile. No taxi lines, no stress. Your vehicle is waiting, your villa is prepared, and your <span class="dushi-word" data-papiamento="aventura" data-translation="Adventure. What awaits around every Curaçao corner.">aventura</span> is about to begin. From the moment you step off the plane, you're in our care.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Testimonial Carousel Section (Immediately after Scene 3) -->
-        <div class="container" style="margin-bottom: var(--space-16);">
-            <div style="text-align: center; margin-bottom: var(--space-12);">
-                <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-8);">They Felt The Difference...</h2>
-                
-                <!-- Testimonial Carousel Container -->
-                <div style="max-width: 800px; margin: 0 auto; position: relative;">
-                    <!-- Navigation Arrows -->
-                    <button onclick="previousTestimonial()" style="position: absolute; left: -60px; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255, 255, 255, 0.95); border: 2px solid var(--primary); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 128, 128, 0.15);" onmouseover="this.style.background='var(--primary)'; this.style.color='white'; this.querySelector('i').style.color='white';" onmouseout="this.style.background='rgba(255, 255, 255, 0.95)'; this.style.color='var(--primary)'; this.querySelector('i').style.color='var(--primary)';">
-                        <i class="fas fa-chevron-left" style="font-size: 18px; color: var(--primary);"></i>
-                    </button>
-                    <button onclick="nextTestimonial()" style="position: absolute; right: -60px; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255, 255, 255, 0.95); border: 2px solid var(--primary); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 128, 128, 0.15);" onmouseover="this.style.background='var(--primary)'; this.style.color='white'; this.querySelector('i').style.color='white';" onmouseout="this.style.background='rgba(255, 255, 255, 0.95)'; this.style.color='var(--primary)'; this.querySelector('i').style.color='var(--primary)';">
-                        <i class="fas fa-chevron-right" style="font-size: 18px; color: var(--primary);"></i>
-                    </button>
-                    
-                    <div id="testimonialCarousel" style="background: var(--surface); border-radius: var(--radius-2xl); padding: var(--space-12); box-shadow: var(--shadow-xl); border: 1px solid rgba(0, 207, 207, 0.08); position: relative; overflow: hidden;">
-                        
+            <!-- Slide 3: Scene 3 - The Reveal (Full-screen) -->
+            <div class="scene-slide reveal-slide">
+                <div class="reveal-overlay">
+                    <div class="reveal-content">
+                        <h2 class="scene-title">Scene 3: The Reveal</h2>
+                        <p class="scene-description">Arrive at your immaculate villa or apartment, complete with a personal welcome and a chilled coconut waiting for you. Every detail has been considered — from the perfect temperature to the fresh flowers, from the stocked fridge to the personalized welcome note. This isn't just a place to stay; it's your home in paradise.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: The Proof - Testimonials -->
+            <div class="scene-slide">
+                <div class="testimonial-slide-content">
+                    <h2 class="scene-title" style="color: var(--dark-navy); margin-bottom: 2rem;">They Felt The Difference...</h2>
+                    <div class="testimonial-carousel">
                         <!-- Testimonial 1 -->
-                        <div class="testimonial-slide active" style="opacity: 1; transition: opacity 0.6s ease-in-out;">
-                            <div style="margin-bottom: var(--space-6);">
+                        <div class="testimonial-item active">
+                            <div style="margin-bottom: 1.5rem;">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto; display: block;">
                                     <path d="M14 20C14 16.6863 16.6863 14 20 14H24C27.3137 14 30 16.6863 30 20V28C30 31.3137 27.3137 34 24 34H20C16.6863 34 14 31.3137 14 28V20Z" fill="#1A3C34" opacity="0.1"/>
                                     <path d="M18 18C18 16.8954 18.8954 16 20 16H22C23.1046 16 24 16.8954 24 18V26C24 27.1046 23.1046 28 22 28H20C18.8954 28 18 27.1046 18 26V18Z" fill="#1A3C34" opacity="0.3"/>
                                     <path d="M26 18C26 16.8954 26.8954 16 28 16H30C31.1046 16 32 16.8954 32 18V26C32 27.1046 31.1046 28 30 28H28C26.8954 28 26 27.1046 26 26V18Z" fill="#1A3C34" opacity="0.3"/>
                                 </svg>
                             </div>
-                            <blockquote style="font-size: var(--text-xl); line-height: 1.6; color: var(--text-primary); margin-bottom: var(--space-6); font-style: italic;">
+                            <blockquote style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; font-style: italic;">
                                 "Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."
                             </blockquote>
-                            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: var(--space-6) 0;"></div>
-                            <div style="text-align: center;">
-                                <strong style="color: var(--dark-navy); font-size: var(--text-lg);">The Johnson Family</strong><br>
-                                <span style="color: var(--text-secondary); font-size: var(--text-base);">5th time guests, now part of the Coconut Clan</span>
+                            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: 1.5rem 0;"></div>
+                            <div>
+                                <strong style="color: var(--dark-navy); font-size: 1.125rem;">The Johnson Family</strong><br>
+                                <span style="color: var(--text-secondary);">5th time guests, now part of the Coconut Clan</span>
                             </div>
                         </div>
                         
                         <!-- Testimonial 2 -->
-                        <div class="testimonial-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-12); transition: opacity 0.6s ease-in-out;">
-                            <div style="margin-bottom: var(--space-6);">
+                        <div class="testimonial-item">
+                            <div style="margin-bottom: 1.5rem;">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto; display: block;">
                                     <path d="M14 20C14 16.6863 16.6863 14 20 14H24C27.3137 14 30 16.6863 30 20V28C30 31.3137 27.3137 34 24 34H20C16.6863 34 14 31.3137 14 28V20Z" fill="#1A3C34" opacity="0.1"/>
                                     <path d="M18 18C18 16.8954 18.8954 16 20 16H22C23.1046 16 24 16.8954 24 18V26C24 27.1046 23.1046 28 22 28H20C18.8954 28 18 27.1046 18 26V18Z" fill="#1A3C34" opacity="0.3"/>
                                     <path d="M26 18C26 16.8954 26.8954 16 28 16H30C31.1046 16 32 16.8954 32 18V26C32 27.1046 31.1046 28 30 28H28C26.8954 28 26 27.1046 26 26V18Z" fill="#1A3C34" opacity="0.3"/>
                                 </svg>
                             </div>
-                            <blockquote style="font-size: var(--text-xl); line-height: 1.6; color: var(--text-primary); margin-bottom: var(--space-6); font-style: italic;">
-                                "What sets Tommy Coconut apart is their genuine care. They don't just manage properties, they curate experiences. The boat trip was magical, but what really touched us was how they made our teenage daughter feel special with her own adventure itinerary. We felt like family."
+                            <blockquote style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; font-style: italic;">
+                                "We've traveled to 30+ countries, but nothing compares to the Tommy Coconut experience. It's like having local family who happen to be vacation experts. Every surprise was perfectly timed, every need anticipated."
                             </blockquote>
-                            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: var(--space-6) 0;"></div>
-                            <div style="text-align: center;">
-                                <strong style="color: var(--dark-navy); font-size: var(--text-lg);">Sarah & Mike Thompson</strong><br>
-                                <span style="color: var(--text-secondary); font-size: var(--text-base);">3rd time guests, Silver Clan Members</span>
+                            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: 1.5rem 0;"></div>
+                            <div>
+                                <strong style="color: var(--dark-navy); font-size: 1.125rem;">Sarah & Michael</strong><br>
+                                <span style="color: var(--text-secondary);">3rd visit, planning their next return</span>
                             </div>
                         </div>
                         
                         <!-- Testimonial 3 -->
-                        <div class="testimonial-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-12); transition: opacity 0.6s ease-in-out;">
-                            <div style="margin-bottom: var(--space-6);">
+                        <div class="testimonial-item">
+                            <div style="margin-bottom: 1.5rem;">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto; display: block;">
                                     <path d="M14 20C14 16.6863 16.6863 14 20 14H24C27.3137 14 30 16.6863 30 20V28C30 31.3137 27.3137 34 24 34H20C16.6863 34 14 31.3137 14 28V20Z" fill="#1A3C34" opacity="0.1"/>
                                     <path d="M18 18C18 16.8954 18.8954 16 20 16H22C23.1046 16 24 16.8954 24 18V26C24 27.1046 23.1046 28 22 28H20C18.8954 28 18 27.1046 18 26V18Z" fill="#1A3C34" opacity="0.3"/>
                                     <path d="M26 18C26 16.8954 26.8954 16 28 16H30C31.1046 16 32 16.8954 32 18V26C32 27.1046 31.1046 28 30 28H28C26.8954 28 26 27.1046 26 26V18Z" fill="#1A3C34" opacity="0.3"/>
                                 </svg>
                             </div>
-                            <blockquote style="font-size: var(--text-xl); line-height: 1.6; color: var(--text-primary); margin-bottom: var(--space-6); font-style: italic;">
-                                "We've stayed in luxury resorts around the world, but nothing compares to the Tommy Coconut experience. Having your own villa with a car, boat trips with other guests, and a concierge who knows your name — it's the perfect blend of independence and support. Pure magic."
+                            <blockquote style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; font-style: italic;">
+                                "The level of personal attention was beyond anything we imagined. They remembered our anniversary, our dietary preferences, even our kids' favorite activities. It felt like staying with family who just happen to own paradise."
                             </blockquote>
-                            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: var(--space-6) 0;"></div>
-                            <div style="text-align: center;">
-                                <strong style="color: var(--dark-navy); font-size: var(--text-lg);">The Rodriguez Family</strong><br>
-                                <span style="color: var(--text-secondary); font-size: var(--text-base);">2nd time guests, Bronze Clan Members</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 4 -->
-                        <div class="testimonial-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-12); transition: opacity 0.6s ease-in-out;">
-                            <div style="margin-bottom: var(--space-6);">
-                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto; display: block;">
-                                    <path d="M14 20C14 16.6863 16.6863 14 20 14H24C27.3137 14 30 16.6863 30 20V28C30 31.3137 27.3137 34 24 34H20C16.6863 34 14 31.3137 14 28V20Z" fill="#1A3C34" opacity="0.1"/>
-                                    <path d="M18 18C18 16.8954 18.8954 16 20 16H22C23.1046 16 24 16.8954 24 18V26C24 27.1046 23.1046 28 22 28H20C18.8954 28 18 27.1046 18 26V18Z" fill="#1A3C34" opacity="0.3"/>
-                                    <path d="M26 18C26 16.8954 26.8954 16 28 16H30C31.1046 16 32 16.8954 32 18V26C32 27.1046 31.1046 28 30 28H28C26.8954 28 26 27.1046 26 26V18Z" fill="#1A3C34" opacity="0.3"/>
-                                </svg>
-                            </div>
-                            <blockquote style="font-size: var(--text-xl); line-height: 1.6; color: var(--text-primary); margin-bottom: var(--space-6); font-style: italic;">
-                                "From the moment Tommy picked us up at the airport with cold drinks, to the surprise sunset dinner on our last night, every moment exceeded our expectations. The attention to detail and genuine hospitality made us feel like we were visiting family, not just renting a property."
-                            </blockquote>
-                            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: var(--space-6) 0;"></div>
-                            <div style="text-align: center;">
-                                <strong style="color: var(--dark-navy); font-size: var(--text-lg);">Emma & James Wilson</strong><br>
-                                <span style="color: var(--text-secondary); font-size: var(--text-base);">First-time guests, now planning their return</span>
+                            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: 1.5rem 0;"></div>
+                            <div>
+                                <strong style="color: var(--dark-navy); font-size: 1.125rem;">The Rodriguez Family</strong><br>
+                                <span style="color: var(--text-secondary);">Gold Clan members, 6 visits and counting</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Carousel Indicators -->
-                    <div style="display: flex; justify-content: center; gap: var(--space-2); margin-top: var(--space-4);">
-                        <button class="testimonial-indicator active" onclick="showTestimonial(0)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 1;"></button>
-                        <button class="testimonial-indicator" onclick="showTestimonial(1)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 0.3;"></button>
-                        <button class="testimonial-indicator" onclick="showTestimonial(2)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 0.3;"></button>
-                        <button class="testimonial-indicator" onclick="showTestimonial(3)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 0.3;"></button>
+                    <!-- Testimonial Navigation -->
+                    <div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem;">
+                        <button onclick="showTestimonial(0)" class="testimonial-dot active" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease;"></button>
+                        <button onclick="showTestimonial(1)" class="testimonial-dot" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: rgba(0, 207, 207, 0.3); cursor: pointer; transition: all 0.3s ease;"></button>
+                        <button onclick="showTestimonial(2)" class="testimonial-dot" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: rgba(0, 207, 207, 0.3); cursor: pointer; transition: all 0.3s ease;"></button>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Scene 4: Freedom, with a Safety Net (Text Left, Image Right) -->
-        <div class="container" style="margin-bottom: var(--space-16);">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; min-height: 500px;">
-                <div style="padding-right: var(--space-8);">
-                    <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 4: Freedom, with a Safety Net</h2>
-                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400;">This is where your <span class="dushi-word" data-papiamento="aventura" data-translation="Adventure. What awaits around every Curaçao corner.">aventura</span> becomes your own. The keys to an iconic vehicle are in your hand, giving you the freedom to explore. But true freedom isn't just about having a map; it's knowing you have a guide. You can explore with total confidence because the Tommy Coconut family is always in your pocket. A quick WhatsApp message for a restaurant tip, a connection to a local fisherman, or even a guide for a dog-led flamingo hike. You can surrender to the moment, knowing we have your back. That's the security that makes the <span class="dushi-word" data-papiamento="aventura" data-translation="Adventure. What awaits around every Curaçao corner.">aventura</span> possible.</p>
-                </div>
-                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
-                    <img src="images/scenes/scene-4-overture.png" alt="Freedom with a Safety Net - Iconic vehicle and exploration freedom" style="width: 100%; height: 400px; object-fit: cover;">
+            <!-- Slide 5: Scene 4 - Freedom with Safety Net -->
+            <div class="scene-slide">
+                <div class="scene-content">
+                    <div class="scene-text">
+                        <h2 class="scene-title">Scene 4: Freedom, with a Safety Net</h2>
+                        <p class="scene-description">Explore with confidence. We've equipped you with everything you need for independent adventure — from a reliable vehicle to insider recommendations. Yet we're always just a WhatsApp away if you need us. It's the perfect balance of freedom and security that lets you truly relax.</p>
+                    </div>
+                    <div class="scene-image">
+                        <img src="images/scenes/scene-4-overture.png" alt="Freedom with Safety Net - Independent exploration with support">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Scene 5: The Twin Peaks (Two-image grid with text below) -->
-        <div class="container" style="margin-bottom: var(--space-16);">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-bottom: var(--space-12);">
-                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
-                    <img src="images/scenes/scene-5-overture.png" alt="The Twin Peaks - Private boat adventure and snorkeling" style="width: 100%; height: 350px; object-fit: cover;">
-                </div>
-                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
-                    <img src="images/scenes/scene-6-overture.png" alt="The Twin Peaks - Friday Family Cruise community experience" style="width: 100%; height: 350px; object-fit: cover;">
+            <!-- Slide 6: Scene 5 - The Twin Peaks -->
+            <div class="scene-slide">
+                <div class="scene-content">
+                    <div class="scene-image">
+                        <img src="images/scenes/scene-5-overture.png" alt="The Twin Peaks - Midweek check-in and experience enhancement">
+                    </div>
+                    <div class="scene-text">
+                        <h2 class="scene-title">Scene 5: The Twin Peaks</h2>
+                        <p class="scene-description">Just when you think it can't get better, we surprise you with the second peak of your journey. A midweek check-in leads to spontaneous upgrades, exclusive experiences, or simply the perfect restaurant recommendation for that special night. These aren't planned surprises — they're genuine moments of <span class="dushi-word" data-papiamento="stima" data-translation="To love, to cherish. How we feel about our guests and island.">stima</span>.</p>
+                    </div>
                 </div>
             </div>
-            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
-                <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 5: The Twin Peaks: Adventure & Community</h2>
-                <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400;">Every great story has a climax—yours has two. The highlight of your trip will be your Private Boat Adventure, a day of breathtaking snorkeling and exploring hidden coves, tailored just for you. Then, you'll join the Friday Family Cruise, our legendary sunset tradition. It's more than a tour; it's where you become part of the 'Coconut Clan,' sharing stories and drinks as the sun dips below the horizon. One peak is for pure adventure; the other is for pure connection.</p>
-            </div>
-        </div>
 
-        <!-- Scene 6: The Fond Farewell (Image Left, Text Right) -->
-        <div class="container" style="margin-bottom: var(--space-16);">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; min-height: 500px;">
-                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
-                    <img src="images/scenes/scene-6-overture.png" alt="The Fond Farewell - Departure with new friends and return plans" style="width: 100%; height: 400px; object-fit: cover;">
-                </div>
-                <div style="padding-left: var(--space-8);">
-                    <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Scene 6: The Fond Farewell</h2>
-                    <p style="font-size: var(--text-lg); line-height: 1.7; color: var(--text-secondary); font-weight: 400;">Leave with more than a tan. You leave with new friends and a plan to return. The <span class="dushi-word" data-papiamento="Ayo" data-translation="Goodbye. A warm, simple farewell until we see you again.">ayo</span> hugs, the promises to stay in touch, the knowledge that you've found your place in the world. This isn't the end of your story with Tommy Coconut — it's just the beginning.</p>
+            <!-- Slide 7: Scene 6 - The Fond Farewell -->
+            <div class="scene-slide">
+                <div class="scene-content">
+                    <div class="scene-text">
+                        <h2 class="scene-title">Scene 6: The Fond Farewell</h2>
+                        <p class="scene-description">Every story needs a perfect ending. Your departure isn't rushed or stressful — it's a gentle transition back to reality. We handle your luggage, arrange your transport, and send you off with a piece of Curaçao to take home. But this isn't goodbye. You're now family, and family always has a place to return to.</p>
+                    </div>
+                    <div class="scene-image">
+                        <img src="images/scenes/scene-6-overture.png" alt="The Fond Farewell - Perfect departure and future welcome">
+                    </div>
                 </div>
             </div>
+
+        </div>
+        
+        <!-- Scroll Navigation Indicators -->
+        <div class="scroll-indicator">
+            <div class="scroll-dot active" onclick="goToSlide(0)"></div>
+            <div class="scroll-dot" onclick="goToSlide(1)"></div>
+            <div class="scroll-dot" onclick="goToSlide(2)"></div>
+            <div class="scroll-dot" onclick="goToSlide(3)"></div>
+            <div class="scroll-dot" onclick="goToSlide(4)"></div>
+            <div class="scroll-dot" onclick="goToSlide(5)"></div>
+            <div class="scroll-dot" onclick="goToSlide(6)"></div>
         </div>
     </section>
 
-    <!-- Final Call to Action - Dark High-Contrast Closing -->
-    <section style="background: linear-gradient(135deg, #1A3C34 0%, #2C5A50 25%, #1A3C34 75%, #0D2B24 100%); padding: var(--space-24) 0; text-align: center; position: relative; overflow: hidden;">
-        <!-- Subtle texture overlay -->
-        <div style="position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grain\" width=\"100\" height=\"100\" patternUnits=\"userSpaceOnUse\"><circle cx=\"25\" cy=\"25\" r=\"1\" fill=\"%23ffffff\" opacity=\"0.02\"/><circle cx=\"75\" cy=\"25\" r=\"1\" fill=\"%23ffffff\" opacity=\"0.02\"/><circle cx=\"25\" cy=\"75\" r=\"1\" fill=\"%23ffffff\" opacity=\"0.02\"/><circle cx=\"75\" cy=\"75\" r=\"1\" fill=\"%23ffffff\" opacity=\"0.02\"/><circle cx=\"50\" cy=\"50\" r=\"1\" fill=\"%23ffffff\" opacity=\"0.03\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23grain)\"/></svg>'); opacity: 0.5;"></div>
-        
-        <div class="container" style="position: relative; z-index: 2;">
-            <!-- Decorative element -->
-            <div style="width: 60px; height: 4px; background: linear-gradient(90deg, transparent, #62D0C9, transparent); margin: 0 auto var(--space-8);"></div>
-            
-            <h2 style="font-size: clamp(3.5rem, 6vw, 5rem); font-weight: var(--font-weight-extra-bold); color: #FFFFFF; margin-bottom: var(--space-8); line-height: 1.05; letter-spacing: -0.02em; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Your Story is Waiting to be Written.</h2>
-            
-            <p style="font-size: clamp(1.25rem, 2.8vw, 1.625rem); color: rgba(255, 255, 255, 0.95); line-height: 1.6; max-width: 900px; margin: 0 auto var(--space-16); font-weight: 300; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">We've scripted the perfect vacation. Now it's your turn to be the star. Check your dates and let us begin crafting your unforgettable Curaçao experience.</p>
-            
-            <a href="treasure-map.html" class="cta-primary" style="display: inline-block; background: linear-gradient(135deg, #62D0C9 0%, #4FB3B3 100%); color: #FFFFFF; font-size: clamp(1.25rem, 2.2vw, 1.375rem); font-weight: var(--font-weight-bold); padding: var(--space-6) var(--space-12); border-radius: var(--radius-full); text-decoration: none; transition: all var(--transition-normal); box-shadow: 0 12px 48px rgba(98, 208, 201, 0.25), 0 4px 16px rgba(0, 0, 0, 0.15); border: 2px solid rgba(255, 255, 255, 0.1); text-shadow: 0 1px 2px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 20px 60px rgba(98, 208, 201, 0.35), 0 8px 24px rgba(0, 0, 0, 0.2)'; this.style.background='linear-gradient(135deg, #4FB3B3 0%, #62D0C9 100%)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 12px 48px rgba(98, 208, 201, 0.25), 0 4px 16px rgba(0, 0, 0, 0.15)'; this.style.background='linear-gradient(135deg, #62D0C9 0%, #4FB3B3 100%)'">Check Availability & Start Your Story</a>
-            
-            <!-- Subtle accent line -->
-            <div style="width: 120px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); margin: var(--space-12) auto 0;"></div>
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <h2>Your Story is Waiting to be Written</h2>
+            <p>We've scripted the perfect vacation. Now it's your turn to be the star. Check your dates and let us begin crafting your unforgettable Curaçao experience.</p>
+            <a href="treasure-map.html" class="final-cta-button">Check Availability & Start Your Story</a>
         </div>
     </section>
 
@@ -343,7 +519,7 @@
             <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-6); font-size: var(--text-sm);">
                 <a href="rentals.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Rentals</a>
                 <span style="color: rgba(255, 255, 255, 0.3);">•</span>
-                <a href="experiences.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Experiences</a>
+                <a href="experiences.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">The Journey</a>
                 <span style="color: rgba(255, 255, 255, 0.3);">•</span>
                 <a href="ownership.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Ownership</a>
                 <span style="color: rgba(255, 255, 255, 0.3);">•</span>
@@ -359,94 +535,161 @@
         </div>
     </footer>
 
-    <!-- Testimonial Carousel JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dushi-dictionary.js"></script>
+    <script src="assets/js/facebook-pixel.js"></script>
+    <script src="analytics.js"></script>
+    
+    <!-- Cinematic Scroller JavaScript -->
     <script>
-        let currentTestimonial = 0;
-        const totalTestimonials = 4;
-        let testimonialInterval;
-
-        function showTestimonial(index) {
-            // Hide all slides
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const indicators = document.querySelectorAll('.testimonial-indicator');
+        let currentSlide = 0;
+        const totalSlides = 7;
+        let isScrolling = false;
+        let scrollTimeout;
+        
+        const scrollerTrack = document.getElementById('scrollerTrack');
+        const cinematicSection = document.getElementById('cinematic-journey');
+        const scrollDots = document.querySelectorAll('.scroll-dot');
+        
+        // Scroll lock functionality
+        let isLocked = false;
+        let scrollProgress = 0;
+        
+        function updateSlidePosition() {
+            const translateX = -currentSlide * 100;
+            scrollerTrack.style.transform = `translateX(${translateX}vw)`;
             
-            slides.forEach((slide, i) => {
-                slide.style.opacity = i === index ? '1' : '0';
+            // Update scroll indicators
+            scrollDots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        function goToSlide(slideIndex) {
+            if (slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                updateSlidePosition();
+            }
+        }
+        
+        // Handle scroll events
+        function handleScroll(event) {
+            const cinematicRect = cinematicSection.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            // Check if we're in the cinematic section
+            if (cinematicRect.top <= 0 && cinematicRect.bottom > viewportHeight) {
+                // Lock vertical scroll
+                event.preventDefault();
+                
+                if (!isScrolling) {
+                    isScrolling = true;
+                    
+                    if (event.deltaY > 0) {
+                        // Scroll down - next slide
+                        if (currentSlide < totalSlides - 1) {
+                            currentSlide++;
+                            updateSlidePosition();
+                        } else {
+                            // Reached end, allow natural scroll to continue
+                            window.removeEventListener('wheel', handleScroll);
+                            setTimeout(() => {
+                                window.addEventListener('wheel', handleScroll, { passive: false });
+                            }, 1000);
+                        }
+                    } else {
+                        // Scroll up - previous slide
+                        if (currentSlide > 0) {
+                            currentSlide--;
+                            updateSlidePosition();
+                        } else {
+                            // At beginning, allow natural scroll to continue
+                            window.removeEventListener('wheel', handleScroll);
+                            setTimeout(() => {
+                                window.addEventListener('wheel', handleScroll, { passive: false });
+                            }, 1000);
+                        }
+                    }
+                    
+                    // Reset scrolling flag
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        isScrolling = false;
+                    }, 1000);
+                }
+            }
+        }
+        
+        // Testimonial carousel functionality
+        let currentTestimonial = 0;
+        const testimonialItems = document.querySelectorAll('.testimonial-item');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        
+        function showTestimonial(index) {
+            testimonialItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
             });
             
-            indicators.forEach((indicator, i) => {
-                indicator.style.opacity = i === index ? '1' : '0.3';
+            testimonialDots.forEach((dot, i) => {
                 if (i === index) {
-                    indicator.classList.add('active');
+                    dot.classList.add('active');
+                    dot.style.background = 'var(--primary)';
                 } else {
-                    indicator.classList.remove('active');
+                    dot.classList.remove('active');
+                    dot.style.background = 'rgba(0, 207, 207, 0.3)';
                 }
             });
             
             currentTestimonial = index;
         }
-
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-            showTestimonial(currentTestimonial);
-        }
-
-        function previousTestimonial() {
-            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
-            showTestimonial(currentTestimonial);
-        }
-
-        // Auto-rotate testimonials every 10 seconds
-        function startTestimonialCarousel() {
-            testimonialInterval = setInterval(nextTestimonial, 10000);
-        }
-
-        // Pause auto-rotation when user interacts
-        function pauseTestimonialCarousel() {
-            clearInterval(testimonialInterval);
-            // Resume after 15 seconds of no interaction
-            setTimeout(startTestimonialCarousel, 15000);
-        }
-
-        // Initialize carousel when page loads
+        
+        // Auto-advance testimonials
+        setInterval(() => {
+            const nextTestimonial = (currentTestimonial + 1) % testimonialItems.length;
+            showTestimonial(nextTestimonial);
+        }, 5000);
+        
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            // Add click handlers to indicators
-            document.querySelectorAll('.testimonial-indicator').forEach((indicator, index) => {
-                indicator.addEventListener('click', function() {
-                    showTestimonial(index);
-                    pauseTestimonialCarousel();
-                });
-            });
+            updateSlidePosition();
+            showTestimonial(0);
             
-            // Add click handlers to arrow buttons
-            const prevButton = document.querySelector('[onclick="previousTestimonial()"]');
-            const nextButton = document.querySelector('[onclick="nextTestimonial()"]');
-            if (prevButton) {
-                prevButton.addEventListener('click', () => {
-                    pauseTestimonialCarousel();
-                });
-            }
-            if (nextButton) {
-                nextButton.addEventListener('click', () => {
-                    pauseTestimonialCarousel();
-                });
-            }
+            // Add scroll event listener
+            window.addEventListener('wheel', handleScroll, { passive: false });
             
-            // Start auto-rotation
-            startTestimonialCarousel();
-            
-            // Pause on hover over carousel
-            const carousel = document.getElementById('testimonialCarousel');
-            if (carousel) {
-                carousel.addEventListener('mouseenter', () => clearInterval(testimonialInterval));
-                carousel.addEventListener('mouseleave', startTestimonialCarousel);
+            // Initialize Dushi Dictionary if available
+            if (typeof initializeDushiDictionary === 'function') {
+                initializeDushiDictionary();
             }
         });
+        
+        // Handle keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlidePosition();
+                }
+            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlidePosition();
+                }
+            }
+        });
+        
+        // Handle resize
+        window.addEventListener('resize', function() {
+            updateSlidePosition();
+        });
     </script>
-
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/dushi-dictionary.js"></script>
-    <script src="assets/js/facebook-pixel.js"></script>
-    <script src="analytics.js"></script>
 </body>
-</html> 
+</html>
