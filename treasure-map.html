@@ -446,6 +446,60 @@
             color: var(--primary-hover);
         }
         
+        /* Dushi Life Atmosphere Controls */
+        .sound-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(0, 90, 91, 0.9);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 90, 91, 0.3);
+        }
+        
+        .sound-toggle:hover {
+            background: rgba(98, 208, 201, 0.9);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(98, 208, 201, 0.4);
+        }
+        
+        .sound-toggle i {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .sound-toggle.active {
+            background: var(--primary);
+        }
+        
+        .sound-toggle.active i {
+            color: white;
+        }
+        
+        /* Mobile Sound Toggle */
+        @media (max-width: 768px) {
+            .sound-toggle {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .sound-toggle i {
+                font-size: 1rem;
+            }
+        }
+        
         /* Thank You Page Styling */
         .thank-you-container {
             text-align: center;
@@ -1942,6 +1996,17 @@
     </script>
 </head>
 <body>
+    <!-- Dushi Life Atmosphere Audio -->
+    <audio id="dushiScore" loop preload="auto">
+        <source src="https://res.cloudinary.com/dhschyq40/video/upload/v1/Sunset_Prescription_xtjqds.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Sound Control Toggle -->
+    <button class="sound-toggle" id="soundToggle" onclick="toggleSound()" aria-label="Toggle background music">
+        <i class="fas fa-volume-mute" id="soundIcon"></i>
+    </button>
+
     <!-- Narrative Progress -->
     <div class="progress-narrative">
         <p>Crafting Your Escape...</p>
@@ -3012,6 +3077,108 @@
         function closeCuration() {
             curationExperience.closeCuration();
         }
+        
+        // Dushi Life Atmosphere Controls
+        let isAudioPlaying = false;
+        let audioElement = null;
+        
+        function initializeAudio() {
+            audioElement = document.getElementById('dushiScore');
+            
+            // Check if user previously had sound enabled
+            const soundPreference = localStorage.getItem('dushiSoundEnabled');
+            if (soundPreference === 'true') {
+                enableSound();
+            }
+            
+            // Fade out audio when reaching thank you page
+            if (window.location.pathname.includes('thank-you')) {
+                fadeOutAudio();
+            }
+        }
+        
+        function toggleSound() {
+            if (isAudioPlaying) {
+                disableSound();
+            } else {
+                enableSound();
+            }
+        }
+        
+        function enableSound() {
+            if (audioElement) {
+                // Fade in audio
+                audioElement.volume = 0;
+                audioElement.play().then(() => {
+                    fadeInAudio();
+                    isAudioPlaying = true;
+                    updateSoundIcon(true);
+                    localStorage.setItem('dushiSoundEnabled', 'true');
+                    
+                    // Track audio engagement
+                    if (window.tommyAnalytics) {
+                        window.tommyAnalytics.trackInteraction('audio_enabled', 'dushi_atmosphere');
+                    }
+                }).catch(error => {
+                    console.log('Audio autoplay prevented:', error);
+                });
+            }
+        }
+        
+        function disableSound() {
+            if (audioElement) {
+                fadeOutAudio(() => {
+                    audioElement.pause();
+                    isAudioPlaying = false;
+                    updateSoundIcon(false);
+                    localStorage.setItem('dushiSoundEnabled', 'false');
+                });
+            }
+        }
+        
+        function fadeInAudio() {
+            if (audioElement) {
+                let volume = 0;
+                const fadeInInterval = setInterval(() => {
+                    if (volume < 0.3) { // Max volume 30% for background ambiance
+                        volume += 0.01;
+                        audioElement.volume = Math.min(volume, 0.3);
+                    } else {
+                        clearInterval(fadeInInterval);
+                    }
+                }, 50);
+            }
+        }
+        
+        function fadeOutAudio(callback = null) {
+            if (audioElement) {
+                const fadeOutInterval = setInterval(() => {
+                    if (audioElement.volume > 0.01) {
+                        audioElement.volume -= 0.01;
+                    } else {
+                        audioElement.volume = 0;
+                        clearInterval(fadeOutInterval);
+                        if (callback) callback();
+                    }
+                }, 50);
+            }
+        }
+        
+        function updateSoundIcon(enabled) {
+            const soundIcon = document.getElementById('soundIcon');
+            const soundToggle = document.getElementById('soundToggle');
+            
+            if (enabled) {
+                soundIcon.className = 'fas fa-volume-up';
+                soundToggle.classList.add('active');
+            } else {
+                soundIcon.className = 'fas fa-volume-mute';
+                soundToggle.classList.remove('active');
+            }
+        }
+        
+        // Initialize audio when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeAudio);
         
         // WhatsApp Conversion Bridge Global Functions
         function toggleWhatsAppOptions() {
