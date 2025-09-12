@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dushi Hideaway - Your Private Oasis | Tommy Coconut</title>
+    <meta name="description" content="Dushi Hideaway: Enjoy a truly seamless vacation crafted by 4.99★ Superhosts. Private villa with SUV, boat trip, VIP transfers all included. Just arrive, exhale, and live the dushi life.">
+    
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Cloudinary Configuration -->
+    <script src="cloudinary-config.js"></script>
+    
+    <style>
+        :root {
+            --primary: #62D0C9;
+            --secondary: #005A5B;
+            --accent: #00CFCF;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --surface: #F8F9FA;
+            --surface-elevated: #FFFFFF;
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --transition-normal: all 0.3s ease;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--surface);
+        }
+
+        /* Floating Conversion Engine */
+        .floating-booking {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(98, 208, 201, 0.3);
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+            padding: var(--space-lg) var(--space-xl);
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .floating-booking.visible {
+            transform: translateY(0);
+        }
+
+        .booking-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .date-selector {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .date-input {
+            padding: var(--space-sm) var(--space-md);
+            border: 2px solid #E5E7EB;
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            transition: var(--transition-normal);
+        }
+
+        .date-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(98, 208, 201, 0.1);
+        }
+
+        .price-display {
+            text-align: right;
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .welcome-home-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            box-shadow: 0 4px 20px rgba(98, 208, 201, 0.4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .welcome-home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(98, 208, 201, 0.6);
+        }
+
+        /* Gallery Section - Act 1 */
+        .gallery-hero {
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-normal);
+        }
+
+        .gallery-thumbnails {
+            position: absolute;
+            bottom: var(--space-xl);
+            left: var(--space-xl);
+            right: var(--space-xl);
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            border: 3px solid transparent;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-thumbnail {
+            position: relative;
+        }
+
+        .video-thumbnail::after {
+            content: '\f04b';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            background: rgba(0, 0, 0, 0.7);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Villa Story Section - Act 2 */
+        .villa-story {
+            padding: var(--space-3xl) var(--space-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .villa-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.2;
+        }
+
+        .villa-narrative {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .villa-narrative strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .superhost-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1A3C34;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin: var(--space-md) auto;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Specs Section - Act 3 */
+        .villa-specs {
+            background: var(--surface-elevated);
+            padding: var(--space-3xl) var(--space-xl);
+        }
+
+        .specs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .specs-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
+            border-radius: var(--border-radius);
+            transition: var(--transition-normal);
+        }
+
+        .spec-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .spec-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .spec-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .spec-content p {
+            color: var(--text-secondary);
+        }
+
+        /* Dushi Life All-Access Pass Section - Act 4 */
+        .dushi-pass {
+            padding: var(--space-3xl) var(--space-xl);
+            background: linear-gradient(135deg, var(--secondary) 0%, #1A4B52 100%);
+            color: white;
+        }
+
+        .dushi-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .dushi-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+        }
+
+        .dushi-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .dushi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .dushi-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: var(--space-2xl);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-normal);
+        }
+
+        .dushi-item:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .dushi-item-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .dushi-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        .dushi-item p {
+            line-height: 1.7;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .dushi-highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Reviews Section - Act 5 */
+        .reviews-section {
+            padding: var(--space-3xl) var(--space-xl);
+            background: var(--surface-elevated);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .reviews-carousel {
+            position: relative;
+        }
+
+        .review-item {
+            display: none;
+            text-align: center;
+            padding: var(--space-2xl);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
+            border-radius: var(--border-radius);
+            margin: var(--space-lg) 0;
+        }
+
+        .review-item.active {
+            display: block;
+        }
+
+        .review-stars {
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-bottom: var(--space-lg);
+        }
+
+        .review-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            font-style: italic;
+            margin-bottom: var(--space-lg);
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .review-dots {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-xl);
+        }
+
+        .review-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(98, 208, 201, 0.3);
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .review-dot.active {
+            background: var(--primary);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .floating-booking {
+                padding: var(--space-md);
+            }
+
+            .booking-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+                text-align: center;
+            }
+
+            .date-selector {
+                justify-content: center;
+            }
+
+            .gallery-thumbnails {
+                bottom: var(--space-md);
+                left: var(--space-md);
+                right: var(--space-md);
+            }
+
+            .thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+
+            .villa-story,
+            .villa-specs,
+            .dushi-pass,
+            .reviews-section {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dushi-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); position: fixed; top: 0; left: 0; right: 0; z-index: 999; padding: 1rem 0;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
+            <a href="index.html" style="color: var(--secondary); text-decoration: none; font-weight: 700; font-size: 1.25rem;">
+                ← Back to Tommy Coconut
+            </a>
+            <div>
+                <a href="rentals.html" style="color: var(--text-secondary); text-decoration: none; margin-right: 2rem;">All Villas</a>
+                <a href="contact.html" style="color: var(--text-secondary); text-decoration: none;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Act 1: The Cinematic Reveal -->
+    <section class="gallery-hero" style="margin-top: 80px;">
+        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway-pool-bar" alt="Dushi Hideaway Pool with Swim-Up Bar" class="hero-image">
+        
+        <div class="gallery-thumbnails">
+            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway-pool-bar', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway-pool-bar" alt="Swim-Up Bar">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway-jacuzzi', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway-jacuzzi" alt="Bubbling Jacuzzi">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway-rain-shower', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway-rain-shower" alt="Rain Shower">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway-bedroom', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway-bedroom" alt="King Bamboo Beds">
+            </div>
+            <div class="thumbnail video-thumbnail" onclick="playVideo()">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway-video-thumb" alt="Virtual Tour">
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 2: The Soul of the Sanctuary -->
+    <section class="villa-story">
+        <h1 class="villa-title">Dushi Hideaway: Your Private Oasis</h1>
+        
+        <div class="superhost-badge">
+            <i class="fas fa-star"></i>
+            4.99★ Superhosts • 500+ Reviews
+        </div>
+        
+        <p class="villa-narrative">
+            Enjoy a <strong>truly seamless vacation</strong>, crafted by 4.99★ Superhosts with over 500 glowing reviews. We've packaged your private villa with all the things people usually stress about, so you don't have to. Your <strong>personal SUV, a private boat trip, VIP airport transfers</strong>, and more are all included. Just arrive, exhale, and <strong>live the dushi life</strong>.
+        </p>
+    </section>
+
+    <!-- Act 3: The Effortless Details -->
+    <section class="villa-specs">
+        <div class="specs-container">
+            <h2 class="specs-title">The Anatomy of Paradise</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>3 Bedrooms / 2 Bathrooms</h3>
+                        <p>Sleeps 6 in complete comfort and privacy</p>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>All King-Size Bamboo Beds</h3>
+                        <p>The legendary beds that guests rave about in every review</p>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-cocktail"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>Private Pool with Swim-Up Bar</h3>
+                        <p>Your personal bartender station right in the water</p>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-hot-tub"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>Bubbling Jacuzzi & Rain Shower</h3>
+                        <p>Spa-like luxury in your own private retreat</p>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>A/C, Fast Wi-Fi & Sonos Sound</h3>
+                        <p>All the modern comforts for perfect relaxation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 4: The Dushi Life All-Access Pass -->
+    <section class="dushi-pass">
+        <div class="dushi-container">
+            <h2 class="dushi-title">Your All-Access Pass</h2>
+            <p class="dushi-subtitle">Always Included. Our Zero Hidden Fees Promise: No surprises. No stress.</p>
+            
+            <div class="dushi-grid">
+                <div class="dushi-item">
+                    <div class="dushi-item-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>For Your Stay</h3>
+                    <p><span class="dushi-highlight">VIP transfers, housekeeping, laundry, utilities credit.</span> We handle all the logistics so you can focus on making memories.</p>
+                </div>
+                
+                <div class="dushi-item">
+                    <div class="dushi-item-icon">
+                        <i class="fas fa-car-battery"></i>
+                    </div>
+                    <h3>For Your Mobility</h3>
+                    <p><span class="dushi-highlight">EV-SUV, free charging, pre-loaded GPS.</span> Explore sustainably with insider knowledge of all the best spots.</p>
+                </div>
+                
+                <div class="dushi-item">
+                    <div class="dushi-item-icon">
+                        <i class="fas fa-anchor"></i>
+                    </div>
+                    <h3>For Your Adventure</h3>
+                    <p><span class="dushi-highlight">Private boat trip, VIP beach access, the full beach kit.</span> Ocean adventures without crowds or complications.</p>
+                </div>
+                
+                <div class="dushi-item">
+                    <div class="dushi-item-icon">
+                        <i class="fas fa-cocktail"></i>
+                    </div>
+                    <h3>For Your Delight</h3>
+                    <p><span class="dushi-highlight">Welcome dinner credit, Sunset Cruise invite, Flamingo Hike, 24/7 concierge.</span> Pure delight at every turn of your journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 5: Stories From Paradise -->
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <h2 class="reviews-title">Stories from Dushi Hideaway</h2>
+            
+            <div class="reviews-carousel">
+                <div class="review-item active">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The swim-up bar was pure magic! We spent every afternoon mixing cocktails without leaving the pool. The king bamboo beds were so comfortable, we extended our stay just to sleep in them longer."</p>
+                    <p class="review-author">— Sarah & Mike, California</p>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Having everything included made this the most stress-free vacation ever. The SUV, boat trip, even laundry - we didn't have to think about anything except enjoying paradise."</p>
+                    <p class="review-author">— The Rodriguez Family, Texas</p>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The rain shower was like having a private spa, and the jacuzzi under the stars was unforgettable. This villa delivers on every single promise they make."</p>
+                    <p class="review-author">— Jennifer & David, New York</p>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"We've stayed at luxury resorts that don't come close to this experience. The private boat trip was incredible, and having our own car made exploring so easy. Absolutely perfect."</p>
+                    <p class="review-author">— The Thompson Family, Florida</p>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The 4.99 star rating is well-deserved. From the seamless airport pickup to the farewell dinner credit, every detail was flawless. This is how vacation should be done."</p>
+                    <p class="review-author">— Lisa & Tom, Chicago</p>
+                </div>
+            </div>
+            
+            <div class="review-dots">
+                <div class="review-dot active" onclick="showReview(0)"></div>
+                <div class="review-dot" onclick="showReview(1)"></div>
+                <div class="review-dot" onclick="showReview(2)"></div>
+                <div class="review-dot" onclick="showReview(3)"></div>
+                <div class="review-dot" onclick="showReview(4)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Conversion Engine -->
+    <div class="floating-booking" id="floatingBooking">
+        <div class="booking-content">
+            <div class="date-selector">
+                <input type="date" class="date-input" id="checkIn" placeholder="Check-in">
+                <span style="color: var(--text-secondary);">to</span>
+                <input type="date" class="date-input" id="checkOut" placeholder="Check-out">
+            </div>
+            
+            <div class="price-display">
+                <div class="price-amount">$420</div>
+                <div class="price-label">per night</div>
+            </div>
+            
+            <button class="welcome-home-btn" onclick="bookNow()">
+                <i class="fas fa-heart"></i>
+                Welcome Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Floating booking bar visibility
+        let isBookingVisible = false;
+        
+        function showFloatingBooking() {
+            if (!isBookingVisible) {
+                document.getElementById('floatingBooking').classList.add('visible');
+                isBookingVisible = true;
+            }
+        }
+
+        // Show booking bar when user scrolls down
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                showFloatingBooking();
+            }
+        });
+
+        // Gallery functionality
+        function changeImage(src, thumbnail) {
+            document.getElementById('heroImage').src = src;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+        }
+
+        function playVideo() {
+            // Open video modal or redirect to video URL
+            window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/dushi-hideaway-tour', '_blank');
+        }
+
+        // Reviews carousel
+        let currentReview = 0;
+        const reviewItems = document.querySelectorAll('.review-item');
+        const reviewDots = document.querySelectorAll('.review-dot');
+
+        function showReview(index) {
+            reviewItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+            
+            reviewDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            currentReview = index;
+        }
+
+        // Auto-rotate reviews
+        setInterval(() => {
+            currentReview = (currentReview + 1) % reviewItems.length;
+            showReview(currentReview);
+        }, 6000);
+
+        // Booking functionality
+        function bookNow() {
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+            
+            if (!checkIn || !checkOut) {
+                alert('Please select your check-in and check-out dates');
+                return;
+            }
+            
+            // Redirect to treasure map with villa and dates
+            const params = new URLSearchParams({
+                villa: 'dushi-hideaway',
+                checkin: checkIn,
+                checkout: checkOut
+            });
+            
+            window.location.href = `treasure-map.html?${params.toString()}`;
+        }
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkIn').setAttribute('min', today);
+        document.getElementById('checkOut').setAttribute('min', today);
+
+        // Update checkout minimum when checkin changes
+        document.getElementById('checkIn').addEventListener('change', function() {
+            const checkInDate = new Date(this.value);
+            checkInDate.setDate(checkInDate.getDate() + 1);
+            const minCheckOut = checkInDate.toISOString().split('T')[0];
+            document.getElementById('checkOut').setAttribute('min', minCheckOut);
+        });
+    </script>
+</body>
+</html>
