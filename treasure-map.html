@@ -449,33 +449,42 @@
         /* Dushi Life Atmosphere Controls */
         .sound-toggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 1000;
-            background: rgba(0, 90, 91, 0.9);
+            background: rgba(0, 90, 91, 0.95);
             border: 2px solid var(--primary);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            border-radius: 30px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0, 90, 91, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 90, 91, 0.3);
+            min-width: 140px;
         }
         
         .sound-toggle:hover {
-            background: rgba(98, 208, 201, 0.9);
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(98, 208, 201, 0.4);
+            background: rgba(98, 208, 201, 0.95);
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 6px 25px rgba(98, 208, 201, 0.4);
         }
         
         .sound-toggle i {
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: color 0.3s ease;
+        }
+        
+        .sound-toggle .sound-label {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .sound-toggle.active {
@@ -489,14 +498,17 @@
         /* Mobile Sound Toggle */
         @media (max-width: 768px) {
             .sound-toggle {
-                top: 15px;
-                right: 15px;
-                width: 45px;
-                height: 45px;
+                bottom: 20px;
+                padding: 10px 16px;
+                min-width: 120px;
             }
             
             .sound-toggle i {
                 font-size: 1rem;
+            }
+            
+            .sound-toggle .sound-label {
+                font-size: 0.8rem;
             }
         }
         
@@ -2005,6 +2017,7 @@
     <!-- Sound Control Toggle -->
     <button class="sound-toggle" id="soundToggle" onclick="toggleSound()" aria-label="Toggle background music">
         <i class="fas fa-volume-mute" id="soundIcon"></i>
+        <span class="sound-label" id="soundLabel">Dushi Vibes</span>
     </button>
 
     <!-- Narrative Progress -->
@@ -3166,13 +3179,16 @@
         
         function updateSoundIcon(enabled) {
             const soundIcon = document.getElementById('soundIcon');
+            const soundLabel = document.getElementById('soundLabel');
             const soundToggle = document.getElementById('soundToggle');
             
             if (enabled) {
                 soundIcon.className = 'fas fa-volume-up';
+                soundLabel.textContent = 'Playing ♪';
                 soundToggle.classList.add('active');
             } else {
                 soundIcon.className = 'fas fa-volume-mute';
+                soundLabel.textContent = 'Dushi Vibes';
                 soundToggle.classList.remove('active');
             }
         }
