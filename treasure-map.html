@@ -447,68 +447,57 @@
         }
         
         /* Dushi Life Atmosphere Controls */
-        .sound-toggle {
+        .atmosphere-toggle {
             position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background: rgba(0, 90, 91, 0.95);
-            border: 2px solid var(--primary);
-            border-radius: 30px;
-            padding: 12px 20px;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
+            opacity: 0.7;
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 90, 91, 0.3);
-            min-width: 140px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
         }
         
-        .sound-toggle:hover {
-            background: rgba(98, 208, 201, 0.95);
-            transform: translateX(-50%) translateY(-2px);
-            box-shadow: 0 6px 25px rgba(98, 208, 201, 0.4);
+        .atmosphere-toggle:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
         
-        .sound-toggle i {
-            color: white;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
+        .atmosphere-toggle i {
+            color: #333333;
+            font-size: 24px;
+            transition: all 0.3s ease;
         }
         
-        .sound-toggle .sound-label {
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
+        .atmosphere-toggle.active i {
+            color: #62D0C9;
         }
         
-        .sound-toggle.active {
-            background: var(--primary);
+        .atmosphere-toggle.active {
+            background: rgba(255, 255, 255, 0.95);
         }
         
-        .sound-toggle.active i {
-            color: white;
-        }
-        
-        /* Mobile Sound Toggle */
+        /* Mobile atmosphere toggle */
         @media (max-width: 768px) {
-            .sound-toggle {
-                bottom: 20px;
-                padding: 10px 16px;
-                min-width: 120px;
+            .atmosphere-toggle {
+                width: 45px;
+                height: 45px;
+                bottom: 15px;
+                right: 15px;
             }
             
-            .sound-toggle i {
-                font-size: 1rem;
-            }
-            
-            .sound-toggle .sound-label {
-                font-size: 0.8rem;
+            .atmosphere-toggle i {
+                font-size: 22px;
             }
         }
         
@@ -2014,10 +2003,9 @@
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Sound Control Toggle -->
-    <button class="sound-toggle" id="soundToggle" onclick="toggleSound()" aria-label="Toggle background music">
-        <i class="fas fa-volume-mute" id="soundIcon"></i>
-        <span class="sound-label" id="soundLabel">Dushi Vibes</span>
+    <!-- Atmosphere Toggle -->
+    <button class="atmosphere-toggle" id="soundToggle" onclick="toggleSound()" aria-label="Toggle atmosphere music">
+        <i class="fas fa-music-slash" id="soundIcon"></i>
     </button>
 
     <!-- Narrative Progress -->
@@ -3179,16 +3167,13 @@
         
         function updateSoundIcon(enabled) {
             const soundIcon = document.getElementById('soundIcon');
-            const soundLabel = document.getElementById('soundLabel');
             const soundToggle = document.getElementById('soundToggle');
             
             if (enabled) {
-                soundIcon.className = 'fas fa-volume-up';
-                soundLabel.textContent = 'Playing ♪';
+                soundIcon.className = 'fas fa-music';
                 soundToggle.classList.add('active');
             } else {
-                soundIcon.className = 'fas fa-volume-mute';
-                soundLabel.textContent = 'Dushi Vibes';
+                soundIcon.className = 'fas fa-music-slash';
                 soundToggle.classList.remove('active');
             }
         }
