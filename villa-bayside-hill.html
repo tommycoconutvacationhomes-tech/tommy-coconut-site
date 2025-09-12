@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Bayside Hill - Your Private Entertainment Compound | Tommy Coconut</title>
+    <meta name="description" content="Experience Villa Bayside Hill - a truly all-inclusive private resort with legendary bamboo beds, 'Cocktails & Dreams' bar, and the best Airbnb reviews ever. Better than the pictures.">
+    
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Cloudinary Configuration -->
+    <script src="cloudinary-config.js"></script>
+    
+    <style>
+        :root {
+            --primary: #62D0C9;
+            --secondary: #005A5B;
+            --accent: #00CFCF;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --surface: #F8F9FA;
+            --surface-elevated: #FFFFFF;
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --transition-normal: all 0.3s ease;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--surface);
+        }
+
+        /* Floating Conversion Engine */
+        .floating-booking {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(98, 208, 201, 0.3);
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+            padding: var(--space-lg) var(--space-xl);
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .floating-booking.visible {
+            transform: translateY(0);
+        }
+
+        .booking-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .date-selector {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .date-input {
+            padding: var(--space-sm) var(--space-md);
+            border: 2px solid #E5E7EB;
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            transition: var(--transition-normal);
+        }
+
+        .date-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(98, 208, 201, 0.1);
+        }
+
+        .price-display {
+            text-align: right;
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .welcome-home-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            box-shadow: 0 4px 20px rgba(98, 208, 201, 0.4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .welcome-home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(98, 208, 201, 0.6);
+        }
+
+        /* Gallery Section - Act 1 */
+        .gallery-hero {
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-normal);
+        }
+
+        .gallery-thumbnails {
+            position: absolute;
+            bottom: var(--space-xl);
+            left: var(--space-xl);
+            right: var(--space-xl);
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            border: 3px solid transparent;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-thumbnail {
+            position: relative;
+        }
+
+        .video-thumbnail::after {
+            content: '\f04b';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            background: rgba(0, 0, 0, 0.7);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Villa Story Section - Act 2 */
+        .villa-story {
+            padding: var(--space-3xl) var(--space-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .villa-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.2;
+        }
+
+        .villa-narrative {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .villa-narrative strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Specs Section - Act 3 */
+        .villa-specs {
+            background: var(--surface-elevated);
+            padding: var(--space-3xl) var(--space-xl);
+        }
+
+        .specs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .specs-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
+            border-radius: var(--border-radius);
+            transition: var(--transition-normal);
+        }
+
+        .spec-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .spec-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .spec-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .spec-content p {
+            color: var(--text-secondary);
+        }
+
+        /* VIP Pass Section - Act 4 */
+        .vip-pass {
+            padding: var(--space-3xl) var(--space-xl);
+            background: linear-gradient(135deg, var(--secondary) 0%, #1A4B52 100%);
+            color: white;
+        }
+
+        .vip-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .vip-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+        }
+
+        .vip-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .vip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-2xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .vip-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: var(--space-2xl);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .vip-item-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .vip-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        .vip-item p {
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Reviews Section - Act 5 */
+        .reviews-section {
+            padding: var(--space-3xl) var(--space-xl);
+            background: var(--surface-elevated);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .reviews-carousel {
+            position: relative;
+        }
+
+        .review-item {
+            display: none;
+            text-align: center;
+            padding: var(--space-2xl);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
+            border-radius: var(--border-radius);
+            margin: var(--space-lg) 0;
+        }
+
+        .review-item.active {
+            display: block;
+        }
+
+        .review-stars {
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-bottom: var(--space-lg);
+        }
+
+        .review-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            font-style: italic;
+            margin-bottom: var(--space-lg);
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .review-dots {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-xl);
+        }
+
+        .review-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(98, 208, 201, 0.3);
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .review-dot.active {
+            background: var(--primary);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .floating-booking {
+                padding: var(--space-md);
+            }
+
+            .booking-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+                text-align: center;
+            }
+
+            .date-selector {
+                justify-content: center;
+            }
+
+            .gallery-thumbnails {
+                bottom: var(--space-md);
+                left: var(--space-md);
+                right: var(--space-md);
+            }
+
+            .thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+
+            .villa-story,
+            .villa-specs,
+            .vip-pass,
+            .reviews-section {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vip-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); position: fixed; top: 0; left: 0; right: 0; z-index: 999; padding: 1rem 0;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
+            <a href="index.html" style="color: var(--secondary); text-decoration: none; font-weight: 700; font-size: 1.25rem;">
+                ← Back to Tommy Coconut
+            </a>
+            <div>
+                <a href="rentals.html" style="color: var(--text-secondary); text-decoration: none; margin-right: 2rem;">All Villas</a>
+                <a href="contact.html" style="color: var(--text-secondary); text-decoration: none;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Act 1: The Cinematic Reveal -->
+    <section class="gallery-hero" style="margin-top: 80px;">
+        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/bayside-hill-hero" alt="Villa Bayside Hill Pool and Veranda" class="hero-image">
+        
+        <div class="gallery-thumbnails">
+            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/bayside-hill-hero', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/bayside-hill-hero" alt="Pool & Veranda">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/bayside-hill-view', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/bayside-hill-view" alt="Ocean View">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/bayside-hill-bar', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/bayside-hill-bar" alt="Cocktails & Dreams Bar">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/bayside-hill-bedroom', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/bayside-hill-bedroom" alt="Legendary Bamboo Beds">
+            </div>
+            <div class="thumbnail video-thumbnail" onclick="playVideo()">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/bayside-hill-video-thumb" alt="Virtual Tour">
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 2: The Soul of the Sanctuary -->
+    <section class="villa-story">
+        <h1 class="villa-title">Villa Bayside Hill: Your Private Entertainment Compound</h1>
+        <p class="villa-narrative">
+            This isn't just a 5-star villa; it's a <strong>truly all-inclusive private resort experience</strong>. The reviews say it all: <strong>'better than the pictures'</strong> and <strong>'the best Airbnb ever.'</strong> At the heart of it all is the sparkling pool and your very own <strong>'Cocktails & Dreams' bar</strong>, inspired by the Tom Cruise classic. Happy hour starts whenever you say it does. This is your paradise found.
+        </p>
+    </section>
+
+    <!-- Act 3: The Effortless Details -->
+    <section class="villa-specs">
+        <div class="specs-container">
+            <h2 class="specs-title">Everything You Need, Beautifully Designed</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>4 Bedroom Suites</h3>
+                        <p>Total privacy for your group with individual bathrooms and ocean views</p>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>Sleeps 8</h3>
+                        <p>Perfect for families, friends, or romantic getaways</p>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>The Legendary Bamboo Beds</h3>
+                        <p>Yes, they're that good. Wake up refreshed every morning</p>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>Pool, Jacuzzi & Bar</h3>
+                        <p>Your private oasis with infinity pool and cocktail service</p>
+                    </div>
+                </div>
+                
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>Indoor Rec Room</h3>
+                        <p>Entertainment center with games, movies, and relaxation space</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 4: The Bayside Hill VIP Pass -->
+    <section class="vip-pass">
+        <div class="vip-container">
+            <h2 class="vip-title">Your Bayside Hill VIP Pass</h2>
+            <p class="vip-subtitle">Always Included. Our Zero Hidden Fees Promise: The price you see is the price you pay.</p>
+            
+            <div class="vip-grid">
+                <div class="vip-item">
+                    <div class="vip-item-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Your Island Fleet</h3>
+                    <p>Included iCar SUV for unlimited island exploration. Go where you want, when you want. No rental hassles, no extra fees.</p>
+                </div>
+                
+                <div class="vip-item">
+                    <div class="vip-item-icon">
+                        <i class="fas fa-anchor"></i>
+                    </div>
+                    <h3>The Private Boat Trip</h3>
+                    <p>The legendary "This is Why We Came" experience. Private sunset cruise with snorkeling, drinks, and memories that last forever.</p>
+                </div>
+                
+                <div class="vip-item">
+                    <div class="vip-item-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>The Dushi Life Service</h3>
+                    <p>Airport transfer, dinner credit, pre-stocked fridge, personal itinerary, and 24/7 concierge. We handle the details, you make the memories.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 5: Stories From Paradise -->
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <h2 class="reviews-title">Stories from Villa Bayside Hill</h2>
+            
+            <div class="reviews-carousel">
+                <div class="review-item active">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"This place is better than the pictures! The pool area is absolutely stunning and the 'Cocktails & Dreams' bar made us feel like movie stars. Best vacation rental we've ever stayed at."</p>
+                    <p class="review-author">— Sarah & Mike, California</p>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The bamboo beds are legendary for a reason - we had the best sleep of our lives. The villa has everything you need and more. Can't wait to come back!"</p>
+                    <p class="review-author">— The Johnson Family, Texas</p>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"This is the best Airbnb ever. The private boat trip was incredible and having the car included made exploring the island so easy. Tommy Coconut thought of everything."</p>
+                    <p class="review-author">— Jennifer & David, New York</p>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Paradise found! The villa exceeded all expectations. The service was impeccable and the location is perfect. We felt like royalty the entire stay."</p>
+                    <p class="review-author">— Maria & Carlos, Florida</p>
+                </div>
+            </div>
+            
+            <div class="review-dots">
+                <div class="review-dot active" onclick="showReview(0)"></div>
+                <div class="review-dot" onclick="showReview(1)"></div>
+                <div class="review-dot" onclick="showReview(2)"></div>
+                <div class="review-dot" onclick="showReview(3)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Conversion Engine -->
+    <div class="floating-booking" id="floatingBooking">
+        <div class="booking-content">
+            <div class="date-selector">
+                <input type="date" class="date-input" id="checkIn" placeholder="Check-in">
+                <span style="color: var(--text-secondary);">to</span>
+                <input type="date" class="date-input" id="checkOut" placeholder="Check-out">
+            </div>
+            
+            <div class="price-display">
+                <div class="price-amount">$450</div>
+                <div class="price-label">per night</div>
+            </div>
+            
+            <button class="welcome-home-btn" onclick="bookNow()">
+                <i class="fas fa-heart"></i>
+                Welcome Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Floating booking bar visibility
+        let isBookingVisible = false;
+        
+        function showFloatingBooking() {
+            if (!isBookingVisible) {
+                document.getElementById('floatingBooking').classList.add('visible');
+                isBookingVisible = true;
+            }
+        }
+
+        // Show booking bar when user scrolls down
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                showFloatingBooking();
+            }
+        });
+
+        // Gallery functionality
+        function changeImage(src, thumbnail) {
+            document.getElementById('heroImage').src = src;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+        }
+
+        function playVideo() {
+            // Open video modal or redirect to video URL
+            window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/bayside-hill-tour', '_blank');
+        }
+
+        // Reviews carousel
+        let currentReview = 0;
+        const reviewItems = document.querySelectorAll('.review-item');
+        const reviewDots = document.querySelectorAll('.review-dot');
+
+        function showReview(index) {
+            reviewItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+            
+            reviewDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            currentReview = index;
+        }
+
+        // Auto-rotate reviews
+        setInterval(() => {
+            currentReview = (currentReview + 1) % reviewItems.length;
+            showReview(currentReview);
+        }, 6000);
+
+        // Booking functionality
+        function bookNow() {
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+            
+            if (!checkIn || !checkOut) {
+                alert('Please select your check-in and check-out dates');
+                return;
+            }
+            
+            // Redirect to treasure map with villa and dates
+            const params = new URLSearchParams({
+                villa: 'bayside-hill',
+                checkin: checkIn,
+                checkout: checkOut
+            });
+            
+            window.location.href = `treasure-map.html?${params.toString()}`;
+        }
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkIn').setAttribute('min', today);
+        document.getElementById('checkOut').setAttribute('min', today);
+
+        // Update checkout minimum when checkin changes
+        document.getElementById('checkIn').addEventListener('change', function() {
+            const checkInDate = new Date(this.value);
+            checkInDate.setDate(checkInDate.getDate() + 1);
+            const minCheckOut = checkInDate.toISOString().split('T')[0];
+            document.getElementById('checkOut').setAttribute('min', minCheckOut);
+        });
+    </script>
+</body>
+</html>
