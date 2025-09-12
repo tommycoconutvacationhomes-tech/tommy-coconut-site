@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where Locals Eat in Curaçao - Authentic Restaurant Guide | Tommy Coconut</title>
+    <meta name="description" content="Skip the tourist traps and eat where Curaçao locals eat. From hidden food trucks to family-run restaurants, discover authentic Caribbean and international cuisine.">
+    <meta name="keywords" content="Curaçao restaurants, where locals eat Curaçao, best food Curaçao, local restaurants, food trucks Curaçao, authentic Caribbean food, Willemstad restaurants, Jan Thiel dining">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Where Locals Eat in Curaçao - The Real Food Guide">
+    <meta property="og:description" content="Discover where Curaçao locals really eat. From $5 food trucks to special occasion spots, this is your guide to authentic island dining.">
+    <meta property="og:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/curacao-local-food">
+    <meta property="og:type" content="article">
+    
+    <!-- Tommy Coconut CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .restaurant-card {
+            background: var(--surface);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            transition: all var(--transition-normal);
+            margin-bottom: var(--space-8);
+            border: 1px solid rgba(0, 207, 207, 0.08);
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .restaurant-header {
+            display: flex;
+            gap: var(--space-6);
+            padding: var(--space-6);
+            align-items: start;
+        }
+        
+        .restaurant-image {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: var(--radius-xl);
+            flex-shrink: 0;
+        }
+        
+        .restaurant-info {
+            flex: 1;
+        }
+        
+        .price-range {
+            color: var(--primary);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--text-lg);
+        }
+        
+        .cuisine-tags {
+            display: flex;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+            margin-top: var(--space-3);
+        }
+        
+        .cuisine-tag {
+            padding: var(--space-1) var(--space-3);
+            background: rgba(0, 207, 207, 0.1);
+            color: var(--primary);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .local-tip {
+            background: linear-gradient(135deg, rgba(0, 207, 207, 0.05) 0%, rgba(0, 207, 207, 0.02) 100%);
+            padding: var(--space-4);
+            border-left: 3px solid var(--primary);
+            margin: 0 var(--space-6) var(--space-6);
+            border-radius: var(--radius-lg);
+        }
+        
+        .category-section {
+            margin-bottom: var(--space-12);
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #00B8B8 100%);
+            color: white;
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--space-6);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        @media (max-width: 768px) {
+            .restaurant-header {
+                flex-direction: column;
+            }
+            
+            .restaurant-image {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left Menu -->
+            <ul class="nav-menu-left">
+                <li><a href="rentals.html">Rentals</a></li>
+                <li><a href="experiences.html">The Journey</a></li>
+                <li><a href="ownership.html">Ownership</a></li>
+                <li><a href="about.html">Our Story</a></li>
+            </ul>
+            
+            <!-- Centered Logo -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut Logo">
+                </a>
+            </div>
+            
+            <!-- Right Menu -->
+            <ul class="nav-menu-right">
+                <li><a href="clan.html">Clan</a></li>
+                <li><a href="blog.html" class="active">Guide</a></li>
+                <li class="nav-dropdown">
+                    <a href="contact.html">Contact</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="contact.html">Contact Us</a>
+                        <a href="faq.html">FAQ</a>
+                    </div>
+                </li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section style="background: linear-gradient(135deg, rgba(0, 47, 61, 0.85) 0%, rgba(0, 207, 207, 0.7) 100%), url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,o_50/curacao-food-hero') center/cover; padding: var(--section-padding) 0; color: white; text-align: center;">
+        <div class="container">
+            <div class="content-spotlight">
+                <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: var(--font-weight-extra-bold); margin-bottom: var(--space-6);">
+                    Where Locals Eat in Curaçao
+                </h1>
+                <p style="font-size: var(--text-xl); max-width: 800px; margin: 0 auto; opacity: 0.95;">
+                    Forget the tourist menus. This is where we take our families for Sunday lunch, grab quick bites between meetings, and celebrate special occasions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.8;">
+                    After years of living on this beautiful island, we've discovered that the best food isn't always in the fanciest restaurants. Sometimes it's a food truck parked by the road, a family kitchen that opens only on weekends, or that one table at the market that always has a line. This is our personal guide to eating like a local in Curaçao.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Trucks & Street Food -->
+    <section class="section" style="background: var(--surface);">
+        <div class="container">
+            <div class="category-section">
+                <div class="category-header">
+                    <i class="fas fa-truck" style="font-size: var(--text-2xl);"></i>
+                    <h2 style="font-size: var(--text-2xl); margin: 0;">Food Trucks & Street Food ($5-$15)</h2>
+                </div>
+
+                <!-- Truck'i Pan -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/trucki-pan-curacao" alt="Truck'i Pan" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">Truck'i Pan (Various Locations)</h3>
+                            <span class="price-range">$ • Food Trucks</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                The breakfast champions! Find these bright yellow trucks around the island serving traditional Pastechi (savory pastries) and Johnny cakes. The cheese pastechi at 7 AM hits different.
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Breakfast</span>
+                                <span class="cuisine-tag">Local Pastries</span>
+                                <span class="cuisine-tag">Quick Bite</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Look for them near roundabouts in the morning. The one near Rif Fort is legendary. Order in Papiamentu: "Un pastechi di keshi, por fabor!"
+                    </div>
+                </div>
+
+                <!-- Old Market Food Stalls -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/marshe-bieu-food" alt="Marshe Bieu" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">Marshe Bieu (Old Market) - Punda</h3>
+                            <span class="price-range">$ • Market Stalls</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                The most authentic local food experience. Different vendors serve stoba (stew), fresh fish, and funchi. This is where office workers come for lunch. Cash only!
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Traditional</span>
+                                <span class="cuisine-tag">Lunch Only</span>
+                                <span class="cuisine-tag">No Frills</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Go before 2 PM or the best dishes sell out. Try the goat stew (kabritu stoba) if you're adventurous. Awa di lamunchi (limeade) is the perfect drink.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Favorites -->
+    <section class="section">
+        <div class="container">
+            <div class="category-section">
+                <div class="category-header">
+                    <i class="fas fa-heart" style="font-size: var(--text-2xl);"></i>
+                    <h2 style="font-size: var(--text-2xl); margin: 0;">Local Family Favorites ($15-$30)</h2>
+                </div>
+
+                <!-- Komedor Krioyo -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/komedor-krioyo" alt="Komedor Krioyo" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">Komedor Krioyo - Westpunt</h3>
+                            <span class="price-range">$$ • Caribbean Home Cooking</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                Run by a local family in their home. The menu changes daily based on what's fresh. Their fried whole fish with funchi and plantains is what Sunday family meals are made of.
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Home Cooking</span>
+                                <span class="cuisine-tag">Fresh Fish</span>
+                                <span class="cuisine-tag">Family Run</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Call ahead to reserve, especially on weekends. Ask what fish they have that day - if they have red snapper (pisca cora), don't miss it!
+                    </div>
+                </div>
+
+                <!-- Jaanchie's -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/jaanchies-restaurant" alt="Jaanchie's Restaurant" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">Jaanchie's Restaurant - Westpunt</h3>
+                            <span class="price-range">$$ • Local Institution</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                A Curaçao institution since 1936. The iguana stew and fresh catch of the day keep locals coming back. The portions are huge and the atmosphere is pure island charm.
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Iguana Stew</span>
+                                <span class="cuisine-tag">Seafood</span>
+                                <span class="cuisine-tag">Historic</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Perfect lunch stop when heading to the west coast beaches. Try the sampler platter if you can't decide. The garlic sauce is addictive!
+                    </div>
+                </div>
+
+                <!-- Boka 19 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/boka-19" alt="Boka 19" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">Boka 19 - Spanish Water</h3>
+                            <span class="price-range">$$ • Waterfront Dining</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                Where locals go for sunset drinks and fresh seafood. Built on stilts over the water, the atmosphere is unbeatable. Their fish tacos and local beer selection make it a perfect casual night out.
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Waterfront</span>
+                                <span class="cuisine-tag">Sunset Views</span>
+                                <span class="cuisine-tag">Casual</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Go at sunset for the best experience. The fish tacos are Tuesday special. Live music on weekends can get loud but fun!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- International Hidden Gems -->
+    <section class="section" style="background: var(--surface);">
+        <div class="container">
+            <div class="category-section">
+                <div class="category-header">
+                    <i class="fas fa-globe" style="font-size: var(--text-2xl);"></i>
+                    <h2 style="font-size: var(--text-2xl); margin: 0;">International Hidden Gems ($20-$40)</h2>
+                </div>
+
+                <!-- Perla del Mar -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/perla-del-mar" alt="Perla del Mar" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">Perla del Mar - Saliña</h3>
+                            <span class="price-range">$$$ • Peruvian</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                The island's best-kept Peruvian secret. Their ceviche is better than what you'll find in Lima, and the pisco sours are dangerous. Small place, big flavors.
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Peruvian</span>
+                                <span class="cuisine-tag">Ceviche</span>
+                                <span class="cuisine-tag">Pisco Bar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Reservations essential - only 8 tables! The mixed ceviche is enough for two. Don't skip the causas (potato towers).
+                    </div>
+                </div>
+
+                <!-- Rozendaels -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/rozendaels" alt="Rozendaels" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">Rozendaels - Dominguito</h3>
+                            <span class="price-range">$$$ • Dutch-Caribbean Fusion</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                Set in a 150-year-old plantation house. Where locals celebrate special occasions. The Indonesian rice table on Sundays is an island tradition.
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Fine Dining</span>
+                                <span class="cuisine-tag">Historic Setting</span>
+                                <span class="cuisine-tag">Indonesian Nights</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Book the Indonesian rice table (rijsttafel) for groups - it's a feast! The garden seating is magical at night.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beach Bars & Casual -->
+    <section class="section">
+        <div class="container">
+            <div class="category-section">
+                <div class="category-header">
+                    <i class="fas fa-umbrella-beach" style="font-size: var(--text-2xl);"></i>
+                    <h2 style="font-size: var(--text-2xl); margin: 0;">Beach Bars & Sunset Spots ($15-$35)</h2>
+                </div>
+
+                <!-- Karakter -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/karakter-curacao" alt="Karakter" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">Karakter - Coral Estate</h3>
+                            <span class="price-range">$$ • Beach Bar</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                Feet in the sand, cocktail in hand. This is where locals escape the cruise ship crowds. Great burgers, better sunsets, and a laid-back vibe that captures island life perfectly.
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Beach Bar</span>
+                                <span class="cuisine-tag">Sunset</span>
+                                <span class="cuisine-tag">Live Music</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Sunday afternoons have live music and dancing. The kitchen closes at 8 PM but the bar stays open late. Try the local Ponche Krema cocktail!
+                    </div>
+                </div>
+
+                <!-- Pirate Bay -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/pirate-bay-curacao" alt="Pirate Bay" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">Pirate Bay Beach Bar - Piscadera</h3>
+                            <span class="price-range">$$ • Beach Club</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                Monday night BBQ is a local tradition. All-you-can-eat ribs, chicken, and fish with live entertainment. The rest of the week it's a chill beach bar with good food and better views.
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Monday BBQ</span>
+                                <span class="cuisine-tag">Beach Access</span>
+                                <span class="cuisine-tag">Family Friendly</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Monday BBQ starts at 6 PM - get there by 5:30 for the best tables. The rest of the week is much quieter and perfect for a relaxed beach day.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Occasions -->
+    <section class="section" style="background: var(--surface);">
+        <div class="container">
+            <div class="category-section">
+                <div class="category-header">
+                    <i class="fas fa-star" style="font-size: var(--text-2xl);"></i>
+                    <h2 style="font-size: var(--text-2xl); margin: 0;">Special Occasion Spots ($40+)</h2>
+                </div>
+
+                <!-- MOOD Beach -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/mood-beach-curacao" alt="MOOD Beach" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">MOOD Beach - Mambo Beach</h3>
+                            <span class="price-range">$$$$ • Upscale Beach Club</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                Where locals celebrate big moments. Toes in sand, champagne in hand, watching the sun set over the Caribbean. The seafood platter for two is an Instagram moment and a feast.
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Fine Dining</span>
+                                <span class="cuisine-tag">Beach Club</span>
+                                <span class="cuisine-tag">Romantic</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Book a cabana for the full experience. Happy hour 5-7 PM makes the cocktails more reasonable. Dress code after 6 PM.
+                    </div>
+                </div>
+
+                <!-- Fort Nassau -->
+                <div class="restaurant-card">
+                    <div class="restaurant-header">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/fort-nassau" alt="Fort Nassau" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3 style="font-size: var(--text-2xl); color: var(--dark-navy); margin-bottom: var(--space-2);">Fort Nassau - Willemstad</h3>
+                            <span class="price-range">$$$$ • Historic Fine Dining</span>
+                            <p style="color: var(--text-secondary); margin: var(--space-3) 0;">
+                                Perched high above the harbor in a restored fort. The 360-degree views are matched only by the French-Caribbean cuisine. This is where engagements happen and anniversaries are celebrated.
+                            </p>
+                            <div class="cuisine-tags">
+                                <span class="cuisine-tag">Panoramic Views</span>
+                                <span class="cuisine-tag">French Cuisine</span>
+                                <span class="cuisine-tag">Historic Fort</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="local-tip">
+                        <strong>Local Tip:</strong> Reserve for sunset - the view of Willemstad lighting up is unforgettable. The tasting menu with wine pairing is worth the splurge.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Reference Guide -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); text-align: center; margin-bottom: var(--space-8);">
+                    Quick Reference: What to Eat When
+                </h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6);">
+                    <div style="padding: var(--space-6); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                        <h3 style="color: var(--primary); margin-bottom: var(--space-4);">
+                            <i class="fas fa-coffee"></i> Breakfast (6-10 AM)
+                        </h3>
+                        <ul style="color: var(--text-secondary); line-height: 1.8;">
+                            <li>Truck'i Pan - Pastechi</li>
+                            <li>Local bakeries - Pan bati</li>
+                            <li>Hotel restaurants - Full breakfast</li>
+                        </ul>
+                    </div>
+
+                    <div style="padding: var(--space-6); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                        <h3 style="color: var(--primary); margin-bottom: var(--space-4);">
+                            <i class="fas fa-sun"></i> Lunch (11 AM-2 PM)
+                        </h3>
+                        <ul style="color: var(--text-secondary); line-height: 1.8;">
+                            <li>Marshe Bieu - Local stews</li>
+                            <li>Beach bars - Burgers & seafood</li>
+                            <li>Jaanchie's - Traditional plates</li>
+                        </ul>
+                    </div>
+
+                    <div style="padding: var(--space-6); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                        <h3 style="color: var(--primary); margin-bottom: var(--space-4);">
+                            <i class="fas fa-cocktail"></i> Happy Hour (5-7 PM)
+                        </h3>
+                        <ul style="color: var(--text-secondary); line-height: 1.8;">
+                            <li>Boka 19 - Waterfront drinks</li>
+                            <li>MOOD Beach - Beach cocktails</li>
+                            <li>Karakter - Sunset specials</li>
+                        </ul>
+                    </div>
+
+                    <div style="padding: var(--space-6); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                        <h3 style="color: var(--primary); margin-bottom: var(--space-4);">
+                            <i class="fas fa-moon"></i> Dinner (6-10 PM)
+                        </h3>
+                        <ul style="color: var(--text-secondary); line-height: 1.8;">
+                            <li>Perla del Mar - Peruvian</li>
+                            <li>Fort Nassau - Fine dining</li>
+                            <li>Rozendaels - Special occasions</li>
+                        </ul>
+                    </div>
+
+                    <div style="padding: var(--space-6); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                        <h3 style="color: var(--primary); margin-bottom: var(--space-4);">
+                            <i class="fas fa-beer"></i> Late Night (After 10 PM)
+                        </h3>
+                        <ul style="color: var(--text-secondary); line-height: 1.8;">
+                            <li>Food trucks - Street snacks</li>
+                            <li>Mambo Boulevard - Bar food</li>
+                            <li>Gas stations - Surprisingly good!</li>
+                        </ul>
+                    </div>
+
+                    <div style="padding: var(--space-6); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                        <h3 style="color: var(--primary); margin-bottom: var(--space-4);">
+                            <i class="fas fa-calendar-week"></i> Sunday Special
+                        </h3>
+                        <ul style="color: var(--text-secondary); line-height: 1.8;">
+                            <li>Rozendaels - Indonesian rice table</li>
+                            <li>Karakter - Live music & BBQ</li>
+                            <li>Family homes - If invited!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Essential Phrases -->
+    <section class="section" style="background: linear-gradient(135deg, rgba(0, 207, 207, 0.05) 0%, rgba(0, 207, 207, 0.02) 100%);">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-8);">
+                    Essential Food Phrases in Papiamentu
+                </h2>
+                <div style="display: grid; gap: var(--space-4);">
+                    <div style="padding: var(--space-4); background: white; border-radius: var(--radius-lg); display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold; color: var(--primary);">Bon dia, mi ke...</span>
+                        <span style="color: var(--text-secondary);">Good morning, I want...</span>
+                    </div>
+                    <div style="padding: var(--space-4); background: white; border-radius: var(--radius-lg); display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold; color: var(--primary);">Ta bon?</span>
+                        <span style="color: var(--text-secondary);">Is it good?</span>
+                    </div>
+                    <div style="padding: var(--space-4); background: white; border-radius: var(--radius-lg); display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold; color: var(--primary);">Hopi dushi!</span>
+                        <span style="color: var(--text-secondary);">Very delicious!</span>
+                    </div>
+                    <div style="padding: var(--space-4); background: white; border-radius: var(--radius-lg); display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold; color: var(--primary);">Kuantu esaki ta?</span>
+                        <span style="color: var(--text-secondary);">How much is this?</span>
+                    </div>
+                    <div style="padding: var(--space-4); background: white; border-radius: var(--radius-lg); display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold; color: var(--primary);">Mi ta vegetariano</span>
+                        <span style="color: var(--text-secondary);">I'm vegetarian</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: linear-gradient(135deg, var(--dark-navy) 0%, #1B3B47 100%); color: white; text-align: center;">
+        <div class="container">
+            <div class="content-spotlight">
+                <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-4);">
+                    Let Us Be Your Food Guides
+                </h2>
+                <p style="font-size: var(--text-xl); opacity: 0.9; margin-bottom: var(--space-8); max-width: 700px; margin-left: auto; margin-right: auto;">
+                    We'll make reservations, arrange food tours, and even organize a private chef experience at your villa. Because the best meals are the ones shared with the right people in the right places.
+                </p>
+                <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+                    <a href="experiences.html" class="btn btn-primary" style="background: white; color: var(--dark-navy);">
+                        Plan Your Culinary Journey
+                    </a>
+                    <a href="blog.html" class="btn btn-secondary" style="border: 2px solid white; color: white;">
+                        Back to Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
+        <div class="container">
+            <div style="margin-bottom: var(--space-6);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut Logo" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
+                <p style="color: rgba(255, 255, 255, 0.9); font-size: var(--text-lg); margin: 0;">Arrive as Guests, Leave as Family</p>
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-6);">
+                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/TommyCoconut" target="_blank" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
+                <p style="color: rgba(255, 255, 255, 0.5); font-size: var(--text-sm); margin: 0;">&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="analytics.js"></script>
+</body>
+</html>

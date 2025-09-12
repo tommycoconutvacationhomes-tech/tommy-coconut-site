@@ -2298,9 +2298,13 @@
                 this.initSocialProof();
                 this.updateWhatsAppContext();
                 
-                // Track funnel start with enhanced analytics
-                window.tommyAnalytics.trackStepEntry(1, 'vibe_selection');
-                window.tommyAnalytics.trackConversionMilestone('funnel_started');
+                // Track funnel start with enhanced analytics (with safety check)
+                if (window.tommyAnalytics && typeof window.tommyAnalytics.trackStepEntry === 'function') {
+                    window.tommyAnalytics.trackStepEntry(1, 'vibe_selection');
+                    window.tommyAnalytics.trackConversionMilestone('funnel_started');
+                } else {
+                    console.log('Analytics not ready, skipping tracking');
+                }
             }
             
             setupVillaData() {
