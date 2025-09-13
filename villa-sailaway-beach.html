@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sailaway Beach: Your Waterfront Escape | Tommy Coconut</title>
+    <meta name="description" content="Experience Curaçao from your own top 1% waterfront sanctuary. Sailaway Beach offers exclusive beach access, legendary bamboo beds, and the complete VIP experience.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥥</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00CED1;
+            --primary-dark: #00A8A8;
+            --secondary: #FF6B6B;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --white: #ffffff;
+            --shadow: 0 2px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        /* Floating Booking Bar */
+        .booking-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+
+        .booking-bar.visible {
+            transform: translateY(0);
+        }
+
+        .booking-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .booking-dates {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .booking-dates input {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .booking-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .booking-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .btn-book {
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-book:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Hero Gallery */
+        .hero-gallery {
+            margin-top: 80px;
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .gallery-carousel {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+        }
+
+        .gallery-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: 2px solid var(--white);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-dot.active {
+            background: var(--white);
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .gallery-badge {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            z-index: 10;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 3rem;
+        }
+
+        /* Property Details Grid */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .detail-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .detail-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* VIP Pass Section */
+        .vip-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .vip-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .vip-header h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-promise {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            margin: 2rem 0;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .pricing-promise strong {
+            color: var(--primary);
+        }
+
+        .vip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .vip-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .vip-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .vip-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .vip-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .vip-item p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Reviews Section */
+        .reviews-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 3rem 0 8rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .booking-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .booking-dates {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .vip-section {
+                padding: 2rem 1rem;
+            }
+
+            .reviews-carousel {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" style="font-size: 1.5rem; font-weight: 700;">← Back to Tommy Coconut</a>
+            <div class="nav-links">
+                <a href="rentals.html">All Villas</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Booking Bar -->
+    <div class="booking-bar" id="bookingBar">
+        <div class="booking-bar-content">
+            <div class="booking-dates">
+                <input type="date" id="checkIn" placeholder="Check-in">
+                <span>to</span>
+                <input type="date" id="checkOut" placeholder="Check-out">
+            </div>
+            <div class="booking-price">
+                $450 <span>per night</span>
+            </div>
+            <button class="btn-book" onclick="window.location.href='https://airbnb.com/h/sailaway-beach-curacao'">
+                🏝️ Welcome Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Gallery -->
+    <section class="hero-gallery">
+        <div class="gallery-badge">Top 1% Worldwide</div>
+        <div class="gallery-carousel">
+            <div class="gallery-slide active">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/villas/sailaway-beach/sailaway-beach-exterior.jpg" alt="Sailaway Beach Exterior">
+            </div>
+            <div class="gallery-slide">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/villas/sailaway-beach/sailaway-beach-living.jpg" alt="Sailaway Beach Living Area">
+            </div>
+            <div class="gallery-slide">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/villas/sailaway-beach/sailaway-beach-bedroom.jpg" alt="Sailaway Beach Bedroom">
+            </div>
+            <div class="gallery-slide">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/villas/sailaway-beach/sailaway-beach-pool.jpg" alt="Sailaway Beach Pool">
+            </div>
+            <div class="gallery-slide">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/villas/sailaway-beach/sailaway-beach-sunset.jpg" alt="Sailaway Beach Sunset View">
+            </div>
+        </div>
+        <div class="gallery-controls">
+            <span class="gallery-dot active" onclick="currentSlide(1)"></span>
+            <span class="gallery-dot" onclick="currentSlide(2)"></span>
+            <span class="gallery-dot" onclick="currentSlide(3)"></span>
+            <span class="gallery-dot" onclick="currentSlide(4)"></span>
+            <span class="gallery-dot" onclick="currentSlide(5)"></span>
+        </div>
+    </section>
+
+    <!-- Act 2: The Soul of the Sanctuary -->
+    <section class="section">
+        <div class="container">
+            <h1>Sailaway Beach: Your Waterfront Escape</h1>
+            <p class="lead">
+                Welcome to Sailaway Beach, where treasure-hunter-turned-vacation-architect Tommy Coconut invites you to an escape that guests rank in the top 1% of Airbnbs worldwide. This isn't just a rental; it's a completely stress-free vacation, architected by our family. Your personal boat adventure, VIP airport transfers, and our 24/7 concierge are all included. The legendary bamboo beds are so comfortable, guests joke about trying to smuggle them home. The story you'll tell for years starts right here.
+            </p>
+        </div>
+    </section>
+
+    <!-- Act 3: The Effortless Details -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2>The Anatomy of a Waterfront Retreat</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon">🏠</div>
+                    <div class="detail-text">
+                        <h3>3 A/C Bedrooms / 2 Baths</h3>
+                        <p>Perfectly climate-controlled comfort for your entire group</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">👥</div>
+                    <div class="detail-text">
+                        <h3>Sleeps 6</h3>
+                        <p>Perfect for families, friends, or romantic waterfront getaways</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">🛏️</div>
+                    <div class="detail-text">
+                        <h3>The Legendary Bamboo Beds</h3>
+                        <p>Guests joke about these sleep soft-spots ever</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">🏖️</div>
+                    <div class="detail-text">
+                        <h3>Exclusive Waterfront & Private Beach</h3>
+                        <p>Your personal slice of Caribbean paradise</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 4: The VIP Pass -->
+    <section class="section">
+        <div class="container">
+            <div class="vip-section">
+                <div class="vip-header">
+                    <h2>The $1,995 VIP Pass. Included With Your Stay.</h2>
+                    <div class="pricing-promise">
+                        <strong>Our Transparent Pricing Promise:</strong> The price you see is the rental price. To help us reduce our environmental footprint and keep costs fair for everyone, electricity & water are charged based on your personal usage (typically around $10 per bedroom per night). No other fees. No surprises.
+                    </div>
+                </div>
+                <div class="vip-grid">
+                    <div class="vip-item">
+                        <div class="vip-icon">🏠</div>
+                        <h3>For Your Stay</h3>
+                        <p>VIP transfers, housekeeping, concierge, baby gear</p>
+                    </div>
+                    <div class="vip-item">
+                        <div class="vip-icon">📱</div>
+                        <h3>For Your Mobility</h3>
+                        <p>Eco-SUV, free charging, dedicated parking</p>
+                    </div>
+                    <div class="vip-item">
+                        <div class="vip-icon">⚓</div>
+                        <h3>For Your Adventure</h3>
+                        <p>Private boat trip, VIP beach access, the fun beach kit</p>
+                    </div>
+                    <div class="vip-item">
+                        <div class="vip-icon">🍹</div>
+                        <h3>For Your Delight</h3>
+                        <p>First-night dinner credit, flamingo time, grocery service, 24/7 concierge</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 5: Social Proof -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2>Stories from Sailaway Beach</h2>
+            <div class="reviews-carousel">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        "Best vacation experience ever! The upgraded porch with bay view was absolutely stunning. We spent every morning with coffee watching the sunrise over the water. The legendary bamboo beds gave us the best sleep ever."
+                    </p>
+                    <p class="review-author">— Sarah & Mike, California</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        "Tommy Coconut's family made us feel like VIPs from the moment we arrived. The waterfront location is unbeatable, and the included boat trip was the highlight of our stay. Worth every penny!"
+                    </p>
+                    <p class="review-author">— The Johnson Family, Texas</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        "The transparency about utilities was refreshing - no hidden surprises. The VIP extras package truly made this feel like a luxury resort experience in our own private villa. We'll be back!"
+                    </p>
+                    <p class="review-author">— Jennifer & Tom, New York</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            <p style="margin-top: 1rem;">
+                <a href="index.html">Home</a> | 
+                <a href="rentals.html">All Villas</a> | 
+                <a href="contact.html">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery Carousel
+        let currentSlideIndex = 1;
+        
+        function currentSlide(n) {
+            showSlide(currentSlideIndex = n);
+        }
+        
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('gallery-slide');
+            const dots = document.getElementsByClassName('gallery-dot');
+            
+            if (n > slides.length) currentSlideIndex = 1;
+            if (n < 1) currentSlideIndex = slides.length;
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            
+            slides[currentSlideIndex - 1].classList.add('active');
+            dots[currentSlideIndex - 1].classList.add('active');
+        }
+        
+        // Auto-advance gallery
+        setInterval(() => {
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+        }, 5000);
+        
+        // Show booking bar on scroll
+        window.addEventListener('scroll', () => {
+            const bookingBar = document.getElementById('bookingBar');
+            if (window.scrollY > 600) {
+                bookingBar.classList.add('visible');
+            } else {
+                bookingBar.classList.remove('visible');
+            }
+        });
+        
+        // Set minimum dates
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkIn').setAttribute('min', today);
+        document.getElementById('checkOut').setAttribute('min', today);
+    </script>
+</body>
+</html>
