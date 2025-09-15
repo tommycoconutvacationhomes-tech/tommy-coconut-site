@@ -14,7 +14,7 @@
     display: block;
     font-weight: var(--font-weight-semibold);
     margin-bottom: var(--space-2);
-    color: var(--secondary);
+    color: var(--charcoal) !important;
 }
 
 .form-input,
