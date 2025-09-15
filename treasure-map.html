@@ -2081,7 +2081,12 @@
             <div class="step-title">Your Timeline</div>
             <div class="step-question">When are you dreaming of visiting?</div>
             <div class="date-picker-container">
-                <input type="text" id="dateRange" class="date-input" placeholder="Select your travel dates" readonly>
+                <input type="text" id="dateRange" class="date-input" placeholder="Select your travel dates or leave blank for flexible dates">
+            </div>
+            <div style="margin: 1rem 0; text-align: center;">
+                <button type="button" onclick="setFlexibleDates()" style="background: transparent; border: 2px solid var(--primary); color: var(--primary); padding: 0.75rem 2rem; border-radius: 30px; cursor: pointer; font-weight: 600; font-size: 1rem; transition: all 0.3s; font-family: inherit;" onmouseover="this.style.background='var(--primary)'; this.style.color='white';" onmouseout="this.style.background='transparent'; this.style.color='var(--primary)';">
+                    I'm Flexible with Dates
+                </button>
             </div>
             <button class="primary-button" onclick="proceedToReveal()" id="dateConfirm">Continue to Your Match</button>
         </div>
@@ -2150,7 +2155,7 @@
             <!-- Guest Testimonial Carousel -->
             <div class="testimonial-carousel">
                 <div class="testimonial-slide active">
-                    <div class="testimonial-text">"Our week at Villa Coral Vista was absolutely magical. The personal concierge made everything seamless, and that sunset boat trip? Unforgettable!"</div>
+                    <div class="testimonial-text">"Our week at Villa Bayside Hill was absolutely magical. The personal concierge made everything seamless, and that sunset boat trip? Unforgettable!"</div>
                     <div class="testimonial-author">
                         <div class="author-avatar">SM</div>
                         <div class="author-info">
@@ -2491,7 +2496,7 @@
                     const dateInput = document.getElementById('dateRange');
                     if (dateInput) {
                         dateInput.readOnly = false;
-                        dateInput.placeholder = 'Enter travel dates or click Continue for flexible dates';
+                        dateInput.placeholder = 'Enter travel dates or leave blank for flexible dates';
                         this.responses.dates = 'Flexible dates';
                         this.responses.travelDates = 'Flexible dates';
                     }
@@ -2539,8 +2544,15 @@
             }
             
             proceedToReveal() {
-                // Set default dates if none selected
-                if (!this.responses.dates) {
+                // Get the date input value
+                const dateInput = document.getElementById('dateRange');
+                const selectedDates = dateInput ? dateInput.value.trim() : '';
+                
+                // Set dates from input or use flexible dates
+                if (selectedDates && selectedDates !== '') {
+                    this.responses.dates = selectedDates;
+                    this.responses.travelDates = selectedDates;
+                } else {
                     this.responses.dates = 'Flexible dates';
                     this.responses.travelDates = 'Flexible dates';
                 }
@@ -2929,10 +2941,10 @@
             initSocialProof() {
                 // Initialize booking notifications
                 this.bookingNotifications = [
-                    { guest: 'Sarah M. from New York', action: 'just booked Villa Coral Vista', time: '2 minutes ago' },
+                    { guest: 'Sarah M. from New York', action: 'just booked Villa Bayside Hill', time: '2 minutes ago' },
                     { guest: 'Michael K. from London', action: 'secured the sunset cruise package', time: '5 minutes ago' },
                     { guest: 'Jennifer L. from Toronto', action: 'confirmed their Dushi Life experience', time: '8 minutes ago' },
-                    { guest: 'David R. from Miami', action: 'just booked Villa Ocean Dreams', time: '12 minutes ago' },
+                    { guest: 'David R. from Miami', action: 'just booked Villa Palm Breeze', time: '12 minutes ago' },
                     { guest: 'Lisa W. from Amsterdam', action: 'added the personal iCar bonus', time: '15 minutes ago' }
                 ];
                 this.currentNotificationIndex = 0;
@@ -3102,6 +3114,22 @@
         
         function proceedToReveal() {
             curationExperience.proceedToReveal();
+        }
+        
+        function setFlexibleDates() {
+            const dateInput = document.getElementById('dateRange');
+            if (dateInput) {
+                dateInput.value = 'Flexible dates';
+                curationExperience.responses.dates = 'Flexible dates';
+                curationExperience.responses.travelDates = 'Flexible dates';
+                
+                // Update button to show selection
+                const confirmBtn = document.getElementById('dateConfirm');
+                if (confirmBtn) {
+                    confirmBtn.textContent = 'Continue to Your Match ✓';
+                    confirmBtn.style.backgroundColor = '#28a745';
+                }
+            }
         }
         
         function proceedToConcierge() {
