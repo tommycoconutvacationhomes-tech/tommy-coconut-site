@@ -97,6 +97,83 @@
             this.trackEvent('Experience', 'interest', experienceName);
         },
 
+        // The Round Table's Guest Listening System - Tier 1 Analytics
+        
+        // Track treasure map funnel steps
+        trackFunnelStep: function(stepNumber, stepName, data = {}) {
+            this.trackEvent('Treasure Map Funnel', `step_${stepNumber}_${stepName}`, stepName, stepNumber);
+            
+            // Also send custom event with additional data
+            if (typeof gtag !== 'undefined') {
+                gtag('event', `funnel_step_${stepNumber}`, {
+                    'event_category': 'funnel_progression',
+                    'event_label': stepName,
+                    'step_number': stepNumber,
+                    'custom_parameter': JSON.stringify(data)
+                });
+            }
+        },
+
+        // Track funnel completion
+        trackFunnelCompletion: function(villaMatch, userData) {
+            this.trackEvent('Treasure Map Funnel', 'completion', villaMatch);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'funnel_completion', {
+                    'event_category': 'conversion',
+                    'event_label': villaMatch,
+                    'villa_match': villaMatch,
+                    'user_data': JSON.stringify(userData)
+                });
+            }
+        },
+
+        // Track WhatsApp conversion
+        trackWhatsAppConversion: function(source, villaMatch = '') {
+            this.trackEvent('WhatsApp Conversion', 'click', source);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'whatsapp_conversion', {
+                    'event_category': 'conversion',
+                    'event_label': source,
+                    'villa_match': villaMatch,
+                    'conversion_source': source
+                });
+            }
+        },
+
+        // Track concierge handshake engagement
+        trackConciergeHandshake: function(action, data = {}) {
+            this.trackEvent('Concierge Handshake', action, JSON.stringify(data));
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'concierge_handshake', {
+                    'event_category': 'engagement',
+                    'event_label': action,
+                    'handshake_data': JSON.stringify(data)
+                });
+            }
+        },
+
+        // Track villa page engagement
+        trackVillaPageEngagement: function(villaName, action, value = '') {
+            this.trackEvent('Villa Page Engagement', action, `${villaName}: ${value}`);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'villa_engagement', {
+                    'event_category': 'villa_interaction',
+                    'event_label': action,
+                    'villa_name': villaName,
+                    'interaction_value': value
+                });
+            }
+        },
+
+        // Track heat map events (for integration with Hotjar/Clarity)
+        trackHeatMapEvent: function(elementType, action, location) {
+            this.trackEvent('Heat Map Event', action, `${elementType} at ${location}`);
+        },
+
         // Initialize all tracking
         init: function() {
             // Track initial page view

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personal Concierge is Standing By | Tommy Coconut</title>
+    <meta name="description" content="Connect with your personal Tommy Coconut concierge for expert villa curation and exclusive access to hidden dates.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00CED1;
+            --primary-dark: #00A8A8;
+            --secondary: #002F3D;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --white: #ffffff;
+            --shadow: 0 2px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .concierge-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concierge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+        }
+
+        .concierge-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            border: 4px solid var(--primary);
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+
+        .concierge-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .concierge-title {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .promise-list {
+            text-align: left;
+            background: var(--light);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .promise-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .promise-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .promise-icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-section {
+            margin-top: 2.5rem;
+        }
+
+        .response-time {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #20B358 100%);
+            color: var(--white);
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-icon {
+            font-size: 1.3rem;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .trust-badge {
+            background: rgba(0, 206, 209, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .concierge-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="concierge-card">
+            <a href="treasure-map.html" class="back-link">← Back to Curation</a>
+            
+            <div class="logo">🥥</div>
+            
+            <h1>Your Personal Concierge is Standing By</h1>
+            <p class="subtitle">Ready to finalize your perfect villa match and unlock exclusive benefits</p>
+            
+            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_300,h_300,c_fill,g_face/concierge/britt-profile.jpg" alt="Britt - Tommy Coconut Concierge" class="concierge-photo">
+            
+            <div class="concierge-name">Britt</div>
+            <div class="concierge-title">Your Personal Villa Concierge</div>
+            
+            <div class="promise-list">
+                <div class="promise-item">
+                    <span class="promise-icon">✓</span>
+                    <span>No pressure, just personal advice from our family to yours</span>
+                </div>
+                <div class="promise-item">
+                    <span class="promise-icon">✓</span>
+                    <span>We'll confirm your villa match and answer any questions</span>
+                </div>
+                <div class="promise-item">
+                    <span class="promise-icon">✓</span>
+                    <span>You'll get access to dates the public can't see</span>
+                </div>
+                <div class="promise-item">
+                    <span class="promise-icon">✓</span>
+                    <span>Lock in your complimentary Sunset Cruise experience</span>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <div class="response-time">⚡ Tommy responds within 30 minutes</div>
+                
+                <a href="#" class="whatsapp-btn" id="startCuration" onclick="startWhatsAppCuration()">
+                    <span class="whatsapp-icon">💬</span>
+                    Start My Curation on WhatsApp
+                </a>
+                
+                <div class="trust-badge">🔒 127 families helped this month</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get villa match from URL parameters or localStorage
+        function getVillaMatch() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const villa = urlParams.get('villa') || localStorage.getItem('selectedVilla') || 'Your Matched Villa';
+            return villa;
+        }
+
+        // Get travel dates from localStorage
+        function getTravelDates() {
+            const dates = localStorage.getItem('travelDates') || 'Flexible dates';
+            return dates;
+        }
+
+        function startWhatsAppCuration() {
+            // Track conversion event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'concierge_handshake_start', {
+                    'event_category': 'conversion',
+                    'event_label': 'whatsapp_curation_start'
+                });
+            }
+
+            const villaMatch = getVillaMatch();
+            const travelDates = getTravelDates();
+            
+            // The weaponized WhatsApp message
+            const message = `Hi! I've just completed the personal curation quiz and was matched with ${villaMatch}. I'd love to connect with the concierge to confirm the details and lock in my complimentary Sunset Cruise. 
+
+My travel dates: ${travelDates}
+
+Looking forward to hearing from the family! 🏝️`;
+
+            // Open WhatsApp with the pre-filled message
+            const whatsappURL = `https://wa.me/59996707977?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+            
+            // Optional: Redirect to thank you page after a short delay
+            setTimeout(() => {
+                window.location.href = 'thank-you.html';
+            }, 2000);
+        }
+
+        // Track page view
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                'page_title': 'Concierge Ready - Bridge Page',
+                'page_location': window.location.href,
+                'event_category': 'funnel',
+                'event_label': 'concierge_bridge_page'
+            });
+        }
+    </script>
+</body>
+</html>

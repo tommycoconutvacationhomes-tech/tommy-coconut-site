@@ -1,0 +1,73 @@
+<!-- The Round Table's Guest Listening System - Heat Mapping Integration -->
+
+<!-- Microsoft Clarity (Recommended by The Round Table) -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "YOUR_CLARITY_PROJECT_ID");
+</script>
+
+<!-- Alternative: Hotjar (if preferred) -->
+<!-- 
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+-->
+
+<!-- Custom heat map event tracking -->
+<script>
+// Enhanced click tracking for heat mapping
+document.addEventListener('click', function(e) {
+    const element = e.target;
+    const elementType = element.tagName.toLowerCase();
+    const elementClass = element.className || 'no-class';
+    const elementId = element.id || 'no-id';
+    const elementText = element.textContent?.substring(0, 50) || 'no-text';
+    
+    // Track all clicks for heat mapping
+    if (window.TCAnalytics) {
+        window.TCAnalytics.trackHeatMapEvent(
+            elementType,
+            'click',
+            `${elementClass}:${elementId}:${elementText}`
+        );
+    }
+    
+    // Special tracking for critical elements
+    if (element.classList.contains('primary-button') || 
+        element.classList.contains('whatsapp-btn') ||
+        element.classList.contains('cta-button')) {
+        
+        if (window.TCAnalytics) {
+            window.TCAnalytics.trackEvent('Critical CTA Click', elementText, window.location.pathname);
+        }
+    }
+});
+
+// Scroll depth tracking enhanced for heat mapping
+let scrollDepthReported = [];
+const scrollThresholds = [10, 25, 50, 75, 90, 100];
+
+window.addEventListener('scroll', function() {
+    const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+    
+    scrollThresholds.forEach(threshold => {
+        if (scrollPercent >= threshold && !scrollDepthReported.includes(threshold)) {
+            scrollDepthReported.push(threshold);
+            
+            if (window.TCAnalytics) {
+                window.TCAnalytics.trackHeatMapEvent('page', 'scroll_depth', `${threshold}%`);
+            }
+        }
+    });
+});
+</script>
