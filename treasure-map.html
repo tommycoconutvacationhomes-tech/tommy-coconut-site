@@ -2083,7 +2083,7 @@
             <div class="date-picker-container">
                 <input type="text" id="dateRange" class="date-input" placeholder="Select your travel dates" readonly>
             </div>
-            <button class="primary-button" onclick="proceedToReveal()" id="dateConfirm" disabled>Continue to Your Match</button>
+            <button class="primary-button" onclick="proceedToReveal()" id="dateConfirm">Continue to Your Match</button>
         </div>
         
         <!-- Step 4: The Grand Slam Offer Stack -->
@@ -2461,23 +2461,41 @@
                 const maxDate = new Date();
                 maxDate.setFullYear(today.getFullYear() + 2);
                 
-                this.datePicker = flatpickr("#dateRange", {
-                    mode: "range",
-                    minDate: "today",
-                    maxDate: maxDate,
-                    dateFormat: "M j, Y",
-                    showMonths: window.innerWidth > 768 ? 2 : 1,
-                    onChange: (selectedDates) => {
-                        if (selectedDates.length === 2) {
-                            const startDate = selectedDates[0];
-                            const endDate = selectedDates[1];
-                            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                            const dateString = `${startDate.toLocaleDateString('en-US', options)} - ${endDate.toLocaleDateString('en-US', options)}`;
-                            this.responses.dates = dateString;
-                            document.getElementById('dateConfirm').disabled = false;
+                try {
+                    this.datePicker = flatpickr("#dateRange", {
+                        mode: "range",
+                        minDate: "today",
+                        maxDate: maxDate,
+                        dateFormat: "M j, Y",
+                        showMonths: window.innerWidth > 768 ? 2 : 1,
+                        onChange: (selectedDates) => {
+                            if (selectedDates.length === 2) {
+                                const startDate = selectedDates[0];
+                                const endDate = selectedDates[1];
+                                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                                const dateString = `${startDate.toLocaleDateString('en-US', options)} - ${endDate.toLocaleDateString('en-US', options)}`;
+                                this.responses.dates = dateString;
+                                this.responses.travelDates = dateString; // Store for later use
+                                // Update button text to show selection
+                                const confirmBtn = document.getElementById('dateConfirm');
+                                if (confirmBtn) {
+                                    confirmBtn.textContent = 'Continue to Your Match ✓';
+                                    confirmBtn.style.backgroundColor = '#28a745';
+                                }
+                            }
                         }
+                    });
+                } catch (error) {
+                    console.warn('Flatpickr initialization failed:', error);
+                    // Fallback: make the date field editable and set default dates
+                    const dateInput = document.getElementById('dateRange');
+                    if (dateInput) {
+                        dateInput.readOnly = false;
+                        dateInput.placeholder = 'Enter travel dates or click Continue for flexible dates';
+                        this.responses.dates = 'Flexible dates';
+                        this.responses.travelDates = 'Flexible dates';
                     }
-                });
+                }
             }
             
             selectOption(vibe) {
@@ -2521,17 +2539,33 @@
             }
             
             proceedToReveal() {
-                if (this.responses.dates) {
-                    // Track date selection completion
-                    window.tommyAnalytics.trackStepExit(3, 'date_selection', true);
-                    window.tommyAnalytics.trackInteraction('date_input', 'dates', { dates: this.responses.dates });
-                    
-                    this.matchVilla();
-                    this.nextStep();
-                    
-                    // Track villa reveal step
-                    window.tommyAnalytics.trackStepEntry(4, 'villa_reveal');
-                    window.tommyAnalytics.trackConversionMilestone('villa_matched', 4200);
+                // Set default dates if none selected
+                if (!this.responses.dates) {
+                    this.responses.dates = 'Flexible dates';
+                    this.responses.travelDates = 'Flexible dates';
+                }
+                
+                // Track date selection completion
+                try {
+                    if (window.tommyAnalytics) {
+                        window.tommyAnalytics.trackStepExit(3, 'date_selection', true);
+                        window.tommyAnalytics.trackInteraction('date_input', 'dates', { dates: this.responses.dates });
+                    }
+                } catch (e) {
+                    console.warn('Analytics tracking failed:', e);
+                }
+                
+                this.matchVilla();
+                this.nextStep();
+                
+                // Track villa reveal step
+                try {
+                    if (window.tommyAnalytics) {
+                        window.tommyAnalytics.trackStepEntry(4, 'villa_reveal');
+                        window.tommyAnalytics.trackConversionMilestone('villa_matched', 4200);
+                    }
+                } catch (e) {
+                    console.warn('Analytics tracking failed:', e);
                 }
             }
             
