@@ -11,8 +11,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     
-    // Configure Google Analytics (replace with actual GA ID when available)
-    // gtag('config', 'GA_MEASUREMENT_ID');
+    // Configure Google Analytics
+    gtag('config', 'G-PVETEG7EB4');
 
     // Tommy Coconut Analytics Module
     const TCAnalytics = {
