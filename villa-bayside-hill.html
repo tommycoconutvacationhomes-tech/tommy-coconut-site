@@ -299,11 +299,6 @@
             background: linear-gradient(135deg, var(--secondary) 0%, #1A4B52 100%);
         }
         
-        /* VIP Item Icons - Beige Background */
-        .vip-item-icon {
-            background: #F4E1C6 !important;
-            color: var(--secondary) !important;
-        }
 
         .vip-container {
             max-width: 1200px;
@@ -338,10 +333,25 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        /* VIP Item Icons - Large Tommy Coconut Sand Beige Cards */
         .vip-item-icon {
-            font-size: 3rem;
-            color: var(--primary);
+            width: 100%;
+            height: 120px;
+            background: var(--tc-driftwood-sand) !important;
+            color: var(--secondary) !important;
             margin-bottom: var(--space-lg);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-normal);
+        }
+        
+        .vip-item-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
         }
 
         .vip-item h3 {
@@ -691,14 +701,78 @@
             }
         });
 
-        // Gallery functionality
+        // Gallery functionality with auto-rotation
+        let currentImageIndex = 0;
+        let autoRotateInterval;
+        let isUserInteracting = false;
+        
+        const galleryImages = [
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l',
+                alt: 'Pool & Veranda'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l', 
+                alt: 'Ocean View'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l',
+                alt: 'Cocktails & Dreams Bar'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l',
+                alt: 'Legendary Bamboo Beds'
+            }
+        ];
+        
         function changeImage(src, thumbnail) {
             document.getElementById('heroImage').src = src;
             
             // Update active thumbnail
             document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
             thumbnail.classList.add('active');
+            
+            // Stop auto-rotation when user manually selects
+            isUserInteracting = true;
+            clearInterval(autoRotateInterval);
+            
+            // Resume auto-rotation after 10 seconds of no interaction
+            setTimeout(() => {
+                isUserInteracting = false;
+                startAutoRotation();
+            }, 10000);
         }
+        
+        function autoRotateImages() {
+            if (isUserInteracting) return;
+            
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const currentImage = galleryImages[currentImageIndex];
+            
+            // Update hero image
+            document.getElementById('heroImage').src = currentImage.src;
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail:not(.video-thumbnail)');
+            thumbnails.forEach(t => t.classList.remove('active'));
+            if (thumbnails[currentImageIndex]) {
+                thumbnails[currentImageIndex].classList.add('active');
+            }
+        }
+        
+        function startAutoRotation() {
+            clearInterval(autoRotateInterval);
+            autoRotateInterval = setInterval(autoRotateImages, 4000); // Change every 4 seconds
+        }
+        
+        // Start auto-rotation when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(startAutoRotation, 3000); // Start after 3 seconds
+        });
 
         function playVideo() {
             // Replace hero image with video player
