@@ -8,6 +8,11 @@
    1. DESIGN TOKENS
    ========================================= */
 :root {
+  /* OFFICIAL TOMMY COCONUT TYPOGRAPHY SYSTEM */
+  --teal: #008080;           /* Official brand Teal for headlines */
+  --charcoal: #333333;       /* Official brand Charcoal for body text */
+  --white: #FFFFFF;          /* Official white for dark sections */
+  
   /* Brand Colors - Unified Palette */
   --tc-primary: #62D0C9;
   --tc-primary-hover: #4FBDB6;

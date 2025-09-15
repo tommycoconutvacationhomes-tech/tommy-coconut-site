@@ -35,12 +35,17 @@
     --surface-soft: var(--tc-turquoise-soft);
     --surface-warm: var(--tc-driftwood-sand);
     
-    /* === TEXT COLOR HIERARCHY === */
-    --text-primary: var(--tc-ocean-navy);    /* Headlines, important text */
-    --text-secondary: var(--tc-palm-green);  /* Body text, descriptions */
-    --text-muted: #64748B;                   /* Secondary info, labels */
-    --text-light: #94A3B8;                   /* Placeholder, disabled text */
-    --text-inverse: var(--tc-coconut-white); /* Text on dark backgrounds */
+    /* === OFFICIAL TOMMY COCONUT TYPOGRAPHY SYSTEM === */
+    --teal: #008080;           /* Official brand Teal for headlines */
+    --charcoal: #333333;       /* Official brand Charcoal for body text */
+    --white: #FFFFFF;          /* Official white for dark sections */
+    
+    /* === LEGACY SUPPORT (for gradual migration) === */
+    --text-primary: var(--teal);              /* Headlines, important text */
+    --text-secondary: var(--charcoal);        /* Body text, descriptions */
+    --text-muted: #64748B;                    /* Secondary info, labels */
+    --text-light: #94A3B8;                    /* Placeholder, disabled text */
+    --text-inverse: var(--white);             /* Text on dark backgrounds */
     
     /* === INTERACTION STATES === */
     --primary-hover: #00B8B8;         /* Darker turquoise for hover */
@@ -132,7 +137,7 @@ html {
 
 body {
     font-family: var(--font-primary);
-    color: var(--text-primary);
+    color: var(--charcoal);
     line-height: 1.6;
     background-color: var(--surface);
     overflow-x: hidden;
@@ -143,6 +148,54 @@ body {
     letter-spacing: 0.01em;
     /* Account for fixed header */
     padding-top: 120px;
+}
+
+/* === OFFICIAL TOMMY COCONUT TYPOGRAPHY SYSTEM === */
+
+/* 1. HEADLINES - Official Brand Teal, Bold */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--teal) !important;
+    font-weight: 700 !important;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+/* 2. BODY TEXT - Official Brand Charcoal, Regular */
+p, li, blockquote, span, div, td, th, label, input, textarea, select {
+    color: var(--charcoal) !important;
+    font-weight: 400;
+}
+
+/* 3. DARK SECTION TEXT - Official White on Dark Backgrounds */
+.dark-section, 
+.dark-section h1, 
+.dark-section h2, 
+.dark-section h3, 
+.dark-section h4, 
+.dark-section h5, 
+.dark-section h6,
+.dark-section p, 
+.dark-section li, 
+.dark-section blockquote, 
+.dark-section span, 
+.dark-section div {
+    color: var(--white) !important;
+}
+
+/* Override for elements that specifically need to maintain brand colors */
+.brand-color-preserve {
+    color: var(--teal) !important;
+}
+
+/* Links maintain functionality but use system colors */
+a {
+    color: var(--teal);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    opacity: 0.8;
 }
 
 
