@@ -523,8 +523,39 @@ class TommyCoconutApp {
     }
 
     shouldShowProperty(property, filters) {
-        // This would be customized based on your property data structure
-        // For now, returning true to show all properties
+        // Check location filter
+        if (filters.location && filters.location !== 'all') {
+            const propertyLocation = property.getAttribute('data-location');
+            if (propertyLocation !== filters.location && 
+                !(filters.location === 'beachfront' && (property.getAttribute('data-amenities') || '').includes('beach-access'))) {
+                return false;
+            }
+        }
+
+        // Check guests filter
+        if (filters.guests && filters.guests !== 'all') {
+            const propertyGuests = property.getAttribute('data-guests');
+            if (propertyGuests !== filters.guests) {
+                return false;
+            }
+        }
+
+        // Check price filter
+        if (filters.price && filters.price !== 'all') {
+            const propertyPrice = property.getAttribute('data-price');
+            if (propertyPrice !== filters.price) {
+                return false;
+            }
+        }
+
+        // Check amenities filter
+        if (filters.amenities && filters.amenities !== 'all') {
+            const propertyAmenities = property.getAttribute('data-amenities') || '';
+            if (!propertyAmenities.includes(filters.amenities)) {
+                return false;
+            }
+        }
+
         return true;
     }
 
