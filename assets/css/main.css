@@ -150,41 +150,71 @@ body {
     padding-top: 120px;
 }
 
-/* === OFFICIAL TOMMY COCONUT TYPOGRAPHY SYSTEM === */
+/* === TOMMY COCONUT TYPOGRAPHY SYSTEM === */
 
-/* 1. HEADLINES - Official Brand Teal, Bold */
+/* 1. HEADLINES - Official Brand Teal */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--teal) !important;
-    font-weight: 700 !important;
+    color: var(--teal);
+    font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
 }
 
-/* 2. BODY TEXT - Official Brand Charcoal, Regular */
-p, li, blockquote, span, div, td, th, label, input, textarea, select {
-    color: var(--charcoal) !important;
+/* 2. BODY TEXT - Official Brand Charcoal */
+p, li, blockquote {
+    color: var(--charcoal);
     font-weight: 400;
 }
 
-/* 3. DARK SECTION TEXT - Official White on Dark Backgrounds */
-.dark-section, 
-.dark-section h1, 
-.dark-section h2, 
-.dark-section h3, 
-.dark-section h4, 
-.dark-section h5, 
-.dark-section h6,
-.dark-section p, 
-.dark-section li, 
-.dark-section blockquote, 
-.dark-section span, 
-.dark-section div {
+/* 3. DARK SECTION TEXT - White on Dark Backgrounds */
+.dark-section,
+.dark-section * {
     color: var(--white) !important;
 }
 
-/* Override for elements that specifically need to maintain brand colors */
+/* 4. TEXT ON IMAGE OVERLAYS - White with shadows */
+.text-on-image,
+.hero-content *,
+.vip-pass *,
+.image-overlay-text {
+    color: var(--white) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+                 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 5. FOOTER TEXT - White on teal background */
+footer,
+footer *,
+.footer,
+.footer *,
+.contact-section,
+.contact-section * {
+    color: var(--white) !important;
+}
+
+/* 6. VIP PASS BADGES - Ensure white text */
+.vip-badge,
+.vip-pass-badge,
+.gallery-badge {
+    color: var(--white) !important;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-lg);
+}
+
+/* Override for elements that specifically need brand colors */
 .brand-color-preserve {
     color: var(--teal) !important;
+}
+
+/* Ensure proper contrast for readability */
+.text-white {
+    color: var(--white) !important;
+}
+
+.text-dark {
+    color: var(--charcoal) !important;
 }
 
 /* Links maintain functionality but use system colors */
