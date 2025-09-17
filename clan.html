@@ -19,6 +19,51 @@
     <!-- External Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Gold Tier Premium Animation -->
+    <style>
+        @keyframes goldShimmer {
+            0% {
+                background-position: -200px 0;
+            }
+            100% {
+                background-position: calc(200px + 100%) 0;
+            }
+        }
+
+        .gold-tier-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gold-tier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 215, 0, 0.15),
+                transparent
+            );
+            background-size: 200px 100%;
+            animation: goldShimmer 3s infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .gold-tier-card:hover::before {
+            animation-duration: 1.5s;
+        }
+
+        .gold-tier-card > * {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
 </head>
 <body>
     <!-- Skip Link for Accessibility -->
@@ -32,7 +77,7 @@
                 <span class="banner-cta">• Read Reviews</span>
             </a>
         </div>
-    </div>    <a href="#main-content" class="skip-link">Skip to main content</a>
+    </div>
     
     <!-- Navigation -->
     <!-- Navigation - Baoase-Inspired Split Design -->
@@ -90,12 +135,12 @@
                 <div class="zigzag-item">
                     <div class="scene-story">
                         <h2 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--dark-navy); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: var(--space-6);">What is the Coconut Clan?</h2>
-                        <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">The Coconut Clan is more than just a loyalty program — it's a family. When you return to Tommy Coconut, you're not just a repeat guest, you're coming home to people who know your name, remember your preferences, and genuinely care about making your stay perfect.</p>
+                        <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">The Coconut Clan is more than just a loyalty program — it's a <span class="dushi-word" data-papiamento="famia" data-translation="Family. The heart of our island.">famia</span>. When you return to Tommy Coconut, you're not just a repeat guest, you're coming home to people who know your name, remember your preferences, and genuinely care about making your stay <span class="dushi-word" data-papiamento="dushi" data-translation="Sweet, nice, good, lovely. The soul of the island in one word.">dushi</span>.</p>
                         <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7;">Membership is automatic after your first stay, and the perks get better with each visit. From exclusive experiences to personal touches, we believe that loyalty should be rewarded with the same warmth and care you show us by choosing to return.</p>
                         <div style="display: flex; flex-direction: column; gap: var(--space-4); margin-top: var(--space-6);">
                             <div style="display: flex; align-items: center; gap: var(--space-3);">
                                 <i class="fas fa-heart" style="color: var(--primary); font-size: var(--text-lg); width: 24px;"></i>
-                                <span style="font-size: var(--text-base); color: var(--text-primary); font-weight: var(--font-weight-medium);">Personalized welcome back gifts</span>
+                                <span style="font-size: var(--text-base); color: var(--text-primary); font-weight: var(--font-weight-medium);">Personalized <span class="dushi-word" data-papiamento="Bon Bini" data-translation="Welcome! The traditional warm greeting of our island.">Bon Bini</span> back gifts</span>
                             </div>
                             <div style="display: flex; align-items: center; gap: var(--space-3);">
                                 <i class="fas fa-star" style="color: var(--primary); font-size: var(--text-lg); width: 24px;"></i>
@@ -183,7 +228,7 @@
                     <div style="display: flex; flex-direction: column; gap: var(--space-3);">
                         <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
                             <i class="fas fa-check" style="color: var(--primary); font-size: var(--text-sm); width: 16px; margin-top: 4px; flex-shrink: 0;"></i>
-                            <span style="font-size: var(--text-sm); color: var(--text-primary); line-height: 1.5;">Welcome back gift basket</span>
+                            <span style="font-size: var(--text-sm); color: var(--text-primary); line-height: 1.5;"><span class="dushi-word" data-papiamento="Bon Bini" data-translation="Welcome! The traditional warm greeting of our island.">Bon Bini</span> back gift basket</span>
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
                             <i class="fas fa-check" style="color: var(--primary); font-size: var(--text-sm); width: 16px; margin-top: 4px; flex-shrink: 0;"></i>
@@ -207,7 +252,7 @@
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
                             <i class="fas fa-check" style="color: var(--primary); font-size: var(--text-sm); width: 16px; margin-top: 4px; flex-shrink: 0;"></i>
-                            <span style="font-size: var(--text-sm); color: var(--text-primary); line-height: 1.5;">Welcome cocktail on arrival</span>
+                            <span style="font-size: var(--text-sm); color: var(--text-primary); line-height: 1.5;"><span class="dushi-word" data-papiamento="Bon Bini" data-translation="Welcome! The traditional warm greeting of our island.">Bon Bini</span> cocktail on arrival</span>
                         </div>
                     </div>
                 </div>
@@ -242,7 +287,7 @@
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
                             <i class="fas fa-check" style="color: var(--primary); font-size: var(--text-sm); width: 16px; margin-top: 4px; flex-shrink: 0;"></i>
-                            <span style="font-size: var(--text-sm); color: var(--text-primary); line-height: 1.5;">Personalized welcome note</span>
+                            <span style="font-size: var(--text-sm); color: var(--text-primary); line-height: 1.5;">Personalized <span class="dushi-word" data-papiamento="Bon Bini" data-translation="Welcome! The traditional warm greeting of our island.">Bon Bini</span> note</span>
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
                             <i class="fas fa-check" style="color: var(--primary); font-size: var(--text-sm); width: 16px; margin-top: 4px; flex-shrink: 0;"></i>
@@ -250,7 +295,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 215, 0, 0.03) 100%); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 2px solid rgba(255, 215, 0, 0.2); padding: var(--space-8);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='var(--shadow-2xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
+                <div class="gold-tier-card" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 215, 0, 0.03) 100%); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 2px solid rgba(255, 215, 0, 0.2); padding: var(--space-8);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='var(--shadow-2xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
                     <div style="text-align: center; margin-bottom: var(--space-6);">
                         <h3 style="font-size: var(--text-xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-2);">GOLD MEMBER</h3>
                         <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.08) 100%); padding: var(--space-2) var(--space-4); border-radius: var(--radius-lg); display: inline-block;">
@@ -301,7 +346,7 @@
     </section>
 
     <!-- Your Loyalty is Your Treasure -->
-    <section class="loyalty-treasure">
+    <section class="loyalty-treasure" style="text-align: center;">
         <div class="container">
             <div class="treasure-content">
                 <div class="treasure-header">
@@ -316,7 +361,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-coins"></i>
                         </div>
-                        <div class="feature-content">
+                        <div class="feature-content" style="text-align: center;">
                             <h3>How It Works</h3>
                             <p>Earn credits automatically with every completed stay. Bronze members earn standard credits, while Gold members receive enhanced credits for even greater savings.</p>
                         </div>
@@ -325,7 +370,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-calendar-check"></i>
                         </div>
-                        <div class="feature-content">
+                        <div class="feature-content" style="text-align: center;">
                             <h3>18-Month Window</h3>
                             <p>Your Welcome Back credits remain valid for 18 months, giving you plenty of time to plan your next perfect Tommy Coconut escape.</p>
                         </div>
@@ -334,9 +379,9 @@
                         <div class="feature-icon">
                             <i class="fas fa-heart"></i>
                         </div>
-                        <div class="feature-content">
+                        <div class="feature-content" style="text-align: center;">
                             <h3>Family Rewards</h3>
-                            <p>The more you visit, the more we reward your loyalty. It's our way of keeping the Coconut Clan family together.</p>
+                            <p>The more you visit, the more we reward your loyalty. It's our way of keeping the Coconut Clan <span class="dushi-word" data-papiamento="famia" data-translation="Family. The heart of our island.">famia</span> together.</p>
                         </div>
                     </div>
                 </div>
@@ -356,7 +401,7 @@
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--space-8); margin-top: var(--space-10);">
                 <div style="background: var(--surface); padding: var(--space-8); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-2xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
-                    <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"We've been coming back to Tommy Coconut for 5 years now. The team remembers our kids' names, our favorite restaurants, and even that I love extra pillows. It's like visiting family every time."</p>
+                    <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"We've been coming back to Tommy Coconut for 5 years now. The team remembers our kids' names, our favorite restaurants, and even that I love extra pillows. It's like visiting <span class="dushi-word" data-papiamento="famia" data-translation="Family. The heart of our island.">famia</span> every time."</p>
                     <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
                         <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Rodriguez Family</div>
                         <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">5 visits, Gold Members</div>
@@ -444,7 +489,7 @@
                         <i class="fas fa-heart" style="font-size: var(--text-2xl); color: var(--primary);"></i>
                     </div>
                     <h3 style="font-size: var(--text-xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-3);">Family Treatment</h3>
-                    <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6;">Experience the genuine warmth and care that comes from being part of the Tommy Coconut family.</p>
+                    <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6;">Experience the genuine warmth and care that comes from being part of the Tommy Coconut <span class="dushi-word" data-papiamento="famia" data-translation="Family. The heart of our island.">famia</span>.</p>
                 </div>
             </div>
         </div>
@@ -454,17 +499,17 @@
     <section class="section" style="background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 30%, #2C5F5F 70%, #1A4B52 100%), radial-gradient(ellipse at 70% 30%, rgba(44, 95, 95, 0.3) 0%, transparent 50%); color: var(--text-inverse); text-align: center;">
         <div class="container">
             <div class="content-spotlight">
-                <h2 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--text-inverse); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: var(--space-6);">Ready to Join the Clan?</h2>
-                <p style="font-size: var(--text-xl); color: rgba(255, 255, 255, 0.9); line-height: 1.6; margin-bottom: var(--space-8); max-width: 700px; margin-left: auto; margin-right: auto;">Your first stay automatically enrolls you in the Coconut Clan. Start earning perks and become part of our exclusive community of repeat guests who've discovered the magic of the Tommy Coconut experience.</p>
+                <h2 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(2.5rem, 5vw, 3.5rem); color: #FFFFFF; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: var(--space-6);">Ready to Join the Clan?</h2>
+                <p style="font-size: var(--text-xl); color: #FFFFFF; line-height: 1.6; margin-bottom: var(--space-8); max-width: 700px; margin-left: auto; margin-right: auto;">Your first stay automatically enrolls you in the Coconut Clan. Start earning perks and become part of our exclusive community of repeat guests who've discovered the magic of the Tommy Coconut experience.</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); margin-top: var(--space-10);">
                     <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: var(--space-8); border-radius: var(--radius-2xl); border: 1px solid rgba(255, 255, 255, 0.2);">
-                        <h3 style="font-size: var(--text-xl); font-weight: var(--font-weight-bold); color: var(--text-inverse); margin-bottom: var(--space-4);">New to Tommy Coconut?</h3>
-                        <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.8); margin-bottom: var(--space-6); line-height: 1.6;">Book your first stay and automatically become a Clan member</p>
+                        <h3 style="font-size: var(--text-xl); font-weight: var(--font-weight-bold); color: #FFFFFF; margin-bottom: var(--space-4);">New to Tommy Coconut?</h3>
+                        <p style="font-size: var(--text-base); color: #FFFFFF; margin-bottom: var(--space-6); line-height: 1.6;">Book your first stay and automatically become a Clan member</p>
                         <a href="treasure-map.html" style="background: rgba(255, 255, 255, 0.95); color: var(--primary) !important; border: 2px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); padding: var(--space-4) var(--space-8); border-radius: var(--radius-full); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); text-decoration: none; display: inline-block; transition: var(--transition-normal);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 40px rgba(0, 0, 0, 0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.15)'">Find My Perfect Villa</a>
                     </div>
                     <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: var(--space-8); border-radius: var(--radius-2xl); border: 1px solid rgba(255, 255, 255, 0.2);">
-                        <h3 style="font-size: var(--text-xl); font-weight: var(--font-weight-bold); color: var(--text-inverse); margin-bottom: var(--space-4);">Already a Member?</h3>
-                        <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.8); margin-bottom: var(--space-6); line-height: 1.6;">Check your current level and upcoming perks</p>
+                        <h3 style="font-size: var(--text-xl); font-weight: var(--font-weight-bold); color: #FFFFFF; margin-bottom: var(--space-4);">Already a Member?</h3>
+                        <p style="font-size: var(--text-base); color: #FFFFFF; margin-bottom: var(--space-6); line-height: 1.6;">Check your current level and upcoming perks</p>
                         <a href="contact.html" style="background: transparent; color: rgba(255, 255, 255, 0.9); border: 2px solid rgba(255, 255, 255, 0.3); padding: var(--space-4) var(--space-8); border-radius: var(--radius-full); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); text-decoration: none; display: inline-block; transition: var(--transition-normal);" onmouseover="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.borderColor='rgba(255, 255, 255, 0.5)'" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255, 255, 255, 0.3)'">Check Your Status</a>
                     </div>
                 </div>
@@ -480,27 +525,27 @@
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
                 <div style="position: relative; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='var(--shadow-2xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
-                    <img src="images/properties/tropical-haven.jpg" alt="Clan member enjoying tropical paradise" style="width: 100%; height: 300px; object-fit: cover;">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/IMG_1036_mpd6jm" alt="Clan members celebrating together with the Tommy Coconut family" style="width: 100%; height: 300px; object-fit: cover;">
                     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(0, 47, 61, 0.8) 100%); display: flex; align-items: flex-end; padding: var(--space-6);">
-                        <p style="color: var(--text-inverse); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin: 0;">Tropical paradise experiences</p>
+                        <p style="color: var(--text-inverse); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin: 0;">Celebrating with our Coconut Clan family</p>
                     </div>
                 </div>
                 <div style="position: relative; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='var(--shadow-2xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
-                    <img src="images/properties/happy-hideaway.jpg" alt="Clan member relaxing in exclusive hideaway" style="width: 100%; height: 300px; object-fit: cover;">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/IMG_1058_qxvboj" alt="Clan members enjoying exclusive island adventures" style="width: 100%; height: 300px; object-fit: cover;">
                     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(0, 47, 61, 0.8) 100%); display: flex; align-items: flex-end; padding: var(--space-6);">
-                        <p style="color: var(--text-inverse); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin: 0;">Exclusive hideaway relaxation</p>
+                        <p style="color: var(--text-inverse); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin: 0;">Member-only island adventures</p>
                     </div>
                 </div>
                 <div style="position: relative; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='var(--shadow-2xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
-                    <img src="images/scenes/scene-1-overture.png" alt="Clan member sunset celebration" style="width: 100%; height: 300px; object-fit: cover;">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/IMG_1023_l7wpqf" alt="Clan members creating lasting memories together" style="width: 100%; height: 300px; object-fit: cover;">
                     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(0, 47, 61, 0.8) 100%); display: flex; align-items: flex-end; padding: var(--space-6);">
-                        <p style="color: var(--text-inverse); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin: 0;">Sunset celebrations with Clan members</p>
+                        <p style="color: var(--text-inverse); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin: 0;">Creating lasting family memories</p>
                     </div>
                 </div>
                 <div style="position: relative; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='var(--shadow-2xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
-                    <img src="images/scenes/scene-3-overture.png" alt="Clan member adventure activities" style="width: 100%; height: 300px; object-fit: cover;">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/IMG_1026_vhzogc" alt="Clan members enjoying authentic island connections" style="width: 100%; height: 300px; object-fit: cover;">
                     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(0, 47, 61, 0.8) 100%); display: flex; align-items: flex-end; padding: var(--space-6);">
-                        <p style="color: var(--text-inverse); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin: 0;">Member-only adventure experiences</p>
+                        <p style="color: var(--text-inverse); font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin: 0;">Authentic island connections</p>
                     </div>
                 </div>
             </div>

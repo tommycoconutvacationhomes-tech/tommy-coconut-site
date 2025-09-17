@@ -526,23 +526,23 @@
 
     <!-- Act 1: The Cinematic Reveal -->
     <section class="gallery-hero" style="margin-top: 80px;">
-        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/tropical-haven-waterfront" alt="Tropical Haven Waterfront Porch with Bay Views" class="hero-image">
+        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-1_xa0int" alt="Tropical Haven Waterfront Porch with Bay Views" class="hero-image">
         
         <div class="gallery-thumbnails">
-            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/tropical-haven-waterfront', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/tropical-haven-waterfront" alt="Waterfront Porch">
+            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-1_xa0int', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-1_xa0int" alt="Waterfront Porch">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/tropical-haven-luxury-interior', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/tropical-haven-luxury-interior" alt="Luxury Interior">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-50_eofu68', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-50_eofu68" alt="Luxury Interior">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/tropical-haven-bamboo-beds', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/tropical-haven-bamboo-beds" alt="Cloud-Soft Bamboo Beds">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-25_iuvdnc', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-25_iuvdnc" alt="Cloud-Soft Bamboo Beds">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/tropical-haven-gourmet-kitchen', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/tropical-haven-gourmet-kitchen" alt="Gourmet Kitchen">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-19_xzikhm', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-19_xzikhm" alt="Gourmet Kitchen">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/tropical-haven-pool', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/tropical-haven-pool" alt="Sparkling Pool">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-7_ha0zfe', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-7_ha0zfe" alt="Sparkling Pool">
             </div>
             <div class="thumbnail video-thumbnail" onclick="playVideo()">
                 <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/tropical-haven-video-thumb" alt="Virtual Tour">
@@ -754,6 +754,36 @@
         });
 
         // Gallery functionality
+        const galleryImages = [
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-1_xa0int',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-1_xa0int',
+                alt: 'Waterfront Porch'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-50_eofu68',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-50_eofu68',
+                alt: 'Luxury Interior'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-25_iuvdnc',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-25_iuvdnc',
+                alt: 'Cloud-Soft Bamboo Beds'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-19_xzikhm',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-19_xzikhm',
+                alt: 'Gourmet Kitchen'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-7_ha0zfe',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-7_ha0zfe',
+                alt: 'Sparkling Pool'
+            }
+        ];
+
+        let currentImageIndex = 0;
+
         function changeImage(src, thumbnail) {
             document.getElementById('heroImage').src = src;
             
@@ -761,6 +791,25 @@
             document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
             thumbnail.classList.add('active');
         }
+
+        // Auto-rotate gallery images
+        function rotateImages() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const currentImage = galleryImages[currentImageIndex];
+            
+            // Update hero image
+            document.getElementById('heroImage').src = currentImage.src;
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail:not(.video-thumbnail)');
+            thumbnails.forEach(t => t.classList.remove('active'));
+            if (thumbnails[currentImageIndex]) {
+                thumbnails[currentImageIndex].classList.add('active');
+            }
+        }
+
+        // Initialize auto-rotation
+        setInterval(rotateImages, 5000)
 
         function playVideo() {
             // Open video modal or redirect to video URL
