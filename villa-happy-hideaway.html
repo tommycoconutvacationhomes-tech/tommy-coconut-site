@@ -512,23 +512,23 @@
 
     <!-- Act 1: The Cinematic Reveal -->
     <section class="gallery-hero" style="margin-top: 80px;">
-        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/happy-hideaway-hero" alt="Happy Hideaway Private Sanctuary" class="hero-image">
+        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-79_ipmchx" alt="Happy Hideaway Private Sanctuary" class="hero-image">
         
         <div class="gallery-thumbnails">
-            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/happy-hideaway-hero', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/happy-hideaway-hero" alt="Private Sanctuary">
+            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-79_ipmchx', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-79_ipmchx" alt="Private Sanctuary">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/happy-hideaway-pool', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/happy-hideaway-pool" alt="Private Pool & Cabana">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-4_jxqo9o', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-4_jxqo9o" alt="Private Pool & Cabana">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/happy-hideaway-bedroom', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/happy-hideaway-bedroom" alt="Legendary Bamboo Beds">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-24_vknyvp', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-24_vknyvp" alt="Legendary Bamboo Beds">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/happy-hideaway-living', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/happy-hideaway-living" alt="Stress-Free Living">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-9_xtxn1e', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-9_xtxn1e" alt="Stress-Free Living">
             </div>
-            <div class="thumbnail video-thumbnail" onclick="playVideo()">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/happy-hideaway-video-thumb" alt="Virtual Tour">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-70_zpdz1y', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-70_zpdz1y" alt="Ocean Views">
             </div>
         </div>
     </section>
@@ -730,6 +730,37 @@
         });
 
         // Gallery functionality
+        // Gallery images for auto-rotation
+        const galleryImages = [
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-79_ipmchx',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-79_ipmchx',
+                alt: 'Private Sanctuary'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-4_jxqo9o',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-4_jxqo9o',
+                alt: 'Private Pool & Cabana'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-24_vknyvp',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-24_vknyvp',
+                alt: 'Legendary Bamboo Beds'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-9_xtxn1e',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-9_xtxn1e',
+                alt: 'Stress-Free Living'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-70_zpdz1y',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-70_zpdz1y',
+                alt: 'Ocean Views'
+            }
+        ];
+
+        let currentImageIndex = 0;
+
         function changeImage(src, thumbnail) {
             document.getElementById('heroImage').src = src;
             
@@ -742,6 +773,25 @@
             // Open video modal or redirect to video URL
             window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/happy-hideaway-tour', '_blank');
         }
+
+        // Auto-rotate gallery images
+        function rotateImages() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const currentImage = galleryImages[currentImageIndex];
+            
+            // Update hero image
+            document.getElementById('heroImage').src = currentImage.src;
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(t => t.classList.remove('active'));
+            if (thumbnails[currentImageIndex]) {
+                thumbnails[currentImageIndex].classList.add('active');
+            }
+        }
+
+        // Initialize auto-rotation
+        setInterval(rotateImages, 5000)
 
         // Reviews carousel
         let currentReview = 0;

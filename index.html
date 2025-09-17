@@ -97,6 +97,49 @@
       gtag('config', 'G-PVETEG7EB4');
     </script>
 
+    <!-- A/B Testing Framework -->
+    <script>
+    // Tommy Coconut A/B Testing Framework - The Blade
+    (function() {
+        // Generate random number for 50/50 split
+        const randomNumber = Math.random();
+        const version = randomNumber < 0.5 ? 'version-a' : 'version-b';
+
+        // Add version class to body
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add(version);
+
+            // Track which version user sees
+            const eventName = version === 'version-a' ? 'view_headline_A' : 'view_headline_B';
+            gtag('event', eventName, {
+                'event_category': 'ab_testing',
+                'event_label': 'hero_headline_test',
+                'custom_parameter': version
+            });
+
+            // Store version for conversion tracking
+            localStorage.setItem('tommy_headline_version', version);
+
+            console.log('Tommy Coconut A/B Test Active:', version);
+        });
+    })();
+    </script>
+
+    <style>
+    /* A/B Testing Display Logic */
+    .version-a .headline-b { display: none !important; }
+    .version-b .headline-a { display: none !important; }
+
+    /* Ensure both headlines have same styling */
+    .headline-a, .headline-b {
+        margin: 0;
+        padding: 0;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+    }
+    </style>
+
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -375,8 +418,8 @@
         <div class="container">
             <a href="reviews.html" class="banner-link">
                 <span class="banner-icon">🏖️</span>
-                <span class="banner-text">Over 1,000+ Happy Guests</span>
-                <span class="banner-cta">• Read Reviews</span>
+                <span class="banner-text" style="color: #FFFFFF;">Over 1,000+ Happy Guests</span>
+                <span class="banner-cta" style="color: #FFFFFF;">• Read Reviews</span>
             </a>
         </div>
     </div>
@@ -431,8 +474,9 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>The Cure for the Common Vacation.</h1>
-                    <p class="hero-subtitle">Your personal curation starts here.</p>
+                    <h1 class="headline-a" style="color: #FFFFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">The Cure for the Common Vacation.</h1>
+                    <h1 class="headline-b" style="color: #FFFFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Your Vacation, Perfectly Scripted.</h1>
+                    <p class="hero-subtitle" style="color: #FFFFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Your personal curation starts here.</p>
                 </div>
                 <div class="hero-cta" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
                     <!-- Primary CTA - Emotional & Family-Focused -->
@@ -505,8 +549,12 @@
                     
                     <!-- Review 1 -->
                     <div class="review-slide active" style="opacity: 1; transition: opacity 0.6s ease-in-out;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); color: #FFD700;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); gap: 2px;">
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
                         </div>
                         <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."</p>
                         <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
@@ -517,25 +565,33 @@
                     
                     <!-- Review 2 -->
                     <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-8); transition: opacity 0.6s ease-in-out;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); color: #FFD700;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); gap: 2px;">
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
                         </div>
-                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"From the moment we arrived, Tommy's team treated us like family. The villa was pristine, the boat trip was magical, and the concierge service was beyond anything we've experienced. We're already planning our return!"</p>
+                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"We came as guests and left as members of the Coconut Clan. Saying goodbye felt like leaving old friends. We're already planning our return."</p>
                         <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">Sarah & Mike Thompson</div>
-                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">3rd time guests, Silver Clan Members</div>
+                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Martinez Family</div>
+                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">4th time guests, Gold Clan Members</div>
                         </div>
                     </div>
                     
                     <!-- Review 3 -->
                     <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-8); transition: opacity 0.6s ease-in-out;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); color: #FFD700;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); gap: 2px;">
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
+                            <i class="fas fa-star" style="color: #FFD700; font-size: 1.25rem;"></i>
                         </div>
-                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"Every detail was perfect. The welcome coconut, the sunset cruise, the incredible villa — but what made it special was the genuine care from Tommy's family. This is how vacation should be done."</p>
+                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"The Jeep, the boat, the pre-stocked fridge... everything was included. It's the most stress-free, high-value vacation we've ever taken. Worth every penny and more."</p>
                         <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Rodriguez Family</div>
-                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">2nd time guests, Bronze Clan Members</div>
+                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Anderson Family</div>
+                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">6th time guests, Platinum Clan Members</div>
                         </div>
                     </div>
                 </div>
@@ -679,7 +735,7 @@
             <!-- Logo & Tagline -->
             <div style="margin-bottom: var(--space-6);">
                 <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut Logo" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
-                <p style="color: rgba(255, 255, 255, 0.9); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
+                <p style="color: #FFFFFF; font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
             </div>
             
             <!-- Social Links -->

@@ -47,6 +47,8 @@
             justify-content: center;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .container {
@@ -219,6 +221,39 @@
             display: inline-block;
         }
 
+        .perfect-match-promise {
+            background: rgba(0, 206, 209, 0.08);
+            border: 1px solid rgba(0, 206, 209, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--secondary);
+            font-style: italic;
+            position: relative;
+            text-align: center;
+        }
+
+        .perfect-match-promise::before {
+            content: '✓';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0, 206, 209, 0.3);
+        }
+
         /* Mobile optimization */
         @media (max-width: 768px) {
             .container {
@@ -266,13 +301,15 @@
                 </div>
                 <div class="promise-item">
                     <span class="promise-icon">✓</span>
-                    <span>You'll get access to dates the public can't see</span>
+                    <span>You'll unlock priority access to dates the public can't see.</span>
                 </div>
                 <div class="promise-item">
                     <span class="promise-icon">✓</span>
                     <span>Lock in your complimentary Friends & Family Cruise experience</span>
                 </div>
             </div>
+
+            <p class="perfect-match-promise">"The Tommy Coconut 'Perfect Match' Promise: If it's not the perfect fit, we'll personally help you find the one that is."</p>
             
             <blockquote style="background: rgba(0, 206, 209, 0.05); border-left: 4px solid var(--primary); padding: 1.5rem; margin: 2rem 0; font-style: italic; font-size: 1.1rem; line-height: 1.6; color: var(--dark);">
                 "What sets Tommy Coconut apart is their genuine care... what really touched us was how they made our teenage daughter feel special with her own adventure itinerary. We felt like family."
@@ -327,7 +364,8 @@ Looking forward to hearing from the family! 🏝️`;
             
             // Optional: Redirect to thank you page after a short delay
             setTimeout(() => {
-                window.location.href = 'thank-you.html';
+                // Smooth transition to thank you page
+                window.location.replace('thank-you.html');
             }, 2000);
         }
 

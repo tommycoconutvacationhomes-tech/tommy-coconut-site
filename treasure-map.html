@@ -98,6 +98,10 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
         
         body {
             font-family: 'Montserrat', system-ui, sans-serif;
@@ -455,11 +459,12 @@
             color: var(--primary-hover);
         }
         
-        /* Dushi Life Atmosphere Controls */
+        /* Dushi Life Atmosphere Controls - Repositioned to bottom-center */
         .atmosphere-toggle {
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 999;
             background: rgba(255, 255, 255, 0.9);
             border: none;
@@ -478,7 +483,7 @@
         
         .atmosphere-toggle:hover {
             opacity: 1;
-            transform: translateY(-1px);
+            transform: translateX(-50%) translateY(-1px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
         
@@ -502,9 +507,14 @@
                 width: 45px;
                 height: 45px;
                 bottom: 15px;
-                right: 15px;
+                left: 50%;
+                transform: translateX(-50%);
             }
-            
+
+            .atmosphere-toggle:hover {
+                transform: translateX(-50%) translateY(-1px);
+            }
+
             .atmosphere-toggle i {
                 font-size: 22px;
             }
@@ -1696,14 +1706,127 @@
             font-size: var(--text-base);
         }
         
-        /* Subtle Brand Watermark */
+        /* Step Indicator Styles */
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: var(--space-8);
+            padding: var(--space-4);
+            gap: var(--space-8);
+        }
+
+        .step-indicator-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.4;
+            transition: all 0.4s ease;
+        }
+
+        .step-indicator-item.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .step-indicator-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: var(--space-2);
+            transition: all 0.4s ease;
+        }
+
+        .step-indicator-item.active .step-indicator-icon {
+            background: #008080;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 128, 128, 0.3);
+        }
+
+        .step-indicator-label {
+            font-size: var(--text-xs);
+            font-weight: 600;
+            color: var(--text-muted);
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .step-indicator-item.active .step-indicator-label {
+            color: #008080;
+        }
+
+        /* Whisper Testimonial Styles */
+        .whisper-testimonial {
+            margin-top: var(--space-12);
+            text-align: center;
+            opacity: 0.85;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .whisper-testimonial p {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            line-height: 1.5;
+            margin-bottom: var(--space-2);
+        }
+
+        .whisper-testimonial cite {
+            font-style: normal;
+            color: var(--text-muted);
+            font-size: var(--text-xs);
+            font-weight: 500;
+        }
+
+        /* Tommy Coconut Brand Logo - Repositioned to top-left */
+        .tommy-coconut-logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            z-index: 1000;
+            background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_100/tommy-coconut-logo_ubfctu');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            pointer-events: none;
+        }
+
+        .tommy-coconut-logo:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .tommy-coconut-logo {
+                width: 50px;
+                height: 50px;
+                top: 15px;
+                left: 15px;
+            }
+        }
+
+        /* Subtle Brand Watermark - Keep as background element */
         .brand-watermark {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 80px;
             height: 80px;
-            opacity: 0.1;
+            opacity: 0.03;
             pointer-events: none;
             z-index: 500;
             background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_100/tommy-coconut-logo_ubfctu');
@@ -1712,13 +1835,11 @@
             background-position: center;
             transition: opacity 0.3s ease;
         }
-        
+
         @media (max-width: 768px) {
             .brand-watermark {
                 width: 60px;
                 height: 60px;
-                bottom: 15px;
-                right: 15px;
             }
         }
     </style>
@@ -2030,6 +2151,9 @@
     <!-- Close Button -->
     <button class="close-button" onclick="closeCuration()">×</button>
     
+    <!-- Tommy Coconut Logo - Top Left -->
+    <div class="tommy-coconut-logo"></div>
+
     <!-- Brand Watermark -->
     <div class="brand-watermark"></div>
     
@@ -2038,6 +2162,22 @@
         
         <!-- Step 1: The Opening Question -->
         <div class="step-container active" id="step1">
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step-indicator-item active">
+                    <div class="step-indicator-icon">🌴</div>
+                    <div class="step-indicator-label">Your Vibe</div>
+                </div>
+                <div class="step-indicator-item">
+                    <div class="step-indicator-icon">🗝️</div>
+                    <div class="step-indicator-label">Perfect Detail</div>
+                </div>
+                <div class="step-indicator-item">
+                    <div class="step-indicator-icon">📅</div>
+                    <div class="step-indicator-label">Your Dates</div>
+                </div>
+            </div>
+
             <div class="step-title">Tell Us About Your Escape</div>
             <div class="step-question">What does your perfect time in Curaçao look like?</div>
             <div class="options-grid">
@@ -2054,10 +2194,32 @@
                     <div class="option-text">A quiet, solitary space to disconnect and recharge</div>
                 </button>
             </div>
+
+            <!-- Whisper Testimonial -->
+            <div class="whisper-testimonial">
+                <p>"The most personal booking experience we've ever had."</p>
+                <cite>- The Johnson Family</cite>
+            </div>
         </div>
         
         <!-- Step 2: The Defining Detail -->
         <div class="step-container" id="step2">
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step-indicator-item">
+                    <div class="step-indicator-icon">🌴</div>
+                    <div class="step-indicator-label">Your Vibe</div>
+                </div>
+                <div class="step-indicator-item active">
+                    <div class="step-indicator-icon">🗝️</div>
+                    <div class="step-indicator-label">Perfect Detail</div>
+                </div>
+                <div class="step-indicator-item">
+                    <div class="step-indicator-icon">📅</div>
+                    <div class="step-indicator-label">Your Dates</div>
+                </div>
+            </div>
+
             <div class="step-title">The One Thing</div>
             <div class="step-question">Every dream stay has one detail that makes it perfect. What is yours?</div>
             <div class="options-grid">
@@ -2074,10 +2236,32 @@
                     <div class="option-text">The effortless style of modern, minimalist design</div>
                 </button>
             </div>
+
+            <!-- Whisper Testimonial -->
+            <div class="whisper-testimonial">
+                <p>"They listened to every detail and found exactly what we wanted."</p>
+                <cite>- Maria & Carlos Santos</cite>
+            </div>
         </div>
         
         <!-- Step 3: The Timeline -->
         <div class="step-container" id="step3">
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step-indicator-item">
+                    <div class="step-indicator-icon">🌴</div>
+                    <div class="step-indicator-label">Your Vibe</div>
+                </div>
+                <div class="step-indicator-item">
+                    <div class="step-indicator-icon">🗝️</div>
+                    <div class="step-indicator-label">Perfect Detail</div>
+                </div>
+                <div class="step-indicator-item active">
+                    <div class="step-indicator-icon">📅</div>
+                    <div class="step-indicator-label">Your Dates</div>
+                </div>
+            </div>
+
             <div class="step-title">Your Timeline</div>
             <div class="step-question">When are you dreaming of visiting?</div>
             <div class="date-picker-container">
@@ -2089,6 +2273,12 @@
                 </button>
             </div>
             <button class="primary-button" onclick="proceedToReveal()" id="dateConfirm">Continue to Your Match</button>
+
+            <!-- Whisper Testimonial -->
+            <div class="whisper-testimonial">
+                <p>"The whole process felt like working with family who truly cared."</p>
+                <cite>- Rebecca & James Mitchell</cite>
+            </div>
         </div>
         
         <!-- Step 4: The Grand Slam Offer Stack -->
@@ -2481,11 +2671,18 @@
                                 const dateString = `${startDate.toLocaleDateString('en-US', options)} - ${endDate.toLocaleDateString('en-US', options)}`;
                                 this.responses.dates = dateString;
                                 this.responses.travelDates = dateString; // Store for later use
-                                // Update button text to show selection
+
+                                // Update button text to show selection with smooth transition
                                 const confirmBtn = document.getElementById('dateConfirm');
                                 if (confirmBtn) {
                                     confirmBtn.textContent = 'Continue to Your Match ✓';
                                     confirmBtn.style.backgroundColor = '#28a745';
+                                    confirmBtn.style.transform = 'scale(1.02)';
+
+                                    // Reset scale after animation
+                                    setTimeout(() => {
+                                        confirmBtn.style.transform = 'scale(1)';
+                                    }, 200);
                                 }
                             }
                         }
@@ -2685,32 +2882,46 @@
             }
             
             goToStep(targetStep) {
+                // Smooth scroll to top to prevent layout shift
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
                 // Hide current step
                 const currentStepEl = document.getElementById(`step${this.currentStep}`);
                 if (currentStepEl) {
                     currentStepEl.classList.remove('active');
                     currentStepEl.classList.add('exiting');
                 }
-                
+
                 // Show target step after animation
                 setTimeout(() => {
                     if (currentStepEl) {
                         currentStepEl.style.display = 'none';
                         currentStepEl.classList.remove('exiting');
                     }
-                    
+
                     // Update current step
                     this.currentStep = targetStep;
-                    
+
                     // Show target step
                     const targetStepEl = document.getElementById(`step${targetStep}`);
                     if (targetStepEl) {
                         targetStepEl.style.display = 'block';
+
+                        // Ensure form is visible immediately without layout shift
+                        if (targetStep === 6) {
+                            setTimeout(() => {
+                                targetStepEl.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }, 100);
+                        }
+
                         setTimeout(() => {
                             targetStepEl.classList.add('active');
                         }, 50);
                     }
-                    
+
                     this.updateProgress();
                     this.updateWhatsAppContext();
                 }, 300);
@@ -3122,12 +3333,18 @@
                 dateInput.value = 'Flexible dates';
                 curationExperience.responses.dates = 'Flexible dates';
                 curationExperience.responses.travelDates = 'Flexible dates';
-                
-                // Update button to show selection
+
+                // Update button to show selection with smooth transition
                 const confirmBtn = document.getElementById('dateConfirm');
                 if (confirmBtn) {
                     confirmBtn.textContent = 'Continue to Your Match ✓';
                     confirmBtn.style.backgroundColor = '#28a745';
+                    confirmBtn.style.transform = 'scale(1.02)';
+
+                    // Reset scale after animation
+                    setTimeout(() => {
+                        confirmBtn.style.transform = 'scale(1)';
+                    }, 200);
                 }
             }
         }

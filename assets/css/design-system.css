@@ -229,9 +229,9 @@
   gap: var(--tc-space-3xl);
   flex-wrap: wrap;
   padding: var(--tc-space-2xl) 0;
-  background: rgba(98, 208, 201, 0.05);
-  border-top: 1px solid rgba(98, 208, 201, 0.1);
-  border-bottom: 1px solid rgba(98, 208, 201, 0.1);
+  background: #F5F5F5;
+  border-top: 1px solid rgba(0, 128, 128, 0.1);
+  border-bottom: 1px solid rgba(0, 128, 128, 0.1);
 }
 
 .tc-social-proof-item {
@@ -240,7 +240,7 @@
 
 .tc-social-proof-number {
   font-size: var(--tc-font-h2);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--tc-primary);
   margin-bottom: var(--tc-space-xs);
 }

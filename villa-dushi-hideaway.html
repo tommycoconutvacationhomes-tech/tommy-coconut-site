@@ -526,20 +526,23 @@
 
     <!-- Act 1: The Cinematic Reveal -->
     <section class="gallery-hero" style="margin-top: 80px;">
-        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway-pool-bar" alt="Dushi Hideaway Pool with Swim-Up Bar" class="hero-image">
+        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-6_pglrby" alt="Dushi Hideaway Pool with Swim-Up Bar" class="hero-image">
         
         <div class="gallery-thumbnails">
-            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway-pool-bar', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway-pool-bar" alt="Swim-Up Bar">
+            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-6_pglrby', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-6_pglrby" alt="Swim-Up Bar">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway-jacuzzi', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway-jacuzzi" alt="Bubbling Jacuzzi">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-38_zhvcs8', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-38_zhvcs8" alt="Bubbling Jacuzzi">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway-rain-shower', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway-rain-shower" alt="Rain Shower">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-31_ntywgl', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-31_ntywgl" alt="Rain Shower">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway-bedroom', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway-bedroom" alt="King Bamboo Beds">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-27_zmlbd1', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-27_zmlbd1" alt="King Bamboo Beds">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-45_2_kbc6ua', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-45_2_kbc6ua" alt="Ocean Views">
             </div>
             <div class="thumbnail video-thumbnail" onclick="playVideo()">
                 <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway-video-thumb" alt="Virtual Tour">
@@ -749,6 +752,36 @@
         });
 
         // Gallery functionality
+        const galleryImages = [
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-6_pglrby',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-6_pglrby',
+                alt: 'Swim-Up Bar'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-38_zhvcs8',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-38_zhvcs8',
+                alt: 'Bubbling Jacuzzi'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-31_ntywgl',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-31_ntywgl',
+                alt: 'Rain Shower'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-27_zmlbd1',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-27_zmlbd1',
+                alt: 'King Bamboo Beds'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-45_2_kbc6ua',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-45_2_kbc6ua',
+                alt: 'Ocean Views'
+            }
+        ];
+
+        let currentImageIndex = 0;
+
         function changeImage(src, thumbnail) {
             document.getElementById('heroImage').src = src;
             
@@ -756,6 +789,25 @@
             document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
             thumbnail.classList.add('active');
         }
+
+        // Auto-rotate gallery images
+        function rotateImages() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const currentImage = galleryImages[currentImageIndex];
+            
+            // Update hero image
+            document.getElementById('heroImage').src = currentImage.src;
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail:not(.video-thumbnail)');
+            thumbnails.forEach(t => t.classList.remove('active'));
+            if (thumbnails[currentImageIndex]) {
+                thumbnails[currentImageIndex].classList.add('active');
+            }
+        }
+
+        // Initialize auto-rotation
+        setInterval(rotateImages, 5000)
 
         function playVideo() {
             // Open video modal or redirect to video URL
