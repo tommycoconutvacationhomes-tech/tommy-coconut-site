@@ -345,20 +345,21 @@
         }
         
         .villa-feature {
-            background: var(--gradient-tropical);
-            color: white;
+            background: rgba(0, 128, 128, 0.2);
+            color: #008080;
             padding: var(--space-3) var(--space-6);
             border-radius: var(--radius-full);
             font-size: var(--text-sm);
             font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0, 207, 207, 0.25);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
             transition: var(--transition-normal);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(0, 128, 128, 0.2);
         }
         
         .villa-feature:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 207, 207, 0.35);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+            background: rgba(0, 128, 128, 0.25);
         }
         
         /* Form Styling */
@@ -862,11 +863,16 @@
         
         .offer-stack-container {
             background: white;
-            border-radius: 20px;
-            padding: var(--space-10);
-            margin: var(--space-8) 0 var(--space-16) 0;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            padding: var(--space-12);
+            margin: var(--space-8) auto var(--space-16) auto;
+            max-width: 900px;
+            border: 1px solid rgba(0, 128, 128, 0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12),
+                        0 4px 20px rgba(0, 0, 0, 0.08),
+                        0 0 0 1px rgba(255, 255, 255, 0.05);
+            position: relative;
+            backdrop-filter: blur(1px);
         }
         
         
@@ -1797,12 +1803,13 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
+            opacity: 1;
+            transition: all 0.3s ease;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .tommy-coconut-logo:hover {
@@ -2135,8 +2142,32 @@
 
     <!-- Atmosphere Toggle -->
     <button class="atmosphere-toggle" id="soundToggle" onclick="toggleSound()" aria-label="Toggle atmosphere music">
-        <i class="fas fa-music-slash" id="soundIcon"></i>
+        <i class="fas fa-volume-mute" id="soundIcon"></i>
     </button>
+
+    <!-- Now Playing Component -->
+    <div class="now-playing" id="nowPlaying" aria-live="polite">
+        <div class="now-playing-header">
+            <div class="now-playing-icon">
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="now-playing-label">Now Playing</div>
+        </div>
+        <div class="now-playing-track">Tommy Coconut - Sunset Prescription</div>
+        <div class="now-playing-artist">Dushi Life Atmosphere</div>
+        <div class="now-playing-waveform">
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+        </div>
+    </div>
 
     <!-- Narrative Progress -->
     <div class="progress-narrative">
@@ -3458,13 +3489,33 @@
         function updateSoundIcon(enabled) {
             const soundIcon = document.getElementById('soundIcon');
             const soundToggle = document.getElementById('soundToggle');
-            
+
             if (enabled) {
-                soundIcon.className = 'fas fa-music';
+                soundIcon.className = 'fas fa-volume-up';
                 soundToggle.classList.add('active');
             } else {
-                soundIcon.className = 'fas fa-music-slash';
+                soundIcon.className = 'fas fa-volume-mute';
                 soundToggle.classList.remove('active');
+            }
+
+            // Update Now Playing component
+            updateNowPlaying(enabled);
+        }
+
+        // Now Playing Component Functions
+        function updateNowPlaying(isPlaying) {
+            const nowPlaying = document.getElementById('nowPlaying');
+
+            if (isPlaying) {
+                // Show Now Playing with a slight delay for smooth appearance
+                setTimeout(() => {
+                    nowPlaying.classList.add('visible');
+                    nowPlaying.classList.remove('hidden');
+                }, 300);
+            } else {
+                // Hide Now Playing
+                nowPlaying.classList.add('hidden');
+                nowPlaying.classList.remove('visible');
             }
         }
         

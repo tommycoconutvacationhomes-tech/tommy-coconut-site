@@ -20,7 +20,7 @@
     
     <style>
         :root {
-            --primary: #00CED1;
+            --primary: #00CFCF;
             --primary-dark: #00A8A8;
             --secondary: #002F3D;
             --dark: #1a1a1a;
@@ -49,6 +49,10 @@
             padding: 0;
             min-height: 100vh;
             overflow-x: hidden;
+            overflow-y: auto;
+            /* Fix for scroll artifacts */
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
 
         .container {
@@ -75,6 +79,10 @@
             right: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            z-index: 1;
+            /* Prevent rendering artifacts */
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
         }
 
         .logo {
@@ -252,6 +260,10 @@
             font-size: 0.8rem;
             font-weight: 700;
             box-shadow: 0 2px 8px rgba(0, 206, 209, 0.3);
+            z-index: 2;
+            /* Prevent rendering artifacts */
+            will-change: transform;
+            transform: translateX(-50%) translate3d(0, 0, 0);
         }
 
         /* Mobile optimization */
@@ -378,6 +390,44 @@ Looking forward to hearing from the family! 🏝️`;
                 'event_label': 'concierge_bridge_page'
             });
         }
+
+        // Tommy Coconut Atmosphere Management System
+        // Maintains immersive audio experience throughout the conversion journey
+        let audioElement = null;
+
+        function initializeAtmosphere() {
+            // Create or reference the audio element
+            let existingAudio = document.getElementById('dushiScore');
+            if (!existingAudio) {
+                audioElement = document.createElement('audio');
+                audioElement.id = 'dushiScore';
+                audioElement.loop = true;
+                audioElement.preload = 'auto';
+                audioElement.innerHTML = '<source src="https://res.cloudinary.com/dhschyq40/video/upload/v1/Sunset_Prescription_xtjqds.mp3" type="audio/mpeg">';
+                document.body.appendChild(audioElement);
+            } else {
+                audioElement = existingAudio;
+            }
+
+            // Check if user previously had sound enabled in the treasure map
+            const soundPreference = localStorage.getItem('dushiSoundEnabled');
+            if (soundPreference === 'true') {
+                // Continue playing the atmosphere if user initiated it
+                audioElement.volume = 0.3; // Gentle villa atmosphere volume
+                audioElement.play().catch(error => {
+                    console.log('Audio continuation blocked by browser policy:', error);
+                });
+            }
+        }
+
+        // Initialize atmosphere when page loads
+        document.addEventListener('DOMContentLoaded', initializeAtmosphere);
     </script>
+
+    <!-- Hidden Audio Element for Atmospheric Continuity -->
+    <audio id="dushiScore" loop preload="auto" style="display: none;">
+        <source src="https://res.cloudinary.com/dhschyq40/video/upload/v1/Sunset_Prescription_xtjqds.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 </html>

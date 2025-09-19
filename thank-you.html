@@ -9,11 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
             /* Tommy Coconut Brand Colors - Non-Negotiable */
-            --teal: #008080;
+            --teal: #00CFCF;
             --white: #FFFFFF;
             --off-white: #F5F5F5;
             --charcoal: #333333;
@@ -282,13 +285,155 @@
             body {
                 padding: var(--space-2);
             }
-            
+
             .container {
                 padding: var(--space-2) 0;
             }
-            
+
             .dushi-video {
                 min-height: 200px;
+            }
+        }
+
+        /* The Dushi Soundtrack - Family Mixtape Experience */
+        .dushi-soundtrack {
+            max-width: 600px;
+            margin: var(--space-12) auto var(--space-16);
+            padding: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 245, 245, 0.9) 100%);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 15px 35px rgba(0, 128, 128, 0.15);
+            overflow: hidden;
+            border: 2px solid rgba(0, 207, 207, 0.1);
+        }
+
+        .soundtrack-header {
+            position: relative;
+            padding: var(--space-6);
+            background: linear-gradient(135deg,
+                rgba(0, 207, 207, 0.05) 0%,
+                rgba(0, 207, 207, 0.02) 100%),
+                url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_600,h_200,c_fill/v1/tommy-coconut/experiences/sunset-vibes') center/cover;
+            background-blend-mode: overlay;
+            text-align: center;
+            color: var(--charcoal);
+        }
+
+        .soundtrack-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .soundtrack-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .soundtrack-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: var(--text-2xl);
+            color: var(--charcoal);
+            margin-bottom: var(--space-3);
+        }
+
+        .soundtrack-content p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: var(--text-base);
+            color: var(--charcoal);
+            line-height: 1.6;
+            margin-bottom: var(--space-6);
+        }
+
+        .tommy-playlist-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4) var(--space-6);
+            background: linear-gradient(135deg, var(--teal) 0%, #00B5B5 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: var(--text-lg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 20px rgba(0, 207, 207, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tommy-playlist-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .tommy-playlist-button:hover {
+            background: linear-gradient(135deg, #00E5E5 0%, var(--teal) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 207, 207, 0.4);
+        }
+
+        .tommy-playlist-button:hover::before {
+            left: 100%;
+        }
+
+        .spotify-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .family-touch {
+            padding: var(--space-4) var(--space-6);
+            background: rgba(0, 207, 207, 0.03);
+            border-top: 1px solid rgba(0, 207, 207, 0.1);
+            text-align: center;
+        }
+
+        .family-signature {
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic;
+            font-size: var(--text-sm);
+            color: rgba(51, 51, 51, 0.7);
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .dushi-soundtrack {
+                margin: var(--space-8) auto var(--space-12);
+            }
+
+            .soundtrack-header {
+                padding: var(--space-4);
+            }
+
+            .soundtrack-content h2 {
+                font-size: var(--text-xl);
+            }
+
+            .tommy-playlist-button {
+                padding: var(--space-3) var(--space-4);
+                font-size: var(--text-base);
+            }
+
+            .family-touch {
+                padding: var(--space-3) var(--space-4);
             }
         }
     </style>
@@ -334,7 +479,8 @@
                 </div>
             </div>
         </div>
-        
+
+
         <!-- Additional Content -->
         <div class="additional-content">
             <p class="content-text">
@@ -344,32 +490,103 @@
                 Your concierge has all the details about your curated villa experience and will answer any questions you have about your upcoming escape to Curaçao.
             </p>
         </div>
+
+        <!-- The Dushi Soundtrack - Tommy's Personal Mixtape -->
+        <div class="dushi-soundtrack">
+            <div class="soundtrack-header">
+                <div class="soundtrack-content">
+                    <h2>Want to take the Dushi Life with you?</h2>
+                    <p>The song you've been listening to is part of our family's official Dushi Life Soundtrack, curated by Tommy Coconut himself. It's the perfect score for dreaming of your escape.</p>
+                    <a href="https://open.spotify.com/playlist/4uQGKOXOxtBKSmXJjjWKXq?si=your-playlist-id" target="_blank" class="tommy-playlist-button">
+                        <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
+                        </svg>
+                        Tommy's Dushi Life Playlist
+                    </a>
+                </div>
+            </div>
+            <div class="family-touch">
+                <p class="family-signature">"Music is the soundtrack to every great escape" - Tommy Coconut</p>
+            </div>
+        </div>
     </div>
     
     <!-- JavaScript for Video Interaction -->
     <script>
+        // Tommy Coconut Atmosphere Management System
+        let audioElement = null;
+
+        function initializeAtmosphere() {
+            // Create or reference the audio element
+            let existingAudio = document.getElementById('dushiScore');
+            if (!existingAudio) {
+                audioElement = document.createElement('audio');
+                audioElement.id = 'dushiScore';
+                audioElement.loop = true;
+                audioElement.preload = 'auto';
+                audioElement.innerHTML = '<source src="https://res.cloudinary.com/dhschyq40/video/upload/v1/Sunset_Prescription_xtjqds.mp3" type="audio/mpeg">';
+                document.body.appendChild(audioElement);
+            } else {
+                audioElement = existingAudio;
+            }
+
+            // Check if user previously had sound enabled in the treasure map
+            const soundPreference = localStorage.getItem('dushiSoundEnabled');
+            if (soundPreference === 'true') {
+                // Continue playing the atmosphere if user initiated it
+                audioElement.volume = 0.3; // Gentle villa atmosphere volume
+                audioElement.play().catch(error => {
+                    console.log('Audio continuation blocked by browser policy:', error);
+                });
+            }
+        }
+
+        function stopAtmosphere() {
+            if (audioElement) {
+                // Fade out the atmosphere when VSL begins
+                let fadeAudio = setInterval(() => {
+                    if (audioElement.volume > 0.01) {
+                        audioElement.volume -= 0.02;
+                    } else {
+                        audioElement.volume = 0;
+                        audioElement.pause();
+                        clearInterval(fadeAudio);
+                        // Clear the preference so it doesn't restart on page refresh
+                        localStorage.setItem('dushiSoundEnabled', 'false');
+                    }
+                }, 50);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize atmosphere first
+            initializeAtmosphere();
+
             const video = document.getElementById('dushiVideo');
             const overlay = document.getElementById('videoPlayOverlay');
-            
+
             if (video && overlay) {
                 // Handle play button click
                 overlay.addEventListener('click', function() {
                     overlay.style.display = 'none';
                     video.play();
+                    // Stop atmospheric music when VSL begins
+                    stopAtmosphere();
                 });
-                
+
                 // Handle video play event
                 video.addEventListener('play', function() {
                     overlay.style.display = 'none';
+                    // Stop atmospheric music when VSL begins
+                    stopAtmosphere();
                 });
-                
+
                 // Handle video pause event
                 video.addEventListener('pause', function() {
                     // Don't show overlay again once user has interacted
                     // This keeps the UX clean and focused
                 });
-                
+
                 // Optional: Attempt autoplay with sound (browser dependent)
                 // Note: Most browsers block autoplay with sound unless user has interacted
                 try {
@@ -381,7 +598,13 @@
             }
         });
     </script>
-    
+
+    <!-- Hidden Audio Element for Atmospheric Continuity -->
+    <audio id="dushiScore" loop preload="auto" style="display: none;">
+        <source src="https://res.cloudinary.com/dhschyq40/video/upload/v1/Sunset_Prescription_xtjqds.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- Clean Footer -->
     <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
         <div class="container">
@@ -393,17 +616,17 @@
             
             <!-- Social Links -->
             <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-6);">
-                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
-                    <i class="fab fa-instagram"></i>
+                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" aria-label="Follow Tommy Coconut on Instagram" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
                 </a>
-                <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
-                    <i class="fab fa-facebook"></i>
+                <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" aria-label="Follow Tommy Coconut on Facebook" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
-                <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
-                    <i class="fab fa-youtube"></i>
+                <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener" aria-label="Watch Tommy Coconut on YouTube" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-youtube" aria-hidden="true"></i>
                 </a>
-                <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
-                    <i class="fab fa-tiktok"></i>
+                <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" aria-label="Follow Tommy Coconut on TikTok" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-tiktok" aria-hidden="true"></i>
                 </a>
             </div>
             

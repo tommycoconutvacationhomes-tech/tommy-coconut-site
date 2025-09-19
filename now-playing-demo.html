@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now Playing Component Demo | Tommy Coconut</title>
+
+    <!-- External Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Tommy Coconut CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-2xl);
+            padding: var(--space-12);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+            justify-content: center;
+        }
+
+        .demo-info {
+            background: rgba(0, 207, 207, 0.05);
+            border: 1px solid rgba(0, 207, 207, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+
+        /* Custom atmosphere toggle for demo */
+        .atmosphere-toggle {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(0, 128, 128, 0.2);
+            border-radius: var(--radius-full);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .atmosphere-toggle:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .atmosphere-toggle i {
+            color: #333333;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .atmosphere-toggle.active i {
+            color: #62D0C9;
+        }
+
+        .atmosphere-toggle.active {
+            background: rgba(255, 255, 255, 0.95);
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Audio Element -->
+    <audio id="dushiScore" loop preload="auto">
+        <source src="https://res.cloudinary.com/dhschyq40/video/upload/v1/Sunset_Prescription_xtjqds.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Now Playing Component -->
+    <div class="now-playing" id="nowPlaying" aria-live="polite">
+        <div class="now-playing-header">
+            <div class="now-playing-icon">
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="now-playing-label">Now Playing</div>
+        </div>
+        <div class="now-playing-track">Tommy Coconut - Sunset Prescription</div>
+        <div class="now-playing-artist">Dushi Life Atmosphere</div>
+        <div class="now-playing-waveform">
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+            <div class="waveform-bar"></div>
+        </div>
+    </div>
+
+    <div class="demo-container">
+        <h1 style="text-align: center; color: var(--teal); margin-bottom: var(--space-8);">
+            Tommy Coconut "Now Playing" Component Demo
+        </h1>
+
+        <div class="demo-info">
+            <h3 style="color: var(--teal); margin-bottom: var(--space-4);">How to Experience</h3>
+            <p style="color: var(--charcoal); margin-bottom: var(--space-4);">
+                Click the atmosphere toggle button below to start/stop the atmospheric music and see the "Now Playing" component in action. The component will elegantly appear in the bottom-right corner when music is playing.
+            </p>
+            <ul style="color: var(--charcoal); margin-left: var(--space-6);">
+                <li>Beautiful glassmorphism design with Tommy Coconut brand colors</li>
+                <li>Animated waveform visualization</li>
+                <li>Smooth fade in/out transitions</li>
+                <li>Mobile-responsive design</li>
+                <li>Accessible with ARIA labels</li>
+            </ul>
+        </div>
+
+        <div class="demo-controls">
+            <button class="atmosphere-toggle" id="soundToggle" onclick="toggleSound()" aria-label="Toggle atmosphere music">
+                <i class="fas fa-volume-mute" id="soundIcon"></i>
+            </button>
+        </div>
+
+        <div style="text-align: center; color: var(--text-secondary);">
+            <p>The "Now Playing" component seamlessly integrates with the existing atmosphere music system and follows Tommy Coconut's design principles of elegant simplicity and premium user experience.</p>
+        </div>
+    </div>
+
+    <script>
+        // Dushi Life Atmosphere Controls with Now Playing Integration
+        let isAudioPlaying = false;
+        let audioElement = null;
+
+        function initializeAudio() {
+            audioElement = document.getElementById('dushiScore');
+
+            // Check if user previously had sound enabled
+            const soundPreference = localStorage.getItem('dushiSoundEnabled');
+            if (soundPreference === 'true') {
+                enableSound();
+            }
+        }
+
+        function toggleSound() {
+            if (isAudioPlaying) {
+                disableSound();
+            } else {
+                enableSound();
+            }
+        }
+
+        function enableSound() {
+            if (audioElement) {
+                // Fade in audio
+                audioElement.volume = 0;
+                audioElement.play().then(() => {
+                    fadeInAudio();
+                    isAudioPlaying = true;
+                    updateSoundIcon(true);
+                    localStorage.setItem('dushiSoundEnabled', 'true');
+                }).catch(error => {
+                    console.log('Audio autoplay prevented:', error);
+                });
+            }
+        }
+
+        function disableSound() {
+            if (audioElement) {
+                fadeOutAudio(() => {
+                    audioElement.pause();
+                    isAudioPlaying = false;
+                    updateSoundIcon(false);
+                    localStorage.setItem('dushiSoundEnabled', 'false');
+                });
+            }
+        }
+
+        function fadeInAudio() {
+            if (audioElement) {
+                let volume = 0;
+                const fadeInInterval = setInterval(() => {
+                    if (volume < 0.3) { // Max volume 30% for background ambiance
+                        volume += 0.01;
+                        audioElement.volume = Math.min(volume, 0.3);
+                    } else {
+                        clearInterval(fadeInInterval);
+                    }
+                }, 50);
+            }
+        }
+
+        function fadeOutAudio(callback = null) {
+            if (audioElement) {
+                const fadeOutInterval = setInterval(() => {
+                    if (audioElement.volume > 0.01) {
+                        audioElement.volume -= 0.01;
+                    } else {
+                        audioElement.volume = 0;
+                        clearInterval(fadeOutInterval);
+                        if (callback) callback();
+                    }
+                }, 50);
+            }
+        }
+
+        function updateSoundIcon(enabled) {
+            const soundIcon = document.getElementById('soundIcon');
+            const soundToggle = document.getElementById('soundToggle');
+
+            if (enabled) {
+                soundIcon.className = 'fas fa-volume-up';
+                soundToggle.classList.add('active');
+            } else {
+                soundIcon.className = 'fas fa-volume-mute';
+                soundToggle.classList.remove('active');
+            }
+
+            // Update Now Playing component
+            updateNowPlaying(enabled);
+        }
+
+        // Now Playing Component Functions
+        function updateNowPlaying(isPlaying) {
+            const nowPlaying = document.getElementById('nowPlaying');
+
+            if (isPlaying) {
+                // Show Now Playing with a slight delay for smooth appearance
+                setTimeout(() => {
+                    nowPlaying.classList.add('visible');
+                    nowPlaying.classList.remove('hidden');
+                }, 300);
+            } else {
+                // Hide Now Playing
+                nowPlaying.classList.add('hidden');
+                nowPlaying.classList.remove('visible');
+            }
+        }
+
+        // Initialize audio when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeAudio);
+    </script>
+</body>
+</html>
