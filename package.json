@@ -8,7 +8,13 @@
     "dev": "echo 'Development server would start here'"
   },
   "dependencies": {
-    "cloudinary": "^1.41.0"
+    "cloudinary": "^1.41.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "@sentry/node": "^7.91.0",
+    "airtable": "^0.12.2",
+    "@sendgrid/mail": "^8.1.0",
+    "uuid": "^9.0.1",
+    "node-cache": "^5.1.2"
   },
   "engines": {
     "node": ">=18.0.0"
