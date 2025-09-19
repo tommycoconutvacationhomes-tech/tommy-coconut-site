@@ -150,8 +150,8 @@ INSERT INTO pricing (property_id, season, start_date, end_date, nightly_rate, we
 SELECT
     id as property_id,
     'High Season' as season,
-    '2024-12-15' as start_date,
-    '2025-04-15' as end_date,
+    DATE '2024-12-15' as start_date,
+    DATE '2025-04-15' as end_date,
     950.00 as nightly_rate,
     6300.00 as weekly_rate,
     25000.00 as monthly_rate,
@@ -161,8 +161,8 @@ UNION ALL
 SELECT
     id as property_id,
     'Low Season' as season,
-    '2024-04-16' as start_date,
-    '2024-12-14' as end_date,
+    DATE '2024-04-16' as start_date,
+    DATE '2024-12-14' as end_date,
     750.00 as nightly_rate,
     4900.00 as weekly_rate,
     19000.00 as monthly_rate,
@@ -211,21 +211,24 @@ VALUES (
 INSERT INTO availability (property_id, date, is_available, nightly_rate)
 SELECT
     p.id,
-    generate_series(
-        CURRENT_DATE,
-        CURRENT_DATE + interval '90 days',
-        interval '1 day'
-    )::date as date,
+    date_series.date,
     CASE
-        WHEN generate_series::date BETWEEN CURRENT_DATE + 10 AND CURRENT_DATE + 17 THEN false
-        WHEN generate_series::date BETWEEN CURRENT_DATE + 30 AND CURRENT_DATE + 35 THEN false
+        WHEN date_series.date BETWEEN CURRENT_DATE + 10 AND CURRENT_DATE + 17 THEN false
+        WHEN date_series.date BETWEEN CURRENT_DATE + 30 AND CURRENT_DATE + 35 THEN false
         ELSE true
     END as is_available,
     CASE
-        WHEN EXTRACT(month FROM generate_series) IN (12, 1, 2, 3) THEN 950.00
+        WHEN EXTRACT(month FROM date_series.date) IN (12, 1, 2, 3) THEN 950.00
         ELSE 750.00
     END as nightly_rate
 FROM properties p
+CROSS JOIN (
+    SELECT generate_series(
+        CURRENT_DATE,
+        CURRENT_DATE + interval '90 days',
+        interval '1 day'
+    )::date as date
+) date_series
 WHERE p.slug = 'villa-aurora';
 
 -- Add a sample completed booking with review
@@ -238,8 +241,8 @@ INSERT INTO bookings (
 SELECT
     g.id as guest_id,
     p.id as property_id,
-    CURRENT_DATE - interval '30 days' as check_in_date,
-    CURRENT_DATE - interval '23 days' as check_out_date,
+    (CURRENT_DATE - interval '30 days')::date as check_in_date,
+    (CURRENT_DATE - interval '23 days')::date as check_out_date,
     4 as guests_count,
     4 as adults_count,
     0 as children_count,
