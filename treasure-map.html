@@ -504,22 +504,174 @@
             background: rgba(255, 255, 255, 0.95);
         }
         
-        /* Mobile atmosphere toggle */
+        /* Enhanced Music Player - Now Playing Indicator */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(98, 208, 201, 0.3);
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+        }
+
+        .music-player:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 6px 30px rgba(98, 208, 201, 0.25);
+            border-color: rgba(98, 208, 201, 0.5);
+        }
+
+        /* Animated Equalizer Bars */
+        .equalizer {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 20px;
+            width: 20px;
+        }
+
+        .equalizer-bar {
+            width: 3px;
+            background: linear-gradient(to top, #00CFCF, #62D0C9);
+            border-radius: 2px;
+            animation: equalize 1s ease-in-out infinite;
+        }
+
+        .equalizer-bar:nth-child(1) {
+            height: 60%;
+            animation-delay: 0s;
+        }
+
+        .equalizer-bar:nth-child(2) {
+            height: 100%;
+            animation-delay: 0.2s;
+        }
+
+        .equalizer-bar:nth-child(3) {
+            height: 40%;
+            animation-delay: 0.4s;
+        }
+
+        .equalizer-bar:nth-child(4) {
+            height: 80%;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes equalize {
+            0%, 100% { height: 40%; }
+            50% { height: 100%; }
+        }
+
+        /* Music Player Text */
+        .music-player-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .music-player-status {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Paused State */
+        .music-player.paused .equalizer-bar {
+            animation: none;
+            height: 40%;
+            opacity: 0.4;
+        }
+
+        .music-player.paused {
+            border-color: rgba(0, 0, 0, 0.15);
+        }
+
+        .music-player.paused .music-player-status {
+            color: var(--text-muted);
+        }
+
+        /* Play/Pause Icon */
+        .music-icon {
+            color: var(--primary);
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .music-player.paused .music-icon {
+            color: var(--text-muted);
+        }
+
+        /* Continue Listening Link */
+        .spotify-link {
+            position: fixed;
+            bottom: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 998;
+            opacity: 0;
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+
+        .spotify-link.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .spotify-link a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(98, 208, 201, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .spotify-link a:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(98, 208, 201, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .spotify-link i {
+            color: #1DB954;
+            font-size: 16px;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .atmosphere-toggle {
-                width: 45px;
-                height: 45px;
+            .music-player {
                 bottom: 15px;
-                left: 50%;
-                transform: translateX(-50%);
+                padding: 10px 16px;
+                min-width: 180px;
             }
 
-            .atmosphere-toggle:hover {
-                transform: translateX(-50%) translateY(-1px);
+            .music-player-text {
+                font-size: 12px;
             }
 
-            .atmosphere-toggle i {
-                font-size: 22px;
+            .spotify-link {
+                bottom: 75px;
             }
         }
         
@@ -2136,10 +2288,27 @@
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Atmosphere Toggle -->
-    <button class="atmosphere-toggle" id="soundToggle" onclick="toggleSound()" aria-label="Toggle atmosphere music">
-        <i class="fas fa-music-slash" id="soundIcon"></i>
-    </button>
+    <!-- Enhanced Music Player with Now Playing Indicator -->
+    <div class="music-player paused" id="musicPlayer" onclick="toggleSound()" role="button" tabindex="0" aria-label="Toggle atmosphere music">
+        <div class="equalizer" id="equalizer">
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <div class="music-player-text">Tommy Coconut Vibes</div>
+            <div class="music-player-status" id="musicStatus">Click to play</div>
+        </div>
+    </div>
+
+    <!-- Continue Listening to Spotify -->
+    <div class="spotify-link" id="spotifyLink">
+        <a href="https://open.spotify.com/playlist/37i9dQZF1DX4OzrY981I1W" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-spotify"></i>
+            <span>Continue listening on Spotify</span>
+        </a>
+    </div>
 
     <!-- Narrative Progress -->
     <div class="progress-narrative">
@@ -3402,25 +3571,72 @@
             curationExperience.closeCuration();
         }
         
-        // Dushi Life Atmosphere Controls
+        // Enhanced Dushi Life Atmosphere Controls with Auto-play
         let isAudioPlaying = false;
         let audioElement = null;
-        
+        let autoplayAttempted = false;
+
         function initializeAudio() {
             audioElement = document.getElementById('dushiScore');
-            
+            const musicPlayer = document.getElementById('musicPlayer');
+            const spotifyLink = document.getElementById('spotifyLink');
+
+            // Attempt auto-play with graceful fallback
+            if (!autoplayAttempted) {
+                autoplayAttempted = true;
+                attemptAutoplay();
+            }
+
             // Check if user previously had sound enabled
             const soundPreference = localStorage.getItem('dushiSoundEnabled');
-            if (soundPreference === 'true') {
+            if (soundPreference === 'true' && !isAudioPlaying) {
                 enableSound();
             }
-            
+
+            // Show Spotify link after 5 seconds if music is playing
+            setTimeout(() => {
+                if (isAudioPlaying) {
+                    spotifyLink.classList.add('show');
+                }
+            }, 5000);
+
             // Fade out audio when reaching thank you page
             if (window.location.pathname.includes('thank-you')) {
                 fadeOutAudio();
             }
         }
-        
+
+        function attemptAutoplay() {
+            // Try to auto-play - if it works, great! If not, user can click to play
+            if (audioElement) {
+                audioElement.volume = 0;
+                audioElement.play().then(() => {
+                    fadeInAudio();
+                    isAudioPlaying = true;
+                    updateMusicPlayer(true);
+                    localStorage.setItem('dushiSoundEnabled', 'true');
+
+                    // Track successful auto-play
+                    if (window.tommyAnalytics) {
+                        window.tommyAnalytics.trackInteraction('audio_autoplay_success', 'dushi_atmosphere');
+                    }
+                }).catch(error => {
+                    // Auto-play blocked - show clear call to action
+                    console.log('Audio autoplay prevented - user interaction required:', error);
+                    updateMusicPlayer(false);
+
+                    // Show a subtle prompt
+                    const musicStatus = document.getElementById('musicStatus');
+                    musicStatus.textContent = 'Click to start vibes';
+
+                    // Track auto-play blocked
+                    if (window.tommyAnalytics) {
+                        window.tommyAnalytics.trackInteraction('audio_autoplay_blocked', 'dushi_atmosphere');
+                    }
+                });
+            }
+        }
+
         function toggleSound() {
             if (isAudioPlaying) {
                 disableSound();
@@ -3428,34 +3644,46 @@
                 enableSound();
             }
         }
-        
+
         function enableSound() {
+            const spotifyLink = document.getElementById('spotifyLink');
+
             if (audioElement) {
                 // Fade in audio
                 audioElement.volume = 0;
                 audioElement.play().then(() => {
                     fadeInAudio();
                     isAudioPlaying = true;
-                    updateSoundIcon(true);
+                    updateMusicPlayer(true);
                     localStorage.setItem('dushiSoundEnabled', 'true');
-                    
+
+                    // Show Spotify link after a moment
+                    setTimeout(() => {
+                        spotifyLink.classList.add('show');
+                    }, 2000);
+
                     // Track audio engagement
                     if (window.tommyAnalytics) {
                         window.tommyAnalytics.trackInteraction('audio_enabled', 'dushi_atmosphere');
                     }
                 }).catch(error => {
-                    console.log('Audio autoplay prevented:', error);
+                    console.log('Audio play failed:', error);
                 });
             }
         }
-        
+
         function disableSound() {
+            const spotifyLink = document.getElementById('spotifyLink');
+
             if (audioElement) {
                 fadeOutAudio(() => {
                     audioElement.pause();
                     isAudioPlaying = false;
-                    updateSoundIcon(false);
+                    updateMusicPlayer(false);
                     localStorage.setItem('dushiSoundEnabled', 'false');
+
+                    // Hide Spotify link when music stops
+                    spotifyLink.classList.remove('show');
                 });
             }
         }
@@ -3488,16 +3716,16 @@
             }
         }
         
-        function updateSoundIcon(enabled) {
-            const soundIcon = document.getElementById('soundIcon');
-            const soundToggle = document.getElementById('soundToggle');
-            
-            if (enabled) {
-                soundIcon.className = 'fas fa-music';
-                soundToggle.classList.add('active');
+        function updateMusicPlayer(isPlaying) {
+            const musicPlayer = document.getElementById('musicPlayer');
+            const musicStatus = document.getElementById('musicStatus');
+
+            if (isPlaying) {
+                musicPlayer.classList.remove('paused');
+                musicStatus.textContent = 'Now Playing';
             } else {
-                soundIcon.className = 'fas fa-music-slash';
-                soundToggle.classList.remove('active');
+                musicPlayer.classList.add('paused');
+                musicStatus.textContent = 'Paused';
             }
         }
         
