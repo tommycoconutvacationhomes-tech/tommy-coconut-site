@@ -582,38 +582,35 @@ a:hover, a:focus {
     position: relative;
 }
 
-/* Split Menu Layout */
+/* Menu Layout - Left Logo with Right Navigation */
 .nav-menu-left,
 .nav-menu-right {
     display: flex;
     align-items: center;
     list-style: none;
-    flex: 1;
 }
 
 .nav-menu-left {
-    justify-content: flex-end;
-    padding-right: var(--space-12);
     gap: var(--space-8);
+    margin-left: var(--space-8);
 }
 
 .nav-menu-right {
-    justify-content: flex-start;
-    padding-left: var(--space-12);
     gap: var(--space-8);
+    margin-left: auto;
 }
 
-/* Centered Logo */
+/* Left-Aligned Logo */
 .nav-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     z-index: 2;
     transition: var(--transition-normal);
+    order: -1;
+    margin-right: auto;
 }
 
 .nav-logo:hover {
-    transform: translateX(-50%) scale(1.05);
+    transform: scale(1.05);
 }
 
 .nav-logo img {
