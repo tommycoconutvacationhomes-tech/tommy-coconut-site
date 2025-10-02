@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Curation Experience | Tommy Coconut</title>
     <meta name="description" content="Let us curate the perfect villa experience for your dream vacation in Curaçao.">
-    <meta name="robots" content="noindex, nofollow">
+    <!-- REMOVED for SEO: <meta name="robots" content="noindex, nofollow"> -->
     
     <!-- External Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -2504,6 +2504,9 @@
             
             <div class="form-container">
                 <form id="conciergeForm" onsubmit="handleFormSubmit(event)">
+                    <!-- A/B Test Tracking: Capture headline version from homepage -->
+                    <input type="hidden" id="headline-version" name="headline_version" value="">
+
                     <div class="form-group">
                         <label class="form-label" for="userName">Name *</label>
                         <input type="text" id="userName" name="name" class="form-input required" required>
@@ -2555,7 +2558,8 @@
                 this.setupVillaData();
                 this.initSocialProof();
                 this.updateWhatsAppContext();
-                
+                this.captureABTestVersion();
+
                 // Track funnel start with enhanced analytics (with safety check)
                 if (window.tommyAnalytics && typeof window.tommyAnalytics.trackStepEntry === 'function') {
                     window.tommyAnalytics.trackStepEntry(1, 'vibe_selection');
@@ -2982,6 +2986,20 @@
                 }
             }
             
+            captureABTestVersion() {
+                // Capture A/B test version from homepage for conversion tracking
+                const headlineVersion = localStorage.getItem('tommy_headline_version') || 'unknown';
+                const hiddenInput = document.getElementById('headline-version');
+                if (hiddenInput) {
+                    hiddenInput.value = headlineVersion;
+                }
+
+                // Store in responses for later use
+                this.responses.headlineVersion = headlineVersion;
+
+                console.log('A/B Test Version Captured:', headlineVersion);
+            }
+
             setupWhatsAppLink() {
                 const whatsappLink = document.getElementById('instantWhatsApp');
                 const message = `Hi! I just completed your Personal Curation Experience and found my perfect villa: ${this.responses.villa}. I'd love to chat instantly about availability for ${this.responses.dates}.`;
@@ -3008,12 +3026,22 @@
             }
             
             async submitToServer() {
-                // Track form submission
+                // Track form submission with A/B test version
                 gtag('event', 'form_submit', {
                     'villa_name': this.responses.villa,
+                    'headline_version': this.responses.headlineVersion || 'unknown',
                     'event_category': 'conversion',
                     'event_label': 'concierge_form'
                 });
+
+                // Track A/B test conversion
+                if (this.responses.headlineVersion) {
+                    gtag('event', 'ab_test_conversion', {
+                        'version': this.responses.headlineVersion,
+                        'event_category': 'ab_testing',
+                        'event_label': 'hero_headline_test'
+                    });
+                }
                 
                 // Prepare data for Zapier
                 const formData = {
@@ -3028,6 +3056,7 @@
                     villa_match: this.responses.villa,
                     user_preferences: `${this.responses.vibe}, ${this.responses.groupType}, ${this.responses.location}`,
                     lead_source: 'Personal Curation Experience',
+                    headline_version: this.responses.headlineVersion || 'unknown',
                     timestamp: new Date().toISOString(),
                     website_url: window.location.href
                 };
@@ -3135,7 +3164,8 @@
             }
             
             updateProgress() {
-                const progress = (this.currentStep / this.totalSteps) * 100;
+                // Progress starts at 15% for psychological momentum, then scales to 100%
+                const progress = 15 + ((this.currentStep / this.totalSteps) * 85);
                 document.getElementById('progressBar').style.width = `${progress}%`;
             }
             

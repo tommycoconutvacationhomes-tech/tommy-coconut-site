@@ -69,18 +69,18 @@ class CloudinaryHelper {
             effect: 'blur:1000'
         });
     }
-    
-    // Villa image URLs mapping (to be updated with actual Cloudinary public IDs)
-    villaImages: {
-        'Villa Coral Vista': 'tommy-coconut/villas/coral-vista',
-        'Villa Ocean Dreams': 'tommy-coconut/villas/ocean-dreams',
-        'Villa Sunset Paradise': 'tommy-coconut/villas/sunset-paradise',
-        'Villa Beach Haven': 'tommy-coconut/villas/beach-haven'
-    },
-    
+
     // Get villa image URL by name
     getVillaImage(villaName, transformations = {}) {
-        const publicId = this.villaImages[villaName];
+        // Villa image URLs mapping
+        const villaImages = {
+            'Villa Coral Vista': 'tommy-coconut/villas/coral-vista',
+            'Villa Ocean Dreams': 'tommy-coconut/villas/ocean-dreams',
+            'Villa Sunset Paradise': 'tommy-coconut/villas/sunset-paradise',
+            'Villa Beach Haven': 'tommy-coconut/villas/beach-haven'
+        };
+
+        const publicId = villaImages[villaName];
         if (!publicId) {
             console.warn(`Villa image not found for: ${villaName}`);
             return this.getImageURL('tommy-coconut/villas/default', transformations);

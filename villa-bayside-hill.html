@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Villa Bayside Hill - Your Private Entertainment Compound | Tommy Coconut</title>
-    <meta name="description" content="Experience Villa Bayside Hill - a truly all-inclusive private resort with legendary bamboo beds, 'Cocktails & Dreams' bar, and the best Airbnb reviews ever. Better than the pictures.">
-    
+    <meta name="description" content="Villa Bayside Hill: Your all-inclusive private resort with legendary bamboo beds, 'Cocktails & Dreams' bar, and the best vacation reviews ever. Better than the pictures.">
+
     <!-- CSS Dependencies -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/design-system.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <!-- Cloudinary Configuration -->
     <script src="cloudinary-config.js"></script>
-    
+
     <style>
         :root {
             --primary: #62D0C9;
@@ -25,6 +25,10 @@
             --text-secondary: #666666;
             --surface: #F8F9FA;
             --surface-elevated: #FFFFFF;
+            --white: #FFFFFF;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-sm: 0.875rem;
             --space-xs: 0.25rem;
             --space-sm: 0.5rem;
             --space-md: 1rem;
@@ -32,6 +36,9 @@
             --space-xl: 2rem;
             --space-2xl: 3rem;
             --space-3xl: 4rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --font-weight-light: 300;
             --transition-normal: all 0.3s ease;
             --border-radius: 12px;
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -49,6 +56,12 @@
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--surface);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Floating Conversion Engine */
@@ -293,48 +306,62 @@
             color: var(--text-secondary);
         }
 
-        /* VIP Pass Section - Act 4 */
-        .vip-pass {
+        .spec-wit {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: var(--space-xs);
+        }
+
+        /* Win at Vacationing Pass Section - Act 4 */
+        .win-pass {
             padding: var(--space-3xl) var(--space-xl);
             background: linear-gradient(135deg, var(--secondary) 0%, #1A4B52 100%);
+            color: white;
         }
-        
 
-        .vip-container {
-            max-width: 1200px;
+        .win-container {
+            max-width: 1400px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .vip-title {
+        .win-title {
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: var(--space-md);
+            color: white;
         }
 
-        .vip-subtitle {
+        .win-subtitle {
             font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: var(--space-3xl);
+            opacity: 0.95;
+            margin-bottom: var(--space-2xl);
+            color: white;
         }
 
-        .vip-grid {
+        .win-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-2xl);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
             margin-top: var(--space-3xl);
         }
 
-        .vip-item {
+        .win-item {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             padding: var(--space-2xl);
             border-radius: var(--border-radius);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-normal);
         }
 
-        /* VIP Item Icons - Large Tommy Coconut Sand Beige Cards */
-        .vip-item-icon {
+        .win-item:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .win-item-icon {
             width: 100%;
             height: 120px;
             background: var(--tc-driftwood-sand) !important;
@@ -348,21 +375,40 @@
             box-shadow: var(--shadow-lg);
             transition: var(--transition-normal);
         }
-        
-        .vip-item-icon:hover {
+
+        .win-item-icon:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-xl);
         }
 
-        .vip-item h3 {
+        /* Pass Icon Styling */
+        .pass-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .win-item h3 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: var(--space-md);
+            color: white;
         }
 
-        .vip-item p {
+        .win-item p {
             line-height: 1.7;
-            opacity: 0.9;
+            opacity: 0.95;
+            font-size: 0.95rem;
+            color: white;
+        }
+
+        .win-highlight {
+            color: var(--primary);
+            font-weight: 700;
         }
 
         /* Reviews Section - Act 5 */
@@ -395,6 +441,7 @@
             background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
             border-radius: var(--border-radius);
             margin: var(--space-lg) 0;
+            min-height: 280px;
         }
 
         .review-item.active {
@@ -469,7 +516,7 @@
 
             .villa-story,
             .villa-specs,
-            .vip-pass,
+            .win-pass,
             .reviews-section {
                 padding: var(--space-2xl) var(--space-md);
             }
@@ -478,8 +525,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .vip-grid {
+            .win-grid {
                 grid-template-columns: 1fr;
+                gap: var(--space-lg);
             }
         }
     </style>
@@ -500,126 +548,139 @@
 
     <!-- Act 1: The Cinematic Reveal -->
     <section class="gallery-hero" style="margin-top: 80px;">
-        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l" alt="Villa Bayside Hill Pool and Veranda" class="hero-image">
-        
+        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-1.jpeg" alt="Villa Bayside Hill Private Sanctuary" class="hero-image">
+
         <div class="gallery-thumbnails">
-            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Pool & Veranda">
+            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-1.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-1.jpeg" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-2_sojwga', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-2_sojwga" alt="Ocean View">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-2.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-2.jpeg" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-3_pussf4', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-3_pussf4" alt="Cocktails & Dreams Bar">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-3.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-3.jpeg" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-4_gincf6', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-4_gincf6" alt="Legendary Bamboo Beds">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-4.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-4.jpeg" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-5_biyiqa', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-5_biyiqa" alt="Villa Interior">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-5.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-5.jpeg" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail video-thumbnail" onclick="playVideo()">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Drone Video Tour">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-6.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-6.jpeg" alt="Villa Bayside Hill">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-7.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-7.jpeg" alt="Villa Bayside Hill">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-8.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-8.jpeg" alt="Villa Bayside Hill">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-9.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-9.jpeg" alt="Villa Bayside Hill">
             </div>
         </div>
     </section>
 
     <!-- Act 2: The Soul of the Sanctuary -->
     <section class="villa-story">
-        <h1 class="villa-title">Villa Bayside Hill: Your Private Entertainment Compound</h1>
+        <h1 class="villa-title">Villa Bayside Hill: Your All-Inclusive Private Sanctuary</h1>
         <p class="villa-narrative">
-            This isn't just a 5-star villa; it's a <strong>truly all-inclusive private resort experience</strong>. The reviews say it all: <strong>'better than the pictures'</strong> and <strong>'the best Airbnb ever.'</strong> At the heart of it all is the sparkling pool and your very own <strong>'Cocktails & Dreams' bar</strong>, inspired by the Tom Cruise classic. Happy hour starts whenever you say it does. This is your paradise found.
+            This isn't just a 5-star villa; it's a <strong>truly all-inclusive private resort experience</strong>. The reviews say it all: <strong>'better than the pictures'</strong> and <strong>'the best vacation ever.'</strong> At the heart of it all is the sparkling infinity pool and your very own <strong>'Cocktails & Dreams' bar</strong>, inspired by the Tom Cruise classic. From legendary bamboo beds to ocean-view suites, every detail is designed for <strong>effortless luxury</strong>. Happy hour starts whenever you say it does. This is paradise found.
+        </p>
+        <p class="villa-narrative" style="font-size: 1.15rem; margin-top: 1.5rem; font-weight: 600;">
+            Guests call this "The Best Vacation Ever." Here's why.
         </p>
     </section>
 
     <!-- Act 3: The Effortless Details -->
     <section class="villa-specs">
         <div class="specs-container">
-            <h2 class="specs-title">Everything You Need, Beautifully Designed</h2>
+            <h2 class="specs-title">Your Private Oasis</h2>
             <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>4 Bedrooms / 4 Bathrooms</h3>
+                        <p>Sleeps 8 comfortably with individual suites and total privacy</p>
+                        <p class="spec-wit">(translation: no sink wars)</p>
+                    </div>
+                </div>
+
                 <div class="spec-item">
                     <div class="spec-icon">
                         <i class="fas fa-bed"></i>
                     </div>
                     <div class="spec-content">
-                        <h3>4 Bedroom Suites</h3>
-                        <p>Total privacy for your group with individual bathrooms and ocean views</p>
-                    </div>
-                </div>
-                
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="spec-content">
-                        <h3>Sleeps 8</h3>
-                        <p>Perfect for families, friends, or romantic getaways</p>
-                    </div>
-                </div>
-                
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div class="spec-content">
                         <h3>The Legendary Bamboo Beds</h3>
-                        <p>Yes, they're that good. Wake up refreshed every morning</p>
+                        <p>Premium comfort for restorative sleep and afternoon naps</p>
+                        <p class="spec-wit">(vacation isn't the time for twin bunks)</p>
                     </div>
                 </div>
-                
+
                 <div class="spec-item">
                     <div class="spec-icon">
                         <i class="fas fa-swimming-pool"></i>
                     </div>
                     <div class="spec-content">
-                        <h3>Pool, Jacuzzi & Bar</h3>
-                        <p>Your private oasis with infinity pool and cocktail service</p>
+                        <h3>Infinity Pool, Jacuzzi & 'Cocktails & Dreams' Bar</h3>
+                        <p>Your personal entertainment compound with Tom Cruise-worthy vibes</p>
                     </div>
                 </div>
-                
+
                 <div class="spec-item">
                     <div class="spec-icon">
-                        <i class="fas fa-gamepad"></i>
+                        <i class="fas fa-wifi"></i>
                     </div>
                     <div class="spec-content">
-                        <h3>Indoor Rec Room</h3>
-                        <p>Entertainment center with games, movies, and relaxation space</p>
+                        <h3>Fast Wi-Fi, Sonos & Entertainment Center</h3>
+                        <p>Stay connected and entertained with premium tech amenities</p>
+                        <p class="spec-wit">(aka peace treaties for kids vs. parents)</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Act 4: The Bayside Hill VIP Pass -->
-    <section class="vip-pass dark-section">
-        <div class="vip-container">
-            <h2 class="vip-title">Your Bayside Hill VIP Pass</h2>
-            <p class="vip-subtitle">Always Included. Our Zero Hidden Fees Promise: The price you see is the price you pay.</p>
-            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500;">This entire VIP experience is included in your all-inclusive stay.</p>
+    <!-- Act 4: The 'Win at Vacationing' Pass -->
+    <section class="win-pass dark-section">
+        <div class="win-container">
+            <h2 class="win-title">Your $2,500+ All-Access Pass. Always Included.</h2>
+            <p class="win-subtitle">Our Zero Hidden Fees & Logistics Guarantee: No surprises. <strong>Your time. Your agenda. You rule.</strong></p>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500;">This entire VIP experience is included in your all-inclusive stay. Everything. Always.</p>
 
-            <div class="vip-grid">
-                <div class="vip-item">
-                    <div class="vip-item-icon">
-                        <i class="fas fa-car"></i>
+            <div class="win-grid">
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/bayside-hill-3.jpeg" alt="Your Island Fleet" class="pass-icon">
                     </div>
                     <h3>Your Island Fleet</h3>
-                    <p>Included iCar SUV for unlimited island exploration. Go where you want, when you want. No rental hassles, no extra fees.</p>
+                    <p><span class="win-highlight">VIP Airport Transfers. EV-SUV Included. Free Charging Station.</span> From touchdown to exploration, your mobility is handled. Drive the island sustainably with GPS pre-loaded with 38 hidden beaches.</p>
                 </div>
-                
-                <div class="vip-item">
-                    <div class="vip-item-icon">
-                        <i class="fas fa-anchor"></i>
+
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/bayside-hill-5.jpeg" alt="Your Private Adventures" class="pass-icon">
                     </div>
-                    <h3>The Private Boat Trip</h3>
-                    <p>The legendary "This is Why We Came" experience. Private sunset cruise with snorkeling, drinks, and memories that last forever.</p>
+                    <h3>Your Private Adventures</h3>
+                    <p><span class="win-highlight">Private Boat Trip. Flamingo Hike with Guide. The Ultimate Beach Kit.</span> Ocean adventures, nature experiences, and beach days—all orchestrated, zero hassle.</p>
                 </div>
-                
-                <div class="vip-item">
-                    <div class="vip-item-icon">
-                        <i class="fas fa-concierge-bell"></i>
+
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/bayside-hill-4.jpeg" alt="Your Dushi Life Service" class="pass-icon">
                     </div>
-                    <h3>The Dushi Life Service</h3>
-                    <p>Airport transfer, dinner credit, pre-stocked fridge, personal itinerary, and 24/7 concierge. We handle the details, you make the memories.</p>
+                    <h3>Your Dushi Life Service</h3>
+                    <p><span class="win-highlight">Pre-Stocked Fridge. First-Night Dinner Prepared. 24/7 Concierge. Professional Housekeeping.</span> Arrive to a stocked kitchen. Enjoy dinner without cooking. Need anything? We're always here.</p>
+                </div>
+
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/bayside-hill-2.jpeg" alt="Your Personal Hosts" class="pass-icon">
+                    </div>
+                    <h3>Your Personal Hosts</h3>
+                    <p><span class="win-highlight">More than Hosts—We're Your Island Family.</span> Meet the family behind Tommy Coconut. Our friendly race to see who can help you the fastest is legendary. You'll never feel alone on this island.</p>
                 </div>
             </div>
         </div>
@@ -629,38 +690,49 @@
     <section class="reviews-section">
         <div class="reviews-container">
             <h2 class="reviews-title">Stories from Villa Bayside Hill</h2>
-            
+
+            <p style="text-align: center; font-weight: 700; font-size: 1.1rem; color: var(--primary); margin-bottom: 2rem;">
+                Every word we say is backed by 500+ reviews across our villas. Average rating: 4.99/5.00.
+            </p>
+
             <div class="reviews-carousel">
                 <div class="review-item active">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"This place is better than the pictures! The pool area is absolutely stunning and the 'Cocktails & Dreams' bar made us feel like movie stars. Best vacation rental we've ever stayed at."</p>
+                    <p class="review-text">"This place is better than the pictures! The pool area is absolutely stunning and the 'Cocktails & Dreams' bar made us feel like movie stars. Best vacation rental we've ever experienced."</p>
                     <p class="review-author">— Sarah & Mike, California</p>
                 </div>
-                
+
                 <div class="review-item">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"The bamboo beds are legendary for a reason - we had the best sleep of our lives. The villa has everything you need and more. Can't wait to come back!"</p>
+                    <p class="review-text">"The bamboo beds are legendary for a reason - we had the best sleep of our lives. The villa has everything you need and more. This is paradise perfection."</p>
                     <p class="review-author">— The Johnson Family, Texas</p>
                 </div>
-                
+
                 <div class="review-item">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"This is the best Airbnb ever. The private boat trip was incredible and having the car included made exploring the island so easy. Tommy Coconut thought of everything."</p>
+                    <p class="review-text">"Having the car and boat trip included changed everything. We explored at our own pace and never felt like we were missing out. The concierge was like having a local friend."</p>
                     <p class="review-author">— Jennifer & David, New York</p>
                 </div>
-                
+
                 <div class="review-item">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Paradise found! The villa exceeded all expectations. The service was impeccable and the location is perfect. We felt like royalty the entire stay."</p>
+                    <p class="review-text">"The infinity pool with ocean views became our daily ritual. The private boat trip was the highlight of our entire vacation. Absolutely magical experience."</p>
                     <p class="review-author">— Maria & Carlos, Florida</p>
                 </div>
+
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Every suite had its own bathroom and we never fought over space. The entertainment center kept the kids happy while we relaxed by the pool. Villa Bayside Hill exceeded all expectations."</p>
+                    <p class="review-author">— The Anderson Family, Chicago</p>
+                </div>
             </div>
-            
+
             <div class="review-dots">
                 <div class="review-dot active" onclick="showReview(0)"></div>
                 <div class="review-dot" onclick="showReview(1)"></div>
                 <div class="review-dot" onclick="showReview(2)"></div>
                 <div class="review-dot" onclick="showReview(3)"></div>
+                <div class="review-dot" onclick="showReview(4)"></div>
             </div>
         </div>
     </section>
@@ -673,12 +745,12 @@
                 <span style="color: var(--text-secondary);">to</span>
                 <input type="date" class="date-input" id="checkOut" placeholder="Check-out">
             </div>
-            
+
             <div class="price-display">
                 <div class="price-amount">7-Night All-Inclusive Experience</div>
                 <div class="price-label">from $6,300</div>
             </div>
-            
+
             <button class="welcome-home-btn" onclick="bookNow()">
                 <i class="fas fa-heart"></i>
                 Welcome Home
@@ -686,11 +758,56 @@
         </div>
     </div>
 
+    <!-- Clean Footer -->
+    <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
+        <div class="container">
+            <!-- Logo & Tagline -->
+            <div style="margin-bottom: var(--space-6);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
+                <p style="color: var(--white); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
+            </div>
+
+            <!-- Social Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-6);">
+                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Quick Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-6); font-size: var(--text-sm);">
+                <a href="rentals.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Rentals</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="experiences.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">The Journey</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="ownership.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Ownership</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="about.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Our Story</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="contact.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Contact</a>
+            </div>
+
+            <!-- Copyright -->
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
+                <p style="color: var(--text-inverse); opacity: 0.6; font-size: var(--text-sm); margin: 0;">&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
     <script>
         // Floating booking bar visibility
         let isBookingVisible = false;
-        
+
         function showFloatingBooking() {
             if (!isBookingVisible) {
                 document.getElementById('floatingBooking').classList.add('visible');
@@ -705,113 +822,69 @@
             }
         });
 
-        // Gallery functionality with auto-rotation
-        let currentImageIndex = 0;
-        let autoRotateInterval;
-        let isUserInteracting = false;
-        
+        // Gallery functionality
+        // Gallery images for auto-rotation
         const galleryImages = [
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l',
-                alt: 'Pool & Veranda'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-1.jpeg',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-1.jpeg',
+                alt: 'Private Sanctuary'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-2_sojwga',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-2_sojwga', 
-                alt: 'Ocean View'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-2.jpeg',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-2.jpeg',
+                alt: 'Infinity Pool & Ocean Views'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-3_pussf4',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-3_pussf4',
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-3.jpeg',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-3.jpeg',
                 alt: 'Cocktails & Dreams Bar'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-4_gincf6',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-4_gincf6',
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-4.jpeg',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-4.jpeg',
                 alt: 'Legendary Bamboo Beds'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-5_biyiqa',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-5_biyiqa',
-                alt: 'Villa Interior'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-5.jpeg',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-5.jpeg',
+                alt: 'Ocean Views'
             }
         ];
-        
+
+        let currentImageIndex = 0;
+
         function changeImage(src, thumbnail) {
             document.getElementById('heroImage').src = src;
-            
+
             // Update active thumbnail
             document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
             thumbnail.classList.add('active');
-            
-            // Stop auto-rotation when user manually selects
-            isUserInteracting = true;
-            clearInterval(autoRotateInterval);
-            
-            // Resume auto-rotation after 10 seconds of no interaction
-            setTimeout(() => {
-                isUserInteracting = false;
-                startAutoRotation();
-            }, 10000);
         }
-        
-        function autoRotateImages() {
-            if (isUserInteracting) return;
-            
+
+        function playVideo() {
+            // Open video modal or redirect to video URL
+            window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/bayside-hill-tour', '_blank');
+        }
+
+        // Auto-rotate gallery images
+        function rotateImages() {
             currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
             const currentImage = galleryImages[currentImageIndex];
-            
+
             // Update hero image
             document.getElementById('heroImage').src = currentImage.src;
-            
+
             // Update active thumbnail
-            const thumbnails = document.querySelectorAll('.thumbnail:not(.video-thumbnail)');
+            const thumbnails = document.querySelectorAll('.thumbnail');
             thumbnails.forEach(t => t.classList.remove('active'));
             if (thumbnails[currentImageIndex]) {
                 thumbnails[currentImageIndex].classList.add('active');
             }
         }
-        
-        function startAutoRotation() {
-            clearInterval(autoRotateInterval);
-            autoRotateInterval = setInterval(autoRotateImages, 4000); // Change every 4 seconds
-        }
-        
-        // Start auto-rotation when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(startAutoRotation, 3000); // Start after 3 seconds
-        });
 
-        function playVideo() {
-            // Replace hero image with video player
-            const heroImage = document.getElementById('heroImage');
-            heroImage.style.display = 'none';
-            
-            // Create video element
-            const videoContainer = document.createElement('div');
-            videoContainer.id = 'videoContainer';
-            videoContainer.style.cssText = 'position: relative; width: 100%; height: 100%; background: #000;';
-            
-            const video = document.createElement('video');
-            video.style.cssText = 'width: 100%; height: 100%; object-fit: cover;';
-            video.controls = true;
-            video.autoplay = true;
-            video.src = 'https://res.cloudinary.com/dhschyq40/video/upload/videoplayback_ujhyam';
-            
-            // Add close button
-            const closeBtn = document.createElement('button');
-            closeBtn.innerHTML = '✕';
-            closeBtn.style.cssText = 'position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 18px; cursor: pointer; z-index: 1000;';
-            closeBtn.onclick = function() {
-                videoContainer.remove();
-                heroImage.style.display = 'block';
-            };
-            
-            videoContainer.appendChild(video);
-            videoContainer.appendChild(closeBtn);
-            heroImage.parentNode.appendChild(videoContainer);
-        }
+        // Initialize auto-rotation
+        setInterval(rotateImages, 5000)
 
         // Reviews carousel
         let currentReview = 0;
@@ -826,7 +899,7 @@
                     item.classList.remove('active');
                 }
             });
-            
+
             reviewDots.forEach((dot, i) => {
                 if (i === index) {
                     dot.classList.add('active');
@@ -834,7 +907,7 @@
                     dot.classList.remove('active');
                 }
             });
-            
+
             currentReview = index;
         }
 
@@ -848,19 +921,19 @@
         function bookNow() {
             const checkIn = document.getElementById('checkIn').value;
             const checkOut = document.getElementById('checkOut').value;
-            
+
             if (!checkIn || !checkOut) {
                 alert('Please select your check-in and check-out dates');
                 return;
             }
-            
+
             // Redirect to treasure map with villa and dates
             const params = new URLSearchParams({
                 villa: 'bayside-hill',
                 checkin: checkIn,
                 checkout: checkOut
             });
-            
+
             window.location.href = `treasure-map.html?${params.toString()}`;
         }
 

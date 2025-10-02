@@ -3,32 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunshine Bay: Your Waterfront Paradise | Tommy Coconut</title>
-    <meta name="description" content="Experience Curaçao from your own top 1% waterfront sanctuary. Sunshine Bay offers exclusive beach access, legendary hospitality, and the complete VIP experience.">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥥</text></svg>">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Sunshine Bay - Your All-Inclusive Private Sanctuary | Tommy Coconut</title>
+    <meta name="description" content="Sunshine Bay: Your exclusive waterfront escape with VIP extras, legendary hospitality, and the complete all-inclusive experience. Guests call this 'The Best Vacation Ever.'">
 
-    <!-- Design System -->
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/design-system.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Cloudinary Configuration -->
     <script src="cloudinary-config.js"></script>
-    
+
     <style>
         :root {
-            --primary: #00CED1;
-            --primary-dark: #00A8A8;
-            --secondary: #FF6B6B;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --white: #ffffff;
-            --shadow: 0 2px 20px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+            --primary: #62D0C9;
+            --secondary: #005A5B;
+            --accent: #00CFCF;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --surface: #F8F9FA;
+            --surface-elevated: #FFFFFF;
+            --white: #FFFFFF;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-sm: 0.875rem;
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --font-weight-light: 300;
+            --transition-normal: all 0.3s ease;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -40,797 +54,901 @@
         body {
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        nav .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        /* Floating Booking Bar */
-        .booking-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            padding: 1rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-        }
-
-        .booking-bar.visible {
-            transform: translateY(0);
-        }
-
-        .booking-bar-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-            padding: 0 2rem;
-        }
-
-        .booking-dates {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .booking-dates input {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            font-family: inherit;
-        }
-
-        .booking-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .booking-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            opacity: 0.9;
-        }
-
-        .btn-book {
-            background: var(--white);
-            color: var(--primary);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-book:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Hero Gallery */
-        .hero-gallery {
-            margin-top: 80px;
-            position: relative;
-            height: 70vh;
-            min-height: 500px;
-            overflow: hidden;
-        }
-
-        .gallery-carousel {
-            position: relative;
-            height: 100%;
-            width: 100%;
-        }
-
-        .gallery-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .gallery-slide.active {
-            opacity: 1;
-        }
-
-        .gallery-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gallery-controls {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 0.5rem;
-            z-index: 10;
-        }
-
-        .gallery-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            border: 2px solid var(--white);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .gallery-dot.active {
-            background: var(--white);
-            width: 30px;
-            border-radius: 6px;
-        }
-
-        .gallery-badge {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: var(--white);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: var(--shadow);
-            z-index: 10;
-        }
-
-        /* Content Sections */
-        .section {
-            padding: 5rem 0;
+            color: var(--text-primary);
+            background: var(--surface);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 20px;
         }
 
-        h1 {
-            font-size: 3rem;
+        /* Floating Conversion Engine */
+        .floating-booking {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(98, 208, 201, 0.3);
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+            padding: var(--space-lg) var(--space-xl);
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .floating-booking.visible {
+            transform: translateY(0);
+        }
+
+        .booking-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .date-selector {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .date-input {
+            padding: var(--space-sm) var(--space-md);
+            border: 2px solid #E5E7EB;
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            transition: var(--transition-normal);
+        }
+
+        .date-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(98, 208, 201, 0.1);
+        }
+
+        .price-display {
+            text-align: right;
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .welcome-home-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            box-shadow: 0 4px 20px rgba(98, 208, 201, 0.4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .welcome-home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(98, 208, 201, 0.6);
+        }
+
+        /* Gallery Section - Act 1 */
+        .gallery-hero {
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-normal);
+        }
+
+        .gallery-thumbnails {
+            position: absolute;
+            bottom: var(--space-xl);
+            left: var(--space-xl);
+            right: var(--space-xl);
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            border: 3px solid transparent;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-thumbnail {
+            position: relative;
+        }
+
+        .video-thumbnail::after {
+            content: '\f04b';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            background: rgba(0, 0, 0, 0.7);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Villa Story Section - Act 2 */
+        .villa-story {
+            padding: var(--space-3xl) var(--space-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .villa-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: var(--space-xl);
             line-height: 1.2;
         }
 
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            color: var(--dark);
-        }
-
-        .lead {
-            font-size: 1.2rem;
+        .villa-narrative {
+            font-size: 1.25rem;
             line-height: 1.8;
-            color: var(--gray);
-            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        /* Property Details Grid */
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .villa-narrative strong {
+            color: var(--primary);
+            font-weight: 600;
         }
 
-        .detail-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--light);
-            border-radius: 10px;
-            transition: transform 0.3s;
+        /* Specs Section - Act 3 */
+        .villa-specs {
+            background: var(--surface-elevated);
+            padding: var(--space-3xl) var(--space-xl);
         }
 
-        .detail-item:hover {
-            transform: translateY(-5px);
+        .specs-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .detail-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .detail-text h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .detail-text p {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        /* VIP Pass Section */
-        .vip-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 3rem 0;
-        }
-
-        .vip-header {
+        .specs-title {
             text-align: center;
-            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-2xl);
         }
 
-        .vip-header h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .vip-subtitle {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-        }
-
-        .pricing-promise {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary);
-            margin: 2rem 0;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        .pricing-promise strong {
-            color: var(--primary);
-        }
-
-        .vip-grid {
+        .specs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: var(--space-xl);
         }
 
-        .vip-item {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-
-        .vip-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .vip-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 50%;
+        .spec-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            gap: var(--space-lg);
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
+            border-radius: var(--border-radius);
+            transition: var(--transition-normal);
         }
 
-        .vip-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
+        .spec-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-elevated);
         }
 
-        .vip-item p {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        .vip-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .vip-list li {
-            padding: 0.5rem 0;
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        .vip-list li strong {
-            color: var(--dark);
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-
-        /* Features Section */
-        .features-section {
-            background: var(--white);
-            padding: 4rem 0;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
+        .spec-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            min-width: 60px;
             text-align: center;
         }
 
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 50%;
+        .spec-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .spec-content p {
+            color: var(--text-secondary);
+        }
+
+        .spec-wit {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: var(--space-xs);
+        }
+
+        /* Win at Vacationing Pass Section - Act 4 */
+        .win-pass {
+            padding: var(--space-3xl) var(--space-xl);
+            background: linear-gradient(135deg, var(--secondary) 0%, #1A4B52 100%);
+            color: white;
+        }
+
+        .win-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .win-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+            color: white;
+        }
+
+        .win-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: var(--space-2xl);
+            color: white;
+        }
+
+        .win-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .win-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: var(--space-2xl);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-normal);
+        }
+
+        .win-item:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .win-item-icon {
+            width: 100%;
+            height: 120px;
+            background: var(--tc-driftwood-sand) !important;
+            color: var(--secondary) !important;
+            margin-bottom: var(--space-lg);
+            border-radius: var(--radius-xl);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-normal);
         }
 
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
+        .win-item-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
         }
 
-        .feature-card p {
-            color: var(--gray);
-            line-height: 1.6;
+        /* Pass Icon Styling */
+        .pass-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* Reviews Section */
+        .win-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            color: white;
+        }
+
+        .win-item p {
+            line-height: 1.7;
+            opacity: 0.95;
+            font-size: 0.95rem;
+            color: white;
+        }
+
+        .win-highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Reviews Section - Act 5 */
+        .reviews-section {
+            padding: var(--space-3xl) var(--space-xl);
+            background: var(--surface-elevated);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
         .reviews-carousel {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            position: relative;
         }
 
-        .review-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
+        .review-item {
+            display: none;
+            text-align: center;
+            padding: var(--space-2xl);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
+            border-radius: var(--border-radius);
+            margin: var(--space-lg) 0;
+            min-height: 280px;
         }
 
-        .review-card:hover {
-            transform: translateY(-5px);
+        .review-item.active {
+            display: block;
         }
 
         .review-stars {
+            font-size: 1.5rem;
             color: #FFD700;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-lg);
         }
 
         .review-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-primary);
             font-style: italic;
-            line-height: 1.6;
-            color: var(--gray);
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-lg);
         }
 
         .review-author {
             font-weight: 600;
-            color: var(--dark);
+            color: var(--secondary);
         }
 
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 8rem;
-            text-align: center;
+        .review-dots {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-xl);
         }
 
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
+        .review-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(98, 208, 201, 0.3);
+            cursor: pointer;
+            transition: var(--transition-normal);
         }
 
-        /* Mobile Responsive */
+        .review-dot.active {
+            background: var(--primary);
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            .floating-booking {
+                padding: var(--space-md);
             }
 
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            .booking-bar-content {
-                flex-direction: column;
+            .booking-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
                 text-align: center;
             }
 
-            .booking-dates {
-                width: 100%;
+            .date-selector {
                 justify-content: center;
             }
 
-            .vip-section {
-                padding: 2rem 1rem;
+            .gallery-thumbnails {
+                bottom: var(--space-md);
+                left: var(--space-md);
+                right: var(--space-md);
             }
 
-            .reviews-carousel {
+            .thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+
+            .villa-story,
+            .villa-specs,
+            .win-pass,
+            .reviews-section {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            .specs-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .win-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="index.html" style="font-size: 1.5rem; font-weight: 700;">← Back to Tommy Coconut</a>
-            <div class="nav-links">
-                <a href="rentals.html">All Villas</a>
-                <a href="contact.html">Contact</a>
+    <nav class="navbar" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); position: fixed; top: 0; left: 0; right: 0; z-index: 999; padding: 1rem 0;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
+            <a href="index.html" style="color: var(--secondary); text-decoration: none; font-weight: 700; font-size: 1.25rem;">
+                ← Back to Tommy Coconut
+            </a>
+            <div>
+                <a href="rentals.html" style="color: var(--text-secondary); text-decoration: none; margin-right: 2rem;">All Villas</a>
+                <a href="contact.html" style="color: var(--text-secondary); text-decoration: none;">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Floating Booking Bar -->
-    <div class="booking-bar" id="bookingBar">
-        <div class="booking-bar-content">
-            <div class="booking-dates">
-                <input type="date" id="checkIn" placeholder="Check-in">
-                <span>to</span>
-                <input type="date" id="checkOut" placeholder="Check-out">
-            </div>
-            <div class="booking-price">
-                <strong>7-Night All-Inclusive Experience</strong> <span>from $5,000</span>
-            </div>
-            <button class="btn-book" onclick="window.location.href='https://airbnb.com/h/sunshine-bay-curacao'">
-                ☀️ Welcome Home
-            </button>
-        </div>
-    </div>
+    <!-- Act 1: The Cinematic Reveal -->
+    <section class="gallery-hero" style="margin-top: 80px;">
+        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1.jpeg" alt="Sunshine Bay Waterfront Sanctuary" class="hero-image">
 
-    <!-- Hero Gallery -->
-    <section class="hero-gallery">
-        <div class="gallery-badge">Top 1% Worldwide</div>
-        <div class="gallery-carousel">
-            <div class="gallery-slide active">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/villas/sunshine-bay/sunshine-bay-exterior.jpg" alt="Sunshine Bay Exterior">
+        <div class="gallery-thumbnails">
+            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-1.jpeg" alt="Sunshine Bay">
             </div>
-            <div class="gallery-slide">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/villas/sunshine-bay/sunshine-bay-waterfront.jpg" alt="Sunshine Bay Waterfront">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-41.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-41.jpeg" alt="Sunshine Bay">
             </div>
-            <div class="gallery-slide">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/villas/sunshine-bay/sunshine-bay-pool.jpg" alt="Sunshine Bay Pool">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-3.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-3.jpeg" alt="Sunshine Bay">
             </div>
-            <div class="gallery-slide">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/villas/sunshine-bay/sunshine-bay-porch.jpg" alt="Sunshine Bay Porch">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-8.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-8.jpeg" alt="Sunshine Bay">
             </div>
-            <div class="gallery-slide">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/villas/sunshine-bay/sunshine-bay-sunset.jpg" alt="Sunshine Bay Sunset">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-13.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-13.jpeg" alt="Sunshine Bay">
             </div>
-        </div>
-        <div class="gallery-controls">
-            <span class="gallery-dot active" onclick="currentSlide(1)"></span>
-            <span class="gallery-dot" onclick="currentSlide(2)"></span>
-            <span class="gallery-dot" onclick="currentSlide(3)"></span>
-            <span class="gallery-dot" onclick="currentSlide(4)"></span>
-            <span class="gallery-dot" onclick="currentSlide(5)"></span>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-19.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-19.jpeg" alt="Sunshine Bay">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-21.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-21.jpeg" alt="Sunshine Bay">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-2.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-2.jpeg" alt="Sunshine Bay">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-15.jpeg', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-15.jpeg" alt="Sunshine Bay">
+            </div>
         </div>
     </section>
 
     <!-- Act 2: The Soul of the Sanctuary -->
-    <section class="section">
-        <div class="container">
-            <h1>Sunshine Bay: Your Island Treasure</h1>
-            <p class="lead">
-                Welcome to Sunshine Bay, where treasure-hunter-turned-vacation-architect Tommy Coconut invites you to experience a waterfront escape that guests rank in the top 1% of Airbnbs worldwide. If you've been searching for the ultimate island getaway—an exclusive waterfront, gentle waves at your doorstep, and all the extras that turn a great vacation into a legendary one—you've found it.
-            </p>
-        </div>
+    <section class="villa-story">
+        <h1 class="villa-title">Sunshine Bay: Your All-Inclusive Private Sanctuary</h1>
+        <p class="villa-narrative">
+            A great vacation isn't about where you go—it's about <strong>how you feel</strong>. At Sunshine Bay, you don't just check in… you <strong>arrive home</strong>. From your exclusive waterfront perch to your last sunset toast, every detail is curated so you can disconnect—no planning, no stress, <strong>just presence</strong>.
+        </p>
+        <p class="villa-narrative" style="font-size: 1.15rem; margin-top: 1.5rem; font-weight: 600;">
+            Guests call this "The Best Vacation Ever." Here's why.
+        </p>
     </section>
 
     <!-- Act 3: The Effortless Details -->
-    <section class="section" style="background: #f8f9fa;">
-        <div class="container">
-            <h2>Inside Your Waterfront Retreat</h2>
-            <div class="details-grid">
-                <div class="detail-item">
-                    <div class="detail-icon">🏠</div>
-                    <div class="detail-text">
-                        <h3>3 A/C Bedrooms & 3 Baths</h3>
-                        <p>Plenty of room—no bickering over bathroom time</p>
+    <section class="villa-specs">
+        <div class="specs-container">
+            <h2 class="specs-title">Your Waterfront Paradise</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>3 Bedrooms / 3 Bathrooms</h3>
+                        <p>Sleeps 6 comfortably with generous space and privacy</p>
+                        <p class="spec-wit">(translation: no sink wars)</p>
                     </div>
                 </div>
-                <div class="detail-item">
-                    <div class="detail-icon">🌊</div>
-                    <div class="detail-text">
+
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="spec-content">
+                        <h3>Premium Comfort Beds</h3>
+                        <p>Luxury bedding for restorative sleep and afternoon naps</p>
+                        <p class="spec-wit">(vacation isn't the time for twin bunks)</p>
+                    </div>
+                </div>
+
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="spec-content">
                         <h3>Exclusive Waterfront Location</h3>
-                        <p>Wake up to rippling water & "flamazing" views</p>
+                        <p>Wake up to rippling water and breathtaking views</p>
                     </div>
                 </div>
-                <div class="detail-item">
-                    <div class="detail-icon">🏊</div>
-                    <div class="detail-text">
+
+                <div class="spec-item">
+                    <div class="spec-icon">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <div class="spec-content">
                         <h3>Shared Bayside Pool</h3>
-                        <p>Often all to yourself—like your own resort</p>
-                    </div>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-icon">🍖</div>
-                    <div class="detail-text">
-                        <h3>Spacious Porch with Hammock & BBQ</h3>
-                        <p>Sunset cocktails & grilling under starlit skies</p>
-                    </div>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-icon">🎵</div>
-                    <div class="detail-text">
-                        <h3>Sonos Sound & Smart TV</h3>
-                        <p>Island tunes or Netflix—though sunsets win</p>
-                    </div>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-icon">📡</div>
-                    <div class="detail-text">
-                        <h3>Strong WiFi Throughout</h3>
-                        <p>Share jealousy-inducing pics instantly</p>
+                        <p>Often all to yourself—like your own private resort</p>
+                        <p class="spec-wit">(aka peace treaties for kids vs. parents)</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Act 4: The VIP Pass -->
-    <section class="section">
-        <div class="container">
-            <div class="vip-section">
-                <div class="vip-header">
-                    <h2>The $1,995 VIP Extras Package</h2>
-                    <p class="vip-subtitle">FREE with Your 7-Night Stay</p>
-                    <div class="pricing-promise">
-                        <strong>Our Transparent Pricing Promise:</strong> The package price you see is all-inclusive. To help us reduce our environmental footprint and keep costs fair for everyone, electricity & water are charged based on your personal usage (typically around $70 per bedroom for the week). No other fees. No surprises.
+    <!-- Act 4: The 'Win at Vacationing' Pass -->
+    <section class="win-pass dark-section">
+        <div class="win-container">
+            <h2 class="win-title">Your $2,500+ All-Access Pass. Always Included.</h2>
+            <p class="win-subtitle">Our Zero Hidden Fees & Logistics Guarantee: No surprises. <strong>Your time. Your agenda. You rule.</strong></p>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500;">This entire VIP experience is included in your all-inclusive stay. Everything. Always.</p>
+
+            <div class="win-grid">
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/happy-hideaway-41.jpeg" alt="Your Island Fleet" class="pass-icon">
                     </div>
-                    <p style="font-size: 1.1rem; color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">This entire VIP experience is included in your all-inclusive stay.</p>
+                    <h3>Your Island Fleet</h3>
+                    <p><span class="win-highlight">VIP Airport Transfers. Tommy's Turquoise Pickup Truck. Free to Explore.</span> From touchdown to beach days, your mobility is handled. Cruise hidden beaches like a local in Tommy's legendary truck.</p>
                 </div>
-                <div class="vip-grid">
-                    <div class="vip-item">
-                        <div class="vip-icon">✈️</div>
-                        <h3>VIP Airport Service</h3>
-                        <ul class="vip-list">
-                            <li><strong>VIP Airport Pickup & Drop-Off</strong>Arrive smiling with Marlon's cooler of refreshing drinks</li>
-                            <li><strong>Extended Last Day</strong>Savor that final hammock nap—late checkout included</li>
-                        </ul>
+
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/happy-hideaway-4.jpeg" alt="Your Private Adventures" class="pass-icon">
                     </div>
-                    <div class="vip-item">
-                        <div class="vip-icon">🚙</div>
-                        <h3>Island Transportation</h3>
-                        <ul class="vip-list">
-                            <li><strong>Tommy's Turquoise Pick-Up</strong>Automatic, A/C, roomy for all your beach gear</li>
-                            <li><strong>Cruise Hidden Beaches</strong>Locals might think you're Tommy himself!</li>
-                        </ul>
+                    <h3>Your Private Adventures</h3>
+                    <p><span class="win-highlight">Private Boat Trip. Dog-Led Flamingo Hike. Beach Kit & Water Toys.</span> Sunset cruises, nature walks with Christmas & Wolfy, and SUP/kayak adventures—all orchestrated, zero hassle.</p>
+                </div>
+
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/happy-hideaway-38.jpeg" alt="Your Dushi Life Service" class="pass-icon">
                     </div>
-                    <div class="vip-item">
-                        <div class="vip-icon">🏖️</div>
-                        <h3>Beach & Water Adventures</h3>
-                        <ul class="vip-list">
-                            <li><strong>Free Jan Thiel Beach Access</strong>VIP entry—no fees, no lines</li>
-                            <li><strong>Portable SUP & Kayak</strong>Glide over crystal waters at dawn</li>
-                            <li><strong>Portable Beach BBQ</strong>Grill the day's catch on the sand</li>
-                        </ul>
+                    <h3>Your Dushi Life Service</h3>
+                    <p><span class="win-highlight">Pre-Stocked Fridge. First-Night Dinner. 24/7 Concierge. Professional Housekeeping.</span> Arrive to a stocked kitchen. Enjoy dinner without cooking. Need anything? We're always here.</p>
+                </div>
+
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/happy-hideaway-5.jpeg" alt="Your Personal Hosts" class="pass-icon">
                     </div>
-                    <div class="vip-item">
-                        <div class="vip-icon">🦩</div>
-                        <h3>Exclusive Experiences</h3>
-                        <ul class="vip-list">
-                            <li><strong>Dog-Led Flamingo Hike</strong>Christmas & Wolfy guide you to flamingos</li>
-                            <li><strong>Spanish Water Sunset Boat Tour</strong>Rum punch & breathtaking sunsets</li>
-                        </ul>
-                    </div>
-                    <div class="vip-item">
-                        <div class="vip-icon">🏠</div>
-                        <h3>Home Comforts</h3>
-                        <ul class="vip-list">
-                            <li><strong>Groceries On Arrival</strong>Pre-stocked fridge & essentials</li>
-                            <li><strong>Mid-Stay Housekeeping</strong>Keep things fresh without lifting a finger</li>
-                        </ul>
-                    </div>
-                    <div class="vip-item">
-                        <div class="vip-icon">👥</div>
-                        <h3>Group Benefits</h3>
-                        <ul class="vip-list">
-                            <li><strong>Up to 4 Extra Friends</strong>Total 6 guests—more laughter, no extra cost</li>
-                            <li><strong>Total Value: $1,995</strong>Included in your 7+ night stay</li>
-                        </ul>
-                    </div>
+                    <h3>Your Personal Hosts</h3>
+                    <p><span class="win-highlight">More than Hosts—We're Your Island Family.</span> Meet the family behind Tommy Coconut. Our friendly race to see who can help you the fastest is legendary. You'll never feel alone on this island.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What Makes Sunshine Bay Special -->
-    <section class="features-section">
-        <div class="container">
-            <h2>What Makes Sunshine Bay So Special?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Top 1% Worldwide</h3>
-                    <p>Guests say it's the hidden gem you didn't know you needed. Join the exclusive club of those who've discovered paradise.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌅</div>
-                    <h3>Exclusive Waterfront</h3>
-                    <p>Wake up to rippling water, step onto the porch for morning coffee, and enjoy "flamazing" views most only dream about.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏝️</div>
-                    <h3>Your Own Resort</h3>
-                    <p>The shared bayside pool is often all to yourself—it's like having your own resort without the crowds.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Act 5: Stories From Paradise -->
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <h2 class="reviews-title">Stories from Sunshine Bay</h2>
 
-    <!-- Act 5: Social Proof -->
-    <section class="section" style="background: #f8f9fa;">
-        <div class="container">
-            <h2>Why Sunshine Bay?</h2>
+            <p style="text-align: center; font-weight: 700; font-size: 1.1rem; color: var(--primary); margin-bottom: 2rem;">
+                Every word we say is backed by 500+ reviews across our villas. Average rating: 4.99/5.00.
+            </p>
+
             <div class="reviews-carousel">
-                <div class="review-card">
+                <div class="review-item active">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">
-                        "We've traveled extensively, but nowhere felt so effortlessly welcoming. Tommy's team thought of everything. This is next-level hospitality."
-                    </p>
-                    <p class="review-author">— Mark & Lisa, Boston</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">
-                        "Waking up right on the water, with a pool to ourselves, felt like our own secret resort. The greatest treasure isn't gold—it's swinging in a hammock, cool drink in hand, watching the Caribbean sun melt into the sea."
-                    </p>
+                    <p class="review-text">"Waking up right on the water, with a pool to ourselves, felt like our own secret resort. The greatest treasure isn't gold—it's swinging in a hammock, cool drink in hand, watching the Caribbean sun melt into the sea."</p>
                     <p class="review-author">— The Anderson Family, Seattle</p>
                 </div>
-                <div class="review-card">
+
+                <div class="review-item">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">
-                        "The VIP extras elevated our stay from 'amazing' to 'unforgettable.' The SUP & kayak were the highlight of our trip. Even our teenager glanced up from their phone!"
-                    </p>
+                    <p class="review-text">"We've traveled extensively, but nowhere felt so effortlessly welcoming. Tommy's team thought of everything. This is next-level hospitality."</p>
+                    <p class="review-author">— Mark & Lisa, Boston</p>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The VIP extras elevated our stay from 'amazing' to 'unforgettable.' The SUP & kayak were the highlight of our trip. Even our teenager glanced up from their phone!"</p>
                     <p class="review-author">— Jennifer & David, Chicago</p>
                 </div>
+
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The waterfront location is unbeatable. Morning coffee on the porch, afternoon swims, sunset cocktails—every moment felt like a dream. Sunshine Bay is pure magic."</p>
+                    <p class="review-author">— The Martinez Family, Miami</p>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Having the pickup truck and boat trip included changed everything. We explored at our own pace and never felt like we were missing out. The all-inclusive promise is real."</p>
+                    <p class="review-author">— Sarah & Michael, Denver</p>
+                </div>
             </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem;">Ready to Claim Your Island Treasure?</h3>
-                <p style="font-size: 1.1rem; color: var(--gray); line-height: 1.8; max-width: 800px; margin: 0 auto;">
-                    Click "Book Now" and slip into a world where hammocks are thrones, rum punches flow freely, and even your teenager might glance up from their phone. With the pick-up truck, VIP extras, and waterfront paradise at your feet, Sunshine Bay isn't just a vacation—it's a story you'll be telling for years.
-                </p>
-                <p style="font-size: 1.3rem; margin-top: 2rem; font-weight: 600; color: var(--dark);">
-                    Ayó, until we meet in paradise!<br>
-                    <span style="color: var(--primary);">— Tommy Coconut</span>
-                </p>
+
+            <div class="review-dots">
+                <div class="review-dot active" onclick="showReview(0)"></div>
+                <div class="review-dot" onclick="showReview(1)"></div>
+                <div class="review-dot" onclick="showReview(2)"></div>
+                <div class="review-dot" onclick="showReview(3)"></div>
+                <div class="review-dot" onclick="showReview(4)"></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Floating Conversion Engine -->
+    <div class="floating-booking" id="floatingBooking">
+        <div class="booking-content">
+            <div class="date-selector">
+                <input type="date" class="date-input" id="checkIn" placeholder="Check-in">
+                <span style="color: var(--text-secondary);">to</span>
+                <input type="date" class="date-input" id="checkOut" placeholder="Check-out">
+            </div>
+
+            <div class="price-display">
+                <div class="price-amount">7-Night All-Inclusive Experience</div>
+                <div class="price-label">from $5,000</div>
+            </div>
+
+            <button class="welcome-home-btn" onclick="bookNow()">
+                <i class="fas fa-heart"></i>
+                Welcome Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Clean Footer -->
+    <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
         <div class="container">
-            <p>&copy; 2024 Tommy Coconut. All rights reserved.</p>
-            <p style="margin-top: 1rem;">
-                <a href="index.html">Home</a> | 
-                <a href="rentals.html">All Villas</a> | 
-                <a href="contact.html">Contact</a>
-            </p>
-            <p style="margin-top: 2rem; font-style: italic; opacity: 0.8;">
-                P.S. As one guest said: "The greatest treasure isn't gold—it's swinging in a hammock, cool drink in hand, watching the Caribbean sun melt into the sea." Come discover why Sunshine Bay is the perfect cure for overdue getaways.
-            </p>
+            <!-- Logo & Tagline -->
+            <div style="margin-bottom: var(--space-6);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
+                <p style="color: var(--white); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
+            </div>
+
+            <!-- Social Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-6);">
+                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Quick Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-6); font-size: var(--text-sm);">
+                <a href="rentals.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Rentals</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="experiences.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">The Journey</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="ownership.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Ownership</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="about.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Our Story</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="contact.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Contact</a>
+            </div>
+
+            <!-- Copyright -->
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
+                <p style="color: var(--text-inverse); opacity: 0.6; font-size: var(--text-sm); margin: 0;">&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Gallery Carousel
-        let currentSlideIndex = 1;
-        
-        function currentSlide(n) {
-            showSlide(currentSlideIndex = n);
-        }
-        
-        function showSlide(n) {
-            const slides = document.getElementsByClassName('gallery-slide');
-            const dots = document.getElementsByClassName('gallery-dot');
-            
-            if (n > slides.length) currentSlideIndex = 1;
-            if (n < 1) currentSlideIndex = slides.length;
-            
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove('active');
+        // Floating booking bar visibility
+        let isBookingVisible = false;
+
+        function showFloatingBooking() {
+            if (!isBookingVisible) {
+                document.getElementById('floatingBooking').classList.add('visible');
+                isBookingVisible = true;
             }
-            
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove('active');
-            }
-            
-            slides[currentSlideIndex - 1].classList.add('active');
-            dots[currentSlideIndex - 1].classList.add('active');
         }
-        
-        // Auto-advance gallery
-        setInterval(() => {
-            currentSlideIndex++;
-            showSlide(currentSlideIndex);
-        }, 5000);
-        
-        // Show booking bar on scroll
-        window.addEventListener('scroll', () => {
-            const bookingBar = document.getElementById('bookingBar');
-            if (window.scrollY > 600) {
-                bookingBar.classList.add('visible');
-            } else {
-                bookingBar.classList.remove('visible');
+
+        // Show booking bar when user scrolls down
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                showFloatingBooking();
             }
         });
-        
-        // Set minimum dates
+
+        // Gallery functionality
+        // Gallery images for auto-rotation
+        const galleryImages = [
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1.jpeg',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-1.jpeg',
+                alt: 'Waterfront Paradise'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-41.jpeg',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-41.jpeg',
+                alt: 'Bayside Pool'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-3.jpeg',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-3.jpeg',
+                alt: 'Luxury Bedrooms'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-8.jpeg',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-8.jpeg',
+                alt: 'Waterfront Living'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-13.jpeg',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-13.jpeg',
+                alt: 'Sunset Views'
+            }
+        ];
+
+        let currentImageIndex = 0;
+
+        function changeImage(src, thumbnail) {
+            document.getElementById('heroImage').src = src;
+
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+        }
+
+        function playVideo() {
+            // Open video modal or redirect to video URL
+            window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/sunshine-bay-tour', '_blank');
+        }
+
+        // Auto-rotate gallery images
+        function rotateImages() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const currentImage = galleryImages[currentImageIndex];
+
+            // Update hero image
+            document.getElementById('heroImage').src = currentImage.src;
+
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(t => t.classList.remove('active'));
+            if (thumbnails[currentImageIndex]) {
+                thumbnails[currentImageIndex].classList.add('active');
+            }
+        }
+
+        // Initialize auto-rotation
+        setInterval(rotateImages, 5000)
+
+        // Reviews carousel
+        let currentReview = 0;
+        const reviewItems = document.querySelectorAll('.review-item');
+        const reviewDots = document.querySelectorAll('.review-dot');
+
+        function showReview(index) {
+            reviewItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            reviewDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+
+            currentReview = index;
+        }
+
+        // Auto-rotate reviews
+        setInterval(() => {
+            currentReview = (currentReview + 1) % reviewItems.length;
+            showReview(currentReview);
+        }, 6000);
+
+        // Booking functionality
+        function bookNow() {
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+
+            if (!checkIn || !checkOut) {
+                alert('Please select your check-in and check-out dates');
+                return;
+            }
+
+            // Redirect to treasure map with villa and dates
+            const params = new URLSearchParams({
+                villa: 'sunshine-bay',
+                checkin: checkIn,
+                checkout: checkOut
+            });
+
+            window.location.href = `treasure-map.html?${params.toString()}`;
+        }
+
+        // Set minimum date to today
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('checkIn').setAttribute('min', today);
         document.getElementById('checkOut').setAttribute('min', today);
+
+        // Update checkout minimum when checkin changes
+        document.getElementById('checkIn').addEventListener('change', function() {
+            const checkInDate = new Date(this.value);
+            checkInDate.setDate(checkInDate.getDate() + 1);
+            const minCheckOut = checkInDate.toISOString().split('T')[0];
+            document.getElementById('checkOut').setAttribute('min', minCheckOut);
+        });
     </script>
 </body>
 </html>
