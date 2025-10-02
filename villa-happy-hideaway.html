@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Hideaway - Your Stress-Proof Sanctuary | Tommy Coconut</title>
-    <meta name="description" content="Happy Hideaway: Forget vacation stress—we've already handled it. Your private sanctuary engineered for slow breakfasts, hammock hangs, and dinners where nobody does the dishes.">
+    <title>Happy Hideaway - All-Inclusive Private Sanctuary | Tommy Coconut</title>
+    <meta name="description" content="Happy Hideaway: Where we've declared war on vacation stress. Guests call this the 'best Airbnb experience ever.' Your all-inclusive sanctuary with VIP car, boat trip, gourmet services, and zero hidden fees.">
     
     <!-- CSS Dependencies -->
     <link rel="stylesheet" href="assets/css/main.css">
@@ -25,6 +25,10 @@
             --text-secondary: #666666;
             --surface: #F8F9FA;
             --surface-elevated: #FFFFFF;
+            --white: #FFFFFF;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-sm: 0.875rem;
             --space-xs: 0.25rem;
             --space-sm: 0.5rem;
             --space-md: 1rem;
@@ -32,6 +36,9 @@
             --space-xl: 2rem;
             --space-2xl: 3rem;
             --space-3xl: 4rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --font-weight-light: 300;
             --transition-normal: all 0.3s ease;
             --border-radius: 12px;
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -49,6 +56,12 @@
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--surface);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Floating Conversion Engine */
@@ -293,12 +306,19 @@
             color: var(--text-secondary);
         }
 
+        .spec-wit {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: var(--space-xs);
+        }
+
         /* Win at Vacationing Pass Section - Act 4 */
         .win-pass {
             padding: var(--space-3xl) var(--space-xl);
             background: linear-gradient(135deg, var(--secondary) 0%, #1A4B52 100%);
+            color: white;
         }
-        
 
         .win-container {
             max-width: 1400px;
@@ -310,12 +330,14 @@
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: var(--space-md);
+            color: white;
         }
 
         .win-subtitle {
             font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: var(--space-3xl);
+            opacity: 0.95;
+            margin-bottom: var(--space-2xl);
+            color: white;
         }
 
         .win-grid {
@@ -353,27 +375,40 @@
             box-shadow: var(--shadow-lg);
             transition: var(--transition-normal);
         }
-        
+
         .win-item-icon:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-xl);
+        }
+
+        /* Pass Icon Styling */
+        .pass-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .win-item h3 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: var(--space-md);
+            color: white;
         }
 
         .win-item p {
             line-height: 1.7;
-            opacity: 0.9;
+            opacity: 0.95;
             font-size: 0.95rem;
+            color: white;
         }
 
         .win-highlight {
             color: var(--primary);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* Reviews Section - Act 5 */
@@ -406,6 +441,7 @@
             background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
             border-radius: var(--border-radius);
             margin: var(--space-lg) 0;
+            min-height: 280px;
         }
 
         .review-item.active {
@@ -512,87 +548,95 @@
 
     <!-- Act 1: The Cinematic Reveal -->
     <section class="gallery-hero" style="margin-top: 80px;">
-        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-79_ipmchx" alt="Happy Hideaway Private Sanctuary" class="hero-image">
-        
+        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1" alt="Happy Hideaway Private Sanctuary" class="hero-image">
+
         <div class="gallery-thumbnails">
-            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-79_ipmchx', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-79_ipmchx" alt="Private Sanctuary">
+            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-1" alt="Happy Hideaway">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-4_jxqo9o', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-4_jxqo9o" alt="Private Pool & Cabana">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-41', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-41" alt="Happy Hideaway">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-24_vknyvp', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-24_vknyvp" alt="Legendary Bamboo Beds">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-3', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-3" alt="Happy Hideaway">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-9_xtxn1e', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-9_xtxn1e" alt="Stress-Free Living">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-8', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-8" alt="Happy Hideaway">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-70_zpdz1y', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-70_zpdz1y" alt="Ocean Views">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-13', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-13" alt="Happy Hideaway">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-19', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-19" alt="Happy Hideaway">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-21', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-21" alt="Happy Hideaway">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-2', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-2" alt="Happy Hideaway">
+            </div>
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-15', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-15" alt="Happy Hideaway">
             </div>
         </div>
     </section>
 
     <!-- Act 2: The Soul of the Sanctuary -->
     <section class="villa-story">
-        <h1 class="villa-title">Happy Hideaway: Your Stress-Proof Sanctuary</h1>
+        <h1 class="villa-title">Happy Hideaway: Your All-Inclusive Private Sanctuary</h1>
         <p class="villa-narrative">
-            <strong>Forget vacation stress—we've already handled it.</strong> You book the flights. We handle everything else. This is your private sanctuary, engineered for <strong>slow breakfasts, hammock hangs, and dinners where nobody does the dishes</strong>. Just show up, unpack the swimsuits, and <strong>live the Dushi life</strong>.
+            A great vacation isn't about where you go—it's about <strong>how you feel</strong>. At Happy Hideaway, you don't just check in… you <strong>unwind completely</strong>. From wheels-down to your last sunset toast, every detail is curated so you can disconnect—no planning, no stress, <strong>just presence</strong>.
+        </p>
+        <p class="villa-narrative" style="font-size: 1.15rem; margin-top: 1.5rem; font-weight: 600;">
+            Guests call this "The Best Vacation Ever." Here's why.
         </p>
     </section>
 
     <!-- Act 3: The Effortless Details -->
     <section class="villa-specs">
         <div class="specs-container">
-            <h2 class="specs-title">The Anatomy of Paradise</h2>
+            <h2 class="specs-title">Your Private Oasis</h2>
             <div class="specs-grid">
                 <div class="spec-item">
                     <div class="spec-icon">
                         <i class="fas fa-home"></i>
                     </div>
                     <div class="spec-content">
-                        <h3>3 Bedrooms & 2 Bathrooms</h3>
-                        <p>No sink wars. Everyone gets their space and privacy.</p>
+                        <h3>3 Bedrooms / 2 Bathrooms</h3>
+                        <p>Sleeps 6 comfortably with generous space and privacy</p>
+                        <p class="spec-wit">(translation: no sink wars)</p>
                     </div>
                 </div>
-                
+
                 <div class="spec-item">
                     <div class="spec-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="spec-content">
-                        <h3>Sleeps 6</h3>
-                        <p>Perfect for families, friends, or intimate group getaways</p>
-                    </div>
-                </div>
-                
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-leaf"></i>
+                        <i class="fas fa-bed"></i>
                     </div>
                     <div class="spec-content">
                         <h3>The Legendary Bamboo Beds</h3>
-                        <p>Vacation isn't for twin bunks. These are the beds dreams are made of.</p>
+                        <p>Premium comfort for restorative sleep and afternoon naps</p>
+                        <p class="spec-wit">(vacation isn't the time for twin bunks)</p>
                     </div>
                 </div>
-                
+
                 <div class="spec-item">
                     <div class="spec-icon">
                         <i class="fas fa-swimming-pool"></i>
                     </div>
                     <div class="spec-content">
-                        <h3>Private Pool & Cabana</h3>
-                        <p>Your own aquatic retreat with shaded lounging perfection</p>
+                        <h3>Private Pool, Hot Tub & Cabana</h3>
+                        <p>Your personal aquatic sanctuary for ultimate relaxation</p>
                     </div>
                 </div>
-                
+
                 <div class="spec-item">
                     <div class="spec-icon">
-                        <i class="fas fa-snowflake"></i>
+                        <i class="fas fa-wifi"></i>
                     </div>
                     <div class="spec-content">
-                        <h3>A/C, Fast Wi-Fi & Sonos</h3>
-                        <p>The peace treaty for kids vs. parents. Everyone stays happy.</p>
+                        <h3>Fast Wi-Fi, Sonos & Smart TV</h3>
+                        <p>Stay connected and entertained with premium tech amenities</p>
+                        <p class="spec-wit">(aka peace treaties for kids vs. parents)</p>
                     </div>
                 </div>
             </div>
@@ -602,41 +646,41 @@
     <!-- Act 4: The 'Win at Vacationing' Pass -->
     <section class="win-pass dark-section">
         <div class="win-container">
-            <h2 class="win-title">The 'Win at Vacationing' Pass</h2>
-            <p class="win-subtitle">Always Included. Our Zero Hidden Fees Promise: No surprises. No stress. Just pure vacation bliss.</p>
-            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500;">This entire VIP experience is included in your all-inclusive stay.</p>
+            <h2 class="win-title">Your $2,500+ All-Access Pass. Always Included.</h2>
+            <p class="win-subtitle">Our Zero Hidden Fees & Logistics Guarantee: No surprises. <strong>Your time. Your agenda. You rule.</strong></p>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500;">This entire VIP experience is included in your all-inclusive stay. Everything. Always.</p>
 
             <div class="win-grid">
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <i class="fas fa-home"></i>
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/happy-hideaway-41" alt="Your Island Fleet" class="pass-icon">
                     </div>
-                    <h3>For Your Stay</h3>
-                    <p><span class="win-highlight">VIP transfers, housekeeping, laundry, utilities credit.</span> Show up and everything's handled. Your only job is to relax.</p>
+                    <h3>Your Island Fleet</h3>
+                    <p><span class="win-highlight">VIP Airport Transfers. EV-SUV Included. Free Charging Station.</span> From touchdown to exploration, your mobility is handled. Drive the island sustainably with GPS pre-loaded with 38 hidden beaches.</p>
                 </div>
-                
+
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <i class="fas fa-car-battery"></i>
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/happy-hideaway-4" alt="Your Private Adventures" class="pass-icon">
                     </div>
-                    <h3>For Your Mobility</h3>
-                    <p><span class="win-highlight">EV-SUV, free charging, GPS with 38 beaches.</span> Explore the island sustainably with zero range anxiety.</p>
+                    <h3>Your Private Adventures</h3>
+                    <p><span class="win-highlight">Private Boat Trip. Flamingo Hike with Guide. The Ultimate Beach Kit.</span> Ocean adventures, nature experiences, and beach days—all orchestrated, zero hassle.</p>
                 </div>
-                
+
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <i class="fas fa-anchor"></i>
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/happy-hideaway-38" alt="Your Dushi Life Service" class="pass-icon">
                     </div>
-                    <h3>For Your Adventure</h3>
-                    <p><span class="win-highlight">Private boat trip, VIP beach access, the full beach kit.</span> Ocean adventures without the crowds or hassles.</p>
+                    <h3>Your Dushi Life Service</h3>
+                    <p><span class="win-highlight">Pre-Stocked Fridge. First-Night Dinner Prepared. 24/7 Concierge. Professional Housekeeping.</span> Arrive to a stocked kitchen. Enjoy dinner without cooking. Need anything? We're always here.</p>
                 </div>
-                
+
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <i class="fas fa-cocktail"></i>
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/happy-hideaway-5" alt="Your Personal Hosts" class="pass-icon">
                     </div>
-                    <h3>For Your Delight</h3>
-                    <p><span class="win-highlight">Welcome dinner credit, Sunset Cruise invite, Flamingo Hike, 24/7 concierge.</span> Pure delight, zero planning required.</p>
+                    <h3>Your Personal Hosts</h3>
+                    <p><span class="win-highlight">More than Hosts—We're Your Island Family.</span> Meet the family behind Tommy Coconut. Our friendly race to see who can help you the fastest is legendary. You'll never feel alone on this island.</p>
                 </div>
             </div>
         </div>
@@ -646,7 +690,11 @@
     <section class="reviews-section">
         <div class="reviews-container">
             <h2 class="reviews-title">Stories from Happy Hideaway</h2>
-            
+
+            <p style="text-align: center; font-weight: 700; font-size: 1.1rem; color: var(--primary); margin-bottom: 2rem;">
+                Every word we say is backed by 500+ reviews across our villas. Average rating: 4.99/5.00.
+            </p>
+
             <div class="reviews-carousel">
                 <div class="review-item active">
                     <div class="review-stars">★★★★★</div>
@@ -659,9 +707,8 @@
                     <p class="review-text">"The stress-proof promise is real. From the moment we arrived, everything just worked. The kids were happy, the parents were relaxed, and dinners were actually enjoyable."</p>
                     <p class="review-author">— Maria & Carlos, Miami</p>
                 </div>
-                
+
                 <div class="review-item">
-                    <div class="review-items">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"Having the car and boat trip included changed everything. We explored at our own pace and never felt like we were missing out. The concierge was like having a local friend."</p>
                     <p class="review-author">— Jennifer & David, Seattle</p>
@@ -711,11 +758,56 @@
         </div>
     </div>
 
+    <!-- Clean Footer -->
+    <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
+        <div class="container">
+            <!-- Logo & Tagline -->
+            <div style="margin-bottom: var(--space-6);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
+                <p style="color: var(--white); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
+            </div>
+
+            <!-- Social Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-6);">
+                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='scale(1)'">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Quick Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-6); font-size: var(--text-sm);">
+                <a href="rentals.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Rentals</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="experiences.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">The Journey</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="ownership.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Ownership</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="about.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Our Story</a>
+                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                <a href="contact.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.color='#62D0C9'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Contact</a>
+            </div>
+
+            <!-- Copyright -->
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
+                <p style="color: rgba(255, 255, 255, 0.5); font-size: var(--text-sm); margin: 0;">&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
     <script>
         // Floating booking bar visibility
         let isBookingVisible = false;
-        
+
         function showFloatingBooking() {
             if (!isBookingVisible) {
                 document.getElementById('floatingBooking').classList.add('visible');
@@ -734,28 +826,28 @@
         // Gallery images for auto-rotation
         const galleryImages = [
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-79_ipmchx',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-79_ipmchx',
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-1',
                 alt: 'Private Sanctuary'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-4_jxqo9o',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-4_jxqo9o',
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-41',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-41',
                 alt: 'Private Pool & Cabana'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-24_vknyvp',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-24_vknyvp',
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-3',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-3',
                 alt: 'Legendary Bamboo Beds'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-9_xtxn1e',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-9_xtxn1e',
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-8',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-8',
                 alt: 'Stress-Free Living'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-70_zpdz1y',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Happy_Hideaway_Final-70_zpdz1y',
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-13',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-13',
                 alt: 'Ocean Views'
             }
         ];
@@ -764,7 +856,7 @@
 
         function changeImage(src, thumbnail) {
             document.getElementById('heroImage').src = src;
-            
+
             // Update active thumbnail
             document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
             thumbnail.classList.add('active');
@@ -779,10 +871,10 @@
         function rotateImages() {
             currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
             const currentImage = galleryImages[currentImageIndex];
-            
+
             // Update hero image
             document.getElementById('heroImage').src = currentImage.src;
-            
+
             // Update active thumbnail
             const thumbnails = document.querySelectorAll('.thumbnail');
             thumbnails.forEach(t => t.classList.remove('active'));
@@ -807,7 +899,7 @@
                     item.classList.remove('active');
                 }
             });
-            
+
             reviewDots.forEach((dot, i) => {
                 if (i === index) {
                     dot.classList.add('active');
@@ -815,7 +907,7 @@
                     dot.classList.remove('active');
                 }
             });
-            
+
             currentReview = index;
         }
 
@@ -829,19 +921,19 @@
         function bookNow() {
             const checkIn = document.getElementById('checkIn').value;
             const checkOut = document.getElementById('checkOut').value;
-            
+
             if (!checkIn || !checkOut) {
                 alert('Please select your check-in and check-out dates');
                 return;
             }
-            
+
             // Redirect to treasure map with villa and dates
             const params = new URLSearchParams({
                 villa: 'happy-hideaway',
                 checkin: checkIn,
                 checkout: checkOut
             });
-            
+
             window.location.href = `treasure-map.html?${params.toString()}`;
         }
 
