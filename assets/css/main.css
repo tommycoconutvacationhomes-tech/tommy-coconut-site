@@ -2276,6 +2276,7 @@ a:hover, a:focus {
     position: relative;
     transition: all 0.2s ease;
     color: var(--text-primary);
+    font-style: italic;
 }
 
 .dushi-word:hover {
