@@ -617,50 +617,6 @@
             color: var(--text-muted);
         }
 
-        /* Continue Listening Link */
-        .spotify-link {
-            position: fixed;
-            bottom: 85px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 998;
-            opacity: 0;
-            transition: all 0.4s ease;
-            pointer-events: none;
-        }
-
-        .spotify-link.show {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .spotify-link a {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 8px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(98, 208, 201, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .spotify-link a:hover {
-            background: rgba(255, 255, 255, 1);
-            border-color: rgba(98, 208, 201, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .spotify-link i {
-            color: #1DB954;
-            font-size: 16px;
-        }
-
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .music-player {
@@ -671,10 +627,6 @@
 
             .music-player-text {
                 font-size: 12px;
-            }
-
-            .spotify-link {
-                bottom: 75px;
             }
         }
         
@@ -2305,14 +2257,6 @@
         </div>
     </div>
 
-    <!-- Continue Listening to Spotify -->
-    <div class="spotify-link" id="spotifyLink">
-        <a href="https://open.spotify.com/artist/6JQaSZjnFJsYHhxANvlfXa" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-spotify"></i>
-            <span>Continue listening to Tommy Coconut</span>
-        </a>
-    </div>
-
     <!-- Narrative Progress -->
     <div class="progress-narrative">
         <p>Crafting Your Escape...</p>
@@ -3609,61 +3553,16 @@
         function initializeAudio() {
             audioElement = document.getElementById('dushiScore');
             const musicPlayer = document.getElementById('musicPlayer');
-            const spotifyLink = document.getElementById('spotifyLink');
 
-            // Attempt auto-play with graceful fallback
-            if (!autoplayAttempted) {
-                autoplayAttempted = true;
-                attemptAutoplay();
-            }
-
-            // Check if user previously had sound enabled
+            // Check if user previously had sound enabled (respect their preference)
             const soundPreference = localStorage.getItem('dushiSoundEnabled');
-            if (soundPreference === 'true' && !isAudioPlaying) {
+            if (soundPreference === 'true') {
                 enableSound();
             }
-
-            // Show Spotify link after 5 seconds if music is playing
-            setTimeout(() => {
-                if (isAudioPlaying) {
-                    spotifyLink.classList.add('show');
-                }
-            }, 5000);
 
             // Fade out audio when reaching thank you page
             if (window.location.pathname.includes('thank-you')) {
                 fadeOutAudio();
-            }
-        }
-
-        function attemptAutoplay() {
-            // Try to auto-play - if it works, great! If not, user can click to play
-            if (audioElement) {
-                audioElement.volume = 0;
-                audioElement.play().then(() => {
-                    fadeInAudio();
-                    isAudioPlaying = true;
-                    updateMusicPlayer(true);
-                    localStorage.setItem('dushiSoundEnabled', 'true');
-
-                    // Track successful auto-play
-                    if (window.tommyAnalytics) {
-                        window.tommyAnalytics.trackInteraction('audio_autoplay_success', 'dushi_atmosphere');
-                    }
-                }).catch(error => {
-                    // Auto-play blocked - show clear call to action
-                    console.log('Audio autoplay prevented - user interaction required:', error);
-                    updateMusicPlayer(false);
-
-                    // Show a subtle prompt
-                    const musicStatus = document.getElementById('musicStatus');
-                    musicStatus.textContent = 'Click to start vibes';
-
-                    // Track auto-play blocked
-                    if (window.tommyAnalytics) {
-                        window.tommyAnalytics.trackInteraction('audio_autoplay_blocked', 'dushi_atmosphere');
-                    }
-                });
             }
         }
 
@@ -3676,8 +3575,6 @@
         }
 
         function enableSound() {
-            const spotifyLink = document.getElementById('spotifyLink');
-
             if (audioElement) {
                 // Fade in audio
                 audioElement.volume = 0;
@@ -3686,11 +3583,6 @@
                     isAudioPlaying = true;
                     updateMusicPlayer(true);
                     localStorage.setItem('dushiSoundEnabled', 'true');
-
-                    // Show Spotify link after a moment
-                    setTimeout(() => {
-                        spotifyLink.classList.add('show');
-                    }, 2000);
 
                     // Track audio engagement
                     if (window.tommyAnalytics) {
@@ -3703,17 +3595,12 @@
         }
 
         function disableSound() {
-            const spotifyLink = document.getElementById('spotifyLink');
-
             if (audioElement) {
                 fadeOutAudio(() => {
                     audioElement.pause();
                     isAudioPlaying = false;
                     updateMusicPlayer(false);
                     localStorage.setItem('dushiSoundEnabled', 'false');
-
-                    // Hide Spotify link when music stops
-                    spotifyLink.classList.remove('show');
                 });
             }
         }
@@ -3755,7 +3642,7 @@
                 musicStatus.textContent = 'Now Playing';
             } else {
                 musicPlayer.classList.add('paused');
-                musicStatus.textContent = 'Paused';
+                musicStatus.textContent = 'Click to play';
             }
         }
         
