@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Hideaway - All-Inclusive Private Sanctuary | Tommy Coconut (V2)</title>
+    <meta name="description" content="Happy Hideaway: 3BR villa with private pool, EV-SUV, boat trip, and zero hidden fees. 500+ reviews, 4.99/5.00 rating. All-inclusive luxury from $5,000 for 7 nights.">
+
+    <!-- A/B Test Variant Note: This is V2 - Conversion-Focused Blueprint -->
+
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+
+    <!-- Cloudinary Configuration -->
+    <script src="cloudinary-config.js"></script>
+
+    <style>
+        :root {
+            --primary: #62D0C9;
+            --secondary: #005A5B;
+            --accent: #00CFCF;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --surface: #F8F9FA;
+            --surface-elevated: #FFFFFF;
+            --white: #FFFFFF;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transition-normal: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--surface);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Value Proposition Section */
+        .hero-vp {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1A4B52 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-vp h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-vp .trust-signal {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .hero-vp p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            box-shadow: 0 4px 20px rgba(98, 208, 201, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(98, 208, 201, 0.6);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: var(--surface-elevated);
+            padding: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            transition: var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow);
+        }
+
+        /* The Space Section */
+        .space-section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .space-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .space-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .space-item {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary);
+        }
+
+        .space-item h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .space-item p {
+            color: var(--text-secondary);
+        }
+
+        /* Included Package Section */
+        .package-section {
+            background: var(--surface-elevated);
+            padding: 4rem 2rem;
+        }
+
+        .package-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .package-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 3rem;
+        }
+
+        .package-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .package-item {
+            background: white;
+            padding: 1.25rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: var(--transition-normal);
+        }
+
+        .package-item:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .package-item-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .package-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            min-width: 40px;
+        }
+
+        .package-value {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .total-value {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1A4B52 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .total-value h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .total-value .amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* EV-SUV Terms Section */
+        .ev-terms-section {
+            padding: 4rem 2rem;
+            background: var(--surface);
+        }
+
+        .ev-terms-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .ev-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .ev-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .ev-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .ev-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .ev-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: rgba(98, 208, 201, 0.1);
+            border: 2px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .highlight-box p {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* Who It's For Section */
+        .for-section {
+            background: var(--surface-elevated);
+            padding: 4rem 2rem;
+        }
+
+        .for-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .for-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .for-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .for-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .for-card.perfect h3 {
+            color: var(--primary);
+        }
+
+        .for-card.not-for h3 {
+            color: var(--text-secondary);
+        }
+
+        .for-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .for-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--surface);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .for-card li:last-child {
+            border-bottom: none;
+        }
+
+        .for-card.perfect li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .for-card.not-for li::before {
+            content: '×';
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 2rem;
+            background: var(--surface);
+        }
+
+        .faq-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary);
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* House Rules Section */
+        .rules-section {
+            background: var(--surface-elevated);
+            padding: 4rem 2rem;
+        }
+
+        .rules-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .rules-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .rules-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .rules-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .rules-card i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .rules-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .rules-card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .rules-card li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Floating Booking Bar */
+        .floating-booking {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(98, 208, 201, 0.3);
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .floating-booking.visible {
+            transform: translateY(0);
+        }
+
+        .booking-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .price-display {
+            text-align: right;
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-vp {
+                padding: 4rem 1rem 3rem;
+            }
+
+            .for-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); position: fixed; top: 0; left: 0; right: 0; z-index: 999; padding: 1rem 0;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
+            <a href="index.html" style="color: var(--secondary); text-decoration: none; font-weight: 700; font-size: 1.25rem;">
+                ← Back to Tommy Coconut
+            </a>
+            <div>
+                <a href="rentals.html" style="color: var(--text-secondary); text-decoration: none; margin-right: 2rem;">All Villas</a>
+                <a href="contact.html" style="color: var(--text-secondary); text-decoration: none;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Value Proposition (120 words max) -->
+    <section class="hero-vp">
+        <div class="trust-signal">
+            <i class="fas fa-star" style="color: #FFD700;"></i>
+            500+ Reviews, 4.99/5.00 Rating
+        </div>
+        <h1>Happy Hideaway: All-Inclusive Private Villa</h1>
+        <p>
+            Your complete 7-night escape includes everything: private 3BR villa with pool and hot tub, VIP airport transfers, EV-SUV with unlimited miles and GPS, private boat trip with snorkeling, flamingo sanctuary hike, gourmet welcome dinner, 24/7 concierge, professional housekeeping, pre-stocked fridge, and the ultimate beach kit.
+        </p>
+        <p style="font-weight: 700; font-size: 1.2rem; color: var(--primary);">
+            Zero Hidden Fees. Electricity Included. Everything Handled.
+        </p>
+        <a href="#booking" class="cta-primary">
+            <i class="fas fa-calendar-check"></i>
+            Check Availability
+        </a>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_600/happy-hideaway-1_hx9jke" alt="Happy Hideaway Exterior">
+            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_600/happy-hideaway-2_waijkz" alt="Private Pool">
+            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_600/happy-hideaway-3_jokzme" alt="Bamboo Bedroom">
+            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_600/happy-hideaway-4_unr393" alt="Living Area">
+            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_600/happy-hideaway-5_yr4gur" alt="Ocean Views">
+            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_600/happy-hideaway-6_gikoc3" alt="Villa Interior">
+        </div>
+    </section>
+
+    <!-- The Space -->
+    <section class="space-section">
+        <h2>The Space</h2>
+        <div class="space-grid">
+            <div class="space-item">
+                <h3>
+                    <i class="fas fa-home"></i>
+                    Property Details
+                </h3>
+                <p>3 bedrooms, 2 bathrooms, sleeps 6 comfortably. Full kitchen, living room, dining area.</p>
+            </div>
+
+            <div class="space-item">
+                <h3>
+                    <i class="fas fa-swimming-pool"></i>
+                    Outdoor Living
+                </h3>
+                <p>Private pool, hot tub, pool cabana, outdoor dining area, tropical garden.</p>
+            </div>
+
+            <div class="space-item">
+                <h3>
+                    <i class="fas fa-bed"></i>
+                    Premium Comfort
+                </h3>
+                <p>Legendary bamboo beds with luxury linens. Central A/C throughout. Fast Wi-Fi.</p>
+            </div>
+
+            <div class="space-item">
+                <h3>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Prime Location
+                </h3>
+                <p>Jan Thiel area. 5 minutes to beach, restaurants, nightlife. Quiet residential setting.</p>
+            </div>
+        </div>
+
+        <p style="margin-top: 2rem; text-align: center; color: var(--text-secondary); line-height: 1.8;">
+            This villa is perfect for families or groups seeking privacy and luxury. Every detail is designed for effortless relaxation, from the premium beds to the pool cabana where you'll spend lazy afternoons.
+        </p>
+    </section>
+
+    <!-- Included Package -->
+    <section class="package-section">
+        <h2>What's Included</h2>
+        <p class="package-subtitle">Your $2,500+ All-Access Pass - Always Included, Zero Extra Cost</p>
+
+        <div class="package-list">
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-plane"></i></div>
+                    <span>VIP Airport Welcome + Transfers</span>
+                </div>
+                <div class="package-value">$125</div>
+            </div>
+
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-utensils"></i></div>
+                    <span>Welcome Dinner Credit at Kome</span>
+                </div>
+                <div class="package-value">$150</div>
+            </div>
+
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-car"></i></div>
+                    <span>EV-SUV with Unlimited Miles, Insurance & GPS</span>
+                </div>
+                <div class="package-value">$475</div>
+            </div>
+
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-charging-station"></i></div>
+                    <span>EV Charging Station at Villa (Electricity Included)</span>
+                </div>
+                <div class="package-value">$75</div>
+            </div>
+
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-ship"></i></div>
+                    <span>Private Boat Trip - Half Day with Snorkeling</span>
+                </div>
+                <div class="package-value">$600</div>
+            </div>
+
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-hiking"></i></div>
+                    <span>Flamingo Sanctuary Hike with Guide</span>
+                </div>
+                <div class="package-value">$125</div>
+            </div>
+
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-umbrella-beach"></i></div>
+                    <span>Ultimate Beach Kit: Cooler, Chairs, Umbrellas, Snorkel Gear</span>
+                </div>
+                <div class="package-value">$200</div>
+            </div>
+
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-concierge-bell"></i></div>
+                    <span>24/7 Concierge Service</span>
+                </div>
+                <div class="package-value">$300</div>
+            </div>
+
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-broom"></i></div>
+                    <span>Professional Housekeeping Mid-Stay Refresh</span>
+                </div>
+                <div class="package-value">$150</div>
+            </div>
+
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-shopping-basket"></i></div>
+                    <span>Pre-Stocked Fridge with Breakfast Essentials</span>
+                </div>
+                <div class="package-value">$100</div>
+            </div>
+
+            <div class="package-item">
+                <div class="package-item-content">
+                    <div class="package-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <span>Curated Island Guide: 38 Beaches & Hidden Spots</span>
+                </div>
+                <div class="package-value">$200</div>
+            </div>
+        </div>
+
+        <div class="total-value">
+            <h3>Total Package Value</h3>
+            <div class="amount">$2,500+</div>
+            <p style="margin-top: 1rem; opacity: 0.95;">All included. No hidden fees. No surprises.</p>
+        </div>
+    </section>
+
+    <!-- EV-SUV Terms -->
+    <section class="ev-terms-section">
+        <h2>Your EV-SUV: The Details</h2>
+
+        <div class="ev-grid">
+            <div class="ev-card">
+                <i class="fas fa-users"></i>
+                <h3>Capacity</h3>
+                <p>Full-size SUV with 7-passenger seating and ample cargo space for all your luggage and beach gear.</p>
+            </div>
+
+            <div class="ev-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Insurance Covered</h3>
+                <p>Comprehensive coverage included. Drive with confidence knowing you're fully protected.</p>
+            </div>
+
+            <div class="ev-card">
+                <i class="fas fa-map-marked"></i>
+                <h3>GPS Pre-Loaded</h3>
+                <p>38 beaches, hidden spots, and local favorites already programmed. No WiFi needed for navigation.</p>
+            </div>
+
+            <div class="ev-card">
+                <i class="fas fa-charging-station"></i>
+                <h3>Free Charging</h3>
+                <p>Dedicated charging station at the villa. Plug in overnight, wake up to a full battery every morning.</p>
+            </div>
+
+            <div class="ev-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Zero Emissions</h3>
+                <p>Explore the island sustainably. Quiet, smooth ride with instant acceleration.</p>
+            </div>
+
+            <div class="ev-card">
+                <i class="fas fa-road"></i>
+                <h3>Unlimited Miles</h3>
+                <p>Drive as much as you want. Explore every corner of the island without mileage limits.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <p><i class="fas fa-bolt" style="color: var(--primary); margin-right: 0.5rem;"></i> Electricity Included - All charging costs are covered in your all-inclusive package. Drive freely.</p>
+        </div>
+    </section>
+
+    <!-- Who It's For / Not For -->
+    <section class="for-section">
+        <h2>Is Happy Hideaway Right For You?</h2>
+
+        <div class="for-grid">
+            <div class="for-card perfect">
+                <h3>
+                    <i class="fas fa-check-circle"></i>
+                    Perfect For:
+                </h3>
+                <ul>
+                    <li>Families seeking effortless luxury and premium service</li>
+                    <li>Groups who value privacy combined with white-glove attention</li>
+                    <li>Travelers who want a "private resort" experience without hotel crowds</li>
+                    <li>Anyone tired of vacation stress and hidden fees</li>
+                    <li>Guests who appreciate thoughtful details and personalized care</li>
+                    <li>People who want everything handled so they can truly relax</li>
+                </ul>
+            </div>
+
+            <div class="for-card not-for">
+                <h3>
+                    <i class="fas fa-times-circle"></i>
+                    Not Ideal For:
+                </h3>
+                <ul>
+                    <li>Budget travelers seeking basic accommodation only</li>
+                    <li>Those who prefer to plan and book everything themselves</li>
+                    <li>Party groups looking for nightlife venues (we're family-focused)</li>
+                    <li>Guests who don't value concierge service or curated experiences</li>
+                    <li>Anyone uncomfortable with all-inclusive pricing structure</li>
+                    <li>Travelers who prefer large resorts with daily activities programs</li>
+                </ul>
+            </div>
+        </div>
+
+        <p style="text-align: center; max-width: 700px; margin: 3rem auto 0; color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">
+            We're transparent about who we serve best. If you value effortless luxury, privacy, and white-glove service, you're in the right place. If you're seeking basic accommodation or prefer to DIY your vacation, we'll help you find a better fit.
+        </p>
+    </section>
+
+    <!-- Quick FAQ -->
+    <section class="faq-section">
+        <h2>Quick Answers</h2>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <h3>
+                    <i class="fas fa-car"></i>
+                    Does the EV-SUV fit 6 people plus luggage?
+                </h3>
+                <p>Yes. It's a full-size 7-passenger SUV with third-row seating and ample cargo space for families with luggage and beach gear.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>
+                    <i class="fas fa-umbrella-beach"></i>
+                    What about beach loungers at Jan Thiel Beach?
+                </h3>
+                <p>The Ultimate Beach Kit includes portable chairs, umbrellas, and coolers for any beach. Jan Thiel Beach Club loungers can be reserved separately - we'll handle it for you.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>
+                    <i class="fas fa-calendar"></i>
+                    Can I book fewer than 7 nights?
+                </h3>
+                <p>Sometimes. Message us with your dates and we'll check availability for shorter stays.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>
+                    <i class="fas fa-bolt"></i>
+                    Is electricity really included?
+                </h3>
+                <p>Yes, absolutely. Electricity for the villa and EV charging is included in your all-inclusive package. Zero hidden fees means zero hidden fees.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>
+                    <i class="fas fa-question-circle"></i>
+                    What's NOT included?
+                </h3>
+                <p>Only your flights, alcohol beyond welcome dinner, additional restaurant meals, and optional activities beyond what's included. Everything else is covered.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>
+                    <i class="fas fa-undo"></i>
+                    What's your cancellation policy?
+                </h3>
+                <p>Flexible cancellation up to 30 days before arrival for full refund. Within 30 days, deposits are non-refundable but can be applied to future dates within 12 months.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- House Rules & Essentials -->
+    <section class="rules-section">
+        <h2>House Rules & Essentials</h2>
+
+        <div class="rules-grid">
+            <div class="rules-card">
+                <h3>
+                    <i class="fas fa-clock"></i>
+                    Check-In/Out
+                </h3>
+                <ul>
+                    <li>Check-in: 3:00 PM</li>
+                    <li>Check-out: 11:00 AM</li>
+                    <li>Early/late requests? Ask us</li>
+                    <li>We'll meet you at the villa</li>
+                </ul>
+            </div>
+
+            <div class="rules-card">
+                <h3>
+                    <i class="fas fa-smoking-ban"></i>
+                    Prohibited
+                </h3>
+                <ul>
+                    <li>No smoking anywhere</li>
+                    <li>No parties or events</li>
+                    <li>No loud music after 10 PM</li>
+                    <li>Respect neighbors' privacy</li>
+                </ul>
+            </div>
+
+            <div class="rules-card">
+                <h3>
+                    <i class="fas fa-paw"></i>
+                    Pets & Guests
+                </h3>
+                <ul>
+                    <li>No pets allowed</li>
+                    <li>Maximum 6 overnight guests</li>
+                    <li>Day visitors require approval</li>
+                    <li>Children welcome and loved</li>
+                </ul>
+            </div>
+
+            <div class="rules-card">
+                <h3>
+                    <i class="fas fa-shield-alt"></i>
+                    Damage & Safety
+                </h3>
+                <ul>
+                    <li>Treat villa as your own</li>
+                    <li>Report damage immediately</li>
+                    <li>Security deposit: $500</li>
+                    <li>Fire extinguishers on-site</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="max-width: 800px; margin: 2rem auto 0; background: rgba(98, 208, 201, 0.1); padding: 2rem; border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
+            <h3 style="color: var(--secondary); margin-bottom: 1rem; font-size: 1.25rem;">Our Commitment to You</h3>
+            <p style="color: var(--text-secondary); line-height: 1.8; margin: 0;">
+                These rules protect the experience for everyone. Follow them, and we promise you'll have the best vacation of your life. We're flexible, understanding, and always here to help - just communicate with us openly.
+            </p>
+        </div>
+    </section>
+
+    <!-- Floating Booking Bar -->
+    <div class="floating-booking" id="floatingBooking">
+        <div class="booking-content">
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <input type="date" id="checkIn" style="padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 12px; font-family: 'Montserrat', sans-serif;">
+                <span style="color: var(--text-secondary);">to</span>
+                <input type="date" id="checkOut" style="padding: 0.75rem; border: 2px solid #E5E7EB; border-radius: 12px; font-family: 'Montserrat', sans-serif;">
+            </div>
+
+            <div class="price-display">
+                <div class="price-amount">From $5,000</div>
+                <div class="price-label">7-Night All-Inclusive</div>
+            </div>
+
+            <button class="cta-primary" onclick="bookNow()">
+                <i class="fas fa-heart"></i>
+                Check Availability
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary); padding: 3rem 0 2rem; text-align: center;">
+        <div class="container">
+            <div style="margin-bottom: 3rem;">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/tommy-coconut-logo_ubfctu" alt="Tommy Coconut" style="height: 60px; width: auto; margin-bottom: 1rem; filter: brightness(0) invert(1);">
+                <p style="color: white; font-size: 1.125rem; margin: 0; font-weight: 300;">Arrive as Guests, Leave as Family</p>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 3rem; margin-bottom: 3rem;">
+                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: 1.25rem; transition: var(--transition-normal);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.7); font-size: 1.25rem; transition: var(--transition-normal);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 3rem; font-size: 0.875rem;">
+                <a href="rentals.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Rentals</a>
+                <a href="about.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Our Story</a>
+                <a href="contact.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Contact</a>
+            </div>
+
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem;">
+                <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; margin: 0;">&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Floating booking bar
+        window.addEventListener('scroll', function() {
+            const floatingBooking = document.getElementById('floatingBooking');
+            if (window.scrollY > 300) {
+                floatingBooking.classList.add('visible');
+            }
+        });
+
+        // Booking functionality
+        function bookNow() {
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+
+            if (!checkIn || !checkOut) {
+                alert('Please select your check-in and check-out dates');
+                return;
+            }
+
+            const params = new URLSearchParams({
+                villa: 'happy-hideaway',
+                checkin: checkIn,
+                checkout: checkOut
+            });
+
+            window.location.href = `treasure-map.html?${params.toString()}`;
+        }
+
+        // Set minimum dates
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkIn').setAttribute('min', today);
+        document.getElementById('checkOut').setAttribute('min', today);
+
+        document.getElementById('checkIn').addEventListener('change', function() {
+            const checkInDate = new Date(this.value);
+            checkInDate.setDate(checkInDate.getDate() + 1);
+            const minCheckOut = checkInDate.toISOString().split('T')[0];
+            document.getElementById('checkOut').setAttribute('min', minCheckOut);
+        });
+    </script>
+</body>
+</html>
