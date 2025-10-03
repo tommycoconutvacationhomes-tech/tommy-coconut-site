@@ -102,26 +102,29 @@
             box-sizing: border-box;
         }
 
-        html {
+        html, body {
+            height: 100%;
+            overflow: hidden;
             scroll-behavior: smooth;
         }
-        
+
         body {
             font-family: 'Montserrat', system-ui, sans-serif;
-            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
                         url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920,c_fill,e_blur:400/funnel-background_udauob') center/cover no-repeat;
             background-attachment: fixed;
             color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
+
         /* Full Screen Modal Container */
         .curation-container {
             width: 100%;
-            min-height: 100vh;
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
             background: transparent;
             padding: calc(var(--space-12) + 20px) var(--space-4) var(--space-4) var(--space-4);
         }
@@ -136,7 +139,7 @@
             backdrop-filter: blur(10px);
             padding: var(--space-3);
             text-align: center;
-            z-index: 1002;
+            z-index: 1050;
             font-size: var(--text-sm);
             font-weight: 600;
             color: var(--text-secondary);
@@ -782,7 +785,7 @@
             font-size: var(--text-xl);
             color: var(--text-secondary);
             transition: var(--transition-normal);
-            z-index: 1002;
+            z-index: 1050;
         }
         
         .close-button:hover {
@@ -1947,7 +1950,7 @@
             left: 20px;
             width: 60px;
             height: 60px;
-            z-index: 1000;
+            z-index: 1100;
             background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_100/tommy-coconut-logo_ubfctu');
             background-size: contain;
             background-repeat: no-repeat;
@@ -2760,7 +2763,7 @@
                         features: ['Perfect Dinner Settings', 'Beachfront Dining', 'Private Chef Available', 'Romantic Ambiance']
                     },
                     'romantic_minimalist': {
-                        name: 'Modern Zen Villa',
+                        name: 'Dushi Hideaway',
                         image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/villa-hero`,
                         features: ['Minimalist Design', 'Clean Modern Lines', 'Peaceful Setting', 'Architectural Beauty']
                     },
@@ -2820,18 +2823,29 @@
                         features: ['Intimate Dining Spaces', 'Peaceful Settings', 'Personal Chef Available', 'Quiet Elegance']
                     },
                     'solitary_minimalist': {
-                        name: 'Modern Zen Villa',
+                        name: 'Villa Bayside Hill',
                         image: `${cloudinaryBase}/${imageTransform}/v1/tommy-coconut/villas/villa-hero`,
                         features: ['The Effortless Style of Modern Design', 'Minimalist Perfection', 'Zen Atmosphere', 'Peaceful Aesthetics']
                     }
                 };
             }
             
+            checkFlatpickrLoaded() {
+                return typeof flatpickr !== 'undefined';
+            }
+
             initializeDatePicker() {
                 const today = new Date();
                 const maxDate = new Date();
                 maxDate.setFullYear(today.getFullYear() + 2);
-                
+
+                // Check if flatpickr loaded successfully
+                if (!this.checkFlatpickrLoaded()) {
+                    console.error('Flatpickr library failed to load from CDN');
+                    this.setupFallbackDatePicker();
+                    return;
+                }
+
                 try {
                     this.datePicker = flatpickr("#dateRange", {
                         mode: "range",
@@ -2865,13 +2879,29 @@
                     });
                 } catch (error) {
                     console.warn('Flatpickr initialization failed:', error);
-                    // Fallback: make the date field editable and set default dates
-                    const dateInput = document.getElementById('dateRange');
-                    if (dateInput) {
-                        dateInput.readOnly = false;
-                        dateInput.placeholder = 'Enter travel dates or leave blank for flexible dates';
-                        this.responses.dates = 'Flexible dates';
-                        this.responses.travelDates = 'Flexible dates';
+                    this.setupFallbackDatePicker();
+                }
+            }
+
+            setupFallbackDatePicker() {
+                // Enhanced fallback with visual feedback
+                const dateInput = document.getElementById('dateRange');
+                if (dateInput) {
+                    dateInput.readOnly = false;
+                    dateInput.placeholder = 'Enter travel dates (e.g., June 15 - June 22)';
+                    dateInput.style.borderColor = '#f59e0b';
+                    dateInput.style.borderWidth = '2px';
+                    this.responses.dates = 'Flexible dates';
+                    this.responses.travelDates = 'Flexible dates';
+
+                    // Add visual indicator for manual entry
+                    const label = dateInput.parentElement?.querySelector('.step-title');
+                    if (label && !document.getElementById('date-manual-note')) {
+                        const note = document.createElement('div');
+                        note.id = 'date-manual-note';
+                        note.style.cssText = 'color: #f59e0b; font-size: 0.9rem; margin-top: 0.5rem; font-weight: 500;';
+                        note.textContent = '📝 Date picker unavailable - enter dates manually or click "I\'m Flexible"';
+                        dateInput.parentElement?.insertBefore(note, dateInput.nextSibling);
                     }
                 }
             }

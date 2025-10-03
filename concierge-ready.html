@@ -254,20 +254,27 @@
             box-shadow: 0 2px 8px rgba(0, 206, 209, 0.3);
         }
 
+        /* Desktop expansion */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 900px;
+            }
+        }
+
         /* Mobile optimization */
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
             }
-            
+
             .concierge-card {
                 padding: 2rem 1.5rem;
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
-            
+
             .whatsapp-btn {
                 padding: 1rem 2rem;
                 font-size: 1.1rem;
