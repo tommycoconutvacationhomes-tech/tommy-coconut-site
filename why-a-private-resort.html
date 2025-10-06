@@ -22,7 +22,7 @@
 
     <style>
         .hero-section {
-            background: linear-gradient(135deg, #008080 0%, #00CFCF 100%);
+            background: linear-gradient(135deg, #005A5B 0%, #008080 100%);
             padding: 120px 20px 80px;
             text-align: center;
             color: white;
@@ -33,6 +33,7 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero-section .subtitle {
@@ -41,6 +42,7 @@
             opacity: 0.95;
             max-width: 800px;
             margin: 0 auto 2rem;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         /* Story-Driven Comparison Layout */
@@ -71,9 +73,9 @@
         }
 
         .section-title {
-            font-size: clamp(2rem, 3vw, 2.8rem);
-            font-weight: 800;
-            color: #008080;
+            font-size: clamp(1.5rem, 2vw, 1.8rem);
+            font-weight: 600;
+            color: #333333;
             margin-bottom: 2.5rem;
             text-align: center;
             letter-spacing: -0.02em;
@@ -106,59 +108,80 @@
             color: #94a3b8;
             margin-bottom: 1.25rem;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
         }
 
         .their-way p {
             font-size: 1.15rem;
             line-height: 1.7;
-            color: #64748b;
+            color: #666666;
             font-style: italic;
         }
 
+        .icon-negative {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
         .our-way {
-            background: linear-gradient(135deg, rgba(0, 207, 207, 0.03) 0%, rgba(0, 128, 128, 0.05) 100%);
-            border: 3px solid transparent;
-            background-clip: padding-box;
+            background: #008080;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 128, 128, 0.3);
             position: relative;
         }
 
         .our-way::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 20px;
-            padding: 3px;
-            background: linear-gradient(135deg, #00CFCF 0%, #008080 100%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
+            display: none;
         }
 
         .our-way:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(0, 207, 207, 0.25);
+            box-shadow: 0 25px 60px rgba(0, 128, 128, 0.4);
+            background: #00a3a3;
         }
 
         .our-way h3 {
             font-size: 1.4rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #008080 0%, #00CFCF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #FFFFFF;
+            background: none;
+            -webkit-text-fill-color: initial;
             margin-bottom: 1.25rem;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
         }
 
         .our-way p {
             font-size: 1.2rem;
             line-height: 1.8;
-            color: #1e293b;
+            color: #FFFFFF;
             font-weight: 500;
+        }
+
+        .icon-positive {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            font-size: 0.9rem;
+            margin-right: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
         .cta-section {
@@ -216,7 +239,7 @@
             }
 
             .section-title {
-                font-size: 1.75rem;
+                font-size: 1.3rem;
                 margin-bottom: 1.75rem;
             }
 
@@ -262,7 +285,7 @@
             }
 
             .section-title {
-                font-size: 2.2rem;
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -358,11 +381,11 @@
                 <h2 class="section-title">The Arrival</h2>
                 <div class="comparison-columns">
                     <div class="their-way">
-                        <h3>Their Way</h3>
+                        <h3><span class="icon-negative">✕</span> Their Way</h3>
                         <p>A keypad code and a 'good luck' text.</p>
                     </div>
                     <div class="our-way">
-                        <h3>Our Way (The Dushi Life)</h3>
+                        <h3><span class="icon-positive">✓</span> Our Way (The Dushi Life)</h3>
                         <p>A personal airport welcome from a family member, with cold drinks waiting.</p>
                     </div>
                 </div>
@@ -373,11 +396,11 @@
                 <h2 class="section-title">Your Freedom</h2>
                 <div class="comparison-columns">
                     <div class="their-way">
-                        <h3>Their Way</h3>
+                        <h3><span class="icon-negative">✕</span> Their Way</h3>
                         <p>A link to a rental car website and a prayer that they have a car for you.</p>
                     </div>
                     <div class="our-way">
-                        <h3>Our Way (The Dushi Life)</h3>
+                        <h3><span class="icon-positive">✓</span> Our Way (The Dushi Life)</h3>
                         <p>The keys to your personal, fully-charged EV-SUV, waiting in your private driveway.</p>
                     </div>
                 </div>
@@ -388,11 +411,11 @@
                 <h2 class="section-title">The Experience</h2>
                 <div class="comparison-columns">
                     <div class="their-way">
-                        <h3>Their Way</h3>
+                        <h3><span class="icon-negative">✕</span> Their Way</h3>
                         <p>A brochure for a crowded, 40-person tourist boat.</p>
                     </div>
                     <div class="our-way">
-                        <h3>Our Way (The Dushi Life)</h3>
+                        <h3><span class="icon-positive">✓</span> Our Way (The Dushi Life)</h3>
                         <p>A private boat trip with Captain Mike, where you control the music and the vibe.</p>
                     </div>
                 </div>
@@ -403,11 +426,11 @@
                 <h2 class="section-title">The Support</h2>
                 <div class="comparison-columns">
                     <div class="their-way">
-                        <h3>Their Way</h3>
+                        <h3><span class="icon-negative">✕</span> Their Way</h3>
                         <p>An 800-number and an answering machine.</p>
                     </div>
                     <div class="our-way">
-                        <h3>Our Way (The Dushi Life)</h3>
+                        <h3><span class="icon-positive">✓</span> Our Way (The Dushi Life)</h3>
                         <p>A 24/7 personal concierge on WhatsApp who responds in minutes (because it's our family's race to see who can help you the fastest).</p>
                     </div>
                 </div>
@@ -418,11 +441,11 @@
                 <h2 class="section-title">The Value</h2>
                 <div class="comparison-columns">
                     <div class="their-way">
-                        <h3>Their Way</h3>
+                        <h3><span class="icon-negative">✕</span> Their Way</h3>
                         <p>A base rate, followed by a long list of resort fees, service charges, utility bills, and surprise costs.</p>
                     </div>
                     <div class="our-way">
-                        <h3>Our Way (The Dushi Life)</h3>
+                        <h3><span class="icon-positive">✓</span> Our Way (The Dushi Life)</h3>
                         <p>One all-inclusive price. Our Zero Hidden Fees Promise means everything—even electricity and gratuities—is included. The price you see is the price you pay.</p>
                     </div>
                 </div>
