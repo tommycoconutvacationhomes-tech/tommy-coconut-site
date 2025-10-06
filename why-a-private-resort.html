@@ -43,107 +43,122 @@
             margin: 0 auto 2rem;
         }
 
-        .comparison-container {
-            max-width: 1400px;
+        /* Story-Driven Comparison Layout */
+        .story-comparison {
+            max-width: 1200px;
             margin: -40px auto 80px;
             padding: 0 20px;
         }
 
-        .comparison-table {
+        .story-section {
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .story-section:nth-child(1) { animation-delay: 0.1s; }
+        .story-section:nth-child(2) { animation-delay: 0.2s; }
+        .story-section:nth-child(3) { animation-delay: 0.3s; }
+        .story-section:nth-child(4) { animation-delay: 0.4s; }
+        .story-section:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 800;
+            color: #008080;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .comparison-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .their-way,
+        .our-way {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
-        .table-header {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-            background: #f8f9fa;
-            border-bottom: 2px solid #e9ecef;
+        .their-way {
+            border: 2px solid #e9ecef;
+            opacity: 0.85;
         }
 
-        .table-header-cell {
-            padding: 2rem 1.5rem;
-            text-align: center;
+        .their-way h3 {
+            font-size: 1.4rem;
             font-weight: 700;
-            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.5px;
         }
 
-        .table-header-cell:first-child {
-            text-align: left;
-            background: white;
+        .their-way p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #64748b;
+            font-style: italic;
         }
 
-        .table-header-cell.highlight {
-            background: linear-gradient(135deg, #008080 0%, #00CFCF 100%);
-            color: white;
+        .our-way {
+            background: linear-gradient(135deg, rgba(0, 207, 207, 0.03) 0%, rgba(0, 128, 128, 0.05) 100%);
+            border: 3px solid transparent;
+            background-clip: padding-box;
             position: relative;
         }
 
-        .table-header-cell.highlight::before {
-            content: '⭐';
+        .our-way::before {
+            content: '';
             position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.5rem;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 3px;
+            background: linear-gradient(135deg, #00CFCF 0%, #008080 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
 
-        .table-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-            border-bottom: 1px solid #e9ecef;
-            transition: background 0.2s;
+        .our-way:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 207, 207, 0.25);
         }
 
-        .table-row:hover {
-            background: #f8f9fa;
+        .our-way h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #008080 0%, #00CFCF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.5px;
         }
 
-        .table-cell {
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .table-cell:first-child {
-            justify-content: flex-start;
-            text-align: left;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .table-cell.highlight {
-            background: rgba(0, 207, 207, 0.06);
-        }
-
-        .check {
-            color: #00CFCF;
-            font-size: 1.8rem;
-        }
-
-        .cross {
-            color: #e74c3c;
-            font-size: 1.5rem;
-            opacity: 0.4;
-        }
-
-        .partial {
-            color: #f39c12;
-            font-size: 1.3rem;
-        }
-
-        .category-header {
-            grid-column: 1 / -1;
-            background: linear-gradient(90deg, #008080 0%, #00CFCF 100%);
-            color: white;
-            padding: 1rem 1.5rem;
-            font-weight: 700;
+        .our-way p {
             font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            line-height: 1.8;
+            color: #1e293b;
+            font-weight: 500;
         }
 
         .cta-section {
@@ -186,131 +201,68 @@
             color: white;
         }
 
-        /* Enhanced Visual Hierarchy */
-        .check {
-            font-weight: 700;
-            filter: drop-shadow(0 2px 4px rgba(0, 207, 207, 0.3));
-        }
-
-        .cross {
-            color: #CBD5E1;
-            opacity: 0.5;
-        }
-
-        .partial {
-            color: #00CFCF;
-            opacity: 0.6;
-        }
-
-        .table-row:hover {
-            background: rgba(0, 207, 207, 0.04);
-            transform: translateX(4px);
-            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        .table-row:hover .table-cell:first-child {
-            color: #00CFCF;
-            font-weight: 700;
-        }
-
-        /* Tablet Responsive */
-        @media (max-width: 1024px) {
-            .table-header,
-            .table-row {
-                grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            }
-
-            .table-header-cell:last-child,
-            .table-cell:last-child {
-                display: none;
-            }
-
-            .category-header {
-                font-size: 1rem;
-            }
-
-            .table-cell {
-                padding: 1rem 0.75rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Mobile Responsive - Complete Redesign */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero-section {
                 padding: 100px 20px 60px;
             }
 
-            .comparison-container {
+            .story-comparison {
                 margin: -30px auto 60px;
             }
 
-            .table-header {
-                display: none; /* Hide desktop table header on mobile */
+            .story-section {
+                margin-bottom: 3.5rem;
             }
 
-            .table-row {
-                display: block;
-                background: white;
-                border-radius: 12px;
-                padding: 1.5rem;
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 1.75rem;
+            }
+
+            .comparison-columns {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .their-way,
+            .our-way {
+                padding: 1.75rem;
+            }
+
+            .their-way h3,
+            .our-way h3 {
+                font-size: 1.2rem;
                 margin-bottom: 1rem;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-                border: none;
             }
 
-            .table-row:hover {
-                transform: none;
+            .their-way p,
+            .our-way p {
+                font-size: 1.05rem;
             }
 
-            .table-cell {
-                display: block;
-                padding: 0.75rem 0;
-                border-bottom: 1px solid #f0f0f0;
-                text-align: left;
-                justify-content: flex-start;
+            .cta-section {
+                padding: 60px 20px;
             }
 
-            .table-cell:first-child {
-                font-size: 1.1rem;
-                font-weight: 700;
-                color: #008080;
-                padding-bottom: 1rem;
-                margin-bottom: 0.75rem;
-                border-bottom: 2px solid #e9ecef;
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .comparison-columns {
+                gap: 2rem;
             }
 
-            .table-cell:last-child {
-                border-bottom: none;
+            .their-way,
+            .our-way {
+                padding: 2rem;
             }
 
-            .table-cell.highlight {
-                background: rgba(0, 207, 207, 0.08);
-                border-left: 4px solid #00CFCF;
-                padding-left: 1rem;
-                margin: 0.5rem 0;
-                border-radius: 8px;
-            }
-
-            .table-cell::before {
-                content: attr(data-provider);
-                display: inline-block;
-                font-weight: 600;
-                margin-right: 0.5rem;
-                min-width: 120px;
-            }
-
-            .category-header {
-                font-size: 0.95rem;
-                padding: 0.75rem 1.5rem;
-                margin: 1.5rem 0 1rem;
-                border-radius: 8px;
-            }
-
-            .check,
-            .cross,
-            .partial {
-                font-size: 1.5rem;
+            .section-title {
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -397,192 +349,91 @@
         </div>
     </section>
 
-    <!-- Comparison Table -->
-    <div class="comparison-container">
-        <div class="comparison-table">
-            <!-- Table Header -->
-            <div class="table-header">
-                <div class="table-header-cell">What You Get</div>
-                <div class="table-header-cell highlight">Tommy Coconut<br>Private Resort</div>
-                <div class="table-header-cell">Hotels</div>
-                <div class="table-header-cell">All-Inclusives</div>
-                <div class="table-header-cell">Vacation<br>Rentals</div>
+    <!-- Story-Driven Comparison: Their Way vs. Our Way -->
+    <section class="story-comparison">
+        <div class="container">
+
+            <!-- Story 1: The Arrival -->
+            <div class="story-section">
+                <h2 class="section-title">The Arrival</h2>
+                <div class="comparison-columns">
+                    <div class="their-way">
+                        <h3>Their Way</h3>
+                        <p>A keypad code and a 'good luck' text.</p>
+                    </div>
+                    <div class="our-way">
+                        <h3>Our Way (The Dushi Life)</h3>
+                        <p>A personal airport welcome from a family member, with cold drinks waiting.</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Category: Accommodations -->
-            <div class="table-row">
-                <div class="category-header">Accommodations & Space</div>
+            <!-- Story 2: Your Freedom -->
+            <div class="story-section">
+                <h2 class="section-title">Your Freedom</h2>
+                <div class="comparison-columns">
+                    <div class="their-way">
+                        <h3>Their Way</h3>
+                        <p>A link to a rental car website and a prayer that they have a car for you.</p>
+                    </div>
+                    <div class="our-way">
+                        <h3>Our Way (The Dushi Life)</h3>
+                        <p>The keys to your personal, fully-charged EV-SUV, waiting in your private driveway.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="table-row">
-                <div class="table-cell">Entire Private Villa (3-4 bedrooms)</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="check">✓</span></div>
+            <!-- Story 3: The Experience -->
+            <div class="story-section">
+                <h2 class="section-title">The Experience</h2>
+                <div class="comparison-columns">
+                    <div class="their-way">
+                        <h3>Their Way</h3>
+                        <p>A brochure for a crowded, 40-person tourist boat.</p>
+                    </div>
+                    <div class="our-way">
+                        <h3>Our Way (The Dushi Life)</h3>
+                        <p>A private boat trip with Captain Mike, where you control the music and the vibe.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="table-row">
-                <div class="table-cell">Private Pool & Outdoor Living Space</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="partial">△</span></div>
-                <div class="table-cell"><span class="partial">△</span></div>
+            <!-- Story 4: The Support -->
+            <div class="story-section">
+                <h2 class="section-title">The Support</h2>
+                <div class="comparison-columns">
+                    <div class="their-way">
+                        <h3>Their Way</h3>
+                        <p>An 800-number and an answering machine.</p>
+                    </div>
+                    <div class="our-way">
+                        <h3>Our Way (The Dushi Life)</h3>
+                        <p>A 24/7 personal concierge on WhatsApp who responds in minutes (because it's our family's race to see who can help you the fastest).</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="table-row">
-                <div class="table-cell">No Crowds, No Noise, Complete Privacy</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="check">✓</span></div>
+            <!-- Story 5: The Value -->
+            <div class="story-section">
+                <h2 class="section-title">The Value</h2>
+                <div class="comparison-columns">
+                    <div class="their-way">
+                        <h3>Their Way</h3>
+                        <p>A base rate, followed by a long list of resort fees, service charges, utility bills, and surprise costs.</p>
+                    </div>
+                    <div class="our-way">
+                        <h3>Our Way (The Dushi Life)</h3>
+                        <p>One all-inclusive price. Our Zero Hidden Fees Promise means everything—even electricity and gratuities—is included. The price you see is the price you pay.</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Category: Experiences -->
-            <div class="table-row">
-                <div class="category-header">Experiences & Adventures</div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Private Sunset Boat Trips (Included)</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Personal Vehicle Fleet Access</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Curated Local Experiences (Hidden beaches, local restaurants)</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Your Time, Your Agenda - Complete Freedom</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="partial">△</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="check">✓</span></div>
-            </div>
-
-            <!-- Category: Service & Support -->
-            <div class="table-row">
-                <div class="category-header">Service & Support</div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Dedicated Island Family (Not just staff)</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">24/7 WhatsApp Concierge Support</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="partial">△</span></div>
-                <div class="table-cell"><span class="partial">△</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Airport Pickup & Logistics Guarantee</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="partial">△</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Pre-Arrival Concierge Planning</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <!-- Category: Value & Transparency -->
-            <div class="table-row">
-                <div class="category-header">Value & Transparency</div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">No Hidden Fees or Surprise Surcharges</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="partial">△</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Gratuities for Included Services Covered</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="partial">△</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Electricity & Utilities Included</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">$2,500-$3,000+ Value in Included Experiences</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <!-- Category: Community & Connection -->
-            <div class="table-row">
-                <div class="category-header">Community & Connection</div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Arrive as Guests, Leave as Family</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Access to Exclusive Guest Community</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
-
-            <div class="table-row">
-                <div class="table-cell">Authentic Local Connections (Not Tourist Traps)</div>
-                <div class="table-cell highlight"><span class="check">✓</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-                <div class="table-cell"><span class="cross">✗</span></div>
-            </div>
         </div>
-    </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <h2>Ready to Rule Your Own Island?</h2>
+        <h2>Ready to Choose Your Story?</h2>
         <p>Others give you a key to a room; we hand you the keys to the island.</p>
         <a href="rentals.html" class="cta-button">Explore Private Resorts</a>
     </section>
