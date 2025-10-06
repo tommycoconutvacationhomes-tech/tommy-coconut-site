@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tommy Coconut - Lodgify Components Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background: #f5f5f5;
+        }
+        .component-wrapper {
+            background: white;
+            margin: 40px auto;
+            padding: 40px;
+            max-width: 1200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .component-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #005A5B;
+            margin-bottom: 10px;
+        }
+        .component-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================
+     TOMMY COCONUT LODGIFY COMPONENTS LIBRARY
+     ============================================ -->
+
+<div style="max-width: 1200px; margin: 0 auto 60px; text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #62D0C9 0%, #005A5B 100%); border-radius: 20px;">
+    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu" alt="Tommy Coconut" style="height: 80px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+    <h1 style="color: white; font-size: 48px; font-weight: 700; margin: 0 0 15px 0;">Lodgify Components Library</h1>
+    <p style="color: rgba(255,255,255,0.9); font-size: 20px; margin: 0;">Copy & paste these self-contained HTML blocks into your Lodgify web builder</p>
+</div>
+
+<!-- ============================================
+     COMPONENT 1: HERO SECTION
+     ============================================ -->
+<div class="component-wrapper">
+    <h2 class="component-title">Component 1: Hero Section</h2>
+    <p class="component-description">
+        <strong>Description:</strong> Full-width hero with video background, headline, subheadline, and primary CTA.<br>
+        <strong>Customization:</strong> Replace video URL, update headline text, change button link and text.
+    </p>
+
+    <!-- LIVE PREVIEW -->
+    <div style="border: 2px solid #eee; border-radius: 8px; overflow: hidden;">
+
+<!-- COMPONENT START - Copy from here -->
+<div style="position: relative; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(135deg, rgba(0, 90, 91, 0.85) 0%, rgba(98, 208, 201, 0.75) 100%);">
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); z-index: 0; object-fit: cover;">
+        <source src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/video-output-2DF885B0-E272-4C20-A5A5-BFF4B2FB300B_e1zkdo" type="video/mp4">
+    </video>
+
+    <!-- Content -->
+    <div style="position: relative; z-index: 10; text-align: center; color: white; padding: 40px 20px; max-width: 900px;">
+        <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 6vw, 56px); font-weight: 700; margin: 0 0 20px 0; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); line-height: 1.1; color: white;">
+            The Cure for the Common Vacation.
+        </h1>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: clamp(18px, 2vw, 22px); margin: 0 0 40px 0; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); opacity: 0.95; color: white;">
+            Your personal curation starts here.
+        </p>
+        <a href="#" style="display: inline-block; font-family: 'Montserrat', sans-serif; background: rgba(255, 255, 255, 0.95); color: #62D0C9; padding: 18px 36px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 18px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); transition: all 0.3s ease;">
+            Find My Perfect Villa
+        </a>
+    </div>
+</div>
+<!-- COMPONENT END - Copy to here -->
+
+    </div>
+</div>
+
+<!-- ============================================
+     COMPONENT 2: SOCIAL PROOF BAR
+     ============================================ -->
+<div class="component-wrapper">
+    <h2 class="component-title">Component 2: Social Proof Bar</h2>
+    <p class="component-description">
+        <strong>Description:</strong> Trust indicators with key metrics (guests, rating, reviews).<br>
+        <strong>Customization:</strong> Update numbers, change icons, modify text labels.
+    </p>
+
+    <!-- LIVE PREVIEW -->
+    <div style="border: 2px solid #eee; border-radius: 8px; overflow: hidden;">
+
+<!-- COMPONENT START - Copy from here -->
+<div style="background: linear-gradient(135deg, #F8FFFE 0%, #FFFFFF 100%); padding: 60px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 4vw, 42px); font-weight: 700; color: #005A5B; text-align: center; margin: 0 0 50px 0;">
+            Bon Bini to the Coconut Clan.
+        </h2>
+
+        <!-- Stats Grid -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap;">
+            <!-- Stat 1 -->
+            <div style="text-align: center;">
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 700; color: #62D0C9; margin-bottom: 8px;">1,347+</div>
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Happy Guests</div>
+            </div>
+
+            <!-- Stat 2 -->
+            <div style="text-align: center;">
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 700; color: #62D0C9; margin-bottom: 8px;">4.99★</div>
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Average Rating</div>
+            </div>
+
+            <!-- Stat 3 -->
+            <div style="text-align: center;">
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 700; color: #62D0C9; margin-bottom: 8px;">648</div>
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">5-Star Reviews</div>
+            </div>
+
+            <!-- Stat 4 -->
+            <div style="text-align: center;">
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 700; color: #62D0C9; margin-bottom: 8px;">98%</div>
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Would Recommend</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- COMPONENT END - Copy to here -->
+
+    </div>
+</div>
+
+<!-- ============================================
+     COMPONENT 3: VILLA PROPERTY CARDS
+     ============================================ -->
+<div class="component-wrapper">
+    <h2 class="component-title">Component 3: Villa Property Cards</h2>
+    <p class="component-description">
+        <strong>Description:</strong> 3-column responsive grid of villa cards with images, details, and CTAs.<br>
+        <strong>Customization:</strong> Replace Cloudinary image URLs, update villa names, pricing, and property details.
+    </p>
+
+    <!-- LIVE PREVIEW -->
+    <div style="border: 2px solid #eee; border-radius: 8px; overflow: hidden;">
+
+<!-- COMPONENT START - Copy from here -->
+<div style="background: #FFFFFF; padding: 80px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 4vw, 42px); font-weight: 700; color: #005A5B; text-align: center; margin: 0 0 20px 0;">
+            Our Premium Villas
+        </h2>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 18px; color: #666; text-align: center; max-width: 700px; margin: 0 auto 60px; line-height: 1.6;">
+            Curated stays where every detail matters. Choose your perfect island escape.
+        </p>
+
+        <!-- Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+
+            <!-- Villa Card 1 -->
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_600,h_400,c_fill/tommy-coconut/villas/bayside-hill-hero" alt="Villa Bayside Hill" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+                <div style="padding: 30px;">
+                    <h3 style="font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; color: #005A5B; margin: 0 0 15px 0;">Villa Bayside Hill</h3>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666; margin: 0 0 20px 0; line-height: 1.6;">
+                        Panoramic ocean views | 4 Beds | 8 Guests | Private Pool
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 700; color: #62D0C9;">$450</div>
+                            <div style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #999;">per night (all-inclusive)</div>
+                        </div>
+                    </div>
+                    <a href="#" style="display: block; text-align: center; font-family: 'Montserrat', sans-serif; background: #62D0C9; color: white; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; transition: background 0.3s ease;">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+            <!-- Villa Card 2 -->
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_600,h_400,c_fill/Happy_Hideaway_Final-18_zkh25v" alt="Villa Happy Hideaway" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+                <div style="padding: 30px;">
+                    <h3 style="font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; color: #005A5B; margin: 0 0 15px 0;">Villa Happy Hideaway</h3>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666; margin: 0 0 20px 0; line-height: 1.6;">
+                        Tropical paradise | 3 Beds | 6 Guests | Garden Pool
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 700; color: #62D0C9;">$375</div>
+                            <div style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #999;">per night (all-inclusive)</div>
+                        </div>
+                    </div>
+                    <a href="#" style="display: block; text-align: center; font-family: 'Montserrat', sans-serif; background: #62D0C9; color: white; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; transition: background 0.3s ease;">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+            <!-- Villa Card 3 -->
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_600,h_400,c_fill/Sailaway_Beach_Final-96_l4xlce" alt="Villa Sailaway Beach" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+                <div style="padding: 30px;">
+                    <h3 style="font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; color: #005A5B; margin: 0 0 15px 0;">Villa Sailaway Beach</h3>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666; margin: 0 0 20px 0; line-height: 1.6;">
+                        Beachfront bliss | 2 Beds | 4 Guests | Steps to beach
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 700; color: #62D0C9;">$325</div>
+                            <div style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #999;">per night (all-inclusive)</div>
+                        </div>
+                    </div>
+                    <a href="#" style="display: block; text-align: center; font-family: 'Montserrat', sans-serif; background: #62D0C9; color: white; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; transition: background 0.3s ease;">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- COMPONENT END - Copy to here -->
+
+    </div>
+</div>
+
+<!-- ============================================
+     COMPONENT 4: VALUE PROPOSITION SECTION
+     ============================================ -->
+<div class="component-wrapper">
+    <h2 class="component-title">Component 4: Value Proposition Section</h2>
+    <p class="component-description">
+        <strong>Description:</strong> "Why Tommy Coconut" messaging with icon-based feature blocks.<br>
+        <strong>Customization:</strong> Change emojis/icons, update headlines and descriptions.
+    </p>
+
+    <!-- LIVE PREVIEW -->
+    <div style="border: 2px solid #eee; border-radius: 8px; overflow: hidden;">
+
+<!-- COMPONENT START - Copy from here -->
+<div style="background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%); padding: 80px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 4vw, 42px); font-weight: 700; color: #005A5B; text-align: center; margin: 0 0 20px 0;">
+            Everything You Need for the Perfect Vacation
+        </h2>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 18px; color: #666; text-align: center; max-width: 700px; margin: 0 auto 60px; line-height: 1.6;">
+            No hidden fees. No surprises. Just pure vacation bliss.
+        </p>
+
+        <!-- Features Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+
+            <!-- Feature 1 -->
+            <div style="text-align: center; padding: 40px 30px; background: white; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease;">
+                <div style="font-size: 60px; margin-bottom: 20px;">🏡</div>
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; color: #005A5B; margin: 0 0 15px 0;">Premium Villa</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #666; margin: 0; line-height: 1.6;">
+                    Luxury accommodations with private pools and ocean views
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div style="text-align: center; padding: 40px 30px; background: white; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease;">
+                <div style="font-size: 60px; margin-bottom: 20px;">🚗</div>
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; color: #005A5B; margin: 0 0 15px 0;">Your Own Vehicle</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #666; margin: 0; line-height: 1.6;">
+                    Jeep or car included - explore the island freely
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div style="text-align: center; padding: 40px 30px; background: white; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease;">
+                <div style="font-size: 60px; margin-bottom: 20px;">⛵</div>
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; color: #005A5B; margin: 0 0 15px 0;">Sunset Boat Trip</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #666; margin: 0; line-height: 1.6;">
+                    Legendary sunset cruise with drinks included
+                </p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div style="text-align: center; padding: 40px 30px; background: white; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease;">
+                <div style="font-size: 60px; margin-bottom: 20px;">🎯</div>
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; color: #005A5B; margin: 0 0 15px 0;">Personal Concierge</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #666; margin: 0; line-height: 1.6;">
+                    24/7 support and local expertise at your fingertips
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- COMPONENT END - Copy to here -->
+
+    </div>
+</div>
+
+<!-- ============================================
+     COMPONENT 5: TESTIMONIAL CARD
+     ============================================ -->
+<div class="component-wrapper">
+    <h2 class="component-title">Component 5: Testimonial / Review Card</h2>
+    <p class="component-description">
+        <strong>Description:</strong> Single review card with star rating, quote, and guest details.<br>
+        <strong>Customization:</strong> Update review text, guest name, and guest status.
+    </p>
+
+    <!-- LIVE PREVIEW -->
+    <div style="border: 2px solid #eee; border-radius: 8px; overflow: hidden;">
+
+<!-- COMPONENT START - Copy from here -->
+<div style="background: #FFFFFF; padding: 80px 20px;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div style="background: white; padding: 50px 40px; border-radius: 24px; box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1); border: 1px solid rgba(98, 208, 201, 0.1);">
+            <!-- Star Rating -->
+            <div style="display: flex; justify-content: center; margin-bottom: 25px; gap: 4px;">
+                <span style="color: #FFD700; font-size: 24px;">★</span>
+                <span style="color: #FFD700; font-size: 24px;">★</span>
+                <span style="color: #FFD700; font-size: 24px;">★</span>
+                <span style="color: #FFD700; font-size: 24px;">★</span>
+                <span style="color: #FFD700; font-size: 24px;">★</span>
+            </div>
+
+            <!-- Review Text -->
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 20px; color: #666; line-height: 1.7; margin: 0 0 30px 0; font-style: italic; text-align: center;">
+                "Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."
+            </p>
+
+            <!-- Author Info -->
+            <div style="border-top: 2px solid #62D0C9; padding-top: 25px; text-align: center;">
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #005A5B; margin-bottom: 8px; font-size: 18px;">The Johnson Family</div>
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #62D0C9; font-weight: 600;">5th time guests, now part of the Coconut Clan</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- COMPONENT END - Copy to here -->
+
+    </div>
+</div>
+
+<!-- ============================================
+     COMPONENT 6: CALL-TO-ACTION SECTION
+     ============================================ -->
+<div class="component-wrapper">
+    <h2 class="component-title">Component 6: Call-to-Action Section</h2>
+    <p class="component-description">
+        <strong>Description:</strong> Conversion-focused CTA with gradient background and multiple contact options.<br>
+        <strong>Customization:</strong> Update headline, button text, links, and phone numbers.
+    </p>
+
+    <!-- LIVE PREVIEW -->
+    <div style="border: 2px solid #eee; border-radius: 8px; overflow: hidden;">
+
+<!-- COMPONENT START - Copy from here -->
+<div style="background: linear-gradient(135deg, #005A5B 0%, #62D0C9 100%); padding: 80px 20px; text-align: center;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: white; margin: 0 0 20px 0;">
+            Your Story Awaits.
+        </h2>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 20px; color: rgba(255, 255, 255, 0.95); margin: 0 0 40px 0; line-height: 1.6;">
+            We handle the details, you make the memories. Find your dates and let the Dushi Life begin.
+        </p>
+
+        <!-- Primary CTA -->
+        <div style="margin-bottom: 30px;">
+            <a href="#" style="display: inline-block; font-family: 'Montserrat', sans-serif; background: white; color: #005A5B; padding: 20px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 18px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                Find My Perfect Villa
+            </a>
+        </div>
+
+        <!-- Secondary CTAs -->
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="tel:+59996707977" style="display: inline-flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; background: rgba(255, 255, 255, 0.15); color: white; padding: 14px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 15px; border: 2px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;">
+                <span style="font-size: 18px;">📞</span>
+                Call Family Direct
+            </a>
+
+            <a href="https://wa.me/59996707977" style="display: inline-flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; background: #25D366; color: white; padding: 14px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s ease;">
+                <span style="font-size: 18px;">💬</span>
+                Chat With Us
+            </a>
+        </div>
+    </div>
+</div>
+<!-- COMPONENT END - Copy to here -->
+
+    </div>
+</div>
+
+<!-- ============================================
+     COMPONENT 7: FOOTER
+     ============================================ -->
+<div class="component-wrapper">
+    <h2 class="component-title">Component 7: Footer</h2>
+    <p class="component-description">
+        <strong>Description:</strong> Brand footer with logo, tagline, social links, and copyright.<br>
+        <strong>Customization:</strong> Update social media links, copyright year, and navigation links.
+    </p>
+
+    <!-- LIVE PREVIEW -->
+    <div style="border: 2px solid #eee; border-radius: 8px; overflow: hidden;">
+
+<!-- COMPONENT START - Copy from here -->
+<footer style="background: #62D0C9; padding: 60px 20px 30px; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <!-- Logo & Tagline -->
+        <div style="margin-bottom: 40px;">
+            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu" alt="Tommy Coconut" style="height: 70px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1);">
+            <p style="font-family: 'Montserrat', sans-serif; color: white; font-size: 20px; margin: 0; font-weight: 300;">
+                Arrive as Guests, Leave as Family
+            </p>
+        </div>
+
+        <!-- Social Links -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 40px;">
+            <a href="https://www.instagram.com/tommy.coconut/" target="_blank" style="color: white; font-size: 24px; opacity: 0.8; transition: opacity 0.3s ease;">
+                📷
+            </a>
+            <a href="https://www.facebook.com/TommyCoconut" target="_blank" style="color: white; font-size: 24px; opacity: 0.8; transition: opacity 0.3s ease;">
+                📘
+            </a>
+            <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" style="color: white; font-size: 24px; opacity: 0.8; transition: opacity 0.3s ease;">
+                📺
+            </a>
+        </div>
+
+        <!-- Quick Links -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 30px; font-family: 'Montserrat', sans-serif; font-size: 14px;">
+            <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">Rentals</a>
+            <span style="color: white; opacity: 0.4;">•</span>
+            <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">The Journey</a>
+            <span style="color: white; opacity: 0.4;">•</span>
+            <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">Ownership</a>
+            <span style="color: white; opacity: 0.4;">•</span>
+            <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">Our Story</a>
+            <span style="color: white; opacity: 0.4;">•</span>
+            <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">Contact</a>
+        </div>
+
+        <!-- Copyright -->
+        <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 20px;">
+            <p style="font-family: 'Montserrat', sans-serif; color: rgba(255, 255, 255, 0.7); font-size: 13px; margin: 0;">
+                © 2024 Tommy Coconut. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- COMPONENT END - Copy to here -->
+
+    </div>
+</div>
+
+<!-- ============================================
+     DESIGN SYSTEM DOCUMENTATION
+     ============================================ -->
+<div class="component-wrapper" style="background: #005A5B; color: white;">
+    <h2 style="color: white; font-size: 36px; margin-bottom: 30px;">Tommy Coconut Design System</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+
+        <!-- Color Palette -->
+        <div>
+            <h3 style="color: #62D0C9; font-size: 20px; margin-bottom: 20px;">Color Palette</h3>
+            <div style="margin-bottom: 15px;">
+                <div style="background: #62D0C9; height: 60px; border-radius: 8px; margin-bottom: 8px;"></div>
+                <code style="font-size: 13px;">#62D0C9 - Primary (Teal)</code>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <div style="background: #005A5B; height: 60px; border-radius: 8px; margin-bottom: 8px; border: 1px solid white;"></div>
+                <code style="font-size: 13px;">#005A5B - Navy</code>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <div style="background: #FFD700; height: 60px; border-radius: 8px; margin-bottom: 8px;"></div>
+                <code style="font-size: 13px;">#FFD700 - Gold (Stars)</code>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <div style="background: #25D366; height: 60px; border-radius: 8px; margin-bottom: 8px;"></div>
+                <code style="font-size: 13px;">#25D366 - WhatsApp Green</code>
+            </div>
+        </div>
+
+        <!-- Typography -->
+        <div>
+            <h3 style="color: #62D0C9; font-size: 20px; margin-bottom: 20px;">Typography</h3>
+            <p style="margin-bottom: 15px;"><strong>Font Family:</strong><br>Montserrat (Google Fonts)</p>
+            <p style="margin-bottom: 15px;"><strong>Weights:</strong><br>300 (Light), 400 (Regular), 600 (SemiBold), 700 (Bold), 800 (ExtraBold)</p>
+            <p style="margin-bottom: 15px;"><strong>Hero:</strong> 48-56px<br><strong>H2:</strong> 32-42px<br><strong>H3:</strong> 24px<br><strong>Body:</strong> 16-18px<br><strong>Small:</strong> 14px</p>
+        </div>
+
+        <!-- Spacing -->
+        <div>
+            <h3 style="color: #62D0C9; font-size: 20px; margin-bottom: 20px;">Spacing Scale</h3>
+            <p style="margin-bottom: 10px;">Small: 8px</p>
+            <p style="margin-bottom: 10px;">Medium: 16px</p>
+            <p style="margin-bottom: 10px;">Large: 24px</p>
+            <p style="margin-bottom: 10px;">XL: 32px</p>
+            <p style="margin-bottom: 10px;">2XL: 48px</p>
+            <p style="margin-bottom: 10px;">3XL: 64px</p>
+            <p style="margin-bottom: 10px;">Section: 80px</p>
+        </div>
+
+        <!-- Border Radius -->
+        <div>
+            <h3 style="color: #62D0C9; font-size: 20px; margin-bottom: 20px;">Border Radius</h3>
+            <p style="margin-bottom: 10px;">Small: 8px</p>
+            <p style="margin-bottom: 10px;">Medium: 12px</p>
+            <p style="margin-bottom: 10px;">Large: 16px</p>
+            <p style="margin-bottom: 10px;">XL: 20px</p>
+            <p style="margin-bottom: 10px;">2XL: 24px</p>
+            <p style="margin-bottom: 10px;">Button: 50px (pill)</p>
+        </div>
+
+    </div>
+
+    <h3 style="color: #62D0C9; font-size: 20px; margin-bottom: 20px;">Cloudinary Image URLs</h3>
+    <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; font-family: monospace; font-size: 13px; line-height: 1.8;">
+        <p><strong>Logo:</strong><br>https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu</p>
+        <p><strong>Hero Video:</strong><br>https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/video-output-2DF885B0-E272-4C20-A5A5-BFF4B2FB300B_e1zkdo</p>
+        <p><strong>Bayside Hill:</strong><br>https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/tommy-coconut/villas/bayside-hill-hero</p>
+        <p><strong>Happy Hideaway:</strong><br>https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/Happy_Hideaway_Final-18_zkh25v</p>
+        <p><strong>Sailaway Beach:</strong><br>https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/Sailaway_Beach_Final-96_l4xlce</p>
+        <p><strong>Sunshine Bay:</strong><br>https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/Sunshine-Bay-3-of-46_wqvazq</p>
+    </div>
+</div>
+
+<!-- ============================================
+     USAGE INSTRUCTIONS
+     ============================================ -->
+<div class="component-wrapper" style="background: #F8FFFE;">
+    <h2 style="color: #005A5B; font-size: 28px; margin-bottom: 20px;">📋 How to Use These Components in Lodgify</h2>
+
+    <ol style="font-size: 16px; line-height: 2; color: #333;">
+        <li><strong>Find the "COMPONENT START" and "COMPONENT END" comments</strong> - Copy everything between these markers</li>
+        <li><strong>Log into your Lodgify dashboard</strong> - Navigate to Website Builder</li>
+        <li><strong>Add a "Custom HTML" block</strong> - Lodgify's web builder should have an HTML/Code block option</li>
+        <li><strong>Paste the component code</strong> - Drop it into the HTML editor</li>
+        <li><strong>Customize the content</strong> - Update text, links, images, and phone numbers</li>
+        <li><strong>Save and preview</strong> - Check how it looks on desktop and mobile</li>
+    </ol>
+
+    <h3 style="color: #005A5B; font-size: 22px; margin: 40px 0 20px;">✨ Key Features</h3>
+    <ul style="font-size: 16px; line-height: 2; color: #333;">
+        <li>✅ <strong>All CSS is inline</strong> - No external stylesheets needed</li>
+        <li>✅ <strong>Fully responsive</strong> - Works on mobile, tablet, and desktop</li>
+        <li>✅ <strong>Cloudinary images</strong> - All images hosted and optimized</li>
+        <li>✅ <strong>Google Fonts CDN</strong> - Montserrat loaded from Google</li>
+        <li>✅ <strong>Brand-consistent</strong> - Uses exact Tommy Coconut colors</li>
+        <li>✅ <strong>Copy-paste ready</strong> - No modifications needed to work</li>
+    </ul>
+
+    <h3 style="color: #005A5B; font-size: 22px; margin: 40px 0 20px;">🎨 Customization Tips</h3>
+    <ul style="font-size: 16px; line-height: 2; color: #333;">
+        <li><strong>Colors:</strong> Search for hex codes (#62D0C9, #005A5B) and replace globally</li>
+        <li><strong>Images:</strong> Replace Cloudinary URLs with your own image paths</li>
+        <li><strong>Text:</strong> Edit any text content directly in the HTML</li>
+        <li><strong>Links:</strong> Update all href="#" attributes to your actual page URLs</li>
+        <li><strong>Phone numbers:</strong> Replace +59996707977 with your contact number</li>
+        <li><strong>Spacing:</strong> Adjust padding values (e.g., "padding: 80px 20px")</li>
+    </ul>
+
+    <div style="background: white; border-left: 4px solid #62D0C9; padding: 20px; margin-top: 30px; border-radius: 8px;">
+        <p style="margin: 0; font-size: 15px; line-height: 1.6;"><strong>💡 Pro Tip:</strong> Test each component individually in Lodgify before combining them. This helps isolate any styling conflicts with Lodgify's default theme.</p>
+    </div>
+</div>
+
+<div style="text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #005A5B 0%, #62D0C9 100%); border-radius: 20px; margin-top: 40px;">
+    <h2 style="font-family: 'Montserrat', sans-serif; color: white; font-size: 36px; margin: 0 0 20px 0;">Ready to Transform Your Lodgify Site?</h2>
+    <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.9); font-size: 18px; margin: 0;">Start with the Hero Section and work your way down. Each component is plug-and-play.</p>
+</div>
+
+</body>
+</html>
