@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why choose a Tommy Coconut Private Resort over hotels, all-inclusives, or vacation rentals? Discover the difference between renting a room and owning the island.">
+    <title>Why a Private Resort? | Tommy Coconut - We Hand You the Island</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tommycoconutvacations.com/why-a-private-resort.html">
+    <meta property="og:title" content="Why a Private Resort? | Tommy Coconut">
+    <meta property="og:description" content="Others sell a location. We hand you the island.">
+    <meta property="og:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/tommy-coconut-logo_lbj0xu">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #005A5B 0%, #62D0C9 100%);
+            padding: 120px 20px 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-section .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 500;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .comparison-container {
+            max-width: 1400px;
+            margin: -40px auto 80px;
+            padding: 0 20px;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .table-header-cell {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .table-header-cell:first-child {
+            text-align: left;
+            background: white;
+        }
+
+        .table-header-cell.highlight {
+            background: linear-gradient(135deg, #005A5B 0%, #62D0C9 100%);
+            color: white;
+            position: relative;
+        }
+
+        .table-header-cell.highlight::before {
+            content: '⭐';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            border-bottom: 1px solid #e9ecef;
+            transition: background 0.2s;
+        }
+
+        .table-row:hover {
+            background: #f8f9fa;
+        }
+
+        .table-cell {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .table-cell:first-child {
+            justify-content: flex-start;
+            text-align: left;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .table-cell.highlight {
+            background: rgba(98, 208, 201, 0.05);
+        }
+
+        .check {
+            color: #62D0C9;
+            font-size: 1.8rem;
+        }
+
+        .cross {
+            color: #e74c3c;
+            font-size: 1.5rem;
+            opacity: 0.4;
+        }
+
+        .partial {
+            color: #f39c12;
+            font-size: 1.3rem;
+        }
+
+        .category-header {
+            grid-column: 1 / -1;
+            background: linear-gradient(90deg, #005A5B 0%, #62D0C9 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #005A5B 0%, #62D0C9 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #005A5B;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+            }
+
+            .table-header-cell,
+            .table-cell {
+                border-bottom: 1px solid #e9ecef;
+            }
+
+            .table-header-cell:first-child,
+            .table-cell:first-child {
+                background: #f8f9fa;
+                font-weight: 700;
+            }
+
+            .category-header {
+                font-size: 1rem;
+            }
+
+            .table-cell {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu"
+                     alt="Tommy Coconut Logo"
+                     class="logo">
+            </a>
+
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu-left">
+                <li><a href="rentals.html">Rentals</a></li>
+                <li><a href="experiences.html">The Journey</a></li>
+                <li><a href="ownership.html">Ownership</a></li>
+                <li><a href="about.html">Our Story</a></li>
+            </ul>
+
+            <ul class="nav-menu-right">
+                <li><a href="clan.html">Clan</a></li>
+                <li><a href="blog.html">Guide</a></li>
+                <li><a href="why-a-private-resort.html" class="active">Why a Private Resort?</a></li>
+                <li><a href="contact.html" class="cta-button-nav">Book Now</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Others Sell a Location.<br>We Hand You the Island.</h1>
+        <p class="subtitle">The difference between renting a room and ruling your own private resort.</p>
+    </section>
+
+    <!-- Comparison Table -->
+    <div class="comparison-container">
+        <div class="comparison-table">
+            <!-- Table Header -->
+            <div class="table-header">
+                <div class="table-header-cell">What You Get</div>
+                <div class="table-header-cell highlight">Tommy Coconut<br>Private Resort</div>
+                <div class="table-header-cell">Hotels</div>
+                <div class="table-header-cell">All-Inclusives</div>
+                <div class="table-header-cell">Vacation<br>Rentals</div>
+            </div>
+
+            <!-- Category: Accommodations -->
+            <div class="table-row">
+                <div class="category-header">Accommodations & Space</div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Entire Private Villa (3-4 bedrooms)</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="check">✓</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Private Pool & Outdoor Living Space</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="partial">△</span></div>
+                <div class="table-cell"><span class="partial">△</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">No Crowds, No Noise, Complete Privacy</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="check">✓</span></div>
+            </div>
+
+            <!-- Category: Experiences -->
+            <div class="table-row">
+                <div class="category-header">Experiences & Adventures</div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Private Sunset Boat Trips (Included)</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Personal Vehicle Fleet Access</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Curated Local Experiences (Hidden beaches, local restaurants)</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Your Time, Your Agenda - Complete Freedom</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="partial">△</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="check">✓</span></div>
+            </div>
+
+            <!-- Category: Service & Support -->
+            <div class="table-row">
+                <div class="category-header">Service & Support</div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Dedicated Island Family (Not just staff)</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">24/7 WhatsApp Concierge Support</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="partial">△</span></div>
+                <div class="table-cell"><span class="partial">△</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Airport Pickup & Logistics Guarantee</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="partial">△</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Pre-Arrival Concierge Planning</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <!-- Category: Value & Transparency -->
+            <div class="table-row">
+                <div class="category-header">Value & Transparency</div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">No Hidden Fees or Surprise Surcharges</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="partial">△</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Gratuities for Included Services Covered</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="partial">△</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Electricity & Utilities Included</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">$2,500-$3,000+ Value in Included Experiences</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <!-- Category: Community & Connection -->
+            <div class="table-row">
+                <div class="category-header">Community & Connection</div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Arrive as Guests, Leave as Family</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Access to Exclusive Guest Community</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+
+            <div class="table-row">
+                <div class="table-cell">Authentic Local Connections (Not Tourist Traps)</div>
+                <div class="table-cell highlight"><span class="check">✓</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+                <div class="table-cell"><span class="cross">✗</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Rule Your Own Island?</h2>
+        <p>Others give you a key to a room; we hand you the keys to the island.</p>
+        <a href="rentals.html" class="cta-button">Explore Private Resorts</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu" alt="Tommy Coconut Logo" class="footer-logo">
+                <p>Arrive as guests, leave as family.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/tommy.coconut/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/TommyCoconut" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="rentals.html">Private Resorts</a></li>
+                    <li><a href="experiences.html">The Journey</a></li>
+                    <li><a href="why-a-private-resort.html">Why a Private Resort?</a></li>
+                    <li><a href="ownership.html">Ownership</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="clan.html">Meet the Clan</a></li>
+                    <li><a href="blog.html">Island Guide</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>📍 Curaçao, Caribbean</p>
+                <p>📧 info@tommycoconut.com</p>
+                <p>📱 +5999 670 7977</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tommy Coconut. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
