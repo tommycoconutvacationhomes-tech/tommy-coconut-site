@@ -22,7 +22,7 @@
 
     <style>
         .hero-section {
-            background: linear-gradient(135deg, #005A5B 0%, #62D0C9 100%);
+            background: linear-gradient(135deg, #008080 0%, #00CFCF 100%);
             padding: 120px 20px 80px;
             text-align: center;
             color: white;
@@ -76,7 +76,7 @@
         }
 
         .table-header-cell.highlight {
-            background: linear-gradient(135deg, #005A5B 0%, #62D0C9 100%);
+            background: linear-gradient(135deg, #008080 0%, #00CFCF 100%);
             color: white;
             position: relative;
         }
@@ -116,11 +116,11 @@
         }
 
         .table-cell.highlight {
-            background: rgba(98, 208, 201, 0.05);
+            background: rgba(0, 207, 207, 0.06);
         }
 
         .check {
-            color: #62D0C9;
+            color: #00CFCF;
             font-size: 1.8rem;
         }
 
@@ -137,7 +137,7 @@
 
         .category-header {
             grid-column: 1 / -1;
-            background: linear-gradient(90deg, #005A5B 0%, #62D0C9 100%);
+            background: linear-gradient(90deg, #008080 0%, #00CFCF 100%);
             color: white;
             padding: 1rem 1.5rem;
             font-weight: 700;
@@ -147,7 +147,7 @@
         }
 
         .cta-section {
-            background: linear-gradient(135deg, #005A5B 0%, #62D0C9 100%);
+            background: linear-gradient(135deg, #008080 0%, #00CFCF 100%);
             padding: 80px 20px;
             text-align: center;
             color: white;
@@ -169,37 +169,60 @@
         .cta-button {
             display: inline-block;
             background: white;
-            color: #005A5B;
-            padding: 1.2rem 3rem;
+            color: #008080;
+            padding: 1.25rem 3.5rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
+            background: #00CFCF;
+            color: white;
         }
 
-        /* Mobile Responsive */
+        /* Enhanced Visual Hierarchy */
+        .check {
+            font-weight: 700;
+            filter: drop-shadow(0 2px 4px rgba(0, 207, 207, 0.3));
+        }
+
+        .cross {
+            color: #CBD5E1;
+            opacity: 0.5;
+        }
+
+        .partial {
+            color: #00CFCF;
+            opacity: 0.6;
+        }
+
+        .table-row:hover {
+            background: rgba(0, 207, 207, 0.04);
+            transform: translateX(4px);
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .table-row:hover .table-cell:first-child {
+            color: #00CFCF;
+            font-weight: 700;
+        }
+
+        /* Tablet Responsive */
         @media (max-width: 1024px) {
             .table-header,
             .table-row {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1.5fr 1fr 1fr 1fr;
             }
 
-            .table-header-cell,
-            .table-cell {
-                border-bottom: 1px solid #e9ecef;
-            }
-
-            .table-header-cell:first-child,
-            .table-cell:first-child {
-                background: #f8f9fa;
-                font-weight: 700;
+            .table-header-cell:last-child,
+            .table-cell:last-child {
+                display: none;
             }
 
             .category-header {
@@ -207,27 +230,107 @@
             }
 
             .table-cell {
-                padding: 1rem;
+                padding: 1rem 0.75rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Mobile Responsive - Complete Redesign */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 20px 60px;
+            }
+
+            .comparison-container {
+                margin: -30px auto 60px;
+            }
+
+            .table-header {
+                display: none; /* Hide desktop table header on mobile */
+            }
+
+            .table-row {
+                display: block;
+                background: white;
+                border-radius: 12px;
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                border: none;
+            }
+
+            .table-row:hover {
+                transform: none;
+            }
+
+            .table-cell {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #f0f0f0;
+                text-align: left;
+                justify-content: flex-start;
+            }
+
+            .table-cell:first-child {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #008080;
+                padding-bottom: 1rem;
+                margin-bottom: 0.75rem;
+                border-bottom: 2px solid #e9ecef;
+            }
+
+            .table-cell:last-child {
+                border-bottom: none;
+            }
+
+            .table-cell.highlight {
+                background: rgba(0, 207, 207, 0.08);
+                border-left: 4px solid #00CFCF;
+                padding-left: 1rem;
+                margin: 0.5rem 0;
+                border-radius: 8px;
+            }
+
+            .table-cell::before {
+                content: attr(data-provider);
+                display: inline-block;
+                font-weight: 600;
+                margin-right: 0.5rem;
+                min-width: 120px;
+            }
+
+            .category-header {
+                font-size: 0.95rem;
+                padding: 0.75rem 1.5rem;
+                margin: 1.5rem 0 1rem;
+                border-radius: 8px;
+            }
+
+            .check,
+            .cross,
+            .partial {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header/Navigation -->
-    <header class="main-header">
-        <div class="header-container">
-            <a href="index.html" class="logo-link">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu"
-                     alt="Tommy Coconut Logo"
-                     class="logo">
+    <!-- Top Banner - Social Proof -->
+    <div class="top-banner">
+        <div class="container">
+            <a href="reviews.html" class="banner-link">
+                <span class="banner-icon">🏖️</span>
+                <span class="banner-text">1,347+ Happy Guests</span>
+                <span class="banner-cta">• Read Reviews</span>
             </a>
+        </div>
+    </div>
 
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
+    <!-- Navigation - Brand Standard Split Design -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left Menu -->
             <ul class="nav-menu-left">
                 <li><a href="rentals.html">Rentals</a></li>
                 <li><a href="experiences.html">The Journey</a></li>
@@ -235,19 +338,63 @@
                 <li><a href="about.html">Our Story</a></li>
             </ul>
 
+            <!-- Centered Logo -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu" alt="Tommy Coconut - Arrive as Guests, Leave as Family">
+                </a>
+            </div>
+
+            <!-- Right Menu -->
             <ul class="nav-menu-right">
                 <li><a href="clan.html">Clan</a></li>
                 <li><a href="blog.html">Guide</a></li>
                 <li><a href="why-a-private-resort.html" class="active">Why a Private Resort?</a></li>
-                <li><a href="contact.html" class="cta-button-nav">Book Now</a></li>
+                <li class="nav-dropdown">
+                    <a href="contact.html">Contact</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="contact.html">Contact Us</a>
+                        <a href="faq.html">FAQ</a>
+                    </div>
+                </li>
             </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
         <h1>Others Sell a Location.<br>We Hand You the Island.</h1>
         <p class="subtitle">The difference between renting a room and ruling your own private resort.</p>
+
+        <!-- Trust Signals -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-top: 3rem; padding: 0 1rem;">
+            <div style="text-align: center;">
+                <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">$2,500+</div>
+                <div style="font-size: 0.95rem; opacity: 0.9;">Value Included</div>
+            </div>
+            <div style="width: 2px; height: 40px; background: rgba(255, 255, 255, 0.3);"></div>
+            <div style="text-align: center;">
+                <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">1,347+</div>
+                <div style="font-size: 0.95rem; opacity: 0.9;">Happy Guests</div>
+            </div>
+            <div style="width: 2px; height: 40px; background: rgba(255, 255, 255, 0.3);"></div>
+            <div style="text-align: center;">
+                <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">4.9★</div>
+                <div style="font-size: 0.95rem; opacity: 0.9;">Average Rating</div>
+            </div>
+            <div style="width: 2px; height: 40px; background: rgba(255, 255, 255, 0.3);"></div>
+            <div style="text-align: center;">
+                <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">98%</div>
+                <div style="font-size: 0.95rem; opacity: 0.9;">Return & Recommend</div>
+            </div>
+        </div>
     </section>
 
     <!-- Comparison Table -->
