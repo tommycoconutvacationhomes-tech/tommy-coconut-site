@@ -106,12 +106,95 @@
             line-height: 1.5;
             margin: 0;
         }
-        
+
         .concierge-name {
             font-weight: 600;
             color: var(--teal);
         }
-        
+
+        /* What Happens Next Timeline */
+        .timeline-section {
+            max-width: 700px;
+            margin: var(--space-12) auto;
+            padding: var(--space-8);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-intro {
+            text-align: center;
+            margin-bottom: var(--space-6);
+        }
+
+        .timeline-intro h2 {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: var(--space-3);
+        }
+
+        .timeline-intro p {
+            font-size: var(--text-base);
+            color: var(--charcoal);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .timeline-steps {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+            margin-top: var(--space-6);
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: var(--space-4);
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--teal) 0%, #005A5B 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: var(--text-lg);
+            box-shadow: 0 4px 12px rgba(0, 128, 128, 0.2);
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: var(--space-2);
+        }
+
+        .step-title {
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: var(--space-2);
+            line-height: 1.4;
+        }
+
+        .step-description {
+            font-size: var(--text-base);
+            color: var(--charcoal);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .dushi-word {
+            color: var(--teal);
+            font-weight: 600;
+            font-style: italic;
+        }
+
         /* Sub-headline - Body Copy */
         .sub-headline {
             font-family: 'Montserrat', sans-serif;
@@ -276,8 +359,35 @@
             .concierge-text {
                 font-size: var(--text-sm);
             }
+
+            .timeline-section {
+                padding: var(--space-6) var(--space-4);
+                margin: var(--space-8) auto;
+            }
+
+            .timeline-intro h2 {
+                font-size: var(--text-xl);
+            }
+
+            .timeline-intro p {
+                font-size: var(--text-sm);
+            }
+
+            .step-number {
+                width: 40px;
+                height: 40px;
+                font-size: var(--text-base);
+            }
+
+            .step-title {
+                font-size: var(--text-base);
+            }
+
+            .step-description {
+                font-size: var(--text-sm);
+            }
         }
-        
+
         @media (max-width: 480px) {
             body {
                 padding: var(--space-2);
@@ -307,7 +417,57 @@
                 </p>
             </div>
         </div>
-        
+
+        <!-- What Happens Next Timeline -->
+        <section class="timeline-section">
+            <div class="timeline-intro">
+                <h2>What Happens Next</h2>
+                <p>While you wait for Britt's call, here's your journey to the <span class="dushi-word">dushi</span> life...</p>
+            </div>
+
+            <div class="timeline-steps">
+                <div class="timeline-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Britt Calls You (In About 5 Minutes - Seriously!)</div>
+                        <div class="step-description">
+                            No automated messages. No waiting. Just Britt, calling from Curacao to make sure we got all your details right and answer any immediate questions you have.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">We Start Planning Your Perfect Arrival Together</div>
+                        <div class="step-description">
+                            From the moment you land to your first sunset, we'll design every detail. Want dinner reservations? A stocked fridge? A rental car waiting? Consider it done. This is where the <span class="dushi-word">mahos</span> (magic) begins.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">You Receive Your Digital Welcome Packet</div>
+                        <div class="step-description">
+                            Your personalized guide to becoming a temporary local: hidden beaches, where <span class="dushi-word">yu di Korsou</span> (island-born) eat, secret sunset spots, and everything the Coconut Clan has learned about living the authentic island life.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title">You Start Counting Down to Paradise</div>
+                        <div class="step-description">
+                            The hardest part? Waiting. But don't worry - we'll check in before your arrival to make sure everything is perfect. You're not just a booking number. You're family now. <span class="dushi-word">Bon bini</span> to the Coconut Clan.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Sub-headline -->
         <p class="sub-headline">
             While you wait, Tommy has a personal message for you...

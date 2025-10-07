@@ -663,6 +663,42 @@ a:hover, a:focus {
     width: 100%;
 }
 
+/* Papiamento Tooltips - Delightful Discovery Moments */
+.nav-menu-left li a[data-papiamento],
+.nav-menu-right li a[data-papiamento] {
+    position: relative;
+}
+
+.nav-menu-left li a[data-papiamento]::before,
+.nav-menu-right li a[data-papiamento]::before {
+    content: attr(data-papiamento);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: linear-gradient(135deg, var(--primary) 0%, #005A5B 100%);
+    color: var(--text-inverse);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    font-style: italic;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    box-shadow: 0 4px 12px rgba(0, 128, 128, 0.2);
+    z-index: 1000;
+}
+
+.nav-menu-left li a[data-papiamento]:hover::before,
+.nav-menu-right li a[data-papiamento]:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 /* Book Now Button */
 .nav-book-btn {
     background: var(--primary) !important;
