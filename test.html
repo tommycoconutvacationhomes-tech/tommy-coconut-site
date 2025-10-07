@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enhanced SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Test Lodgify Booking Widget - Tommy Coconut Premium Private Resorts in Curaçao">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://app.lodgify.com">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu" as="image">
+
+    <!-- Tommy Coconut Complete Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+
+    <!-- External Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Lodgify Booking Widget Test - Tommy Coconut</title>
+
+    <!-- Lodgify Book Now Box Styles -->
+    <style>
+        :root {
+            --ldg-bnb-background: #ffffff;
+            --ldg-bnb-border-radius: 0.42em;
+            --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
+            --ldg-bnb-padding: 14px;
+            --ldg-bnb-input-background: #ffffff;
+            --ldg-bnb-button-border-radius: 3.58em;
+
+            --ldg-bnb-color-primary: #fac600;
+            --ldg-bnb-color-primary-lighter:#fde380;
+            --ldg-bnb-color-primary-darker: #7d6300;
+            --ldg-bnb-color-primary-contrast: #333333;
+            --ldg-component-calendar-cell-selection-bg-color: #fac600;
+            --ldg-component-calendar-cell-selection-color: #333333;
+            --ldg-component-calendar-cell-selected-bg-color: #fde380;
+            --ldg-component-calendar-cell-selected-color: #333333;
+            --ldg-bnb-font-family: inherit;
+        }
+        #lodgify-book-now-box {
+            width: 100%;
+        }
+
+        /* Test Page Specific Styles */
+        .test-hero {
+            padding: var(--space-16) 0;
+            background: linear-gradient(135deg, #005A5B 0%, #00CFCF 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .test-content {
+            padding: var(--space-12) 0;
+            background: var(--surface);
+        }
+
+        .widget-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-8);
+            background: white;
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .test-info {
+            background: var(--tc-warning-light);
+            border-left: 4px solid var(--tc-gold);
+            padding: var(--space-6);
+            margin-bottom: var(--space-8);
+            border-radius: var(--radius-lg);
+        }
+
+        .test-info h3 {
+            color: var(--dark-navy);
+            margin-bottom: var(--space-3);
+            font-size: var(--text-xl);
+        }
+
+        .test-info ul {
+            color: var(--text-secondary);
+            margin-left: var(--space-6);
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Banner - Social Proof -->
+    <div class="top-banner">
+        <div class="container">
+            <a href="reviews.html" class="banner-link">
+                <span class="banner-icon">🏖️</span>
+                <span class="banner-text" style="color: var(--text-inverse);">1,347+ Happy Guests</span>
+                <span class="banner-cta" style="color: var(--text-inverse);">• Read Reviews</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation - Baoase-Inspired Split Design -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left Menu -->
+            <ul class="nav-menu-left">
+                <li><a href="rentals.html" data-papiamento="Bo kas">Rentals</a></li>
+                <li><a href="experiences.html" data-papiamento="Bo biahe">The Journey</a></li>
+                <li><a href="ownership.html">Ownership</a></li>
+                <li><a href="about.html" data-papiamento="Nos stori">Our Story</a></li>
+            </ul>
+
+            <!-- Centered Logo -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals">
+                </a>
+            </div>
+
+            <!-- Right Menu -->
+            <ul class="nav-menu-right">
+                <li><a href="clan.html" data-papiamento="Bo famia">Clan</a></li>
+                <li><a href="blog.html">Guide</a></li>
+                <li><a href="why-a-private-resort.html">Why a Private Resort?</a></li>
+                <li class="nav-dropdown">
+                    <a href="contact.html" data-papiamento="Papia ku nos">Contact</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="contact.html">Contact Us</a>
+                        <a href="faq.html">FAQ</a>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Test Hero Section -->
+    <section class="test-hero">
+        <div class="container">
+            <h1 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-4);">Lodgify Booking Widget Test</h1>
+            <p style="font-size: var(--text-lg); max-width: 700px; margin: 0 auto; opacity: 0.95;">Testing the Lodgify integration with Tommy Coconut branding and custom yellow color scheme</p>
+        </div>
+    </section>
+
+    <!-- Test Content Section -->
+    <section class="test-content">
+        <div class="container">
+
+            <!-- Test Information Box -->
+            <div class="test-info">
+                <h3><i class="fas fa-info-circle" style="margin-right: 0.5rem; color: var(--tc-gold);"></i>Test Purpose</h3>
+                <p style="margin-bottom: var(--space-3); color: var(--text-secondary);">This page tests the Lodgify booking widget integration with the following features:</p>
+                <ul>
+                    <li><strong>Yellow Color Scheme:</strong> Custom #fac600 primary color with lighter and darker variations</li>
+                    <li><strong>Guest Breakdown:</strong> Separate controls for adults, children, infants, and pets</li>
+                    <li><strong>New Tab Opening:</strong> Bookings open in new tabs to preserve user journey</li>
+                    <li><strong>Responsive Design:</strong> Widget adapts to different screen sizes</li>
+                    <li><strong>Tommy Coconut Branding:</strong> Font family and styling match site design</li>
+                </ul>
+            </div>
+
+            <!-- Widget Container -->
+            <div class="widget-container">
+                <h2 style="text-align: center; margin-bottom: var(--space-6); color: var(--dark-navy);">Book Your Stay</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: var(--space-8);">Select your dates and see available properties with instant pricing</p>
+
+                <!-- Lodgify Book Now Box Widget -->
+                <div
+                  id="lodgify-book-now-box"
+                  data-rental-id="268945"
+                  data-website-id="271939"
+                  data-slug="tommycoconut"
+                  data-language-code="en"
+                  data-new-tab="true"
+                  data-version="stable"
+                  data-has-guests-breakdown
+                  data-check-in-label='Check-in'
+                  data-check-out-label='Check-out'
+                  data-guests-label='Guests'
+                  data-guests-singular-label='{{NumberOfGuests}} guest'
+                  data-guests-plural-label='{{NumberOfGuests}} guests'
+                  data-location-input-label='Location'
+                  data-total-price-label='Total price:'
+                  data-select-dates-to-see-price-label='Select dates to see total price'
+                  data-minimum-price-per-night-first-label='From'
+                  data-minimum-price-per-night-second-label='per night'
+                  data-book-button-label='Book Now'
+                  data-guests-breakdown-label='Guests'
+                  data-adults-label='{"one":"adult","other":"adults"}'
+                  data-adults-description='Ages {minAge} or above'
+                  data-children-label='{"one":"child","other":"children"}'
+                  data-children-description='Ages {minAge}-{maxAge}'
+                  data-children-not-allowed-label='Not suitable for children'
+                  data-infants-label='{"one":"infant","other":"infants"}'
+                  data-infants-description='Under {maxAge}'
+                  data-infants-not-allowed-label='Not suitable for infants'
+                  data-pets-label='{"one":"pet","other":"pets"}'
+                  data-pets-not-allowed-label='Not allowed'
+                  data-done-label='Done'
+                ></div>
+            </div>
+
+            <!-- Testing Notes -->
+            <div style="max-width: 800px; margin: var(--space-12) auto 0; padding: var(--space-6); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                <h3 style="color: var(--dark-navy); margin-bottom: var(--space-4);">What to Test:</h3>
+                <div style="display: grid; gap: var(--space-4);">
+                    <div style="display: flex; gap: var(--space-3);">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--tc-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+                        <div>
+                            <strong style="color: var(--dark-navy);">Color Scheme:</strong>
+                            <p style="color: var(--text-secondary); margin-top: 0.25rem;">Verify yellow branding (#fac600) appears on buttons, selections, and interactive elements</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: var(--space-3);">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--tc-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
+                        <div>
+                            <strong style="color: var(--dark-navy);">Guest Controls:</strong>
+                            <p style="color: var(--text-secondary); margin-top: 0.25rem;">Click guest selector to see breakdown for adults, children, infants, and pets</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: var(--space-3);">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--tc-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
+                        <div>
+                            <strong style="color: var(--dark-navy);">Date Selection:</strong>
+                            <p style="color: var(--text-secondary); margin-top: 0.25rem;">Test calendar picker with yellow highlights on selected dates</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: var(--space-3);">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--tc-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</div>
+                        <div>
+                            <strong style="color: var(--dark-navy);">Booking Flow:</strong>
+                            <p style="color: var(--text-secondary); margin-top: 0.25rem;">Click "Book Now" to verify it opens in a new tab preserving this page</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: var(--space-3);">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--tc-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">5</div>
+                        <div>
+                            <strong style="color: var(--dark-navy);">Mobile Responsive:</strong>
+                            <p style="color: var(--text-secondary); margin-top: 0.25rem;">Test on mobile device to ensure widget adapts properly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div style="text-align: center; margin-top: var(--space-12);">
+                <a href="rentals.html" class="btn" style="background: var(--tc-primary); color: white; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;"
+                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(250, 198, 0, 0.3)'"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <i class="fas fa-home"></i>
+                    View All Rentals
+                </a>
+                <a href="index.html" class="btn" style="background: white; color: var(--tc-navy-light); padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; margin-left: 1rem; border: 2px solid var(--tc-primary); transition: all 0.3s ease;"
+                   onmouseover="this.style.background='var(--tc-primary)'; this.style.color='white'"
+                   onmouseout="this.style.background='white'; this.style.color='var(--tc-navy-light)'">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Clean Footer -->
+    <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
+        <div class="container">
+            <!-- Logo & Tagline -->
+            <div style="margin-bottom: var(--space-6);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
+                <p style="color: var(--text-inverse); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
+            </div>
+
+            <!-- Social Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-6);">
+                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="Instagram"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="Facebook"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="YouTube"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="TikTok"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                </a>
+            </div>
+
+            <!-- Quick Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-6); font-size: var(--text-sm);">
+                <a href="rentals.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Rentals</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="experiences.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">The Journey</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="ownership.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Ownership</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="about.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Our Story</a>
+                <span style="color: var(--text-inverse); opacity: 0.3;">•</span>
+                <a href="contact.html" style="color: var(--text-inverse); opacity: 0.7; text-decoration: none; transition: var(--transition-normal);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Contact</a>
+            </div>
+
+            <!-- Copyright -->
+            <div style="border-top: 1px solid var(--text-inverse); opacity: 0.15; padding-top: var(--space-4);">
+                <p style="color: var(--text-inverse); opacity: 0.6; font-size: var(--text-sm); margin: 0;">&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lodgify Book Now Box Script -->
+    <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
+
+    <!-- Tommy Coconut Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
