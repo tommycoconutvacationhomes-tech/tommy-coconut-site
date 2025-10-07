@@ -155,28 +155,32 @@
                 
                 <form style="background: var(--surface); padding: var(--space-10); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); border: 1px solid rgba(0, 207, 207, 0.08);">
                     <div style="margin-bottom: var(--space-6);">
-                        <label for="full-name" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Full Name</label>
-                        <input type="text" id="full-name" name="fullName" required style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'">
+                        <label for="full-name" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">What should we call you?</label>
+                        <input type="text" id="full-name" name="fullName" required placeholder="Your name" style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'">
                     </div>
 
                     <div style="margin-bottom: var(--space-6);">
-                        <label for="email" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Email Address</label>
-                        <input type="email" id="email" name="email" required style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'">
+                        <label for="email" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Where can we reach you?</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com" style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'">
                     </div>
 
                     <div style="margin-bottom: var(--space-6);">
-                        <label for="subject" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Subject</label>
-                        <input type="text" id="subject" name="subject" required style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'">
+                        <label for="subject" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">What's on your mind?</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Quick summary of your message" style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'">
                     </div>
 
-                    <div style="margin-bottom: var(--space-8);">
-                        <label for="message" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Your Message</label>
-                        <textarea id="message" name="message" rows="6" required style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); resize: vertical; transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'"></textarea>
+                    <div style="margin-bottom: var(--space-6);">
+                        <label for="message" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Tell us more...</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Share your questions, dreams, or just say hello. We're all ears." style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); resize: vertical; transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'"></textarea>
+                    </div>
+
+                    <div style="background: rgba(0, 207, 207, 0.05); padding: var(--space-4); border-radius: var(--radius-lg); margin-bottom: var(--space-6); text-align: center;">
+                        <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; line-height: 1.6;"><span class="dushi-word" data-papiamento="poko stressings" data-translation="No stress, no worries. The island motto for easy living.">Poko stressings</span> – we'll get back to you within 24 hours. Usually much sooner.</p>
                     </div>
 
                     <div style="text-align: center;">
                         <button type="submit" style="background: var(--primary); color: white; border: none; padding: var(--space-5) var(--space-10); border-radius: var(--radius-full); font-size: var(--text-lg); font-weight: var(--font-weight-bold); cursor: pointer; transition: all var(--transition-normal); box-shadow: 0 6px 20px rgba(98, 208, 201, 0.3); min-width: 200px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(98, 208, 201, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(98, 208, 201, 0.3)'">
-                            SEND MESSAGE
+                            Let's Talk
                         </button>
                     </div>
                 </form>
