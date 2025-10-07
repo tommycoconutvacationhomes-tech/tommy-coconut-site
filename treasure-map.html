@@ -949,6 +949,7 @@
             border-radius: var(--radius-xl) !important;
             border: 2px solid var(--primary) !important;
             box-shadow: var(--shadow-xl) !important;
+            z-index: 9999 !important;
         }
         
         .flatpickr-day.selected {
@@ -2670,7 +2671,8 @@
             
             init() {
                 this.updateProgress();
-                this.initializeDatePicker();
+                // Defer date picker initialization until flatpickr is loaded
+                this.initializeDatePickerWhenReady();
                 this.setupVillaData();
                 this.initSocialProof();
                 this.updateWhatsAppContext();
@@ -2778,6 +2780,29 @@
                 return typeof flatpickr !== 'undefined';
             }
 
+            initializeDatePickerWhenReady() {
+                // Wait for flatpickr to be loaded before initializing
+                const maxAttempts = 20; // Maximum number of attempts (2 seconds total)
+                let attempts = 0;
+
+                const checkAndInit = () => {
+                    attempts++;
+
+                    if (this.checkFlatpickrLoaded()) {
+                        console.log('Flatpickr loaded successfully, initializing date picker...');
+                        this.initializeDatePicker();
+                    } else if (attempts < maxAttempts) {
+                        console.log(`Waiting for flatpickr to load... (attempt ${attempts}/${maxAttempts})`);
+                        setTimeout(checkAndInit, 100);
+                    } else {
+                        console.error('Flatpickr failed to load after maximum attempts');
+                        this.setupFallbackDatePicker();
+                    }
+                };
+
+                checkAndInit();
+            }
+
             initializeDatePicker() {
                 const today = new Date();
                 const maxDate = new Date();
@@ -2790,13 +2815,30 @@
                     return;
                 }
 
+                // Check if input element exists
+                const dateInput = document.getElementById('dateRange');
+                if (!dateInput) {
+                    console.error('Date input element not found');
+                    return;
+                }
+
                 try {
+                    // Destroy existing instance if it exists
+                    if (this.datePicker && typeof this.datePicker.destroy === 'function') {
+                        console.log('Destroying existing date picker instance');
+                        this.datePicker.destroy();
+                    }
+
+                    // Initialize new flatpickr instance
                     this.datePicker = flatpickr("#dateRange", {
                         mode: "range",
                         minDate: "today",
                         maxDate: maxDate,
                         dateFormat: "M j, Y",
                         showMonths: window.innerWidth > 768 ? 2 : 1,
+                        clickOpens: true,
+                        allowInput: false,
+                        disableMobile: false,
                         onChange: (selectedDates) => {
                             if (selectedDates.length === 2) {
                                 const startDate = selectedDates[0];
@@ -2821,6 +2863,12 @@
                             }
                         }
                     });
+
+                    console.log('Flatpickr initialized successfully:', this.datePicker ? 'YES' : 'NO');
+
+                    // Make sure the input is accessible
+                    dateInput.style.pointerEvents = 'auto';
+                    dateInput.style.cursor = 'pointer';
                 } catch (error) {
                     console.warn('Flatpickr initialization failed:', error);
                     this.setupFallbackDatePicker();
@@ -2847,6 +2895,36 @@
                         note.textContent = '📝 Date picker unavailable - enter dates manually or click "I\'m Flexible"';
                         dateInput.parentElement?.insertBefore(note, dateInput.nextSibling);
                     }
+                }
+            }
+
+            ensureDatePickerActive() {
+                // Ensure date picker is working when Step 3 becomes visible
+                console.log('Ensuring date picker is active...');
+
+                const dateInput = document.getElementById('dateRange');
+                if (!dateInput) {
+                    console.error('Date input element not found');
+                    return;
+                }
+
+                // Check if flatpickr instance exists and is working
+                if (this.datePicker && this.datePicker._input) {
+                    console.log('Date picker instance exists, re-opening if needed');
+                    // Flatpickr exists, just make sure it's ready to use
+                    // Force a re-render by triggering focus/blur
+                    setTimeout(() => {
+                        dateInput.focus();
+                        setTimeout(() => dateInput.blur(), 100);
+                    }, 200);
+                } else if (this.checkFlatpickrLoaded()) {
+                    // Flatpickr is loaded but instance doesn't exist, reinitialize
+                    console.log('Reinitializing date picker...');
+                    this.initializeDatePicker();
+                } else {
+                    // Flatpickr not loaded, use fallback
+                    console.warn('Flatpickr not loaded, using fallback');
+                    this.setupFallbackDatePicker();
                 }
             }
             
@@ -3298,8 +3376,13 @@
                         
                         setTimeout(() => {
                             nextStepEl.classList.add('active');
+
+                            // Re-initialize date picker when Step 3 becomes visible
+                            if (this.currentStep === 3) {
+                                this.ensureDatePickerActive();
+                            }
                         }, 50);
-                        
+
                         this.updateProgress();
                         this.updateWhatsAppContext();
                     }, 300);
