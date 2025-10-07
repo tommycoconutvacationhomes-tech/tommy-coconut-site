@@ -15,7 +15,31 @@
     
     <!-- Cloudinary Configuration -->
     <script src="cloudinary-config.js"></script>
-    
+
+    <!-- Lodgify Book Now Box Styles - Tommy Coconut Branding -->
+    <style>
+        :root {
+            --ldg-bnb-background: #ffffff;
+            --ldg-bnb-border-radius: 0.42em;
+            --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
+            --ldg-bnb-padding: 14px;
+            --ldg-bnb-input-background: #ffffff;
+            --ldg-bnb-button-border-radius: 0.42em;
+            --ldg-bnb-color-primary: #00CFCF;
+            --ldg-bnb-color-primary-lighter: #92E3DA;
+            --ldg-bnb-color-primary-darker: #005A5B;
+            --ldg-bnb-color-primary-contrast: #FFFFFF;
+            --ldg-component-calendar-cell-selection-bg-color: #00CFCF;
+            --ldg-component-calendar-cell-selection-color: #FFFFFF;
+            --ldg-component-calendar-cell-selected-bg-color: #92E3DA;
+            --ldg-component-calendar-cell-selected-color: #333333;
+            --ldg-bnb-font-family: inherit;
+        }
+        #lodgify-book-now-box-happy {
+            width: 100%;
+        }
+    </style>
+
     <style>
         :root {
             --primary: #62D0C9;
@@ -598,6 +622,29 @@
         </p>
     </section>
 
+    <!-- Lodgify Booking Widget - Villa Happy Hideaway -->
+    <section style="background: white; padding: var(--space-3xl) var(--space-xl);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: var(--space-2xl);">
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Check Availability & Book Your Escape</h2>
+                <p style="font-size: 1.1rem; color: var(--text-secondary);">Select your dates to see real-time availability and instant pricing for Happy Hideaway</p>
+            </div>
+
+            <!-- Lodgify Widget Container -->
+            <div style="background: white; padding: var(--space-2xl); border-radius: var(--border-radius); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); border: 1px solid rgba(0, 207, 207, 0.1);">
+                <div
+                    id="lodgify-book-now-box-happy"
+                    data-rental-id="355309"
+                    data-website-id="271939"
+                    data-slug="tommycoconut"
+                    data-language-code="en"
+                    data-new-tab="true"
+                    data-version="stable"
+                ></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Act 3: The Effortless Details -->
     <section class="villa-specs">
         <div class="specs-container">
@@ -1114,5 +1161,8 @@
             document.getElementById('checkOut').setAttribute('min', minCheckOut);
         });
     </script>
+
+    <!-- Lodgify Book Now Box Script -->
+    <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
 </body>
 </html>
