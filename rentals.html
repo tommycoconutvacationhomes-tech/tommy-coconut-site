@@ -31,6 +31,31 @@
     <!-- External Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+
+    <!-- Lodgify Book Now Box Styles - Tommy Coconut Branding -->
+    <style>
+        :root {
+            --ldg-bnb-background: #ffffff;
+            --ldg-bnb-border-radius: 0.42em;
+            --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
+            --ldg-bnb-padding: 14px;
+            --ldg-bnb-input-background: #ffffff;
+            --ldg-bnb-button-border-radius: 0.42em;
+
+            --ldg-bnb-color-primary: #00CFCF;
+            --ldg-bnb-color-primary-lighter: #92E3DA;
+            --ldg-bnb-color-primary-darker: #005A5B;
+            --ldg-bnb-color-primary-contrast: #FFFFFF;
+            --ldg-component-calendar-cell-selection-bg-color: #00CFCF;
+            --ldg-component-calendar-cell-selection-color: #FFFFFF;
+            --ldg-component-calendar-cell-selected-bg-color: #92E3DA;
+            --ldg-component-calendar-cell-selected-color: #333333;
+            --ldg-bnb-font-family: inherit;
+        }
+        #lodgify-book-now-box {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     
@@ -102,6 +127,55 @@
                 <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-6); line-height: 1.2;">Finding Your Island Home</h2>
                 <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6);">We know that choosing your <span class="dushi-word" data-papiamento="kas" data-translation="House or home. As in, 'Bon bini na bo kas' – Welcome to your home.">kas</span> for the week isn't just about checking boxes. It's about finding a place that makes your soul say, "Yes, this is it." Some families want sunrise coffee with ocean views. Others want a place to gather everyone around a big table. And some just want to feel the island wrap around them like a warm embrace.</p>
                 <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7;">Each villa below has its own personality, its own <span class="dushi-word" data-papiamento="sunchi" data-translation="A kiss or sweet gesture. Like kissing your fingers after a perfect bite.">sunchi</span>. Read the soul descriptions, not just the specs. You'll know when you've found the one.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lodgify Booking Widget - Villa Palm Breeze -->
+    <section class="section" style="background: white; padding: var(--space-12) 0;">
+        <div class="container">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: var(--space-8);">
+                    <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-4);">Check Availability & Book</h2>
+                    <p style="font-size: var(--text-lg); color: var(--text-secondary);">Select your dates to see real-time availability and pricing for Villa Palm Breeze</p>
+                </div>
+
+                <!-- Lodgify Widget Container -->
+                <div style="background: white; padding: var(--space-8); border-radius: var(--radius-2xl); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); border: 1px solid rgba(0, 207, 207, 0.1);">
+                    <div
+                        id="lodgify-book-now-box"
+                        data-rental-id="268945"
+                        data-website-id="271939"
+                        data-slug="tommycoconut"
+                        data-language-code="en"
+                        data-new-tab="true"
+                        data-version="stable"
+                        data-has-guests-breakdown
+                        data-check-in-label='Check-in'
+                        data-check-out-label='Check-out'
+                        data-guests-label='Guests'
+                        data-guests-singular-label='{{NumberOfGuests}} guest'
+                        data-guests-plural-label='{{NumberOfGuests}} guests'
+                        data-location-input-label='Location'
+                        data-total-price-label='Total price:'
+                        data-select-dates-to-see-price-label='Select dates to see total price'
+                        data-minimum-price-per-night-first-label='From'
+                        data-minimum-price-per-night-second-label='per night'
+                        data-book-button-label='Book Now'
+                        data-guests-breakdown-label='Guests'
+                        data-adults-label='{"one":"adult","other":"adults"}'
+                        data-adults-description='Ages {minAge} or above'
+                        data-children-label='{"one":"child","other":"children"}'
+                        data-children-description='Ages {minAge}-{maxAge}'
+                        data-children-not-allowed-label='Not suitable for children'
+                        data-infants-label='{"one":"infant","other":"infants"}'
+                        data-infants-description='Under {maxAge}'
+                        data-infants-not-allowed-label='Not suitable for infants'
+                        data-pets-label='{"one":"pet","other":"pets"}'
+                        data-pets-not-allowed-label='Not allowed'
+                        data-done-label='Done'
+                    ></div>
+                </div>
             </div>
         </div>
     </section>
@@ -667,5 +741,8 @@
             filterProperties();
         })();
     </script>
+
+    <!-- Lodgify Book Now Box Script -->
+    <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
 </body>
 </html> 
