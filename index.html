@@ -3,7 +3,7 @@
 <head>
     <!-- Enhanced SEO Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="description" content="Tommy Coconut: Where you arrive as guests, leave as family. Luxury Curaçao villas with legendary hospitality, VIP experiences, and zero vacation stress. Your dushi life awaits.">
+    <meta name="description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Your time. Your agenda. Your call.">
     <meta name="keywords" content="Curaçao vacation rentals, luxury villas Curaçao, beachfront properties Caribbean, Jan Thiel vacation rentals, Westpunt beach villas, Willemstad luxury rentals, Curaçao villa with pool, sunset boat trips Curaçao, Caribbean vacation packages, premium Private Resorts Curaçao, Curaçao beach house rental, luxury Caribbean accommodation, Curaçao holiday villas, private pool villas Curaçao, oceanview vacation rentals, Curaçao villa concierge service, all-inclusive Curaçao vacation, Dutch Caribbean rentals, Curaçao family vacation, romantic getaway Curaçao">
     
     <!-- Location-Specific Meta Tags -->
@@ -40,7 +40,7 @@
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="assets/css/main.css" as="style">
-    <link rel="preload" href="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu" as="image">
+    <link rel="preload" href="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Tommy_Coconut_Private_Resorts_logo_rysktc" as="image">
     <link rel="preload" href="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/video-output-2DF885B0-E272-4C20-A5A5-BFF4B2FB300B_e1zkdo" as="video" type="video/mp4">
     
     <!-- The Round Table's Guest Listening System - Microsoft Clarity -->
@@ -56,7 +56,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tommycoconut.com/">
     <meta property="og:title" content="Tommy Coconut - Arrive as Guests, Leave as Family | Premium Curaçao Private Resorts">
-    <meta property="og:description" content="Experience curated tropical stays in Curaçao with the Tommy Coconut family. Unforgettable magical stays, curated local experiences, and the Tommy Coconut Family community.">
+    <meta property="og:description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Your time. Your agenda. Your call.">
     <meta property="og:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/hero/hero-main.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -67,7 +67,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tommycoconut.com/">
     <meta name="twitter:title" content="Tommy Coconut - Arrive as Guests, Leave as Family">
-    <meta name="twitter:description" content="Experience curated tropical stays in Curaçao with the Tommy Coconut family. Unforgettable magical stays, curated local experiences, and the Tommy Coconut Family community.">
+    <meta name="twitter:description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Your time. Your agenda. Your call.">
     <meta name="twitter:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/hero/hero-main.jpg">
 
     <!-- Business Information -->
@@ -82,7 +82,8 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/design-system.css">
-    
+    <link rel="stylesheet" href="assets/css/homepage.css">
+
     <!-- External Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -95,49 +96,6 @@
       gtag('js', new Date());
       gtag('config', 'G-PVETEG7EB4');
     </script>
-
-    <!-- A/B Testing Framework -->
-    <script>
-    // Tommy Coconut A/B Testing Framework - The Blade
-    (function() {
-        // Generate random number for 50/50 split
-        const randomNumber = Math.random();
-        const version = randomNumber < 0.5 ? 'version-a' : 'version-b';
-
-        // Add version class to body
-        document.addEventListener('DOMContentLoaded', function() {
-            document.body.classList.add(version);
-
-            // Track which version user sees
-            const eventName = version === 'version-a' ? 'view_headline_A' : 'view_headline_B';
-            gtag('event', eventName, {
-                'event_category': 'ab_testing',
-                'event_label': 'hero_headline_test',
-                'custom_parameter': version
-            });
-
-            // Store version for conversion tracking
-            localStorage.setItem('tommy_headline_version', version);
-
-            console.log('Tommy Coconut A/B Test Active:', version);
-        });
-    })();
-    </script>
-
-    <style>
-    /* A/B Testing Display Logic */
-    .version-a .headline-b { display: none !important; }
-    .version-b .headline-a { display: none !important; }
-
-    /* Ensure both headlines have same styling */
-    .headline-a, .headline-b {
-        margin: 0;
-        padding: 0;
-        font-size: inherit;
-        font-weight: inherit;
-        line-height: inherit;
-    }
-    </style>
 
     <!-- Meta Pixel Code -->
     <script>
@@ -166,7 +124,7 @@
         "name": "Tommy Coconut",
         "description": "Premium Private Resort experience in Curaçao offering luxury properties with included vehicles, sunset boat trips, and concierge services. Experience the authentic Caribbean lifestyle with the Tommy Coconut family.",
         "url": "https://tommycoconut.com/",
-        "logo": "https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu",
+        "logo": "https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Tommy_Coconut_Private_Resorts_logo_rysktc",
         "image": [
           "https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/hero/hero-main.jpg",
           "https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/properties/villa-hero.jpg",
@@ -403,9 +361,223 @@
             .hero-text h1 {
                 font-size: 2rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1rem;
+            }
+        }
+
+        /* New Homepage Sections - Responsive Styles */
+
+        /* Tablet (769px - 1024px) */
+        @media (max-width: 1024px) {
+            /* Hero proof badge - reduce size on tablet */
+            .hero-proof-badge {
+                top: 1rem !important;
+                right: 1rem !important;
+                padding: 10px 16px !important;
+                font-size: 12px !important;
+            }
+
+            /* Vignette section - 2 columns on tablet */
+            .vignette-section .vignette-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            /* Value Stack - 3 columns on tablet */
+            .value-stack-section [style*="grid-template-columns: repeat(5"] {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+
+            /* Team grid - 3 columns on tablet */
+            .team-grid-container {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+
+        /* Mobile (max-width: 768px) */
+        @media (max-width: 768px) {
+            /* Hero proof badge - move to top left, smaller */
+            .hero-proof-badge {
+                top: 0.5rem !important;
+                right: auto !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                padding: 8px 12px !important;
+                font-size: 11px !important;
+            }
+
+            .hero-proof-badge span:first-child {
+                font-size: 14px !important;
+            }
+
+            /* Hero section - smaller text */
+            .hero-content h1 {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+
+            .hero-subhead {
+                font-size: 1rem !important;
+                line-height: 1.5 !important;
+            }
+
+            .hero-brand-line {
+                font-size: 0.9rem !important;
+            }
+
+            /* Hero chips - vertical stack */
+            .hero-chips {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 12px !important;
+            }
+
+            .chip {
+                font-size: 0.85rem !important;
+                padding: 10px 16px !important;
+            }
+
+            /* Hero CTAs - stack vertically */
+            .hero-cta-container {
+                flex-direction: column !important;
+                gap: 16px !important;
+            }
+
+            .hero-cta-container a {
+                width: 100% !important;
+                min-width: auto !important;
+                padding: 16px 32px !important;
+                font-size: 1rem !important;
+            }
+
+            /* Vignette section - single column */
+            .vignette-section .vignette-grid {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+            }
+
+            .vignette-section h2 {
+                font-size: 2rem !important;
+            }
+
+            /* Concierge OS - vertical stack */
+            .concierge-section [style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+
+            .concierge-section h2 {
+                font-size: 1.75rem !important;
+                line-height: 1.3 !important;
+            }
+
+            /* Value Stack - single column */
+            .value-stack-section [style*="grid-template-columns: repeat(5"] {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            .value-stack-section h2 {
+                font-size: 1.75rem !important;
+            }
+
+            /* Comparison Table - responsive layout */
+            .comparison-table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .comparison-table-wrapper table {
+                min-width: 640px;
+            }
+
+            /* Stays Preview - single column */
+            .stays-preview-section [style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+            }
+
+            .property-card img {
+                height: 250px !important;
+            }
+
+            /* Team grid - 2 columns on mobile */
+            .team-grid-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 24px !important;
+            }
+
+            .team-grid-container > div:last-child {
+                grid-column: 1 / -1 !important;
+            }
+
+            /* Coconut Cartel - adjust padding */
+            .coconut-cartel-section {
+                padding: 60px 0 !important;
+            }
+
+            .coconut-cartel-section p {
+                font-size: 1.125rem !important;
+            }
+
+            .coconut-cartel-section [style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+
+            /* Final Closer - reduce padding, stack CTAs */
+            .final-closer-section {
+                padding: 80px 0 !important;
+            }
+
+            .final-closer-section h2 {
+                font-size: 2rem !important;
+            }
+
+            .final-closer-section p {
+                font-size: 1.125rem !important;
+            }
+
+            .final-closer-section [style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 16px !important;
+            }
+
+            .final-closer-section a {
+                width: 100% !important;
+                min-width: auto !important;
+                padding: 18px 32px !important;
+                font-size: 1.125rem !important;
+            }
+
+            /* Footnote chips - vertical stack */
+            .footnote-chips {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+        }
+
+        /* Small mobile (max-width: 480px) */
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.75rem !important;
+            }
+
+            .vignette-section h2,
+            .concierge-section h2,
+            .value-stack-section h2,
+            .final-closer-section h2 {
+                font-size: 1.5rem !important;
+            }
+
+            /* Team grid - single column on very small screens */
+            .team-grid-container {
+                grid-template-columns: 1fr !important;
+            }
+
+            .team-grid-container > div:last-child {
+                grid-column: auto !important;
             }
         }
     </style>
@@ -428,33 +600,28 @@
         <div class="nav-container">
             <!-- Left Menu -->
             <ul class="nav-menu-left">
-                <li><a href="rentals.html" data-papiamento="Bo kas">Rentals</a></li>
-                <li><a href="experiences.html" data-papiamento="Bo biahe">The Journey</a></li>
-                <li><a href="ownership.html">Ownership</a></li>
-                <li><a href="about.html" data-papiamento="Nos stori">Our Story</a></li>
+                <li><a href="rentals.html" data-papiamento="Bo kas">Stays</a></li>
+                <li><a href="why-a-private-resort.html">Why a Private Resort?</a></li>
+                <li><a href="experiences.html" data-papiamento="Bo biahe">Experiences</a></li>
             </ul>
-            
+
             <!-- Centered Logo -->
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Tommy_Coconut_Private_Resorts_logo_rysktc" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals">
                 </a>
             </div>
-            
+
             <!-- Right Menu -->
             <ul class="nav-menu-right">
-                <li><a href="clan.html" data-papiamento="Bo famia">Clan</a></li>
-                <li><a href="blog.html">Guide</a></li>
-                <li><a href="why-a-private-resort.html">Why a Private Resort?</a></li>
-                <li class="nav-dropdown">
-                    <a href="contact.html" data-papiamento="Papia ku nos">Contact</a>
-                    <div class="nav-dropdown-menu">
-                        <a href="contact.html">Contact Us</a>
-                        <a href="faq.html">FAQ</a>
-                    </div>
+                <li><a href="clan.html" data-papiamento="Papia ku nos">Concierge</a></li>
+                <li><a href="about.html" data-papiamento="Nos stori">About</a></li>
+                <li><a href="contact.html" data-papiamento="Papia ku nos">Contact</a></li>
+                <li class="nav-cta-button">
+                    <a href="treasure-map.html" class="btn btn-primary-nav">Choose stay</a>
                 </li>
             </ul>
-            
+
             <!-- Mobile Menu Toggle -->
             <div class="nav-toggle">
                 <span></span>
@@ -464,56 +631,390 @@
         </div>
     </nav>
 
-    <!-- SECTION 1: THE HOOK -->
+    <!-- SECTION 1: HERO — Above the Fold -->
     <section class="hero" id="main-content">
         <!-- Hero Video -->
         <video class="hero-video" autoplay muted loop playsinline poster="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-79_ipmchx">
             <source src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/video-output-2DF885B0-E272-4C20-A5A5-BFF4B2FB300B_e1zkdo" type="video/mp4">
             <div class="hero-fallback" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/Happy_Hideaway_Final-79_ipmchx');"></div>
         </video>
-        
+
+        <!-- Floating Proof Badge (positioned relative to hero section) -->
+        <div class="hero-proof-badge">
+            <div class="hero-proof-badge-inner">
+                <span class="hero-proof-star">★</span>
+                <span class="hero-proof-text">4.99 — 500+ reviews</span>
+            </div>
+        </div>
+
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="headline-a" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">The Cure for the Common Vacation.</h1>
-                    <h1 class="headline-b" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Your Vacation, Perfectly Scripted.</h1>
-                    <p class="hero-subtitle" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Others give you a key to a room; we hand you the keys to the island. Welcome to the <span class="dushi-word" data-papiamento="Dushi Life" data-translation="The Good Life. A feeling of sweetness, beauty, and peace.">Dushi Life</span>.</p>
+                    <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Your Private Resort in Curaçao.</h1>
+
+                    <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.</p>
+
+                    <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Your time. Your agenda. Your call.</p>
                 </div>
-                <div class="hero-cta" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                    <!-- Primary CTA - Emotional & Family-Focused -->
-                    <a href="treasure-map.html" class="btn btn-primary" style="font-size: 1.25rem; padding: 18px 36px; color: var(--white) !important; background: linear-gradient(135deg, var(--tc-primary) 0%, #00CFCF 100%); box-shadow: 0 8px 32px rgba(98, 208, 201, 0.4); transition: all 0.3s ease;" 
-                       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 48px rgba(98, 208, 201, 0.5)'" 
-                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(98, 208, 201, 0.4)'">
-                        Find My Perfect Villa
+
+                <!-- CTAs -->
+                <div class="hero-cta hero-cta-container" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <!-- Primary CTA -->
+                    <a href="treasure-map.html" class="btn-hero-primary">
+                        Choose stay
                     </a>
-                    
-                    <!-- Secondary CTA Row -->
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
-                        <a href="tel:+59996707977" class="btn" style="background: rgba(255, 255, 255, 0.95); color: var(--tc-navy-light); padding: 14px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 2px solid var(--tc-primary); transition: all 0.3s ease;"
-                           onmouseover="this.style.background='var(--tc-primary)'; this.style.color='var(--white)'"
-                           onmouseout="this.style.background='rgba(255, 255, 255, 0.95)'; this.style.color='var(--tc-navy-light)'">
-                            <i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
-                            Call Family Direct
-                        </a>
-                        
-                        <a href="https://wa.me/59996707977?text=Hi! I'd love to become part of the Tommy Coconut family. Can you help me find the perfect villa?" target="_blank" rel="noopener" class="btn" style="background: var(--tc-success); color: var(--white); padding: 14px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease;"
-                           onmouseover="this.style.background='#22C55E'; this.style.transform='translateY(-2px)'"
-                           onmouseout="this.style.background='var(--tc-success)'; this.style.transform='translateY(0)'">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-label="WhatsApp" style="margin-right: 0.5rem;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                            Chat With Us
-                        </a>
-                    </div>
-                    
+
+                    <!-- Secondary CTA -->
+                    <a href="contact.html" class="btn-hero-secondary">
+                        Design my dushi week
+                    </a>
+                </div>
+
+                <!-- Trust Chips -->
+                <div class="hero-chips">
+                    <span class="chip">🚗 EV-SUV at your door</span>
+                    <span class="chip-separator">·</span>
+                    <span class="chip">⭐ 3 signature experiences included</span>
+                    <span class="chip-separator">·</span>
+                    <span class="chip">✓ Tips & electricity included</span>
+                    <span class="chip-separator">·</span>
+                    <span class="chip">🛡️ Logistics Guarantee</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: THE PROOF -->
+    <!-- SECTION 2: VIGNETTE — First-Day Feeling -->
+    <section class="vignette-section">
+        <div class="vignette-container">
+            <div class="vignette-grid">
+                <!-- Image 1 -->
+                <div class="vignette-image-wrapper">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/jeremiah-welcome.jpg" alt="Jeremiah welcoming guests curbside" class="vignette-image" loading="lazy">
+                </div>
+
+                <!-- Text Content (Center) -->
+                <div class="vignette-text-center">
+                    <h2 class="vignette-title">Be welcomed like a regular.</h2>
+
+                    <p class="vignette-description">No counters. No grocery runs. Jeremiah greets you at arrivals; transfer is ready. Lights on at home, your EV-SUV fully charged, and the fridge stocked for the first sunset by the pool. This isn't a rental—this is calm from minute one.</p>
+
+                    <a href="#value-stack" class="vignette-cta">
+                        See what's included
+                    </a>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="vignette-image-wrapper">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/ev-suv-dusk.jpg" alt="Turquoise-accent EV-SUV charging at the villa" class="vignette-image" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Image 3 (Below on second row, centered) -->
+            <div class="vignette-image-3-wrapper">
+                <div class="vignette-image-wrapper">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/stocked-fridge.jpg" alt="Arrival fridge with drinks and fresh basics" class="vignette-image-3" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CONCIERGE OS — How Your Week Runs Itself -->
+    <section class="concierge-section" id="concierge-os">
+        <div class="concierge-container">
+            <h2 class="concierge-title">You text a vibe → we send options → you decide; you're expected.</h2>
+
+            <!-- 3-Step Process -->
+            <div class="concierge-steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-icon-circle">💬</div>
+                    <div class="step-content">
+                        <p class="step-label">Step 1</p>
+                        <h3 class="step-title">You text a vibe</h3>
+                        <div class="step-example">
+                            "Italian tonight, 19:00–20:30, quiet corner."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-icon-circle">📋</div>
+                    <div class="step-content">
+                        <p class="step-label">Step 2</p>
+                        <h3 class="step-title">We send 3 options</h3>
+                        <div class="step-options">
+                            <div class="step-option-good">Good</div>
+                            <div class="step-option-great">Great</div>
+                            <div class="step-option-tommy">Tommy's Choice</div>
+                        </div>
+                        <p class="step-note">Menus + estimated price</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-icon-circle">✅</div>
+                    <div class="step-content">
+                        <p class="step-label">Step 3</p>
+                        <h3 class="step-title">You decide; we book</h3>
+                        <div class="step-result">
+                            <span class="step-checkmark">✓</span>
+                            <span>Pre-intro sent. Timed arrival. Best-available seat for your vibe.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Micro-pill -->
+            <div class="concierge-micro-pill">
+                <span style="opacity: 0.7;">💡 </span><span style="color: var(--tc-primary); font-weight: 600;">Two great lanes:</span> quiet terrace 19:40 or sunset 17:55. <span style="color: var(--tc-primary); font-weight: 600;">Your call.</span>
+            </div>
+
+            <!-- CTAs -->
+            <div class="concierge-cta-wrapper">
+                <a href="https://wa.me/59996707977?text=Hi! I need help planning my dushi week" target="_blank" rel="noopener" class="btn-whatsapp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-label="WhatsApp"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Message concierge
+                </a>
+                <a href="contact.html" class="btn-concierge-secondary">
+                    Design my dushi week
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: VALUE STACK — The Keys to the Island -->
+    <section class="value-stack-section" id="value-stack" style="padding: 140px 0; background: white;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 32px;">
+            <div style="text-align: center; margin-bottom: 64px;">
+                <h2 style="font-size: 2.75rem; font-weight: 400; color: var(--tc-primary); margin-bottom: 16px; line-height: 1.2;">The Keys to the Island — Private Resort Package (included).</h2>
+                <p style="font-size: 1.375rem; font-weight: 300; color: var(--charcoal); line-height: 1.6;">Over <span style="font-weight: 700; color: var(--tc-primary);">$2,500</span> in curated experiences and logistics, built into every stay.</p>
+            </div>
+
+            <!-- 5 Value Tiles -->
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-bottom: 48px;">
+                <!-- Tile 1: 3 signature experiences -->
+                <div class="value-tile">
+                    <div class="value-icon">🎯</div>
+                    <h3 class="value-title">3 signature experiences</h3>
+                    <p class="value-description">Private half-day boat · Friday Family & Friends (6 seats) · Private flamingo hike.</p>
+                    <div class="value-badge">
+                        <span class="value-badge-text">$900+ value</span>
+                    </div>
+                </div>
+
+                <!-- Tile 2: Unrestricted mobility -->
+                <div class="value-tile">
+                    <div class="value-icon">🚗</div>
+                    <h3 class="value-title">Unrestricted mobility</h3>
+                    <p class="value-description">EV-SUV at your door; free home charging.</p>
+                    <div class="value-badge">
+                        <span class="value-badge-text">$600+ value</span>
+                    </div>
+                </div>
+
+                <!-- Tile 3: Arrival calm -->
+                <div class="value-tile">
+                    <div class="value-icon">✈️</div>
+                    <h3 class="value-title">Arrival calm</h3>
+                    <p class="value-description">Airport transfers, first-night Villa Vis dinner window, groceries pre-stocked.</p>
+                    <div class="value-badge">
+                        <span class="value-badge-text">$500+ value</span>
+                    </div>
+                </div>
+
+                <!-- Tile 4: Family Concierge -->
+                <div class="value-tile">
+                    <div class="value-icon">👨‍👩‍👧‍👦</div>
+                    <h3 class="value-title">Family Concierge</h3>
+                    <p class="value-description">WhatsApp, proactive timing, warmed alternatives.</p>
+                    <div class="value-badge">
+                        <span class="value-badge-text">$300+ value</span>
+                    </div>
+                </div>
+
+                <!-- Tile 5: Money clarity -->
+                <div class="value-tile">
+                    <div class="value-icon">💵</div>
+                    <h3 class="value-title">Money clarity</h3>
+                    <p class="value-description">Tips & electricity included; 🛡️ Logistics Guarantee.</p>
+                    <div class="value-badge">
+                        <span class="value-badge-text">$300+ value</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Value Callout -->
+            <div style="background: linear-gradient(135deg, #FAFAF8, #F8FFFE); padding: 40px; border-radius: 24px; border: 2px solid rgba(98, 208, 201, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04); text-align: center;">
+                <p style="font-size: 1.5rem; font-weight: 700; color: var(--charcoal);">
+                    Total curated value: <span style="font-size: 2rem; color: var(--tc-primary);">$2,500+</span> | Your price: <a href="rentals.html" style="color: var(--tc-primary); text-decoration: underline; font-weight: 700;">See stays</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: MINI COMPARISON STRIP — Category of One -->
+    <section class="comparison-section" style="padding: 120px 0; background: linear-gradient(to bottom, #FFFFFF, #F8FFFE);">
+        <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 32px;">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2 style="font-size: 2.5rem; font-weight: 400; color: var(--tc-primary); margin-bottom: 16px; line-height: 1.3; letter-spacing: -0.01em;">Your time. Your agenda. Your call.</h2>
+                <p style="font-size: 1.25rem; font-weight: 400; color: var(--charcoal); opacity: 0.9;">How a Private Resort beats hotels and rentals.</p>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="comparison-table-wrapper" style="overflow-x: auto; margin-bottom: 32px;">
+                <table style="width: 100%; border-collapse: separate; border-spacing: 0; background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);">
+                    <!-- Header Row -->
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #62D0C9, #4FBDB6);">
+                            <th style="padding: 20px 24px; text-align: left; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white;"></th>
+                            <th style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white;">Hotel</th>
+                            <th style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white;">Vacation Rental</th>
+                            <th style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white; background: rgba(255, 255, 255, 0.1);">Private Resort<br/><span style="font-size: 0.75rem; font-weight: 400; text-transform: none; letter-spacing: 0;">(Tommy Coconut)</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row 1: Agenda -->
+                        <tr style="background: white; transition: background 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.03)'" onmouseout="this.style.background='white'">
+                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary); border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Agenda</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Their schedule</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Your schedule<br/>(admin heavy)</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08); border-bottom: 1px solid rgba(98, 208, 201, 0.15);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> Your schedule, zero friction</td>
+                        </tr>
+
+                        <!-- Row 2: Mobility -->
+                        <tr style="background: rgba(98, 208, 201, 0.03); transition: background 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.06)'" onmouseout="this.style.background='rgba(98, 208, 201, 0.03)'">
+                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary); border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Mobility</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Taxis/Valet</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Rental counters</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08); border-bottom: 1px solid rgba(98, 208, 201, 0.15);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> EV-SUV at home + free charging</td>
+                        </tr>
+
+                        <!-- Row 3: Sea days -->
+                        <tr style="background: white; transition: background 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.03)'" onmouseout="this.style.background='white'">
+                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary); border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Sea days</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Group boats</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">DIY captains</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08); border-bottom: 1px solid rgba(98, 208, 201, 0.15);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> Private boat + captain included</td>
+                        </tr>
+
+                        <!-- Row 4: Feeling -->
+                        <tr style="background: rgba(98, 208, 201, 0.03);">
+                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary);">Feeling</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8;">Anonymous<br/>Guest</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8;">DIY Coordinator</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> Welcomed like a regular</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Small CTA -->
+            <div style="text-align: center;">
+                <a href="why-a-private-resort.html" style="font-size: 0.9375rem; color: var(--tc-primary); text-decoration: underline; font-weight: 600; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">See full compare</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: STAYS PREVIEW — Move to Booking -->
+    <section class="stays-preview-section" id="stays-preview" style="padding: 120px 0; background: linear-gradient(135deg, #FAFAF8, #FFFFFF);">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 32px;">
+            <div style="text-align: center; margin-bottom: 64px;">
+                <h2 style="font-size: 3rem; font-weight: 400; color: var(--tc-primary); margin-bottom: 16px; line-height: 1.2;">Stays</h2>
+                <p style="font-size: 1.25rem; font-weight: 400; color: var(--charcoal); line-height: 1.6;">Every home meets our comfort spec and includes the <span style="font-weight: 600; color: var(--tc-primary);">Private Resort Package</span>.</p>
+            </div>
+
+            <!-- 3 Property Cards -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 48px;">
+                <!-- Property 1: Castaway Beach -->
+                <div class="property-card">
+                    <!-- Hero Image -->
+                    <div class="property-image-wrapper">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/villas/castaway-beach-hero.jpg" alt="Castaway Beach villa exterior with ocean view" class="property-image" loading="lazy">
+                    </div>
+
+                    <!-- Content -->
+                    <div class="property-content">
+                        <h3 class="property-title">Castaway Beach</h3>
+                        <p class="property-description">Harbor-view terrace; Director's Bar with 2,833 coral pieces.</p>
+
+                        <!-- Chips -->
+                        <div class="property-features">
+                            <span class="property-feature-chip">Pool + hot tub</span>
+                            <span class="property-feature-chip">EV-SUV</span>
+                            <span class="property-feature-chip">Boat day included</span>
+                        </div>
+
+                        <!-- CTA -->
+                        <a href="castaway-beach.html" class="property-cta">
+                            View & book →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Property 2: Villa Palm Breeze -->
+                <div class="property-card">
+                    <div class="property-image-wrapper">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/villas/palm-breeze-hero.jpg" alt="Villa Palm Breeze pool and outdoor living" class="property-image" loading="lazy">
+                    </div>
+
+                    <div class="property-content">
+                        <h3 class="property-title">Villa Palm Breeze</h3>
+                        <p class="property-description">Your private kingdom; maximum fun, zero compromises.</p>
+
+                        <div class="property-features">
+                            <span class="property-feature-chip">Pool + hot tub</span>
+                            <span class="property-feature-chip">EV-SUV</span>
+                            <span class="property-feature-chip">Boat day included</span>
+                        </div>
+
+                        <a href="villa-palm-breeze.html" class="property-cta">
+                            View & book →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Property 3: Villa Sailaway Beach -->
+                <div class="property-card">
+                    <div class="property-image-wrapper">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/villas/sailaway-beach-hero.jpg" alt="Villa Sailaway Beach waterfront sanctuary" class="property-image" loading="lazy">
+                    </div>
+
+                    <div class="property-content">
+                        <h3 class="property-title">Villa Sailaway Beach</h3>
+                        <p class="property-description">Exclusive waterfront sanctuary with private beach access.</p>
+
+                        <div class="property-features">
+                            <span class="property-feature-chip">Beach access</span>
+                            <span class="property-feature-chip">EV-SUV</span>
+                            <span class="property-feature-chip">Boat day included</span>
+                        </div>
+
+                        <a href="villa-sailaway-beach.html" class="property-cta">
+                            View & book →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Stays CTA -->
+            <div style="text-align: center;">
+                <a href="rentals.html" class="btn" style="font-size: 1.125rem; padding: 16px 40px; color: var(--tc-primary) !important; background: transparent; border: 2px solid var(--tc-primary); border-radius: 56px; transition: all 0.3s ease; font-weight: 600; text-decoration: none; display: inline-block;"
+                   onmouseover="this.style.background='rgba(98, 208, 201, 0.1)'"
+                   onmouseout="this.style.background='transparent'">
+                    View all stays
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: SOCIAL PROOF + THE HUMANS -->
     <section style="padding: var(--space-16) 0; background: var(--surface);">
         <div class="container">
             <div style="text-align: center; margin-bottom: var(--space-12);">
-                <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-8);"><span class="dushi-word" data-papiamento="Bon Bini" data-translation="Welcome! The traditional warm greeting of our island, and our promise to you.">Bon Bini</span> to the Coconut Clan.</h2>
+                <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-8);">Genuine hospitality → total peace of mind.</h2>
             </div>
             
             <!-- Social Proof Bar -->
@@ -615,64 +1116,133 @@
                     Join 1,347+ Happy Guests
                 </a>
             </div>
+
+            <!-- Team Grid Section -->
+            <div style="margin-top: 96px; border-top: 1px solid rgba(98, 208, 201, 0.1); padding-top: 64px;">
+                <p style="text-align: center; font-size: 1.25rem; color: var(--charcoal); margin-bottom: 48px; font-weight: 300;">Meet the family who makes it feel effortless</p>
+                <div class="team-grid-container" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto;">
+
+                    <!-- Team Member 1: Boy -->
+                    <div class="team-member">
+                        <div class="team-photo-wrapper">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_300,h_300,c_fill,g_face/v1/tommy-coconut/team/boy.jpg" alt="Boy" class="team-photo">
+                        </div>
+                        <h4 class="team-name">Boy</h4>
+                        <p class="team-role">Founder & Chief Concierge</p>
+                        <p class="team-quote">"I run on espresso and sunset deadlines."</p>
+                    </div>
+
+                    <!-- Team Member 2: Raymonde -->
+                    <div class="team-member">
+                        <div class="team-photo-wrapper">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_300,h_300,c_fill,g_face/v1/tommy-coconut/team/raymonde.jpg" alt="Raymonde" class="team-photo">
+                        </div>
+                        <h4 class="team-name">Raymonde</h4>
+                        <p class="team-role">Co-Founder & Operations Director</p>
+                        <p class="team-quote">"Details are my love language."</p>
+                    </div>
+
+                    <!-- Team Member 3: Jeremiah -->
+                    <div class="team-member">
+                        <div class="team-photo-wrapper">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_300,h_300,c_fill,g_face/v1/tommy-coconut/team/jeremiah.jpg" alt="Jeremiah" class="team-photo">
+                        </div>
+                        <h4 class="team-name">Jeremiah</h4>
+                        <p class="team-role">Guest Experience & Logistics</p>
+                        <p class="team-quote">"First face you'll see at arrivals—smile guaranteed."</p>
+                    </div>
+
+                    <!-- Team Member 4: Captain Magic Mike -->
+                    <div class="team-member">
+                        <div class="team-photo-wrapper">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_300,h_300,c_fill,g_face/v1/tommy-coconut/team/captain-magic-mike.jpg" alt="Captain Magic Mike" class="team-photo">
+                        </div>
+                        <h4 class="team-name">Captain Magic Mike</h4>
+                        <p class="team-role">Private Boat Captain</p>
+                        <p class="team-quote">"I know where the turtles hang out—every single day."</p>
+                    </div>
+
+                    <!-- Team Member 5: Happy & Lucky (Dogs) -->
+                    <div class="team-member">
+                        <div class="team-photo-wrapper">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_300,h_300,c_fill,g_face/v1/tommy-coconut/team/happy-and-lucky.jpg" alt="Happy and Lucky" class="team-photo">
+                        </div>
+                        <h4 class="team-name">Happy & Lucky</h4>
+                        <p class="team-role">Chief Morale Officers</p>
+                        <p class="team-quote">"Tail wags: unlimited. Judgement: zero."</p>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- SECTION 3: THE PROMISE -->
-    <section style="padding: var(--space-16) 0; background: var(--surface);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: var(--space-12);">
-                <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-4);">Everything You Need for the Perfect Vacation</h2>
-                <p style="font-size: var(--text-lg); color: var(--text-secondary); max-width: 700px; margin: 0 auto;">No hidden fees. No surprises. <span class="dushi-word" data-papiamento="poko stressings" data-translation="No stress, no worries. The island motto for easy living.">Poko stressings</span>. Just pure vacation bliss with <strong>3 signature experiences included</strong>.</p>
+    <!-- SECTION 8: COCONUT CARTEL — Referral Band -->
+    <section class="coconut-cartel-section" style="padding: 80px 0; background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 30%, #2C5F5F 70%, #1A4B52 100%);">
+        <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 32px; text-align: center;">
+            <!-- Gold Badge -->
+            <div style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%); padding: 12px 24px; border-radius: 48px; border: 2px solid rgba(255, 215, 0, 0.3); box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3); margin-bottom: 32px;">
+                <span style="font-size: 24px;">🥥</span>
+                <span style="font-size: 1rem; font-weight: 800; color: #002F3D; text-transform: uppercase; letter-spacing: 0.1em;">Coconut Cartel</span>
             </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6);">
-                <!-- Included Feature 1 -->
-                <div style="text-align: center; padding: var(--space-6); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); border: 1px solid rgba(0, 207, 207, 0.1); transition: all 0.3s ease;"
-                     onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)'"
-                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)'">
-                    <div style="font-size: 3rem; margin-bottom: var(--space-3);">🏡</div>
-                    <h3 style="font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Premium Villa</h3>
-                    <p style="font-size: var(--text-sm); color: var(--text-secondary);">Luxury accommodations with private pools and ocean views</p>
-                </div>
-                
-                <!-- Included Feature 2 -->
-                <div style="text-align: center; padding: var(--space-6); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); border: 1px solid rgba(0, 207, 207, 0.1); transition: all 0.3s ease;"
-                     onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)'"
-                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)'">
-                    <div style="font-size: 3rem; margin-bottom: var(--space-3);">🚗</div>
-                    <h3 style="font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Your Own Vehicle</h3>
-                    <p style="font-size: var(--text-sm); color: var(--text-secondary);">Jeep or car included - explore the island freely</p>
-                </div>
-                
-                <!-- Included Feature 3 -->
-                <div style="text-align: center; padding: var(--space-6); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); border: 1px solid rgba(0, 207, 207, 0.1); transition: all 0.3s ease;"
-                     onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)'"
-                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)'">
-                    <div style="font-size: 3rem; margin-bottom: var(--space-3);">⛵</div>
-                    <h3 style="font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Sunset Boat Trip</h3>
-                    <p style="font-size: var(--text-sm); color: var(--text-secondary);">Legendary sunset cruise with drinks included</p>
-                </div>
-                
-                <!-- Included Feature 4 -->
-                <div style="text-align: center; padding: var(--space-6); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); border: 1px solid rgba(0, 207, 207, 0.1); transition: all 0.3s ease;"
-                     onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)'"
-                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)'">
-                    <div style="font-size: 3rem; margin-bottom: var(--space-3);">🎯</div>
-                    <h3 style="font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">Personal Concierge</h3>
-                    <p style="font-size: var(--text-sm); color: var(--text-secondary);">24/7 support and local expertise at your fingertips</p>
-                </div>
+
+            <!-- Copy -->
+            <p style="font-size: 1.375rem; font-weight: 300; color: white; line-height: 1.7; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Invite a friend who books 7 nights <span style="color: var(--tc-primary); font-weight: 600;">→</span> your friend stays <span style="color: var(--tc-primary); font-weight: 600;">8</span>. On your next 7-night stay <span style="color: var(--tc-primary); font-weight: 600;">→</span> you stay <span style="color: var(--tc-primary); font-weight: 600;">8</span> too.
+            </p>
+
+            <!-- CTAs -->
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <a href="clan.html" class="btn" style="font-size: 1rem; padding: 14px 28px; color: white !important; background: transparent; border: 2px solid white; border-radius: 52px; transition: all 0.3s ease; font-weight: 600; text-decoration: none; display: inline-block;"
+                   onmouseover="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.borderColor='white'"
+                   onmouseout="this.style.background='transparent'; this.style.borderColor='white'">
+                    Learn about Coconut Cartel perks
+                </a>
+                <a href="contact.html" class="btn" style="font-size: 1rem; padding: 14px 28px; color: white !important; background: var(--tc-primary); border-radius: 52px; transition: all 0.3s ease; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(98, 208, 201, 0.4);"
+                   onmouseover="this.style.background='#4FBDB6'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(98, 208, 201, 0.5)'"
+                   onmouseout="this.style.background='var(--tc-primary)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(98, 208, 201, 0.4)'">
+                    🔗 Get my referral link
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: THE HANDSHAKE -->
-    <section style="padding: var(--space-16) 0; background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%);">
-        <div class="container">
-            <!-- Main Headline -->
-            <div style="text-align: center; margin-bottom: var(--space-12);">
-                <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-4);">Your Story Awaits.</h2>
-                <p style="font-size: var(--text-lg); color: var(--text-secondary); max-width: 600px; margin: 0 auto;">We handle the details, you make the memories. Find your dates and let the <span class="dushi-word" data-papiamento="Dushi Life" data-translation="The Good Life. A feeling of sweetness, beauty, and peace.">Dushi Life</span> begin. Your <span class="dushi-word" data-papiamento="kas" data-translation="House or home. As in, 'Bon bini na bo kas' – Welcome to your home.">kas</span> is waiting.</p>
+    <!-- SECTION 9: FINAL CLOSER — The Invitation -->
+    <section class="final-closer-section" style="padding: 160px 0; background: linear-gradient(to bottom, #FFFFFF, #F8FFFE, #FAFAF8);">
+        <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 32px; text-align: center;">
+            <h2 style="font-size: 3.25rem; font-weight: 300; color: var(--tc-primary); margin-bottom: 32px; line-height: 1.2; letter-spacing: -0.02em;">Your Private Resort awaits.</h2>
+
+            <p style="font-size: 1.5rem; font-weight: 300; color: var(--charcoal); line-height: 1.7; margin-bottom: 24px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Stop planning the trip and start living the <span class="dushi-word" data-papiamento="Dushi Life" data-translation="The Good Life. A feeling of sweetness, beauty, and peace." style="font-style: italic; color: var(--tc-primary); text-decoration: underline dotted; text-underline-offset: 4px;">dushi life</span>. Choose your home and we'll hand you the <span style="font-weight: 600;">keys to the island</span>.
+            </p>
+
+            <p style="font-size: 1.25rem; font-weight: 300; color: var(--charcoal); font-style: italic; opacity: 0.7; margin-bottom: 48px;">Where it's all about you.</p>
+
+            <!-- Large Dual CTAs -->
+            <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 48px;">
+                <a href="treasure-map.html" class="btn-final-primary" style="font-size: 1.25rem; padding: 20px 56px; color: white !important; background: linear-gradient(135deg, #62D0C9 0%, #4FBDB6 100%); border-radius: 64px; transition: all 0.3s ease; font-weight: 600; text-decoration: none; display: inline-block; min-width: 280px; box-shadow: 0 12px 40px rgba(98, 208, 201, 0.4);"
+                   onmouseover="this.style.transform='translateY(-4px) scale(1.02)'; this.style.boxShadow='0 16px 48px rgba(98, 208, 201, 0.5)'"
+                   onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 12px 40px rgba(98, 208, 201, 0.4)'">
+                    Choose stay
+                </a>
+                <a href="contact.html" class="btn-final-secondary" style="font-size: 1.25rem; padding: 20px 56px; color: white !important; background: linear-gradient(135deg, #005A5B 0%, #002F3D 100%); border-radius: 64px; transition: all 0.3s ease; font-weight: 600; text-decoration: none; display: inline-block; min-width: 280px; box-shadow: 0 12px 40px rgba(0, 47, 61, 0.3);"
+                   onmouseover="this.style.transform='translateY(-4px) scale(1.02)'; this.style.boxShadow='0 16px 48px rgba(0, 47, 61, 0.4)'"
+                   onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 12px 40px rgba(0, 47, 61, 0.3)'">
+                    📅 Design my dushi week
+                </a>
+            </div>
+
+            <!-- Footnote Chips -->
+            <div class="footnote-chips" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px;">
+                <span style="background: rgba(98, 208, 201, 0.08); padding: 10px 18px; border-radius: 24px; border: 1px solid rgba(98, 208, 201, 0.15); font-size: 0.875rem; font-weight: 500; color: var(--charcoal); display: inline-flex; align-items: center; gap: 6px;">
+                    ✓ Tips & electricity included
+                </span>
+                <span style="background: rgba(98, 208, 201, 0.08); padding: 10px 18px; border-radius: 24px; border: 1px solid rgba(98, 208, 201, 0.15); font-size: 0.875rem; font-weight: 500; color: var(--charcoal); display: inline-flex; align-items: center; gap: 6px;">
+                    🎯 Not all-inclusive (by design)
+                </span>
+                <span style="background: rgba(98, 208, 201, 0.08); padding: 10px 18px; border-radius: 24px; border: 1px solid rgba(98, 208, 201, 0.15); font-size: 0.875rem; font-weight: 500; color: var(--charcoal); display: inline-flex; align-items: center; gap: 6px;">
+                    🗺️ Curaçao base, island-wide access
+                </span>
             </div>
         </div>
     </section>
@@ -682,7 +1252,7 @@
         <div class="container">
             <!-- Logo & Tagline -->
             <div style="margin-bottom: var(--space-6);">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240/tommy-coconut-logo_lbj0xu" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals" style="height: 60px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Tommy_Coconut_Private_Resorts_logo_rysktc" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals" style="height: 72px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
                 <p style="color: var(--text-inverse); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
             </div>
 
@@ -799,6 +1369,130 @@
                 carousel.addEventListener('mouseenter', () => clearInterval(reviewInterval));
                 carousel.addEventListener('mouseleave', startReviewCarousel);
             }
+        });
+    </script>
+
+    <!-- Scroll Animations and Interactive Elements -->
+    <script>
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fade-in animation styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .fade-in-element {
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+                }
+
+                .fade-in-element.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                .stagger-item {
+                    transition-delay: var(--stagger-delay, 0ms);
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Add fade-in class to target sections
+            const sections = document.querySelectorAll('.vignette-section, .concierge-section, .value-stack-section, .comparison-section, .stays-preview-section, .coconut-cartel-section, .final-closer-section');
+            sections.forEach(section => {
+                section.classList.add('fade-in-element');
+            });
+
+            // Add stagger effect to grid items
+            const vignettes = document.querySelectorAll('.vignette-grid > div');
+            vignettes.forEach((item, index) => {
+                item.classList.add('fade-in-element', 'stagger-item');
+                item.style.setProperty('--stagger-delay', `${index * 100}ms`);
+            });
+
+            const conciergeSteps = document.querySelectorAll('.concierge-section .step-card');
+            conciergeSteps.forEach((item, index) => {
+                item.classList.add('fade-in-element', 'stagger-item');
+                item.style.setProperty('--stagger-delay', `${index * 150}ms`);
+            });
+
+            const valueCards = document.querySelectorAll('.value-stack-section > div > div > div');
+            valueCards.forEach((item, index) => {
+                if (item.style.padding && item.style.background) {
+                    item.classList.add('fade-in-element', 'stagger-item');
+                    item.style.setProperty('--stagger-delay', `${index * 100}ms`);
+                }
+            });
+
+            const propertyCards = document.querySelectorAll('.property-card');
+            propertyCards.forEach((item, index) => {
+                item.classList.add('fade-in-element', 'stagger-item');
+                item.style.setProperty('--stagger-delay', `${index * 150}ms`);
+            });
+
+            const teamMembers = document.querySelectorAll('.team-grid-container > div');
+            teamMembers.forEach((item, index) => {
+                item.classList.add('fade-in-element', 'stagger-item');
+                item.style.setProperty('--stagger-delay', `${index * 100}ms`);
+            });
+
+            // Intersection Observer
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Optional: unobserve after animation completes
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in-element').forEach(element => {
+                observer.observe(element);
+            });
+
+            // Lazy loading for images below the fold
+            const imageObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        imageObserver.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '200px' });
+
+            // Apply lazy loading to images in sections beyond hero
+            const lazyImages = document.querySelectorAll('.vignette-section img, .concierge-section img, .value-stack-section img, .stays-preview-section img, .team-grid-container img');
+            lazyImages.forEach(img => {
+                // Already have loading="lazy", no need to change src
+                // Just observe for potential future optimizations
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
         });
     </script>
 
