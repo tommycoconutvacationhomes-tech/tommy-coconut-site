@@ -1341,14 +1341,12 @@ a:hover, a:focus {
 }
 
 .review-slide {
-    display: none;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5s ease-in-out;
 }
 
 .review-slide.active {
-    display: block;
     opacity: 1;
     transform: translateY(0);
 }
