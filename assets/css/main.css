@@ -607,8 +607,7 @@ a:hover, a:focus {
     align-items: center;
     justify-content: center;
     list-style: none;
-    gap: var(--space-8);
-    flex: 1;
+    gap: var(--space-6);
     margin: 0;
     padding: 0;
 }
