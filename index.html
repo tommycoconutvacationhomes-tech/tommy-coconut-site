@@ -41,7 +41,7 @@
     <!-- Preload Critical Resources -->
     <link rel="preload" href="assets/css/main.css" as="style">
     <link rel="preload" href="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" as="image">
-    <link rel="preload" href="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/video-output-2DF885B0-E272-4C20-A5A5-BFF4B2FB300B_e1zkdo" as="video" type="video/mp4">
+    <link rel="preload" href="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/819b0e94-96d7-4b7a-98d5-4843d5b0a122_rbk4en" as="image">
     
     <!-- The Round Table's Guest Listening System - Microsoft Clarity -->
     <script type="text/javascript">
@@ -290,17 +290,112 @@
             overflow: hidden;
         }
         
-        .hero-video {
+        /* Hero Carousel Styles */
+        .hero-carousel {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
-            object-fit: cover;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .hero-slide-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: scale(1);
+            transition: transform 8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-slide.active .hero-slide-image {
+            transform: scale(1.05);
+        }
+
+        .hero-slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        /* Hero Text Content Transitions */
+        .hero-text-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .hero-text-content.active {
+            opacity: 1;
+            transform: translateY(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        /* Carousel Dots Navigation */
+        .hero-carousel-dots {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0;
+        }
+
+        .hero-dot:hover {
+            border-color: rgba(255, 255, 255, 1);
+            transform: scale(1.2);
+        }
+
+        .hero-dot.active {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 1);
+            width: 24px;
+            border-radius: 5px;
         }
         
         .hero-content {
@@ -364,6 +459,22 @@
 
             .hero-subtitle {
                 font-size: 1rem;
+            }
+
+            /* Carousel dots - smaller on mobile */
+            .hero-carousel-dots {
+                bottom: 1rem;
+                padding: 8px 16px;
+                gap: 8px;
+            }
+
+            .hero-dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .hero-dot.active {
+                width: 20px;
             }
         }
 
@@ -633,11 +744,44 @@
 
     <!-- SECTION 1: HERO — Above the Fold -->
     <section class="hero" id="main-content">
-        <!-- Hero Video -->
-        <video class="hero-video" autoplay muted loop playsinline poster="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Happy_Hideaway_Final-79_ipmchx">
-            <source src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/video-output-2DF885B0-E272-4C20-A5A5-BFF4B2FB300B_e1zkdo" type="video/mp4">
-            <div class="hero-fallback" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/Happy_Hideaway_Final-79_ipmchx');"></div>
-        </video>
+        <!-- Hero Carousel -->
+        <div class="hero-carousel">
+            <!-- Slide 1: Arrival -->
+            <div class="hero-slide active" data-slide="1">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/819b0e94-96d7-4b7a-98d5-4843d5b0a122_rbk4en')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 2: Villa Life -->
+            <div class="hero-slide" data-slide="2">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/abe759c3-b45d-45f5-8403-8b8c5e33b7ad_zio4dx')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 3: Pool Moments -->
+            <div class="hero-slide" data-slide="3">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/ace13210-506b-4143-915f-001bf71166c3_jhryvm')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 4: Island Adventure -->
+            <div class="hero-slide" data-slide="4">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/9f97bb52-0859-4d47-85cb-866836c8e0ff_mc4hrr')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 5: Sunset Experience -->
+            <div class="hero-slide" data-slide="5">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-38_jtogtx')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 6: Private Moments -->
+            <div class="hero-slide" data-slide="6">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/0d19be00-f37f-4b0b-b48a-50e5b58ed35b_jujf2g')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+        </div>
 
         <!-- Floating Proof Badge (positioned relative to hero section) -->
         <div class="hero-proof-badge">
@@ -650,11 +794,47 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Your Private Resort in Curaçao.</h1>
+                    <!-- Slide 1 Text -->
+                    <div class="hero-text-content active" data-text="1">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Your Private Resort in Curaçao.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Your time. Your agenda. Your call.</p>
+                    </div>
 
-                    <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.</p>
+                    <!-- Slide 2 Text -->
+                    <div class="hero-text-content" data-text="2">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Where luxury feels like home.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Handpicked villas with soul. Each space thoughtfully designed for how you actually want to live on vacation.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Settle in. You're family now.</p>
+                    </div>
 
-                    <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Your time. Your agenda. Your call.</p>
+                    <!-- Slide 3 Text -->
+                    <div class="hero-text-content" data-text="3">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Arrive. Breathe. Repeat.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Your private infinity pool awaits. No schedules, no crowds, no compromise—just pure Caribbean tranquility.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">This is your sanctuary.</p>
+                    </div>
+
+                    <!-- Slide 4 Text -->
+                    <div class="hero-text-content" data-text="4">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Explore on your terms.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Your EV-SUV is fully charged and ready. Hidden beaches, local gems, secret spots—discover Curaçao like an islander.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">The island is yours to discover.</p>
+                    </div>
+
+                    <!-- Slide 5 Text -->
+                    <div class="hero-text-content" data-text="5">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Sunsets you'll never forget.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Your private boat captain knows the perfect spot. Three sunset trips included—because some moments deserve to be on the water.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Magic happens at golden hour.</p>
+                    </div>
+
+                    <!-- Slide 6 Text -->
+                    <div class="hero-text-content" data-text="6">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Memories that feel timeless.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">From sunrise coffee to starlit conversations. This is where your family's favorite stories begin.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Welcome to your villa. Welcome home.</p>
+                    </div>
                 </div>
 
                 <!-- CTAs -->
@@ -681,6 +861,16 @@
                     <span class="chip">🛡️ Logistics Guarantee</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Carousel Navigation Dots -->
+        <div class="hero-carousel-dots">
+            <button class="hero-dot active" data-dot="1" aria-label="Go to slide 1"></button>
+            <button class="hero-dot" data-dot="2" aria-label="Go to slide 2"></button>
+            <button class="hero-dot" data-dot="3" aria-label="Go to slide 3"></button>
+            <button class="hero-dot" data-dot="4" aria-label="Go to slide 4"></button>
+            <button class="hero-dot" data-dot="5" aria-label="Go to slide 5"></button>
+            <button class="hero-dot" data-dot="6" aria-label="Go to slide 6"></button>
         </div>
     </section>
 
@@ -1493,6 +1683,155 @@
                     }
                 });
             });
+        });
+    </script>
+
+    <!-- Hero Carousel Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            const textContents = document.querySelectorAll('.hero-text-content');
+            const dots = document.querySelectorAll('.hero-dot');
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            let autoplayInterval;
+            let isTransitioning = false;
+
+            // Function to go to a specific slide
+            function goToSlide(index) {
+                if (isTransitioning) return;
+                isTransitioning = true;
+
+                // Remove active class from current slide, text, and dot
+                slides[currentSlide].classList.remove('active');
+                textContents[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+
+                // Update current slide
+                currentSlide = index;
+
+                // Add active class to new slide, text, and dot
+                slides[currentSlide].classList.add('active');
+                textContents[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+
+                // Reset autoplay
+                resetAutoplay();
+
+                // Allow transitions after a delay
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 800);
+            }
+
+            // Function to go to next slide
+            function nextSlide() {
+                const next = (currentSlide + 1) % totalSlides;
+                goToSlide(next);
+            }
+
+            // Function to go to previous slide
+            function prevSlide() {
+                const prev = (currentSlide - 1 + totalSlides) % totalSlides;
+                goToSlide(prev);
+            }
+
+            // Autoplay functionality
+            function startAutoplay() {
+                autoplayInterval = setInterval(nextSlide, 6000); // Change slide every 6 seconds
+            }
+
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+            }
+
+            function resetAutoplay() {
+                stopAutoplay();
+                startAutoplay();
+            }
+
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                }
+            });
+
+            // Touch/Swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const heroSection = document.querySelector('.hero');
+
+            heroSection.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            heroSection.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe left - next slide
+                        nextSlide();
+                    } else {
+                        // Swipe right - previous slide
+                        prevSlide();
+                    }
+                }
+            }
+
+            // Pause autoplay when user hovers over hero section
+            heroSection.addEventListener('mouseenter', stopAutoplay);
+            heroSection.addEventListener('mouseleave', startAutoplay);
+
+            // Pause autoplay when page is not visible
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    stopAutoplay();
+                } else {
+                    startAutoplay();
+                }
+            });
+
+            // Start autoplay on load
+            startAutoplay();
+
+            // Preload next image for smoother transitions
+            function preloadNextImage() {
+                const nextIndex = (currentSlide + 1) % totalSlides;
+                const nextSlide = slides[nextIndex];
+                const nextImage = nextSlide.querySelector('.hero-slide-image');
+                const bgImage = nextImage.style.backgroundImage;
+                const imageUrl = bgImage.slice(5, -2); // Remove 'url("' and '")'
+
+                const img = new Image();
+                img.src = imageUrl;
+            }
+
+            // Preload first few images
+            for (let i = 0; i < Math.min(3, totalSlides); i++) {
+                const slide = slides[i];
+                const slideImage = slide.querySelector('.hero-slide-image');
+                const bgImage = slideImage.style.backgroundImage;
+                const imageUrl = bgImage.slice(5, -2);
+                const img = new Image();
+                img.src = imageUrl;
+            }
         });
     </script>
 
