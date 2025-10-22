@@ -55,7 +55,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tommycoconut.com/">
-    <meta property="og:title" content="Tommy Coconut - Arrive as Guests, Leave as Family | Premium Curaçao Private Resorts">
+    <meta property="og:title" content="Tommy Coconut - Where it's all about you. | Premium Curaçao Private Resorts">
     <meta property="og:description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Your time. Your agenda. Your call.">
     <meta property="og:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/hero/hero-main.jpg">
     <meta property="og:image:width" content="1200">
@@ -66,7 +66,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tommycoconut.com/">
-    <meta name="twitter:title" content="Tommy Coconut - Arrive as Guests, Leave as Family">
+    <meta name="twitter:title" content="Tommy Coconut - Where it's all about you.">
     <meta name="twitter:description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Your time. Your agenda. Your call.">
     <meta name="twitter:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/hero/hero-main.jpg">
 
@@ -478,6 +478,143 @@
             }
         }
 
+        /* Vignette Section Styles */
+        .vignette-section {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #FAFAF8, #FFFFFF);
+        }
+
+        .vignette-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .vignette-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .vignette-text-content {
+            padding-right: 40px;
+        }
+
+        .vignette-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--tc-primary);
+            margin-bottom: 32px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .vignette-description {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .vignette-cta {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--tc-primary);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(98, 208, 201, 0.2);
+        }
+
+        .vignette-cta:hover {
+            background: #4FBDB6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(98, 208, 201, 0.3);
+        }
+
+        /* Vignette Carousel Styles */
+        .vignette-carousel {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .vignette-carousel-track {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+        }
+
+        .vignette-carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .vignette-carousel-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .vignette-carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Carousel Dots */
+        .vignette-carousel-dots {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .vignette-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid var(--tc-primary);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0;
+            opacity: 0.4;
+        }
+
+        .vignette-dot:hover {
+            opacity: 0.7;
+            transform: scale(1.2);
+        }
+
+        .vignette-dot.active {
+            background: var(--tc-primary);
+            opacity: 1;
+            width: 24px;
+            border-radius: 5px;
+        }
+
         /* New Homepage Sections - Responsive Styles */
 
         /* Tablet (769px - 1024px) */
@@ -492,15 +629,15 @@
 
             /* Vignette section - adjust spacing on tablet */
             .vignette-section .vignette-grid {
-                gap: 48px !important;
+                gap: 60px !important;
             }
 
-            .vignette-content-card {
-                padding: 48px 36px !important;
-            }
-
-            .vignette-card-title {
+            .vignette-title {
                 font-size: 3rem !important;
+            }
+
+            .vignette-description {
+                font-size: 1.125rem !important;
             }
 
             /* Value Stack - 3 columns on tablet */
@@ -581,27 +718,23 @@
 
             .vignette-section .vignette-grid {
                 grid-template-columns: 1fr !important;
-                gap: 32px !important;
+                gap: 48px !important;
             }
 
-            .vignette-content-card {
-                padding: 40px 32px !important;
+            .vignette-text-content {
+                padding-right: 0 !important;
             }
 
-            .vignette-card-title {
+            .vignette-title {
                 font-size: 2.5rem !important;
             }
 
-            .vignette-card-subtitle {
-                font-size: 1rem !important;
+            .vignette-description {
+                font-size: 1.125rem !important;
             }
 
-            .vignette-card-description {
-                font-size: 0.9375rem !important;
-            }
-
-            .vignette-image {
-                min-height: 280px !important;
+            .vignette-carousel-track {
+                aspect-ratio: 3 / 2 !important;
             }
 
             /* Concierge OS - vertical stack */
@@ -707,24 +840,22 @@
                 font-size: 1.75rem !important;
             }
 
-            .vignette-content-card {
-                padding: 32px 24px !important;
-            }
-
-            .vignette-card-title {
+            .vignette-title {
                 font-size: 2rem !important;
             }
 
-            .vignette-card-eyebrow {
-                font-size: 0.875rem !important;
+            .vignette-description {
+                font-size: 1rem !important;
             }
 
-            .vignette-card-subtitle {
+            .vignette-cta {
+                padding: 14px 28px !important;
                 font-size: 0.9375rem !important;
             }
 
-            .vignette-image {
-                min-height: 240px !important;
+            .vignette-carousel-dots {
+                bottom: 16px !important;
+                padding: 10px 16px !important;
             }
 
             .concierge-section h2,
@@ -770,7 +901,7 @@
             <!-- Centered Logo -->
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" alt="Tommy Coconut - Where it's all about you. - Curaçao Vacation Rentals">
                 </a>
             </div>
 
@@ -918,39 +1049,43 @@
         </div>
     </section>
 
-    <!-- SECTION 2: VIGNETTE — Hidden Haven of Relaxation -->
+    <!-- SECTION 2: VIGNETTE — First-Day Feeling -->
     <section class="vignette-section">
         <div class="vignette-container">
             <div class="vignette-grid">
-                <!-- Left: Content Card -->
-                <div class="vignette-content-card">
-                    <h2 class="vignette-card-eyebrow">A HIDDEN</h2>
-                    <h3 class="vignette-card-title">HAVEN</h3>
-                    <h4 class="vignette-card-subtitle">OF RELAXATION</h4>
+                <!-- Left: Text Content -->
+                <div class="vignette-text-content">
+                    <h2 class="vignette-title">Be welcomed like a regular.</h2>
 
-                    <p class="vignette-card-description">
-                        Boookie Luxury Resort is a unique vacation experience offering the intimacy of a private villa or suite with the convenience, services, and amenities of a five-star resort.
-                    </p>
+                    <p class="vignette-description">No counters. No grocery runs. Jeremiah greets you at arrivals; transfer is ready. Lights on at home, your EV-SUV fully charged, and the fridge stocked for the first sunset by the pool. This isn't a rental—this is calm from minute one.</p>
 
-                    <div class="vignette-card-image-wrapper">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400/ace13210-506b-4143-915f-001bf71166c3_jhryvm" alt="Curacao villa pool view" class="vignette-card-image" loading="lazy">
-                    </div>
-
-                    <a href="#value-stack" class="vignette-card-link">
-                        GETTING HERE
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 1L15 8L8 15M15 8H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <a href="#value-stack" class="vignette-cta">
+                        See what's included
                     </a>
                 </div>
 
-                <!-- Right: Image Stack -->
-                <div class="vignette-image-stack">
-                    <div class="vignette-image-wrapper vignette-image-top">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/819b0e94-96d7-4b7a-98d5-4843d5b0a122_rbk4en" alt="Tommy Coconut private resort arrival experience" class="vignette-image" loading="lazy">
+                <!-- Right: Image Carousel -->
+                <div class="vignette-carousel">
+                    <div class="vignette-carousel-track">
+                        <!-- Slide 1 -->
+                        <div class="vignette-carousel-slide active">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/jeremiah-welcome.jpg" alt="Jeremiah welcoming guests curbside" class="vignette-carousel-image" loading="lazy">
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="vignette-carousel-slide">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/ev-suv-dusk.jpg" alt="Turquoise-accent EV-SUV charging at the villa" class="vignette-carousel-image" loading="lazy">
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="vignette-carousel-slide">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/stocked-fridge.jpg" alt="Arrival fridge with drinks and fresh basics" class="vignette-carousel-image" loading="lazy">
+                        </div>
                     </div>
-                    <div class="vignette-image-wrapper vignette-image-bottom">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/9f97bb52-0859-4d47-85cb-866836c8e0ff_mc4hrr" alt="Welcome to your private villa with personalized service" class="vignette-image" loading="lazy">
+
+                    <!-- Carousel Navigation Dots -->
+                    <div class="vignette-carousel-dots">
+                        <button class="vignette-dot active" data-slide="1" aria-label="Go to slide 1"></button>
+                        <button class="vignette-dot" data-slide="2" aria-label="Go to slide 2"></button>
+                        <button class="vignette-dot" data-slide="3" aria-label="Go to slide 3"></button>
                     </div>
                 </div>
             </div>
@@ -1454,7 +1589,7 @@
                 Stop planning the trip and start living the <span class="dushi-word" data-papiamento="Dushi Life" data-translation="The Good Life. A feeling of sweetness, beauty, and peace." style="font-style: italic; color: var(--tc-primary); text-decoration: underline dotted; text-underline-offset: 4px;">dushi life</span>. Choose your home and we'll hand you the <span style="font-weight: 600;">keys to the island</span>.
             </p>
 
-            <p style="font-size: 1.25rem; font-weight: 300; color: var(--charcoal); font-style: italic; opacity: 0.7; margin-bottom: 48px;">Where it's all about you.</p>
+            <p style="font-size: 1.25rem; font-weight: 300; color: var(--charcoal); font-style: italic; opacity: 0.7; margin-bottom: 48px;">Your time. Your agenda. Your call.</p>
 
             <!-- Large Dual CTAs -->
             <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 48px;">
@@ -1490,8 +1625,8 @@
         <div class="container">
             <!-- Logo & Tagline -->
             <div style="margin-bottom: var(--space-6);">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" alt="Tommy Coconut - Arrive as Guests, Leave as Family - Curaçao Vacation Rentals" style="height: 72px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
-                <p style="color: var(--text-inverse); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Arrive as Guests, Leave as Family</p>
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" alt="Tommy Coconut - Where it's all about you. - Curaçao Vacation Rentals" style="height: 72px; width: auto; margin-bottom: var(--space-4); filter: brightness(0) invert(1);">
+                <p style="color: var(--text-inverse); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Where it's all about you.</p>
             </div>
 
             <!-- Social Links -->
@@ -1880,6 +2015,123 @@
                 const img = new Image();
                 img.src = imageUrl;
             }
+        });
+    </script>
+
+    <!-- Vignette Carousel Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const vignetteSlides = document.querySelectorAll('.vignette-carousel-slide');
+            const vignetteDots = document.querySelectorAll('.vignette-dot');
+            let currentVignetteSlide = 0;
+            const totalVignetteSlides = vignetteSlides.length;
+            let vignetteAutoplayInterval;
+            let isVignetteTransitioning = false;
+
+            // Function to go to a specific slide
+            function goToVignetteSlide(index) {
+                if (isVignetteTransitioning) return;
+                isVignetteTransitioning = true;
+
+                // Remove active class from current slide and dot
+                vignetteSlides[currentVignetteSlide].classList.remove('active');
+                vignetteDots[currentVignetteSlide].classList.remove('active');
+
+                // Update current slide
+                currentVignetteSlide = index;
+
+                // Add active class to new slide and dot
+                vignetteSlides[currentVignetteSlide].classList.add('active');
+                vignetteDots[currentVignetteSlide].classList.add('active');
+
+                // Reset autoplay
+                resetVignetteAutoplay();
+
+                // Allow transitions after a delay
+                setTimeout(() => {
+                    isVignetteTransitioning = false;
+                }, 800);
+            }
+
+            // Function to go to next slide
+            function nextVignetteSlide() {
+                const next = (currentVignetteSlide + 1) % totalVignetteSlides;
+                goToVignetteSlide(next);
+            }
+
+            // Function to go to previous slide
+            function prevVignetteSlide() {
+                const prev = (currentVignetteSlide - 1 + totalVignetteSlides) % totalVignetteSlides;
+                goToVignetteSlide(prev);
+            }
+
+            // Autoplay functionality
+            function startVignetteAutoplay() {
+                vignetteAutoplayInterval = setInterval(nextVignetteSlide, 5000); // Change slide every 5 seconds
+            }
+
+            function stopVignetteAutoplay() {
+                clearInterval(vignetteAutoplayInterval);
+            }
+
+            function resetVignetteAutoplay() {
+                stopVignetteAutoplay();
+                startVignetteAutoplay();
+            }
+
+            // Dot navigation
+            vignetteDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToVignetteSlide(index);
+                });
+            });
+
+            // Touch/Swipe support for mobile
+            let vignetteTouchStartX = 0;
+            let vignetteTouchEndX = 0;
+            const vignetteCarousel = document.querySelector('.vignette-carousel');
+
+            if (vignetteCarousel) {
+                vignetteCarousel.addEventListener('touchstart', (e) => {
+                    vignetteTouchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                vignetteCarousel.addEventListener('touchend', (e) => {
+                    vignetteTouchEndX = e.changedTouches[0].screenX;
+                    handleVignetteSwipe();
+                }, { passive: true });
+
+                function handleVignetteSwipe() {
+                    const swipeThreshold = 50;
+                    const diff = vignetteTouchStartX - vignetteTouchEndX;
+
+                    if (Math.abs(diff) > swipeThreshold) {
+                        if (diff > 0) {
+                            // Swipe left - next slide
+                            nextVignetteSlide();
+                        } else {
+                            // Swipe right - previous slide
+                            prevVignetteSlide();
+                        }
+                    }
+                }
+
+                // Pause autoplay when user hovers over carousel
+                vignetteCarousel.addEventListener('mouseenter', stopVignetteAutoplay);
+                vignetteCarousel.addEventListener('mouseleave', startVignetteAutoplay);
+            }
+
+            // Start autoplay on load
+            startVignetteAutoplay();
+
+            // Pause autoplay when page is not visible
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    stopVignetteAutoplay();
+                } else {
+                    startVignetteAutoplay();
+                }
+            });
         });
     </script>
 
