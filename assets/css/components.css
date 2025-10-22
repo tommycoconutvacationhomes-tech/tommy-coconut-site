@@ -177,12 +177,10 @@
 }
 
 .review-slide {
-    display: none;
     width: 100%;
 }
 
 .review-slide.active {
-    display: block;
     animation: fadeIn 0.8s ease-in-out;
 }
 
