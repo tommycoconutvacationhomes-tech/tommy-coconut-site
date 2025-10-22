@@ -32,32 +32,30 @@ class TommyCoconutApp {
         document.body.classList.add('loaded');
     }
 
-    // Navigation - Updated for Split Menu
+    // Navigation - Updated for Center Navigation Layout
     initializeNavigation() {
         const navToggle = document.querySelector('.nav-toggle');
-        const navMenuLeft = document.querySelector('.nav-menu-left');
-        const navMenuRight = document.querySelector('.nav-menu-right');
+        const navMenu = document.querySelector('.nav-menu');
 
-        if (navToggle && navMenuLeft && navMenuRight) {
+        if (navToggle && navMenu) {
             navToggle.addEventListener('click', (e) => {
                 e.stopPropagation();
-                this.toggleMobileMenu(navToggle, navMenuLeft, navMenuRight);
+                this.toggleMobileMenu(navToggle, navMenu);
             });
 
             // Close menu when clicking links
-            const navLinks = document.querySelectorAll('.nav-menu-left a, .nav-menu-right a');
+            const navLinks = document.querySelectorAll('.nav-menu a');
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    this.closeMobileMenu(navToggle, navMenuLeft, navMenuRight);
+                    this.closeMobileMenu(navToggle, navMenu);
                 });
             });
 
             // Close menu when clicking outside
             document.addEventListener('click', (e) => {
-                if (!navToggle.contains(e.target) && 
-                    !navMenuLeft.contains(e.target) && 
-                    !navMenuRight.contains(e.target)) {
-                    this.closeMobileMenu(navToggle, navMenuLeft, navMenuRight);
+                if (!navToggle.contains(e.target) &&
+                    !navMenu.contains(e.target)) {
+                    this.closeMobileMenu(navToggle, navMenu);
                 }
             });
         }
@@ -72,34 +70,30 @@ class TommyCoconutApp {
         this.initializeSmoothScrolling();
     }
 
-    toggleMobileMenu(toggle, menuLeft, menuRight) {
-        const isActive = menuLeft.classList.toggle('active');
-        menuRight.classList.toggle('active', isActive);
+    toggleMobileMenu(toggle, menu) {
+        const isActive = menu.classList.toggle('active');
         toggle.classList.toggle('active', isActive);
-        
+
         // Prevent body scroll when menu is open
         document.body.style.overflow = isActive ? 'hidden' : '';
-        
+
         // Accessibility
         toggle.setAttribute('aria-expanded', isActive);
-        menuLeft.setAttribute('aria-hidden', !isActive);
-        menuRight.setAttribute('aria-hidden', !isActive);
+        menu.setAttribute('aria-hidden', !isActive);
     }
 
-    closeMobileMenu(toggle, menuLeft, menuRight) {
-        menuLeft.classList.remove('active');
-        menuRight.classList.remove('active');
+    closeMobileMenu(toggle, menu) {
+        menu.classList.remove('active');
         toggle.classList.remove('active');
         document.body.style.overflow = '';
         toggle.setAttribute('aria-expanded', 'false');
-        menuLeft.setAttribute('aria-hidden', 'true');
-        menuRight.setAttribute('aria-hidden', 'true');
+        menu.setAttribute('aria-hidden', 'true');
     }
 
     setActiveNavLink() {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const navLinks = document.querySelectorAll('.nav-menu-left a, .nav-menu-right a');
-        
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
             if (href === currentPage) {
