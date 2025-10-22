@@ -490,9 +490,17 @@
                 font-size: 12px !important;
             }
 
-            /* Vignette section - 2 columns on tablet */
+            /* Vignette section - adjust spacing on tablet */
             .vignette-section .vignette-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 48px !important;
+            }
+
+            .vignette-content-card {
+                padding: 48px 36px !important;
+            }
+
+            .vignette-card-title {
+                font-size: 3rem !important;
             }
 
             /* Value Stack - 3 columns on tablet */
@@ -562,14 +570,38 @@
                 font-size: 1rem !important;
             }
 
-            /* Vignette section - single column */
-            .vignette-section .vignette-grid {
-                grid-template-columns: 1fr !important;
-                gap: 24px !important;
+            /* Vignette section - single column on mobile */
+            .vignette-section {
+                padding: 80px 0 !important;
             }
 
-            .vignette-section h2 {
-                font-size: 2rem !important;
+            .vignette-container {
+                padding: 0 24px !important;
+            }
+
+            .vignette-section .vignette-grid {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+
+            .vignette-content-card {
+                padding: 40px 32px !important;
+            }
+
+            .vignette-card-title {
+                font-size: 2.5rem !important;
+            }
+
+            .vignette-card-subtitle {
+                font-size: 1rem !important;
+            }
+
+            .vignette-card-description {
+                font-size: 0.9375rem !important;
+            }
+
+            .vignette-image {
+                min-height: 280px !important;
             }
 
             /* Concierge OS - vertical stack */
@@ -675,7 +707,26 @@
                 font-size: 1.75rem !important;
             }
 
-            .vignette-section h2,
+            .vignette-content-card {
+                padding: 32px 24px !important;
+            }
+
+            .vignette-card-title {
+                font-size: 2rem !important;
+            }
+
+            .vignette-card-eyebrow {
+                font-size: 0.875rem !important;
+            }
+
+            .vignette-card-subtitle {
+                font-size: 0.9375rem !important;
+            }
+
+            .vignette-image {
+                min-height: 240px !important;
+            }
+
             .concierge-section h2,
             .value-stack-section h2,
             .final-closer-section h2 {
@@ -754,7 +805,7 @@
 
             <!-- Slide 2: Villa Life -->
             <div class="hero-slide" data-slide="2">
-                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/abe759c3-b45d-45f5-8403-8b8c5e33b7ad_zio4dx')"></div>
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Generated_Image_October_06_2025_-_2_10PM_3_cpit6y')"></div>
                 <div class="hero-slide-overlay"></div>
             </div>
 
@@ -783,13 +834,6 @@
             </div>
         </div>
 
-        <!-- Floating Proof Badge (positioned relative to hero section) -->
-        <div class="hero-proof-badge">
-            <div class="hero-proof-badge-inner">
-                <span class="hero-proof-star">★</span>
-                <span class="hero-proof-text">4.99 — 500+ reviews</span>
-            </div>
-        </div>
 
         <div class="container">
             <div class="hero-content">
@@ -874,36 +918,40 @@
         </div>
     </section>
 
-    <!-- SECTION 2: VIGNETTE — First-Day Feeling -->
+    <!-- SECTION 2: VIGNETTE — Hidden Haven of Relaxation -->
     <section class="vignette-section">
         <div class="vignette-container">
             <div class="vignette-grid">
-                <!-- Image 1 -->
-                <div class="vignette-image-wrapper">
-                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/jeremiah-welcome.jpg" alt="Jeremiah welcoming guests curbside" class="vignette-image" loading="lazy">
-                </div>
+                <!-- Left: Content Card -->
+                <div class="vignette-content-card">
+                    <h2 class="vignette-card-eyebrow">A HIDDEN</h2>
+                    <h3 class="vignette-card-title">HAVEN</h3>
+                    <h4 class="vignette-card-subtitle">OF RELAXATION</h4>
 
-                <!-- Text Content (Center) -->
-                <div class="vignette-text-center">
-                    <h2 class="vignette-title">Be welcomed like a regular.</h2>
+                    <p class="vignette-card-description">
+                        Boookie Luxury Resort is a unique vacation experience offering the intimacy of a private villa or suite with the convenience, services, and amenities of a five-star resort.
+                    </p>
 
-                    <p class="vignette-description">No counters. No grocery runs. Jeremiah greets you at arrivals; transfer is ready. Lights on at home, your EV-SUV fully charged, and the fridge stocked for the first sunset by the pool. This isn't a rental—this is calm from minute one.</p>
+                    <div class="vignette-card-image-wrapper">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400/ace13210-506b-4143-915f-001bf71166c3_jhryvm" alt="Curacao villa pool view" class="vignette-card-image" loading="lazy">
+                    </div>
 
-                    <a href="#value-stack" class="vignette-cta">
-                        See what's included
+                    <a href="#value-stack" class="vignette-card-link">
+                        GETTING HERE
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 1L15 8L8 15M15 8H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </a>
                 </div>
 
-                <!-- Image 2 -->
-                <div class="vignette-image-wrapper">
-                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/ev-suv-dusk.jpg" alt="Turquoise-accent EV-SUV charging at the villa" class="vignette-image" loading="lazy">
-                </div>
-            </div>
-
-            <!-- Image 3 (Below on second row, centered) -->
-            <div class="vignette-image-3-wrapper">
-                <div class="vignette-image-wrapper">
-                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/v1/tommy-coconut/stocked-fridge.jpg" alt="Arrival fridge with drinks and fresh basics" class="vignette-image-3" loading="lazy">
+                <!-- Right: Image Stack -->
+                <div class="vignette-image-stack">
+                    <div class="vignette-image-wrapper vignette-image-top">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/819b0e94-96d7-4b7a-98d5-4843d5b0a122_rbk4en" alt="Tommy Coconut private resort arrival experience" class="vignette-image" loading="lazy">
+                    </div>
+                    <div class="vignette-image-wrapper vignette-image-bottom">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/9f97bb52-0859-4d47-85cb-866836c8e0ff_mc4hrr" alt="Welcome to your private villa with personalized service" class="vignette-image" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
