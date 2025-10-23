@@ -3,7 +3,7 @@
 <head>
     <!-- Enhanced SEO Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Your time. Your agenda. Your call.">
+    <meta name="description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Where it's all about you.">
     <meta name="keywords" content="Curaçao vacation rentals, luxury villas Curaçao, beachfront properties Caribbean, Jan Thiel vacation rentals, Westpunt beach villas, Willemstad luxury rentals, Curaçao villa with pool, sunset boat trips Curaçao, Caribbean vacation packages, premium Private Resorts Curaçao, Curaçao beach house rental, luxury Caribbean accommodation, Curaçao holiday villas, private pool villas Curaçao, oceanview vacation rentals, Curaçao villa concierge service, all-inclusive Curaçao vacation, Dutch Caribbean rentals, Curaçao family vacation, romantic getaway Curaçao">
     
     <!-- Location-Specific Meta Tags -->
@@ -56,7 +56,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tommycoconut.com/">
     <meta property="og:title" content="Tommy Coconut - Where it's all about you. | Premium Curaçao Private Resorts">
-    <meta property="og:description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Your time. Your agenda. Your call.">
+    <meta property="og:description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Where it's all about you.">
     <meta property="og:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/hero/hero-main.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -67,7 +67,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tommycoconut.com/">
     <meta name="twitter:title" content="Tommy Coconut - Where it's all about you.">
-    <meta name="twitter:description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Your time. Your agenda. Your call.">
+    <meta name="twitter:description" content="Your Private Resort in Curaçao. Luxury home + EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included. Where it's all about you.">
     <meta name="twitter:image" content="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/hero/hero-main.jpg">
 
     <!-- Business Information -->
@@ -307,7 +307,7 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.2s ease-in-out;
             pointer-events: none;
         }
 
@@ -341,7 +341,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: none;
+            background: linear-gradient(to bottom, rgba(5, 68, 94, 0.35), rgba(5, 68, 94, 0.15));
         }
 
         /* Hero Text Content Transitions */
@@ -446,7 +446,52 @@
             background: #00B8B8;
             transform: translateY(-2px);
         }
-        
+
+        /* Hero Chips Grid - 4-Column Layout */
+        .hero-chips-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .chip-grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .chip-grid-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .chip-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .chip-text {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.4;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .chip-text div {
+            white-space: nowrap;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -684,16 +729,19 @@
                 font-size: 0.9rem !important;
             }
 
-            /* Hero chips - vertical stack */
-            .hero-chips {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 12px !important;
+            /* Hero chips grid - stack on mobile */
+            .hero-chips-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                padding: 1rem !important;
             }
 
-            .chip {
+            .chip-icon {
+                font-size: 2rem !important;
+            }
+
+            .chip-text {
                 font-size: 0.85rem !important;
-                padding: 10px 16px !important;
             }
 
             /* Hero CTAs - stack vertically */
@@ -972,7 +1020,7 @@
                     <div class="hero-text-content active" data-text="1">
                         <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Your Private Resort in Curaçao.</h1>
                         <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.</p>
-                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Your time. Your agenda. Your call.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Where it's all about you.</p>
                     </div>
 
                     <!-- Slide 2 Text -->
@@ -1024,15 +1072,36 @@
                     </a>
                 </div>
 
-                <!-- Trust Chips -->
-                <div class="hero-chips">
-                    <span class="chip">🚗 EV-SUV at your door</span>
-                    <span class="chip-separator">·</span>
-                    <span class="chip">⭐ 3 signature experiences included</span>
-                    <span class="chip-separator">·</span>
-                    <span class="chip">✓ Tips & electricity included</span>
-                    <span class="chip-separator">·</span>
-                    <span class="chip">🛡️ Logistics Guarantee</span>
+                <!-- Trust Chips - 4-Column Grid Layout -->
+                <div class="hero-chips-grid">
+                    <div class="chip-grid-item">
+                        <div class="chip-icon">🚗</div>
+                        <div class="chip-text">
+                            <div>EV-SUV at your door,</div>
+                            <div>charge for free at home.</div>
+                        </div>
+                    </div>
+                    <div class="chip-grid-item">
+                        <div class="chip-icon">⭐</div>
+                        <div class="chip-text">
+                            <div>3 signature</div>
+                            <div>experiences included</div>
+                        </div>
+                    </div>
+                    <div class="chip-grid-item">
+                        <div class="chip-icon">$</div>
+                        <div class="chip-text">
+                            <div>Gratitude, water,</div>
+                            <div>electricity & cleaning included</div>
+                        </div>
+                    </div>
+                    <div class="chip-grid-item">
+                        <div class="chip-icon">🛡️</div>
+                        <div class="chip-text">
+                            <div>Logistics</div>
+                            <div>Guarantee</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1051,7 +1120,7 @@
     <section class="comparison-section" style="padding: 120px 0; background: linear-gradient(to bottom, #FFFFFF, #F8FFFE);">
         <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 32px;">
             <div style="text-align: center; margin-bottom: 48px;">
-                <h2 style="font-size: 2.5rem; font-weight: 400; color: var(--tc-primary); margin-bottom: 16px; line-height: 1.3; letter-spacing: -0.01em;">Your time. Your agenda. Your call.</h2>
+                <h2 style="font-size: 2.5rem; font-weight: 400; color: var(--tc-primary); margin-bottom: 16px; line-height: 1.3; letter-spacing: -0.01em;">Where it's all about you.</h2>
                 <p style="font-size: 1.25rem; font-weight: 400; color: var(--charcoal); opacity: 0.9;">How a Private Resort beats hotels and rentals.</p>
             </div>
 
@@ -1621,7 +1690,7 @@
                 Stop planning the trip and start living the <span class="dushi-word" data-papiamento="Dushi Life" data-translation="The Good Life. A feeling of sweetness, beauty, and peace." style="font-style: italic; color: var(--tc-primary); text-decoration: underline dotted; text-underline-offset: 4px;">dushi life</span>. Choose your home and we'll hand you the <span style="font-weight: 600;">keys to the island</span>.
             </p>
 
-            <p style="font-size: 1.25rem; font-weight: 300; color: var(--charcoal); font-style: italic; opacity: 0.7; margin-bottom: 48px;">Your time. Your agenda. Your call.</p>
+            <p style="font-size: 1.25rem; font-weight: 300; color: var(--charcoal); font-style: italic; opacity: 0.7; margin-bottom: 48px;">Where it's all about you.</p>
 
             <!-- Large Dual CTAs -->
             <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 48px;">
