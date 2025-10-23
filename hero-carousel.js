@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         slideInterval = setInterval(function() {
             console.log('Auto-advancing to next slide');
             nextSlide();
-        }, 6000); // Change slide every 6 seconds
+        }, 12000); // Change slide every 12 seconds
     }
     
     function stopAutoPlay() {

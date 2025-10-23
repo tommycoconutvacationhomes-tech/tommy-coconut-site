@@ -1047,112 +1047,68 @@
             <button class="hero-dot" data-dot="6" aria-label="Go to slide 6"></button>
         </div>
     </section>
+    <!-- SECTION 5: MINI COMPARISON STRIP — Category of One -->
+    <section class="comparison-section" style="padding: 120px 0; background: linear-gradient(to bottom, #FFFFFF, #F8FFFE);">
+        <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 32px;">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2 style="font-size: 2.5rem; font-weight: 400; color: var(--tc-primary); margin-bottom: 16px; line-height: 1.3; letter-spacing: -0.01em;">Your time. Your agenda. Your call.</h2>
+                <p style="font-size: 1.25rem; font-weight: 400; color: var(--charcoal); opacity: 0.9;">How a Private Resort beats hotels and rentals.</p>
+            </div>
 
-    <!-- SECTION 2: VIGNETTE — First-Day Feeling -->
-    <section class="vignette-section">
-        <div class="vignette-container">
-            <div class="vignette-grid">
-                <!-- Left: Text Content -->
-                <div class="vignette-text-content">
-                    <h2 class="vignette-title">Be welcomed like a regular.</h2>
+            <!-- Comparison Table -->
+            <div class="comparison-table-wrapper" style="overflow-x: auto; margin-bottom: 32px;">
+                <table style="width: 100%; border-collapse: separate; border-spacing: 0; background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);">
+                    <!-- Header Row -->
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #62D0C9, #4FBDB6);">
+                            <th style="padding: 20px 24px; text-align: left; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white;"></th>
+                            <th style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white;">Hotel</th>
+                            <th style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white;">Vacation Rental</th>
+                            <th style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white; background: rgba(255, 255, 255, 0.1);">Private Resort<br/><span style="font-size: 0.75rem; font-weight: 400; text-transform: none; letter-spacing: 0;">(Tommy Coconut)</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row 1: Agenda -->
+                        <tr style="background: white; transition: background 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.03)'" onmouseout="this.style.background='white'">
+                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary); border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Agenda</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Their schedule</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Your schedule<br/>(admin heavy)</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08); border-bottom: 1px solid rgba(98, 208, 201, 0.15);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> Your schedule, zero friction</td>
+                        </tr>
 
-                    <p class="vignette-description">Skip the stress. Jeremiah meets you at the airport; your driver knows exactly where to go. When you arrive, Boy's there to welcome you home — the lights are on, the fridge is stocked, and your EV-SUV is charged.<br>This isn't just a stay — it's the start of your island story.</p>
-                </div>
+                        <!-- Row 2: Mobility -->
+                        <tr style="background: rgba(98, 208, 201, 0.03); transition: background 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.06)'" onmouseout="this.style.background='rgba(98, 208, 201, 0.03)'">
+                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary); border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Mobility</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Taxis/Valet</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Rental counters</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08); border-bottom: 1px solid rgba(98, 208, 201, 0.15);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> EV-SUV at home + free charging</td>
+                        </tr>
 
-                <!-- Right: Image Carousel -->
-                <div class="vignette-carousel">
-                    <div class="vignette-carousel-track">
-                        <!-- Slide 1 -->
-                        <div class="vignette-carousel-slide active">
-                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/happy-hideaway-5_pweor3" alt="Jeremiah welcoming guests curbside" class="vignette-carousel-image" loading="lazy">
-                        </div>
-                        <!-- Slide 2 -->
-                        <div class="vignette-carousel-slide">
-                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/d8463383-f65d-4a81-af95-3de747411fb4_zl6hvk" alt="Turquoise-accent EV-SUV charging at the villa" class="vignette-carousel-image" loading="lazy">
-                        </div>
-                        <!-- Slide 3 -->
-                        <div class="vignette-carousel-slide">
-                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/57454d6e-0ef4-468f-bed0-3a17e5e6b0a5_ildhqg" alt="Arrival fridge with drinks and fresh basics" class="vignette-carousel-image" loading="lazy">
-                        </div>
-                    </div>
+                        <!-- Row 3: Sea days -->
+                        <tr style="background: white; transition: background 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.03)'" onmouseout="this.style.background='white'">
+                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary); border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Sea days</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Group boats</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">DIY captains</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08); border-bottom: 1px solid rgba(98, 208, 201, 0.15);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> Private boat + captain included</td>
+                        </tr>
 
-                    <!-- Carousel Navigation Dots -->
-                    <div class="vignette-carousel-dots">
-                        <button class="vignette-dot active" data-slide="1" aria-label="Go to slide 1"></button>
-                        <button class="vignette-dot" data-slide="2" aria-label="Go to slide 2"></button>
-                        <button class="vignette-dot" data-slide="3" aria-label="Go to slide 3"></button>
-                    </div>
-                </div>
+                        <!-- Row 4: Feeling -->
+                        <tr style="background: rgba(98, 208, 201, 0.03);">
+                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary);">Feeling</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8;">Anonymous<br/>Guest</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8;">DIY Coordinator</td>
+                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> Welcomed like a regular</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Small CTA -->
+            <div style="text-align: center;">
+                <a href="why-a-private-resort.html" style="font-size: 0.9375rem; color: var(--tc-primary); text-decoration: underline; font-weight: 600; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">See full compare</a>
             </div>
         </div>
     </section>
-
-    <!-- SECTION 3: CONCIERGE OS — How Your Week Runs Itself -->
-    <section class="concierge-section" id="concierge-os">
-        <div class="concierge-container">
-            <h2 class="concierge-title">You text a vibe → we send options → you decide; you're expected.</h2>
-
-            <!-- 3-Step Process -->
-            <div class="concierge-steps-grid">
-                <!-- Step 1 -->
-                <div class="step-card">
-                    <div class="step-icon-circle">💬</div>
-                    <div class="step-content">
-                        <p class="step-label">Step 1</p>
-                        <h3 class="step-title">You text a vibe</h3>
-                        <div class="step-example">
-                            "Italian tonight, 19:00–20:30, quiet corner."
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="step-card">
-                    <div class="step-icon-circle">📋</div>
-                    <div class="step-content">
-                        <p class="step-label">Step 2</p>
-                        <h3 class="step-title">We send 3 options</h3>
-                        <div class="step-options">
-                            <div class="step-option-good">Good</div>
-                            <div class="step-option-great">Great</div>
-                            <div class="step-option-tommy">Tommy's Choice</div>
-                        </div>
-                        <p class="step-note">Menus + estimated price</p>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="step-card">
-                    <div class="step-icon-circle">✅</div>
-                    <div class="step-content">
-                        <p class="step-label">Step 3</p>
-                        <h3 class="step-title">You decide; we book</h3>
-                        <div class="step-result">
-                            <span class="step-checkmark">✓</span>
-                            <span>Pre-intro sent. Timed arrival. Best-available seat for your vibe.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Micro-pill -->
-            <div class="concierge-micro-pill">
-                <span style="opacity: 0.7;">💡 </span><span style="color: var(--tc-primary); font-weight: 600;">Two great lanes:</span> quiet terrace 19:40 or sunset 17:55. <span style="color: var(--tc-primary); font-weight: 600;">Your call.</span>
-            </div>
-
-            <!-- CTAs -->
-            <div class="concierge-cta-wrapper">
-                <a href="https://wa.me/59996707977?text=Hi! I need help planning my dushi week" target="_blank" rel="noopener" class="btn-whatsapp">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-label="WhatsApp"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Message concierge
-                </a>
-                <a href="contact.html" class="btn-concierge-secondary">
-                    Design my dushi week
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- SECTION 4: VALUE STACK — The Keys to the Island -->
     <section class="value-stack-section" id="value-stack" style="padding: 140px 0; background: white;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 32px;">
@@ -1222,70 +1178,6 @@
             </div>
         </div>
     </section>
-
-    <!-- SECTION 5: MINI COMPARISON STRIP — Category of One -->
-    <section class="comparison-section" style="padding: 120px 0; background: linear-gradient(to bottom, #FFFFFF, #F8FFFE);">
-        <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 32px;">
-            <div style="text-align: center; margin-bottom: 48px;">
-                <h2 style="font-size: 2.5rem; font-weight: 400; color: var(--tc-primary); margin-bottom: 16px; line-height: 1.3; letter-spacing: -0.01em;">Your time. Your agenda. Your call.</h2>
-                <p style="font-size: 1.25rem; font-weight: 400; color: var(--charcoal); opacity: 0.9;">How a Private Resort beats hotels and rentals.</p>
-            </div>
-
-            <!-- Comparison Table -->
-            <div class="comparison-table-wrapper" style="overflow-x: auto; margin-bottom: 32px;">
-                <table style="width: 100%; border-collapse: separate; border-spacing: 0; background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);">
-                    <!-- Header Row -->
-                    <thead>
-                        <tr style="background: linear-gradient(135deg, #62D0C9, #4FBDB6);">
-                            <th style="padding: 20px 24px; text-align: left; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white;"></th>
-                            <th style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white;">Hotel</th>
-                            <th style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white;">Vacation Rental</th>
-                            <th style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid white; background: rgba(255, 255, 255, 0.1);">Private Resort<br/><span style="font-size: 0.75rem; font-weight: 400; text-transform: none; letter-spacing: 0;">(Tommy Coconut)</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Row 1: Agenda -->
-                        <tr style="background: white; transition: background 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.03)'" onmouseout="this.style.background='white'">
-                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary); border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Agenda</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Their schedule</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Your schedule<br/>(admin heavy)</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08); border-bottom: 1px solid rgba(98, 208, 201, 0.15);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> Your schedule, zero friction</td>
-                        </tr>
-
-                        <!-- Row 2: Mobility -->
-                        <tr style="background: rgba(98, 208, 201, 0.03); transition: background 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.06)'" onmouseout="this.style.background='rgba(98, 208, 201, 0.03)'">
-                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary); border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Mobility</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Taxis/Valet</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Rental counters</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08); border-bottom: 1px solid rgba(98, 208, 201, 0.15);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> EV-SUV at home + free charging</td>
-                        </tr>
-
-                        <!-- Row 3: Sea days -->
-                        <tr style="background: white; transition: background 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.03)'" onmouseout="this.style.background='white'">
-                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary); border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Sea days</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">Group boats</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">DIY captains</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08); border-bottom: 1px solid rgba(98, 208, 201, 0.15);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> Private boat + captain included</td>
-                        </tr>
-
-                        <!-- Row 4: Feeling -->
-                        <tr style="background: rgba(98, 208, 201, 0.03);">
-                            <td style="padding: 20px 24px; font-size: 1.125rem; font-weight: 600; color: var(--tc-primary);">Feeling</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8;">Anonymous<br/>Guest</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; color: var(--charcoal); opacity: 0.8;">DIY Coordinator</td>
-                            <td style="padding: 20px 24px; text-align: center; font-size: 1rem; font-weight: 600; color: var(--tc-primary); background: rgba(98, 208, 201, 0.08);"><span style="color: #25D366; font-size: 1.125rem; margin-right: 4px;">✓</span> Welcomed like a regular</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Small CTA -->
-            <div style="text-align: center;">
-                <a href="why-a-private-resort.html" style="font-size: 0.9375rem; color: var(--tc-primary); text-decoration: underline; font-weight: 600; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">See full compare</a>
-            </div>
-        </div>
-    </section>
-
     <!-- SECTION 6: STAYS PREVIEW — Move to Booking -->
     <section class="stays-preview-section" id="stays-preview" style="padding: 120px 0; background: linear-gradient(135deg, #FAFAF8, #FFFFFF);">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 32px;">
@@ -1377,7 +1269,6 @@
             </div>
         </div>
     </section>
-
     <!-- SECTION 7: SOCIAL PROOF + THE HUMANS -->
     <section style="padding: var(--space-16) 0; background: var(--surface);">
         <div class="container">
@@ -1518,8 +1409,114 @@
                     Join 1,347+ Happy Guests
                 </a>
             </div>
+        </div>
+    </section>
+    <!-- SECTION 3: CONCIERGE OS — How Your Week Runs Itself -->
+    <section class="concierge-section" id="concierge-os">
+        <div class="concierge-container">
+            <h2 class="concierge-title">You text a vibe → we send options → you decide; you're expected.</h2>
 
-            <!-- Team Grid Section -->
+            <!-- 3-Step Process -->
+            <div class="concierge-steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-icon-circle">💬</div>
+                    <div class="step-content">
+                        <p class="step-label">Step 1</p>
+                        <h3 class="step-title">You text a vibe</h3>
+                        <div class="step-example">
+                            "Italian tonight, 19:00–20:30, quiet corner."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-icon-circle">📋</div>
+                    <div class="step-content">
+                        <p class="step-label">Step 2</p>
+                        <h3 class="step-title">We send 3 options</h3>
+                        <div class="step-options">
+                            <div class="step-option-good">Good</div>
+                            <div class="step-option-great">Great</div>
+                            <div class="step-option-tommy">Tommy's Choice</div>
+                        </div>
+                        <p class="step-note">Menus + estimated price</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-icon-circle">✅</div>
+                    <div class="step-content">
+                        <p class="step-label">Step 3</p>
+                        <h3 class="step-title">You decide; we book</h3>
+                        <div class="step-result">
+                            <span class="step-checkmark">✓</span>
+                            <span>Pre-intro sent. Timed arrival. Best-available seat for your vibe.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Micro-pill -->
+            <div class="concierge-micro-pill">
+                <span style="opacity: 0.7;">💡 </span><span style="color: var(--tc-primary); font-weight: 600;">Two great lanes:</span> quiet terrace 19:40 or sunset 17:55. <span style="color: var(--tc-primary); font-weight: 600;">Your call.</span>
+            </div>
+
+            <!-- CTAs -->
+            <div class="concierge-cta-wrapper">
+                <a href="https://wa.me/59996707977?text=Hi! I need help planning my dushi week" target="_blank" rel="noopener" class="btn-whatsapp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-label="WhatsApp"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Message concierge
+                </a>
+                <a href="contact.html" class="btn-concierge-secondary">
+                    Design my dushi week
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION 2: VIGNETTE — First-Day Feeling -->
+    <section class="vignette-section">
+        <div class="vignette-container">
+            <div class="vignette-grid">
+                <!-- Left: Text Content -->
+                <div class="vignette-text-content">
+                    <h2 class="vignette-title">Be welcomed like a regular.</h2>
+
+                    <p class="vignette-description">Skip the stress. Jeremiah meets you at the airport; your driver knows exactly where to go. When you arrive, Boy's there to welcome you home — the lights are on, the fridge is stocked, and your EV-SUV is charged.<br>This isn't just a stay — it's the start of your island story.</p>
+                </div>
+
+                <!-- Right: Image Carousel -->
+                <div class="vignette-carousel">
+                    <div class="vignette-carousel-track">
+                        <!-- Slide 1 -->
+                        <div class="vignette-carousel-slide active">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/happy-hideaway-5_pweor3" alt="Jeremiah welcoming guests curbside" class="vignette-carousel-image" loading="lazy">
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="vignette-carousel-slide">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/d8463383-f65d-4a81-af95-3de747411fb4_zl6hvk" alt="Turquoise-accent EV-SUV charging at the villa" class="vignette-carousel-image" loading="lazy">
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="vignette-carousel-slide">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/57454d6e-0ef4-468f-bed0-3a17e5e6b0a5_ildhqg" alt="Arrival fridge with drinks and fresh basics" class="vignette-carousel-image" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Carousel Navigation Dots -->
+                    <div class="vignette-carousel-dots">
+                        <button class="vignette-dot active" data-slide="1" aria-label="Go to slide 1"></button>
+                        <button class="vignette-dot" data-slide="2" aria-label="Go to slide 2"></button>
+                        <button class="vignette-dot" data-slide="3" aria-label="Go to slide 3"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION: MEET THE FAMILY — The Humans Behind the Magic -->
+    <section style="padding: var(--space-16) 0; background: var(--surface);">
+        <div class="container">
             <div style="margin-top: 96px; border-top: 1px solid rgba(98, 208, 201, 0.1); padding-top: 64px;">
                 <p style="text-align: center; font-size: 1.25rem; color: var(--charcoal); margin-bottom: 48px; font-weight: 300;">Meet the family who makes it feel effortless</p>
                 <div class="team-grid-container" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto;">
@@ -1584,10 +1581,8 @@
                         Learn more about our family
                     </a>
                 </div>
-            </div>
         </div>
     </section>
-
     <!-- SECTION 8: COCONUT CARTEL — Referral Band -->
     <section class="coconut-cartel-section" style="padding: 80px 0; background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 30%, #2C5F5F 70%, #1A4B52 100%);">
         <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 32px; text-align: center;">
@@ -1617,7 +1612,6 @@
             </div>
         </div>
     </section>
-
     <!-- SECTION 9: FINAL CLOSER — The Invitation -->
     <section class="final-closer-section" style="padding: 160px 0; background: linear-gradient(to bottom, #FFFFFF, #F8FFFE, #FAFAF8);">
         <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 32px; text-align: center;">
