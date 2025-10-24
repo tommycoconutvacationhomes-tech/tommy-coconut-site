@@ -2418,3 +2418,139 @@ a:hover, a:focus {
         padding: var(--space-3) var(--space-4);
     }
 }
+
+/* ================================================================
+   COMPARISON TABLE - MOBILE ACCORDION
+   ================================================================ */
+
+/* Hide desktop table on mobile, show accordion */
+@media (max-width: 768px) {
+    .comparison-table-desktop {
+        display: none !important;
+    }
+
+    .comparison-accordion {
+        display: block !important;
+    }
+}
+
+/* Accordion Container */
+.comparison-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Accordion Item */
+.accordion-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s ease;
+}
+
+.accordion-item.active {
+    box-shadow: 0 4px 16px rgba(98, 208, 201, 0.15);
+}
+
+/* Accordion Header (clickable) */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: rgba(98, 208, 201, 0.03);
+}
+
+.accordion-item.active .accordion-header {
+    background: rgba(98, 208, 201, 0.06);
+    border-bottom: 1px solid rgba(98, 208, 201, 0.15);
+}
+
+.accordion-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--tc-primary);
+    margin: 0;
+}
+
+.accordion-chevron {
+    font-size: 1.25rem;
+    color: var(--tc-primary);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+}
+
+.accordion-item.active .accordion-chevron {
+    transform: rotate(180deg);
+}
+
+/* Accordion Content (expandable) */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 20px;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 1000px;
+    padding: 20px;
+}
+
+/* Comparison Options within Accordion */
+.accordion-option {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.accordion-option:last-child {
+    border-bottom: none;
+}
+
+.accordion-option-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--charcoal);
+    opacity: 0.6;
+    margin-bottom: 8px;
+}
+
+.accordion-option-value {
+    font-size: 0.9375rem;
+    color: var(--charcoal);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* Private Resort option highlight */
+.accordion-option.private-resort {
+    background: rgba(98, 208, 201, 0.06);
+    margin: 0 -20px;
+    padding: 16px 20px;
+    border-left: 3px solid #62D0C9;
+}
+
+.accordion-option.private-resort .accordion-option-label {
+    color: var(--tc-primary);
+    opacity: 1;
+}
+
+.accordion-option.private-resort .accordion-option-value {
+    font-weight: 600;
+    color: var(--tc-primary);
+    opacity: 1;
+}
