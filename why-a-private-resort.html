@@ -85,7 +85,7 @@
     <style>
         /* Page-specific styles */
         .comparison-section {
-            padding: calc(var(--section-padding) * 1.5) 0;
+            padding: 140px 0;
             background: linear-gradient(to bottom, #FFFFFF 0%, #F8FFFE 100%);
         }
 
@@ -121,7 +121,7 @@
 
         .comparison-table-wrapper {
             overflow-x: auto;
-            margin-bottom: var(--space-12);
+            margin-bottom: 64px;
             padding: 0 var(--container-padding);
         }
 
@@ -138,12 +138,14 @@
         }
 
         .comparison-table thead th {
-            background: linear-gradient(135deg, var(--primary) 0%, #005A5B 100%);
+            background: linear-gradient(135deg, #62D0C9 0%, #4FBDB6 50%, #3FA9A3 100%);
             color: var(--white);
-            padding: var(--space-6);
-            font-weight: var(--weight-semibold);
+            padding: 28px 24px;
+            font-weight: 600;
             text-align: left;
-            font-size: var(--text-lg);
+            font-size: 1rem;
+            letter-spacing: 0.03em;
+            line-height: 1.4;
             border-bottom: 3px solid rgba(255, 255, 255, 0.2);
         }
 
@@ -153,41 +155,55 @@
 
         .comparison-table thead th:last-child {
             border-top-right-radius: 24px;
-            background: linear-gradient(135deg, #62D0C9 0%, #4FBDB6 100%);
-        }
-
-        .comparison-table tbody tr:hover {
-            background: rgba(98, 208, 201, 0.02);
+            background: linear-gradient(135deg, #4FBDB6 0%, #62D0C9 100%);
         }
 
         .comparison-table tbody td {
-            padding: var(--space-6);
+            padding: 32px 24px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-            font-size: var(--text-base);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.65;
             color: var(--charcoal);
             vertical-align: top;
         }
 
         .comparison-table tbody tr:last-child td {
             border-bottom: none;
+            padding: 40px 24px;
+            border-top: 2px solid rgba(98, 208, 201, 0.2);
+            background: linear-gradient(to bottom, rgba(98, 208, 201, 0.02) 0%, rgba(98, 208, 201, 0.06) 100%);
         }
 
         .comparison-table tbody td:first-child {
-            font-weight: var(--weight-semibold);
+            font-weight: 500;
             color: var(--teal);
-            font-size: var(--text-lg);
+            font-size: 1.125rem;
+            line-height: 1.5;
         }
 
         .comparison-table tbody td:last-child {
-            background: rgba(98, 208, 201, 0.06);
-            border-left: 3px solid #62D0C9;
-            font-weight: var(--weight-medium);
+            background: linear-gradient(to right, rgba(98, 208, 201, 0.08) 0%, rgba(98, 208, 201, 0.04) 100%);
+            border-left: 4px solid #62D0C9;
+            font-weight: 500;
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+
+        .comparison-table tbody tr:last-child td:last-child {
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.12) 0%, rgba(98, 208, 201, 0.08) 100%);
+            border-left: 5px solid #62D0C9;
+            padding: 40px;
+        }
+
+        .comparison-table tbody td:not(:first-child):not(:last-child) {
+            color: rgba(51, 51, 51, 0.7);
         }
 
         .comparison-notes {
             max-width: var(--container-max);
-            margin: var(--space-12) auto 0;
-            padding: 0 var(--container-padding);
+            margin: 64px auto 0;
+            padding: 40px 32px;
         }
 
         .comparison-notes h3 {
@@ -197,15 +213,15 @@
         }
 
         .comparison-notes .note {
-            background: rgba(98, 208, 201, 0.06);
+            background: rgba(98, 208, 201, 0.03);
             padding: var(--space-6);
-            border-radius: var(--radius-xl);
-            border-left: 4px solid var(--primary);
+            border-radius: 20px;
+            border-left: 3px solid rgba(98, 208, 201, 0.4);
             margin-bottom: var(--space-4);
         }
 
         .comparison-notes .note h4 {
-            font-size: var(--text-lg);
+            font-size: 1rem;
             margin-bottom: var(--space-2);
             color: var(--teal);
         }
@@ -213,15 +229,36 @@
         .comparison-notes .note p {
             color: var(--charcoal);
             margin-bottom: var(--space-3);
+            font-size: 1rem;
+            line-height: 1.65;
         }
 
         .comparison-notes .note ul {
-            margin-left: var(--space-6);
+            margin-left: 0;
+            padding-left: 0;
+            list-style: none;
             color: var(--charcoal);
         }
 
         .comparison-notes .note ul li {
-            margin-bottom: var(--space-2);
+            margin-bottom: 16px;
+            font-size: 1rem;
+            line-height: 1.65;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .comparison-notes .note ul li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+            opacity: 0.5;
+        }
+
+        .comparison-notes .note strong {
+            font-weight: 500;
+            color: var(--tc-primary);
         }
 
         .comparison-cta {
@@ -360,7 +397,7 @@
                             <td>One property</td>
                             <td>One property complex</td>
                             <td>One home; off-site mobility required (separate car rental or taxis)</td>
-                            <td><strong>Island-wide freedom</strong> (EV-SUV included; GPS easy navigation)</td>
+                            <td><strong style="font-weight: 600; color: var(--tc-primary);">Island-wide freedom</strong> (EV-SUV included; GPS easy navigation)</td>
                         </tr>
 
                         <!-- Row 3: Mobility -->
@@ -369,7 +406,7 @@
                             <td>Taxis/valet; occasional rental desk</td>
                             <td>Shuttles/queues; shared timing</td>
                             <td>Rental counters, contracts, deposits, insurance, policies</td>
-                            <td><strong>EV-SUV at home</strong> + free charging + GPS easy navigation</td>
+                            <td><strong style="font-weight: 600; color: var(--tc-primary);">EV-SUV at home</strong> + free charging + GPS easy navigation</td>
                         </tr>
 
                         <!-- Row 4: Dining -->
@@ -378,7 +415,7 @@
                             <td>On-site restaurants; limited timing; miss local hotspots, vibe & connections</td>
                             <td>Buffets & program times; miss local hotspots, vibe & connections</td>
                             <td>Find & book yourself; variable seats; limited local connections</td>
-                            <td><strong>Top local hotspots reserved</strong>; pre-intro; timed arrival; <strong>treated like regulars</strong></td>
+                            <td><strong style="font-weight: 600; color: var(--tc-primary);">Top local hotspots reserved</strong>; pre-intro; timed arrival; <strong style="font-weight: 600; color: var(--tc-primary);">treated like regulars</strong></td>
                         </tr>
 
                         <!-- Row 5: Experiences -->
@@ -387,7 +424,7 @@
                             <td>Group excursions (extra)</td>
                             <td>Group boats/activities (programmed)</td>
                             <td>DIY charters; availability varies</td>
-                            <td><strong>3 signature experiences included:</strong> private boat day, Friday Family & Friends cruise, private flamingo hike</td>
+                            <td><strong style="font-weight: 600; color: var(--tc-primary);">3 signature experiences included:</strong> private boat day, Friday Family & Friends cruise, private flamingo hike</td>
                         </tr>
 
                         <!-- Row 6: Beach & club access -->
@@ -396,7 +433,7 @@
                             <td>Priority on-property</td>
                             <td>On-property only</td>
                             <td>Public / first-come</td>
-                            <td><strong>Reserved access windows & parking</strong>; 4 beach clubs: Zanzibar, Papagayo, Koko's, Zest</td>
+                            <td><strong style="font-weight: 600; color: var(--tc-primary);">Reserved access windows & parking</strong>; 4 beach clubs: Zanzibar, Papagayo, Koko's, Zest</td>
                         </tr>
 
                         <!-- Row 7: Planning effort -->
@@ -468,7 +505,7 @@
                             <td>Great location—<em>their</em> property, <em>their</em> time, <em>their</em> agenda, <em>their</em> rules</td>
                             <td>Great complex—<em>their</em> program, <em>their</em> timing</td>
                             <td>Freedom with friction—<em>you</em> coordinate everything</td>
-                            <td><strong>Freedom without friction</strong> — the island is <strong>your</strong> resort</td>
+                            <td><strong style="font-weight: 600; color: var(--tc-primary);">Freedom without friction</strong> — the island is <strong style="font-weight: 600; color: var(--tc-primary);">your</strong> resort</td>
                         </tr>
                     </tbody>
                 </table>
@@ -498,17 +535,17 @@
                 <div class="note">
                     <h4>Private Resort Package includes</h4>
                     <ul>
-                        <li><strong>Luxury accommodation:</strong> Private villa or apartment with pool</li>
-                        <li><strong>EV-SUV:</strong> Tesla Model Y or BYD Atto 3 included (free charging at home)</li>
-                        <li><strong>Airport transfers:</strong> Jeremiah meets you at arrivals</li>
-                        <li><strong>Welcome provisions:</strong> Fridge stocked, lights on, home ready</li>
-                        <li><strong>3 signature experiences:</strong> Private boat day, Friday Family & Friends cruise, private flamingo hike</li>
-                        <li><strong>Beach club access:</strong> Reserved windows & parking at Zanzibar, Papagayo, Koko's, Zest</li>
-                        <li><strong>Restaurant reservations:</strong> Pre-intro at top local hotspots (meals not included)</li>
-                        <li><strong>WhatsApp Concierge:</strong> 3-option system (Good / Great / Tommy's Choice)</li>
-                        <li><strong>Family gear:</strong> Cribs, highchairs, snorkels, SUP/kayak, beach chairs, cooler, beach safe</li>
-                        <li><strong>Mid-stay housekeeping:</strong> Fresh linens, towels, and cleaning</li>
-                        <li><strong>No hidden fees:</strong> Tips, water, electricity, cleaning, and laundry included</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">Luxury accommodation:</strong> Private villa or apartment with pool</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">EV-SUV:</strong> Tesla Model Y or BYD Atto 3 included (free charging at home)</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">Airport transfers:</strong> Jeremiah meets you at arrivals</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">Welcome provisions:</strong> Fridge stocked, lights on, home ready</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">3 signature experiences:</strong> Private boat day, Friday Family & Friends cruise, private flamingo hike</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">Beach club access:</strong> Reserved windows & parking at Zanzibar, Papagayo, Koko's, Zest</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">Restaurant reservations:</strong> Pre-intro at top local hotspots (meals not included)</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">WhatsApp Concierge:</strong> 3-option system (Good / Great / Tommy's Choice)</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">Family gear:</strong> Cribs, highchairs, snorkels, SUP/kayak, beach chairs, cooler, beach safe</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">Mid-stay housekeeping:</strong> Fresh linens, towels, and cleaning</li>
+                        <li><strong style="font-weight: 500; color: var(--tc-primary);">No hidden fees:</strong> Tips, water, electricity, cleaning, and laundry included</li>
                     </ul>
                 </div>
 
@@ -621,35 +658,35 @@
                     hotel: 'One property',
                     allInclusive: 'One property complex',
                     vacationRental: 'One home; off-site mobility required (separate car rental or taxis)',
-                    privateResort: '<strong>Island-wide freedom</strong> (EV-SUV included; GPS easy navigation)'
+                    privateResort: '<strong style="font-weight: 600; color: var(--tc-primary);">Island-wide freedom</strong> (EV-SUV included; GPS easy navigation)'
                 },
                 {
                     axis: 'Mobility',
                     hotel: 'Taxis/valet; occasional rental desk',
                     allInclusive: 'Shuttles/queues; shared timing',
                     vacationRental: 'Rental counters, contracts, deposits, insurance, policies',
-                    privateResort: '<strong>EV-SUV at home</strong> + free charging + GPS easy navigation'
+                    privateResort: '<strong style="font-weight: 600; color: var(--tc-primary);">EV-SUV at home</strong> + free charging + GPS easy navigation'
                 },
                 {
                     axis: 'Dining',
                     hotel: 'On-site restaurants; limited timing; miss local hotspots, vibe & connections',
                     allInclusive: 'Buffets & program times; miss local hotspots, vibe & connections',
                     vacationRental: 'Find & book yourself; variable seats; limited local connections',
-                    privateResort: '<strong>Top local hotspots reserved</strong>; pre-intro; timed arrival; <strong>treated like regulars</strong>'
+                    privateResort: '<strong style="font-weight: 600; color: var(--tc-primary);">Top local hotspots reserved</strong>; pre-intro; timed arrival; <strong style="font-weight: 600; color: var(--tc-primary);">treated like regulars</strong>'
                 },
                 {
                     axis: 'Experiences',
                     hotel: 'Group excursions (extra)',
                     allInclusive: 'Group boats/activities (programmed)',
                     vacationRental: 'DIY charters; availability varies',
-                    privateResort: '<strong>3 signature experiences included:</strong> private boat day, Friday Family & Friends cruise, private flamingo hike'
+                    privateResort: '<strong style="font-weight: 600; color: var(--tc-primary);">3 signature experiences included:</strong> private boat day, Friday Family & Friends cruise, private flamingo hike'
                 },
                 {
                     axis: 'Beach & club access',
                     hotel: 'Priority on-property',
                     allInclusive: 'On-property only',
                     vacationRental: 'Public / first-come',
-                    privateResort: '<strong>Reserved access windows & parking</strong>; 4 beach clubs: Zanzibar, Papagayo, Koko\'s, Zest'
+                    privateResort: '<strong style="font-weight: 600; color: var(--tc-primary);">Reserved access windows & parking</strong>; 4 beach clubs: Zanzibar, Papagayo, Koko\'s, Zest'
                 },
                 {
                     axis: 'Planning effort',
@@ -705,7 +742,7 @@
                     hotel: 'Great location—<em>their</em> property, <em>their</em> time, <em>their</em> agenda, <em>their</em> rules',
                     allInclusive: 'Great complex—<em>their</em> program, <em>their</em> timing',
                     vacationRental: 'Freedom with friction—<em>you</em> coordinate everything',
-                    privateResort: '<strong>Freedom without friction</strong> — the island is <strong>your</strong> resort'
+                    privateResort: '<strong style="font-weight: 600; color: var(--tc-primary);">Freedom without friction</strong> — the island is <strong style="font-weight: 600; color: var(--tc-primary);">your</strong> resort'
                 }
             ];
 
