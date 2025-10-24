@@ -2459,13 +2459,15 @@ a:hover, a:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 24px 20px;
+    min-height: 72px;
     background: white;
     border: none;
     width: 100%;
     text-align: left;
     cursor: pointer;
     transition: background 0.3s ease;
+    -webkit-tap-highlight-color: rgba(98, 208, 201, 0.1);
 }
 
 .accordion-header:hover {
@@ -2478,16 +2480,18 @@ a:hover, a:focus {
 }
 
 .accordion-title {
-    font-size: 1.0625rem;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 500;
     color: var(--tc-primary);
     margin: 0;
 }
 
 .accordion-chevron {
+    width: 20px;
+    height: 20px;
     font-size: 1.25rem;
     color: var(--tc-primary);
-    transition: transform 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     flex-shrink: 0;
     margin-left: 12px;
 }
@@ -2500,7 +2504,8 @@ a:hover, a:focus {
 .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0 20px;
 }
 
@@ -2538,10 +2543,12 @@ a:hover, a:focus {
 
 /* Private Resort option highlight */
 .accordion-option.private-resort {
-    background: rgba(98, 208, 201, 0.06);
-    margin: 0 -20px;
-    padding: 16px 20px;
-    border-left: 3px solid #62D0C9;
+    background: linear-gradient(to right,
+        rgba(98, 208, 201, 0.1) 0%,
+        rgba(98, 208, 201, 0.05) 100%);
+    margin: 8px -20px 0;
+    padding: 20px 20px;
+    border-left: 4px solid #62D0C9;
 }
 
 .accordion-option.private-resort .accordion-option-label {
@@ -2550,7 +2557,23 @@ a:hover, a:focus {
 }
 
 .accordion-option.private-resort .accordion-option-value {
-    font-weight: 600;
+    font-weight: 500;
     color: var(--tc-primary);
     opacity: 1;
+}
+
+/* Enhanced active state for accordion */
+.accordion-item.active {
+    box-shadow: 0 8px 24px rgba(98, 208, 201, 0.2);
+}
+
+/* Mobile section padding */
+@media (max-width: 768px) {
+    .comparison-section {
+        padding: 80px 0;
+    }
+
+    .comparison-accordion {
+        gap: 16px;
+    }
 }
