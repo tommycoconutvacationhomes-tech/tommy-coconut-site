@@ -508,16 +508,27 @@
                 font-size: 1rem;
             }
 
-            /* Carousel dots - smaller on mobile */
+            /* Carousel dots - smaller on mobile with horizontal scroll */
             .hero-carousel-dots {
                 bottom: 1rem;
                 padding: 8px 16px;
                 gap: 8px;
+                max-width: 90%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                justify-content: flex-start;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE and Edge */
+            }
+
+            .hero-carousel-dots::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Opera */
             }
 
             .hero-dot {
                 width: 8px;
                 height: 8px;
+                flex-shrink: 0;
             }
 
             .hero-dot.active {
@@ -975,39 +986,75 @@
     <section class="hero" id="main-content">
         <!-- Hero Carousel -->
         <div class="hero-carousel">
-            <!-- Slide 1: Arrival -->
-            <div class="hero-slide active" data-slide="1">
+            <!-- Slide 0: Your Private Resort -->
+            <div class="hero-slide active" data-slide="0">
                 <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/819b0e94-96d7-4b7a-98d5-4843d5b0a122_rbk4en')"></div>
                 <div class="hero-slide-overlay"></div>
             </div>
 
-            <!-- Slide 2: Arrival Experience -->
+            <!-- Slide 1: Arrival (Jeremiah & Boy) -->
+            <div class="hero-slide" data-slide="1">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/819b0e94-96d7-4b7a-98d5-4843d5b0a122_rbk4en')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 2: Reveal (home + stocked fridge) -->
             <div class="hero-slide" data-slide="2">
                 <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-5_pweor3')"></div>
                 <div class="hero-slide-overlay"></div>
             </div>
 
-            <!-- Slide 3: Pool Moments -->
+            <!-- Slide 3: EV-SUV (keys to the island) -->
             <div class="hero-slide" data-slide="3">
-                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/ace13210-506b-4143-915f-001bf71166c3_jhryvm')"></div>
-                <div class="hero-slide-overlay"></div>
-            </div>
-
-            <!-- Slide 4: Island Adventure -->
-            <div class="hero-slide" data-slide="4">
                 <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/9f97bb52-0859-4d47-85cb-866836c8e0ff_mc4hrr')"></div>
                 <div class="hero-slide-overlay"></div>
             </div>
 
-            <!-- Slide 5: Sunset Experience -->
+            <!-- Slide 4: Private boat & captain -->
+            <div class="hero-slide" data-slide="4">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/0d19be00-f37f-4b0b-b48a-50e5b58ed35b_jujf2g')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 5: Flamazing hike (Happy & Lucky) -->
             <div class="hero-slide" data-slide="5">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/ace13210-506b-4143-915f-001bf71166c3_jhryvm')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 6: Concierge on WhatsApp -->
+            <div class="hero-slide" data-slide="6">
                 <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-38_jtogtx')"></div>
                 <div class="hero-slide-overlay"></div>
             </div>
 
-            <!-- Slide 6: Private Moments -->
-            <div class="hero-slide" data-slide="6">
+            <!-- Slide 7: Reviews -->
+            <div class="hero-slide" data-slide="7">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-5_pweor3')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 8: Curaçao -->
+            <div class="hero-slide" data-slide="8">
                 <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/0d19be00-f37f-4b0b-b48a-50e5b58ed35b_jujf2g')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 9: Underwater -->
+            <div class="hero-slide" data-slide="9">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/9f97bb52-0859-4d47-85cb-866836c8e0ff_mc4hrr')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 10: The family -->
+            <div class="hero-slide" data-slide="10">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/819b0e94-96d7-4b7a-98d5-4843d5b0a122_rbk4en')"></div>
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 11: Tommy -->
+            <div class="hero-slide" data-slide="11">
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/ace13210-506b-4143-915f-001bf71166c3_jhryvm')"></div>
                 <div class="hero-slide-overlay"></div>
             </div>
         </div>
@@ -1016,46 +1063,88 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <!-- Slide 1 Text -->
-                    <div class="hero-text-content active" data-text="1">
+                    <!-- Slide 0 Text: Your Private Resort -->
+                    <div class="hero-text-content active" data-text="0">
                         <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Your Private Resort in Curaçao.</h1>
                         <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.</p>
                         <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Where it's all about you.</p>
                     </div>
 
-                    <!-- Slide 2 Text -->
-                    <div class="hero-text-content" data-text="2">
+                    <!-- Slide 1 Text: Arrival -->
+                    <div class="hero-text-content" data-text="1">
                         <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Arrive like you were expected.</h1>
-                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">No rental counters. No lines. Jeremiah greets you at arrivals and brings you home—where Boy is waiting with the keys.</p>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">No rental counters. Jeremiah greets you, drives you home; Boy is waiting with the keys.</p>
                         <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Your private resort, where the only policy is you.</p>
                     </div>
 
-                    <!-- Slide 3 Text -->
+                    <!-- Slide 2 Text: Reveal -->
+                    <div class="hero-text-content" data-text="2">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Bon Bini to your home away from home.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Groceries in place, Sonos on repeat "No shoes, no news, no problemos", pool shimmering.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Be welcomed like a regular.</p>
+                    </div>
+
+                    <!-- Slide 3 Text: EV-SUV -->
                     <div class="hero-text-content" data-text="3">
-                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Arrive. Breathe. Repeat.</h1>
-                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Your private infinity pool awaits. No schedules, no crowds, no compromise—just pure Caribbean tranquility.</p>
-                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">This is your sanctuary.</p>
-                    </div>
-
-                    <!-- Slide 4 Text -->
-                    <div class="hero-text-content" data-text="4">
                         <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Explore on your terms.</h1>
-                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Your EV-SUV is fully charged and ready. Hidden beaches, local gems, secret spots—discover Curaçao like an islander.</p>
-                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">The island is yours to discover.</p>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">EV-SUV fully charged at home—no counters, no taxis, no limits.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">The island is yours.</p>
                     </div>
 
-                    <!-- Slide 5 Text -->
+                    <!-- Slide 4 Text: Private boat -->
+                    <div class="hero-text-content" data-text="4">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Sea days, done right.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Private boat included; crowds not invited.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Easy does it.</p>
+                    </div>
+
+                    <!-- Slide 5 Text: Flamingos -->
                     <div class="hero-text-content" data-text="5">
-                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Sunsets you'll never forget.</h1>
-                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Your private boat captain knows the perfect spot. Three sunset trips included—because some moments deserve to be on the water.</p>
-                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Magic happens at golden hour.</p>
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Morning belongs to the flamingos.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Happy & Lucky lead the way; soft light, quiet steps.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Sunrise done right.</p>
                     </div>
 
-                    <!-- Slide 6 Text -->
+                    <!-- Slide 6 Text: Concierge -->
                     <div class="hero-text-content" data-text="6">
-                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Memories that feel timeless.</h1>
-                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">From sunrise coffee to starlit conversations. This is where your family's favorite stories begin.</p>
-                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Welcome to your villa. Welcome home.</p>
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">The island is your resort.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Text us "Italian tonight." We send Good / Great / Tommy's Choice—menus included.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">You decide; we book—you're expected.</p>
+                    </div>
+
+                    <!-- Slide 7 Text: Reviews -->
+                    <div class="hero-text-content" data-text="7">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">"Night one felt easy."</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">4.99★ across 500+ stays—thank you for the love.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Real reviews. Real ease.</p>
+                    </div>
+
+                    <!-- Slide 8 Text: Curaçao -->
+                    <div class="hero-text-content" data-text="8">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Postcards are jealous.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Pastel streets, turquoise bays, warm nights on the terrace.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Come see for yourself.</p>
+                    </div>
+
+                    <!-- Slide 9 Text: Underwater -->
+                    <div class="hero-text-content" data-text="9">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Treasures beneath the hush.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Reef gardens, easy entries, clear mornings.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">We'll point you there.</p>
+                    </div>
+
+                    <!-- Slide 10 Text: The family -->
+                    <div class="hero-text-content" data-text="10">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">Meet the people behind the ease.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Family-run, island-proud, always two steps ahead.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">We've been expecting you.</p>
+                    </div>
+
+                    <!-- Slide 11 Text: Tommy -->
+                    <div class="hero-text-content" data-text="11">
+                        <h1 style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3.5rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;">From treasure maps to memory-making.</h1>
+                        <p class="hero-subhead" style="color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 1.5rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">Tommy traded finds for families—now he curates your best weeks.</p>
+                        <p class="hero-brand-line" style="color: var(--white); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-size: 1rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem;">Still hunting the good stuff.</p>
                     </div>
                 </div>
 
@@ -1108,12 +1197,18 @@
 
         <!-- Carousel Navigation Dots -->
         <div class="hero-carousel-dots">
-            <button class="hero-dot active" data-dot="1" aria-label="Go to slide 1"></button>
-            <button class="hero-dot" data-dot="2" aria-label="Go to slide 2"></button>
-            <button class="hero-dot" data-dot="3" aria-label="Go to slide 3"></button>
-            <button class="hero-dot" data-dot="4" aria-label="Go to slide 4"></button>
-            <button class="hero-dot" data-dot="5" aria-label="Go to slide 5"></button>
-            <button class="hero-dot" data-dot="6" aria-label="Go to slide 6"></button>
+            <button class="hero-dot active" data-dot="0" aria-label="Go to slide 1"></button>
+            <button class="hero-dot" data-dot="1" aria-label="Go to slide 2"></button>
+            <button class="hero-dot" data-dot="2" aria-label="Go to slide 3"></button>
+            <button class="hero-dot" data-dot="3" aria-label="Go to slide 4"></button>
+            <button class="hero-dot" data-dot="4" aria-label="Go to slide 5"></button>
+            <button class="hero-dot" data-dot="5" aria-label="Go to slide 6"></button>
+            <button class="hero-dot" data-dot="6" aria-label="Go to slide 7"></button>
+            <button class="hero-dot" data-dot="7" aria-label="Go to slide 8"></button>
+            <button class="hero-dot" data-dot="8" aria-label="Go to slide 9"></button>
+            <button class="hero-dot" data-dot="9" aria-label="Go to slide 10"></button>
+            <button class="hero-dot" data-dot="10" aria-label="Go to slide 11"></button>
+            <button class="hero-dot" data-dot="11" aria-label="Go to slide 12"></button>
         </div>
     </section>
     <!-- SECTION 5: COMPREHENSIVE COMPARISON — How a Private Resort Beats Hotels, Rentals & All-Inclusives -->
