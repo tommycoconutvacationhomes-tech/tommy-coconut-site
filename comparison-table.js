@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Comparison data for 6 rows (homepage version)
+    // Comparison data for 5 rows (homepage version)
     const comparisonData = [
         {
             axis: 'Arrival',
@@ -13,13 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
             allInclusive: 'Shuttle + wristband desk',
             vacationRental: 'Self check-in; first errands for groceries/car',
             privateResort: 'Airport welcome; lights on at home; fridge stocked; EV ready'
-        },
-        {
-            axis: 'Where you can go',
-            hotel: 'One property',
-            allInclusive: 'One property complex',
-            vacationRental: 'One home; off-site mobility required (separate car rental or taxis)',
-            privateResort: '<strong>Island-wide freedom</strong> (EV-SUV included; GPS easy navigation)'
         },
         {
             axis: 'Mobility',
