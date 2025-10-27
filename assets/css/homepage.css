@@ -254,9 +254,9 @@
     padding: 120px 0;
     background:
         linear-gradient(135deg,
-            rgba(250, 250, 248, 0.95) 0%,
-            rgba(255, 255, 255, 0.92) 50%,
-            rgba(248, 255, 254, 0.95) 100%
+            rgba(250, 250, 248, 0.50) 0%,
+            rgba(255, 255, 255, 0.45) 50%,
+            rgba(248, 255, 254, 0.50) 100%
         ),
         url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/39c06205-48ba-43e4-b9cf-9769f5bf498d_oyugos');
     background-size: cover;
@@ -279,6 +279,7 @@
     line-height: 1.3;
     margin-bottom: 64px;
     text-align: center;
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
 }
 
 .concierge-steps-grid {
