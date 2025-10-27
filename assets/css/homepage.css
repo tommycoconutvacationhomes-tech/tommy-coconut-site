@@ -443,6 +443,25 @@
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
+.btn-concierge-primary {
+    font-size: 1rem;
+    padding: 14px 28px;
+    color: white !important;
+    background: var(--tc-primary);
+    border-radius: 48px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 16px rgba(98, 208, 201, 0.3);
+}
+
+.btn-concierge-primary:hover {
+    background: #4FBDB6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(98, 208, 201, 0.4);
+}
+
 .btn-concierge-secondary {
     font-size: 1rem;
     padding: 14px 28px;
