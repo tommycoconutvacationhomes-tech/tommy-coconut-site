@@ -252,7 +252,18 @@
 
 .concierge-section {
     padding: 120px 0;
-    background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 50%, #F8FFFE 100%);
+    background:
+        linear-gradient(135deg,
+            rgba(250, 250, 248, 0.95) 0%,
+            rgba(255, 255, 255, 0.92) 50%,
+            rgba(248, 255, 254, 0.95) 100%
+        ),
+        url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/39c06205-48ba-43e4-b9cf-9769f5bf498d_oyugos');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
 }
 
 .concierge-container {
@@ -875,6 +886,30 @@
         min-width: auto;
         padding: 18px 32px;
         font-size: 1.125rem;
+    }
+
+    /* Concierge Section Mobile Optimization */
+    .concierge-section {
+        padding: 80px 0;
+        background-attachment: scroll;
+    }
+
+    .concierge-container {
+        padding: 0 20px;
+    }
+
+    .concierge-title {
+        font-size: 1.75rem;
+        margin-bottom: 48px;
+    }
+
+    .concierge-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .step-card {
+        padding: 24px;
     }
 }
 
