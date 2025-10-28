@@ -1365,24 +1365,64 @@
     <!-- SECTION: HOW A WEEK WITH US FEELS LIKE -->
     <section class="week-feels-section" id="week-feels">
         <div class="week-feels-container">
-            <div class="week-feels-header">
-                <h2 class="week-feels-title">How a week with us feels like</h2>
-                <p class="week-feels-subtitle">Be welcomed like a regular.</p>
-            </div>
+            <div class="week-feels-grid">
+                <!-- Left: Text Content -->
+                <div class="week-feels-text-content">
+                    <div class="week-feels-header">
+                        <h2 class="week-feels-title">How a week with us feels like</h2>
+                        <p class="week-feels-subtitle">Be welcomed like a regular.</p>
+                    </div>
 
-            <div class="week-feels-content">
-                <p class="week-feels-body">
-                    Skip the stress. Your driver Jeremiah meets you at the airport. When you arrive, Boy's there to welcome you home — the lights are on, the fridge is stocked, and he hands you the keys to the island: your EV-SUV, fully charged 38 beaches pre-loaded. This isn't just a stay — this is the Tommy Coconut private resort experience; where it's all about you. Your time. Your agenda. Your Call.
-                </p>
-            </div>
+                    <div class="week-feels-content">
+                        <p class="week-feels-body">
+                            Skip the stress. Your driver Jeremiah meets you at the airport. When you arrive, Boy's there to welcome you home — the lights are on, the fridge is stocked, and he hands you the keys to the island: your EV-SUV, fully charged 38 beaches pre-loaded. This isn't just a stay — this is the Tommy Coconut private resort experience; where it's all about you. Your time. Your agenda. Your Call.
+                        </p>
+                    </div>
 
-            <div class="week-feels-cta-wrapper">
-                <a href="rentals.html" class="btn-week-primary">
-                    Choose Private Resort
-                </a>
-                <a href="treasure-map.html" class="btn-week-secondary">
-                    Design my dushi week
-                </a>
+                    <div class="week-feels-cta-wrapper">
+                        <a href="rentals.html" class="btn-week-primary">
+                            Choose Private Resort
+                        </a>
+                        <a href="treasure-map.html" class="btn-week-secondary">
+                            Design my dushi week
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Image Carousel -->
+                <div class="week-feels-carousel">
+                    <div class="week-feels-carousel-track">
+                        <!-- Slide 1: Airport Arrival / Jeremiah -->
+                        <div class="week-feels-carousel-slide active">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/happy-hideaway-5_pweor3" alt="Jeremiah welcoming guests at the airport" class="week-feels-carousel-image" loading="lazy">
+                        </div>
+                        <!-- Slide 2: Villa Welcome / Boy -->
+                        <div class="week-feels-carousel-slide">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/819b0e94-96d7-4b7a-98d5-4843d5b0a122_rbk4en" alt="Villa welcome with Boy at the entrance" class="week-feels-carousel-image" loading="lazy">
+                        </div>
+                        <!-- Slide 3: Stocked Fridge -->
+                        <div class="week-feels-carousel-slide">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/57454d6e-0ef4-468f-bed0-3a17e5e6b0a5_ildhqg" alt="Arrival fridge stocked with drinks and fresh basics" class="week-feels-carousel-image" loading="lazy">
+                        </div>
+                        <!-- Slide 4: EV-SUV -->
+                        <div class="week-feels-carousel-slide">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/d8463383-f65d-4a81-af95-3de747411fb4_zl6hvk" alt="Turquoise-accent EV-SUV charged and ready" class="week-feels-carousel-image" loading="lazy">
+                        </div>
+                        <!-- Slide 5: Beach Scene -->
+                        <div class="week-feels-carousel-slide">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/Playa%20Piskado_kxq0rz" alt="Beautiful Curacao beach scene" class="week-feels-carousel-image" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Carousel Navigation Dots -->
+                    <div class="week-feels-carousel-dots">
+                        <button class="week-feels-dot active" data-slide="1" aria-label="Go to slide 1"></button>
+                        <button class="week-feels-dot" data-slide="2" aria-label="Go to slide 2"></button>
+                        <button class="week-feels-dot" data-slide="3" aria-label="Go to slide 3"></button>
+                        <button class="week-feels-dot" data-slide="4" aria-label="Go to slide 4"></button>
+                        <button class="week-feels-dot" data-slide="5" aria-label="Go to slide 5"></button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -2358,6 +2398,119 @@
                     stopVignetteAutoplay();
                 } else {
                     startVignetteAutoplay();
+                }
+            });
+        });
+    </script>
+
+    <!-- Week Feels Carousel Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const weekFeelsSlides = document.querySelectorAll('.week-feels-carousel-slide');
+            const weekFeelsDots = document.querySelectorAll('.week-feels-dot');
+            let currentWeekFeelsSlide = 0;
+            const totalWeekFeelsSlides = weekFeelsSlides.length;
+            let weekFeelsAutoplayInterval;
+            let isWeekFeelsTransitioning = false;
+
+            // Function to go to a specific slide
+            function goToWeekFeelsSlide(index) {
+                if (isWeekFeelsTransitioning) return;
+                isWeekFeelsTransitioning = true;
+
+                // Remove active class from current slide and dot
+                weekFeelsSlides[currentWeekFeelsSlide].classList.remove('active');
+                weekFeelsDots[currentWeekFeelsSlide].classList.remove('active');
+
+                // Update current slide index
+                currentWeekFeelsSlide = index;
+
+                // Add active class to new slide and dot
+                weekFeelsSlides[currentWeekFeelsSlide].classList.add('active');
+                weekFeelsDots[currentWeekFeelsSlide].classList.add('active');
+
+                // Allow transitions after animation completes
+                setTimeout(() => {
+                    isWeekFeelsTransitioning = false;
+                }, 800);
+            }
+
+            // Next slide
+            function nextWeekFeelsSlide() {
+                const nextIndex = (currentWeekFeelsSlide + 1) % totalWeekFeelsSlides;
+                goToWeekFeelsSlide(nextIndex);
+            }
+
+            // Previous slide
+            function prevWeekFeelsSlide() {
+                const prevIndex = (currentWeekFeelsSlide - 1 + totalWeekFeelsSlides) % totalWeekFeelsSlides;
+                goToWeekFeelsSlide(prevIndex);
+            }
+
+            // Autoplay controls
+            function startWeekFeelsAutoplay() {
+                stopWeekFeelsAutoplay();
+                weekFeelsAutoplayInterval = setInterval(nextWeekFeelsSlide, 4000); // 4 seconds per slide
+            }
+
+            function stopWeekFeelsAutoplay() {
+                if (weekFeelsAutoplayInterval) {
+                    clearInterval(weekFeelsAutoplayInterval);
+                    weekFeelsAutoplayInterval = null;
+                }
+            }
+
+            // Dot navigation
+            weekFeelsDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToWeekFeelsSlide(index);
+                });
+            });
+
+            // Touch/Swipe support for mobile
+            let weekFeelsTouchStartX = 0;
+            let weekFeelsTouchEndX = 0;
+            const weekFeelsCarousel = document.querySelector('.week-feels-carousel');
+
+            if (weekFeelsCarousel) {
+                weekFeelsCarousel.addEventListener('touchstart', (e) => {
+                    weekFeelsTouchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                weekFeelsCarousel.addEventListener('touchend', (e) => {
+                    weekFeelsTouchEndX = e.changedTouches[0].screenX;
+                    handleWeekFeelsSwipe();
+                }, { passive: true });
+
+                function handleWeekFeelsSwipe() {
+                    const swipeThreshold = 50;
+                    const diff = weekFeelsTouchStartX - weekFeelsTouchEndX;
+
+                    if (Math.abs(diff) > swipeThreshold) {
+                        if (diff > 0) {
+                            // Swipe left - next slide
+                            nextWeekFeelsSlide();
+                        } else {
+                            // Swipe right - previous slide
+                            prevWeekFeelsSlide();
+                        }
+                    }
+                }
+
+                // Pause autoplay when user hovers over carousel
+                weekFeelsCarousel.addEventListener('mouseenter', stopWeekFeelsAutoplay);
+                weekFeelsCarousel.addEventListener('mouseleave', startWeekFeelsAutoplay);
+            }
+
+            // Start autoplay on load
+            startWeekFeelsAutoplay();
+
+            // Pause autoplay when page is not visible
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    stopWeekFeelsAutoplay();
+                } else {
+                    startWeekFeelsAutoplay();
                 }
             });
         });
