@@ -2694,6 +2694,7 @@ a:hover, a:focus {
     position: relative;
     width: 100%;
     aspect-ratio: 4 / 3;
+    min-height: 400px;
 }
 
 .week-feels-carousel-slide {
@@ -2703,12 +2704,14 @@ a:hover, a:focus {
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
 }
 
 .week-feels-carousel-slide.active {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
@@ -2810,6 +2813,7 @@ a:hover, a:focus {
 
     .week-feels-carousel-track {
         aspect-ratio: 3 / 2;
+        min-height: 300px;
     }
 }
 
