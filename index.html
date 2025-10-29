@@ -845,18 +845,19 @@
                 gap: 24px !important;
             }
 
-            .property-card img {
+            .property-card > div[style*="height: 280px"] {
                 height: 250px !important;
             }
 
-            /* Team grid - 2 columns on mobile */
-            .team-grid-container {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 24px !important;
+            /* Ensure property card content areas have consistent min-height for button alignment */
+            .property-card > div[style*="padding"] {
+                min-height: 480px;
             }
 
-            .team-grid-container > div:last-child {
-                grid-column: 1 / -1 !important;
+            /* Team grid - 1 column on mobile for symmetry */
+            .team-grid-container {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
             }
 
             /* Coconut Cartel - adjust padding */
@@ -2733,6 +2734,13 @@
             const teamSectionWrapper = document.querySelector('.team-section-wrapper');
             if (teamSectionWrapper) {
                 teamSectionObserver.observe(teamSectionWrapper);
+
+                // Fallback: ensure section is visible after 3 seconds even if observer doesn't fire
+                setTimeout(() => {
+                    if (!teamSectionWrapper.classList.contains('in-view')) {
+                        teamSectionWrapper.classList.add('in-view');
+                    }
+                }, 3000);
             }
         });
     </script>

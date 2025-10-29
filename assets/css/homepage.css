@@ -477,7 +477,9 @@
     transition: all 0.3s ease;
     font-weight: 600;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 4px 16px rgba(98, 208, 201, 0.3);
 }
 
