@@ -938,10 +938,12 @@ a:hover, a:focus {
 
 .hero-content {
     max-width: 900px;
+    margin: 0 auto;
     padding: 0 var(--gutter);
     z-index: 5;
     position: relative;
     animation: heroFadeIn 1.2s ease-out;
+    text-align: center;
 }
 
 .hero-text {
