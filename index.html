@@ -1036,7 +1036,7 @@
 
             <!-- Slide 4: Private boat & captain (Sea Days Done Right / Suerte Fuik) -->
             <div class="hero-slide" data-slide="4">
-                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/IMG_3177_sh2t6d')"></div>
+                <div class="hero-slide-image" style="background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/abe759c3-b45d-43f5-8403-8b8c5e33b7ad_zio4dx')"></div>
                 <div class="hero-slide-overlay"></div>
             </div>
 
@@ -1541,7 +1541,7 @@
                     <div style="display: flex; gap: var(--space-10); align-items: center; flex-wrap: wrap;">
                         <!-- Image Left -->
                         <div style="flex: 0 0 380px; min-width: 280px;">
-                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,h_600,c_fill/IMG_3177_sh2t6d"
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,h_600,c_fill/abe759c3-b45d-43f5-8403-8b8c5e33b7ad_zio4dx"
                                  alt="The Kloet Cartel"
                                  style="width: 100%; height: 500px; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
                         </div>
@@ -1686,8 +1686,7 @@
                 <a href="treasure-map.html" class="btn" style="background: linear-gradient(135deg, var(--tc-navy-light) 0%, var(--tc-primary) 100%); color: var(--white); padding: 18px 36px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.15rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.75rem; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);"
                    onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 40px rgba(0, 0, 0, 0.2)'"
                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(0, 0, 0, 0.15)'">
-                    <i class="fas fa-users"></i>
-                    Join 1,347+ Happy Guests
+                    1,347+ Happy Guests • Read Reviews
                 </a>
             </div>
         </div>
@@ -1992,7 +1991,8 @@
     <script>
         let currentReview = 0;
         const totalReviews = 5;
-        let reviewInterval;
+        let reviewInterval = null;
+        let resumeTimeout = null;
 
         function showReview(index) {
             const slides = document.querySelectorAll('.review-slide');
@@ -2037,14 +2037,25 @@
 
         // Auto-rotate reviews every 8 seconds
         function startReviewCarousel() {
+            // Always clear any existing interval before setting a new one
+            clearInterval(reviewInterval);
             reviewInterval = setInterval(nextReview, 8000);
+        }
+
+        // Stop auto-rotation completely
+        function stopReviewCarousel() {
+            clearInterval(reviewInterval);
+            reviewInterval = null;
         }
 
         // Pause auto-rotation when user interacts
         function pauseReviewCarousel() {
-            clearInterval(reviewInterval);
+            // Clear any existing interval and pending resume timeout
+            stopReviewCarousel();
+            clearTimeout(resumeTimeout);
+
             // Resume after 15 seconds of no interaction
-            setTimeout(startReviewCarousel, 15000);
+            resumeTimeout = setTimeout(startReviewCarousel, 15000);
         }
 
         // Initialize review carousel when page loads
@@ -2063,7 +2074,10 @@
             // Pause on hover over carousel
             const carousel = document.getElementById('reviewsCarousel');
             if (carousel) {
-                carousel.addEventListener('mouseenter', () => clearInterval(reviewInterval));
+                carousel.addEventListener('mouseenter', () => {
+                    stopReviewCarousel();
+                    clearTimeout(resumeTimeout);
+                });
                 carousel.addEventListener('mouseleave', startReviewCarousel);
             }
         });
