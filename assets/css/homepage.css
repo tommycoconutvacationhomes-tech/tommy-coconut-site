@@ -676,10 +676,11 @@
 
 .team-section-title {
     text-align: center;
-    font-size: 1.25rem;
-    color: var(--charcoal);
-    margin-bottom: 48px;
-    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--dark-navy);
+    margin-bottom: var(--space-4);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
 }
 
 .team-grid-container {
