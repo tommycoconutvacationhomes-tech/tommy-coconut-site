@@ -948,6 +948,21 @@ a:hover, a:focus {
 
 .hero-text {
     margin-bottom: var(--space-10); /* Reduced from 12 */
+    text-align: center;
+}
+
+.hero-text-content {
+    text-align: center;
+    width: 100%;
+}
+
+.hero-text-content h1,
+.hero-text-content p,
+.hero-text-content .hero-subhead,
+.hero-text-content .hero-brand-line {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-content h1 {
@@ -974,11 +989,17 @@ a:hover, a:focus {
     color: var(--text-inverse);
 }
 
-.hero-cta {
+.hero-cta,
+.hero-cta-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: var(--space-8);
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-cta .btn-primary {
