@@ -882,6 +882,10 @@
     padding: 120px 0;
     background: #F5F0E8;
     position: relative;
+    background-image: url('https://res.cloudinary.com/drkqfzeqe/image/upload/f_auto,q_auto,w_1920/a585e00c-093a-4601-812d-3618eaecd82b_wxomiw');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .referral-container {
@@ -894,22 +898,24 @@
 .referral-headline {
     font-size: 3rem;
     font-weight: 300;
-    color: #62736D;
+    color: #FFFFFF;
     letter-spacing: 0.02em;
     margin-bottom: 40px;
     line-height: 1.2;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
 .referral-value-box {
-    background: linear-gradient(135deg, rgba(250, 253, 252, 1) 0%, rgba(248, 254, 253, 1) 100%);
+    background: rgba(245, 219, 197, 0.85);
     padding: 40px 56px;
     border-radius: 16px;
     margin: 0 auto 40px;
     max-width: 600px;
-    box-shadow: 0 8px 24px rgba(98, 208, 201, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
-    border: 2px solid rgba(98, 208, 201, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: none;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(8px);
 }
 
 .referral-value-text {
@@ -921,14 +927,21 @@
     letter-spacing: -0.01em;
 }
 
+.referral-value-text::before {
+    content: "🥥 ";
+    font-size: 1.5rem;
+    margin-right: 8px;
+}
+
 .referral-explanation {
     font-size: 1.125rem;
     font-weight: 400;
-    color: #3D4A45;
+    color: #FFFFFF;
     line-height: 1.7;
     max-width: 640px;
     margin: 0 auto 48px;
-    opacity: 0.85;
+    opacity: 0.95;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-referral-primary {
@@ -954,10 +967,11 @@
 .referral-social-proof {
     font-size: 0.9375rem;
     font-weight: 500;
-    color: #62736D;
-    opacity: 0.75;
+    color: #FFFFFF;
+    opacity: 0.85;
     font-style: normal;
     margin: 0;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* =========================================
