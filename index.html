@@ -1492,143 +1492,154 @@
         </div>
     </section>
 
-    <section style="padding: var(--space-16) 0; background: var(--surface);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: var(--space-12);">
-                <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-8);">Genuine hospitality → total peace of mind.</h2>
-            </div>
-            
-            <!-- Social Proof Bar -->
-            <div style="display: flex; justify-content: center; align-items: center; gap: var(--space-12); flex-wrap: wrap; margin-bottom: var(--space-16);">
-                <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">1,347+</div>
-                    <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">Happy Guests</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">4.99★</div>
-                    <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">Average Rating</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">648</div>
-                    <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">5-Star Reviews</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">98%</div>
-                    <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">Would Recommend</div>
-                </div>
-            </div>
+    <!-- Reviews Section with Background Carousel -->
+    <section id="reviewBackgroundCarousel" style="position: relative; min-height: 700px; overflow: hidden;">
+        <!-- Background Image Slides -->
+        <div class="review-bg-slide active" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/IMG_3177_sh2t6d'); background-size: cover; background-position: center; opacity: 1; transition: opacity 1s ease-in-out;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));"></div>
+        </div>
+        <div class="review-bg-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/IMG_1749_flcnz7'); background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));"></div>
+        </div>
+        <div class="review-bg-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/92342881-98c6-4f10-aaaa-32d36b769c45_prg8v0'); background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));"></div>
+        </div>
+        <div class="review-bg-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/IMG_2283_zp8phx'); background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));"></div>
+        </div>
+        <div class="review-bg-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/cdfadb3d-34bf-492f-a442-0a09a7b67b68_vyci8c'); background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));"></div>
+        </div>
 
-            <!-- Review Carousel -->
-            <div style="max-width: 800px; margin: 0 auto; position: relative;">
-                <!-- Navigation Arrows -->
-                <button onclick="previousReview()" style="position: absolute; left: -20px; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255, 255, 255, 0.9); border: 2px solid var(--primary); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 128, 128, 0.15);" onmouseover="this.style.background='var(--primary)'; this.style.color='white';" onmouseout="this.style.background='rgba(255, 255, 255, 0.9)'; this.style.color='var(--primary)';">
-                    <i class="fas fa-chevron-left" style="font-size: 18px; color: var(--primary);"></i>
-                </button>
-                <button onclick="nextReview()" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255, 255, 255, 0.9); border: 2px solid var(--primary); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 128, 128, 0.15);" onmouseover="this.style.background='var(--primary)'; this.style.color='white'; this.querySelector('i').style.color='white';" onmouseout="this.style.background='rgba(255, 255, 255, 0.9)'; this.style.color='var(--primary)'; this.querySelector('i').style.color='var(--primary)';">
-                    <i class="fas fa-chevron-right" style="font-size: 18px; color: var(--primary);"></i>
-                </button>
-                
-                <div id="reviewCarousel" style="background: white; padding: var(--space-8); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); border: 1px solid rgba(0, 207, 207, 0.08); text-align: center; overflow: hidden; position: relative; min-height: 400px;">
+        <!-- Content Container -->
+        <div style="position: relative; z-index: 2; padding: var(--space-16) 0; min-height: 700px; display: flex; flex-direction: column; justify-content: center;">
+            <div class="container">
+                <!-- Title -->
+                <div style="text-align: center; margin-bottom: var(--space-12);">
+                    <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-8); text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Genuine hospitality → total peace of mind.</h2>
+                </div>
 
+                <!-- Social Proof Bar -->
+                <div style="display: flex; justify-content: center; align-items: center; gap: var(--space-12); flex-wrap: wrap; margin-bottom: var(--space-16);">
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); text-shadow: 0 2px 8px rgba(0,0,0,0.6);">1,347+</div>
+                        <div style="font-size: var(--text-sm); color: rgba(255,255,255,0.9); font-weight: var(--font-weight-semibold); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Happy Guests</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); text-shadow: 0 2px 8px rgba(0,0,0,0.6);">4.99★</div>
+                        <div style="font-size: var(--text-sm); color: rgba(255,255,255,0.9); font-weight: var(--font-weight-semibold); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Average Rating</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); text-shadow: 0 2px 8px rgba(0,0,0,0.6);">648</div>
+                        <div style="font-size: var(--text-sm); color: rgba(255,255,255,0.9); font-weight: var(--font-weight-semibold); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">5-Star Reviews</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); text-shadow: 0 2px 8px rgba(0,0,0,0.6);">98%</div>
+                        <div style="font-size: var(--text-sm); color: rgba(255,255,255,0.9); font-weight: var(--font-weight-semibold); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Would Recommend</div>
+                    </div>
+                </div>
+
+                <!-- Review Text Carousel -->
+                <div style="max-width: 900px; margin: 0 auto; position: relative;">
                     <!-- Review 1 -->
-                    <div class="review-slide active" style="opacity: 1; transition: opacity 0.6s ease-in-out; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-8);">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); gap: 2px;">
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
+                    <div class="review-text-slide active" style="opacity: 1; transition: opacity 0.8s ease-in-out; text-align: center; padding: var(--space-8);">
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-6); gap: 4px;">
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
                         </div>
-                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."</p>
-                        <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Johnson Family</div>
-                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">5th time guests, now part of the Coconut Clan</div>
+                        <p style="font-size: var(--text-2xl); color: white; line-height: 1.8; margin-bottom: var(--space-8); font-style: italic; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">"Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."</p>
+                        <div style="padding-top: var(--space-4);">
+                            <div style="font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); font-size: var(--text-xl); text-shadow: 0 2px 6px rgba(0,0,0,0.6);">The Kloet Cartel</div>
+                            <div style="font-size: var(--text-base); color: rgba(255,255,255,0.95); font-weight: var(--font-weight-medium); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">5th time guests, Platinum member of the Coconut Cartel</div>
                         </div>
                     </div>
-                    
+
                     <!-- Review 2 -->
-                    <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-8); transition: opacity 0.6s ease-in-out; pointer-events: none; visibility: hidden;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); gap: 2px;">
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
+                    <div class="review-text-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; text-align: center; padding: var(--space-8); pointer-events: none;">
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-6); gap: 4px;">
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
                         </div>
-                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"We came as guests and left as members of the Coconut Clan. Saying goodbye felt like leaving old friends. We're already planning our return."</p>
-                        <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Martinez Family</div>
-                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">4th time guests, Gold Clan Members</div>
+                        <p style="font-size: var(--text-2xl); color: white; line-height: 1.8; margin-bottom: var(--space-8); font-style: italic; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">"We came as guests and left as members of the Coconut Cartel. Saying goodbye felt like leaving old friends. We're already planning our return."</p>
+                        <div style="padding-top: var(--space-4);">
+                            <div style="font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); font-size: var(--text-xl); text-shadow: 0 2px 6px rgba(0,0,0,0.6);">Mark & Chesta - Bob & Susan The STL Cartel</div>
+                            <div style="font-size: var(--text-base); color: rgba(255,255,255,0.95); font-weight: var(--font-weight-medium); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">4th time guests, Gold Coconut Cartel Members</div>
                         </div>
                     </div>
-                    
+
                     <!-- Review 3 -->
-                    <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-8); transition: opacity 0.6s ease-in-out; pointer-events: none; visibility: hidden;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); gap: 2px;">
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
+                    <div class="review-text-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; text-align: center; padding: var(--space-8); pointer-events: none;">
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-6); gap: 4px;">
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
                         </div>
-                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"The Jeep, the boat, the pre-stocked fridge... everything was included. It's the most stress-free, high-value vacation we've ever taken. Worth every penny and more."</p>
-                        <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Anderson Family</div>
-                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">6th time guests, Platinum Clan Members</div>
+                        <p style="font-size: var(--text-2xl); color: white; line-height: 1.8; margin-bottom: var(--space-8); font-style: italic; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">"The iCar SUV, the boat, the pre-stocked fridge... everything was included. It's the most stress-free, high-value vacation we've ever taken. Worth every penny and more."</p>
+                        <div style="padding-top: var(--space-4);">
+                            <div style="font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); font-size: var(--text-xl); text-shadow: 0 2px 6px rgba(0,0,0,0.6);">Bart & Liselore Libauno Cartel</div>
+                            <div style="font-size: var(--text-base); color: rgba(255,255,255,0.95); font-weight: var(--font-weight-medium); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">8th time guests, Platinum Coconut Cartel Members</div>
                         </div>
                     </div>
 
                     <!-- Review 4 -->
-                    <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-8); transition: opacity 0.6s ease-in-out; pointer-events: none; visibility: hidden;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); gap: 2px;">
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
+                    <div class="review-text-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; text-align: center; padding: var(--space-8); pointer-events: none;">
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-6); gap: 4px;">
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
                         </div>
-                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"From the moment Ray greeted us at the airport to our tearful goodbye with the entire family, every moment exceeded our wildest expectations. The villas are stunning, but it's the people who make Tommy Coconut truly unforgettable."</p>
-                        <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">Sarah & Michael Chen</div>
-                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">Anniversary trip, now annual tradition</div>
+                        <p style="font-size: var(--text-2xl); color: white; line-height: 1.8; margin-bottom: var(--space-8); font-style: italic; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">"From the moment Boy greeted us at the door to our tearful goodbye with the entire Tommy Coconut family, every moment exceeded our wildest expectations. The villas are stunning, but it's the people who make Tommy Coconut truly unforgettable."</p>
+                        <div style="padding-top: var(--space-4);">
+                            <div style="font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); font-size: var(--text-xl); text-shadow: 0 2px 6px rgba(0,0,0,0.6);">The Paul Cartel</div>
+                            <div style="font-size: var(--text-base); color: rgba(255,255,255,0.95); font-weight: var(--font-weight-medium); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Anniversary trip, now annual tradition</div>
                         </div>
                     </div>
 
                     <!-- Review 5 -->
-                    <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; padding: var(--space-8); transition: opacity 0.6s ease-in-out; pointer-events: none; visibility: hidden;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-4); gap: 2px;">
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.25rem;"></i>
+                    <div class="review-text-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; text-align: center; padding: var(--space-8); pointer-events: none;">
+                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-6); gap: 4px;">
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
                         </div>
-                        <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6); font-style: italic;">"We've stayed at luxury resorts around the world, but nothing compares to this. Kim's attention to detail is unmatched, and having a personal concierge who actually knows you by name? It's like having your own private island resort experience."</p>
-                        <div style="border-top: 2px solid var(--primary); padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-1);">The Thompson Family</div>
-                            <div style="font-size: var(--text-sm); color: var(--primary); font-weight: var(--font-weight-semibold);">3rd time guests, already booked for next year</div>
+                        <p style="font-size: var(--text-2xl); color: white; line-height: 1.8; margin-bottom: var(--space-8); font-style: italic; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">"We've stayed at luxury resorts around the world, but nothing compares to this. The family's attention to detail is unmatched, and having a personal concierge who actually knows you by name? It's like having your own private island resort experience."</p>
+                        <div style="padding-top: var(--space-4);">
+                            <div style="font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); font-size: var(--text-xl); text-shadow: 0 2px 6px rgba(0,0,0,0.6);">The Boerboom Cartel</div>
+                            <div style="font-size: var(--text-base); color: rgba(255,255,255,0.95); font-weight: var(--font-weight-medium); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">3rd time guests, already booked for next year</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Carousel Indicators -->
-                <div style="display: flex; justify-content: center; gap: var(--space-2); margin-top: var(--space-4);">
-                    <button class="review-indicator active" onclick="showReview(0)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 1;"></button>
-                    <button class="review-indicator" onclick="showReview(1)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 0.3;"></button>
-                    <button class="review-indicator" onclick="showReview(2)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 0.3;"></button>
-                    <button class="review-indicator" onclick="showReview(3)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 0.3;"></button>
-                    <button class="review-indicator" onclick="showReview(4)" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease; opacity: 0.3;"></button>
+                <div style="display: flex; justify-content: center; gap: var(--space-3); margin-top: var(--space-8);">
+                    <button class="review-bg-indicator active" onclick="showReviewBg(0)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; background: white; cursor: pointer; transition: all 0.3s ease; opacity: 1; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></button>
+                    <button class="review-bg-indicator" onclick="showReviewBg(1)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.7; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></button>
+                    <button class="review-bg-indicator" onclick="showReviewBg(2)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.7; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></button>
+                    <button class="review-bg-indicator" onclick="showReviewBg(3)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.7; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></button>
+                    <button class="review-bg-indicator" onclick="showReviewBg(4)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.7; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></button>
                 </div>
-            </div>
-            
-            <!-- Social Proof CTA - Leverage Testimonial Power -->
-            <div style="text-align: center; margin-top: var(--space-8);">
-                <a href="treasure-map.html" class="btn" style="background: linear-gradient(135deg, var(--tc-navy-light) 0%, var(--tc-primary) 100%); color: var(--white); padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.75rem; box-shadow: 0 6px 24px rgba(0, 90, 91, 0.3);"
-                   onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 36px rgba(0, 90, 91, 0.4)'"
-                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 24px rgba(0, 90, 91, 0.3)'">
-                    <i class="fas fa-users"></i>
-                    Join 1,347+ Happy Guests
-                </a>
+
+                <!-- Social Proof CTA -->
+                <div style="text-align: center; margin-top: var(--space-12);">
+                    <a href="treasure-map.html" class="btn" style="background: linear-gradient(135deg, var(--tc-navy-light) 0%, var(--tc-primary) 100%); color: var(--white); padding: 18px 36px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.15rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.75rem; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);"
+                       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 40px rgba(0, 0, 0, 0.5)'"
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(0, 0, 0, 0.4)'">
+                        <i class="fas fa-users"></i>
+                        Join 1,347+ Happy Guests
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1928,90 +1939,94 @@
         </div>
     </footer>
 
-    <!-- Review Carousel JavaScript -->
+    <!-- Review Background Carousel JavaScript -->
     <script>
-        let currentReview = 0;
-        const totalReviews = 5;
-        let reviewInterval;
+        let currentReviewBg = 0;
+        const totalReviewBgs = 5;
+        let reviewBgInterval;
 
-        function showReview(index) {
-            // Hide all slides
-            const slides = document.querySelectorAll('.review-slide');
-            const indicators = document.querySelectorAll('.review-indicator');
+        function showReviewBg(index) {
+            // Sync background slides and text slides
+            const bgSlides = document.querySelectorAll('.review-bg-slide');
+            const textSlides = document.querySelectorAll('.review-text-slide');
+            const indicators = document.querySelectorAll('.review-bg-indicator');
 
-            slides.forEach((slide, i) => {
+            // Transition background images
+            bgSlides.forEach((slide, i) => {
                 if (i === index) {
                     slide.style.opacity = '1';
-                    slide.style.pointerEvents = 'auto';
-                    slide.style.visibility = 'visible';
                 } else {
                     slide.style.opacity = '0';
-                    slide.style.pointerEvents = 'none';
-                    slide.style.visibility = 'hidden';
                 }
             });
 
-            indicators.forEach((indicator, i) => {
-                indicator.style.opacity = i === index ? '1' : '0.3';
+            // Transition text content
+            textSlides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.style.opacity = '1';
+                    slide.style.pointerEvents = 'auto';
+                    slide.style.position = 'relative';
+                } else {
+                    slide.style.opacity = '0';
+                    slide.style.pointerEvents = 'none';
+                    slide.style.position = 'absolute';
+                }
             });
 
-            currentReview = index;
+            // Update indicators
+            indicators.forEach((indicator, i) => {
+                if (i === index) {
+                    indicator.style.background = 'white';
+                    indicator.style.opacity = '1';
+                } else {
+                    indicator.style.background = 'transparent';
+                    indicator.style.opacity = '0.7';
+                }
+            });
+
+            currentReviewBg = index;
         }
 
-        function nextReview() {
-            currentReview = (currentReview + 1) % totalReviews;
-            showReview(currentReview);
+        function nextReviewBg() {
+            currentReviewBg = (currentReviewBg + 1) % totalReviewBgs;
+            showReviewBg(currentReviewBg);
         }
 
-        function previousReview() {
-            currentReview = (currentReview - 1 + totalReviews) % totalReviews;
-            showReview(currentReview);
+        function previousReviewBg() {
+            currentReviewBg = (currentReviewBg - 1 + totalReviewBgs) % totalReviewBgs;
+            showReviewBg(currentReviewBg);
         }
 
         // Auto-rotate reviews every 8 seconds
-        function startReviewCarousel() {
-            reviewInterval = setInterval(nextReview, 8000);
+        function startReviewBgCarousel() {
+            reviewBgInterval = setInterval(nextReviewBg, 8000);
         }
 
         // Pause auto-rotation when user interacts
-        function pauseReviewCarousel() {
-            clearInterval(reviewInterval);
+        function pauseReviewBgCarousel() {
+            clearInterval(reviewBgInterval);
             // Resume after 15 seconds of no interaction
-            setTimeout(startReviewCarousel, 15000);
+            setTimeout(startReviewBgCarousel, 15000);
         }
 
-        // Initialize carousel when page loads
+        // Initialize background carousel when page loads
         document.addEventListener('DOMContentLoaded', function() {
             // Add click handlers to indicators
-            document.querySelectorAll('.review-indicator').forEach((indicator, index) => {
+            document.querySelectorAll('.review-bg-indicator').forEach((indicator, index) => {
                 indicator.addEventListener('click', function() {
-                    showReview(index);
-                    pauseReviewCarousel();
+                    showReviewBg(index);
+                    pauseReviewBgCarousel();
                 });
             });
-            
-            // Add click handlers to arrow buttons
-            const prevButton = document.querySelector('[onclick="previousReview()"]');
-            const nextButton = document.querySelector('[onclick="nextReview()"]');
-            if (prevButton) {
-                prevButton.addEventListener('click', () => {
-                    pauseReviewCarousel();
-                });
-            }
-            if (nextButton) {
-                nextButton.addEventListener('click', () => {
-                    pauseReviewCarousel();
-                });
-            }
-            
+
             // Start auto-rotation
-            startReviewCarousel();
-            
+            startReviewBgCarousel();
+
             // Pause on hover over carousel
-            const carousel = document.getElementById('reviewCarousel');
+            const carousel = document.getElementById('reviewBackgroundCarousel');
             if (carousel) {
-                carousel.addEventListener('mouseenter', () => clearInterval(reviewInterval));
-                carousel.addEventListener('mouseleave', startReviewCarousel);
+                carousel.addEventListener('mouseenter', () => clearInterval(reviewBgInterval));
+                carousel.addEventListener('mouseleave', startReviewBgCarousel);
             }
         });
     </script>
@@ -2192,7 +2207,7 @@
 
             // Autoplay functionality
             function startAutoplay() {
-                autoplayInterval = setInterval(nextSlide, 10000); // Change slide every 10 seconds
+                autoplayInterval = setInterval(nextSlide, 15000); // Change slide every 15 seconds
             }
 
             function stopAutoplay() {
