@@ -668,8 +668,35 @@
    TEAM GRID
    ========================================= */
 
+.team-section-wrapper {
+    margin-top: 96px;
+    border-top: 1px solid rgba(98, 208, 201, 0.1);
+    padding-top: 64px;
+}
+
+.team-section-title {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--charcoal);
+    margin-bottom: 48px;
+    font-weight: 300;
+}
+
+.team-grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .team-member {
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
 }
 
 .team-photo-wrapper {
@@ -680,6 +707,12 @@
     margin: 0 auto 20px;
     border: 3px solid var(--tc-primary);
     box-shadow: 0 8px 24px rgba(98, 208, 201, 0.2);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover .team-photo-wrapper {
+    box-shadow: 0 16px 40px rgba(98, 208, 201, 0.35);
+    border-color: var(--tc-navy);
 }
 
 .team-photo {
