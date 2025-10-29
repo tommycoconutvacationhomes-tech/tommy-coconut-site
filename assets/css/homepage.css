@@ -873,6 +873,89 @@
 }
 
 /* =========================================
+   REFERRAL SECTION - Villa Aesthetic
+   ========================================= */
+
+.referral-section {
+    padding: 120px 0;
+    background: #F5F0E8;
+    position: relative;
+}
+
+.referral-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 32px;
+    text-align: center;
+}
+
+.referral-headline {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #62736D;
+    letter-spacing: 0.02em;
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+.referral-value-box {
+    background: white;
+    padding: 32px 48px;
+    border-radius: 4px;
+    margin: 0 auto 40px;
+    max-width: 600px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid #62D0C9;
+}
+
+.referral-value-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #3D4A45;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.referral-explanation {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #3D4A45;
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 48px;
+    opacity: 0.85;
+}
+
+.btn-referral-primary {
+    display: inline-block;
+    font-size: 1rem;
+    padding: 16px 40px;
+    color: white !important;
+    background: #62D0C9;
+    border-radius: 48px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(98, 208, 201, 0.25);
+    margin-bottom: 32px;
+}
+
+.btn-referral-primary:hover {
+    background: #4FBDB6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(98, 208, 201, 0.35);
+}
+
+.referral-social-proof {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #62736D;
+    opacity: 0.7;
+    font-style: italic;
+    margin: 0;
+}
+
+/* =========================================
    ANIMATIONS
    ========================================= */
 
@@ -1022,6 +1105,38 @@
 
     .step-card {
         padding: 24px;
+    }
+
+    /* Referral Section Mobile */
+    .referral-section {
+        padding: 80px 0;
+    }
+
+    .referral-container {
+        padding: 0 24px;
+    }
+
+    .referral-headline {
+        font-size: 2rem;
+        margin-bottom: 32px;
+    }
+
+    .referral-value-box {
+        padding: 24px 32px;
+    }
+
+    .referral-value-text {
+        font-size: 1.25rem;
+    }
+
+    .referral-explanation {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+
+    .btn-referral-primary {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
