@@ -903,6 +903,20 @@
                 flex-direction: column !important;
                 gap: 12px !important;
             }
+
+            /* Review carousel - stack image on top, text below */
+            .review-slide > div {
+                flex-direction: column !important;
+            }
+
+            .review-slide img {
+                height: 350px !important;
+                max-width: 100% !important;
+            }
+
+            .review-slide .flex-1 {
+                min-width: 100% !important;
+            }
         }
 
         /* Small mobile (max-width: 480px) */
@@ -1492,154 +1506,189 @@
         </div>
     </section>
 
-    <!-- Reviews Section with Background Carousel -->
-    <section id="reviewBackgroundCarousel" style="position: relative; min-height: 700px; overflow: hidden;">
-        <!-- Background Image Slides -->
-        <div class="review-bg-slide active" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/IMG_3177_sh2t6d'); background-size: cover; background-position: center; opacity: 1; transition: opacity 1s ease-in-out;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));"></div>
-        </div>
-        <div class="review-bg-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/IMG_1749_flcnz7'); background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));"></div>
-        </div>
-        <div class="review-bg-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/92342881-98c6-4f10-aaaa-32d36b769c45_prg8v0'); background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));"></div>
-        </div>
-        <div class="review-bg-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/IMG_2283_zp8phx'); background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));"></div>
-        </div>
-        <div class="review-bg-slide" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/cdfadb3d-34bf-492f-a442-0a09a7b67b68_vyci8c'); background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));"></div>
-        </div>
+    <!-- Reviews Section -->
+    <section id="reviewsCarousel" style="padding: var(--space-16) 0; background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);">
+        <div class="container">
+            <!-- Title -->
+            <div style="text-align: center; margin-bottom: var(--space-12);">
+                <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--tc-navy); margin-bottom: var(--space-8);">Genuine hospitality → total peace of mind.</h2>
+            </div>
 
-        <!-- Content Container -->
-        <div style="position: relative; z-index: 2; padding: var(--space-16) 0; min-height: 700px; display: flex; flex-direction: column; justify-content: center;">
-            <div class="container">
-                <!-- Title -->
-                <div style="text-align: center; margin-bottom: var(--space-12);">
-                    <h2 style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-8); text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Genuine hospitality → total peace of mind.</h2>
+            <!-- Social Proof Bar -->
+            <div style="display: flex; justify-content: center; align-items: center; gap: var(--space-12); flex-wrap: wrap; margin-bottom: var(--space-16);">
+                <div style="text-align: center;">
+                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--tc-primary); margin-bottom: var(--space-2);">1,347+</div>
+                    <div style="font-size: var(--text-sm); color: var(--tc-gray); font-weight: var(--font-weight-semibold);">Happy Guests</div>
                 </div>
-
-                <!-- Social Proof Bar -->
-                <div style="display: flex; justify-content: center; align-items: center; gap: var(--space-12); flex-wrap: wrap; margin-bottom: var(--space-16);">
-                    <div style="text-align: center;">
-                        <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); text-shadow: 0 2px 8px rgba(0,0,0,0.6);">1,347+</div>
-                        <div style="font-size: var(--text-sm); color: rgba(255,255,255,0.9); font-weight: var(--font-weight-semibold); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Happy Guests</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); text-shadow: 0 2px 8px rgba(0,0,0,0.6);">4.99★</div>
-                        <div style="font-size: var(--text-sm); color: rgba(255,255,255,0.9); font-weight: var(--font-weight-semibold); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Average Rating</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); text-shadow: 0 2px 8px rgba(0,0,0,0.6);">648</div>
-                        <div style="font-size: var(--text-sm); color: rgba(255,255,255,0.9); font-weight: var(--font-weight-semibold); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">5-Star Reviews</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); text-shadow: 0 2px 8px rgba(0,0,0,0.6);">98%</div>
-                        <div style="font-size: var(--text-sm); color: rgba(255,255,255,0.9); font-weight: var(--font-weight-semibold); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Would Recommend</div>
-                    </div>
+                <div style="text-align: center;">
+                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--tc-primary); margin-bottom: var(--space-2);">4.99★</div>
+                    <div style="font-size: var(--text-sm); color: var(--tc-gray); font-weight: var(--font-weight-semibold);">Average Rating</div>
                 </div>
+                <div style="text-align: center;">
+                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--tc-primary); margin-bottom: var(--space-2);">648</div>
+                    <div style="font-size: var(--text-sm); color: var(--tc-gray); font-weight: var(--font-weight-semibold);">5-Star Reviews</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--tc-primary); margin-bottom: var(--space-2);">98%</div>
+                    <div style="font-size: var(--text-sm); color: var(--tc-gray); font-weight: var(--font-weight-semibold);">Would Recommend</div>
+                </div>
+            </div>
 
-                <!-- Review Text Carousel -->
-                <div style="max-width: 900px; margin: 0 auto; position: relative;">
-                    <!-- Review 1 -->
-                    <div class="review-text-slide active" style="opacity: 1; transition: opacity 0.8s ease-in-out; text-align: center; padding: var(--space-8);">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-6); gap: 4px;">
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
+            <!-- Review Carousel Container -->
+            <div style="max-width: 1200px; margin: 0 auto; position: relative;">
+                <!-- Review 1 -->
+                <div class="review-slide active" style="opacity: 1; transition: opacity 0.8s ease-in-out;">
+                    <div style="display: flex; gap: var(--space-10); align-items: center; flex-wrap: wrap;">
+                        <!-- Image Left -->
+                        <div style="flex: 0 0 380px; min-width: 280px;">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,h_600,c_fill/IMG_3177_sh2t6d"
+                                 alt="The Kloet Cartel"
+                                 style="width: 100%; height: 500px; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
                         </div>
-                        <p style="font-size: var(--text-2xl); color: white; line-height: 1.8; margin-bottom: var(--space-8); font-style: italic; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">"Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."</p>
-                        <div style="padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); font-size: var(--text-xl); text-shadow: 0 2px 6px rgba(0,0,0,0.6);">The Kloet Cartel</div>
-                            <div style="font-size: var(--text-base); color: rgba(255,255,255,0.95); font-weight: var(--font-weight-medium); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">5th time guests, Platinum member of the Coconut Cartel</div>
-                        </div>
-                    </div>
-
-                    <!-- Review 2 -->
-                    <div class="review-text-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; text-align: center; padding: var(--space-8); pointer-events: none;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-6); gap: 4px;">
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                        </div>
-                        <p style="font-size: var(--text-2xl); color: white; line-height: 1.8; margin-bottom: var(--space-8); font-style: italic; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">"We came as guests and left as members of the Coconut Cartel. Saying goodbye felt like leaving old friends. We're already planning our return."</p>
-                        <div style="padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); font-size: var(--text-xl); text-shadow: 0 2px 6px rgba(0,0,0,0.6);">Mark & Chesta - Bob & Susan The STL Cartel</div>
-                            <div style="font-size: var(--text-base); color: rgba(255,255,255,0.95); font-weight: var(--font-weight-medium); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">4th time guests, Gold Coconut Cartel Members</div>
-                        </div>
-                    </div>
-
-                    <!-- Review 3 -->
-                    <div class="review-text-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; text-align: center; padding: var(--space-8); pointer-events: none;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-6); gap: 4px;">
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                        </div>
-                        <p style="font-size: var(--text-2xl); color: white; line-height: 1.8; margin-bottom: var(--space-8); font-style: italic; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">"The iCar SUV, the boat, the pre-stocked fridge... everything was included. It's the most stress-free, high-value vacation we've ever taken. Worth every penny and more."</p>
-                        <div style="padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); font-size: var(--text-xl); text-shadow: 0 2px 6px rgba(0,0,0,0.6);">Bart & Liselore Libauno Cartel</div>
-                            <div style="font-size: var(--text-base); color: rgba(255,255,255,0.95); font-weight: var(--font-weight-medium); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">8th time guests, Platinum Coconut Cartel Members</div>
-                        </div>
-                    </div>
-
-                    <!-- Review 4 -->
-                    <div class="review-text-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; text-align: center; padding: var(--space-8); pointer-events: none;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-6); gap: 4px;">
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                        </div>
-                        <p style="font-size: var(--text-2xl); color: white; line-height: 1.8; margin-bottom: var(--space-8); font-style: italic; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">"From the moment Boy greeted us at the door to our tearful goodbye with the entire Tommy Coconut family, every moment exceeded our wildest expectations. The villas are stunning, but it's the people who make Tommy Coconut truly unforgettable."</p>
-                        <div style="padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); font-size: var(--text-xl); text-shadow: 0 2px 6px rgba(0,0,0,0.6);">The Paul Cartel</div>
-                            <div style="font-size: var(--text-base); color: rgba(255,255,255,0.95); font-weight: var(--font-weight-medium); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Anniversary trip, now annual tradition</div>
-                        </div>
-                    </div>
-
-                    <!-- Review 5 -->
-                    <div class="review-text-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; text-align: center; padding: var(--space-8); pointer-events: none;">
-                        <div style="display: flex; justify-content: center; margin-bottom: var(--space-6); gap: 4px;">
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                            <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);"></i>
-                        </div>
-                        <p style="font-size: var(--text-2xl); color: white; line-height: 1.8; margin-bottom: var(--space-8); font-style: italic; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">"We've stayed at luxury resorts around the world, but nothing compares to this. The family's attention to detail is unmatched, and having a personal concierge who actually knows you by name? It's like having your own private island resort experience."</p>
-                        <div style="padding-top: var(--space-4);">
-                            <div style="font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-2); font-size: var(--text-xl); text-shadow: 0 2px 6px rgba(0,0,0,0.6);">The Boerboom Cartel</div>
-                            <div style="font-size: var(--text-base); color: rgba(255,255,255,0.95); font-weight: var(--font-weight-medium); text-shadow: 0 1px 4px rgba(0,0,0,0.5);">3rd time guests, already booked for next year</div>
+                        <!-- Text Right -->
+                        <div style="flex: 1; min-width: 300px; padding: var(--space-6);">
+                            <div style="display: flex; gap: 4px; margin-bottom: var(--space-6);">
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                            </div>
+                            <p style="font-size: var(--text-xl); color: var(--tc-navy); line-height: 1.8; margin-bottom: var(--space-8); font-style: italic;">"Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."</p>
+                            <div style="padding-top: var(--space-4); border-top: 2px solid #e0e0e0;">
+                                <div style="font-weight: var(--font-weight-bold); color: var(--tc-navy); margin-bottom: var(--space-2); font-size: var(--text-xl);">The Kloet Cartel</div>
+                                <div style="font-size: var(--text-base); color: var(--tc-gray); font-weight: var(--font-weight-medium);">5th time guests, Platinum member of the Coconut Cartel</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Carousel Indicators -->
-                <div style="display: flex; justify-content: center; gap: var(--space-3); margin-top: var(--space-8);">
-                    <button class="review-bg-indicator active" onclick="showReviewBg(0)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; background: white; cursor: pointer; transition: all 0.3s ease; opacity: 1; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></button>
-                    <button class="review-bg-indicator" onclick="showReviewBg(1)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.7; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></button>
-                    <button class="review-bg-indicator" onclick="showReviewBg(2)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.7; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></button>
-                    <button class="review-bg-indicator" onclick="showReviewBg(3)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.7; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></button>
-                    <button class="review-bg-indicator" onclick="showReviewBg(4)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.7; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></button>
+                <!-- Review 2 -->
+                <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; pointer-events: none;">
+                    <div style="display: flex; gap: var(--space-10); align-items: center; flex-wrap: wrap;">
+                        <!-- Image Left -->
+                        <div style="flex: 0 0 380px; min-width: 280px;">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,h_600,c_fill/IMG_1749_flcnz7"
+                                 alt="The STL Cartel"
+                                 style="width: 100%; height: 500px; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+                        </div>
+                        <!-- Text Right -->
+                        <div style="flex: 1; min-width: 300px; padding: var(--space-6);">
+                            <div style="display: flex; gap: 4px; margin-bottom: var(--space-6);">
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                            </div>
+                            <p style="font-size: var(--text-xl); color: var(--tc-navy); line-height: 1.8; margin-bottom: var(--space-8); font-style: italic;">"We came as guests and left as members of the Coconut Cartel. Saying goodbye felt like leaving old friends. We're already planning our return."</p>
+                            <div style="padding-top: var(--space-4); border-top: 2px solid #e0e0e0;">
+                                <div style="font-weight: var(--font-weight-bold); color: var(--tc-navy); margin-bottom: var(--space-2); font-size: var(--text-xl);">Mark & Chesta - Bob & Susan The STL Cartel</div>
+                                <div style="font-size: var(--text-base); color: var(--tc-gray); font-weight: var(--font-weight-medium);">4th time guests, Gold Coconut Cartel Members</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Social Proof CTA -->
-                <div style="text-align: center; margin-top: var(--space-12);">
-                    <a href="treasure-map.html" class="btn" style="background: linear-gradient(135deg, var(--tc-navy-light) 0%, var(--tc-primary) 100%); color: var(--white); padding: 18px 36px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.15rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.75rem; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);"
-                       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 40px rgba(0, 0, 0, 0.5)'"
-                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(0, 0, 0, 0.4)'">
-                        <i class="fas fa-users"></i>
-                        Join 1,347+ Happy Guests
-                    </a>
+                <!-- Review 3 -->
+                <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; pointer-events: none;">
+                    <div style="display: flex; gap: var(--space-10); align-items: center; flex-wrap: wrap;">
+                        <!-- Image Left -->
+                        <div style="flex: 0 0 380px; min-width: 280px;">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,h_600,c_fill/92342881-98c6-4f10-aaaa-32d36b769c45_prg8v0"
+                                 alt="Libauno Cartel"
+                                 style="width: 100%; height: 500px; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+                        </div>
+                        <!-- Text Right -->
+                        <div style="flex: 1; min-width: 300px; padding: var(--space-6);">
+                            <div style="display: flex; gap: 4px; margin-bottom: var(--space-6);">
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                            </div>
+                            <p style="font-size: var(--text-xl); color: var(--tc-navy); line-height: 1.8; margin-bottom: var(--space-8); font-style: italic;">"The iCar SUV, the boat, the pre-stocked fridge... everything was included. It's the most stress-free, high-value vacation we've ever taken. Worth every penny and more."</p>
+                            <div style="padding-top: var(--space-4); border-top: 2px solid #e0e0e0;">
+                                <div style="font-weight: var(--font-weight-bold); color: var(--tc-navy); margin-bottom: var(--space-2); font-size: var(--text-xl);">Bart & Liselore Libauno Cartel</div>
+                                <div style="font-size: var(--text-base); color: var(--tc-gray); font-weight: var(--font-weight-medium);">8th time guests, Platinum Coconut Cartel Members</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Review 4 -->
+                <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; pointer-events: none;">
+                    <div style="display: flex; gap: var(--space-10); align-items: center; flex-wrap: wrap;">
+                        <!-- Image Left -->
+                        <div style="flex: 0 0 380px; min-width: 280px;">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,h_600,c_fill/IMG_2283_zp8phx"
+                                 alt="The Paul Cartel"
+                                 style="width: 100%; height: 500px; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+                        </div>
+                        <!-- Text Right -->
+                        <div style="flex: 1; min-width: 300px; padding: var(--space-6);">
+                            <div style="display: flex; gap: 4px; margin-bottom: var(--space-6);">
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                            </div>
+                            <p style="font-size: var(--text-xl); color: var(--tc-navy); line-height: 1.8; margin-bottom: var(--space-8); font-style: italic;">"From the moment Boy greeted us at the door to our tearful goodbye with the entire Tommy Coconut family, every moment exceeded our wildest expectations. The villas are stunning, but it's the people who make Tommy Coconut truly unforgettable."</p>
+                            <div style="padding-top: var(--space-4); border-top: 2px solid #e0e0e0;">
+                                <div style="font-weight: var(--font-weight-bold); color: var(--tc-navy); margin-bottom: var(--space-2); font-size: var(--text-xl);">The Paul Cartel</div>
+                                <div style="font-size: var(--text-base); color: var(--tc-gray); font-weight: var(--font-weight-medium);">Anniversary trip, now annual tradition</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-slide" style="opacity: 0; position: absolute; top: 0; left: 0; right: 0; transition: opacity 0.8s ease-in-out; pointer-events: none;">
+                    <div style="display: flex; gap: var(--space-10); align-items: center; flex-wrap: wrap;">
+                        <!-- Image Left -->
+                        <div style="flex: 0 0 380px; min-width: 280px;">
+                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,h_600,c_fill/cdfadb3d-34bf-492f-a442-0a09a7b67b68_vyci8c"
+                                 alt="The Boerboom Cartel"
+                                 style="width: 100%; height: 500px; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+                        </div>
+                        <!-- Text Right -->
+                        <div style="flex: 1; min-width: 300px; padding: var(--space-6);">
+                            <div style="display: flex; gap: 4px; margin-bottom: var(--space-6);">
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                                <i class="fas fa-star" style="color: var(--tc-gold); font-size: 1.5rem;"></i>
+                            </div>
+                            <p style="font-size: var(--text-xl); color: var(--tc-navy); line-height: 1.8; margin-bottom: var(--space-8); font-style: italic;">"We've stayed at luxury resorts around the world, but nothing compares to this. The family's attention to detail is unmatched, and having a personal concierge who actually knows you by name? It's like having your own private island resort experience."</p>
+                            <div style="padding-top: var(--space-4); border-top: 2px solid #e0e0e0;">
+                                <div style="font-weight: var(--font-weight-bold); color: var(--tc-navy); margin-bottom: var(--space-2); font-size: var(--text-xl);">The Boerboom Cartel</div>
+                                <div style="font-size: var(--text-base); color: var(--tc-gray); font-weight: var(--font-weight-medium);">3rd time guests, already booked for next year</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Indicators -->
+            <div style="display: flex; justify-content: center; gap: var(--space-3); margin-top: var(--space-12);">
+                <button class="review-indicator active" onclick="showReview(0)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--tc-primary); background: var(--tc-primary); cursor: pointer; transition: all 0.3s ease; opacity: 1;"></button>
+                <button class="review-indicator" onclick="showReview(1)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--tc-primary); background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.5;"></button>
+                <button class="review-indicator" onclick="showReview(2)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--tc-primary); background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.5;"></button>
+                <button class="review-indicator" onclick="showReview(3)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--tc-primary); background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.5;"></button>
+                <button class="review-indicator" onclick="showReview(4)" style="width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--tc-primary); background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.5;"></button>
+            </div>
+
+            <!-- Social Proof CTA -->
+            <div style="text-align: center; margin-top: var(--space-12);">
+                <a href="treasure-map.html" class="btn" style="background: linear-gradient(135deg, var(--tc-navy-light) 0%, var(--tc-primary) 100%); color: var(--white); padding: 18px 36px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.15rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.75rem; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);"
+                   onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 40px rgba(0, 0, 0, 0.2)'"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(0, 0, 0, 0.15)'">
+                    <i class="fas fa-users"></i>
+                    Join 1,347+ Happy Guests
+                </a>
             </div>
         </div>
     </section>
@@ -1939,29 +1988,18 @@
         </div>
     </footer>
 
-    <!-- Review Background Carousel JavaScript -->
+    <!-- Review Carousel JavaScript -->
     <script>
-        let currentReviewBg = 0;
-        const totalReviewBgs = 5;
-        let reviewBgInterval;
+        let currentReview = 0;
+        const totalReviews = 5;
+        let reviewInterval;
 
-        function showReviewBg(index) {
-            // Sync background slides and text slides
-            const bgSlides = document.querySelectorAll('.review-bg-slide');
-            const textSlides = document.querySelectorAll('.review-text-slide');
-            const indicators = document.querySelectorAll('.review-bg-indicator');
+        function showReview(index) {
+            const slides = document.querySelectorAll('.review-slide');
+            const indicators = document.querySelectorAll('.review-indicator');
 
-            // Transition background images
-            bgSlides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.style.opacity = '1';
-                } else {
-                    slide.style.opacity = '0';
-                }
-            });
-
-            // Transition text content
-            textSlides.forEach((slide, i) => {
+            // Transition slides
+            slides.forEach((slide, i) => {
                 if (i === index) {
                     slide.style.opacity = '1';
                     slide.style.pointerEvents = 'auto';
@@ -1976,57 +2014,57 @@
             // Update indicators
             indicators.forEach((indicator, i) => {
                 if (i === index) {
-                    indicator.style.background = 'white';
+                    indicator.style.background = 'var(--tc-primary)';
                     indicator.style.opacity = '1';
                 } else {
                     indicator.style.background = 'transparent';
-                    indicator.style.opacity = '0.7';
+                    indicator.style.opacity = '0.5';
                 }
             });
 
-            currentReviewBg = index;
+            currentReview = index;
         }
 
-        function nextReviewBg() {
-            currentReviewBg = (currentReviewBg + 1) % totalReviewBgs;
-            showReviewBg(currentReviewBg);
+        function nextReview() {
+            currentReview = (currentReview + 1) % totalReviews;
+            showReview(currentReview);
         }
 
-        function previousReviewBg() {
-            currentReviewBg = (currentReviewBg - 1 + totalReviewBgs) % totalReviewBgs;
-            showReviewBg(currentReviewBg);
+        function previousReview() {
+            currentReview = (currentReview - 1 + totalReviews) % totalReviews;
+            showReview(currentReview);
         }
 
         // Auto-rotate reviews every 8 seconds
-        function startReviewBgCarousel() {
-            reviewBgInterval = setInterval(nextReviewBg, 8000);
+        function startReviewCarousel() {
+            reviewInterval = setInterval(nextReview, 8000);
         }
 
         // Pause auto-rotation when user interacts
-        function pauseReviewBgCarousel() {
-            clearInterval(reviewBgInterval);
+        function pauseReviewCarousel() {
+            clearInterval(reviewInterval);
             // Resume after 15 seconds of no interaction
-            setTimeout(startReviewBgCarousel, 15000);
+            setTimeout(startReviewCarousel, 15000);
         }
 
-        // Initialize background carousel when page loads
+        // Initialize review carousel when page loads
         document.addEventListener('DOMContentLoaded', function() {
             // Add click handlers to indicators
-            document.querySelectorAll('.review-bg-indicator').forEach((indicator, index) => {
+            document.querySelectorAll('.review-indicator').forEach((indicator, index) => {
                 indicator.addEventListener('click', function() {
-                    showReviewBg(index);
-                    pauseReviewBgCarousel();
+                    showReview(index);
+                    pauseReviewCarousel();
                 });
             });
 
             // Start auto-rotation
-            startReviewBgCarousel();
+            startReviewCarousel();
 
             // Pause on hover over carousel
-            const carousel = document.getElementById('reviewBackgroundCarousel');
+            const carousel = document.getElementById('reviewsCarousel');
             if (carousel) {
-                carousel.addEventListener('mouseenter', () => clearInterval(reviewBgInterval));
-                carousel.addEventListener('mouseleave', startReviewBgCarousel);
+                carousel.addEventListener('mouseenter', () => clearInterval(reviewInterval));
+                carousel.addEventListener('mouseleave', startReviewCarousel);
             }
         });
     </script>
