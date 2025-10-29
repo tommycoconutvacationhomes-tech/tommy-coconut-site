@@ -882,7 +882,7 @@
     padding: 120px 0;
     background: #F5F0E8;
     position: relative;
-    background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/a585e00c-093a-4601-812d-3618eaecd82b_wxomiw');
+    background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/db7a1af5-501a-4b3c-9888-351f6cbf705f_ditqkc');
     background-size: cover;
     background-position: center 65%;
     background-repeat: no-repeat;
@@ -942,12 +942,6 @@
     margin: 0;
     line-height: 1.5;
     letter-spacing: -0.01em;
-}
-
-.referral-value-text::before {
-    content: "🥥 ";
-    font-size: 1.5rem;
-    margin-right: 8px;
 }
 
 .referral-explanation {
