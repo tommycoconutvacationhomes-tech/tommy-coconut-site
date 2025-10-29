@@ -2561,6 +2561,14 @@ a:hover, a:focus {
     background: linear-gradient(to bottom, #FFFFFF 0%, #F8FFFE 50%, #FAFAF8 100%);
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.week-feels-section.in-view {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .week-feels-section::before {
@@ -2747,6 +2755,34 @@ a:hover, a:focus {
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.week-feels-dot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: var(--tc-primary);
+    border-radius: 50%;
+    transition: width 0.3s ease;
+}
+
+.week-feels-dot.active::before {
+    width: 100%;
+    animation: progress-fill 4s linear;
+}
+
+@keyframes progress-fill {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 .week-feels-dot:hover {
@@ -2755,7 +2791,7 @@ a:hover, a:focus {
 }
 
 .week-feels-dot.active {
-    background: var(--tc-primary);
+    background: rgba(98, 208, 201, 0.5);
     transform: scale(1.3);
 }
 

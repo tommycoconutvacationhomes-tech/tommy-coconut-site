@@ -2681,6 +2681,44 @@
                     pauseBtn.setAttribute('aria-label', 'Pause carousel');
                 }
             });
+
+            // Intersection Observer for lazy image loading
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        // Images are already loaded, but we can optimize future additions
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px'
+            });
+
+            // Observe all carousel images
+            document.querySelectorAll('.week-feels-carousel-image').forEach(img => {
+                imageObserver.observe(img);
+            });
+
+            // Scroll-entry animation for section reveal
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        sectionObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            // Observe the week-feels section
+            const weekFeelsSection = document.querySelector('.week-feels-section');
+            if (weekFeelsSection) {
+                sectionObserver.observe(weekFeelsSection);
+            }
         });
     </script>
 
