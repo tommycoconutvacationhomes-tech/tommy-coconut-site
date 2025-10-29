@@ -2717,6 +2717,24 @@
             if (weekFeelsSection) {
                 sectionObserver.observe(weekFeelsSection);
             }
+
+            // Team section scroll animation
+            const teamSectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        teamSectionObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            const teamSectionWrapper = document.querySelector('.team-section-wrapper');
+            if (teamSectionWrapper) {
+                teamSectionObserver.observe(teamSectionWrapper);
+            }
         });
     </script>
 
