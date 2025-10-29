@@ -901,21 +901,24 @@
 }
 
 .referral-value-box {
-    background: white;
-    padding: 32px 48px;
-    border-radius: 4px;
+    background: linear-gradient(135deg, rgba(250, 253, 252, 1) 0%, rgba(248, 254, 253, 1) 100%);
+    padding: 40px 56px;
+    border-radius: 16px;
     margin: 0 auto 40px;
     max-width: 600px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    border-left: 4px solid #62D0C9;
+    box-shadow: 0 8px 24px rgba(98, 208, 201, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 2px solid rgba(98, 208, 201, 0.25);
+    position: relative;
+    overflow: hidden;
 }
 
 .referral-value-text {
-    font-size: 1.5rem;
+    font-size: 1.625rem;
     font-weight: 600;
-    color: #3D4A45;
+    color: #2A3835;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
 }
 
 .referral-explanation {
@@ -952,8 +955,8 @@
     font-size: 0.9375rem;
     font-weight: 500;
     color: #62736D;
-    opacity: 0.7;
-    font-style: italic;
+    opacity: 0.75;
+    font-style: normal;
     margin: 0;
 }
 
@@ -1124,11 +1127,11 @@
     }
 
     .referral-value-box {
-        padding: 24px 32px;
+        padding: 32px 40px;
     }
 
     .referral-value-text {
-        font-size: 1.25rem;
+        font-size: 1.375rem;
     }
 
     .referral-explanation {
