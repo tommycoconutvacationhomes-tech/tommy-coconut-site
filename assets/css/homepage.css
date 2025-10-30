@@ -683,7 +683,7 @@
 .team-section-title {
     text-align: center;
     font-size: clamp(2.5rem, 5vw, 3.5rem);
-    color: var(--dark-navy);
+    color: var(--tc-navy-light);
     margin-bottom: var(--space-4);
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
