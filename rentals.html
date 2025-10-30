@@ -189,12 +189,12 @@
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: var(--space-10); margin-top: var(--space-12);" id="properties-grid">
                 <!-- Villa Bayside Hill - Luxury Card -->
-                <div class="property-card" data-location="jan-thiel" data-guests="5-6" data-price="400-500" data-amenities="pool,ocean-view,kitchen" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08); position: relative;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
+                <div class="property-card" data-location="jan-thiel" data-guests="5-6" data-price="400-500" data-amenities="pool,ocean-view,kitchen" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08); position: relative; display: flex; flex-direction: column; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
                     <div style="position: relative; height: 280px; overflow: hidden;">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,c_fill/bayside-hill_qfdp8l" alt="Villa Bayside Hill" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow);">
                         <div style="position: absolute; top: var(--space-4); right: var(--space-4); background: var(--primary); color: var(--text-inverse); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: var(--font-weight-semibold);">Most Popular</div>
                     </div>
-                    <div style="padding: var(--space-8); display: flex; flex-direction: column;">
+                    <div style="padding: var(--space-8); display: flex; flex-direction: column; flex-grow: 1;">
                         <h3 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); color: var(--teal); margin-bottom: var(--space-2);">Villa Bayside Hill</h3>
                         <div style="color: var(--primary); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4);">Jan Thiel, Curaçao</div>
                         <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-4);">Panoramic ocean views from every room. Our most popular villa for sunrise coffee and sunset memories.</p>
@@ -222,12 +222,12 @@
                 </div>
 
                 <!-- Villa Palm Breeze - Luxury Card -->
-                <div class="property-card" data-location="westpunt" data-guests="5-6" data-price="300-400" data-amenities="beach-access,pool" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
+                <div class="property-card" data-location="westpunt" data-guests="5-6" data-price="300-400" data-amenities="beach-access,pool" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08); display: flex; flex-direction: column; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
                     <div style="position: relative; height: 280px; overflow: hidden;">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,c_fill/tommy-coconut/villas/palm-breeze" alt="Villa Palm Breeze" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow);">
                         <div style="position: absolute; top: var(--space-4); right: var(--space-4); background: #ef4444; color: var(--text-inverse); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: var(--font-weight-semibold);">HOT</div>
                     </div>
-                    <div style="padding: var(--space-8); display: flex; flex-direction: column;">
+                    <div style="padding: var(--space-8); display: flex; flex-direction: column; flex-grow: 1;">
                         <h3 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); color: var(--teal); margin-bottom: var(--space-2);">Villa Palm Breeze</h3>
                         <div style="color: var(--primary); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4);">Westpunt, Curaçao</div>
                         <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-4);">Step from your pool directly onto pristine sand. Beachfront living at its most elegant.</p>
@@ -247,12 +247,12 @@
                 </div>
 
                 <!-- Villa Dushi Hideaway - Luxury Card -->
-                <div class="property-card" data-location="willemstad" data-guests="3-4" data-price="200-300" data-amenities="ocean-view" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
+                <div class="property-card" data-location="willemstad" data-guests="3-4" data-price="200-300" data-amenities="ocean-view" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08); display: flex; flex-direction: column; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
                     <div style="position: relative; height: 280px; overflow: hidden;">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,c_fill/tommy-coconut/villas/dushi-hideaway" alt="Villa Dushi Hideaway" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow);">
                         <div style="position: absolute; top: var(--space-4); right: var(--space-4); background: #F7B7A3; color: var(--text-inverse); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: var(--font-weight-semibold);">Romance Special</div>
                     </div>
-                    <div style="padding: var(--space-8); display: flex; flex-direction: column;">
+                    <div style="padding: var(--space-8); display: flex; flex-direction: column; flex-grow: 1;">
                         <h3 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); color: var(--teal); margin-bottom: var(--space-2);">Villa Dushi Hideaway</h3>
                         <div style="color: var(--primary); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4);">Willemstad, Curaçao</div>
                         <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-4);">Some places are made for two hearts. Dushi Hideaway tucks you away from the world where time stops, conversations flow like rum, and every sunset belongs to you. Romance found its home here.</p>
@@ -276,7 +276,7 @@
                 </div>
 
                 <!-- Villa Happy Hideaway - Luxury Card -->
-                <div class="property-card" data-location="jan-thiel" data-guests="5-6" data-price="300-400" data-amenities="beach-access,kitchen" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
+                <div class="property-card" data-location="jan-thiel" data-guests="5-6" data-price="300-400" data-amenities="beach-access,kitchen" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08); display: flex; flex-direction: column; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
                     <div style="position: relative; height: 280px; overflow: hidden;">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/happy-hideaway-1_hx9jke" alt="Villa Happy Hideaway" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow);">
                         <div style="position: absolute; top: var(--space-4); right: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2);">
@@ -284,7 +284,7 @@
                             <div style="background: #f59e0b; color: var(--text-inverse); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: var(--font-weight-semibold);">Recently Renovated</div>
                         </div>
                     </div>
-                    <div style="padding: var(--space-8); display: flex; flex-direction: column;">
+                    <div style="padding: var(--space-8); display: flex; flex-direction: column; flex-grow: 1;">
                         <h3 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); color: var(--teal); margin-bottom: var(--space-2);">Villa Happy Hideaway</h3>
                         <div style="color: var(--primary); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4);">Jan Thiel, Curaçao</div>
                         <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-4);">Ample space for the whole family. Modern comforts meet authentic island charm where every generation finds their perfect spot.</p>
@@ -304,7 +304,7 @@
                 </div>
 
                 <!-- Castaway Beach - Luxury Card -->
-                <div class="property-card" data-location="westpunt" data-guests="5-6" data-price="300-400" data-amenities="beach-access,ocean-view" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
+                <div class="property-card" data-location="westpunt" data-guests="5-6" data-price="300-400" data-amenities="beach-access,ocean-view" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08); display: flex; flex-direction: column; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
                     <div style="position: relative; height: 280px; overflow: hidden;">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,c_fill/tommy-coconut/villas/castaway-beach" alt="Castaway Beach" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow);">
                         <div style="position: absolute; top: var(--space-4); right: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2);">
@@ -312,7 +312,7 @@
                             <div style="background: #f59e0b; color: var(--text-inverse); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: var(--font-weight-semibold);">Recently Renovated</div>
                         </div>
                     </div>
-                    <div style="padding: var(--space-8); display: flex; flex-direction: column;">
+                    <div style="padding: var(--space-8); display: flex; flex-direction: column; flex-grow: 1;">
                         <h3 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); color: var(--teal); margin-bottom: var(--space-2);">Castaway Beach</h3>
                         <div style="color: var(--primary); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4);">Westpunt, Curaçao</div>
                         <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-4);">Live the beachfront dream at Castaway Beach. With the ocean as your constant companion from every room, this stunning property masterfully blends luxurious living with the raw beauty of Curaçao's shoreline. Your <span class="dushi-word" data-papiamento="Dushi Life" data-translation="The Good Life. A feeling of sweetness, beauty, and peace.">Dushi Life</span>, right on the sand.</p>
@@ -332,12 +332,12 @@
                 </div>
 
                 <!-- Sailaway Beach - Luxury Card -->
-                <div class="property-card" data-location="willemstad" data-guests="7+" data-price="400-500" data-amenities="ocean-view,kitchen" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
+                <div class="property-card" data-location="willemstad" data-guests="7+" data-price="400-500" data-amenities="ocean-view,kitchen" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08); display: flex; flex-direction: column; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
                     <div style="position: relative; height: 280px; overflow: hidden;">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,c_fill/tommy-coconut/villas/sailaway-beach" alt="Sailaway Beach" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow);">
                         <div style="position: absolute; top: var(--space-4); right: var(--space-4); background: #0ea5e9; color: var(--text-inverse); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: var(--font-weight-semibold);">Waterfront</div>
                     </div>
-                    <div style="padding: var(--space-8); display: flex; flex-direction: column;">
+                    <div style="padding: var(--space-8); display: flex; flex-direction: column; flex-grow: 1;">
                         <h3 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); color: var(--teal); margin-bottom: var(--space-2);">Sailaway Beach</h3>
                         <div style="color: var(--primary); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4);">Willemstad, Curaçao</div>
                         <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-4);">Panoramic vistas where luxury meets Curaçao's legendary sunsets. Ultimate comfort and style for those who appreciate the finer things.</p>
@@ -357,12 +357,12 @@
                 </div>
 
                 <!-- Sunshine Bay - Luxury Card -->
-                <div class="property-card" data-location="jan-thiel" data-guests="3-4" data-price="300-400" data-amenities="ocean-view,kitchen" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
+                <div class="property-card" data-location="jan-thiel" data-guests="3-4" data-price="300-400" data-amenities="ocean-view,kitchen" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08); display: flex; flex-direction: column; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
                     <div style="position: relative; height: 280px; overflow: hidden;">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,c_fill/tommy-coconut/villas/sunshine-bay" alt="Sunshine Bay" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow);">
                         <div style="position: absolute; top: var(--space-4); right: var(--space-4); background: #f59e0b; color: var(--text-inverse); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: var(--font-weight-semibold);">Sunshine Views</div>
                     </div>
-                    <div style="padding: var(--space-8); display: flex; flex-direction: column;">
+                    <div style="padding: var(--space-8); display: flex; flex-direction: column; flex-grow: 1;">
                         <h3 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); color: var(--teal); margin-bottom: var(--space-2);">Sunshine Bay</h3>
                         <div style="color: var(--primary); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4);">Jan Thiel, Curaçao</div>
                         <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-4);">Bask in the glow of Sunshine Bay. This intimate villa is your private haven, flooded with Caribbean light and offering stunning bay views. It's the perfect sun-drenched escape for radiant days and romantic, starlit nights.</p>
@@ -382,12 +382,12 @@
                 </div>
 
                 <!-- Tropical Haven - Luxury Card -->
-                <div class="property-card" data-location="westpunt" data-guests="5-6" data-price="300-400" data-amenities="beach-access,kitchen" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
+                <div class="property-card" data-location="westpunt" data-guests="5-6" data-price="300-400" data-amenities="beach-access,kitchen" style="background: var(--surface); border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); border: 1px solid rgba(0, 207, 207, 0.08); display: flex; flex-direction: column; height: 100%;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 25px 80px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-xl)'">
                     <div style="position: relative; height: 280px; overflow: hidden;">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,c_fill/tommy-coconut/villas/tropical-haven" alt="Tropical Haven" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow);">
                         <div style="position: absolute; top: var(--space-4); right: var(--space-4); background: #10b981; color: var(--text-inverse); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: var(--font-weight-semibold);">Waterfront</div>
                     </div>
-                    <div style="padding: var(--space-8); display: flex; flex-direction: column;">
+                    <div style="padding: var(--space-8); display: flex; flex-direction: column; flex-grow: 1;">
                         <h3 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); color: var(--teal); margin-bottom: var(--space-2);">Tropical Haven</h3>
                         <div style="color: var(--primary); font-size: var(--text-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4);">Westpunt, Curaçao</div>
                         <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-4);">Escape to your own Tropical Haven. Surrounded by lush island beauty, this spacious retreat offers families a perfect blend of modern comfort and immersive nature. It's more than a stay; it's your private slice of paradise.</p>
