@@ -675,9 +675,9 @@
    ========================================= */
 
 .team-section-wrapper {
-    margin-top: 96px;
+    margin-top: 0;
     border-top: 1px solid rgba(98, 208, 201, 0.1);
-    padding-top: 64px;
+    padding-top: 0;
 }
 
 .team-section-title {
