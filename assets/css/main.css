@@ -63,25 +63,21 @@
     --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
     
-    /* Font Weight Scale */
-    --weight-light: 300;
-    --weight-regular: 400;
-    --weight-medium: 500;
-    --weight-semibold: 600;
-    --weight-bold: 700;
-    --weight-black: 800;
+    /* Font Weight Scale - Consolidated 4-Weight System */
+    --weight-light: 300;        /* Light - Large display headlines only */
+    --weight-regular: 400;      /* Regular - Body text, descriptions */
+    --weight-semibold: 600;     /* Semi-bold - Subheadings, emphasis, small headings */
+    --weight-bold: 700;         /* Bold - Labels, badges, CTAs */
     
-    /* Type Scale - Optimized for Luxury Feel */
-    --text-xs: 0.75rem;     /* 12px - Small labels */
-    --text-sm: 0.875rem;    /* 14px - Secondary text */
-    --text-base: 1rem;      /* 16px - Body text */
-    --text-lg: 1.125rem;    /* 18px - Large body */
-    --text-xl: 1.25rem;     /* 20px - Small headings */
-    --text-2xl: 1.5rem;     /* 24px - H4 */
-    --text-3xl: 1.875rem;   /* 30px - H3 */
-    --text-4xl: 2.25rem;    /* 36px - H2 */
-    --text-5xl: 3rem;       /* 48px - H1 */
-    --text-6xl: 3.75rem;    /* 60px - Hero titles */
+    /* Type Scale - Consolidated 8-Size System (Jobs Law Applied) */
+    --text-xs: 0.75rem;     /* 12px - Micro text, labels, captions, footnotes */
+    --text-sm: 0.875rem;    /* 14px - Small text, secondary info, chips, badges */
+    --text-base: 1rem;      /* 16px - Base body text, paragraphs, descriptions */
+    --text-lg: 1.125rem;    /* 18px - Large body, emphasis, large paragraphs */
+    --text-xl: 1.25rem;     /* 20px - Small headings (h4), card titles */
+    --text-2xl: 1.5rem;     /* 24px - Medium headings (h3), section subtitles */
+    --text-3xl: 2.5rem;     /* 40px - Large headings (h2) */
+    --text-4xl: 3.5rem;     /* 56px - Hero headings (h1), major section titles */
     
     /* Spacing Scale */
     --space-1: 0.25rem;

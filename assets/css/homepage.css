@@ -28,13 +28,13 @@
 
 .hero-proof-star {
     color: #FFD700;
-    font-size: 18px;
+    font-size: var(--text-lg);
 }
 
 .hero-proof-text {
     color: var(--tc-primary);
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: var(--weight-bold);
+    font-size: var(--text-sm);
 }
 
 .hero-chips {
@@ -52,8 +52,8 @@
     backdrop-filter: blur(10px);
     padding: 8px 16px;
     border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
     color: white;
     white-space: nowrap;
     display: inline-flex;
@@ -63,19 +63,19 @@
 
 .chip-separator {
     color: rgba(255, 255, 255, 0.5);
-    font-weight: 300;
+    font-weight: var(--weight-light);
 }
 
 /* Hero CTAs */
 .btn-hero-primary {
-    font-size: 1.125rem;
+    font-size: var(--text-lg);
     padding: 18px 48px;
     color: var(--tc-navy-light) !important;
     background: white;
     border-radius: 56px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -88,14 +88,14 @@
 }
 
 .btn-hero-secondary {
-    font-size: 1rem;
+    font-size: var(--text-base);
     padding: 14px 32px;
     color: white !important;
     background: transparent;
     border: 2px solid white;
     border-radius: 52px;
     transition: all 0.3s ease;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -141,36 +141,36 @@
 }
 
 .vignette-card-eyebrow {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #62736D;
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
     letter-spacing: 0.15em;
     margin-bottom: 4px;
     line-height: 1.2;
 }
 
 .vignette-card-title {
-    font-size: 3.5rem;
-    font-weight: 300;
-    color: #62736D;
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-light);
+    color: var(--text-primary);
     letter-spacing: 0.08em;
     margin-bottom: 0;
     line-height: 1;
 }
 
 .vignette-card-subtitle {
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: #62736D;
+    font-size: var(--text-lg);
+    font-weight: var(--weight-regular);
+    color: var(--text-primary);
     letter-spacing: 0.12em;
     margin-bottom: 32px;
     line-height: 1.2;
 }
 
 .vignette-card-description {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #3D4A45;
+    font-size: var(--text-base);
+    font-weight: var(--weight-regular);
+    color: var(--charcoal);
     line-height: 1.8;
     margin-bottom: 32px;
     max-width: 420px;
@@ -195,9 +195,9 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #62736D;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
     letter-spacing: 0.12em;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -207,7 +207,7 @@
 
 .vignette-card-link:hover {
     gap: 16px;
-    color: #3D4A45;
+    color: var(--charcoal);
 }
 
 .vignette-card-link svg {
@@ -287,8 +287,8 @@
 }
 
 .concierge-title {
-    font-size: 2.5rem;
-    font-weight: 400;
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-regular);
     color: var(--tc-navy-light);
     line-height: 1.3;
     margin-bottom: 16px;
@@ -297,8 +297,8 @@
 }
 
 .concierge-subtitle {
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-size: var(--text-xl);
+    font-weight: var(--weight-regular);
     color: var(--tc-navy-light);
     line-height: 1.5;
     text-align: center;
@@ -339,7 +339,7 @@
     justify-content: center;
     margin: -48px auto 24px;
     box-shadow: 0 4px 16px rgba(98, 208, 201, 0.3);
-    font-size: 28px;
+    font-size: var(--text-2xl);
 }
 
 .step-content {
@@ -347,8 +347,8 @@
 }
 
 .step-label {
-    font-size: 0.875rem;
-    font-weight: 700;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
     text-transform: uppercase;
     color: var(--tc-primary);
     letter-spacing: 0.1em;
@@ -356,8 +356,8 @@
 }
 
 .step-title {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
     color: var(--tc-navy-light);
     margin-bottom: 16px;
 }
@@ -367,7 +367,7 @@
     padding: 12px;
     border-radius: 12px;
     font-style: italic;
-    font-size: 0.9375rem;
+    font-size: var(--text-base);
     color: var(--charcoal);
     opacity: 0.8;
 }
@@ -382,8 +382,8 @@
     background: linear-gradient(135deg, rgba(98, 208, 201, 0.1), rgba(98, 208, 201, 0.05));
     padding: 8px 16px;
     border-radius: 16px;
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
     color: var(--tc-primary);
 }
 
@@ -391,8 +391,8 @@
     background: linear-gradient(135deg, rgba(98, 208, 201, 0.15), rgba(98, 208, 201, 0.1));
     padding: 8px 16px;
     border-radius: 16px;
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
     color: var(--tc-primary);
 }
 
@@ -400,13 +400,13 @@
     background: linear-gradient(135deg, rgba(98, 208, 201, 0.2), rgba(98, 208, 201, 0.15));
     padding: 8px 16px;
     border-radius: 16px;
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
     color: var(--tc-navy-light);
 }
 
 .step-note {
-    font-size: 0.8125rem;
+    font-size: var(--text-sm);
     color: var(--charcoal);
     opacity: 0.6;
     margin-top: 12px;
@@ -417,7 +417,7 @@
     align-items: flex-start;
     gap: 8px;
     text-align: left;
-    font-size: 0.9375rem;
+    font-size: var(--text-base);
     color: var(--charcoal);
     opacity: 0.8;
     line-height: 1.5;
@@ -425,7 +425,7 @@
 
 .step-checkmark {
     color: #25D366;
-    font-size: 1.25rem;
+    font-size: var(--text-xl);
 }
 
 .concierge-micro-pill {
@@ -434,7 +434,7 @@
     border-radius: 16px;
     text-align: center;
     font-style: italic;
-    font-size: 0.9375rem;
+    font-size: var(--text-base);
     color: var(--charcoal);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
     margin-bottom: 48px;
@@ -448,13 +448,13 @@
 }
 
 .btn-whatsapp {
-    font-size: 1rem;
+    font-size: var(--text-base);
     padding: 14px 28px;
     color: white !important;
     background: #25D366;
     border-radius: 48px;
     transition: all 0.3s ease;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -469,13 +469,13 @@
 }
 
 .btn-concierge-primary {
-    font-size: 1rem;
+    font-size: var(--text-base);
     padding: 14px 28px;
     color: white !important;
     background: var(--tc-primary);
     border-radius: 48px;
     transition: all 0.3s ease;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -490,14 +490,14 @@
 }
 
 .btn-concierge-secondary {
-    font-size: 1rem;
+    font-size: var(--text-base);
     padding: 14px 28px;
     color: var(--tc-primary) !important;
     background: transparent;
     border: 2px solid var(--tc-primary);
     border-radius: 48px;
     transition: all 0.3s ease;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     text-decoration: none;
     display: inline-block;
 }
@@ -537,20 +537,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
+    font-size: var(--text-4xl);
     margin: 0 auto 24px;
 }
 
 .value-title {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
     color: var(--tc-primary);
     margin-bottom: 0.75rem;
     text-align: center;
 }
 
 .value-description {
-    font-size: 0.9375rem;
+    font-size: var(--text-base);
     color: var(--charcoal);
     line-height: 1.7;
     margin-bottom: auto;
@@ -565,8 +565,8 @@
 }
 
 .value-badge-text {
-    font-size: 0.875rem;
-    font-weight: 700;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
     color: var(--tc-primary);
 }
 
@@ -617,14 +617,14 @@
 }
 
 .property-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
     color: var(--tc-primary);
     margin-bottom: 0.5rem;
 }
 
 .property-description {
-    font-size: 0.9375rem;
+    font-size: var(--text-base);
     color: var(--charcoal);
     opacity: 0.7;
     margin-bottom: 1rem;
@@ -642,8 +642,8 @@
     background: rgba(98, 208, 201, 0.1);
     padding: 6px 14px;
     border-radius: 16px;
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
     color: var(--tc-primary);
     border: 1px solid rgba(98, 208, 201, 0.2);
 }
@@ -655,8 +655,8 @@
     background: var(--tc-primary);
     color: white !important;
     text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
     border-radius: 48px;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -744,8 +744,8 @@
 }
 
 .team-name {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
     color: var(--tc-navy);
     margin-bottom: 8px;
     text-align: center;
@@ -753,16 +753,16 @@
 }
 
 .team-role {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     color: var(--tc-primary);
     margin-bottom: 12px;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     text-align: center;
     width: 100%;
 }
 
 .team-quote {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     color: var(--text-secondary);
     line-height: 1.5;
     font-style: italic;
@@ -790,12 +790,12 @@
 }
 
 .cartel-icon {
-    font-size: 24px;
+    font-size: var(--text-2xl);
 }
 
 .cartel-label {
-    font-size: 1rem;
-    font-weight: 800;
+    font-size: var(--text-base);
+    font-weight: var(--weight-bold);
     color: #002F3D;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -814,13 +814,13 @@
 }
 
 .btn-final-primary {
-    font-size: 1.25rem;
+    font-size: var(--text-xl);
     padding: 20px 56px;
     color: white !important;
     background: linear-gradient(135deg, #62D0C9 0%, #4FBDB6 100%);
     border-radius: 64px;
     transition: all 0.3s ease;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     text-decoration: none;
     display: inline-block;
     min-width: 280px;
@@ -834,7 +834,7 @@
 }
 
 .btn-final-secondary {
-    font-size: 1.25rem;
+    font-size: var(--text-xl);
     padding: 20px 56px;
     color: white !important;
     background: linear-gradient(135deg, #005A5B 0%, #002F3D 100%);
@@ -866,8 +866,8 @@
     padding: 10px 18px;
     border-radius: 24px;
     border: 1px solid rgba(98, 208, 201, 0.15);
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
     color: var(--charcoal);
     display: inline-flex;
     align-items: center;
@@ -911,9 +911,9 @@
 }
 
 .referral-headline {
-    font-size: 3rem;
-    font-weight: 300;
-    color: #FFFFFF;
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-light);
+    color: var(--text-inverse);
     letter-spacing: 0.02em;
     margin-bottom: 40px;
     line-height: 1.2;
@@ -936,8 +936,8 @@
 }
 
 .referral-value-text {
-    font-size: 1.625rem;
-    font-weight: 600;
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-semibold);
     color: #2A3835;
     margin: 0;
     line-height: 1.5;
@@ -945,9 +945,9 @@
 }
 
 .referral-explanation {
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: #FFFFFF;
+    font-size: var(--text-lg);
+    font-weight: var(--weight-regular);
+    color: var(--text-inverse);
     line-height: 1.7;
     max-width: 640px;
     margin: 0 auto 48px;
@@ -959,13 +959,13 @@
 
 .btn-referral-primary {
     display: inline-block;
-    font-size: 1rem;
+    font-size: var(--text-base);
     padding: 16px 40px;
     color: white !important;
     background: #62D0C9;
     border-radius: 48px;
     transition: all 0.3s ease;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     text-decoration: none;
     box-shadow: 0 4px 16px rgba(98, 208, 201, 0.25);
     margin-bottom: 32px;
@@ -978,9 +978,9 @@
 }
 
 .referral-social-proof {
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: #FFFFFF;
+    font-size: var(--text-base);
+    font-weight: var(--weight-regular);
+    color: var(--text-inverse);
     opacity: 1;
     font-style: normal;
     margin: 0;
@@ -1021,7 +1021,7 @@
     }
 
     .vignette-card-title {
-        font-size: 3rem;
+        font-size: var(--text-4xl);
     }
 }
 
@@ -1045,15 +1045,15 @@
     }
 
     .vignette-card-title {
-        font-size: 2.5rem;
+        font-size: var(--text-3xl);
     }
 
     .vignette-card-subtitle {
-        font-size: 1rem;
+        font-size: var(--text-base);
     }
 
     .vignette-card-description {
-        font-size: 0.9375rem;
+        font-size: var(--text-base);
     }
 
     .vignette-image {
@@ -1066,11 +1066,11 @@
         left: 50%;
         transform: translateX(-50%);
         padding: 8px 12px;
-        font-size: 11px;
+        font-size: var(--text-xs);
     }
 
     .hero-proof-star {
-        font-size: 14px;
+        font-size: var(--text-sm);
     }
 
     .hero-chips {
@@ -1080,7 +1080,7 @@
     }
 
     .chip {
-        font-size: 0.85rem;
+        font-size: var(--text-sm);
         padding: 10px 16px;
     }
 
@@ -1103,7 +1103,7 @@
         width: 100%;
         min-width: auto;
         padding: 18px 32px;
-        font-size: 1.125rem;
+        font-size: var(--text-lg);
     }
 
     /* Concierge Section Mobile Optimization */
@@ -1121,12 +1121,12 @@
     }
 
     .concierge-title {
-        font-size: 1.75rem;
+        font-size: var(--text-2xl);
         margin-bottom: 12px;
     }
 
     .concierge-subtitle {
-        font-size: 1rem;
+        font-size: var(--text-base);
         line-height: 1.6;
     }
 
@@ -1150,7 +1150,7 @@
     }
 
     .referral-headline {
-        font-size: 2rem;
+        font-size: var(--text-3xl);
         margin-bottom: 32px;
     }
 
@@ -1159,11 +1159,11 @@
     }
 
     .referral-value-text {
-        font-size: 1.375rem;
+        font-size: var(--text-xl);
     }
 
     .referral-explanation {
-        font-size: 1rem;
+        font-size: var(--text-base);
         margin-bottom: 40px;
     }
 
@@ -1180,15 +1180,15 @@
     }
 
     .vignette-card-title {
-        font-size: 2rem;
+        font-size: var(--text-3xl);
     }
 
     .vignette-card-eyebrow {
-        font-size: 0.875rem;
+        font-size: var(--text-sm);
     }
 
     .vignette-card-subtitle {
-        font-size: 0.9375rem;
+        font-size: var(--text-base);
     }
 
     .vignette-image {
@@ -1198,12 +1198,12 @@
     .step-icon-circle {
         width: 48px;
         height: 48px;
-        font-size: 1.5rem;
+        font-size: var(--text-2xl);
     }
 
     .value-icon {
         width: 48px;
         height: 48px;
-        font-size: 1.5rem;
+        font-size: var(--text-2xl);
     }
 }
