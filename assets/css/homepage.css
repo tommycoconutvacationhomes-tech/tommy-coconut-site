@@ -718,9 +718,9 @@
 
 .team-grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 48px 32px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -1034,6 +1034,11 @@
 
     .vignette-card-title {
         font-size: var(--text-4xl);
+    }
+
+    .team-grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 24px;
     }
 }
 
