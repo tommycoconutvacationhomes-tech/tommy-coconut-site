@@ -684,12 +684,24 @@
     text-align: center;
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     color: var(--tc-navy-light);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-2);
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
     white-space: nowrap;
     max-width: 100%;
     overflow: visible;
+}
+
+.team-section-subtitle {
+    text-align: center;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-8);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Scroll animation for team section */
@@ -706,8 +718,8 @@
 
 .team-grid-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px 32px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -1048,6 +1060,11 @@
         font-size: var(--text-3xl);
     }
 
+    .team-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 24px;
+    }
+
     .vignette-card-subtitle {
         font-size: var(--text-base);
     }
@@ -1205,5 +1222,10 @@
         width: 48px;
         height: 48px;
         font-size: var(--text-2xl);
+    }
+
+    .team-grid-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 }
