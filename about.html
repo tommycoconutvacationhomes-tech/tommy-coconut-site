@@ -65,11 +65,11 @@
         </div>
     </nav>
     <!-- Page Header with Luxury Styling -->
-    <section class="section" style="background: linear-gradient(135deg, rgba(250, 250, 248, 0.3) 0%, rgba(255, 255, 255, 0.4) 100%), url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/1_2_jmnnrh') center/cover; padding-top: calc(var(--section-padding) * 1.2); text-align: center;" id="main-content">
+    <section class="section" style="background: linear-gradient(135deg, rgba(250, 250, 248, 0.75) 0%, rgba(255, 255, 255, 0.85) 100%), url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/1_2_jmnnrh') center/cover; padding-top: calc(var(--section-padding) * 1.2); text-align: center;" id="main-content">
         <div class="container">
-            <div class="content-spotlight">
-                <h1 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(3.2rem, 6vw, 4.5rem); color: var(--tc-navy-light); letter-spacing: -0.02em; line-height: 1.1; text-shadow: 0 1px 2px rgba(0, 47, 61, 0.1); margin-bottom: var(--space-8);">The Legend of Tommy Coconut</h1>
-                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 300; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">The legend of Tommy Coconut wasn't born in a boardroom. It was born around a table, with a couple of piña coladas and a simple idea: what if a vacation could feel less like a hotel, and more like your own private resort where you're welcomed by a family you didn't know you had? That feeling—of being truly, effortlessly welcomed—is the treasure we call the Dushi Life.</p>
+            <div class="content-spotlight" style="max-width: 900px; margin: 0 auto; padding: var(--space-10) var(--space-6); background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(8px); border-radius: var(--radius-2xl); box-shadow: 0 8px 32px rgba(0, 47, 61, 0.08);">
+                <h1 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(3.2rem, 6vw, 4.5rem); color: var(--tc-navy-light); letter-spacing: -0.02em; line-height: 1.1; text-shadow: 0 2px 8px rgba(0, 47, 61, 0.15), 0 4px 16px rgba(255, 255, 255, 0.8); margin-bottom: var(--space-8);">The Legend of Tommy Coconut</h1>
+                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 400; color: var(--text-primary); max-width: 800px; margin: 0 auto; text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);">The legend of Tommy Coconut wasn't born in a boardroom. It was born around a table, with a couple of piña coladas and a simple idea: what if a vacation could feel less like a hotel, and more like your own private resort where you're welcomed by a family you didn't know you had? That feeling—of being truly, effortlessly welcomed—is the treasure we call the Dushi Life.</p>
             </div>
         </div>
     </section>
@@ -519,6 +519,12 @@
                 background-attachment: scroll !important;
             }
 
+            .section#main-content .content-spotlight {
+                padding: var(--space-8) var(--space-5) !important;
+                margin: 0 var(--space-4) !important;
+                max-width: 100% !important;
+            }
+
             .section#main-content h1 {
                 font-size: clamp(2rem, 8vw, 3rem) !important;
                 margin-bottom: var(--space-6) !important;
@@ -526,7 +532,7 @@
 
             .section-subtitle {
                 font-size: var(--text-base) !important;
-                padding: 0 var(--space-4);
+                padding: 0 !important;
             }
 
             /* Treasure Carousel */
