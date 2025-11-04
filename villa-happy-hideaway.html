@@ -784,6 +784,16 @@
             A great vacation isn't about where you go—it's about <strong>how you feel</strong>. At Happy Hideaway, you don't just check in… you <strong class="dushi-word">saka rosea</strong> (unwind completely). From wheels-down to your last <span class="dushi-word">tempu di solo bai</span> (sunset time) toast, every detail is curated so you can disconnect—no planning, no stress, <strong>just <span class="dushi-word">trankilidad</span> (peace)</strong>.
         </p>
 
+        <!-- Our Promise -->
+        <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); margin: var(--space-2xl) 0;">
+            <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">
+                Our Promise
+            </h3>
+            <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
+                As a family who's raised our kids on this island, we know what makes a vacation truly special: not the itinerary, but the moments. That's why we've built Happy Hideaway to remove every friction point, so your family can be fully present—no logistics stress, just connection.
+            </p>
+        </div>
+
         <!-- CTA: Check Availability -->
         <div style="text-align: center; margin: var(--space-2xl) 0;">
             <a href="#lodgify-book-now-box"
@@ -1097,7 +1107,7 @@
                 </div>
             </div>
 
-            <!-- CTA: Claim Your $3,000+ Experience -->
+            <!-- CTA: Reserve Your Week -->
             <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
                 <a href="#lodgify-book-now-box"
                    style="display: block; padding: var(--space-lg) var(--space-2xl);
@@ -1108,8 +1118,8 @@
                           transition: var(--transition-normal); text-align: center;"
                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 32px rgba(98, 208, 201, 0.4)';"
                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(98, 208, 201, 0.3)';">
-                    <i class="fas fa-gift" style="margin-right: var(--space-md);"></i>
-                    Claim Your $3,000+ Experience
+                    <i class="fas fa-calendar-check" style="margin-right: var(--space-md);"></i>
+                    Reserve Your Week
                 </a>
                 <p style="color: rgba(255,255,255,0.7); font-size: var(--tc-font-small); margin-top: var(--space-md); text-align: center;">Check dates and pricing in real-time</p>
             </div>
@@ -1207,7 +1217,7 @@
                 <div class="review-dot" onclick="showReview(4)"></div>
             </div>
 
-            <!-- CTA: Reserve Your Private Resort -->
+            <!-- CTA: Reserve Your Week -->
             <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
                 <a href="#lodgify-book-now-box"
                    style="display: block; padding: var(--space-lg) var(--space-2xl);
@@ -1218,7 +1228,8 @@
                           transition: var(--transition-normal);"
                    onmouseover="this.style.background='var(--accent)'; this.style.transform='scale(1.02)';"
                    onmouseout="this.style.background='var(--primary)'; this.style.transform='scale(1)';">
-                    Reserve Your Private Resort
+                    <i class="fas fa-calendar-check" style="margin-right: var(--space-sm);"></i>
+                    Reserve Your Week
                 </a>
                 <p style="color: var(--text-secondary); font-size: var(--tc-font-small); margin-top: var(--space-md); text-align: center;">Join 500+ happy families</p>
             </div>
@@ -1287,7 +1298,7 @@
                 </div>
             </div>
 
-            <!-- CTA: See Open Dates -->
+            <!-- CTA: Check Availability -->
             <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
                 <a href="#lodgify-book-now-box"
                    style="display: block; padding: var(--space-lg) var(--space-2xl);
@@ -1299,7 +1310,7 @@
                    onmouseover="this.style.background='var(--accent)';"
                    onmouseout="this.style.background='var(--primary)';">
                     <i class="fas fa-calendar-alt" style="margin-right: var(--space-md);"></i>
-                    See Open Dates
+                    Check Availability
                 </a>
                 <p style="color: var(--text-secondary); font-size: var(--tc-font-small); margin-top: var(--space-md); text-align: center;">Questions answered? Let's find your perfect week.</p>
             </div>
@@ -1343,20 +1354,14 @@
     <!-- Floating Conversion Engine -->
     <div class="floating-booking" id="floatingBooking">
         <div class="booking-content">
-            <div class="date-selector">
-                <input type="date" class="date-input" id="checkIn" placeholder="Check-in">
-                <span style="color: var(--text-secondary);">to</span>
-                <input type="date" class="date-input" id="checkOut" placeholder="Check-out">
-            </div>
-            
             <div class="price-display">
-                <div class="price-amount">7-Night All-Inclusive Experience</div>
-                <div class="price-label">from $5,000</div>
+                <div class="price-amount">7-Night Private Resort Experience</div>
+                <div class="price-label">from $5,000 | 4.99★ rated</div>
             </div>
-            
+
             <button class="welcome-home-btn" onclick="bookNow()">
                 <i class="fas fa-calendar-check"></i>
-                Reserve Your Week
+                Check Availability
             </button>
         </div>
     </div>
