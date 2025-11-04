@@ -574,22 +574,58 @@
             box-shadow: 0 4px 12px rgba(98, 208, 201, 0.3);
         }
 
-        /* Mobile Responsiveness */
+        /* Mobile Responsiveness - ENHANCED */
         @media (max-width: 768px) {
+            /* Floating Booking Bar Optimizations */
             .floating-booking {
+                bottom: 0;
+                left: 0;
+                right: 0;
                 padding: var(--space-md);
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
             }
 
             .booking-content {
                 grid-template-columns: 1fr;
                 gap: var(--space-md);
                 text-align: center;
+                flex-direction: column;
+                align-items: stretch;
             }
 
             .date-selector {
                 justify-content: center;
+                flex-direction: column;
+                gap: var(--space-sm);
+                width: 100%;
             }
 
+            .date-input {
+                width: 100%;
+                min-height: 44px; /* Touch target size */
+                font-size: 16px; /* Prevents iOS zoom */
+            }
+
+            .price-display {
+                text-align: center;
+                padding: var(--space-md) 0;
+                border-top: 1px solid rgba(0, 207, 207, 0.1);
+                border-bottom: 1px solid rgba(0, 207, 207, 0.1);
+            }
+
+            .welcome-home-btn {
+                width: 100%;
+                min-height: 48px; /* Touch target */
+                font-size: var(--tc-font-body-lg);
+            }
+
+            /* Comparison Table Mobile Optimization */
+            .why-here-table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Gallery Thumbnails */
             .gallery-thumbnails {
                 bottom: var(--space-md);
                 left: var(--space-md);
@@ -601,6 +637,7 @@
                 height: 45px;
             }
 
+            /* Section Padding */
             .villa-story,
             .villa-specs,
             .win-pass,
@@ -608,6 +645,7 @@
                 padding: var(--space-2xl) var(--space-md);
             }
 
+            /* Grid Layouts */
             .specs-grid {
                 grid-template-columns: 1fr;
             }
@@ -615,6 +653,12 @@
             .win-grid {
                 grid-template-columns: 1fr;
                 gap: var(--space-lg);
+            }
+
+            /* Tab Buttons */
+            .week-tab {
+                min-width: 120px;
+                min-height: 44px; /* Touch target */
             }
         }
     </style>
@@ -800,76 +844,126 @@
         </div>
     </section>
 
-    <!-- Lodgify Booking Widget - Villa Happy Hideaway -->
-    <section style="background: white; padding: var(--space-3xl) var(--space-xl);">
+    <!-- Lodgify Booking Widget - Villa Happy Hideaway - ENHANCED -->
+    <section style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-3xl) var(--space-xl); border-top: 1px solid rgba(98, 208, 201, 0.2); border-bottom: 1px solid rgba(98, 208, 201, 0.2);">
         <div style="max-width: 1000px; margin: 0 auto;">
             <div style="text-align: center; margin-bottom: var(--space-2xl);">
-                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Check Availability & Book Your Escape</h2>
-                <p style="font-size: var(--tc-font-body-lg); color: var(--text-secondary);">Select your dates to see real-time availability and instant pricing for Happy Hideaway</p>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">
+                    <i class="fas fa-calendar-check" style="color: var(--primary); margin-right: var(--space-md);"></i>
+                    Check Availability & Reserve Your Week
+                </h2>
+                <p style="font-size: var(--tc-font-body-lg); color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Select your dates to see real-time availability and instant pricing for Happy Hideaway</p>
             </div>
 
-            <!-- Lodgify Widget Container -->
-            <div style="background: white; padding: var(--space-2xl); border-radius: var(--border-radius); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); border: 1px solid rgba(0, 207, 207, 0.1);">
-                <div
-                    id="lodgify-book-now-box-happy"
-                    data-rental-id="355309"
-                    data-website-id="271939"
-                    data-slug="tommycoconut"
-                    data-language-code="en"
-                    data-new-tab="true"
-                    data-version="stable"
-                ></div>
+            <!-- Enhanced Lodgify Widget Container -->
+            <div style="background: white; padding: var(--space-2xl); border-radius: var(--border-radius);
+                        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(98, 208, 201, 0.2),
+                        0 0 20px rgba(98, 208, 201, 0.1);
+                        border: 2px solid rgba(98, 208, 201, 0.15);
+                        position: relative;
+                        overflow: hidden;">
+
+                <!-- Subtle glow effect -->
+                <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+                            background: radial-gradient(circle, rgba(98, 208, 201, 0.05) 0%, transparent 70%);
+                            pointer-events: none;"></div>
+
+                <!-- Lodgify Widget -->
+                <div style="position: relative; z-index: 1;">
+                    <div
+                        id="lodgify-book-now-box-happy"
+                        data-rental-id="355309"
+                        data-website-id="271939"
+                        data-slug="tommycoconut"
+                        data-language-code="en"
+                        data-new-tab="true"
+                        data-version="stable"
+                    ></div>
+                </div>
+            </div>
+
+            <!-- Trust Badges Below Widget -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-lg); margin-top: var(--space-lg); flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: var(--space-xs); color: var(--text-secondary); font-size: var(--tc-font-small);">
+                    <i class="fas fa-shield-alt" style="color: var(--primary);"></i>
+                    <span>Secure booking</span>
+                </div>
+                <span style="color: rgba(0,0,0,0.2);">•</span>
+                <div style="display: flex; align-items: center; gap: var(--space-xs); color: var(--text-secondary); font-size: var(--tc-font-small);">
+                    <i class="fas fa-clock" style="color: var(--primary);"></i>
+                    <span>Instant confirmation</span>
+                </div>
+                <span style="color: rgba(0,0,0,0.2);">•</span>
+                <div style="display: flex; align-items: center; gap: var(--space-xs); color: var(--text-secondary); font-size: var(--tc-font-small);">
+                    <i class="fas fa-star" style="color: var(--primary);"></i>
+                    <span>4.99★ rated</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Act 3: The Effortless Details -->
-    <section class="villa-specs">
-        <div class="specs-container">
-            <h2 class="specs-title">Your Private Oasis</h2>
-            <div class="specs-grid">
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="spec-content">
-                        <h3>3 Bedrooms / 2 Bathrooms</h3>
-                        <p>Sleeps 6 comfortably with generous space and privacy</p>
-                        <p class="spec-wit">(translation: no sink wars)</p>
-                    </div>
+    <!-- Act 3: Your Private Oasis - Merged & Enhanced -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Your Private Oasis</h2>
+            <p style="text-align: center; font-size: var(--tc-font-body-lg); color: var(--text-secondary); margin-bottom: var(--space-2xl); max-width: 700px; margin-left: auto; margin-right: auto;">Everything you need for the perfect week. Nothing you don't.</p>
+
+            <!-- Main Grid: 3 Categories -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-2xl); margin-bottom: var(--space-3xl);">
+
+                <!-- OUTDOORS -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow);">
+                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-umbrella-beach" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Outdoors
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Private pool & hot tub</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Shaded cabana with lounge seating</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Alfresco dining for 6</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>BBQ grill & outdoor kitchen</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Breezy veranda with sunrise views</li>
+                    </ul>
                 </div>
 
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-bed"></i>
-                    </div>
-                    <div class="spec-content">
-                        <h3>The Legendary Bamboo Beds</h3>
-                        <p>Premium comfort for restorative sleep and afternoon naps</p>
-                        <p class="spec-wit">(vacation isn't the time for twin bunks)</p>
-                    </div>
+                <!-- INDOORS -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow);">
+                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-couch" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Indoors
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Open living & dining area</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Chef-ready kitchen (full appliances)</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Sonos sound system</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Smart TV with streaming</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Fast Wi-Fi throughout</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>A/C in all rooms</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7; font-style: italic;"><i class="fas fa-star" style="color: var(--primary); margin-right: var(--space-md);"></i>Peace treaties for kids vs. parents</li>
+                    </ul>
                 </div>
 
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-swimming-pool"></i>
-                    </div>
-                    <div class="spec-content">
-                        <h3>Private Pool, Hot Tub & Cabana</h3>
-                        <p>Your personal aquatic sanctuary for ultimate relaxation</p>
-                    </div>
+                <!-- SLEEP -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow);">
+                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-bed" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Sleep
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i><strong>3 bedrooms / 2 bathrooms</strong></li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Legendary bamboo beds</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Premium linens & towels</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Blackout curtains</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Sleeps 6 comfortably</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7; font-style: italic;"><i class="fas fa-moon" style="color: var(--primary); margin-right: var(--space-md);"></i>Deep sleep & afternoon naps (no sink wars)</li>
+                    </ul>
                 </div>
+            </div>
 
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-wifi"></i>
-                    </div>
-                    <div class="spec-content">
-                        <h3>Fast Wi-Fi, Sonos & Smart TV</h3>
-                        <p>Stay connected and entertained with premium tech amenities</p>
-                        <p class="spec-wit">(aka peace treaties for kids vs. parents)</p>
-                    </div>
-                </div>
+            <!-- Bonus Feature Callout -->
+            <div style="background: linear-gradient(135deg, var(--secondary), #1A4B52); padding: var(--space-2xl); border-radius: var(--border-radius); text-align: center; color: white;">
+                <i class="fas fa-star" style="font-size: 2rem; color: var(--primary); margin-bottom: var(--space-md); display: block;"></i>
+                <p style="font-size: var(--tc-font-body-xl); font-weight: 600; margin: 0;">Translation: No sink wars. No fighting over bathroom access. Just space to breathe.</p>
             </div>
         </div>
     </section>
@@ -1016,42 +1110,6 @@
                     Claim Your $3,000+ Experience
                 </a>
                 <p style="color: rgba(255,255,255,0.7); font-size: var(--tc-font-small); margin-top: var(--space-md); text-align: center;">Check dates and pricing in real-time</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Home Details Section -->
-    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Your Private Oasis</h2>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl);">
-                <!-- Outdoors -->
-                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-umbrella-beach" style="color: var(--primary);"></i>
-                        Outdoors
-                    </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Private pool & hot tub • Shaded cabana • Alfresco dining • BBQ • Breezy veranda</p>
-                </div>
-
-                <!-- Indoors -->
-                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-couch" style="color: var(--primary);"></i>
-                        Indoors
-                    </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Open living • Chef-ready kitchen • Sonos & Smart TV • Fast Wi-Fi</p>
-                </div>
-
-                <!-- Sleep -->
-                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-bed" style="color: var(--primary);"></i>
-                        Sleep
-                    </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">3 bedrooms / 2 baths • Legendary bamboo beds for deep sleep & afternoon naps</p>
-                </div>
             </div>
         </div>
     </section>
