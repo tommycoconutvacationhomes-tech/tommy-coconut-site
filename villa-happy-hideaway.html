@@ -662,6 +662,67 @@
                 min-height: 44px; /* Touch target */
             }
         }
+
+        /* Mobile Responsive Styles for New Image Layouts */
+        @media (max-width: 968px) {
+            /* Two-Column Hero Section - Stack on Mobile */
+            .villa-story > div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-xl) !important;
+            }
+
+            /* Hero Title - Center on Mobile */
+            .villa-story .villa-title {
+                text-align: center !important;
+            }
+
+            /* Hero Narrative - Center on Mobile */
+            .villa-story .villa-narrative {
+                text-align: center !important;
+            }
+
+            /* Hero Ratings - Center on Mobile */
+            .villa-story > div > div > div[style*="justify-content: flex-start"] {
+                justify-content: center !important;
+            }
+
+            /* Our Promise - Center on Mobile */
+            .villa-story h3,
+            .villa-story p {
+                text-align: center !important;
+            }
+
+            /* Feature Image - Remove Sticky on Mobile */
+            .villa-story > div > div[style*="position: sticky"] {
+                position: relative !important;
+                top: auto !important;
+            }
+
+            /* Location Hero Image - Adjust Height on Mobile */
+            section[style*="Your Jan Thiel Base"] img[style*="height: 300px"] {
+                height: 200px !important;
+            }
+        }
+
+        /* Additional Mobile Optimizations for Category Images */
+        @media (max-width: 480px) {
+            /* Category Images in Private Oasis - Smaller on Mobile */
+            div[style*="happy-hideaway-5_yr4gur"] img,
+            div[style*="happy-hideaway-4_unr393"] img,
+            div[style*="happy-hideaway-11_hbkxze"] img {
+                height: 150px !important;
+            }
+
+            /* Hero Feature Image - Smaller Radius on Mobile */
+            .villa-story img[src*="happy-hideaway-3_jokzme"] {
+                border-radius: var(--radius-md) !important;
+            }
+
+            /* Location Image - Smaller Height on Small Screens */
+            section img[src*="happy-hideaway-8_yqdwdj"][style*="height: 300px"] {
+                height: 180px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -746,7 +807,7 @@
     </section>
 
     <!-- Quick Stats Strip - Above the Fold -->
-    <section style="background: linear-gradient(135deg, var(--surface-elevated) 0%, rgba(98, 208, 201, 0.05) 100%); padding: var(--space-2xl) var(--space-lg); border-bottom: 1px solid rgba(98, 208, 201, 0.2);">
+    <section style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(98, 208, 201, 0.08) 100%), url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1600,e_blur:800,o_30/happy-hideaway-6_gikoc3'); background-size: cover; background-position: center; padding: var(--space-2xl) var(--space-lg); border-bottom: 1px solid rgba(98, 208, 201, 0.2);">
         <div style="max-width: 1200px; margin: 0 auto;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); text-align: center;">
                 <!-- Stat 1: Bedrooms/Baths -->
@@ -799,34 +860,47 @@
 
     <!-- Act 2: The Soul of the Sanctuary -->
     <section class="villa-story">
-        <h1 class="villa-title">Happy Hideaway — Your Private Resort in Curaçao</h1>
-        <p class="villa-narrative" style="font-size: 1.35rem; margin-bottom: var(--space-lg); font-weight: 600; color: var(--secondary);">
-            A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.
-        </p>
-        <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-md); margin-bottom: var(--space-2xl); flex-wrap: wrap;">
-            <div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--tc-font-body-lg);">
-                <span style="color: #FFD700; font-size: 1.3rem;">★</span>
-                <span style="font-weight: 700; color: var(--primary);">4.99</span>
+        <!-- Two-Column Hero Layout -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: start; margin-bottom: var(--space-3xl);">
+            <!-- Left Column: Content -->
+            <div>
+                <h1 class="villa-title" style="text-align: left; margin-bottom: var(--space-lg);">Happy Hideaway — Your Private Resort in Curaçao</h1>
+                <p class="villa-narrative" style="font-size: 1.35rem; margin-bottom: var(--space-lg); font-weight: 600; color: var(--secondary); text-align: left;">
+                    A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.
+                </p>
+                <div style="display: flex; align-items: center; justify-content: flex-start; gap: var(--space-md); margin-bottom: var(--space-2xl); flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--tc-font-body-lg);">
+                        <span style="color: #FFD700; font-size: 1.3rem;">★</span>
+                        <span style="font-weight: 700; color: var(--primary);">4.99</span>
+                    </div>
+                    <span style="color: var(--text-secondary);">from 500+ reviews</span>
+                    <span style="color: var(--text-secondary);">·</span>
+                    <span style="color: var(--text-secondary); font-weight: 600;">Jan Thiel base</span>
+                </div>
+                <p class="villa-narrative" style="text-align: left;">
+                    A great vacation isn't about where you go—it's about <strong>how you feel</strong>. At Happy Hideaway, you don't just check in… you <strong class="dushi-word">saka rosea</strong> (unwind completely). From wheels-down to your last <span class="dushi-word">tempu di solo bai</span> (sunset time) toast, every detail is curated so you can disconnect—no planning, no stress, <strong>just <span class="dushi-word">trankilidad</span> (peace)</strong>.
+                </p>
+
+                <!-- Our Promise -->
+                <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); margin: var(--space-2xl) 0;">
+                    <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); text-align: left;">
+                        Our Promise
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0; text-align: left;">
+                        As a family who's raised our kids on this island, we know what makes a vacation truly special: not the itinerary, but the moments. That's why we've built Happy Hideaway to remove every friction point, so your family can be fully present—no logistics stress, just connection.
+                    </p>
+                </div>
             </div>
-            <span style="color: var(--text-secondary);">from 500+ reviews</span>
-            <span style="color: var(--text-secondary);">·</span>
-            <span style="color: var(--text-secondary); font-weight: 600;">Jan Thiel base</span>
-        </div>
-        <p class="villa-narrative">
-            A great vacation isn't about where you go—it's about <strong>how you feel</strong>. At Happy Hideaway, you don't just check in… you <strong class="dushi-word">saka rosea</strong> (unwind completely). From wheels-down to your last <span class="dushi-word">tempu di solo bai</span> (sunset time) toast, every detail is curated so you can disconnect—no planning, no stress, <strong>just <span class="dushi-word">trankilidad</span> (peace)</strong>.
-        </p>
 
-        <!-- Our Promise -->
-        <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); margin: var(--space-2xl) 0;">
-            <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); text-align: center;">
-                Our Promise
-            </h3>
-            <p style="color: var(--text-secondary); line-height: 1.7; margin: 0; text-align: center;">
-                As a family who's raised our kids on this island, we know what makes a vacation truly special: not the itinerary, but the moments. That's why we've built Happy Hideaway to remove every friction point, so your family can be fully present—no logistics stress, just connection.
-            </p>
+            <!-- Right Column: Feature Image -->
+            <div style="position: sticky; top: 140px;">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,ar_4:5,c_fill,g_auto/happy-hideaway-3_jokzme"
+                     alt="Happy Hideaway Private Resort - Your tropical sanctuary"
+                     style="width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); object-fit: cover;">
+            </div>
         </div>
 
-        <!-- CTA: Check Availability -->
+        <!-- CTA: Check Availability (Centered Below Two Columns) -->
         <div style="text-align: center; margin: var(--space-2xl) 0;">
             <a href="#lodgify-book-now-box"
                style="display: inline-block; padding: var(--space-md) var(--space-2xl);
@@ -958,7 +1032,13 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-2xl); margin-bottom: var(--space-3xl);">
 
                 <!-- OUTDOORS -->
-                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow);">
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
+                    <!-- Category Image -->
+                    <div style="margin-bottom: var(--space-lg);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_200,c_fill,g_auto/happy-hideaway-5_yr4gur"
+                             alt="Outdoor living at Happy Hideaway"
+                             style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+                    </div>
                     <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
                         <i class="fas fa-umbrella-beach" style="color: var(--primary); font-size: 1.5rem;"></i>
                         Outdoors
@@ -973,7 +1053,13 @@
                 </div>
 
                 <!-- INDOORS -->
-                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow);">
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
+                    <!-- Category Image -->
+                    <div style="margin-bottom: var(--space-lg);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_200,c_fill,g_auto/happy-hideaway-4_unr393"
+                             alt="Indoor living at Happy Hideaway"
+                             style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+                    </div>
                     <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
                         <i class="fas fa-couch" style="color: var(--primary); font-size: 1.5rem;"></i>
                         Indoors
@@ -990,7 +1076,13 @@
                 </div>
 
                 <!-- SLEEP -->
-                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow);">
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
+                    <!-- Category Image -->
+                    <div style="margin-bottom: var(--space-lg);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_200,c_fill,g_auto/happy-hideaway-11_hbkxze"
+                             alt="Bedrooms at Happy Hideaway"
+                             style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+                    </div>
                     <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
                         <i class="fas fa-bed" style="color: var(--primary); font-size: 1.5rem;"></i>
                         Sleep
@@ -1355,6 +1447,13 @@
     <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
         <div style="max-width: 1000px; margin: 0 auto;">
             <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Your Jan Thiel Base</h2>
+
+            <!-- Location Hero Image -->
+            <div style="margin-bottom: var(--space-2xl);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1000,h_300,c_fill,g_auto/happy-hideaway-8_yqdwdj"
+                     alt="Jan Thiel location - Your Happy Hideaway base"
+                     style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated);">
+            </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-2xl);">
                 <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-lg); border-radius: var(--border-radius); border-left: 3px solid var(--primary);">
