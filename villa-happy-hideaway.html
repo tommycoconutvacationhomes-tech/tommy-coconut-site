@@ -515,21 +515,38 @@
         .review-item {
             display: none;
             text-align: center;
-            padding: var(--space-2xl);
-            background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
-            border-radius: var(--border-radius);
+            padding: var(--space-3xl) var(--space-2xl);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.06), rgba(0, 207, 207, 0.06));
+            border-radius: var(--radius-xl);
             margin: var(--space-lg) 0;
             min-height: 280px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(98, 208, 201, 0.12);
+            transition: var(--transition-normal);
         }
 
         .review-item.active {
             display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .review-stars {
-            font-size: var(--tc-font-h3);
-            color: #FFD700;
-            margin-bottom: var(--space-lg);
+            font-size: 1.75rem;
+            color: #FFB800;
+            margin-bottom: var(--space-xl);
+            letter-spacing: 4px;
+            text-shadow: 0 2px 4px rgba(255, 184, 0, 0.2);
         }
 
         .review-text {
@@ -537,32 +554,45 @@
             line-height: 1.8;
             color: var(--text-primary);
             font-style: italic;
-            margin-bottom: var(--space-lg);
+            margin-bottom: var(--space-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .review-author {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--secondary);
+            font-size: var(--tc-font-body);
+            font-style: normal;
         }
 
         .review-dots {
             display: flex;
             justify-content: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-xl);
+            gap: var(--space-md);
+            margin-top: var(--space-2xl);
         }
 
         .review-dot {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background: rgba(98, 208, 201, 0.3);
+            background: rgba(98, 208, 201, 0.25);
             cursor: pointer;
             transition: var(--transition-normal);
+            border: 2px solid transparent;
+        }
+
+        .review-dot:hover {
+            background: rgba(98, 208, 201, 0.5);
+            transform: scale(1.15);
         }
 
         .review-dot.active {
             background: var(--primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 12px rgba(98, 208, 201, 0.4);
         }
 
         /* Tab Buttons */
@@ -710,7 +740,7 @@
             div[style*="happy-hideaway-5_yr4gur"] img,
             div[style*="happy-hideaway-4_unr393"] img,
             div[style*="happy-hideaway-11_hbkxze"] img {
-                height: 150px !important;
+                height: 120px !important;
             }
 
             /* Hero Feature Image - Smaller Radius on Mobile */
@@ -1089,10 +1119,10 @@
                 <!-- OUTDOORS -->
                 <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
                     <!-- Category Image -->
-                    <div style="margin-bottom: var(--space-lg);">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_200,c_fill,g_auto/happy-hideaway-5_yr4gur"
+                    <div style="margin-bottom: var(--space-xl);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/happy-hideaway-5_yr4gur"
                              alt="Outdoor living at Happy Hideaway"
-                             style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);">
                     </div>
                     <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
                         <i class="fas fa-umbrella-beach" style="color: var(--primary); font-size: 1.5rem;"></i>
@@ -1110,10 +1140,10 @@
                 <!-- INDOORS -->
                 <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
                     <!-- Category Image -->
-                    <div style="margin-bottom: var(--space-lg);">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_200,c_fill,g_auto/happy-hideaway-4_unr393"
+                    <div style="margin-bottom: var(--space-xl);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/happy-hideaway-4_unr393"
                              alt="Indoor living at Happy Hideaway"
-                             style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);">
                     </div>
                     <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
                         <i class="fas fa-couch" style="color: var(--primary); font-size: 1.5rem;"></i>
@@ -1133,10 +1163,10 @@
                 <!-- SLEEP -->
                 <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
                     <!-- Category Image -->
-                    <div style="margin-bottom: var(--space-lg);">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_200,c_fill,g_auto/happy-hideaway-11_hbkxze"
+                    <div style="margin-bottom: var(--space-xl);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/happy-hideaway-11_hbkxze"
                              alt="Bedrooms at Happy Hideaway"
-                             style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);">
                     </div>
                     <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
                         <i class="fas fa-bed" style="color: var(--primary); font-size: 1.5rem;"></i>
@@ -1169,57 +1199,57 @@
             <p style="font-size: var(--tc-font-body-lg); color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500; text-align: center;">This entire VIP experience is included in your all-inclusive stay. Everything. Always.</p>
 
             <!-- The Value Stack -->
-            <div style="max-width: 700px; margin: 3rem auto 2rem; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2);">
-                <h3 style="font-size: var(--tc-font-h3); font-weight: 700; margin-bottom: 1.5rem; color: white; text-align: center;">What's Included (Itemized)</h3>
-                <div style="display: grid; gap: 1rem; text-align: left;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-plane" style="margin-right: 0.75rem; color: var(--primary);"></i>Airport Welcome + Transfers</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$125</span>
+            <div style="max-width: 700px; margin: 3rem auto 2rem; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: var(--radius-xl); border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+                <h3 style="font-size: var(--tc-font-h3); font-weight: 700; margin-bottom: 2rem; color: white; text-align: center;">What's Included (Itemized)</h3>
+                <div style="display: grid; gap: 1.25rem; text-align: left;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-plane" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>Airport Welcome + Transfers</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$125</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-utensils" style="margin-right: 0.75rem; color: var(--primary);"></i>Welcome dinner credit (Kome)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$150</span>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-utensils" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>Welcome dinner credit (Kome)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$150</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-car" style="margin-right: 0.75rem; color: var(--primary);"></i>EV-SUV (unlimited miles, insurance, pre-loaded GPS)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$475</span>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-car" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>EV-SUV (unlimited miles, insurance, pre-loaded GPS)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$475</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-charging-station" style="margin-right: 0.75rem; color: var(--primary);"></i>EV charging station at villa</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$75</span>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-charging-station" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>EV charging station at villa</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$75</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-ship" style="margin-right: 0.75rem; color: var(--primary);"></i>Private boat trip (half-day, snorkeling)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$600</span>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-ship" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>Private boat trip (half-day, snorkeling)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$600</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-hiking" style="margin-right: 0.75rem; color: var(--primary);"></i>Flamingo sanctuary hike + guide</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$125</span>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-hiking" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>Flamingo sanctuary hike + guide</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$125</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-umbrella-beach" style="margin-right: 0.75rem; color: var(--primary);"></i>Ultimate beach kit (cooler, chairs, umbrellas, snorkel gear)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$200</span>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-umbrella-beach" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>Ultimate beach kit (cooler, chairs, umbrellas, snorkel gear)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$200</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-concierge-bell" style="margin-right: 0.75rem; color: var(--primary);"></i>24/7 concierge (reservations, advice, troubleshooting)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$300</span>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-concierge-bell" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>24/7 concierge (reservations, advice, troubleshooting)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$300</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-broom" style="margin-right: 0.75rem; color: var(--primary);"></i>Professional housekeeping (mid-stay refresh)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$150</span>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-broom" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>Professional housekeeping (mid-stay refresh)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$150</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-shopping-basket" style="margin-right: 0.75rem; color: var(--primary);"></i>Pre-stocked fridge (breakfast essentials + local treats)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$100</span>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-shopping-basket" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>Pre-stocked fridge (breakfast essentials + local treats)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$100</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem;">
-                        <span style="color: rgba(255,255,255,0.95); font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-map-marked-alt" style="margin-right: 0.75rem; color: var(--primary);"></i>Curated guide (38 beaches, hidden spots, insider intel)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$200</span>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem;">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6;"><i class="fas fa-map-marked-alt" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em;"></i>Curated guide (38 beaches, hidden spots, insider intel)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1rem;">$200</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--primary);">
-                        <span style="color: white; font-size: var(--tc-font-body-xl); font-weight: 700;">Total value:</span>
-                        <span style="color: var(--primary); font-size: var(--tc-font-h3); font-weight: 800;">$3,000+</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding-top: 2rem; border-top: 3px solid var(--primary); background: rgba(98, 208, 201, 0.1); padding: 1.5rem; border-radius: var(--radius-md); margin-left: -0.5rem; margin-right: -0.5rem;">
+                        <span style="color: white; font-size: 1.5rem; font-weight: 800; letter-spacing: 0.5px;">Total value:</span>
+                        <span style="color: var(--primary); font-size: 2.25rem; font-weight: 900; text-shadow: 0 2px 8px rgba(98, 208, 201, 0.4);">$3,000+</span>
                     </div>
                 </div>
             </div>
@@ -1290,15 +1320,7 @@
 
             <!-- CTA: Reserve Your Week -->
             <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
-                <a href="#lodgify-book-now-box"
-                   style="display: block; padding: var(--space-lg) var(--space-2xl);
-                          border-radius: var(--border-radius);
-                          background: linear-gradient(135deg, var(--primary), var(--accent));
-                          color: white; font-weight: 700; font-size: var(--tc-font-body-xl);
-                          text-decoration: none; box-shadow: 0 8px 24px rgba(98, 208, 201, 0.3);
-                          transition: var(--transition-normal); text-align: center;"
-                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 32px rgba(98, 208, 201, 0.4)';"
-                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(98, 208, 201, 0.3)';">
+                <a href="#lodgify-book-now-box" class="cta-primary">
                     <i class="fas fa-calendar-check" style="margin-right: var(--space-md);"></i>
                     Reserve Your Week
                 </a>
@@ -1400,16 +1422,8 @@
 
             <!-- CTA: Reserve Your Week -->
             <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
-                <a href="#lodgify-book-now-box"
-                   style="display: block; padding: var(--space-lg) var(--space-2xl);
-                          border-radius: var(--border-radius);
-                          background: var(--primary); color: white;
-                          font-weight: 700; font-size: var(--tc-font-body-xl);
-                          text-decoration: none; box-shadow: var(--shadow-elevated);
-                          transition: var(--transition-normal);"
-                   onmouseover="this.style.background='var(--accent)'; this.style.transform='scale(1.02)';"
-                   onmouseout="this.style.background='var(--primary)'; this.style.transform='scale(1)';">
-                    <i class="fas fa-calendar-check" style="margin-right: var(--space-sm);"></i>
+                <a href="#lodgify-book-now-box" class="cta-primary">
+                    <i class="fas fa-calendar-check" style="margin-right: var(--space-md);"></i>
                     Reserve Your Week
                 </a>
                 <p style="color: var(--text-secondary); font-size: var(--tc-font-small); margin-top: var(--space-md); text-align: center;">Join 500+ happy families</p>
@@ -1422,58 +1436,58 @@
         <div style="max-width: 900px; margin: 0 auto;">
             <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Quick FAQ</h2>
 
-            <div style="display: grid; gap: var(--space-lg);">
+            <div style="display: grid; gap: var(--space-xl);">
                 <!-- FAQ Item 1 -->
-                <div style="background: var(--surface-elevated); padding: var(--space-xl); border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-car-side" style="color: var(--primary);"></i>
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-car-side" style="color: var(--primary); font-size: 1.5rem;"></i>
                         Does the EV-SUV fit 6 people + luggage?
                     </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
                         Yes. It's a full-size SUV with third-row seating and ample cargo space for families.
                     </p>
                 </div>
 
                 <!-- FAQ Item 2 -->
-                <div style="background: var(--surface-elevated); padding: var(--space-xl); border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-umbrella-beach" style="color: var(--primary);"></i>
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-umbrella-beach" style="color: var(--primary); font-size: 1.5rem;"></i>
                         Are beach loungers/umbrellas included for Jan Thiel Beach?
                     </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
                         The Ultimate Beach Kit includes portable chairs, umbrellas, and coolers. Jan Thiel Beach Club loungers can be reserved separately (we'll handle it).
                     </p>
                 </div>
 
                 <!-- FAQ Item 3 -->
-                <div style="background: var(--surface-elevated); padding: var(--space-xl); border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-calendar-alt" style="color: var(--primary);"></i>
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-calendar-alt" style="color: var(--primary); font-size: 1.5rem;"></i>
                         Can I book for fewer than 7 nights?
                     </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
                         Sometimes. Message us with your dates and we'll check availability for shorter stays.
                     </p>
                 </div>
 
                 <!-- FAQ Item 4 -->
-                <div style="background: var(--surface-elevated); padding: var(--space-xl); border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-charging-station" style="color: var(--primary);"></i>
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-charging-station" style="color: var(--primary); font-size: 1.5rem;"></i>
                         How does EV charging work?
                     </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
                         Free charging station at the villa. Plug in overnight, wake up to a full battery. Simple.
                     </p>
                 </div>
 
                 <!-- FAQ Item 5 -->
-                <div style="background: var(--surface-elevated); padding: var(--space-xl); border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-cloud-sun" style="color: var(--primary);"></i>
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-cloud-sun" style="color: var(--primary); font-size: 1.5rem;"></i>
                         What if weather disrupts the boat?
                     </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
                         We reschedule for the next clear window, no extra charge. You'll get your full private boat experience—we guarantee it.
                     </p>
                 </div>
@@ -1481,15 +1495,7 @@
 
             <!-- CTA: Check Availability -->
             <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
-                <a href="#lodgify-book-now-box"
-                   style="display: block; padding: var(--space-lg) var(--space-2xl);
-                          border-radius: var(--border-radius);
-                          background: var(--primary); color: white;
-                          font-weight: 700; font-size: var(--tc-font-body-xl);
-                          text-decoration: none; box-shadow: var(--shadow-elevated);
-                          transition: var(--transition-normal);"
-                   onmouseover="this.style.background='var(--accent)';"
-                   onmouseout="this.style.background='var(--primary)';">
+                <a href="#lodgify-book-now-box" class="cta-secondary">
                     <i class="fas fa-calendar-alt" style="margin-right: var(--space-md);"></i>
                     Check Availability
                 </a>
