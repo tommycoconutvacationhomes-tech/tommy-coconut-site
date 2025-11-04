@@ -65,8 +65,13 @@
             --font-weight-light: 300;
             --transition-normal: all 0.3s ease;
             --border-radius: 12px;
+            --radius-full: 50px;
+            --radius-xl: 16px;
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
             --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.2);
+            --tc-driftwood-sand: #F5E6D3;
         }
 
         * {
@@ -517,6 +522,16 @@
             background: var(--primary);
         }
 
+        /* Tab Buttons */
+        .week-tab {
+            transition: all 0.3s ease;
+        }
+
+        .week-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(98, 208, 201, 0.3);
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .floating-booking {
@@ -665,12 +680,21 @@
 
     <!-- Act 2: The Soul of the Sanctuary -->
     <section class="villa-story">
-        <h1 class="villa-title">Happy Hideaway: Your Private Resort</h1>
+        <h1 class="villa-title">Happy Hideaway — Your Private Resort in Curaçao</h1>
+        <p class="villa-narrative" style="font-size: 1.35rem; margin-bottom: var(--space-lg); font-weight: 600; color: var(--secondary);">
+            A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.
+        </p>
+        <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-md); margin-bottom: var(--space-2xl); flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: var(--space-xs); font-size: 1.1rem;">
+                <span style="color: #FFD700; font-size: 1.3rem;">★</span>
+                <span style="font-weight: 700; color: var(--primary);">4.99</span>
+            </div>
+            <span style="color: var(--text-secondary);">from 500+ reviews</span>
+            <span style="color: var(--text-secondary);">·</span>
+            <span style="color: var(--text-secondary); font-weight: 600;">Jan Thiel base</span>
+        </div>
         <p class="villa-narrative">
             A great vacation isn't about where you go—it's about <strong>how you feel</strong>. At Happy Hideaway, you don't just check in… you <strong class="dushi-word">saka rosea</strong> (unwind completely). From wheels-down to your last <span class="dushi-word">tempu di solo bai</span> (sunset time) toast, every detail is curated so you can disconnect—no planning, no stress, <strong>just <span class="dushi-word">trankilidad</span> (peace)</strong>.
-        </p>
-        <p class="villa-narrative" style="font-size: 1.15rem; margin-top: 1.5rem; font-weight: 600;">
-            Guests call this "The Best Vacation Ever." Here's why.
         </p>
     </section>
 
@@ -751,8 +775,8 @@
     <!-- Act 4: The 'Win at Vacationing' Pass -->
     <section class="win-pass dark-section">
         <div class="win-container">
-            <h2 class="win-title">Your $2,500+ All-Access Pass. Always Included.</h2>
-            <p class="win-subtitle">Our Zero Hidden Fees & Logistics Guarantee: No surprises. <strong>Your time. Your agenda. You rule.</strong></p>
+            <h2 class="win-title">Your $2,500+ Private Resort Package</h2>
+            <p class="win-subtitle">No counters. No lines. No stress. Your time stays yours.</p>
             <p style="font-size: 1.1rem; color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500; text-align: center;">This entire VIP experience is included in your all-inclusive stay. Everything. Always.</p>
 
             <!-- The Value Stack -->
@@ -877,12 +901,137 @@
         </div>
     </section>
 
+    <!-- Home Details Section -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Your Private Oasis</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl);">
+                <!-- Outdoors -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-umbrella-beach" style="color: var(--primary);"></i>
+                        Outdoors
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Private pool & hot tub • Shaded cabana • Alfresco dining • BBQ • Breezy veranda</p>
+                </div>
+
+                <!-- Indoors -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-couch" style="color: var(--primary);"></i>
+                        Indoors
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Open living • Chef-ready kitchen • Sonos & Smart TV • Fast Wi-Fi</p>
+                </div>
+
+                <!-- Sleep -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-bed" style="color: var(--primary);"></i>
+                        Sleep
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">3 bedrooms / 2 baths • Legendary bamboo beds for deep sleep & afternoon naps</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Week, Different Ways - Tabs Section -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Your Week, Different Ways</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: var(--text-secondary); margin-bottom: var(--space-2xl); max-width: 700px; margin-left: auto; margin-right: auto;">Whether you plan every meal or play it by ear, your Private Resort adapts to you.</p>
+
+            <!-- Tabs -->
+            <div style="display: flex; justify-content: center; gap: var(--space-md); margin-bottom: var(--space-2xl); flex-wrap: wrap;">
+                <button class="week-tab active" data-tab="hybrid" style="padding: var(--space-md) var(--space-xl); border: 2px solid var(--primary); border-radius: 50px; background: var(--primary); color: white; font-weight: 600; cursor: pointer; transition: var(--transition-normal); font-family: 'Montserrat', sans-serif; font-size: 1rem;">Hybrid</button>
+                <button class="week-tab" data-tab="planners" style="padding: var(--space-md) var(--space-xl); border: 2px solid var(--primary); border-radius: 50px; background: transparent; color: var(--primary); font-weight: 600; cursor: pointer; transition: var(--transition-normal); font-family: 'Montserrat', sans-serif; font-size: 1rem;">Planners</button>
+                <button class="week-tab" data-tab="floaters" style="padding: var(--space-md) var(--space-xl); border: 2px solid var(--primary); border-radius: 50px; background: transparent; color: var(--primary); font-weight: 600; cursor: pointer; transition: var(--transition-normal); font-family: 'Montserrat', sans-serif; font-size: 1rem;">Free-floaters</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="tab-hybrid" class="tab-content active" style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--border-radius); box-shadow: var(--shadow-elevated);">
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg);">Hybrids</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: var(--space-md) 0; border-bottom: 1px solid rgba(0, 207, 207, 0.1); color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Anchors set (boat, sunset, flamingos)</li>
+                    <li style="padding: var(--space-md) 0; border-bottom: 1px solid rgba(0, 207, 207, 0.1); color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Everything else stays flexible windows</li>
+                    <li style="padding: var(--space-md) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Weather pivots without the scramble</li>
+                </ul>
+            </div>
+
+            <div id="tab-planners" class="tab-content" style="display: none; background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--border-radius); box-shadow: var(--shadow-elevated);">
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg);">Planners</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: var(--space-md) 0; border-bottom: 1px solid rgba(0, 207, 207, 0.1); color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Pre-intro to partners; tables timed for you</li>
+                    <li style="padding: var(--space-md) 0; border-bottom: 1px solid rgba(0, 207, 207, 0.1); color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Boat Tue/Thu AM windows; Zest sunset Fri 17:45</li>
+                    <li style="padding: var(--space-md) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>"If #1 is full, #2 is warmed"—you won't miss the good stuff</li>
+                </ul>
+            </div>
+
+            <div id="tab-floaters" class="tab-content" style="display: none; background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--border-radius); box-shadow: var(--shadow-elevated);">
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg);">Free-floaters</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: var(--space-md) 0; border-bottom: 1px solid rgba(0, 207, 207, 0.1); color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Tell us the vibe each morning; we adapt</li>
+                    <li style="padding: var(--space-md) 0; border-bottom: 1px solid rgba(0, 207, 207, 0.1); color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>We keep options warm, drivers ready, plan B/C penciled</li>
+                    <li style="padding: var(--space-md) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>You choose on the fly; we handle the rest</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Here Comparison -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Why Here</h2>
+
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-elevated);">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, var(--secondary), #1A4B52);">
+                            <th style="padding: var(--space-lg); text-align: left; color: white; font-weight: 600;">You're choosing…</th>
+                            <th style="padding: var(--space-lg); text-align: center; color: rgba(255,255,255,0.8); font-weight: 500;">Hotel / AI</th>
+                            <th style="padding: var(--space-lg); text-align: center; color: rgba(255,255,255,0.8); font-weight: 500;">Vacation rental</th>
+                            <th style="padding: var(--space-lg); text-align: center; color: white; font-weight: 700; background: rgba(98, 208, 201, 0.2);">This Private Resort</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Mobility</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Taxis/queues</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Rental counters</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">EV-SUV at home + free charging</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Sea days</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Group boats</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">DIY captains</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">Private boat + captain included</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Agenda</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Their schedule</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Your admin</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">Your schedule, zero friction</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Being expected</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Wristbands</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Booking numbers</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">Pre-intro, right windows</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
     <!-- Act 5: Stories From Paradise -->
     <section class="reviews-section">
         <div class="reviews-container">
             <h2 class="reviews-title" style="text-align: center; margin-bottom: 1rem;">Stories from Happy Hideaway</h2>
             <p style="text-align: center; font-weight: 700; font-size: 1.1rem; color: var(--primary); margin-top: 0.5rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Every word we say is backed by 500+ reviews across our villas. Average rating: 4.99/5.00.
+                4.99★ · 500+ reviews (Airbnb/Google aggregate)
             </p>
 
             <div class="reviews-carousel">
@@ -976,6 +1125,51 @@
                         Free charging station at the villa. Plug in overnight, wake up to a full battery. Simple.
                     </p>
                 </div>
+
+                <!-- FAQ Item 5 -->
+                <div style="background: var(--surface-elevated); padding: var(--space-xl); border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 4px solid var(--primary);">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-cloud-sun" style="color: var(--primary);"></i>
+                        What if weather disrupts the boat?
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
+                        We reschedule for the next clear window, no extra charge. You'll get your full private boat experience—we guarantee it.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location - Walk & Drive -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Your Jan Thiel Base</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-2xl);">
+                <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-lg); border-radius: var(--border-radius); border-left: 3px solid var(--primary);">
+                    <div style="font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: var(--space-xs);">WALK 2–8 MIN</div>
+                    <div style="color: var(--text-secondary);">The Pier • Pop's Place • Caracasbaai</div>
+                </div>
+
+                <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-lg); border-radius: var(--border-radius); border-left: 3px solid var(--primary);">
+                    <div style="font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: var(--space-xs);">DRIVE 4–8 MIN</div>
+                    <div style="color: var(--text-secondary);">Jan Thiel (Zanzibar, Zest) • Van den Tweel</div>
+                </div>
+
+                <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-lg); border-radius: var(--border-radius); border-left: 3px solid var(--primary);">
+                    <div style="font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: var(--space-xs);">DRIVE 10–15 MIN</div>
+                    <div style="color: var(--text-secondary);">Willemstad (Punda/Otrobanda) • Mambo</div>
+                </div>
+
+                <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-lg); border-radius: var(--border-radius); border-left: 3px solid var(--primary);">
+                    <div style="font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: var(--space-xs);">DRIVE 30–60 MIN</div>
+                    <div style="color: var(--text-secondary);">Westpunt beaches (Knip, Grote/Playa Piskadó)</div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.1), rgba(0, 207, 207, 0.05)); padding: var(--space-xl); border-radius: var(--border-radius); text-align: center; border: 1px solid rgba(98, 208, 201, 0.2);">
+                <i class="fas fa-lightbulb" style="color: var(--primary); font-size: 1.5rem; margin-bottom: var(--space-md); display: block;"></i>
+                <p style="color: var(--secondary); font-weight: 600; margin: 0;">Pro tip: Zest sunset is magic at 17:45. We'll time your table.</p>
             </div>
         </div>
     </section>
@@ -1179,6 +1373,27 @@
             currentReview = (currentReview + 1) % reviewItems.length;
             showReview(currentReview);
         }, 6000);
+
+        // Tab switching functionality for "Your Week, Different Ways"
+        document.querySelectorAll('.week-tab').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetTab = this.dataset.tab;
+
+                // Update buttons
+                document.querySelectorAll('.week-tab').forEach(btn => {
+                    btn.style.background = 'transparent';
+                    btn.style.color = 'var(--primary)';
+                });
+                this.style.background = 'var(--primary)';
+                this.style.color = 'white';
+
+                // Update content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                document.getElementById('tab-' + targetTab).style.display = 'block';
+            });
+        });
 
         // Booking functionality
         function bookNow() {
