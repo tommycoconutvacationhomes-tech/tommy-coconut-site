@@ -666,20 +666,52 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); position: fixed; top: 0; left: 0; right: 0; z-index: 999; padding: 1rem 0;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
-            <a href="index.html" style="color: var(--secondary); text-decoration: none; font-weight: 700; font-size: 1.25rem;">
-                ← Back to Tommy Coconut
+    <!-- Top Banner - Social Proof -->
+    <div class="top-banner">
+        <div class="container">
+            <a href="reviews.html" class="banner-link">
+                <span class="banner-icon">🏖️</span>
+                <span class="banner-text" style="color: var(--text-inverse);">1,347+ Happy Guests</span>
+                <span class="banner-cta" style="color: var(--text-inverse);">• Read Reviews</span>
             </a>
-            <div>
-                <a href="rentals.html" style="color: var(--text-secondary); text-decoration: none; margin-right: 2rem;">All Villas</a>
-                <a href="contact.html" style="color: var(--text-secondary); text-decoration: none;">Contact</a>
+        </div>
+    </div>
+
+    <!-- Navigation - Left Logo, Center Nav, Right CTA Layout -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left Logo -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" alt="Tommy Coconut - Where it's all about you. - Curaçao Vacation Rentals">
+                </a>
+            </div>
+
+            <!-- Center Navigation Menu -->
+            <ul class="nav-menu">
+                <li><a href="why-a-private-resort.html">Why a Private Resort?</a></li>
+                <li><a href="blog.html">Experiences</a></li>
+                <li><a href="clan.html">Concierge</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <!-- Right CTA Button -->
+            <div class="nav-cta-button">
+                <a href="rentals.html" class="btn btn-primary-nav">CHOOSE PRIVATE RESORT</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
     <!-- Act 1: The Cinematic Reveal -->
-    <section class="gallery-hero" style="margin-top: 80px;">
+    <section class="gallery-hero" style="margin-top: 120px;">
         <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1_hx9jke" alt="Happy Hideaway Private Resort" class="hero-image">
 
         <div class="gallery-thumbnails">
@@ -786,10 +818,10 @@
 
         <!-- Our Promise -->
         <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); margin: var(--space-2xl) 0;">
-            <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">
+            <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); text-align: center;">
                 Our Promise
             </h3>
-            <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
+            <p style="color: var(--text-secondary); line-height: 1.7; margin: 0; text-align: center;">
                 As a family who's raised our kids on this island, we know what makes a vacation truly special: not the itinerary, but the moments. That's why we've built Happy Hideaway to remove every friction point, so your family can be fully present—no logistics stress, just connection.
             </p>
         </div>
