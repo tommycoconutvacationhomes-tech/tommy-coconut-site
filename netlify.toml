@@ -28,7 +28,7 @@
       img-src 'self' data: https: blob:;
       font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
       media-src 'self' https://res.cloudinary.com;
-      connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.clarity.ms https://*.bing.com https://www.facebook.com https://app.lodgify.com https://api.lodgify.com;
+      connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.clarity.ms https://*.bing.com https://www.facebook.com https://app.lodgify.com https://api.lodgify.com https://checkout.lodgify.com https://websiteserver.lodgify.com;
       frame-src 'self' https://www.youtube.com https://app.lodgify.com;
       object-src 'none';
       base-uri 'self';

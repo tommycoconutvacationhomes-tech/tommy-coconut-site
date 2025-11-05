@@ -1952,19 +1952,6 @@
                 }, 500);
             }
         });
-
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('checkIn').setAttribute('min', today);
-        document.getElementById('checkOut').setAttribute('min', today);
-
-        // Update checkout minimum when checkin changes
-        document.getElementById('checkIn').addEventListener('change', function() {
-            const checkInDate = new Date(this.value);
-            checkInDate.setDate(checkInDate.getDate() + 1);
-            const minCheckOut = checkInDate.toISOString().split('T')[0];
-            document.getElementById('checkOut').setAttribute('min', minCheckOut);
-        });
     </script>
 
     <!-- Lodgify Book Now Box Script -->
