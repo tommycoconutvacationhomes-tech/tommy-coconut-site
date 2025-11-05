@@ -231,7 +231,7 @@
 
         /* Gallery Section - Act 1 */
         .gallery-hero {
-            height: 50vh;
+            height: 70vh;
             position: relative;
             overflow: hidden;
         }
@@ -808,17 +808,16 @@
             /* Hero Title - Center on Mobile */
             .villa-story .villa-title {
                 text-align: center !important;
-                white-space: normal !important;
             }
 
-            /* Remove padding on left column for mobile */
-            .villa-story > div > div[style*="padding-right"] {
-                padding-right: 0 !important;
+            /* Hero Narrative - Center on Mobile */
+            .villa-story .villa-narrative {
+                text-align: center !important;
             }
 
-            /* Icon feature items - maintain left alignment on mobile for scannability */
-            .villa-story div[style*="display: flex; align-items: start"] {
-                text-align: left !important;
+            /* Hero Ratings - Center on Mobile */
+            .villa-story > div > div > div[style*="justify-content: flex-start"] {
+                justify-content: center !important;
             }
 
             /* Our Promise - Center on Mobile */
@@ -827,17 +826,10 @@
                 text-align: center !important;
             }
 
-            /* Feature Image - Remove absolute positioning on mobile */
-            .villa-story > div > div[style*="position: relative"] {
+            /* Feature Image - Remove Sticky on Mobile */
+            .villa-story > div > div[style*="position: sticky"] {
                 position: relative !important;
-            }
-
-            /* Welcome badge - reposition on mobile */
-            .villa-story div[style*="position: absolute; top:"] {
-                top: var(--space-md) !important;
-                left: var(--space-md) !important;
-                padding: var(--space-xs) var(--space-md) !important;
-                font-size: 0.75rem !important;
+                top: auto !important;
             }
 
             /* Location Hero Image - Adjust Height on Mobile */
@@ -1074,93 +1066,52 @@
 
     <!-- Act 2: The Soul of the Sanctuary -->
     <section class="villa-story">
-        <!-- Two-Column Hero Layout - Inspired Design -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: start; margin-bottom: var(--space-3xl); max-width: 1400px; margin-left: auto; margin-right: auto;">
+        <!-- Two-Column Hero Layout - IMPROVED -->
+        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-3xl); align-items: center; margin-bottom: var(--space-3xl);">
             <!-- Left Column: Content -->
-            <div style="padding-right: var(--space-2xl);">
-                <h1 class="villa-title" style="text-align: left; margin-bottom: var(--space-xl); font-weight: 700; font-size: clamp(2rem, 4vw, 3rem); color: var(--primary); line-height: 1.3; white-space: nowrap; overflow: visible;">Happy Hideaway — Your Private Resort in Curaçao</h1>
-
-                <p style="font-size: var(--tc-font-body-xl); margin-bottom: var(--space-2xl); color: var(--text-secondary); text-align: left; line-height: 1.7;">
-                    A great vacation isn't about where you go—it's about <strong style="font-weight: 600; color: var(--secondary);">how you feel</strong>. From wheels-down to your last sunset toast, every detail is curated so you can disconnect—no planning, no stress, just peace.
+            <div>
+                <h1 class="villa-title" style="text-align: left; margin-bottom: var(--space-lg); font-weight: 800;">Happy Hideaway — Your Private Resort in Curaçao</h1>
+                <p style="font-size: var(--tc-font-body-xl); margin-bottom: var(--space-lg); font-weight: 600; color: var(--secondary); text-align: left; line-height: 1.6;">
+                    A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.
+                </p>
+                <div style="display: flex; align-items: center; justify-content: flex-start; gap: var(--space-md); margin-bottom: var(--space-2xl); flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--tc-font-body-lg);">
+                        <span style="color: #FFD700; font-size: var(--tc-font-body-xl);">★</span>
+                        <span style="font-weight: 700; color: var(--primary);">4.99</span>
+                    </div>
+                    <span style="color: var(--text-secondary);">from 500+ reviews</span>
+                    <span style="color: var(--text-secondary);">·</span>
+                    <span style="color: var(--text-secondary); font-weight: 600;">Jan Thiel base</span>
+                </div>
+                <p style="font-size: var(--tc-font-body-lg); text-align: left; line-height: 1.75; color: var(--text-primary);">
+                    A great vacation isn't about where you go—it's about <strong style="font-weight: 600; color: var(--secondary);">how you feel</strong>. At Happy Hideaway, you don't just check in… you <strong class="dushi-word">saka rosea</strong> (unwind completely). From wheels-down to your last <span class="dushi-word">tempu di solo bai</span> (sunset time) toast, every detail is curated so you can disconnect—no planning, no stress, <strong style="font-weight: 600; color: var(--secondary);">just <span class="dushi-word">trankilidad</span> (peace)</strong>.
                 </p>
 
-                <!-- Icon-Based Features List -->
-                <div style="display: flex; flex-direction: column; gap: var(--space-xl); margin-bottom: var(--space-3xl);">
-                    <!-- Feature 1: Arrival -->
-                    <div style="display: flex; align-items: start; gap: var(--space-lg);">
-                        <div style="min-width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(98, 208, 201, 0.3);">
-                            <span style="font-size: 1.5rem;">✈️</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-xs);">Arrive</h3>
-                            <p style="font-size: var(--tc-font-body); color: var(--text-secondary); line-height: 1.6; margin: 0;">Jeremiah meets you at the airport—your EV-SUV charged, 38 beaches pre-loaded</p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 2: Home -->
-                    <div style="display: flex; align-items: start; gap: var(--space-lg);">
-                        <div style="min-width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(98, 208, 201, 0.3);">
-                            <span style="font-size: 1.5rem;">🏡</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-xs);">Welcome home</h3>
-                            <p style="font-size: var(--tc-font-body); color: var(--text-secondary); line-height: 1.6; margin: 0;">Bay welcomes you home—lights on, fridge stocked, private pool waiting</p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 3: Explore -->
-                    <div style="display: flex; align-items: start; gap: var(--space-lg);">
-                        <div style="min-width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(98, 208, 201, 0.3);">
-                            <span style="font-size: 1.5rem;">🚗</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-xs);">Explore</h3>
-                            <p style="font-size: var(--tc-font-body); color: var(--text-secondary); line-height: 1.6; margin: 0;">Your EV-SUV, private boat & captain, 3 signature experiences included</p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 4: Ratings -->
-                    <div style="display: flex; align-items: start; gap: var(--space-lg);">
-                        <div style="min-width: 48px; height: 48px; background: #FFD700; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);">
-                            <span style="font-size: 1.5rem; color: white;">★</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: var(--tc-font-body-xl); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-xs);">4.99 from 500+ reviews</h3>
-                            <p style="font-size: var(--tc-font-body); color: var(--text-secondary); line-height: 1.6; margin: 0;">Guests call this the "best Airbnb experience ever" in their Jan Thiel base</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Our Promise - REDESIGNED -->
-                <div style="background: rgba(98, 208, 201, 0.06); padding: var(--space-2xl); border-radius: var(--radius-xl); border: 1px solid rgba(98, 208, 201, 0.2); margin-bottom: var(--space-2xl);">
-                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); text-align: left;">
+                <!-- Our Promise - ENHANCED -->
+                <div style="background: rgba(98, 208, 201, 0.08); padding: var(--space-2xl); border-radius: var(--radius-lg); border-left: 5px solid var(--primary); margin: var(--space-3xl) 0; box-shadow: 0 4px 12px rgba(98, 208, 201, 0.08);">
+                    <h3 style="font-size: var(--tc-font-h3); font-weight: 800; color: var(--secondary); margin-bottom: var(--space-lg); text-align: left;">
                         Our Promise
                     </h3>
-                    <p style="font-size: var(--tc-font-body-lg); color: var(--text-primary); line-height: 1.7; margin: 0; text-align: left;">
+                    <p style="font-size: var(--tc-font-body-lg); color: var(--text-primary); line-height: 1.8; margin: 0; text-align: left;">
                         As a family who's raised our kids on this island, we know what makes a vacation truly special: not the itinerary, but the moments. That's why we've built Happy Hideaway to remove every friction point, so your family can be fully present—no logistics stress, just connection.
                     </p>
                 </div>
-
-                <!-- CTA Button -->
-                <div style="margin-top: var(--space-2xl);">
-                    <a href="#lodgify-book-now-box" class="cta-secondary" style="display: inline-block; padding: var(--space-md) var(--space-2xl); background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: var(--tc-font-body-lg); box-shadow: 0 4px 20px rgba(98, 208, 201, 0.4); transition: var(--transition-normal);">
-                        Check Availability
-                    </a>
-                </div>
             </div>
 
-            <!-- Right Column: Feature Image -->
+            <!-- Right Column: Feature Image - IMPROVED -->
             <div style="position: relative;">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_700/happy-hideaway-1_hx9jke"
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_450,ar_4:5,c_fill,g_auto/happy-hideaway-3_jokzme"
                      alt="Happy Hideaway Private Resort - Your tropical sanctuary"
-                     loading="eager"
-                     style="width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); object-fit: cover;">
-
-                <!-- Optional: Welcome Badge Overlay (similar to inspiration) -->
-                <div style="position: absolute; top: var(--space-lg); left: var(--space-lg); background: white; padding: var(--space-sm) var(--space-lg); border-radius: 50px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); font-size: var(--tc-font-small); font-weight: 600; color: var(--secondary);">
-                    Welcome to your villa
-                </div>
+                     loading="lazy"
+                     style="max-width: 450px; max-height: 550px; width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); object-fit: cover; transition: var(--transition-normal);">
             </div>
+        </div>
+
+        <!-- CTA: Check Availability (Centered Below Two Columns) -->
+        <div style="text-align: center; margin: var(--space-2xl) 0;">
+            <a href="#lodgify-book-now-box" class="cta-secondary">
+                Check Availability
+            </a>
         </div>
     </section>
 
