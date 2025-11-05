@@ -1619,7 +1619,7 @@
     <!-- ============================================ -->
     <!-- INLINE BOOKING WIDGET SECTION -->
     <!-- ============================================ -->
-    <section id="bookingWidget" style="display: none; padding: calc(var(--space-3xl) + 20px) var(--space-xl) var(--space-3xl); background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); scroll-margin-top: 100px;">
+    <section id="bookingWidget" style="padding: calc(var(--space-3xl) + 20px) var(--space-xl) var(--space-3xl); background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); scroll-margin-top: 100px;">
         <div style="max-width: 1000px; margin: 0 auto;">
 
             <!-- Header -->
@@ -1895,13 +1895,10 @@
         // UPDATED BOOKING FUNCTIONALITY - INLINE WIDGET
         // ============================================
 
-        // Reveal inline booking widget with smooth scroll
+        // Scroll to always-visible booking widget
         function bookNow() {
             const widgetSection = document.getElementById('bookingWidget');
             const floatingBar = document.getElementById('floatingBooking');
-
-            // Show widget section
-            widgetSection.style.display = 'block';
 
             // Smooth scroll to widget (centers in viewport)
             widgetSection.scrollIntoView({
@@ -1909,7 +1906,7 @@
                 block: 'center'
             });
 
-            // Optional: Hide floating bar once widget revealed
+            // Optional: Hide floating bar temporarily while user interacts
             if (floatingBar) {
                 setTimeout(() => {
                     floatingBar.classList.remove('visible');
@@ -1918,29 +1915,10 @@
 
             // Optional: Track event in analytics
             if (typeof gtag !== 'undefined') {
-                gtag('event', 'booking_widget_revealed', {
+                gtag('event', 'booking_widget_scrolled', {
                     'event_category': 'engagement',
                     'event_label': 'Happy Hideaway'
                 });
-            }
-        }
-
-        // Hide widget if user changes mind
-        function hideWidget() {
-            const widgetSection = document.getElementById('bookingWidget');
-            const floatingBar = document.getElementById('floatingBooking');
-
-            // Hide widget section
-            widgetSection.style.display = 'none';
-
-            // Scroll back to top smoothly
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Show floating bar again
-            if (floatingBar && window.scrollY > 300) {
-                setTimeout(() => {
-                    floatingBar.classList.add('visible');
-                }, 500);
             }
         }
 
@@ -1965,7 +1943,7 @@
             }, 2000); // Give Lodgify 2 seconds to load
         });
 
-        // Optional: Reveal widget automatically if URL has #bookingWidget anchor
+        // Auto-scroll to widget if URL has #bookingWidget anchor
         window.addEventListener('DOMContentLoaded', function() {
             if (window.location.hash === '#bookingWidget') {
                 // Small delay to ensure page is loaded
