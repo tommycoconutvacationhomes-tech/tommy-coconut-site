@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Happy Hideaway - Tommy Coconut</title>
+    <meta name="description" content="Reserve your week at Happy Hideaway. Real-time availability and instant pricing.">
+
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Lodgify Book Now Box Styles - Tommy Coconut Branding -->
+    <style>
+        :root {
+            --ldg-bnb-background: #ffffff;
+            --ldg-bnb-border-radius: 0.42em;
+            --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
+            --ldg-bnb-padding: 14px;
+            --ldg-bnb-input-background: #ffffff;
+            --ldg-bnb-button-border-radius: 3.58em;
+
+            --ldg-bnb-color-primary: #75e6da;
+            --ldg-bnb-color-primary-lighter:#baf3ed;
+            --ldg-bnb-color-primary-darker: #3b736d;
+            --ldg-bnb-color-primary-contrast: #333333;
+            --ldg-component-calendar-cell-selection-bg-color: #75e6da;
+            --ldg-component-calendar-cell-selection-color: #333333;
+            --ldg-component-calendar-cell-selected-bg-color: #baf3ed;
+            --ldg-component-calendar-cell-selected-color: #333333;
+            --ldg-bnb-font-family: inherit;
+        }
+        #lodgify-book-now-box {
+            width: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner - Social Proof -->
+    <div class="top-banner">
+        <div class="container">
+            <a href="reviews.html" class="banner-link">
+                <span class="banner-icon">🏖️</span>
+                <span class="banner-text">1,347+ Happy Guests</span>
+                <span class="banner-cta">• Read Reviews</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" alt="Tommy Coconut">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="why-a-private-resort.html">Why a Private Resort?</a></li>
+                <li><a href="blog.html">Experiences</a></li>
+                <li><a href="clan.html">Concierge</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-cta-button">
+                <a href="rentals.html" class="btn btn-primary-nav">Choose Private Resort</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Booking Section -->
+    <section style="padding: calc(120px + var(--space-3xl)) var(--space-xl) var(--space-3xl); background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03));">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <!-- Back Link -->
+            <div style="margin-bottom: var(--space-2xl);">
+                <a href="villa-happy-hideaway.html" style="display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--primary); text-decoration: none; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.gap='var(--space-md)'" onmouseout="this.style.gap='var(--space-sm)'">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Happy Hideaway</span>
+                </a>
+            </div>
+
+            <!-- Header -->
+            <div style="text-align: center; margin-bottom: var(--space-3xl);">
+                <h1 style="font-size: var(--tc-font-h1); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">
+                    <i class="fas fa-calendar-check" style="color: var(--primary); margin-right: var(--space-md);"></i>
+                    Check Availability & Reserve Your Week
+                </h1>
+                <p style="font-size: var(--tc-font-body-lg); color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Select your dates to see real-time availability and instant pricing for Happy Hideaway</p>
+            </div>
+
+            <!-- Lodgify Widget Container -->
+            <div style="background: white; padding: var(--space-3xl); border-radius: var(--radius-xl); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border: 1px solid rgba(98, 208, 201, 0.12);">
+                <!-- Lodgify Widget -->
+                <div id="lodgify-book-now-box"
+                    data-rental-id="355309"
+                    data-website-id="271939"
+                    data-slug="tommycoconut"
+                    data-language-code="en"
+                    data-currency-code="USD"
+                    data-new-tab="true"
+                    data-version="stable"
+                    data-has-guests-breakdown
+                    data-book-button-label="Book Now"
+                ></div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-xl); margin-top: var(--space-3xl); flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.15)'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='rgba(98, 208, 201, 0.08)'; this.style.transform='scale(1)'">
+                    <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 600; font-size: var(--tc-font-small);">Secure booking</span>
+                </div>
+                <span style="color: rgba(0,0,0,0.15);">•</span>
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.15)'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='rgba(98, 208, 201, 0.08)'; this.style.transform='scale(1)'">
+                    <i class="fas fa-clock" style="color: var(--primary); font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 600; font-size: var(--tc-font-small);">Instant confirmation</span>
+                </div>
+                <span style="color: rgba(0,0,0,0.15);">•</span>
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(98, 208, 201, 0.15)'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='rgba(98, 208, 201, 0.08)'; this.style.transform='scale(1)'">
+                    <i class="fas fa-star" style="color: #FFB800; font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 700; font-size: var(--tc-font-small);">4.99★ rated</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
+        <div class="container">
+            <div style="margin-bottom: var(--space-6); text-align: center;">
+                <p style="color: var(--text-inverse); font-size: var(--text-lg); margin: 0; font-weight: 300;">Where it's all about you.</p>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: var(--space-4);">
+                <p style="color: var(--text-inverse); opacity: 0.6; font-size: var(--text-sm); margin: 0;">&copy; 2024 Tommy Coconut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
+</body>
+</html>
