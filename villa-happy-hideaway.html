@@ -595,25 +595,102 @@
             box-shadow: 0 0 12px rgba(98, 208, 201, 0.4);
         }
 
-        /* Tab Buttons */
+        /* Tab Buttons - ENHANCED PHASE 3 */
         .week-tab {
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
         }
 
         .week-tab:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(98, 208, 201, 0.3);
+            box-shadow: 0 6px 16px rgba(98, 208, 201, 0.35);
         }
 
-        /* Mobile Responsiveness - ENHANCED */
+        .week-tab:active {
+            transform: translateY(0);
+        }
+
+        /* Tab Content Transitions */
+        .tab-content {
+            animation: fadeInTab 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Universal Link Hover States */
+        a:not(.cta-primary):not(.cta-secondary):not(.btn) {
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        a:not(.cta-primary):not(.cta-secondary):not(.btn):hover {
+            opacity: 0.8;
+        }
+
+        /* Review Dots Enhanced */
+        .review-dot {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .review-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .review-dot:active {
+            transform: scale(1.1);
+        }
+
+        /* Card Hover Effects - Subtle Elevation */
+        .spec-item,
+        .win-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+        }
+
+        /* Thumbnail Interactions */
+        .thumbnail {
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .thumbnail:active {
+            transform: scale(1.05);
+        }
+
+        /* Trust Badge Interactions */
+        .trust-badge {
+            transition: all 0.3s ease;
+        }
+
+        /* FAQ Item Enhanced Hover */
+        .faq-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+        }
+
+        .faq-item:hover {
+            transform: translateX(4px);
+        }
+
+        /* Mobile Responsiveness - PHASE 3 POLISH */
         @media (max-width: 768px) {
-            /* Floating Booking Bar Optimizations */
+            /* Floating Booking Bar Optimizations - PERFECTED */
             .floating-booking {
                 bottom: 0;
                 left: 0;
                 right: 0;
-                padding: var(--space-md);
+                padding: var(--space-md) var(--space-lg);
                 box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+                z-index: 1001; /* Above navigation */
             }
 
             .booking-content {
@@ -633,8 +710,9 @@
 
             .date-input {
                 width: 100%;
-                min-height: 44px; /* Touch target size */
+                min-height: 48px; /* iOS touch target */
                 font-size: 16px; /* Prevents iOS zoom */
+                padding: var(--space-md);
             }
 
             .price-display {
@@ -644,52 +722,78 @@
                 border-bottom: 1px solid rgba(0, 207, 207, 0.1);
             }
 
-            .welcome-home-btn {
-                width: 100%;
-                min-height: 48px; /* Touch target */
+            .price-amount {
                 font-size: var(--tc-font-body-lg);
             }
 
-            /* Comparison Table Mobile Optimization */
+            .welcome-home-btn {
+                width: 100%;
+                min-height: 52px; /* Premium touch target */
+                font-size: var(--tc-font-body-lg);
+                padding: var(--space-md) var(--space-lg);
+            }
+
+            /* Comparison Table Mobile Optimization - SMOOTH SCROLL */
             .why-here-table-container {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
             }
 
-            /* Gallery Thumbnails */
+            /* Gallery Thumbnails - TOUCH-FRIENDLY */
             .gallery-thumbnails {
                 bottom: var(--space-md);
                 left: var(--space-md);
                 right: var(--space-md);
+                gap: var(--space-sm);
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: var(--space-xs);
             }
 
             .thumbnail {
-                width: 60px;
-                height: 45px;
+                width: 64px; /* 44px+ touch target */
+                height: 48px;
+                flex-shrink: 0;
             }
 
-            /* Section Padding */
+            /* Section Padding - HARMONIOUS RHYTHM */
             .villa-story,
             .villa-specs,
             .win-pass,
             .reviews-section {
-                padding: var(--space-2xl) var(--space-md);
+                padding: var(--space-2xl) var(--space-lg);
             }
 
             /* Grid Layouts */
             .specs-grid {
                 grid-template-columns: 1fr;
+                gap: var(--space-xl);
             }
 
             .win-grid {
                 grid-template-columns: 1fr;
-                gap: var(--space-lg);
+                gap: var(--space-xl);
             }
 
-            /* Tab Buttons */
+            /* Tab Buttons - TOUCH OPTIMIZED */
             .week-tab {
-                min-width: 120px;
-                min-height: 44px; /* Touch target */
+                min-width: 100px;
+                min-height: 48px; /* iOS touch target */
+                padding: var(--space-md) var(--space-lg);
+                font-size: var(--tc-font-body);
+                flex: 1;
+            }
+
+            /* Location Cards Mobile */
+            .location-card {
+                padding: var(--space-lg) !important;
+            }
+
+            /* Trust Badges Mobile */
+            .trust-badge {
+                font-size: var(--tc-font-small);
+                padding: var(--space-sm);
             }
         }
 
@@ -998,7 +1102,8 @@
             <div style="position: relative;">
                 <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_450,ar_4:5,c_fill,g_auto/happy-hideaway-3_jokzme"
                      alt="Happy Hideaway Private Resort - Your tropical sanctuary"
-                     style="max-width: 450px; max-height: 550px; width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); object-fit: cover;">
+                     loading="lazy"
+                     style="max-width: 450px; max-height: 550px; width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); object-fit: cover; transition: var(--transition-normal);">
             </div>
         </div>
 
@@ -1015,8 +1120,9 @@
         <div style="max-width: 1000px; margin: 0 auto;">
             <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Why Here</h2>
 
-            <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-elevated);">
+            <!-- PHASE 3: Enhanced table wrapper with smooth scroll -->
+            <div class="why-here-table-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; border-radius: var(--radius-lg); box-shadow: var(--shadow-elevated);">
+                <table style="width: 100%; min-width: 650px; border-collapse: collapse; background: white; border-radius: var(--border-radius); overflow: hidden;">
                     <thead>
                         <tr style="background: linear-gradient(135deg, var(--secondary), #1A4B52);">
                             <th style="padding: var(--space-lg); text-align: left; color: white; font-weight: 600;">You're choosing…</th>
@@ -1087,21 +1193,21 @@
                 ></div>
             </div>
 
-            <!-- Trust Badges Below Widget -->
+            <!-- Trust Badges Below Widget - PHASE 3 ENHANCED -->
             <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-xl); margin-top: var(--space-2xl); flex-wrap: wrap;">
-                <div style="display: flex; align-items: center; gap: var(--space-xs); color: var(--text-secondary); font-size: var(--tc-font-small);">
-                    <i class="fas fa-shield-alt" style="color: var(--primary);"></i>
-                    <span>Secure booking</span>
+                <div class="trust-badge" style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); background: rgba(98, 208, 201, 0.08); transition: var(--transition-normal);" onmouseover="this.style.background='rgba(98, 208, 201, 0.15)'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='rgba(98, 208, 201, 0.08)'; this.style.transform='scale(1)'">
+                    <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 600; font-size: var(--tc-font-small);">Secure booking</span>
                 </div>
-                <span style="color: rgba(0,0,0,0.2);">•</span>
-                <div style="display: flex; align-items: center; gap: var(--space-xs); color: var(--text-secondary); font-size: var(--tc-font-small);">
-                    <i class="fas fa-clock" style="color: var(--primary);"></i>
-                    <span>Instant confirmation</span>
+                <span style="color: rgba(0,0,0,0.15);">•</span>
+                <div class="trust-badge" style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); background: rgba(98, 208, 201, 0.08); transition: var(--transition-normal);" onmouseover="this.style.background='rgba(98, 208, 201, 0.15)'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='rgba(98, 208, 201, 0.08)'; this.style.transform='scale(1)'">
+                    <i class="fas fa-clock" style="color: var(--primary); font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 600; font-size: var(--tc-font-small);">Instant confirmation</span>
                 </div>
-                <span style="color: rgba(0,0,0,0.2);">•</span>
-                <div style="display: flex; align-items: center; gap: var(--space-xs); color: var(--text-secondary); font-size: var(--tc-font-small);">
-                    <i class="fas fa-star" style="color: var(--primary);"></i>
-                    <span>4.99★ rated</span>
+                <span style="color: rgba(0,0,0,0.15);">•</span>
+                <div class="trust-badge" style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); background: rgba(98, 208, 201, 0.08); transition: var(--transition-normal);" onmouseover="this.style.background='rgba(98, 208, 201, 0.15)'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='rgba(98, 208, 201, 0.08)'; this.style.transform='scale(1)'">
+                    <i class="fas fa-star" style="color: #FFB800; font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 700; font-size: var(--tc-font-small);">4.99★ rated</span>
                 </div>
             </div>
         </div>
@@ -1122,7 +1228,8 @@
                     <div style="margin-bottom: var(--space-xl);">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/happy-hideaway-5_yr4gur"
                              alt="Outdoor living at Happy Hideaway"
-                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);">
+                             loading="lazy"
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
                     </div>
                     <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
                         <i class="fas fa-umbrella-beach" style="color: var(--primary); font-size: 1.5rem;"></i>
@@ -1143,7 +1250,8 @@
                     <div style="margin-bottom: var(--space-xl);">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/happy-hideaway-4_unr393"
                              alt="Indoor living at Happy Hideaway"
-                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);">
+                             loading="lazy"
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
                     </div>
                     <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
                         <i class="fas fa-couch" style="color: var(--primary); font-size: 1.5rem;"></i>
@@ -1166,7 +1274,8 @@
                     <div style="margin-bottom: var(--space-xl);">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/happy-hideaway-11_hbkxze"
                              alt="Bedrooms at Happy Hideaway"
-                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);">
+                             loading="lazy"
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
                     </div>
                     <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
                         <i class="fas fa-bed" style="color: var(--primary); font-size: 1.5rem;"></i>
@@ -1287,7 +1396,7 @@
             <div class="win-grid">
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/happy-hideaway-8_yqdwdj" alt="Your Island Fleet" class="pass-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/happy-hideaway-8_yqdwdj" alt="Your Island Fleet" class="pass-icon" loading="lazy">
                     </div>
                     <h3>Your Island Fleet</h3>
                     <p><span class="win-highlight">VIP Airport Transfers. EV-SUV Included. Free Charging Station.</span> From touchdown to exploration, your mobility is handled. Drive the island sustainably with GPS pre-loaded with 38 hidden beaches.</p>
@@ -1295,7 +1404,7 @@
 
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/happy-hideaway-5_yr4gur" alt="Your Private Adventures" class="pass-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/happy-hideaway-5_yr4gur" alt="Your Private Adventures" class="pass-icon" loading="lazy">
                     </div>
                     <h3>Your Private Adventures</h3>
                     <p><span class="win-highlight">Private Boat Trip. Flamingo Hike with Guide. The Ultimate Beach Kit.</span> Ocean adventures, nature experiences, and beach days—all orchestrated, zero hassle.</p>
@@ -1303,7 +1412,7 @@
 
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/happy-hideaway-4_unr393" alt="Your Dushi Life Service" class="pass-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/happy-hideaway-4_unr393" alt="Your Dushi Life Service" class="pass-icon" loading="lazy">
                     </div>
                     <h3>Your Dushi Life Service</h3>
                     <p><span class="win-highlight">Pre-Stocked Fridge. First-Night Dinner Prepared. 24/7 Concierge. Professional Housekeeping.</span> Arrive to a stocked kitchen. Enjoy dinner without cooking. Need anything? We're always here.</p>
@@ -1311,7 +1420,7 @@
 
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/happy-hideaway-1_hx9jke" alt="Your Personal Hosts" class="pass-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/happy-hideaway-1_hx9jke" alt="Your Personal Hosts" class="pass-icon" loading="lazy">
                     </div>
                     <h3>Your Personal Hosts</h3>
                     <p><span class="win-highlight">More than Hosts—We're Your Island Family.</span> Meet the family behind Tommy Coconut. Our friendly race to see who can help you the fastest is legendary. You'll never feel alone on this island.</p>
@@ -1412,12 +1521,12 @@
                 </div>
             </div>
             
-            <div class="review-dots">
-                <div class="review-dot active" onclick="showReview(0)"></div>
-                <div class="review-dot" onclick="showReview(1)"></div>
-                <div class="review-dot" onclick="showReview(2)"></div>
-                <div class="review-dot" onclick="showReview(3)"></div>
-                <div class="review-dot" onclick="showReview(4)"></div>
+            <div class="review-dots" role="tablist" aria-label="Review navigation">
+                <div class="review-dot active" onclick="showReview(0)" role="tab" aria-label="Review 1" tabindex="0"></div>
+                <div class="review-dot" onclick="showReview(1)" role="tab" aria-label="Review 2" tabindex="0"></div>
+                <div class="review-dot" onclick="showReview(2)" role="tab" aria-label="Review 3" tabindex="0"></div>
+                <div class="review-dot" onclick="showReview(3)" role="tab" aria-label="Review 4" tabindex="0"></div>
+                <div class="review-dot" onclick="showReview(4)" role="tab" aria-label="Review 5" tabindex="0"></div>
             </div>
 
             <!-- CTA: Reserve Your Week -->
@@ -1504,43 +1613,57 @@
         </div>
     </section>
 
-    <!-- Location - Walk & Drive -->
+    <!-- Location - Walk & Drive - PHASE 3 ENHANCED -->
     <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
         <div style="max-width: 1000px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Your Jan Thiel Base</h2>
+            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Your Jan Thiel Base</h2>
+            <p style="text-align: center; font-size: var(--tc-font-body-lg); color: var(--text-secondary); margin-bottom: var(--space-3xl); max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.7;">Everything you need within walking distance. The best of Curaçao within a short drive.</p>
 
             <!-- Location Hero Image -->
-            <div style="margin-bottom: var(--space-2xl);">
+            <div style="margin-bottom: var(--space-3xl);">
                 <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1000,h_300,c_fill,g_auto/happy-hideaway-8_yqdwdj"
                      alt="Jan Thiel location - Your Happy Hideaway base"
-                     style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated);">
+                     loading="lazy"
+                     style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); transition: var(--transition-normal);">
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-2xl);">
-                <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-lg); border-radius: var(--border-radius); border-left: 3px solid var(--primary);">
-                    <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 600; margin-bottom: var(--space-xs);">WALK 2–8 MIN</div>
-                    <div style="color: var(--text-secondary);">The Pier • Pop's Place • Caracasbaai</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-3xl);">
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-walking" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">WALK 2–8 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">The Pier • Pop's Place • Caracasbaai</div>
                 </div>
 
-                <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-lg); border-radius: var(--border-radius); border-left: 3px solid var(--primary);">
-                    <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 600; margin-bottom: var(--space-xs);">DRIVE 4–8 MIN</div>
-                    <div style="color: var(--text-secondary);">Jan Thiel (Zanzibar, Zest) • Van den Tweel</div>
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-car" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">DRIVE 4–8 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">Jan Thiel (Zanzibar, Zest) • Van den Tweel</div>
                 </div>
 
-                <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-lg); border-radius: var(--border-radius); border-left: 3px solid var(--primary);">
-                    <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 600; margin-bottom: var(--space-xs);">DRIVE 10–15 MIN</div>
-                    <div style="color: var(--text-secondary);">Willemstad (Punda/Otrobanda) • Mambo</div>
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-city" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">DRIVE 10–15 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">Willemstad (Punda/Otrobanda) • Mambo</div>
                 </div>
 
-                <div style="background: rgba(98, 208, 201, 0.05); padding: var(--space-lg); border-radius: var(--border-radius); border-left: 3px solid var(--primary);">
-                    <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 600; margin-bottom: var(--space-xs);">DRIVE 30–60 MIN</div>
-                    <div style="color: var(--text-secondary);">Westpunt beaches (Knip, Grote/Playa Piskadó)</div>
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-water" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">DRIVE 30–60 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">Westpunt beaches (Knip, Grote/Playa Piskadó)</div>
                 </div>
             </div>
 
-            <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.1), rgba(0, 207, 207, 0.05)); padding: var(--space-xl); border-radius: var(--border-radius); text-align: center; border: 1px solid rgba(98, 208, 201, 0.2);">
-                <i class="fas fa-lightbulb" style="color: var(--primary); font-size: 1.5rem; margin-bottom: var(--space-md); display: block;"></i>
-                <p style="color: var(--secondary); font-weight: 600; margin: 0;">Pro tip: Zest sunset is magic at 17:45. We'll time your table.</p>
+            <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.12), rgba(0, 207, 207, 0.06)); padding: var(--space-2xl); border-radius: var(--radius-lg); text-align: center; border: 1px solid rgba(98, 208, 201, 0.25); box-shadow: 0 4px 16px rgba(98, 208, 201, 0.1);">
+                <i class="fas fa-lightbulb" style="color: var(--primary); font-size: 1.75rem; margin-bottom: var(--space-md); display: block;"></i>
+                <p style="color: var(--secondary); font-weight: 600; margin: 0; font-size: var(--tc-font-body-lg); line-height: 1.7;">Pro tip: Zest sunset is magic at 17:45. We'll time your table.</p>
             </div>
         </div>
     </section>
@@ -1553,8 +1676,8 @@
                 <div class="price-label">from $5,000 | 4.99★ rated</div>
             </div>
 
-            <button class="welcome-home-btn" onclick="bookNow()">
-                <i class="fas fa-calendar-check"></i>
+            <button class="welcome-home-btn" onclick="bookNow()" aria-label="Check availability for Happy Hideaway">
+                <i class="fas fa-calendar-check" aria-hidden="true"></i>
                 Check Availability
             </button>
         </div>
