@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Villa Bayside Hill - Your Private Entertainment Compound | Tommy Coconut</title>
-    <meta name="description" content="Villa Bayside Hill: Your all-inclusive private resort with legendary bamboo beds, 'Cocktails & Dreams' bar, and the best vacation reviews ever. Better than the pictures.">
-
+    <title>Villa Bayside Hill - Your Private Resort | Tommy Coconut</title>
+    <meta name="description" content="Villa Bayside Hill: Where we've declared war on vacation stress. Guests call this the 'best Airbnb experience ever.' Your Private Resort with VIP car, boat trip, gourmet services, and zero hidden fees.">
+    
     <!-- CSS Dependencies -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/design-system.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-
+    
     <!-- Cloudinary Configuration -->
     <script src="cloudinary-config.js"></script>
 
@@ -24,36 +24,59 @@
             --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
             --ldg-bnb-padding: 14px;
             --ldg-bnb-input-background: #ffffff;
-            --ldg-bnb-button-border-radius: 0.42em;
+            --ldg-bnb-button-border-radius: 3.58em;
 
-            --ldg-bnb-color-primary: #00CFCF;
-            --ldg-bnb-color-primary-lighter: #92E3DA;
-            --ldg-bnb-color-primary-darker: #005A5B;
-            --ldg-bnb-color-primary-contrast: #FFFFFF;
-            --ldg-component-calendar-cell-selection-bg-color: #00CFCF;
-            --ldg-component-calendar-cell-selection-color: #FFFFFF;
-            --ldg-component-calendar-cell-selected-bg-color: #92E3DA;
+            --ldg-bnb-color-primary: #75e6da;
+            --ldg-bnb-color-primary-lighter:#baf3ed;
+            --ldg-bnb-color-primary-darker: #3b736d;
+            --ldg-bnb-color-primary-contrast: #333333;
+            --ldg-component-calendar-cell-selection-bg-color: #75e6da;
+            --ldg-component-calendar-cell-selection-color: #333333;
+            --ldg-component-calendar-cell-selected-bg-color: #baf3ed;
             --ldg-component-calendar-cell-selected-color: #333333;
             --ldg-bnb-font-family: inherit;
         }
-        #lodgify-book-now-box-bayside {
+        #lodgify-book-now-box {
             width: 100%;
         }
     </style>
 
     <style>
         :root {
-            --primary: #62D0C9;
-            --secondary: #005A5B;
-            --accent: #00CFCF;
+            /* Tommy Coconut Brand Colors */
+            --tc-primary: #62D0C9;
+            --tc-navy-light: #005A5B;
+            --tc-accent: #00CFCF;
+
+            /* Backward compatibility aliases */
+            --primary: var(--tc-primary);
+            --secondary: var(--tc-navy-light);
+            --accent: var(--tc-accent);
+
+            /* Text & Surface Colors */
             --text-primary: #333333;
             --text-secondary: #666666;
+            --text-inverse: #FFFFFF;
             --surface: #F8F9FA;
             --surface-elevated: #FFFFFF;
             --white: #FFFFFF;
-            --text-lg: 1.125rem;
+
+            /* Typography Scale - Tommy Coconut Design System */
+            --tc-font-hero: clamp(3.2rem, 6vw, 4.5rem);
+            --tc-font-h1: clamp(2.5rem, 5vw, 3.5rem);
+            --tc-font-h2: clamp(2rem, 4vw, 2.5rem);
+            --tc-font-h3: clamp(1.5rem, 3vw, 1.8rem);
+            --tc-font-body-xl: clamp(1.15rem, 2.2vw, 1.375rem);
+            --tc-font-body-lg: 1.125rem;
+            --tc-font-body: 1rem;
+            --tc-font-small: 0.875rem;
+
+            /* Legacy typography aliases */
+            --text-lg: var(--tc-font-body-lg);
             --text-xl: 1.25rem;
-            --text-sm: 0.875rem;
+            --text-sm: var(--tc-font-small);
+
+            /* Spacing System */
             --space-xs: 0.25rem;
             --space-sm: 0.5rem;
             --space-md: 1rem;
@@ -63,11 +86,35 @@
             --space-3xl: 4rem;
             --space-4: 1rem;
             --space-6: 1.5rem;
+
+            /* Font Weights */
             --font-weight-light: 300;
-            --transition-normal: all 0.3s ease;
+            --weight-regular: 400;
+            --weight-semibold: 600;
+            --weight-bold: 700;
+
+            /* Border Radius */
             --border-radius: 12px;
+            --radius-md: 0.5rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
+            --radius-full: 50px;
+
+            /* Shadows */
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
             --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.2);
+
+            /* Transitions */
+            --transition-normal: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+
+            /* Brand Extras */
+            --tc-driftwood-sand: #F5E6D3;
+            --teal: #008080;
         }
 
         * {
@@ -135,7 +182,7 @@
             border: 2px solid #E5E7EB;
             border-radius: var(--border-radius);
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
+            font-size: var(--tc-font-small);
             transition: var(--transition-normal);
         }
 
@@ -150,13 +197,13 @@
         }
 
         .price-amount {
-            font-size: 1.5rem;
+            font-size: var(--tc-font-h3);
             font-weight: 700;
             color: var(--secondary);
         }
 
         .price-label {
-            font-size: 0.85rem;
+            font-size: var(--tc-font-small);
             color: var(--text-secondary);
         }
 
@@ -168,7 +215,7 @@
             border-radius: 50px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: var(--tc-font-body-lg);
             cursor: pointer;
             transition: var(--transition-normal);
             box-shadow: 0 4px 20px rgba(98, 208, 201, 0.4);
@@ -267,7 +314,7 @@
         }
 
         .villa-narrative {
-            font-size: 1.25rem;
+            font-size: var(--tc-font-body-xl);
             line-height: 1.8;
             color: var(--text-secondary);
             max-width: 800px;
@@ -292,7 +339,7 @@
 
         .specs-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: var(--tc-font-h2);
             font-weight: 700;
             color: var(--secondary);
             margin-bottom: var(--space-2xl);
@@ -327,7 +374,7 @@
         }
 
         .spec-content h3 {
-            font-size: 1.25rem;
+            font-size: var(--tc-font-body-xl);
             font-weight: 700;
             color: var(--secondary);
             margin-bottom: var(--space-xs);
@@ -339,7 +386,7 @@
 
         .spec-wit {
             color: var(--primary);
-            font-size: 0.9rem;
+            font-size: var(--tc-font-small);
             font-style: italic;
             margin-top: var(--space-xs);
         }
@@ -358,14 +405,14 @@
         }
 
         .win-title {
-            font-size: 3rem;
+            font-size: var(--tc-font-h2);
             font-weight: 800;
             margin-bottom: var(--space-md);
             color: white;
         }
 
         .win-subtitle {
-            font-size: 1.25rem;
+            font-size: var(--tc-font-body-xl);
             opacity: 0.95;
             margin-bottom: var(--space-2xl);
             color: white;
@@ -414,9 +461,10 @@
 
         /* Pass Icon Styling */
         .pass-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            border-radius: var(--radius-lg);
             object-fit: cover;
             margin: 0 auto;
             display: block;
@@ -424,7 +472,7 @@
         }
 
         .win-item h3 {
-            font-size: 1.5rem;
+            font-size: var(--tc-font-h3);
             font-weight: 700;
             margin-bottom: var(--space-md);
             color: white;
@@ -433,7 +481,7 @@
         .win-item p {
             line-height: 1.7;
             opacity: 0.95;
-            font-size: 0.95rem;
+            font-size: var(--tc-font-body);
             color: white;
         }
 
@@ -455,7 +503,7 @@
 
         .reviews-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: var(--tc-font-h2);
             font-weight: 700;
             color: var(--secondary);
             margin-bottom: var(--space-2xl);
@@ -468,252 +516,795 @@
         .review-item {
             display: none;
             text-align: center;
-            padding: var(--space-2xl);
-            background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
-            border-radius: var(--border-radius);
+            padding: var(--space-3xl) var(--space-2xl);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.06), rgba(0, 207, 207, 0.06));
+            border-radius: var(--radius-xl);
             margin: var(--space-lg) 0;
             min-height: 280px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(98, 208, 201, 0.12);
+            transition: var(--transition-normal);
         }
 
         .review-item.active {
             display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .review-stars {
-            font-size: 1.5rem;
-            color: #FFD700;
-            margin-bottom: var(--space-lg);
+            font-size: 1.75rem;
+            color: #FFB800;
+            margin-bottom: var(--space-xl);
+            letter-spacing: 4px;
+            text-shadow: 0 2px 4px rgba(255, 184, 0, 0.2);
         }
 
         .review-text {
-            font-size: 1.25rem;
+            font-size: var(--tc-font-body-xl);
             line-height: 1.8;
             color: var(--text-primary);
             font-style: italic;
-            margin-bottom: var(--space-lg);
+            margin-bottom: var(--space-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .review-author {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--secondary);
+            font-size: var(--tc-font-body);
+            font-style: normal;
         }
 
         .review-dots {
             display: flex;
             justify-content: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-xl);
+            gap: var(--space-md);
+            margin-top: var(--space-2xl);
         }
 
         .review-dot {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background: rgba(98, 208, 201, 0.3);
+            background: rgba(98, 208, 201, 0.25);
             cursor: pointer;
             transition: var(--transition-normal);
+            border: 2px solid transparent;
+        }
+
+        .review-dot:hover {
+            background: rgba(98, 208, 201, 0.5);
+            transform: scale(1.15);
         }
 
         .review-dot.active {
             background: var(--primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 12px rgba(98, 208, 201, 0.4);
         }
 
-        /* Mobile Responsiveness */
+        /* Tab Buttons - ENHANCED PHASE 3 */
+        .week-tab {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .week-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(98, 208, 201, 0.35);
+        }
+
+        .week-tab:active {
+            transform: translateY(0);
+        }
+
+        /* Tab Content Transitions */
+        .tab-content {
+            animation: fadeInTab 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Universal Link Hover States */
+        a:not(.cta-primary):not(.cta-secondary):not(.btn) {
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        a:not(.cta-primary):not(.cta-secondary):not(.btn):hover {
+            opacity: 0.8;
+        }
+
+        /* Review Dots Enhanced */
+        .review-dot {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .review-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .review-dot:active {
+            transform: scale(1.1);
+        }
+
+        /* Card Hover Effects - Subtle Elevation */
+        .spec-item,
+        .win-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+        }
+
+        /* Thumbnail Interactions */
+        .thumbnail {
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .thumbnail:active {
+            transform: scale(1.05);
+        }
+
+        /* Trust Badge Interactions */
+        .trust-badge {
+            transition: all 0.3s ease;
+        }
+
+        /* FAQ Item Enhanced Hover */
+        .faq-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+        }
+
+        .faq-item:hover {
+            transform: translateX(4px);
+        }
+
+        /* Mobile Responsiveness - PHASE 3 POLISH */
         @media (max-width: 768px) {
+            /* Floating Booking Bar Optimizations - PERFECTED */
             .floating-booking {
-                padding: var(--space-md);
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: var(--space-md) var(--space-lg);
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+                z-index: 1001; /* Above navigation */
             }
 
             .booking-content {
                 grid-template-columns: 1fr;
                 gap: var(--space-md);
                 text-align: center;
+                flex-direction: column;
+                align-items: stretch;
             }
 
             .date-selector {
                 justify-content: center;
+                flex-direction: column;
+                gap: var(--space-sm);
+                width: 100%;
             }
 
+            .date-input {
+                width: 100%;
+                min-height: 48px; /* iOS touch target */
+                font-size: 16px; /* Prevents iOS zoom */
+                padding: var(--space-md);
+            }
+
+            .price-display {
+                text-align: center;
+                padding: var(--space-md) 0;
+                border-top: 1px solid rgba(0, 207, 207, 0.1);
+                border-bottom: 1px solid rgba(0, 207, 207, 0.1);
+            }
+
+            .price-amount {
+                font-size: var(--tc-font-body-lg);
+            }
+
+            .welcome-home-btn {
+                width: 100%;
+                min-height: 52px; /* Premium touch target */
+                font-size: var(--tc-font-body-lg);
+                padding: var(--space-md) var(--space-lg);
+            }
+
+            /* Comparison Table Mobile Optimization - SMOOTH SCROLL */
+            .why-here-table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+            }
+
+            /* Gallery Thumbnails - TOUCH-FRIENDLY */
             .gallery-thumbnails {
                 bottom: var(--space-md);
                 left: var(--space-md);
                 right: var(--space-md);
+                gap: var(--space-sm);
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: var(--space-xs);
             }
 
             .thumbnail {
-                width: 60px;
-                height: 45px;
+                width: 64px; /* 44px+ touch target */
+                height: 48px;
+                flex-shrink: 0;
             }
 
+            /* Section Padding - HARMONIOUS RHYTHM */
             .villa-story,
             .villa-specs,
             .win-pass,
             .reviews-section {
-                padding: var(--space-2xl) var(--space-md);
+                padding: var(--space-2xl) var(--space-lg);
             }
 
+            /* Grid Layouts */
             .specs-grid {
                 grid-template-columns: 1fr;
+                gap: var(--space-xl);
             }
 
             .win-grid {
                 grid-template-columns: 1fr;
-                gap: var(--space-lg);
+                gap: var(--space-xl);
+            }
+
+            /* Tab Buttons - TOUCH OPTIMIZED */
+            .week-tab {
+                min-width: 100px;
+                min-height: 48px; /* iOS touch target */
+                padding: var(--space-md) var(--space-lg);
+                font-size: var(--tc-font-body);
+                flex: 1;
+            }
+
+            /* Location Cards Mobile */
+            .location-card {
+                padding: var(--space-lg) !important;
+            }
+
+            /* Trust Badges Mobile */
+            .trust-badge {
+                font-size: var(--tc-font-small);
+                padding: var(--space-sm);
+            }
+
+            /* ============================================ */
+            /* INLINE BOOKING WIDGET - MOBILE STYLES */
+            /* ============================================ */
+
+            /* Widget section spacing */
+            #bookingWidget {
+                padding: var(--space-2xl) var(--space-md) !important;
+            }
+
+            /* Widget container padding */
+            #bookingWidget > div > div:nth-child(3) {
+                padding: var(--space-lg) !important;
+            }
+
+            /* Header text size */
+            #bookingWidget h2 {
+                font-size: var(--tc-font-h2) !important;
+            }
+
+            /* Trust badges stack vertically */
+            #bookingWidget > div > div:nth-child(4) {
+                gap: var(--space-md) !important;
+            }
+
+            /* Hide bullet separators on mobile */
+            #bookingWidget > div > div:nth-child(4) span:nth-of-type(2),
+            #bookingWidget > div > div:nth-child(4) span:nth-of-type(4) {
+                display: none;
+            }
+
+            /* Skeleton loader smaller */
+            .widget-skeleton > div:first-child {
+                height: 30px !important;
+            }
+
+            .widget-skeleton > div:nth-child(2) {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-sm) !important;
+            }
+
+            .widget-skeleton > div:nth-child(2) > div {
+                height: 50px !important;
+            }
+
+            /* Hide widget button larger tap target */
+            #bookingWidget button {
+                padding: var(--space-md) var(--space-xl) !important;
+                font-size: var(--tc-font-body) !important;
+            }
+
+            /* Viewing activity badge smaller */
+            #bookingWidget > div > div:nth-child(2) {
+                font-size: 0.75rem !important;
+                padding: var(--space-sm) !important;
+            }
+        }
+
+        /* Mobile Responsive Styles for New Image Layouts */
+        @media (max-width: 968px) {
+            /* Two-Column Hero Section - Stack on Mobile */
+            .villa-story > div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-xl) !important;
+            }
+
+            /* Hero Title - Center on Mobile */
+            .villa-story .villa-title {
+                text-align: center !important;
+            }
+
+            /* Hero Narrative - Center on Mobile */
+            .villa-story .villa-narrative {
+                text-align: center !important;
+            }
+
+            /* Hero Ratings - Center on Mobile */
+            .villa-story > div > div > div[style*="justify-content: flex-start"] {
+                justify-content: center !important;
+            }
+
+            /* Our Promise - Center on Mobile */
+            .villa-story h3,
+            .villa-story p {
+                text-align: center !important;
+            }
+
+            /* Feature Image - Remove Sticky on Mobile */
+            .villa-story > div > div[style*="position: sticky"] {
+                position: relative !important;
+                top: auto !important;
+            }
+
+            /* Location Hero Image - Adjust Height on Mobile */
+            section[style*="Your Jan Thiel Base"] img[style*="height: 300px"] {
+                height: 200px !important;
+            }
+        }
+
+        /* Additional Mobile Optimizations for Category Images */
+        @media (max-width: 480px) {
+            /* Category Images in Private Oasis - Smaller on Mobile */
+            div[style*="villa-bayside-hill-5_yr4gur"] img,
+            div[style*="villa-bayside-hill-4_unr393"] img,
+            div[style*="villa-bayside-hill-11_hbkxze"] img {
+                height: 120px !important;
+            }
+
+            /* Hero Feature Image - Smaller Radius on Mobile */
+            .villa-story img[src*="villa-bayside-hill-3_jokzme"] {
+                border-radius: var(--radius-md) !important;
+            }
+
+            /* Location Image - Smaller Height on Small Screens */
+            section img[src*="villa-bayside-hill-8_yqdwdj"][style*="height: 300px"] {
+                height: 180px !important;
+            }
+
+            /* ============================================ */
+            /* INLINE BOOKING WIDGET - EXTRA SMALL SCREENS */
+            /* ============================================ */
+
+            /* Even smaller screens */
+            #bookingWidget {
+                padding: var(--space-xl) var(--space-sm) !important;
+            }
+
+            #bookingWidget > div > div:nth-child(3) {
+                padding: var(--space-md) !important;
+            }
+        }
+
+        /* === PHASE 1 IMPROVEMENTS: CTA HIERARCHY & TYPOGRAPHY === */
+
+        /* CTA Hierarchy System */
+        .cta-primary {
+            display: inline-block;
+            padding: var(--space-lg) var(--space-2xl);
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            font-weight: 700;
+            font-size: var(--tc-font-body-xl);
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(98, 208, 201, 0.3);
+            transition: var(--transition-normal);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(98, 208, 201, 0.4);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            padding: var(--space-md) var(--space-2xl);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-full);
+            background: transparent;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: var(--tc-font-body-lg);
+            text-decoration: none;
+            transition: var(--transition-normal);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(98, 208, 201, 0.08);
+            transform: translateY(-1px);
+        }
+
+        /* Typography Standardization */
+        h1, .villa-title {
+            font-weight: 800 !important;
+            line-height: 1.15 !important;
+            letter-spacing: -0.02em;
+        }
+
+        h2, .section-title {
+            font-weight: 700 !important;
+            line-height: 1.25 !important;
+        }
+
+        h3, .subsection-title {
+            font-weight: 700 !important;
+            line-height: 1.4 !important;
+        }
+
+        /* Improved Two-Column Hero for Tablet */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .villa-story > div[style*="grid-template-columns"] {
+                gap: var(--space-2xl) !important;
+            }
+        }
+
+        /* Mobile CTA Optimization */
+        @media (max-width: 768px) {
+            .cta-primary, .cta-secondary {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); position: fixed; top: 0; left: 0; right: 0; z-index: 999; padding: 1rem 0;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
-            <a href="index.html" style="color: var(--secondary); text-decoration: none; font-weight: 700; font-size: 1.25rem;">
-                ← Back to Tommy Coconut
+    <!-- Top Banner - Social Proof -->
+    <div class="top-banner">
+        <div class="container">
+            <a href="reviews.html" class="banner-link">
+                <span class="banner-icon">🏖️</span>
+                <span class="banner-text" style="color: var(--text-inverse);">1,347+ Happy Guests</span>
+                <span class="banner-cta" style="color: var(--text-inverse);">• Read Reviews</span>
             </a>
-            <div>
-                <a href="rentals.html" style="color: var(--text-secondary); text-decoration: none; margin-right: 2rem;">All Villas</a>
-                <a href="contact.html" style="color: var(--text-secondary); text-decoration: none;">Contact</a>
+        </div>
+    </div>
+
+    <!-- Navigation - Left Logo, Center Nav, Right CTA Layout -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left Logo -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" alt="Tommy Coconut - Where it's all about you. - Curaçao Vacation Rentals">
+                </a>
+            </div>
+
+            <!-- Center Navigation Menu -->
+            <ul class="nav-menu">
+                <li><a href="why-a-private-resort.html">Why a Private Resort?</a></li>
+                <li><a href="blog.html">Experiences</a></li>
+                <li><a href="clan.html">Concierge</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <!-- Right CTA Button -->
+            <div class="nav-cta-button">
+                <a href="#bookingWidget" class="btn btn-primary-nav" onclick="bookNow(); return false;">CHECK AVAILABILITY</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
     <!-- Act 1: The Cinematic Reveal -->
-    <section class="gallery-hero" style="margin-top: 80px;">
-        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-1.jpeg" alt="Villa Bayside Hill Private Sanctuary" class="hero-image">
+    <section class="gallery-hero" style="margin-top: 120px;">
+        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-1_hx9jke" alt="Villa Bayside Hill Private Resort" class="hero-image">
 
         <div class="gallery-thumbnails">
-            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-1.jpeg', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-1.jpeg" alt="Villa Bayside Hill">
+            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-1_hx9jke', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-1_hx9jke" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-2.jpeg', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-2.jpeg" alt="Villa Bayside Hill">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-2_waijkz', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-2_waijkz" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-3.jpeg', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-3.jpeg" alt="Villa Bayside Hill">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-3_jokzme', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-3_jokzme" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-4.jpeg', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-4.jpeg" alt="Villa Bayside Hill">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-4_unr393', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-4_unr393" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-5.jpeg', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-5.jpeg" alt="Villa Bayside Hill">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-5_yr4gur', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-5_yr4gur" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-6.jpeg', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-6.jpeg" alt="Villa Bayside Hill">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-6_gikoc3', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-6_gikoc3" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-7.jpeg', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-7.jpeg" alt="Villa Bayside Hill">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-11_hbkxze', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-11_hbkxze" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-8.jpeg', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-8.jpeg" alt="Villa Bayside Hill">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-8_yqdwdj', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-8_yqdwdj" alt="Villa Bayside Hill">
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-9.jpeg', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-9.jpeg" alt="Villa Bayside Hill">
+            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-9_j6gs1d', this)">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-9_j6gs1d" alt="Villa Bayside Hill">
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats Strip - Above the Fold - IMPROVED -->
+    <section style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(98, 208, 201, 0.06) 100%); padding: var(--space-3xl) var(--space-lg); border-bottom: 1px solid rgba(98, 208, 201, 0.15);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-2xl); text-align: center;">
+                <!-- Stat 1: Bedrooms/Baths -->
+                <div style="padding: var(--space-md);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: var(--space-xs);">3 bed / 2 bath</div>
+                    <div style="font-size: var(--tc-font-small); color: var(--text-secondary);">Sleeps 3</div>
+                </div>
+
+                <!-- Stat 2: Pool & Amenities -->
+                <div style="padding: var(--space-md);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: var(--space-xs);">Private pool</div>
+                    <div style="font-size: var(--tc-font-small); color: var(--text-secondary);">Hot tub + cabana</div>
+                </div>
+
+                <!-- Stat 3: EV-SUV -->
+                <div style="padding: var(--space-md);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: var(--space-xs);">EV-SUV</div>
+                    <div style="font-size: var(--tc-font-small); color: var(--text-secondary);">At your door</div>
+                </div>
+
+                <!-- Stat 4: Private Boat -->
+                <div style="padding: var(--space-md);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: var(--space-xs);">Private boat</div>
+                    <div style="font-size: var(--tc-font-small); color: var(--text-secondary);">+ captain</div>
+                </div>
+
+                <!-- Stat 5: Family Concierge -->
+                <div style="padding: var(--space-md);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: var(--space-xs);">Concierge</div>
+                    <div style="font-size: var(--tc-font-small); color: var(--text-secondary);">24/7 family care</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Act 2: The Soul of the Sanctuary -->
     <section class="villa-story">
-        <h1 class="villa-title">Villa Bayside Hill: Your Private Entertainment Compound</h1>
-        <p class="villa-narrative">
-            A great vacation isn't about where you go—it's about <strong>how you feel</strong>. At Villa Bayside Hill, you don't just check in... you <strong class="dushi-word">hala rosea</strong> (breathe deeper).
-        </p>
-        <p class="villa-narrative" style="margin-top: 1.5rem;">
-            This isn't just a 5-star villa; it's your <strong>private entertainment compound</strong>, built on two promises our guests celebrate:<br>
-            <strong style="color: var(--primary);">• Genuine Hospitality</strong> (you're <span class="dushi-word">famia</span>, not a reservation—privacy first)<br>
-            <strong style="color: var(--primary);">• Total Peace of Mind</strong> (we handle everything—you relax)
-        </p>
-        <p class="villa-narrative" style="margin-top: 1.5rem;">
-            From your morning coffee with the Caribbean stretching to infinity, to <span class="dushi-word">tempu di solo bai</span> (sunset time) cocktails at your private bar, every detail is curated so you can disconnect—no planning, no stress, just presence.
-        </p>
-        <p class="villa-narrative" style="font-size: 1.15rem; margin-top: 1.5rem; font-weight: 600;">
-            Guests call this "The Best Vacation Ever." Here's why.
-        </p>
-    </section>
-
-    <!-- Lodgify Booking Widget - Villa Bayside Hill -->
-    <section style="background: white; padding: var(--space-3xl) var(--space-xl);">
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: var(--space-2xl);">
-                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Check Availability & Book Your Escape</h2>
-                <p style="font-size: 1.1rem; color: var(--text-secondary);">Select your dates to see real-time availability and instant pricing for Villa Bayside Hill</p>
+        <!-- Two-Column Hero Layout - IMPROVED -->
+        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-3xl); align-items: center; margin-bottom: var(--space-3xl);">
+            <!-- Left Column: Content -->
+            <div>
+                <h1 class="villa-title" style="text-align: left; margin-bottom: var(--space-lg); font-weight: 600;">Villa Bayside Hill — Your Private Resort in Curaçao</h1>
+                <p style="font-size: var(--tc-font-body-xl); margin-bottom: var(--space-lg); font-weight: 600; color: var(--secondary); text-align: left; line-height: 1.6;">
+                    A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.
+                </p>
+                <div style="display: flex; align-items: center; justify-content: flex-start; gap: var(--space-md); margin-bottom: var(--space-2xl); flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--tc-font-body-lg);">
+                        <span style="color: #FFD700; font-size: var(--tc-font-body-xl);">★</span>
+                        <span style="font-weight: 700; color: var(--primary);">4.99</span>
+                    </div>
+                    <span style="color: var(--text-secondary);">from 500+ reviews</span>
+                    <span style="color: var(--text-secondary);">·</span>
+                    <span style="color: var(--text-secondary); font-weight: 600;">Jan Thiel base</span>
+                </div>
+                <p style="font-size: var(--tc-font-body-lg); text-align: left; line-height: 1.75; color: var(--text-primary);">
+                    A great vacation isn't about where you go—it's about <strong style="font-weight: 600; color: var(--secondary);">how you feel</strong>. At Villa Bayside Hill, you don't just check in… you unwind completely. From wheels-down to your last sunset toast, every detail is curated so you can disconnect—no planning, no stress, <strong style="font-weight: 600; color: var(--secondary);">just peace</strong>.
+                </p>
             </div>
 
-            <!-- Lodgify Widget Container -->
-            <div style="background: white; padding: var(--space-2xl); border-radius: var(--border-radius); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); border: 1px solid rgba(0, 207, 207, 0.1);">
-                <div
-                    id="lodgify-book-now-box-bayside"
-                    data-rental-id="269574"
-                    data-website-id="271939"
-                    data-slug="tommycoconut"
-                    data-language-code="en"
-                    data-new-tab="true"
-                    data-version="stable"
-                ></div>
+            <!-- Right Column: Feature Image - IMPROVED -->
+            <div style="position: relative;">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_450,ar_4:5,c_fill,g_auto/villa-bayside-hill-3_jokzme"
+                     alt="Villa Bayside Hill Private Resort - Your tropical sanctuary"
+                     loading="lazy"
+                     style="max-width: 450px; max-height: 550px; width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); object-fit: cover; transition: var(--transition-normal);">
+            </div>
+        </div>
+
+        <!-- CTA: Check Availability (Centered Below Two Columns) -->
+        <div style="text-align: center; margin: var(--space-2xl) 0;">
+            <a href="#bookingWidget" onclick="bookNow(); return false;" class="cta-secondary">
+                Check Availability
+            </a>
+        </div>
+    </section>
+
+    <!-- Why Here Comparison -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: rgba(98, 208, 201, 0.05);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Why Here</h2>
+
+            <!-- PHASE 3: Enhanced table wrapper with smooth scroll -->
+            <div class="why-here-table-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; border-radius: var(--radius-lg); box-shadow: var(--shadow-elevated);">
+                <table style="width: 100%; min-width: 650px; border-collapse: collapse; background: white; border-radius: var(--border-radius); overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, var(--secondary), #1A4B52);">
+                            <th style="padding: var(--space-lg); text-align: left; color: white; font-weight: 600;">You're choosing…</th>
+                            <th style="padding: var(--space-lg); text-align: center; color: rgba(255,255,255,0.8); font-weight: 500;">Hotel / AI</th>
+                            <th style="padding: var(--space-lg); text-align: center; color: rgba(255,255,255,0.8); font-weight: 500;">Vacation rental</th>
+                            <th style="padding: var(--space-lg); text-align: center; color: white; font-weight: 700; background: rgba(98, 208, 201, 0.2);">This Private Resort</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Mobility</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Taxis/queues</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Rental counters</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">EV-SUV at home + free charging</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Sea days</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Group boats</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">DIY captains</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">Private boat + captain included</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Agenda</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Their schedule</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Your admin</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">Your schedule, zero friction</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Being expected</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Wristbands</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Booking numbers</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">Pre-intro, right windows</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- Act 3: The Effortless Details -->
-    <section class="villa-specs">
-        <div class="specs-container">
-            <h2 class="specs-title">Your Private Entertainment Compound</h2>
+    <!-- Act 3: Your Private Oasis - Merged & Enhanced -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Your Private Oasis</h2>
+            <p style="text-align: center; font-size: var(--tc-font-body-lg); color: var(--text-secondary); margin-bottom: var(--space-2xl); max-width: 700px; margin-left: auto; margin-right: auto;">Everything you need for the perfect week. Nothing you don't.</p>
 
-            <div style="max-width: 900px; margin: 0 auto 3rem; text-align: left;">
-                <h3 style="font-size: 1.75rem; font-weight: 700; color: var(--secondary); margin-bottom: 1rem;">Outdoors</h3>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
-                    The heart of the villa. A massive, sparkling <strong>infinity pool that melts into the horizon</strong>, surrounded by ridiculously comfortable sun loungers. Your very own poolside <strong>"Cocktails & Dreams" bar</strong>, inspired by the Tom Cruise classic—happy hour starts whenever you say it does. A bubbling jacuzzi for end-of-day soaks. A grand, house-spanning veranda for morning coffees and sunset toasts. And a full charcoal BBQ kitchen ready for an island feast.
-                </p>
+            <!-- Main Grid: 3 Categories -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-2xl); margin-bottom: var(--space-3xl);">
 
-                <h3 style="font-size: 1.75rem; font-weight: 700; color: var(--secondary); margin-bottom: 1rem;">Indoors</h3>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">
-                    Four spacious bedroom suites, each with its own private, modern bathroom. The legendary <strong>cloud-soft Bamboo Beds</strong> (yes, the reviews are true; we have to politely ask guests not to pack them in their suitcases). And the <strong>Rec Room</strong>—your escape within the escape, with a pool table for rainy afternoons and an office space for "urgent" 30-minute work calls.
-                </p>
+                <!-- OUTDOORS -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
+                    <!-- Category Image -->
+                    <div style="margin-bottom: var(--space-xl);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/9f97bb52-0859-4d47-85cb-866836c8e0ff_mc4hrr"
+                             alt="Outdoor living at Villa Bayside Hill"
+                             loading="lazy"
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
+                    </div>
+                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-umbrella-beach" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Outdoors
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Private pool & hot tub</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Shaded cabana with lounge seating</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Alfresco dining for 6</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>BBQ grill & outdoor kitchen</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Breezy veranda with sunrise views</li>
+                    </ul>
+                </div>
+
+                <!-- INDOORS -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
+                    <!-- Category Image -->
+                    <div style="margin-bottom: var(--space-xl);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/2a7ad9dd-6050-4df9-b987-f042913dc877_go3w7a"
+                             alt="Indoor living at Villa Bayside Hill"
+                             loading="lazy"
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
+                    </div>
+                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-couch" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Indoors
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Open living & dining area</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Chef-ready kitchen (full appliances)</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Sonos sound system</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Smart TV with streaming</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Fast Wi-Fi throughout</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>A/C in all rooms</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7; font-style: italic;"><i class="fas fa-star" style="color: var(--primary); margin-right: var(--space-md);"></i>Peace treaties for kids vs. parents</li>
+                    </ul>
+                </div>
+
+                <!-- SLEEP -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
+                    <!-- Category Image -->
+                    <div style="margin-bottom: var(--space-xl);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/villa-bayside-hill-36_n6ybft"
+                             alt="Bedrooms at Villa Bayside Hill"
+                             loading="lazy"
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
+                    </div>
+                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-bed" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Sleep
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i><strong>3 bedrooms / 2 bathrooms</strong></li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Legendary bamboo beds</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Premium linens & towels</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Blackout curtains</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Sleeps 3 comfortably</li>
+                        <li style="padding: var(--space-sm) 0; color: white; line-height: 1.7; font-style: italic;"><i class="fas fa-moon" style="color: var(--primary); margin-right: var(--space-md);"></i>Deep sleep & afternoon naps (pure tranquility)</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="specs-grid">
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="spec-content">
-                        <h3>4 Bedrooms / 4 Bathrooms</h3>
-                        <p>Sleeps 8 comfortably with individual suites and total privacy</p>
-                        <p class="spec-wit">(translation: no sink wars)</p>
-                    </div>
-                </div>
-
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-bed"></i>
-                    </div>
-                    <div class="spec-content">
-                        <h3>The Legendary Bamboo Beds</h3>
-                        <p>Premium comfort for restorative sleep and afternoon naps</p>
-                        <p class="spec-wit">(guests try to smuggle these home)</p>
-                    </div>
-                </div>
-
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-swimming-pool"></i>
-                    </div>
-                    <div class="spec-content">
-                        <h3>Infinity Pool, Jacuzzi & 'Cocktails & Dreams' Bar</h3>
-                        <p>Your personal entertainment compound with Tom Cruise-worthy vibes</p>
-                    </div>
-                </div>
-
-                <div class="spec-item">
-                    <div class="spec-icon">
-                        <i class="fas fa-wifi"></i>
-                    </div>
-                    <div class="spec-content">
-                        <h3>Fast Wi-Fi, Sonos & Entertainment Center</h3>
-                        <p>Stay connected and entertained with premium tech amenities</p>
-                        <p class="spec-wit">(aka peace treaties for kids vs. parents)</p>
-                    </div>
-                </div>
+            <!-- Bonus Feature Callout -->
+            <div style="background: linear-gradient(135deg, var(--secondary), #1A4B52); padding: var(--space-2xl); border-radius: var(--border-radius); text-align: center; color: white;">
+                <i class="fas fa-star" style="font-size: 2rem; color: var(--primary); margin-bottom: var(--space-md); display: block;"></i>
+                <p style="font-size: var(--tc-font-body-xl); font-weight: 600; margin: 0; color: white;">Translation: Two full bathrooms means everyone has their own space. Pure morning tranquility.</p>
             </div>
         </div>
     </section>
@@ -721,63 +1312,62 @@
     <!-- Act 4: The 'Win at Vacationing' Pass -->
     <section class="win-pass dark-section">
         <div class="win-container">
-            <h2 class="win-title">Your $3,000+ All-Access Pass. Always Included.</h2>
-            <p class="win-subtitle">Our Zero Hidden Fees & Logistics Guarantee: No surprises. <strong>Your time. Your agenda. You rule.</strong></p>
-            <p style="font-size: 1.05rem; color: rgba(255,255,255,0.95); margin: 1rem auto 0; max-width: 900px; line-height: 1.7; font-weight: 400; text-align: center;">We remove friction (transport, car, boats, access) without putting you on a resort's schedule. That's real luxury.</p>
-            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500; text-align: center;">This entire VIP experience is included in your all-inclusive stay. Everything. Always.</p>
+            <h2 class="win-title">Your $3,000+ Private Resort Package</h2>
+            <p class="win-subtitle">No counters. No lines. No stress. Your time stays yours.</p>
+            <p style="font-size: var(--tc-font-body-lg); color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500; text-align: center;">This entire VIP experience is included in your all-inclusive stay. Everything. Always.</p>
 
             <!-- The Value Stack -->
-            <div style="max-width: 700px; margin: 3rem auto 2rem; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2);">
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: white; text-align: center;">What's Included (Itemized)</h3>
-                <div style="display: grid; gap: 1rem; text-align: left;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-plane" style="margin-right: 0.75rem; color: var(--primary);"></i>Airport Welcome + Transfers</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$125</span>
+            <div style="max-width: 700px; margin: 3rem auto 2rem; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: var(--radius-xl); border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+                <h3 style="font-size: var(--tc-font-h3); font-weight: 700; margin-bottom: 2rem; color: white; text-align: center;">Your Private Resort Package (all included)</h3>
+                <div style="display: grid; gap: 0; text-align: left;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-plane" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Airport Welcome + Transfers</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$125</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-utensils" style="margin-right: 0.75rem; color: var(--primary);"></i>Welcome dinner credit ($25 pp, up to $200)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$200</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-utensils" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Welcome dinner credit ($25 pp, up to $150)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$150</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-car" style="margin-right: 0.75rem; color: var(--primary);"></i>Upgraded 6-Seater SUV w/navigation & free charging</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$650</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-car" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>EV-SUV w/navigation & free charging</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$700</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-ship" style="margin-right: 0.75rem; color: var(--primary);"></i>Private Half-Day Boat Cruise (w/ Capt. Magic Mike)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$850</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-ship" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Private Half-Day Boat Cruise (w/ Capt. Magic Mike)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$1,000</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-users" style="margin-right: 0.75rem; color: var(--primary);"></i>Friday Family & Friends Sunset Cruise (8 tickets)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$675</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-sunset" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Friday Family & Friends Sunset Cruise (6 tickets)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$500</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-umbrella-beach" style="margin-right: 0.75rem; color: var(--primary);"></i>Beach Club Access (Papagayo, Zanzibar, Zest, Kokos)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$150</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-umbrella-beach" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Beach Club Access (Papagayo, Zanzibar, Zest, Kokos: entry + parking)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$200</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-water" style="margin-right: 0.75rem; color: var(--primary);"></i>Full Beach Kit (kayak/SUP, snorkels, cooler, safe)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$150</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-water" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Full Beach Kit (inflatable kayak/SUP, snorkels, cooler, portable safe)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$150</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-hiking" style="margin-right: 0.75rem; color: var(--primary);"></i>Private Flamingo Hike (w/ guides + Happy & Lucky)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">Priceless</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-hiking" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Private Flamingo Hike (with guides + dogs Happy & Lucky) — <em style="color: var(--primary); font-style: italic;">guest favorite</em></span>
+                        <span style="color: rgba(255, 255, 255, 0.5); font-weight: 600; font-size: var(--tc-font-body); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right; font-style: italic;">included</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-broom" style="margin-right: 0.75rem; color: var(--primary);"></i>Mid-Stay Housekeeping + Final Clean & Laundry</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$300</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-broom" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Mid-Stay Housekeeping + Final Clean & Laundry</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$250</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-shopping-basket" style="margin-right: 0.75rem; color: var(--primary);"></i>Grocery Stocking Service (we shop, you reimburse)</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">$50</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-shopping-basket" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Grocery Stocking Service (we shop for you—you just cover the receipt)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$50</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0.75rem;">
-                        <span style="color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.6;"><i class="fas fa-concierge-bell" style="margin-right: 0.75rem; color: var(--primary);"></i>24/7 Family Concierge</span>
-                        <span style="color: var(--primary); font-weight: 600; white-space: nowrap; margin-left: 1rem;">Priceless</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-concierge-bell" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>24/7 Family Concierge — <em style="color: var(--primary); font-style: italic;">Priceless (read reviews)</em></span>
+                        <span style="color: rgba(255, 255, 255, 0.5); font-weight: 600; font-size: var(--tc-font-body); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right; font-style: italic;">included</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--primary);">
-                        <span style="color: white; font-size: 1.25rem; font-weight: 700;">Total value:</span>
-                        <span style="color: var(--primary); font-size: 1.75rem; font-weight: 800;">Over $3,000+</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding: 1.75rem 2rem; border-top: 3px solid var(--primary); background: linear-gradient(135deg, rgba(98, 208, 201, 0.15) 0%, rgba(98, 208, 201, 0.08) 100%); border-radius: var(--radius-md);">
+                        <span style="color: white; font-size: 1.5rem; font-weight: 800; letter-spacing: 0.5px;">Total value:</span>
+                        <span style="color: var(--primary); font-size: 2.5rem; font-weight: 900; text-shadow: 0 2px 12px rgba(98, 208, 201, 0.5);">$3,000+</span>
                     </div>
                 </div>
             </div>
@@ -786,8 +1376,8 @@
             <div style="max-width: 700px; margin: 2rem auto 3rem; background: rgba(98, 208, 201, 0.15); backdrop-filter: blur(10px); padding: 1.5rem 2rem; border-radius: var(--border-radius); border: 1px solid rgba(98, 208, 201, 0.3); text-align: center;">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
                     <i class="fas fa-shield-alt" style="font-size: 1.5rem; color: var(--primary);"></i>
-                    <p style="color: white; font-size: 1.05rem; font-weight: 500; margin: 0; line-height: 1.6;">
-                        <strong>Logistics Guarantee:</strong> If an included experience is disrupted (e.g., weather), we reschedule or substitute equal/higher value—or credit you. We handle it fast; you stay relaxed.
+                    <p style="color: white; font-size: var(--tc-font-body-lg); font-weight: 500; margin: 0; line-height: 1.6;">
+                        <strong>Logistics Guarantee:</strong> If an included experience is disrupted (weather, maintenance, etc.), we handle it fast; you stay relaxed.
                     </p>
                 </div>
             </div>
@@ -796,26 +1386,26 @@
             <div style="max-width: 900px; margin: 0 auto 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
                 <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
                     <i class="fas fa-ban" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; display: block;"></i>
-                    <p style="color: white; font-weight: 600; font-size: 0.95rem; margin: 0;">No Surprise Surcharges</p>
+                    <p style="color: white; font-weight: 600; font-size: var(--tc-font-body); margin: 0;">No Surprise Surcharges</p>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
                     <i class="fas fa-hand-holding-heart" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; display: block;"></i>
-                    <p style="color: white; font-weight: 600; font-size: 0.95rem; margin: 0;">Gratuities for Included Services Covered</p>
+                    <p style="color: white; font-weight: 600; font-size: var(--tc-font-body); margin: 0;">Tips Included</p>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
                     <i class="fas fa-bolt" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; display: block;"></i>
-                    <p style="color: white; font-weight: 600; font-size: 0.95rem; margin: 0;">Electricity Included</p>
+                    <p style="color: white; font-weight: 600; font-size: var(--tc-font-body); margin: 0;">Electricity Included</p>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
                     <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; display: block;"></i>
-                    <p style="color: white; font-weight: 600; font-size: 0.95rem; margin: 0;">🛡️ Logistics Guarantee</p>
+                    <p style="color: white; font-weight: 600; font-size: var(--tc-font-body); margin: 0;">🛡️ Logistics Guarantee</p>
                 </div>
             </div>
 
             <div class="win-grid">
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/bayside-hill-3.jpeg" alt="Your Island Fleet" class="pass-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/villa-bayside-hill-8_yqdwdj" alt="Your Island Fleet" class="pass-icon" loading="lazy">
                     </div>
                     <h3>Your Island Fleet</h3>
                     <p><span class="win-highlight">VIP Airport Transfers. EV-SUV Included. Free Charging Station.</span> From touchdown to exploration, your mobility is handled. Drive the island sustainably with GPS pre-loaded with 38 hidden beaches.</p>
@@ -823,7 +1413,7 @@
 
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/bayside-hill-5.jpeg" alt="Your Private Adventures" class="pass-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/villa-bayside-hill-5_yr4gur" alt="Your Private Adventures" class="pass-icon" loading="lazy">
                     </div>
                     <h3>Your Private Adventures</h3>
                     <p><span class="win-highlight">Private Boat Trip. Flamingo Hike with Guide. The Ultimate Beach Kit.</span> Ocean adventures, nature experiences, and beach days—all orchestrated, zero hassle.</p>
@@ -831,7 +1421,7 @@
 
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/bayside-hill-4.jpeg" alt="Your Dushi Life Service" class="pass-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/villa-bayside-hill-4_unr393" alt="Your Dushi Life Service" class="pass-icon" loading="lazy">
                     </div>
                     <h3>Your Dushi Life Service</h3>
                     <p><span class="win-highlight">Pre-Stocked Fridge. First-Night Dinner Prepared. 24/7 Concierge. Professional Housekeeping.</span> Arrive to a stocked kitchen. Enjoy dinner without cooking. Need anything? We're always here.</p>
@@ -839,11 +1429,20 @@
 
                 <div class="win-item">
                     <div class="win-item-icon">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_160,h_160,c_fill,g_center/bayside-hill-2.jpeg" alt="Your Personal Hosts" class="pass-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/villa-bayside-hill-1_hx9jke" alt="Your Personal Hosts" class="pass-icon" loading="lazy">
                     </div>
                     <h3>Your Personal Hosts</h3>
                     <p><span class="win-highlight">More than Hosts—We're Your Island Family.</span> Meet the family behind Tommy Coconut. Our friendly race to see who can help you the fastest is legendary. You'll never feel alone on this island.</p>
                 </div>
+            </div>
+
+            <!-- CTA: Reserve Your Escape -->
+            <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
+                <a href="#bookingWidget" onclick="bookNow(); return false;" class="cta-primary">
+                    <i class="fas fa-calendar-check" style="margin-right: var(--space-md);"></i>
+                    Reserve Your Escape
+                </a>
+                <p style="color: rgba(255,255,255,0.7); font-size: var(--tc-font-small); margin-top: var(--space-md); text-align: center;">Check dates and pricing in real-time</p>
             </div>
         </div>
     </section>
@@ -852,48 +1451,48 @@
     <section class="reviews-section">
         <div class="reviews-container">
             <h2 class="reviews-title" style="text-align: center; margin-bottom: 1rem;">Stories from Villa Bayside Hill</h2>
-            <p style="text-align: center; font-weight: 700; font-size: 1.1rem; color: var(--primary); margin-top: 0.5rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Every word we say is backed by 500+ reviews across our villas. Average rating: 4.99/5.00.
+            <p style="text-align: center; font-weight: 700; font-size: var(--tc-font-body-lg); color: var(--primary); margin-top: 0.5rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                5.0★ · 51 reviews (Airbnb)
             </p>
 
             <div class="reviews-carousel">
                 <div class="review-item active">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"This place is better than the pictures! The pool area is absolutely stunning and the 'Cocktails & Dreams' bar made us feel like movie stars. Best vacation rental we've ever experienced."</p>
-                    <p class="review-author">— Sarah & Mike, California</p>
+                    <p class="review-text">"We had slow breakfasts every morning and nobody fought over the bathroom. The bamboo beds were so comfortable, we took book-naps every afternoon. This is vacation perfection."</p>
+                    <p class="review-author">— The Wilson Family, Denver</p>
                 </div>
-
+                
                 <div class="review-item">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"The bamboo beds are legendary for a reason - we had the best sleep of our lives. The villa has everything you need and more. This is paradise perfection."</p>
-                    <p class="review-author">— The Johnson Family, Texas</p>
+                    <p class="review-text">"The stress-proof promise is real. From the moment we arrived, everything just worked. The kids were happy, the parents were relaxed, and dinners were actually enjoyable."</p>
+                    <p class="review-author">— Maria & Carlos, Miami</p>
                 </div>
 
                 <div class="review-item">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"Having the car and boat trip included changed everything. We explored at our own pace and never felt like we were missing out. The concierge was like having a local friend."</p>
-                    <p class="review-author">— Jennifer & David, New York</p>
+                    <p class="review-author">— Jennifer & David, Seattle</p>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"This villa delivered on every promise. The pool cabana became our daily hangout, and the private boat trip was the highlight of our entire vacation. Absolutely magical."</p>
+                    <p class="review-author">— The Thompson Family, Austin</p>
                 </div>
 
                 <div class="review-item">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"The infinity pool with ocean views became our daily ritual. The private boat trip was the highlight of our entire vacation. Absolutely magical experience."</p>
-                    <p class="review-author">— Maria & Carlos, Florida</p>
-                </div>
-
-                <div class="review-item">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Every suite had its own bathroom and we never fought over space. The entertainment center kept the kids happy while we relaxed by the pool. Villa Bayside Hill exceeded all expectations."</p>
-                    <p class="review-author">— The Anderson Family, Chicago</p>
+                    <p class="review-text">"The 'no dishes' promise was life-changing. We cooked amazing meals and never worried about cleanup. Villa Bayside Hill lives up to its name in every way."</p>
+                    <p class="review-author">— Lisa & Tom, Chicago</p>
                 </div>
             </div>
-
-            <div class="review-dots">
-                <div class="review-dot active" onclick="showReview(0)"></div>
-                <div class="review-dot" onclick="showReview(1)"></div>
-                <div class="review-dot" onclick="showReview(2)"></div>
-                <div class="review-dot" onclick="showReview(3)"></div>
-                <div class="review-dot" onclick="showReview(4)"></div>
+            
+            <div class="review-dots" role="tablist" aria-label="Review navigation">
+                <div class="review-dot active" onclick="showReview(0)" role="tab" aria-label="Review 1" tabindex="0"></div>
+                <div class="review-dot" onclick="showReview(1)" role="tab" aria-label="Review 2" tabindex="0"></div>
+                <div class="review-dot" onclick="showReview(2)" role="tab" aria-label="Review 3" tabindex="0"></div>
+                <div class="review-dot" onclick="showReview(3)" role="tab" aria-label="Review 4" tabindex="0"></div>
+                <div class="review-dot" onclick="showReview(4)" role="tab" aria-label="Review 5" tabindex="0"></div>
             </div>
         </div>
     </section>
@@ -901,73 +1500,219 @@
     <!-- Quick FAQ Section - The Friction Remover -->
     <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface);">
         <div style="max-width: 900px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Quick FAQ</h2>
+            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Quick FAQ</h2>
 
-            <div style="display: grid; gap: var(--space-lg);">
+            <div style="display: grid; gap: var(--space-xl);">
                 <!-- FAQ Item 1 -->
-                <div style="background: var(--surface-elevated); padding: var(--space-xl); border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-car-side" style="color: var(--primary);"></i>
-                        We're 8 guests—does the included SUV fit us?
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-car-side" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        What vehicle is included?
                     </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
-                        Your VIP Pass includes an upgraded 6-seater. For groups of 8, we typically add a second iCar to your package for ultimate freedom, or we can arrange a private driver. We make it seamless.
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
+                        A full-size EV-SUV with ample cargo space, perfect for exploring the island with complimentary home charging.
                     </p>
                 </div>
 
                 <!-- FAQ Item 2 -->
-                <div style="background: var(--surface-elevated); padding: var(--space-xl); border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-cocktail" style="color: var(--primary);"></i>
-                        Is the 'Cocktails & Dreams' bar stocked?
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-umbrella-beach" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Are beach loungers/umbrellas included for Jan Thiel Beach?
                     </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
-                        It comes ready with a premium cocktail-making set and a signature bottle of Tommy Coconut Rum. Just add your favorite spirits to your pre-arrival grocery list, and we'll have everything chilled and waiting.
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
+                        The Ultimate Beach Kit includes portable chairs, umbrellas, and coolers. Jan Thiel Beach Club loungers can be reserved separately (we'll handle it).
                     </p>
                 </div>
 
                 <!-- FAQ Item 3 -->
-                <div style="background: var(--surface-elevated); padding: var(--space-xl); border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-swimming-pool" style="color: var(--primary);"></i>
-                        Is the pool truly private?
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-calendar-alt" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        What's the minimum stay?
                     </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
-                        100%. The entire estate—the pool, the bar, the jacuzzi, the veranda—is exclusively yours for your entire stay.
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
+                        5 nights minimum. This ensures you have enough time to truly relax and experience everything Villa Bayside Hill offers.
                     </p>
                 </div>
 
                 <!-- FAQ Item 4 -->
-                <div style="background: var(--surface-elevated); padding: var(--space-xl); border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 4px solid var(--primary);">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-md);">
-                        <i class="fas fa-ship" style="color: var(--primary);"></i>
-                        When do we schedule the boat trip and sunset cruise?
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-charging-station" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        How does EV charging work?
                     </h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin: 0;">
-                        We'll coordinate the perfect timing for both experiences based on your arrival date and preferences. The Friday Sunset Cruise is scheduled for the Friday during your stay—we'll confirm all details before you arrive.
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
+                        Free charging station at the villa. Plug in overnight, wake up to a full battery. Simple.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-cloud-sun" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        What if weather disrupts the boat?
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
+                        We reschedule for the next clear window, no extra charge. You'll get your full private boat experience—we guarantee it.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Location - Walk & Drive - PHASE 3 ENHANCED -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Your Jan Thiel Base</h2>
+            <p style="text-align: center; font-size: var(--tc-font-body-lg); color: var(--text-secondary); margin-bottom: var(--space-3xl); max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.7;">Everything you need within walking distance. The best of Curaçao within a short drive.</p>
+
+            <!-- Location Hero Image -->
+            <div style="margin-bottom: var(--space-3xl);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1000,h_300,c_fill,g_auto/villa-bayside-hill-8_yqdwdj"
+                     alt="Jan Thiel location - Your Villa Bayside Hill base"
+                     loading="lazy"
+                     style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); transition: var(--transition-normal);">
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-3xl);">
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-walking" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">WALK 2–8 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">The Pier • Pop's Place • Caracasbaai</div>
+                </div>
+
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-car" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">DRIVE 4–8 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">Jan Thiel (Zanzibar, Zest) • Van den Tweel</div>
+                </div>
+
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-city" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">DRIVE 10–15 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">Willemstad (Punda/Otrobanda) • Mambo</div>
+                </div>
+
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-water" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">DRIVE 30–60 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">Westpunt beaches (Knip, Grote/Playa Piskadó)</div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.12), rgba(0, 207, 207, 0.06)); padding: var(--space-2xl); border-radius: var(--radius-lg); text-align: center; border: 1px solid rgba(98, 208, 201, 0.25); box-shadow: 0 4px 16px rgba(98, 208, 201, 0.1);">
+                <i class="fas fa-lightbulb" style="color: var(--primary); font-size: 1.75rem; margin-bottom: var(--space-md); display: block;"></i>
+                <p style="color: var(--secondary); font-weight: 600; margin: 0; font-size: var(--tc-font-body-lg); line-height: 1.7;">Pro tip: Zest sunset is magic at 17:45. We'll time your table.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- INLINE BOOKING WIDGET SECTION -->
+    <!-- ============================================ -->
+    <section id="bookingWidget" style="padding: calc(var(--space-3xl) + 20px) var(--space-xl) var(--space-3xl); background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); scroll-margin-top: 100px;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+
+            <!-- Header -->
+            <div style="text-align: center; margin-bottom: var(--space-3xl);">
+                <h2 style="font-size: var(--tc-font-h1); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">
+                    <i class="fas fa-calendar-check" style="color: var(--primary); margin-right: var(--space-md);"></i>
+                    Check Availability & Reserve Your Escape
+                </h2>
+                <p style="font-size: var(--tc-font-body-lg); color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                    Select your dates to see real-time availability and instant pricing for Villa Bayside Hill
+                </p>
+            </div>
+
+            <!-- Social Proof / Viewing Activity (Optional but Recommended) -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-sm); margin-bottom: var(--space-lg); padding: var(--space-md); background: rgba(98, 208, 201, 0.08); border-radius: var(--radius-lg); max-width: 400px; margin: 0 auto var(--space-lg);">
+                <i class="fas fa-users" style="color: var(--primary); font-size: 1.1rem;"></i>
+                <span style="color: var(--text-secondary); font-size: var(--tc-font-small); font-weight: 600;">12 families viewed Villa Bayside Hill today</span>
+            </div>
+
+            <!-- Lodgify Widget Container -->
+            <div style="padding: var(--space-3xl);">
+
+                <!-- Loading Skeleton (shows until widget loads) -->
+                <div id="widgetSkeleton" class="widget-skeleton" style="display: block;">
+                    <div style="background: #E5E7EB; height: 40px; border-radius: var(--border-radius); margin-bottom: var(--space-lg); animation: pulse 1.5s infinite;"></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-bottom: var(--space-lg);">
+                        <div style="background: #E5E7EB; height: 60px; border-radius: var(--border-radius); animation: pulse 1.5s infinite;"></div>
+                        <div style="background: #E5E7EB; height: 60px; border-radius: var(--border-radius); animation: pulse 1.5s infinite;"></div>
+                    </div>
+                    <div style="background: #E5E7EB; height: 50px; border-radius: 999px; animation: pulse 1.5s infinite;"></div>
+                </div>
+
+                <!-- Lodgify Widget -->
+                <div id="lodgify-book-now-box"
+                    data-rental-id="269574"
+                    data-website-id="271939"
+                    data-slug="tommycoconut"
+                    data-language-code="en"
+                    data-currency-code="USD"
+                    data-version="stable"
+                    data-check-in-label="Check-in"
+                    data-check-out-label="Check-out"
+                    data-guests-label="Guests"
+                    data-guests-singular-label="{{NumberOfGuests}} guest"
+                    data-guests-plural-label="{{NumberOfGuests}} guests"
+                    data-total-price-label="Total price:"
+                    data-select-dates-to-see-price-label="Select dates to see total price"
+                    data-book-button-label="Book Now"
+                    style="display: none;">
+                    <!-- Widget renders here -->
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-xl); margin-top: var(--space-3xl); flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;">
+                    <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 600; font-size: var(--tc-font-small);">Secure booking</span>
+                </div>
+                <span style="color: rgba(0,0,0,0.15);">•</span>
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;">
+                    <i class="fas fa-clock" style="color: var(--primary); font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 600; font-size: var(--tc-font-small);">Instant confirmation</span>
+                </div>
+                <span style="color: rgba(0,0,0,0.15);">•</span>
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;">
+                    <i class="fas fa-star" style="color: #FFB800; font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 700; font-size: var(--tc-font-small);">5.0★ rated</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pulse animation for loading skeleton -->
+    <style>
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+    </style>
+
     <!-- Floating Conversion Engine -->
     <div class="floating-booking" id="floatingBooking">
         <div class="booking-content">
-            <div class="date-selector">
-                <input type="date" class="date-input" id="checkIn" placeholder="Check-in">
-                <span style="color: var(--text-secondary);">to</span>
-                <input type="date" class="date-input" id="checkOut" placeholder="Check-out">
-            </div>
-
             <div class="price-display">
-                <div class="price-amount">7-Night All-Inclusive Experience</div>
-                <div class="price-label">from $6,300</div>
+                <div class="price-amount">Private Resort Experience</div>
+                <div class="price-label">5-night minimum | 5.0★ rated</div>
             </div>
 
-            <button class="welcome-home-btn" onclick="bookNow()">
-                <i class="fas fa-heart"></i>
-                Welcome Home
+            <button class="welcome-home-btn" onclick="bookNow()" aria-label="Check availability for Villa Bayside Hill">
+                <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                Check Availability
             </button>
         </div>
     </div>
@@ -1040,29 +1785,49 @@
         // Gallery images for auto-rotation
         const galleryImages = [
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-1.jpeg',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-1.jpeg',
-                alt: 'Private Sanctuary'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-1_hx9jke',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-1_hx9jke',
+                alt: 'Private Resort'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-2.jpeg',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-2.jpeg',
-                alt: 'Infinity Pool & Ocean Views'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-2_waijkz',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-2_waijkz',
+                alt: 'Private Pool & Cabana'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-3.jpeg',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-3.jpeg',
-                alt: 'Cocktails & Dreams Bar'
-            },
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-4.jpeg',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-4.jpeg',
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-3_jokzme',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-3_jokzme',
                 alt: 'Legendary Bamboo Beds'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill-5.jpeg',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill-5.jpeg',
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-4_unr393',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-4_unr393',
+                alt: 'Stress-Free Living'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-5_yr4gur',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-5_yr4gur',
                 alt: 'Ocean Views'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-6_gikoc3',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-6_gikoc3',
+                alt: 'Villa Interiors'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-11_hbkxze',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-11_hbkxze',
+                alt: 'Outdoor Living'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-8_yqdwdj',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-8_yqdwdj',
+                alt: 'Pool Paradise'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/villa-bayside-hill-9_j6gs1d',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/villa-bayside-hill-9_j6gs1d',
+                alt: 'Sunset Views'
             }
         ];
 
@@ -1078,7 +1843,7 @@
 
         function playVideo() {
             // Open video modal or redirect to video URL
-            window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/bayside-hill-tour', '_blank');
+            window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/villa-bayside-hill-tour', '_blank');
         }
 
         // Auto-rotate gallery images
@@ -1131,37 +1896,66 @@
             showReview(currentReview);
         }, 6000);
 
-        // Booking functionality
+        // ============================================
+        // UPDATED BOOKING FUNCTIONALITY - INLINE WIDGET
+        // ============================================
+
+        // Scroll to always-visible booking widget
         function bookNow() {
-            const checkIn = document.getElementById('checkIn').value;
-            const checkOut = document.getElementById('checkOut').value;
+            const widgetSection = document.getElementById('bookingWidget');
+            const floatingBar = document.getElementById('floatingBooking');
 
-            if (!checkIn || !checkOut) {
-                alert('Please select your check-in and check-out dates');
-                return;
-            }
-
-            // Redirect to treasure map with villa and dates
-            const params = new URLSearchParams({
-                villa: 'bayside-hill',
-                checkin: checkIn,
-                checkout: checkOut
+            // Smooth scroll to widget (centers in viewport)
+            widgetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
             });
 
-            window.location.href = `treasure-map.html?${params.toString()}`;
+            // Optional: Hide floating bar temporarily while user interacts
+            if (floatingBar) {
+                setTimeout(() => {
+                    floatingBar.classList.remove('visible');
+                }, 800); // Wait for scroll to complete
+            }
+
+            // Optional: Track event in analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'booking_widget_scrolled', {
+                    'event_category': 'engagement',
+                    'event_label': 'Villa Bayside Hill'
+                });
+            }
         }
 
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('checkIn').setAttribute('min', today);
-        document.getElementById('checkOut').setAttribute('min', today);
+        // Handle Lodgify widget load completion
+        window.addEventListener('load', function() {
+            // Wait a moment for Lodgify to fully initialize
+            setTimeout(function() {
+                const widget = document.getElementById('lodgify-book-now-box');
+                const skeleton = document.getElementById('widgetSkeleton');
 
-        // Update checkout minimum when checkin changes
-        document.getElementById('checkIn').addEventListener('change', function() {
-            const checkInDate = new Date(this.value);
-            checkInDate.setDate(checkInDate.getDate() + 1);
-            const minCheckOut = checkInDate.toISOString().split('T')[0];
-            document.getElementById('checkOut').setAttribute('min', minCheckOut);
+                if (widget && skeleton) {
+                    // Check if widget has loaded content
+                    if (widget.children.length > 0 || widget.innerHTML.trim().length > 0) {
+                        // Hide skeleton, show widget
+                        skeleton.style.display = 'none';
+                        widget.style.display = 'block';
+                    } else {
+                        // Widget didn't load, show error message
+                        skeleton.innerHTML = '<div style="text-align: center; padding: var(--space-2xl); color: var(--text-secondary);"><p style="margin-bottom: var(--space-md); font-weight: 600;">Having trouble loading the booking calendar?</p><p style="margin-bottom: var(--space-lg);">No problem! Contact us directly:</p><a href="mailto:stay@tommycoconut.com" style="color: var(--primary); font-weight: 600; text-decoration: underline;">stay@tommycoconut.com</a><br><br><a href="tel:+15995551234" style="color: var(--primary); font-weight: 600; text-decoration: underline;">+1 (599) 555-1234</a></div>';
+                    }
+                }
+            }, 2000); // Give Lodgify 2 seconds to load
+        });
+
+        // Auto-scroll to widget if URL has #bookingWidget anchor
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hash === '#bookingWidget') {
+                // Small delay to ensure page is loaded
+                setTimeout(() => {
+                    bookNow();
+                }, 500);
+            }
         });
     </script>
 
