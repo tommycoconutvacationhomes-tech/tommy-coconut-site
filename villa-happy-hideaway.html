@@ -795,6 +795,62 @@
                 font-size: var(--tc-font-small);
                 padding: var(--space-sm);
             }
+
+            /* ============================================ */
+            /* INLINE BOOKING WIDGET - MOBILE STYLES */
+            /* ============================================ */
+
+            /* Widget section spacing */
+            #bookingWidget {
+                padding: var(--space-2xl) var(--space-md) !important;
+            }
+
+            /* Widget container padding */
+            #bookingWidget > div > div:nth-child(3) {
+                padding: var(--space-lg) !important;
+            }
+
+            /* Header text size */
+            #bookingWidget h2 {
+                font-size: var(--tc-font-h2) !important;
+            }
+
+            /* Trust badges stack vertically */
+            #bookingWidget > div > div:nth-child(4) {
+                gap: var(--space-md) !important;
+            }
+
+            /* Hide bullet separators on mobile */
+            #bookingWidget > div > div:nth-child(4) span:nth-of-type(2),
+            #bookingWidget > div > div:nth-child(4) span:nth-of-type(4) {
+                display: none;
+            }
+
+            /* Skeleton loader smaller */
+            .widget-skeleton > div:first-child {
+                height: 30px !important;
+            }
+
+            .widget-skeleton > div:nth-child(2) {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-sm) !important;
+            }
+
+            .widget-skeleton > div:nth-child(2) > div {
+                height: 50px !important;
+            }
+
+            /* Hide widget button larger tap target */
+            #bookingWidget button {
+                padding: var(--space-md) var(--space-xl) !important;
+                font-size: var(--tc-font-body) !important;
+            }
+
+            /* Viewing activity badge smaller */
+            #bookingWidget > div > div:nth-child(2) {
+                font-size: 0.75rem !important;
+                padding: var(--space-sm) !important;
+            }
         }
 
         /* Mobile Responsive Styles for New Image Layouts */
@@ -855,6 +911,19 @@
             /* Location Image - Smaller Height on Small Screens */
             section img[src*="happy-hideaway-8_yqdwdj"][style*="height: 300px"] {
                 height: 180px !important;
+            }
+
+            /* ============================================ */
+            /* INLINE BOOKING WIDGET - EXTRA SMALL SCREENS */
+            /* ============================================ */
+
+            /* Even smaller screens */
+            #bookingWidget {
+                padding: var(--space-xl) var(--space-sm) !important;
+            }
+
+            #bookingWidget > div > div:nth-child(3) {
+                padding: var(--space-md) !important;
             }
         }
 
@@ -1099,7 +1168,7 @@
 
         <!-- CTA: Check Availability (Centered Below Two Columns) -->
         <div style="text-align: center; margin: var(--space-2xl) 0;">
-            <a href="villa-happy-hideaway-booking.html" class="cta-secondary">
+            <a href="#bookingWidget" onclick="bookNow(); return false;" class="cta-secondary">
                 Check Availability
             </a>
         </div>
@@ -1368,7 +1437,7 @@
 
             <!-- CTA: Reserve Your Week -->
             <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
-                <a href="villa-happy-hideaway-booking.html" class="cta-primary">
+                <a href="#bookingWidget" onclick="bookNow(); return false;" class="cta-primary">
                     <i class="fas fa-calendar-check" style="margin-right: var(--space-md);"></i>
                     Reserve Your Week
                 </a>
@@ -1467,17 +1536,97 @@
                 <div class="review-dot" onclick="showReview(3)" role="tab" aria-label="Review 4" tabindex="0"></div>
                 <div class="review-dot" onclick="showReview(4)" role="tab" aria-label="Review 5" tabindex="0"></div>
             </div>
-
-            <!-- CTA: Reserve Your Week -->
-            <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
-                <a href="villa-happy-hideaway-booking.html" class="cta-primary">
-                    <i class="fas fa-calendar-check" style="margin-right: var(--space-md);"></i>
-                    Reserve Your Week
-                </a>
-                <p style="color: var(--text-secondary); font-size: var(--tc-font-small); margin-top: var(--space-md); text-align: center;">Join 500+ happy families</p>
-            </div>
         </div>
     </section>
+
+    <!-- ============================================ -->
+    <!-- INLINE BOOKING WIDGET SECTION - NEW -->
+    <!-- ============================================ -->
+    <section id="bookingWidget" style="display: none; padding: calc(var(--space-3xl) + 20px) var(--space-xl) var(--space-3xl); background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); scroll-margin-top: 100px;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+
+            <!-- Header -->
+            <div style="text-align: center; margin-bottom: var(--space-3xl);">
+                <h2 style="font-size: var(--tc-font-h1); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">
+                    <i class="fas fa-calendar-check" style="color: var(--primary); margin-right: var(--space-md);"></i>
+                    Check Availability & Reserve Your Week
+                </h2>
+                <p style="font-size: var(--tc-font-body-lg); color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                    Select your dates to see real-time availability and instant pricing for Happy Hideaway
+                </p>
+            </div>
+
+            <!-- Social Proof / Viewing Activity (Optional but Recommended) -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-sm); margin-bottom: var(--space-lg); padding: var(--space-md); background: rgba(98, 208, 201, 0.08); border-radius: var(--radius-lg); max-width: 400px; margin: 0 auto var(--space-lg);">
+                <i class="fas fa-users" style="color: var(--primary); font-size: 1.1rem;"></i>
+                <span style="color: var(--text-secondary); font-size: var(--tc-font-small); font-weight: 600;">12 families viewed Happy Hideaway today</span>
+            </div>
+
+            <!-- Lodgify Widget Container -->
+            <div style="background: white; padding: var(--space-3xl); border-radius: var(--radius-xl); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border: 1px solid rgba(98, 208, 201, 0.12);">
+
+                <!-- Loading Skeleton (shows until widget loads) -->
+                <div id="widgetSkeleton" class="widget-skeleton" style="display: block;">
+                    <div style="background: #E5E7EB; height: 40px; border-radius: var(--border-radius); margin-bottom: var(--space-lg); animation: pulse 1.5s infinite;"></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-bottom: var(--space-lg);">
+                        <div style="background: #E5E7EB; height: 60px; border-radius: var(--border-radius); animation: pulse 1.5s infinite;"></div>
+                        <div style="background: #E5E7EB; height: 60px; border-radius: var(--border-radius); animation: pulse 1.5s infinite;"></div>
+                    </div>
+                    <div style="background: #E5E7EB; height: 50px; border-radius: 999px; animation: pulse 1.5s infinite;"></div>
+                </div>
+
+                <!-- Lodgify Widget -->
+                <div id="lodgify-book-now-box"
+                    data-rental-id="355309"
+                    data-website-id="271939"
+                    data-slug="tommycoconut"
+                    data-language-code="en"
+                    data-currency-code="USD"
+                    data-new-tab="true"
+                    data-version="stable"
+                    data-has-guests-breakdown
+                    data-book-button-label="Book Now"
+                    style="display: none;">
+                    <!-- Widget renders here -->
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-xl); margin-top: var(--space-3xl); flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;">
+                    <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 600; font-size: var(--tc-font-small);">Secure booking</span>
+                </div>
+                <span style="color: rgba(0,0,0,0.15);">•</span>
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;">
+                    <i class="fas fa-clock" style="color: var(--primary); font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 600; font-size: var(--tc-font-small);">Instant confirmation</span>
+                </div>
+                <span style="color: rgba(0,0,0,0.15);">•</span>
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;">
+                    <i class="fas fa-star" style="color: #FFB800; font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 700; font-size: var(--tc-font-small);">4.99★ rated</span>
+                </div>
+            </div>
+
+            <!-- Optional: Hide Widget Button (for users who change mind) -->
+            <div style="text-align: center; margin-top: var(--space-2xl);">
+                <button onclick="hideWidget()" style="background: transparent; border: 2px solid rgba(98, 208, 201, 0.3); color: var(--text-secondary); padding: var(--space-sm) var(--space-lg); border-radius: 999px; font-family: 'Montserrat', sans-serif; font-size: var(--tc-font-small); font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                    <i class="fas fa-times" style="margin-right: var(--space-xs);"></i>
+                    Close Booking Calendar
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pulse animation for loading skeleton -->
+    <style>
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+    </style>
 
     <!-- Quick FAQ Section - The Friction Remover -->
     <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface);">
@@ -1539,15 +1688,6 @@
                         We reschedule for the next clear window, no extra charge. You'll get your full private boat experience—we guarantee it.
                     </p>
                 </div>
-            </div>
-
-            <!-- CTA: Check Availability -->
-            <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
-                <a href="villa-happy-hideaway-booking.html" class="cta-secondary">
-                    <i class="fas fa-calendar-alt" style="margin-right: var(--space-md);"></i>
-                    Check Availability
-                </a>
-                <p style="color: var(--text-secondary); font-size: var(--tc-font-small); margin-top: var(--space-md); text-align: center;">Questions answered? Let's find your perfect week.</p>
             </div>
         </div>
     </section>
@@ -1822,11 +1962,89 @@
             });
         });
 
-        // Booking functionality
+        // ============================================
+        // UPDATED BOOKING FUNCTIONALITY - INLINE WIDGET
+        // ============================================
+
+        // Reveal inline booking widget with smooth scroll
         function bookNow() {
-            // Redirect to booking page
-            window.location.href = 'villa-happy-hideaway-booking.html';
+            const widgetSection = document.getElementById('bookingWidget');
+            const floatingBar = document.getElementById('floatingBooking');
+
+            // Show widget section
+            widgetSection.style.display = 'block';
+
+            // Smooth scroll to widget (centers in viewport)
+            widgetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            // Optional: Hide floating bar once widget revealed
+            if (floatingBar) {
+                setTimeout(() => {
+                    floatingBar.classList.remove('visible');
+                }, 800); // Wait for scroll to complete
+            }
+
+            // Optional: Track event in analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'booking_widget_revealed', {
+                    'event_category': 'engagement',
+                    'event_label': 'Happy Hideaway'
+                });
+            }
         }
+
+        // Hide widget if user changes mind
+        function hideWidget() {
+            const widgetSection = document.getElementById('bookingWidget');
+            const floatingBar = document.getElementById('floatingBooking');
+
+            // Hide widget section
+            widgetSection.style.display = 'none';
+
+            // Scroll back to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Show floating bar again
+            if (floatingBar && window.scrollY > 300) {
+                setTimeout(() => {
+                    floatingBar.classList.add('visible');
+                }, 500);
+            }
+        }
+
+        // Handle Lodgify widget load completion
+        window.addEventListener('load', function() {
+            // Wait a moment for Lodgify to fully initialize
+            setTimeout(function() {
+                const widget = document.getElementById('lodgify-book-now-box');
+                const skeleton = document.getElementById('widgetSkeleton');
+
+                if (widget && skeleton) {
+                    // Check if widget has loaded content
+                    if (widget.children.length > 0 || widget.innerHTML.trim().length > 0) {
+                        // Hide skeleton, show widget
+                        skeleton.style.display = 'none';
+                        widget.style.display = 'block';
+                    } else {
+                        // Widget didn't load, show error message
+                        skeleton.innerHTML = '<div style="text-align: center; padding: var(--space-2xl); color: var(--text-secondary);"><p style="margin-bottom: var(--space-md); font-weight: 600;">Having trouble loading the booking calendar?</p><p style="margin-bottom: var(--space-lg);">No problem! Contact us directly:</p><a href="mailto:stay@tommycoconut.com" style="color: var(--primary); font-weight: 600; text-decoration: underline;">stay@tommycoconut.com</a><br><br><a href="tel:+15995551234" style="color: var(--primary); font-weight: 600; text-decoration: underline;">+1 (599) 555-1234</a></div>';
+                    }
+                }
+            }, 2000); // Give Lodgify 2 seconds to load
+        });
+
+        // Optional: Reveal widget automatically if URL has #bookingWidget anchor
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hash === '#bookingWidget') {
+                // Small delay to ensure page is loaded
+                setTimeout(() => {
+                    bookNow();
+                }, 500);
+            }
+        });
 
         // Set minimum date to today
         const today = new Date().toISOString().split('T')[0];
