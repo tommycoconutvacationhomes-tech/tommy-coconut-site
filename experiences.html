@@ -3,375 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Journey - Tommy Coconut | The Art of a Perfect Vacation</title>
-    <meta name="description" content="The Perfect Arrival to The Fond Farewell: How Tommy Coconut engineers your dream vacation in 6 cinematic scenes. Every moment crafted, zero stress, pure dushi life.">
+    <title>The Tommy Coconut Experience - Private Resort Package | Curaçao</title>
+    <meta name="description" content="Three transformative experiences included with your Tommy Coconut stay: private villa sanctuary, island exploration freedom, and signature water adventures with Captain Magic Mike.">
+    <meta name="keywords" content="Tommy Coconut experience, Curaçao private resort, island exploration, boat tours Curaçao, private villa experience, concierge service">
+
+    <!-- Location-Specific Meta Tags -->
+    <meta name="geo.region" content="CW">
+    <meta name="geo.placename" content="Curaçao">
+    <meta name="location" content="Curaçao, Caribbean">
+
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/design-system.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <style>
-        /* Cinematic Horizontal Scroller Styles */
-        .cinematic-scroller {
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-            background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 100%);
-        }
-        
-        .scroller-track {
-            display: flex;
-            height: 100vh;
-            width: 700vw; /* 7 slides × 100vw each */
-            transition: transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
-            will-change: transform;
-        }
-        
-        .scene-slide {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 0 5%;
-        }
-        
-        .scene-content {
-            max-width: 1200px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            z-index: 2;
-        }
-        
-        .scene-text {
-            color: #FFFFFF;
-            z-index: 3;
-        }
-        
-        .scene-title {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 2rem;
-            line-height: 1.2;
-            color: #FFFFFF !important;
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
-        }
-        
-        .scene-description {
-            font-size: clamp(1.1rem, 1.5vw, 1.25rem);
-            line-height: 1.7;
-            opacity: 1;
-            color: #FFFFFF !important;
-            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.6);
-        }
-        
-        .scene-image {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        }
-        
-        .scene-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-        
-        /* Full-screen reveal slide */
-        .reveal-slide {
-            background-image: url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/scene-three');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        
-        .reveal-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(26, 60, 52, 0.7), rgba(26, 60, 52, 0.5));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .reveal-content {
-            text-align: center;
-            color: white;
-            max-width: 800px;
-            padding: 0 2rem;
-        }
-        
-        /* Testimonial slide styles */
-        .testimonial-slide-content {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 24px;
-            padding: 3rem;
-            color: var(--dark-navy);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .testimonial-carousel {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .testimonial-item {
-            opacity: 0;
-            position: absolute;
-            inset: 0;
-            transition: opacity 0.6s ease-in-out;
-        }
-        
-        .testimonial-item.active {
-            opacity: 1;
-            position: relative;
-        }
-        
-        /* Enhanced Navigation Indicators */
-        .scroll-indicator {
-            position: fixed;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            z-index: 100;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 1rem 0.75rem;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .scroll-dot {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            position: relative;
-        }
-        
-        .scroll-dot:hover {
-            background: rgba(98, 208, 201, 0.8);
-            transform: scale(1.2);
-        }
-        
-        .scroll-dot.active {
-            background: var(--primary);
-            transform: scale(1.4);
-            box-shadow: 0 0 12px rgba(98, 208, 201, 0.6);
-        }
-        
-        /* Scene Progress Indicator */
-        .scene-progress {
-            position: fixed;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .scene-progress-icon {
-            color: var(--primary);
-        }
-        
-        /* Navigation Instructions */
-        .navigation-hint {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            animation: pulseHint 3s infinite;
-            opacity: 0.9;
-        }
-        
-        @keyframes pulseHint {
-            0%, 70%, 100% { opacity: 0.9; }
-            35% { opacity: 1; transform: translateX(-50%) scale(1.05); }
-        }
-        
-        .navigation-hint.hidden {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-        }
-        
-        /* Final CTA Section */
-        .final-cta {
-            background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 30%, #2C5F5F 70%, #1A4B52 100%);
-            color: white;
-            text-align: center;
-            padding: 6rem 2rem;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .final-cta-content {
-            max-width: 700px;
-        }
-        
-        .final-cta h2 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            color: #FFFFFF !important;
-        }
 
-        .final-cta p {
-            font-size: clamp(1.1rem, 2vw, 1.375rem);
-            line-height: 1.6;
-            margin-bottom: 3rem;
-            color: #FFFFFF !important;
-            opacity: 1;
-        }
-        
-        .final-cta-button {
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--primary);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-            padding: 1.25rem 2.5rem;
-            border-radius: 50px;
-            font-size: 1.125rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        
-        .final-cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .scene-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-            
-            .scene-image {
-                order: -1;
-            }
-            
-            .scene-image img {
-                height: 250px;
-            }
-            
-            .scroll-indicator {
-                right: 1rem;
-                padding: 0.75rem 0.5rem;
-                gap: 0.5rem;
-            }
-            
-            .scroll-dot {
-                width: 14px;
-                height: 14px;
-            }
-            
-            .scene-progress {
-                top: 1.5rem;
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
-            
-            .navigation-hint {
-                bottom: 1.5rem;
-                padding: 0.75rem 1rem;
-                font-size: 0.75rem;
-            }
-        }
-    </style>
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "The Tommy Coconut Experience",
+      "description": "Discover the three pillars of the Tommy Coconut Private Resort experience: luxury villa stays, island exploration, and signature water adventures.",
+      "url": "https://tommycoconut.com/experiences.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tommy Coconut",
+        "logo": "https://tommycoconut.com/images/icons/tommy-coconut-logo.png"
+      }
+    }
+    </script>
 </head>
 <body>
-    
-    <!-- Top Banner - Social Proof -->
-    <div class="top-banner">
-        <div class="container">
-            <a href="reviews.html" class="banner-link">
-                <span class="banner-icon">🏖️</span>
-                <span class="banner-text">1,347+ Happy Guests</span>
-                <span class="banner-cta">• Read Reviews</span>
-            </a>
-        </div>
-    </div>
-    
-    <!-- Navigation - Refined without Book Now -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Left Menu -->
-            <ul class="nav-menu-left">
-                <li><a href="rentals.html" data-papiamento="Bo kas">Rentals</a></li>
-                <li><a href="blog.html" class="active">The Journey</a></li>
-                <li><a href="about.html" data-papiamento="Nos stori">Our Story</a></li>
-            </ul>
-            
-            <!-- Centered Logo -->
+            <!-- Left Logo -->
             <div class="nav-logo">
                 <a href="index.html">
                     <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" alt="Tommy Coconut Private Resorts - Return Home">
                 </a>
             </div>
-            
-            <!-- Right Menu -->
-            <ul class="nav-menu-right">
-                <li><a href="clan.html" data-papiamento="Bo famia">Clan</a></li>
-                <li><a href="blog.html">Guide</a></li>
+
+            <!-- Center Navigation Menu -->
+            <ul class="nav-menu">
                 <li><a href="why-a-private-resort.html">Why a Private Resort?</a></li>
-                <li class="nav-dropdown">
-                    <a href="contact.html" data-papiamento="Papia ku nos">Contact</a>
-                    <div class="nav-dropdown-menu">
-                        <a href="contact.html">Contact Us</a>
-                        <a href="faq.html">FAQ</a>
-                    </div>
-                </li>
+                <li><a href="experiences.html" class="active" data-papiamento="Bo biahe">Experiences</a></li>
+                <li><a href="clan.html" data-papiamento="Papia ku nos">Coconut Clan</a></li>
+                <li><a href="about.html" data-papiamento="Nos stori">About</a></li>
+                <li><a href="contact.html" data-papiamento="Papia ku nos">Contact</a></li>
             </ul>
-            
+
+            <!-- Right CTA Button -->
+            <div class="nav-cta-button">
+                <a href="rentals.html" class="btn btn-primary-nav">CHOOSE STAY</a>
+            </div>
+
             <!-- Mobile Menu Toggle -->
             <div class="nav-toggle">
                 <span></span>
@@ -381,222 +67,231 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="section" style="background: #FFFFFF; padding-top: calc(var(--section-padding) * 1.2); text-align: center;" id="main-content">
-        <div class="container">
-            <div class="content-spotlight">
-                <h1 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(3.2rem, 6vw, 4.5rem); color: var(--dark-navy); letter-spacing: -0.02em; line-height: 1.1; text-shadow: 0 1px 2px rgba(0, 47, 61, 0.1); margin-bottom: var(--space-8);">The Art of a Perfect Vacation</h1>
-                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 300; color: var(--text-secondary); max-width: 900px; margin: 0 auto;">A great vacation isn't accidental. It's engineered. While others leave their trips to chance, we've spent years perfecting the art of the flawless getaway. Experience our cinematic 6-Scene journey that transforms ordinary travelers into lifelong members of the Coconut Clan.</p>
+    <!-- Hero Section -->
+    <section style="background: linear-gradient(135deg, rgba(0, 90, 91, 0.92), rgba(98, 208, 201, 0.85)), url('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1600/bayside-hill-5_biyiqa'); background-size: cover; background-position: center; padding: 6rem 0; color: white; text-align: center; position: relative;">
+        <div class="container" style="max-width: 900px; margin: 0 auto;">
+            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1; color: white;">The Tommy Coconut Experience</h1>
+            <p style="font-size: 1.4rem; line-height: 1.7; margin-bottom: 2rem; opacity: 0.95; font-weight: 400; max-width: 750px; margin-left: auto; margin-right: auto;">This isn't just a villa rental. It's three transformative experiences woven into one seamless island journey.</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section style="padding: 4rem 0; background: #F8FFFE;">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <h2 style="font-size: 2rem; font-weight: 700; color: #005A5B; margin-bottom: 1.5rem;">What Makes Us Different</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: #666; margin-bottom: 2rem;">Most vacation rentals give you a place to sleep. Tommy Coconut gives you a complete island lifestyle. Every stay includes three pillars of the Dushi Life: sanctuary, freedom, and adventure.</p>
+            <div style="display: inline-block; background: rgba(98, 208, 201, 0.1); padding: 1rem 2rem; border-radius: 12px; border-left: 4px solid #62D0C9;">
+                <p style="font-size: 1rem; color: #005A5B; margin: 0; font-weight: 600;">All three experiences included in your Private Resort Package</p>
             </div>
         </div>
     </section>
 
-    <!-- Social Proof Bar -->
-    <div class="tc-social-proof">
-        <div class="tc-social-proof-item">
-            <div class="tc-social-proof-number">1,347+</div>
-            <div class="tc-social-proof-label">Happy Guests</div>
-        </div>
-        <div class="tc-social-proof-item">
-            <div class="tc-social-proof-number">98%</div>
-            <div class="tc-social-proof-label">Would Recommend</div>
-        </div>
-        <div class="tc-social-proof-item">
-            <div class="tc-social-proof-number">4.9★</div>
-            <div class="tc-social-proof-label">Average Rating</div>
-        </div>
-        <div class="tc-social-proof-item">
-            <div class="tc-social-proof-number">6</div>
-            <div class="tc-social-proof-label">Perfect Scenes</div>
-        </div>
-    </div>
+    <!-- Three Main Experiences -->
+    <section style="padding: 5rem 0; background: linear-gradient(to bottom, #FFFFFF, #F8FFFE);">
+        <div class="container">
 
-    <!-- The Cinematic Story Scroller -->
-    <section class="cinematic-scroller" id="cinematic-journey">
-        <div class="scroller-track" id="scrollerTrack">
-            
-            <!-- Slide 1: Scene 1 - The Overture -->
-            <div class="scene-slide">
-                <div class="scene-content">
-                    <div class="scene-text">
-                        <h2 class="scene-title">Scene 1: The Overture</h2>
-                        <p class="scene-description">Your experience begins weeks before arrival with proactive communication and personalized planning. We don't wait for you to ask questions — we anticipate your needs and reach out with helpful tips, local insights, and personalized recommendations. By the time you arrive, you'll already feel like a local.</p>
-                    </div>
-                    <div class="scene-image">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/scene-one" alt="The Overture - Pre-arrival planning and personalized communication">
-                    </div>
+            <!-- Experience 1: Private Villa Sanctuary -->
+            <div class="experience-block" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 6rem;">
+                <div class="experience-image" style="order: 1;">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,c_fill/happy-hideaway-1_hx9jke" alt="Private Villa Sanctuary" style="width: 100%; height: 500px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 90, 91, 0.15);">
                 </div>
-            </div>
-
-            <!-- Slide 2: Scene 2 - The Welcome -->
-            <div class="scene-slide">
-                <div class="scene-content">
-                    <div class="scene-image">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/scene-two" alt="The Welcome - Stress-free airport arrival with personal greeting">
-                    </div>
-                    <div class="scene-text">
-                        <h2 class="scene-title">Scene 2: The Welcome</h2>
-                        <p class="scene-description">Land and <span class="dushi-word" data-papiamento="trankil" data-translation="Tranquil, at peace, calm. The ultimate goal of every Dushi Life moment.">trankil</span>. We greet you at the airport with a cold drink and a warm smile. No taxi lines, no stress. Your vehicle is waiting, your villa is prepared, and your <span class="dushi-word" data-papiamento="aventura" data-translation="Adventure. What awaits around every Curaçao corner.">aventura</span> is about to begin. From the moment you step off the plane, you're in our care.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3: Scene 3 - The Reveal (Full-screen) -->
-            <div class="scene-slide reveal-slide">
-                <div class="reveal-overlay">
-                    <div class="reveal-content">
-                        <h2 class="scene-title">Scene 3: The Reveal</h2>
-                        <p class="scene-description">Arrive at your immaculate villa or apartment, complete with a personal welcome and a chilled coconut waiting for you. Every detail has been considered — from the perfect temperature to the fresh flowers, from the stocked fridge to the personalized welcome note. This isn't just a place to stay; it's your <span class="dushi-word" data-papiamento="kas" data-translation="House or home. As in, 'Bon bini na bo kas' – Welcome to your home.">kas</span> in paradise.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4: The Proof - Testimonials -->
-            <div class="scene-slide">
-                <div class="testimonial-slide-content">
-                    <h2 class="scene-title" style="color: var(--dark-navy); margin-bottom: 2rem;">They Felt The Difference...</h2>
-                    <div class="testimonial-carousel">
-                        <!-- Testimonial 1 -->
-                        <div class="testimonial-item active">
-                            <div style="margin-bottom: 1.5rem;">
-                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto; display: block;">
-                                    <path d="M14 20C14 16.6863 16.6863 14 20 14H24C27.3137 14 30 16.6863 30 20V28C30 31.3137 27.3137 34 24 34H20C16.6863 34 14 31.3137 14 28V20Z" fill="#1A3C34" opacity="0.1"/>
-                                    <path d="M18 18C18 16.8954 18.8954 16 20 16H22C23.1046 16 24 16.8954 24 18V26C24 27.1046 23.1046 28 22 28H20C18.8954 28 18 27.1046 18 26V18Z" fill="#1A3C34" opacity="0.3"/>
-                                    <path d="M26 18C26 16.8954 26.8954 16 28 16H30C31.1046 16 32 16.8954 32 18V26C32 27.1046 31.1046 28 30 28H28C26.8954 28 26 27.1046 26 26V18Z" fill="#1A3C34" opacity="0.3"/>
-                                </svg>
-                            </div>
-                            <blockquote style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; font-style: italic;">
-                                "Tommy Coconut isn't a rental agency, they're experience architects. From the airport pickup to the final sunset boat trip, every detail was flawlessly executed. We've never felt so taken care of. It's not just a vacation — it's a transformation."
-                            </blockquote>
-                            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: 1.5rem 0;"></div>
-                            <div>
-                                <strong style="color: var(--dark-navy); font-size: 1.125rem;">The Johnson Family</strong><br>
-                                <span style="color: var(--text-secondary);">5th time guests, now part of the Coconut Clan</span>
-                            </div>
+                <div class="experience-content" style="order: 2;">
+                    <div style="display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(98, 208, 201, 0.1); padding: 0.5rem 1.25rem; border-radius: 50px; margin-bottom: 1.5rem;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #62D0C9, #00CFCF); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(98, 208, 201, 0.3);">
+                            <i class="fas fa-home" style="color: white; font-size: 1.25rem;"></i>
                         </div>
-                        
-                        <!-- Testimonial 2 -->
-                        <div class="testimonial-item">
-                            <div style="margin-bottom: 1.5rem;">
-                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto; display: block;">
-                                    <path d="M14 20C14 16.6863 16.6863 14 20 14H24C27.3137 14 30 16.6863 30 20V28C30 31.3137 27.3137 34 24 34H20C16.6863 34 14 31.3137 14 28V20Z" fill="#1A3C34" opacity="0.1"/>
-                                    <path d="M18 18C18 16.8954 18.8954 16 20 16H22C23.1046 16 24 16.8954 24 18V26C24 27.1046 23.1046 28 22 28H20C18.8954 28 18 27.1046 18 26V18Z" fill="#1A3C34" opacity="0.3"/>
-                                    <path d="M26 18C26 16.8954 26.8954 16 28 16H30C31.1046 16 32 16.8954 32 18V26C32 27.1046 31.1046 28 30 28H28C26.8954 28 26 27.1046 26 26V18Z" fill="#1A3C34" opacity="0.3"/>
-                                </svg>
-                            </div>
-                            <blockquote style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; font-style: italic;">
-                                "We've traveled to 30+ countries, but nothing compares to the Tommy Coconut experience. It's like having local family who happen to be vacation experts. Every surprise was perfectly timed, every need anticipated."
-                            </blockquote>
-                            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: 1.5rem 0;"></div>
-                            <div>
-                                <strong style="color: var(--dark-navy); font-size: 1.125rem;">Sarah & Michael</strong><br>
-                                <span style="color: var(--text-secondary);">3rd visit, planning their next return</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 3 -->
-                        <div class="testimonial-item">
-                            <div style="margin-bottom: 1.5rem;">
-                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto; display: block;">
-                                    <path d="M14 20C14 16.6863 16.6863 14 20 14H24C27.3137 14 30 16.6863 30 20V28C30 31.3137 27.3137 34 24 34H20C16.6863 34 14 31.3137 14 28V20Z" fill="#1A3C34" opacity="0.1"/>
-                                    <path d="M18 18C18 16.8954 18.8954 16 20 16H22C23.1046 16 24 16.8954 24 18V26C24 27.1046 23.1046 28 22 28H20C18.8954 28 18 27.1046 18 26V18Z" fill="#1A3C34" opacity="0.3"/>
-                                    <path d="M26 18C26 16.8954 26.8954 16 28 16H30C31.1046 16 32 16.8954 32 18V26C32 27.1046 31.1046 28 30 28H28C26.8954 28 26 27.1046 26 26V18Z" fill="#1A3C34" opacity="0.3"/>
-                                </svg>
-                            </div>
-                            <blockquote style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; font-style: italic;">
-                                "The level of personal attention was beyond anything we imagined. They remembered our anniversary, our dietary preferences, even our kids' favorite activities. It felt like staying with family who just happen to own paradise."
-                            </blockquote>
-                            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(0, 207, 207, 0.3), transparent); margin: 1.5rem 0;"></div>
-                            <div>
-                                <strong style="color: var(--dark-navy); font-size: 1.125rem;">The Rodriguez Family</strong><br>
-                                <span style="color: var(--text-secondary);">Gold Clan members, 6 visits and counting</span>
-                            </div>
-                        </div>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: #005A5B; text-transform: uppercase; letter-spacing: 0.5px;">Experience One</span>
                     </div>
-                    
-                    <!-- Testimonial Navigation -->
-                    <div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem;">
-                        <button onclick="showTestimonial(0)" class="testimonial-dot active" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: var(--primary); cursor: pointer; transition: all 0.3s ease;"></button>
-                        <button onclick="showTestimonial(1)" class="testimonial-dot" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: rgba(0, 207, 207, 0.3); cursor: pointer; transition: all 0.3s ease;"></button>
-                        <button onclick="showTestimonial(2)" class="testimonial-dot" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: rgba(0, 207, 207, 0.3); cursor: pointer; transition: all 0.3s ease;"></button>
+                    <h3 style="font-size: 2.5rem; font-weight: 800; color: #005A5B; margin-bottom: 1.5rem; line-height: 1.2;">Your Private Villa Sanctuary</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #666; margin-bottom: 2rem;">This is your home, not a hotel. The entire villa is yours. No shared spaces, no strangers at breakfast, no crowds by the pool. Just you, your people, and the unhurried rhythm of island life.</p>
+
+                    <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #005A5B; margin-bottom: 1rem;">What's Included:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span>Premium bedding, luxury bath amenities, fully equipped kitchen</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span>Pre-arrival grocery stocking service available</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span>Daily housekeeping, pool maintenance, laundry service</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span>All utilities included - water, electricity, WiFi, AC</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(98, 208, 201, 0.12)); padding: 1.25rem; border-radius: 12px; border-left: 4px solid #62D0C9;">
+                        <p style="margin: 0; font-size: 1rem; color: #005A5B; font-weight: 600; font-style: italic;">The villa becomes your sanctuary. Wake to Caribbean sunrises, drift to sleep to ocean whispers.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 5: Scene 4 - Freedom with Safety Net -->
-            <div class="scene-slide">
-                <div class="scene-content">
-                    <div class="scene-text">
-                        <h2 class="scene-title">Scene 4: Freedom, with a Safety Net</h2>
-                        <p class="scene-description">Explore with confidence. We've equipped you with everything you need for independent adventure — from a reliable vehicle to insider recommendations. Yet we're always just a WhatsApp away if you need us. It's the perfect balance of freedom and security that lets you truly relax.</p>
+            <!-- Experience 2: Island Exploration Freedom -->
+            <div class="experience-block" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 6rem;">
+                <div class="experience-content" style="order: 1;">
+                    <div style="display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(98, 208, 201, 0.1); padding: 0.5rem 1.25rem; border-radius: 50px; margin-bottom: 1.5rem;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #62D0C9, #00CFCF); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(98, 208, 201, 0.3);">
+                            <i class="fas fa-car-side" style="color: white; font-size: 1.25rem;"></i>
+                        </div>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: #005A5B; text-transform: uppercase; letter-spacing: 0.5px;">Experience Two</span>
                     </div>
-                    <div class="scene-image">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/scene-four" alt="Freedom with Safety Net - Independent exploration with support">
+                    <h3 style="font-size: 2.5rem; font-weight: 800; color: #005A5B; margin-bottom: 1.5rem; line-height: 1.2;">Island Exploration Freedom</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #666; margin-bottom: 2rem;">The entire island is your resort. Your included EV-SUV isn't just transportation - it's your ticket to discovering hidden beaches, secret snorkeling spots, and local restaurants where tourists never venture.</p>
+
+                    <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #005A5B; margin-bottom: 1rem;">What's Included:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span>Premium EV-SUV for your entire stay (gas-powered option available)</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span>Curated island map with our family's favorite secret spots</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span>24/7 WhatsApp concierge for directions and recommendations</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span>Beach gear, coolers, snorkel equipment ready to go</span>
+                            </li>
+                        </ul>
                     </div>
+
+                    <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(98, 208, 201, 0.12)); padding: 1.25rem; border-radius: 12px; border-left: 4px solid #62D0C9;">
+                        <p style="margin: 0; font-size: 1rem; color: #005A5B; font-weight: 600; font-style: italic;">Go where the spirit moves you. No tour schedules, no waiting for rides, no limitations.</p>
+                    </div>
+                </div>
+                <div class="experience-image" style="order: 2;">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,c_fill/IMG_1036_mpd6jm" alt="Island Exploration" style="width: 100%; height: 500px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 90, 91, 0.15);">
                 </div>
             </div>
 
-            <!-- Slide 6: Scene 5 - The Twin Peaks -->
-            <div class="scene-slide">
-                <div class="scene-content">
-                    <div class="scene-text">
-                        <h2 class="scene-title">Scene 5: The Twin Peaks</h2>
-                        <p class="scene-description">Just when you think it can't get better, we surprise you with the second peak of your journey. A midweek check-in leads to spontaneous upgrades, exclusive experiences, or simply the perfect restaurant recommendation for that special night. These aren't planned surprises — they're genuine moments of <span class="dushi-word" data-papiamento="stima" data-translation="To love, to cherish. How we feel about our guests and island.">stima</span>.</p>
-                    </div>
-                    <div class="scene-twin-images" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; border-radius: 16px; overflow: hidden;">
-                        <div class="scene-image" style="margin: 0; border-radius: 0;">
-                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/scene-five" alt="The Twin Peaks - First peak experience" style="height: 300px; border-radius: 0;">
-                        </div>
-                        <div class="scene-image" style="margin: 0; border-radius: 0;">
-                            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/scene-five" alt="The Twin Peaks - Second peak experience" style="height: 300px; border-radius: 0;">
-                        </div>
-                    </div>
+            <!-- Experience 3: Signature Water Adventures -->
+            <div class="experience-block" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem;">
+                <div class="experience-image" style="order: 1;">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800,c_fill/IMG_1749_flcnz7" alt="Signature Water Adventures" style="width: 100%; height: 500px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 90, 91, 0.15);">
                 </div>
-            </div>
-
-            <!-- Slide 7: Scene 6 - The Fond Farewell -->
-            <div class="scene-slide">
-                <div class="scene-content">
-                    <div class="scene-text">
-                        <h2 class="scene-title">Scene 6: The Fond Farewell</h2>
-                        <p class="scene-description">Every story needs a perfect ending. Your departure isn't rushed or stressful — it's a gentle transition back to reality. We handle your luggage, arrange your transport, and send you off with a piece of Curaçao to take home. But this isn't goodbye. You're now <span class="dushi-word" data-papiamento="famia" data-translation="Family. How we think of our most cherished guests, the Coconut Clan.">famia</span>, and family always has a place to return to.</p>
+                <div class="experience-content" style="order: 2;">
+                    <div style="display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(98, 208, 201, 0.1); padding: 0.5rem 1.25rem; border-radius: 50px; margin-bottom: 1.5rem;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #62D0C9, #00CFCF); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(98, 208, 201, 0.3);">
+                            <i class="fas fa-ship" style="color: white; font-size: 1.25rem;"></i>
+                        </div>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: #005A5B; text-transform: uppercase; letter-spacing: 0.5px;">Experience Three</span>
                     </div>
-                    <div class="scene-image">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto/scene-six" alt="The Fond Farewell - Perfect departure and future welcome">
+                    <h3 style="font-size: 2.5rem; font-weight: 800; color: #005A5B; margin-bottom: 1.5rem; line-height: 1.2;">Signature Water Adventures</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #666; margin-bottom: 2rem;">This is where magic happens. Three curated water experiences that transform your vacation into something unforgettable. Led by Captain Magic Mike and the Tommy Coconut family, these aren't just activities - they're memories in the making.</p>
+
+                    <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: #005A5B; margin-bottom: 1rem;">What's Included:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span><strong>Private Half-Day Cruise</strong> with Captain Magic Mike - snorkeling, swimming, Caribbean stories</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span><strong>Friday Family & Friends Sunset Cruise</strong> - join other Tommy Coconut guests and become part of the Cartel</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem; color: #666; font-size: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #62D0C9; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <span><strong>Private Flamingo Hike</strong> - exclusive guided adventure to see wild flamingos in their natural habitat</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(98, 208, 201, 0.12)); padding: 1.25rem; border-radius: 12px; border-left: 4px solid #62D0C9;">
+                        <p style="margin: 0; font-size: 1rem; color: #005A5B; font-weight: 600; font-style: italic;">These moments become the stories you'll tell for years. "Remember when we..."</p>
                     </div>
                 </div>
             </div>
 
         </div>
-        
-        <!-- Enhanced Navigation System -->
-        <div class="scene-progress">
-            <i class="fas fa-film scene-progress-icon"></i>
-            <span id="sceneCounter">Scene 1: The Overture</span>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section style="padding: 5rem 0; background: linear-gradient(135deg, #005A5B, #62D0C9); color: white;">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: white;">This is the Tommy Coconut Difference</h2>
+            <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 2.5rem; opacity: 0.95;">Most vacation rentals give you a key and wish you luck. We give you three complete experiences that work together to create something you've never felt before: the freedom to explore, the peace of sanctuary, and the joy of authentic connection.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 16px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">$3,000+</div>
+                    <div style="font-size: 1rem; opacity: 0.9;">Total Experience Value</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 16px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">1 Price</div>
+                    <div style="font-size: 1rem; opacity: 0.9;">All-Inclusive Package</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 16px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">Zero</div>
+                    <div style="font-size: 1rem; opacity: 0.9;">Hidden Fees or Surprises</div>
+                </div>
+            </div>
+
+            <p style="font-size: 1.1rem; margin-bottom: 2.5rem; opacity: 0.9;">Villa + Vehicle + Experiences + Concierge. All tips included. All electricity included. All the island, all for you.</p>
+
+            <a href="rentals.html" class="btn" style="background: rgba(255, 255, 255, 0.95); color: #005A5B; padding: 20px 48px; border-radius: 60px; text-decoration: none; font-weight: 700; font-size: 1.3rem; display: inline-block; transition: all 0.3s ease; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);"
+               onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 48px rgba(0, 0, 0, 0.3)'"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.2)'">
+                Choose Your Private Resort
+            </a>
         </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-dot active" onclick="goToSlide(0)" title="Scene 1: The Overture"></div>
-            <div class="scroll-dot" onclick="goToSlide(1)" title="Scene 2: The Welcome"></div>
-            <div class="scroll-dot" onclick="goToSlide(2)" title="Scene 3: The Reveal"></div>
-            <div class="scroll-dot" onclick="goToSlide(3)" title="Scene 4: Freedom with Safety Net"></div>
-            <div class="scroll-dot" onclick="goToSlide(4)" title="Scene 5: The Twin Peaks"></div>
-            <div class="scroll-dot" onclick="goToSlide(5)" title="Scene 6: The Fond Farewell"></div>
-            <div class="scroll-dot" onclick="goToSlide(6)" title="Your Story Begins"></div>
-        </div>
-        
-        <div class="navigation-hint" id="navigationHint">
-            <i class="fas fa-hand-pointer"></i>
-            <span>Click dots to explore scenes • Scroll or use arrow keys</span>
+    </section>
+
+    <!-- Family Stories Teaser -->
+    <section style="padding: 5rem 0; background: #F8FFFE;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div style="background: white; border-radius: 24px; padding: 3rem; box-shadow: 0 12px 48px rgba(0, 90, 91, 0.08); border: 1px solid rgba(98, 208, 201, 0.15);">
+                    <div style="margin-bottom: 2rem;">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_140,h_140,c_fill/IMG_1036_mpd6jm"
+                             alt="Tommy Coconut Family"
+                             style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 24px rgba(0, 90, 91, 0.2);">
+                    </div>
+                    <h2 style="color: #005A5B; font-size: 2.2rem; margin-bottom: 1.25rem; font-weight: 800;">The Magic Makers Behind Your Experience</h2>
+                    <p style="color: #666; font-size: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem;">Captain Magic Mike. Boy the Island Legend. Marie the Villa Whisperer. Every experience is crafted with genuine care by real people who've become family to thousands of guests.</p>
+
+                    <a href="clan.html"
+                       style="display: inline-block; background: linear-gradient(135deg, #62D0C9, #00CFCF); color: white; padding: 1.25rem 2.5rem; border-radius: 60px; text-decoration: none; font-weight: 700; font-size: 1.2rem; transition: all 0.3s ease; box-shadow: 0 6px 24px rgba(98, 208, 201, 0.35);"
+                       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 36px rgba(98, 208, 201, 0.45)'"
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 24px rgba(98, 208, 201, 0.35)'">
+                        <i class="fas fa-heart" style="margin-right: 0.75rem;"></i>
+                        Meet the Tommy Coconut Family
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Final CTA Section -->
-    <section class="final-cta">
-        <div class="final-cta-content">
-            <h2>Your Story is Waiting to be Written</h2>
-            <p>We've scripted the perfect vacation. Now it's your turn to be the star. Check your dates and let us begin crafting your unforgettable Curaçao experience.</p>
-            <a href="treasure-map.html" class="final-cta-button">Check Availability & Start Your Story</a>
+    <section style="padding: 5rem 0; background: white;">
+        <div class="container" style="max-width: 700px; text-align: center;">
+            <h2 style="font-size: 2.5rem; font-weight: 800; color: #005A5B; margin-bottom: 1.5rem;">Ready to Experience the Dushi Life?</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: #666; margin-bottom: 3rem;">Choose your Private Resort and unlock all three experiences. Your transformation begins the moment you arrive.</p>
+
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="rentals.html" class="btn" style="background: linear-gradient(135deg, #62D0C9, #00CFCF); color: white; padding: 18px 42px; border-radius: 60px; text-decoration: none; font-weight: 700; font-size: 1.2rem; transition: all 0.3s ease; box-shadow: 0 6px 24px rgba(98, 208, 201, 0.3);"
+                   onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 36px rgba(98, 208, 201, 0.4)'"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 24px rgba(98, 208, 201, 0.3)'">
+                    View Private Resorts
+                </a>
+                <a href="contact.html" class="btn" style="background: white; color: #005A5B; padding: 18px 42px; border-radius: 60px; text-decoration: none; font-weight: 700; font-size: 1.2rem; border: 2px solid #62D0C9; transition: all 0.3s ease;"
+                   onmouseover="this.style.background='#F8FFFE'"
+                   onmouseout="this.style.background='white'">
+                    Have Questions? Contact Us
+                </a>
+            </div>
         </div>
     </section>
 
@@ -605,10 +300,9 @@
         <div class="container">
             <!-- Logo & Tagline -->
             <div style="margin-bottom: var(--space-6);">
-                
                 <p style="color: var(--text-inverse); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Where it's all about you.</p>
             </div>
-            
+
             <!-- Social Links -->
             <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-6);">
                 <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'">
@@ -623,7 +317,9 @@
                 <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="TikTok"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.10-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
                 </a>
-            </div>            <!-- Copyright -->
+            </div>
+
+            <!-- Copyright -->
             <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
                 <p style="color: var(--text-inverse); opacity: 0.6; font-size: var(--text-sm); margin: 0;">&copy; 2025 Tommy Coconut. All rights reserved.</p>
             </div>
@@ -633,199 +329,25 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/dushi-dictionary.js"></script>
     <script src="assets/js/facebook-pixel.js"></script>
-    
-    <!-- Cinematic Scroller JavaScript -->
-    <script>
-        let currentSlide = 0;
-        const totalSlides = 7;
-        let isScrolling = false;
-        let scrollTimeout;
-        
-        const scrollerTrack = document.getElementById('scrollerTrack');
-        const cinematicSection = document.getElementById('cinematic-journey');
-        const scrollDots = document.querySelectorAll('.scroll-dot');
-        
-        // Scroll lock functionality
-        let isLocked = false;
-        let scrollProgress = 0;
-        
-        function updateSlidePosition() {
-            const translateX = -currentSlide * 100;
-            scrollerTrack.style.transform = `translateX(${translateX}vw)`;
-            
-            // Update scroll indicators and progress
-            scrollDots.forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-            
-            // Update scene counter
-            const sceneCounter = document.getElementById('sceneCounter');
-            const sceneNames = [
-                'Scene 1: The Overture',
-                'Scene 2: The Welcome', 
-                'Scene 3: The Reveal',
-                'Scene 4: Freedom with Safety Net',
-                'Scene 5: The Twin Peaks',
-                'Scene 6: The Fond Farewell',
-                'Your Story Begins'
-            ];
-            if (sceneCounter) {
-                sceneCounter.textContent = currentSlide < 6 ? sceneNames[currentSlide] : sceneNames[6];
+    <script src="analytics.js"></script>
+
+    <!-- Responsive Styles for Mobile -->
+    <style>
+        @media (max-width: 768px) {
+            .experience-block {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
             }
-            
-            // Hide navigation hint after first interaction
-            const navHint = document.getElementById('navigationHint');
-            if (navHint && currentSlide > 0) {
-                navHint.classList.add('hidden');
+            .experience-image {
+                order: 1 !important;
+            }
+            .experience-content {
+                order: 2 !important;
+            }
+            .experience-image img {
+                height: 300px !important;
             }
         }
-        
-        function goToSlide(slideIndex) {
-            if (slideIndex >= 0 && slideIndex < totalSlides) {
-                currentSlide = slideIndex;
-                updateSlidePosition();
-            }
-        }
-        
-        // Handle scroll events with refined UX
-        function handleScroll(event) {
-            const cinematicRect = cinematicSection.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-
-            // Check if we're in the cinematic section
-            if (cinematicRect.top <= 0 && cinematicRect.bottom > viewportHeight) {
-                // Lock vertical scroll
-                event.preventDefault();
-
-                if (!isScrolling) {
-                    isScrolling = true;
-
-                    if (event.deltaY > 0) {
-                        // Scroll down - next slide
-                        if (currentSlide < totalSlides - 1) {
-                            currentSlide++;
-                            updateSlidePosition();
-                        } else {
-                            // Reached end, allow natural scroll to continue
-                            window.removeEventListener('wheel', handleScroll);
-                            setTimeout(() => {
-                                window.addEventListener('wheel', handleScroll, { passive: false });
-                            }, 800);
-                        }
-                    } else {
-                        // Scroll up - previous slide
-                        if (currentSlide > 0) {
-                            currentSlide--;
-                            updateSlidePosition();
-                        } else {
-                            // At beginning, allow natural scroll to continue
-                            window.removeEventListener('wheel', handleScroll);
-                            setTimeout(() => {
-                                window.addEventListener('wheel', handleScroll, { passive: false });
-                            }, 800);
-                        }
-                    }
-
-                    // Reset scrolling flag with longer delay for smoother control
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(() => {
-                        isScrolling = false;
-                    }, 1200);
-                }
-            }
-        }
-
-        // Allow escape key to disable scroll-jacking temporarily
-        let scrollJackingEnabled = true;
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                scrollJackingEnabled = !scrollJackingEnabled;
-                if (!scrollJackingEnabled) {
-                    window.removeEventListener('wheel', handleScroll);
-                    const navHint = document.getElementById('navigationHint');
-                    if (navHint) {
-                        navHint.innerHTML = '<i class="fas fa-unlock"></i><span>Scroll freely • Press ESC to re-enable scene navigation</span>';
-                    }
-                } else {
-                    window.addEventListener('wheel', handleScroll, { passive: false });
-                    const navHint = document.getElementById('navigationHint');
-                    if (navHint) {
-                        navHint.innerHTML = '<i class="fas fa-hand-pointer"></i><span>Click dots to explore scenes • Scroll or use arrow keys</span>';
-                    }
-                }
-            }
-        });
-        
-        // Testimonial carousel functionality
-        let currentTestimonial = 0;
-        const testimonialItems = document.querySelectorAll('.testimonial-item');
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        
-        function showTestimonial(index) {
-            testimonialItems.forEach((item, i) => {
-                if (i === index) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-            
-            testimonialDots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.add('active');
-                    dot.style.background = 'var(--primary)';
-                } else {
-                    dot.classList.remove('active');
-                    dot.style.background = 'rgba(0, 207, 207, 0.3)';
-                }
-            });
-            
-            currentTestimonial = index;
-        }
-        
-        // Auto-advance testimonials
-        setInterval(() => {
-            const nextTestimonial = (currentTestimonial + 1) % testimonialItems.length;
-            showTestimonial(nextTestimonial);
-        }, 5000);
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            updateSlidePosition();
-            showTestimonial(0);
-            
-            // Add scroll event listener
-            window.addEventListener('wheel', handleScroll, { passive: false });
-            
-            // Initialize Dushi Dictionary if available
-            if (typeof initializeDushiDictionary === 'function') {
-                initializeDushiDictionary();
-            }
-        });
-        
-        // Handle keyboard navigation
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-                if (currentSlide < totalSlides - 1) {
-                    currentSlide++;
-                    updateSlidePosition();
-                }
-            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-                if (currentSlide > 0) {
-                    currentSlide--;
-                    updateSlidePosition();
-                }
-            }
-        });
-        
-        // Handle resize
-        window.addEventListener('resize', function() {
-            updateSlidePosition();
-        });
-    </script>
+    </style>
 </body>
 </html>
