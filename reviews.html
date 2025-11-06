@@ -78,23 +78,23 @@
     </section>
 
     <!-- Social Proof Statistics -->
-    <section style="background: rgba(0, 207, 207, 0.05); padding: var(--space-8) 0; border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
+    <section id="stats-section" style="background: rgba(0, 207, 207, 0.05); padding: var(--space-8) 0; border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
         <div class="container">
             <div style="display: flex; justify-content: center; align-items: center; gap: var(--space-12); flex-wrap: wrap;">
                 <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">1,347+</div>
+                    <div class="stat-counter" data-target="1347" data-suffix="+" style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">0+</div>
                     <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">Happy Guests</div>
                 </div>
                 <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">4.9★</div>
+                    <div class="stat-counter" data-target="4.9" data-decimals="1" data-suffix="★" style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">0★</div>
                     <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">Average Rating</div>
                 </div>
                 <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">523</div>
+                    <div class="stat-counter" data-target="523" style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">0</div>
                     <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">5-Star Reviews</div>
                 </div>
                 <div style="text-align: center;">
-                    <div style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">98%</div>
+                    <div class="stat-counter" data-target="98" data-suffix="%" style="font-size: var(--text-3xl); font-weight: var(--font-weight-bold); color: var(--primary); margin-bottom: var(--space-2);">0%</div>
                     <div style="font-size: var(--text-sm); color: var(--text-secondary); font-weight: var(--font-weight-semibold);">Repeat Guests</div>
                 </div>
             </div>
@@ -343,5 +343,103 @@
     <script src="assets/js/dushi-dictionary.js"></script>
     <script src="assets/js/facebook-pixel.js"></script>
     <script src="analytics.js"></script>
+
+    <!-- Animated Statistics Counter -->
+    <script>
+        /**
+         * Tommy Coconut Animated Counter
+         * Embodies the villa experience: effortless, elegant, and intuitively delightful
+         */
+        class StatCounter {
+            constructor(element) {
+                this.element = element;
+                this.target = parseFloat(element.getAttribute('data-target'));
+                this.decimals = parseInt(element.getAttribute('data-decimals')) || 0;
+                this.suffix = element.getAttribute('data-suffix') || '';
+                this.hasAnimated = false;
+                this.duration = 2000; // 2 seconds - unhurried, like a villa experience
+            }
+
+            animate() {
+                if (this.hasAnimated) return;
+                this.hasAnimated = true;
+
+                const startTime = performance.now();
+                const startValue = 0;
+                const endValue = this.target;
+
+                // Easing function: easeOutExpo for that premium deceleration feel
+                const easeOutExpo = (t) => {
+                    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+                };
+
+                const updateCounter = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / this.duration, 1);
+                    const easedProgress = easeOutExpo(progress);
+                    const currentValue = startValue + (endValue - startValue) * easedProgress;
+
+                    // Format the number with proper decimals and thousands separator
+                    let displayValue = currentValue.toFixed(this.decimals);
+
+                    // Add thousands separator for numbers >= 1000
+                    if (this.target >= 1000 && this.decimals === 0) {
+                        displayValue = Math.floor(currentValue).toLocaleString('en-US');
+                    }
+
+                    // Update the display
+                    this.element.textContent = displayValue + this.suffix;
+
+                    // Continue animation if not complete
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        // Ensure final value is exact
+                        let finalValue = this.target.toFixed(this.decimals);
+                        if (this.target >= 1000 && this.decimals === 0) {
+                            finalValue = Math.floor(this.target).toLocaleString('en-US');
+                        }
+                        this.element.textContent = finalValue + this.suffix;
+                    }
+                };
+
+                requestAnimationFrame(updateCounter);
+            }
+        }
+
+        // Initialize counters with Intersection Observer for scroll-triggered animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.stat-counter');
+            const counterInstances = Array.from(counters).map(el => new StatCounter(el));
+
+            // Intersection Observer with optimal settings for smooth experience
+            const observerOptions = {
+                threshold: 0.5, // Trigger when 50% of section is visible
+                rootMargin: '0px 0px -50px 0px' // Slight offset for better timing
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Stagger the animations slightly for visual elegance
+                        counterInstances.forEach((counter, index) => {
+                            setTimeout(() => {
+                                counter.animate();
+                            }, index * 100); // 100ms stagger between each counter
+                        });
+
+                        // Disconnect after animation to prevent re-triggering
+                        observer.disconnect();
+                    }
+                });
+            }, observerOptions);
+
+            // Observe the stats section
+            const statsSection = document.getElementById('stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
 </body>
 </html>
