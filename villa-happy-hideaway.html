@@ -229,43 +229,112 @@
             box-shadow: 0 8px 32px rgba(98, 208, 201, 0.6);
         }
 
-        /* Gallery Section - Act 1 */
+        /* ===================================
+           HERO GALLERY - REDESIGNED
+           =================================== */
+
         .gallery-hero {
             height: 70vh;
+            min-height: 500px;
             position: relative;
             overflow: hidden;
+            background: var(--surface);
         }
 
+        /* Main Hero Image */
         .hero-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition-normal);
+            transition: opacity 0.5s ease;
+            opacity: 1;
         }
 
-        .gallery-thumbnails {
+        .hero-image.fading {
+            opacity: 0;
+        }
+
+        /* Navigation Container - Centered at Bottom */
+        .gallery-navigation {
             position: absolute;
-            bottom: var(--space-xl);
-            left: var(--space-xl);
-            right: var(--space-xl);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-2xl);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
             display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: var(--space-md);
         }
 
-        .thumbnail {
-            width: 80px;
-            height: 60px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            cursor: pointer;
-            transition: var(--transition-normal);
-            border: 3px solid transparent;
+        /* Image Counter */
+        .image-counter {
+            color: white;
+            font-size: var(--tc-font-small);
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.4);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            letter-spacing: 0.5px;
         }
 
-        .thumbnail:hover,
+        /* Thumbnail Container - CENTERED */
+        .gallery-thumbnails {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+            justify-content: center;
+            max-width: 600px;
+            position: relative;
+        }
+
+        /* Individual Thumbnails */
+        .thumbnail {
+            width: 90px;
+            height: 65px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid transparent;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            position: relative;
+        }
+
+        .thumbnail::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+            opacity: 1;
+        }
+
+        .thumbnail:hover::before {
+            opacity: 0;
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-4px) scale(1.05);
+            border-color: rgba(98, 208, 201, 0.5);
+        }
+
         .thumbnail.active {
             border-color: var(--primary);
-            transform: scale(1.1);
+            transform: scale(1.08);
+        }
+
+        .thumbnail.active::before {
+            opacity: 0;
+        }
+
+        .thumbnail:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
         }
 
         .thumbnail img {
@@ -274,27 +343,157 @@
             object-fit: cover;
         }
 
-        .video-thumbnail {
-            position: relative;
-        }
-
-        .video-thumbnail::after {
-            content: '\f04b';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
+        /* Navigation Arrows - ALWAYS VISIBLE */
+        .gallery-arrow {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 1.2rem;
-            background: rgba(0, 0, 0, 0.7);
-            width: 32px;
-            height: 32px;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: none;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        .gallery-arrow:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(98, 208, 201, 0.4);
+        }
+
+        .gallery-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .gallery-arrow:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 4px;
+        }
+
+        .gallery-arrow-left {
+            left: var(--space-xl);
+        }
+
+        .gallery-arrow-right {
+            right: var(--space-xl);
+        }
+
+        /* Arrow Icons */
+        .gallery-arrow i {
+            pointer-events: none;
+        }
+
+        /* Loading State */
+        .hero-image.loading {
+            opacity: 0.5;
+        }
+
+        /* ===================================
+           MOBILE OPTIMIZATION
+           =================================== */
+
+        @media (max-width: 768px) {
+            .gallery-hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .gallery-navigation {
+                padding: var(--space-lg) var(--space-md);
+            }
+
+            /* Smaller thumbnails on mobile */
+            .thumbnail {
+                width: 64px;
+                height: 48px;
+            }
+
+            /* Slightly smaller arrows on mobile */
+            .gallery-arrow {
+                width: 48px;
+                height: 48px;
+                font-size: 1.25rem;
+            }
+
+            .gallery-arrow-left {
+                left: var(--space-md);
+            }
+
+            .gallery-arrow-right {
+                right: var(--space-md);
+            }
+
+            /* Show only 3 thumbnails on very small screens */
+            .gallery-thumbnails {
+                max-width: 280px;
+            }
+
+            .image-counter {
+                font-size: 0.75rem;
+                padding: var(--space-xs) var(--space-sm);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+
+            .thumbnail {
+                width: 56px;
+                height: 42px;
+            }
+
+            .gallery-arrow {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Touch Gestures */
+        .gallery-hero.swiping {
+            cursor: grabbing;
+        }
+
+        /* Accessibility Enhancements */
+        .skip-gallery {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 100;
+        }
+
+        .skip-gallery:focus {
+            top: var(--space-md);
+            left: var(--space-md);
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-image,
+            .thumbnail,
+            .gallery-arrow {
+                transition: none;
+            }
         }
 
         /* Villa Story Section - Act 2 */
@@ -1050,39 +1249,107 @@
     </nav>
 
     <!-- Act 1: The Cinematic Reveal -->
-    <section class="gallery-hero" style="margin-top: 120px;">
-        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1_hx9jke" alt="Happy Hideaway Private Resort" class="hero-image">
+    <section class="gallery-hero" style="margin-top: 120px;"
+             role="region"
+             aria-label="Property image gallery"
+             id="propertyGallery">
 
-        <div class="gallery-thumbnails">
-            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1_hx9jke', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-1_hx9jke" alt="Happy Hideaway">
+        <!-- Skip link for accessibility -->
+        <a href="#propertyContent" class="skip-gallery">Skip gallery</a>
+
+        <!-- Main Hero Image -->
+        <img id="heroImage"
+             src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1_hx9jke"
+             alt="Happy Hideaway Private Resort - Image 1 of 9"
+             class="hero-image"
+             loading="eager">
+
+        <!-- Left Arrow -->
+        <button class="gallery-arrow gallery-arrow-left"
+                onclick="navigateGallery(-1)"
+                aria-label="Previous image"
+                type="button">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <!-- Right Arrow -->
+        <button class="gallery-arrow gallery-arrow-right"
+                onclick="navigateGallery(1)"
+                aria-label="Next image"
+                type="button">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Navigation Container (centered at bottom) -->
+        <div class="gallery-navigation">
+            <!-- Image Counter -->
+            <div class="image-counter" aria-live="polite" aria-atomic="true">
+                <span id="currentImageNumber">1</span> / <span id="totalImages">9</span>
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-2_waijkz', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-2_waijkz" alt="Happy Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-3_jokzme', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-3_jokzme" alt="Happy Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-4_unr393', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-4_unr393" alt="Happy Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-5_yr4gur', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-5_yr4gur" alt="Happy Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-6_gikoc3', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-6_gikoc3" alt="Happy Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-11_hbkxze', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-11_hbkxze" alt="Happy Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-8_yqdwdj', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-8_yqdwdj" alt="Happy Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-9_j6gs1d', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-9_j6gs1d" alt="Happy Hideaway">
+
+            <!-- Thumbnail Navigation -->
+            <div class="gallery-thumbnails" role="tablist" aria-label="Property images">
+                <div class="thumbnail active"
+                     data-index="0"
+                     onclick="selectImage(0)"
+                     onkeydown="handleThumbnailKeydown(event, 0)"
+                     tabindex="0"
+                     role="tab"
+                     aria-selected="true"
+                     aria-label="View image 1">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-1_hx9jke"
+                         alt="Happy Hideaway - View 1">
+                </div>
+                <div class="thumbnail"
+                     data-index="1"
+                     onclick="selectImage(1)"
+                     onkeydown="handleThumbnailKeydown(event, 1)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 2">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-2_waijkz"
+                         alt="Happy Hideaway - View 2">
+                </div>
+                <div class="thumbnail"
+                     data-index="2"
+                     onclick="selectImage(2)"
+                     onkeydown="handleThumbnailKeydown(event, 2)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 3">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-3_jokzme"
+                         alt="Happy Hideaway - View 3">
+                </div>
+                <div class="thumbnail"
+                     data-index="3"
+                     onclick="selectImage(3)"
+                     onkeydown="handleThumbnailKeydown(event, 3)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 4">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-4_unr393"
+                         alt="Happy Hideaway - View 4">
+                </div>
+                <div class="thumbnail"
+                     data-index="4"
+                     onclick="selectImage(4)"
+                     onkeydown="handleThumbnailKeydown(event, 4)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 5">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-5_yr4gur"
+                         alt="Happy Hideaway - View 5">
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Next section anchor for skip link -->
+    <div id="propertyContent"></div>
 
     <!-- Quick Stats Strip - Above the Fold - IMPROVED -->
     <section style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(98, 208, 201, 0.06) 100%); padding: var(--space-3xl) var(--space-lg); border-bottom: 1px solid rgba(98, 208, 201, 0.15);">
@@ -1731,89 +1998,322 @@
             }
         });
 
-        // Gallery functionality
-        // Gallery images for auto-rotation
+        // ===================================
+        // GALLERY DATA & STATE
+        // ===================================
+
         const galleryImages = [
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-1_hx9jke',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-1_hx9jke',
-                alt: 'Private Resort'
+                alt: 'Happy Hideaway - Entrance View'
             },
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-2_waijkz',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-2_waijkz',
-                alt: 'Private Pool & Cabana'
+                alt: 'Happy Hideaway - Pool Area'
             },
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-3_jokzme',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-3_jokzme',
-                alt: 'Legendary Bamboo Beds'
+                alt: 'Happy Hideaway - Living Room'
             },
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-4_unr393',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-4_unr393',
-                alt: 'Stress-Free Living'
+                alt: 'Happy Hideaway - Kitchen'
             },
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-5_yr4gur',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-5_yr4gur',
-                alt: 'Ocean Views'
+                alt: 'Happy Hideaway - Master Bedroom'
             },
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-6_gikoc3',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-6_gikoc3',
-                alt: 'Villa Interiors'
+                alt: 'Happy Hideaway - Bathroom'
             },
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-11_hbkxze',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-11_hbkxze',
-                alt: 'Outdoor Living'
+                alt: 'Happy Hideaway - Outdoor Dining'
             },
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-8_yqdwdj',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-8_yqdwdj',
-                alt: 'Pool Paradise'
+                alt: 'Happy Hideaway - Pool Paradise'
             },
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/happy-hideaway-9_j6gs1d',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/happy-hideaway-9_j6gs1d',
-                alt: 'Sunset Views'
+                alt: 'Happy Hideaway - Sunset Views'
             }
         ];
 
         let currentImageIndex = 0;
+        const thumbnailsPerView = 5; // Show 5 thumbnails at a time
+        let thumbnailStartIndex = 0;
 
-        function changeImage(src, thumbnail) {
-            document.getElementById('heroImage').src = src;
+        // ===================================
+        // CORE NAVIGATION FUNCTIONS
+        // ===================================
 
-            // Update active thumbnail
-            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-            thumbnail.classList.add('active');
+        /**
+         * Navigate gallery by direction (-1 for previous, +1 for next)
+         */
+        function navigateGallery(direction) {
+            const newIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+            selectImage(newIndex);
         }
 
-        function playVideo() {
-            // Open video modal or redirect to video URL
-            window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/happy-hideaway-tour', '_blank');
+        /**
+         * Select specific image by index
+         */
+        function selectImage(index) {
+            if (index === currentImageIndex) return;
+
+            const heroImage = document.getElementById('heroImage');
+            const oldIndex = currentImageIndex;
+
+            // Fade out current image
+            heroImage.classList.add('fading');
+
+            // Update after fade
+            setTimeout(() => {
+                currentImageIndex = index;
+
+                // Update hero image
+                heroImage.src = galleryImages[index].src;
+                heroImage.alt = `${galleryImages[index].alt} - Image ${index + 1} of ${galleryImages.length}`;
+
+                // Fade in new image
+                heroImage.classList.remove('fading');
+
+                // Update counter
+                document.getElementById('currentImageNumber').textContent = index + 1;
+
+                // Update thumbnails
+                updateThumbnails(index);
+
+                // Announce to screen readers
+                announceImageChange(index);
+
+                // Preload adjacent images
+                preloadAdjacentImages(index);
+            }, 250);
         }
 
-        // Auto-rotate gallery images
-        function rotateImages() {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            const currentImage = galleryImages[currentImageIndex];
+        /**
+         * Update thumbnail display and active states
+         */
+        function updateThumbnails(activeIndex) {
+            // Calculate if we need to shift the visible thumbnail window
+            if (activeIndex >= thumbnailStartIndex + thumbnailsPerView) {
+                // Scroll forward
+                thumbnailStartIndex = Math.min(activeIndex - thumbnailsPerView + 1, galleryImages.length - thumbnailsPerView);
+            } else if (activeIndex < thumbnailStartIndex) {
+                // Scroll backward
+                thumbnailStartIndex = activeIndex;
+            }
 
-            // Update hero image
-            document.getElementById('heroImage').src = currentImage.src;
+            // Re-render visible thumbnails
+            renderThumbnails(activeIndex);
+        }
 
-            // Update active thumbnail
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            thumbnails.forEach(t => t.classList.remove('active'));
-            if (thumbnails[currentImageIndex]) {
-                thumbnails[currentImageIndex].classList.add('active');
+        /**
+         * Render the visible thumbnail window
+         */
+        function renderThumbnails(activeIndex) {
+            const container = document.querySelector('.gallery-thumbnails');
+            container.innerHTML = '';
+
+            const endIndex = Math.min(thumbnailStartIndex + thumbnailsPerView, galleryImages.length);
+
+            for (let i = thumbnailStartIndex; i < endIndex; i++) {
+                const isActive = i === activeIndex;
+                const thumbnail = createThumbnailElement(i, isActive);
+                container.appendChild(thumbnail);
             }
         }
 
-        // Initialize auto-rotation
-        setInterval(rotateImages, 5000)
+        /**
+         * Create a thumbnail DOM element
+         */
+        function createThumbnailElement(index, isActive) {
+            const div = document.createElement('div');
+            div.className = `thumbnail${isActive ? ' active' : ''}`;
+            div.setAttribute('data-index', index);
+            div.setAttribute('onclick', `selectImage(${index})`);
+            div.setAttribute('onkeydown', `handleThumbnailKeydown(event, ${index})`);
+            div.setAttribute('tabindex', isActive ? '0' : '-1');
+            div.setAttribute('role', 'tab');
+            div.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            div.setAttribute('aria-label', `View image ${index + 1}`);
+
+            const img = document.createElement('img');
+            img.src = galleryImages[index].thumb;
+            img.alt = `${galleryImages[index].alt} - Thumbnail`;
+
+            div.appendChild(img);
+            return div;
+        }
+
+        /**
+         * Announce image change to screen readers
+         */
+        function announceImageChange(index) {
+            const announcement = `Viewing image ${index + 1} of ${galleryImages.length}: ${galleryImages[index].alt}`;
+
+            // Use existing counter as live region (already has aria-live)
+            const counter = document.querySelector('.image-counter');
+            if (counter) {
+                counter.setAttribute('aria-label', announcement);
+            }
+        }
+
+        // ===================================
+        // KEYBOARD NAVIGATION
+        // ===================================
+
+        /**
+         * Handle keyboard navigation on thumbnails
+         */
+        function handleThumbnailKeydown(event, index) {
+            switch(event.key) {
+                case 'Enter':
+                case ' ':
+                    event.preventDefault();
+                    selectImage(index);
+                    break;
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    navigateGallery(-1);
+                    focusCurrentThumbnail();
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    navigateGallery(1);
+                    focusCurrentThumbnail();
+                    break;
+                case 'Home':
+                    event.preventDefault();
+                    selectImage(0);
+                    focusCurrentThumbnail();
+                    break;
+                case 'End':
+                    event.preventDefault();
+                    selectImage(galleryImages.length - 1);
+                    focusCurrentThumbnail();
+                    break;
+            }
+        }
+
+        /**
+         * Focus the current active thumbnail
+         */
+        function focusCurrentThumbnail() {
+            setTimeout(() => {
+                const activeThumbnail = document.querySelector('.thumbnail.active');
+                if (activeThumbnail) {
+                    activeThumbnail.focus();
+                }
+            }, 100);
+        }
+
+        /**
+         * Global keyboard shortcuts (arrow keys anywhere on page)
+         */
+        document.addEventListener('keydown', (event) => {
+            // Only handle if gallery is visible and not typing in input
+            if (document.activeElement.tagName === 'INPUT' ||
+                document.activeElement.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                navigateGallery(-1);
+            } else if (event.key === 'ArrowRight') {
+                event.preventDefault();
+                navigateGallery(1);
+            }
+        });
+
+        // ===================================
+        // TOUCH GESTURE SUPPORT
+        // ===================================
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50;
+
+        const galleryHero = document.querySelector('.gallery-hero');
+
+        if (galleryHero) {
+            galleryHero.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                galleryHero.classList.add('swiping');
+            }, { passive: true });
+
+            galleryHero.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                galleryHero.classList.remove('swiping');
+                handleSwipe();
+            }, { passive: true });
+        }
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance > 0) {
+                    // Swipe right = previous image
+                    navigateGallery(-1);
+                } else {
+                    // Swipe left = next image
+                    navigateGallery(1);
+                }
+            }
+        }
+
+        // ===================================
+        // IMAGE PRELOADING
+        // ===================================
+
+        /**
+         * Preload adjacent images for smooth transitions
+         */
+        function preloadAdjacentImages(currentIndex) {
+            const imagesToPreload = [
+                (currentIndex + 1) % galleryImages.length,
+                (currentIndex - 1 + galleryImages.length) % galleryImages.length
+            ];
+
+            imagesToPreload.forEach(index => {
+                const img = new Image();
+                img.src = galleryImages[index].src;
+            });
+        }
+
+        // ===================================
+        // INITIALIZATION
+        // ===================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set total images count
+            const totalImagesElement = document.getElementById('totalImages');
+            if (totalImagesElement) {
+                totalImagesElement.textContent = galleryImages.length;
+            }
+
+            // Preload first few images
+            preloadAdjacentImages(0);
+
+            // Initial render of thumbnails
+            renderThumbnails(0);
+
+            console.log('Tommy Coconut Gallery initialized with', galleryImages.length, 'images');
+        })
 
         // Reviews carousel
         let currentReview = 0;
