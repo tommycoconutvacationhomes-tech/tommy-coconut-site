@@ -1528,20 +1528,94 @@
         </div>
     </section>
 
-    <!-- Location - Walk & Drive - PHASE 3 ENHANCED -->
+    <!-- Location - Walk & Drive - MAP VERSION -->
     <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
         <div style="max-width: 1000px; margin: 0 auto;">
             <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Your Jan Thiel Base</h2>
             <p style="text-align: center; font-size: var(--tc-font-body-lg); color: var(--text-secondary); margin-bottom: var(--space-3xl); max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.7;">Everything you need within walking distance. The best of Curaçao within a short drive.</p>
 
-            <!-- Location Hero Image -->
+            <!-- Location Map with Custom Tommy Coconut Styling -->
             <div style="margin-bottom: var(--space-3xl);">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1000,h_300,c_fill,g_auto/happy-hideaway-8_yqdwdj"
-                     alt="Jan Thiel location - Your Happy Hideaway base"
-                     loading="lazy"
-                     style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); transition: var(--transition-normal);">
+                <div style="position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-elevated);">
+                    <!-- Google Maps Static API with custom styling -->
+                    <img
+                        src="https://maps.googleapis.com/maps/api/staticmap?center=12.0924,-68.8796&zoom=12&size=1000x400&scale=2&maptype=roadmap&style=feature:water|color:0x62D0C9&style=feature:landscape|color:0xF7F5F2&style=feature:road|visibility:simplified|color:0xFFFFFF&style=feature:poi|visibility:off&style=feature:administrative|visibility:off&style=feature:transit|visibility:off&markers=color:0x62D0C9|label:H|12.0924,-68.8796&markers=color:0x005A5B|label:1|12.0856,-68.8701&markers=color:0x005A5B|label:2|12.1139,-68.9324&markers=color:0x005A5B|label:3|12.0774,-68.8954&key=YOUR_GOOGLE_MAPS_API_KEY"
+                        alt="Happy Hideaway location map - Jan Thiel, Curaçao"
+                        loading="lazy"
+                        style="width: 100%; height: auto; display: block;"
+                    >
+
+                    <!-- Map Legend Overlay (bottom-left) -->
+                    <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); padding: var(--space-lg); border-radius: var(--radius-md); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); max-width: 280px;">
+                        <div style="font-weight: 700; color: var(--secondary); margin-bottom: var(--space-sm); font-size: var(--tc-font-small); letter-spacing: 0.5px;">MAP KEY</div>
+
+                        <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
+                            <div style="width: 24px; height: 24px; background: var(--primary); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <span style="color: white; font-weight: 700; font-size: 0.75rem; transform: rotate(45deg);">H</span>
+                            </div>
+                            <span style="color: var(--text-primary); font-size: var(--tc-font-small);">Happy Hideaway</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
+                            <div style="width: 24px; height: 24px; background: var(--secondary); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <span style="color: white; font-weight: 700; font-size: 0.75rem; transform: rotate(45deg);">1</span>
+                            </div>
+                            <span style="color: var(--text-primary); font-size: var(--tc-font-small);">Jan Thiel Beach</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
+                            <div style="width: 24px; height: 24px; background: var(--secondary); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <span style="color: white; font-weight: 700; font-size: 0.75rem; transform: rotate(45deg);">2</span>
+                            </div>
+                            <span style="color: var(--text-primary); font-size: var(--tc-font-small);">Willemstad</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: var(--space-sm);">
+                            <div style="width: 24px; height: 24px; background: var(--secondary); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <span style="color: white; font-weight: 700; font-size: 0.75rem; transform: rotate(45deg);">3</span>
+                            </div>
+                            <span style="color: var(--text-primary); font-size: var(--tc-font-small);">Caracasbaai</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile-Optimized Legend (shows below map on small screens) -->
+                <div id="mobileLegend" style="display: none; background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-lg); border-radius: var(--radius-md); margin-top: var(--space-md);">
+                    <div style="font-weight: 700; color: var(--secondary); margin-bottom: var(--space-sm); font-size: var(--tc-font-small); letter-spacing: 0.5px;">MAP KEY</div>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-sm);">
+                        <div style="display: flex; align-items: center; gap: var(--space-xs);">
+                            <div style="width: 20px; height: 20px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <span style="color: white; font-weight: 700; font-size: 0.65rem;">H</span>
+                            </div>
+                            <span style="color: var(--text-primary); font-size: 0.8rem;">Happy Hideaway</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: var(--space-xs);">
+                            <div style="width: 20px; height: 20px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <span style="color: white; font-weight: 700; font-size: 0.65rem;">1</span>
+                            </div>
+                            <span style="color: var(--text-primary); font-size: 0.8rem;">Jan Thiel Beach</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: var(--space-xs);">
+                            <div style="width: 20px; height: 20px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <span style="color: white; font-weight: 700; font-size: 0.65rem;">2</span>
+                            </div>
+                            <span style="color: var(--text-primary); font-size: 0.8rem;">Willemstad</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: var(--space-xs);">
+                            <div style="width: 20px; height: 20px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <span style="color: white; font-weight: 700; font-size: 0.65rem;">3</span>
+                            </div>
+                            <span style="color: var(--text-primary); font-size: 0.8rem;">Caracasbaai</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+            <!-- Proximity Cards (Unchanged) -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-3xl);">
                 <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
                     <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
@@ -1576,12 +1650,34 @@
                 </div>
             </div>
 
+            <!-- Pro Tip (Unchanged) -->
             <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.12), rgba(0, 207, 207, 0.06)); padding: var(--space-2xl); border-radius: var(--radius-lg); text-align: center; border: 1px solid rgba(98, 208, 201, 0.25); box-shadow: 0 4px 16px rgba(98, 208, 201, 0.1);">
                 <i class="fas fa-lightbulb" style="color: var(--primary); font-size: 1.75rem; margin-bottom: var(--space-md); display: block;"></i>
                 <p style="color: var(--secondary); font-weight: 600; margin: 0; font-size: var(--tc-font-body-lg); line-height: 1.7;">Pro tip: Zest sunset is magic at 17:45. We'll time your table.</p>
             </div>
         </div>
     </section>
+
+    <!-- Responsive Mobile Legend Styles -->
+    <style>
+    @media (max-width: 768px) {
+        /* Hide overlay legend on mobile */
+        section div[style*="position: absolute; bottom: 20px; left: 20px"] {
+            display: none !important;
+        }
+
+        /* Show mobile legend */
+        #mobileLegend {
+            display: block !important;
+        }
+
+        /* Adjust map height for mobile */
+        section img[alt*="Happy Hideaway location map"] {
+            height: 250px;
+            object-fit: cover;
+        }
+    }
+    </style>
 
     <!-- ============================================ -->
     <!-- INLINE BOOKING WIDGET SECTION -->
