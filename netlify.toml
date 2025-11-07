@@ -106,3 +106,15 @@
   to = "/clan.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/rentals"
+  to = "/private-resorts"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/rentals.html"
+  to = "/private-resorts.html"
+  status = 301
+  force = true
