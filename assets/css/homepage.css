@@ -758,14 +758,15 @@
 .team-info {
     text-align: center;
     width: 100%;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 
 .team-name {
     font-size: var(--text-lg);
     font-weight: var(--weight-semibold);
     color: var(--tc-navy);
-    display: inline;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .team-separator {
@@ -779,7 +780,7 @@
     font-size: var(--text-sm);
     color: var(--tc-primary);
     font-weight: var(--weight-semibold);
-    display: inline;
+    display: block;
 }
 
 /* =========================================
