@@ -767,13 +767,16 @@
     color: var(--tc-navy);
     display: block;
     margin-bottom: 4px;
+    line-height: 1.3;
 }
 
-.team-separator {
-    font-size: var(--text-lg);
+.team-nickname {
+    font-size: var(--text-base);
+    font-weight: var(--weight-medium);
     color: var(--text-secondary);
-    display: inline;
-    opacity: 0.5;
+    display: block;
+    margin-bottom: 4px;
+    line-height: 1.3;
 }
 
 .team-role {
@@ -781,6 +784,7 @@
     color: var(--tc-primary);
     font-weight: var(--weight-semibold);
     display: block;
+    line-height: 1.3;
 }
 
 /* =========================================
