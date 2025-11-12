@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dushi Hideaway - Superhost Pool & Hot Tub Paradise | Tommy Coconut</title>
-    <meta name="description" content="Superhost luxury with 4.99 stars from 76 reviews. Private pool + hot tub paradise with EV-SUV, 2 boat cruises, beach cabanas at 4 locations, private flamingo tour, and 24/7 concierge. Live the Dushi life in Jan Thiel, Curaçao.">
+    <title>Happy Hideaway - Your Private Resort | Tommy Coconut</title>
+    <meta name="description" content="Happy Hideaway: Where we've declared war on vacation stress. Guests call this the 'best Airbnb experience ever.' Your Private Resort with VIP car, boat trip, gourmet services, and zero hidden fees.">
     
     <!-- CSS Dependencies -->
     <link rel="stylesheet" href="assets/css/main.css">
@@ -229,43 +229,112 @@
             box-shadow: 0 8px 32px rgba(98, 208, 201, 0.6);
         }
 
-        /* Gallery Section - Act 1 */
+        /* ===================================
+           HERO GALLERY - REDESIGNED
+           =================================== */
+
         .gallery-hero {
             height: 70vh;
+            min-height: 500px;
             position: relative;
             overflow: hidden;
+            background: var(--surface);
         }
 
+        /* Main Hero Image */
         .hero-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition-normal);
+            transition: opacity 0.5s ease;
+            opacity: 1;
         }
 
-        .gallery-thumbnails {
+        .hero-image.fading {
+            opacity: 0;
+        }
+
+        /* Navigation Container - Centered at Bottom */
+        .gallery-navigation {
             position: absolute;
-            bottom: var(--space-xl);
-            left: var(--space-xl);
-            right: var(--space-xl);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-2xl);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
             display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: var(--space-md);
         }
 
-        .thumbnail {
-            width: 80px;
-            height: 60px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            cursor: pointer;
-            transition: var(--transition-normal);
-            border: 3px solid transparent;
+        /* Image Counter */
+        .image-counter {
+            color: white;
+            font-size: var(--tc-font-small);
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.4);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            letter-spacing: 0.5px;
         }
 
-        .thumbnail:hover,
+        /* Thumbnail Container - CENTERED */
+        .gallery-thumbnails {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+            justify-content: center;
+            max-width: 600px;
+            position: relative;
+        }
+
+        /* Individual Thumbnails */
+        .thumbnail {
+            width: 90px;
+            height: 65px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid transparent;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            position: relative;
+        }
+
+        .thumbnail::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+            opacity: 1;
+        }
+
+        .thumbnail:hover::before {
+            opacity: 0;
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-4px) scale(1.05);
+            border-color: rgba(98, 208, 201, 0.5);
+        }
+
         .thumbnail.active {
             border-color: var(--primary);
-            transform: scale(1.1);
+            transform: scale(1.08);
+        }
+
+        .thumbnail.active::before {
+            opacity: 0;
+        }
+
+        .thumbnail:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
         }
 
         .thumbnail img {
@@ -274,27 +343,157 @@
             object-fit: cover;
         }
 
-        .video-thumbnail {
-            position: relative;
-        }
-
-        .video-thumbnail::after {
-            content: '\f04b';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
+        /* Navigation Arrows - ALWAYS VISIBLE */
+        .gallery-arrow {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 1.2rem;
-            background: rgba(0, 0, 0, 0.7);
-            width: 32px;
-            height: 32px;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: none;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        .gallery-arrow:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(98, 208, 201, 0.4);
+        }
+
+        .gallery-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .gallery-arrow:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 4px;
+        }
+
+        .gallery-arrow-left {
+            left: var(--space-xl);
+        }
+
+        .gallery-arrow-right {
+            right: var(--space-xl);
+        }
+
+        /* Arrow Icons */
+        .gallery-arrow i {
+            pointer-events: none;
+        }
+
+        /* Loading State */
+        .hero-image.loading {
+            opacity: 0.5;
+        }
+
+        /* ===================================
+           MOBILE OPTIMIZATION
+           =================================== */
+
+        @media (max-width: 768px) {
+            .gallery-hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .gallery-navigation {
+                padding: var(--space-lg) var(--space-md);
+            }
+
+            /* Smaller thumbnails on mobile */
+            .thumbnail {
+                width: 64px;
+                height: 48px;
+            }
+
+            /* Slightly smaller arrows on mobile */
+            .gallery-arrow {
+                width: 48px;
+                height: 48px;
+                font-size: 1.25rem;
+            }
+
+            .gallery-arrow-left {
+                left: var(--space-md);
+            }
+
+            .gallery-arrow-right {
+                right: var(--space-md);
+            }
+
+            /* Show only 3 thumbnails on very small screens */
+            .gallery-thumbnails {
+                max-width: 280px;
+            }
+
+            .image-counter {
+                font-size: 0.75rem;
+                padding: var(--space-xs) var(--space-sm);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+
+            .thumbnail {
+                width: 56px;
+                height: 42px;
+            }
+
+            .gallery-arrow {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Touch Gestures */
+        .gallery-hero.swiping {
+            cursor: grabbing;
+        }
+
+        /* Accessibility Enhancements */
+        .skip-gallery {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 100;
+        }
+
+        .skip-gallery:focus {
+            top: var(--space-md);
+            left: var(--space-md);
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-image,
+            .thumbnail,
+            .gallery-arrow {
+                transition: none;
+            }
         }
 
         /* Villa Story Section - Act 2 */
@@ -898,19 +1097,19 @@
         /* Additional Mobile Optimizations for Category Images */
         @media (max-width: 480px) {
             /* Category Images in Private Oasis - Smaller on Mobile */
-            div[style*="tommy-coconut/villas/dushi-hideaway"] img,
-            div[style*="tommy-coconut/villas/dushi-hideaway"] img,
-            div[style*="tommy-coconut/villas/dushi-hideaway"] img {
+            div[style*="hh-5"] img,
+            div[style*="hh-4"] img,
+            div[style*="hh-7"] img {
                 height: 120px !important;
             }
 
             /* Hero Feature Image - Smaller Radius on Mobile */
-            .villa-story img[src*="tommy-coconut/villas/dushi-hideaway"] {
+            .villa-story img[src*="hh-3"] {
                 border-radius: var(--radius-md) !important;
             }
 
             /* Location Image - Smaller Height on Small Screens */
-            section img[src*="tommy-coconut/villas/dushi-hideaway"][style*="height: 300px"] {
+            section img[src*="hh-8"][style*="height: 300px"] {
                 height: 180px !important;
             }
 
@@ -1050,39 +1249,107 @@
     </nav>
 
     <!-- Act 1: The Cinematic Reveal -->
-    <section class="gallery-hero" style="margin-top: 120px;">
-        <img id="heroImage" src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway" alt="Dushi Hideaway Private Resort" class="hero-image">
+    <section class="gallery-hero" style="margin-top: 120px;"
+             role="region"
+             aria-label="Property image gallery"
+             id="propertyGallery">
 
-        <div class="gallery-thumbnails">
-            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway" alt="Dushi Hideaway">
+        <!-- Skip link for accessibility -->
+        <a href="#propertyContent" class="skip-gallery">Skip gallery</a>
+
+        <!-- Main Hero Image -->
+        <img id="heroImage"
+             src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-1"
+             alt="Happy Hideaway Private Resort - Image 1 of 9"
+             class="hero-image"
+             loading="eager">
+
+        <!-- Left Arrow -->
+        <button class="gallery-arrow gallery-arrow-left"
+                onclick="navigateGallery(-1)"
+                aria-label="Previous image"
+                type="button">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <!-- Right Arrow -->
+        <button class="gallery-arrow gallery-arrow-right"
+                onclick="navigateGallery(1)"
+                aria-label="Next image"
+                type="button">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Navigation Container (centered at bottom) -->
+        <div class="gallery-navigation">
+            <!-- Image Counter -->
+            <div class="image-counter" aria-live="polite" aria-atomic="true">
+                <span id="currentImageNumber">1</span> / <span id="totalImages">9</span>
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway" alt="Dushi Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway" alt="Dushi Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway" alt="Dushi Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway" alt="Dushi Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway" alt="Dushi Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway" alt="Dushi Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway" alt="Dushi Hideaway">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway" alt="Dushi Hideaway">
+
+            <!-- Thumbnail Navigation -->
+            <div class="gallery-thumbnails" role="tablist" aria-label="Property images">
+                <div class="thumbnail active"
+                     data-index="0"
+                     onclick="selectImage(0)"
+                     onkeydown="handleThumbnailKeydown(event, 0)"
+                     tabindex="0"
+                     role="tab"
+                     aria-selected="true"
+                     aria-label="View image 1">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-1"
+                         alt="Happy Hideaway - View 1">
+                </div>
+                <div class="thumbnail"
+                     data-index="1"
+                     onclick="selectImage(1)"
+                     onkeydown="handleThumbnailKeydown(event, 1)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 2">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-2"
+                         alt="Happy Hideaway - View 2">
+                </div>
+                <div class="thumbnail"
+                     data-index="2"
+                     onclick="selectImage(2)"
+                     onkeydown="handleThumbnailKeydown(event, 2)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 3">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-3"
+                         alt="Happy Hideaway - View 3">
+                </div>
+                <div class="thumbnail"
+                     data-index="3"
+                     onclick="selectImage(3)"
+                     onkeydown="handleThumbnailKeydown(event, 3)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 4">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-4"
+                         alt="Happy Hideaway - View 4">
+                </div>
+                <div class="thumbnail"
+                     data-index="4"
+                     onclick="selectImage(4)"
+                     onkeydown="handleThumbnailKeydown(event, 4)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 5">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-5"
+                         alt="Happy Hideaway - View 5">
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Next section anchor for skip link -->
+    <div id="propertyContent"></div>
 
     <!-- Quick Stats Strip - Above the Fold - IMPROVED -->
     <section style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(98, 208, 201, 0.06) 100%); padding: var(--space-3xl) var(--space-lg); border-bottom: 1px solid rgba(98, 208, 201, 0.15);">
@@ -1142,28 +1409,28 @@
         <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-3xl); align-items: center; margin-bottom: var(--space-3xl);">
             <!-- Left Column: Content -->
             <div>
-                <h1 class="villa-title" style="text-align: left; margin-bottom: var(--space-lg); font-weight: 600;">Dushi Hideaway — Pool, Hot Tub & Paradise</h1>
+                <h1 class="villa-title" style="text-align: left; margin-bottom: var(--space-lg); font-weight: 600;">Happy Hideaway — Your Private Resort in Curaçao</h1>
                 <p style="font-size: var(--tc-font-body-xl); margin-bottom: var(--space-lg); font-weight: 600; color: var(--secondary); text-align: left; line-height: 1.6;">
-                    Superhost excellence with private pool + hot tub. EV-SUV + 2 boat cruises + beach cabanas at 4 locations + private flamingo tour + 24/7 concierge. Breathe out and live the Dushi life.
+                    A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.
                 </p>
                 <div style="display: flex; align-items: center; justify-content: flex-start; gap: var(--space-md); margin-bottom: var(--space-2xl); flex-wrap: wrap;">
                     <div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--tc-font-body-lg);">
                         <span style="color: #FFD700; font-size: var(--tc-font-body-xl);">★</span>
                         <span style="font-weight: 700; color: var(--primary);">4.99</span>
                     </div>
-                    <span style="color: var(--text-secondary);">from 76 reviews</span>
+                    <span style="color: var(--text-secondary);">from 500+ reviews</span>
                     <span style="color: var(--text-secondary);">·</span>
                     <span style="color: var(--text-secondary); font-weight: 600;">Jan Thiel base</span>
                 </div>
                 <p style="font-size: var(--tc-font-body-lg); text-align: left; line-height: 1.75; color: var(--text-primary);">
-                    This is the <strong style="font-weight: 600; color: var(--secondary);">Dushi Life</strong> in its purest form. Soak in your private hot tub under Caribbean stars, cool off in your pool, cruise to hidden beaches with reserved cabanas at Zanzibar, Papagayo, Zest, and Koko's. Meet flamingos on your private tour, explore in your EV-SUV, and let our Superhost team with 500+ reviews handle everything else. <strong style="font-weight: 600; color: var(--secondary);">Breathe out. Relax completely. Live legendarily.</strong>
+                    A great vacation isn't about where you go—it's about <strong style="font-weight: 600; color: var(--secondary);">how you feel</strong>. At Happy Hideaway, you don't just check in… you unwind completely. From wheels-down to your last sunset toast, every detail is curated so you can disconnect—no planning, no stress, <strong style="font-weight: 600; color: var(--secondary);">just peace</strong>.
                 </p>
             </div>
 
             <!-- Right Column: Feature Image - IMPROVED -->
             <div style="position: relative;">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_450,ar_4:5,c_fill,g_auto/tommy-coconut/villas/dushi-hideaway"
-                     alt="Dushi Hideaway Private Resort - Your tropical sanctuary"
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_450,ar_4:5,c_fill,g_auto/hh-3"
+                     alt="Happy Hideaway Private Resort - Your tropical sanctuary"
                      loading="lazy"
                      style="max-width: 450px; max-height: 550px; width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); object-fit: cover; transition: var(--transition-normal);">
             </div>
@@ -1250,16 +1517,16 @@
                        controls
                        controlsList="nodownload"
                        preload="metadata"
-                       poster="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto,w_1800/Dushi_HIdeaway_1_m489h6.jpg">
-                    <source src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/Dushi_HIdeaway_1_m489h6.mp4" type="video/mp4">
+                       poster="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto,w_1800/Happy_Hideaway_xdwjkp.jpg">
+                    <source src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/Happy_Hideaway_xdwjkp.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
                 <!-- Thumbnail with Play Button Overlay -->
                 <div id="videoThumbnail" style="position: relative; width: 100%; aspect-ratio: 16/9;">
                     <!-- Thumbnail Image (Cloudinary auto-generates from video) -->
-                    <img src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto,w_1800/Dushi_HIdeaway_1_m489h6.jpg"
-                         alt="Aerial view of Dushi Hideaway Private Resort"
+                    <img src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto,w_1800/Happy_Hideaway_xdwjkp.jpg"
+                         alt="Aerial view of Happy Hideaway Private Resort"
                          loading="lazy"
                          style="width: 100%; height: 100%; object-fit: cover;">
 
@@ -1299,7 +1566,7 @@
                     <!-- Category Image -->
                     <div style="margin-bottom: var(--space-xl);">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/9f97bb52-0859-4d47-85cb-866836c8e0ff_mc4hrr"
-                             alt="Outdoor living at Dushi Hideaway"
+                             alt="Outdoor living at Happy Hideaway"
                              loading="lazy"
                              style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
                     </div>
@@ -1321,7 +1588,7 @@
                     <!-- Category Image -->
                     <div style="margin-bottom: var(--space-xl);">
                         <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/2a7ad9dd-6050-4df9-b987-f042913dc877_go3w7a"
-                             alt="Indoor living at Dushi Hideaway"
+                             alt="Indoor living at Happy Hideaway"
                              loading="lazy"
                              style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
                     </div>
@@ -1344,8 +1611,8 @@
                 <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
                     <!-- Category Image -->
                     <div style="margin-bottom: var(--space-xl);">
-                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/tommy-coconut/villas/dushi-hideaway"
-                             alt="Bedrooms at Dushi Hideaway"
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/hh-10"
+                             alt="Bedrooms at Happy Hideaway"
                              loading="lazy"
                              style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
                     </div>
@@ -1467,21 +1734,33 @@
 
             <div class="win-grid">
                 <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/hh-8" alt="Your Island Fleet" class="pass-icon" loading="lazy">
+                    </div>
                     <h3>Your Island Fleet</h3>
                     <p><span class="win-highlight">VIP Airport Transfers. EV-SUV Included. Free Charging Station.</span> From touchdown to exploration, your mobility is handled. Drive the island sustainably with GPS pre-loaded with 38 hidden beaches.</p>
                 </div>
 
                 <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/hh-5" alt="Your Private Adventures" class="pass-icon" loading="lazy">
+                    </div>
                     <h3>Your Private Adventures</h3>
                     <p><span class="win-highlight">Private Boat Trip. Flamingo Hike with Guide. The Ultimate Beach Kit.</span> Ocean adventures, nature experiences, and beach days—all orchestrated, zero hassle.</p>
                 </div>
 
                 <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/hh-4" alt="Your Dushi Life Service" class="pass-icon" loading="lazy">
+                    </div>
                     <h3>Your Dushi Life Service</h3>
                     <p><span class="win-highlight">Pre-Stocked Fridge. First-Night Dinner Prepared. 24/7 Concierge. Professional Housekeeping.</span> Arrive to a stocked kitchen. Enjoy dinner without cooking. Need anything? We're always here.</p>
                 </div>
 
                 <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/hh-1" alt="Your Personal Hosts" class="pass-icon" loading="lazy">
+                    </div>
                     <h3>Your Personal Hosts</h3>
                     <p><span class="win-highlight">More than Hosts—We're Your Island Family.</span> Meet the family behind Tommy Coconut. Our friendly race to see who can help you the fastest is legendary. You'll never feel alone on this island.</p>
                 </div>
@@ -1501,14 +1780,14 @@
     <!-- Act 5: Stories From Paradise -->
     <section class="reviews-section">
         <div class="reviews-container">
-            <h2 class="reviews-title" style="text-align: center; margin-bottom: 1rem;">Stories from Dushi Hideaway</h2>
+            <h2 class="reviews-title" style="text-align: center; margin-bottom: 1rem;">Stories from Happy Hideaway</h2>
             <p style="text-align: center; font-weight: 700; font-size: var(--tc-font-body-lg); color: var(--primary); margin-top: 0.5rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
                 5.0★ · 51 reviews (Airbnb)
             </p>
 
             <!-- Elfsight Airbnb Reviews Widget -->
             <div style="max-width: 1200px; margin: 0 auto;">
-                <div class="elfsight-app-ee95cf66-5486-4787-92c5-be19bde5acb6" data-elfsight-app-lazy></div>
+                <div class="elfsight-app-5ef0de46-eb69-4290-b6ee-3212629c6e39" data-elfsight-app-lazy></div>
             </div>
         </div>
     </section>
@@ -1548,7 +1827,7 @@
                         What's the minimum stay?
                     </h3>
                     <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
-                        5 nights minimum. This ensures you have enough time to truly relax and experience everything Dushi Hideaway offers.
+                        5 nights minimum. This ensures you have enough time to truly relax and experience everything Happy Hideaway offers.
                     </p>
                 </div>
 
@@ -1585,8 +1864,8 @@
 
             <!-- Location Hero Image -->
             <div style="margin-bottom: var(--space-3xl);">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1000,h_300,c_fill,g_auto/tommy-coconut/villas/dushi-hideaway"
-                     alt="Jan Thiel location - Your Dushi Hideaway base"
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1000,h_300,c_fill,g_auto/hh-8"
+                     alt="Jan Thiel location - Your Happy Hideaway base"
                      loading="lazy"
                      style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); transition: var(--transition-normal);">
             </div>
@@ -1645,14 +1924,14 @@
                     Check Availability & Reserve Your Escape
                 </h2>
                 <p style="font-size: var(--tc-font-body-lg); color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                    Select your dates to see real-time availability and instant pricing for Dushi Hideaway
+                    Select your dates to see real-time availability and instant pricing for Happy Hideaway
                 </p>
             </div>
 
             <!-- Social Proof / Viewing Activity (Optional but Recommended) -->
             <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-sm); margin-bottom: var(--space-lg); padding: var(--space-md); background: rgba(98, 208, 201, 0.08); border-radius: var(--radius-lg); max-width: 400px; margin: 0 auto var(--space-lg);">
                 <i class="fas fa-users" style="color: var(--primary); font-size: 1.1rem;"></i>
-                <span style="color: var(--text-secondary); font-size: var(--tc-font-small); font-weight: 600;">12 families viewed Dushi Hideaway today</span>
+                <span style="color: var(--text-secondary); font-size: var(--tc-font-small); font-weight: 600;">12 families viewed Happy Hideaway today</span>
             </div>
 
             <!-- Lodgify Widget Container -->
@@ -1670,7 +1949,7 @@
 
                 <!-- Lodgify Widget -->
                 <div id="lodgify-book-now-box"
-                    data-rental-id="324227"
+                    data-rental-id="355309"
                     data-website-id="271939"
                     data-slug="tommycoconut"
                     data-language-code="en"
@@ -1726,7 +2005,7 @@
                 <div class="price-label">5-night minimum | 5.0★ rated</div>
             </div>
 
-            <button class="welcome-home-btn" onclick="bookNow()" aria-label="Check availability for Dushi Hideaway">
+            <button class="welcome-home-btn" onclick="bookNow()" aria-label="Check availability for Happy Hideaway">
                 <i class="fas fa-calendar-check" aria-hidden="true"></i>
                 Check Availability
             </button>
@@ -1735,11 +2014,9 @@
 
     <!-- Clean Footer -->
     <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
-        <div class="container">
-            <!-- Logo & Tagline -->
-            <div style="margin-bottom: var(--space-6);">
-                
-                <p style="color: var(--white); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light); text-align: center;">Where it's all about you.</p>
+        <div class="container">            <!-- Tagline -->
+            <div style="margin-bottom: var(--space-6); text-align: center;">
+                <p style="color: var(--white); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light);">Where it's all about you.</p>
             </div>
 
             <!-- Social Links -->
@@ -1782,89 +2059,322 @@
             }
         });
 
-        // Gallery functionality
-        // Gallery images for auto-rotation
+        // ===================================
+        // GALLERY DATA & STATE
+        // ===================================
+
         const galleryImages = [
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway',
-                alt: 'Private Resort'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-1',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-1',
+                alt: 'Happy Hideaway - Entrance View'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway',
-                alt: 'Private Pool & Cabana'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-2',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-2',
+                alt: 'Happy Hideaway - Pool Area'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway',
-                alt: 'Legendary Bamboo Beds'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-3',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-3',
+                alt: 'Happy Hideaway - Living Room'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway',
-                alt: 'Stress-Free Living'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-4',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-4',
+                alt: 'Happy Hideaway - Kitchen'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway',
-                alt: 'Ocean Views'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-5',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-5',
+                alt: 'Happy Hideaway - Master Bedroom'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway',
-                alt: 'Villa Interiors'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-6',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-6',
+                alt: 'Happy Hideaway - Bathroom'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway',
-                alt: 'Outdoor Living'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-7',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-7',
+                alt: 'Happy Hideaway - Outdoor Dining'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway',
-                alt: 'Pool Paradise'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-8',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-8',
+                alt: 'Happy Hideaway - Pool Paradise'
             },
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/tommy-coconut/villas/dushi-hideaway',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/tommy-coconut/villas/dushi-hideaway',
-                alt: 'Sunset Views'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-9',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-9',
+                alt: 'Happy Hideaway - Sunset Views'
             }
         ];
 
         let currentImageIndex = 0;
+        const thumbnailsPerView = 5; // Show 5 thumbnails at a time
+        let thumbnailStartIndex = 0;
 
-        function changeImage(src, thumbnail) {
-            document.getElementById('heroImage').src = src;
+        // ===================================
+        // CORE NAVIGATION FUNCTIONS
+        // ===================================
 
-            // Update active thumbnail
-            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-            thumbnail.classList.add('active');
+        /**
+         * Navigate gallery by direction (-1 for previous, +1 for next)
+         */
+        function navigateGallery(direction) {
+            const newIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+            selectImage(newIndex);
         }
 
-        function playVideo() {
-            // Open video modal or redirect to video URL
-            window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/villa-dushi-hideaway-tour', '_blank');
+        /**
+         * Select specific image by index
+         */
+        function selectImage(index) {
+            if (index === currentImageIndex) return;
+
+            const heroImage = document.getElementById('heroImage');
+            const oldIndex = currentImageIndex;
+
+            // Fade out current image
+            heroImage.classList.add('fading');
+
+            // Update after fade
+            setTimeout(() => {
+                currentImageIndex = index;
+
+                // Update hero image
+                heroImage.src = galleryImages[index].src;
+                heroImage.alt = `${galleryImages[index].alt} - Image ${index + 1} of ${galleryImages.length}`;
+
+                // Fade in new image
+                heroImage.classList.remove('fading');
+
+                // Update counter
+                document.getElementById('currentImageNumber').textContent = index + 1;
+
+                // Update thumbnails
+                updateThumbnails(index);
+
+                // Announce to screen readers
+                announceImageChange(index);
+
+                // Preload adjacent images
+                preloadAdjacentImages(index);
+            }, 250);
         }
 
-        // Auto-rotate gallery images
-        function rotateImages() {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            const currentImage = galleryImages[currentImageIndex];
+        /**
+         * Update thumbnail display and active states
+         */
+        function updateThumbnails(activeIndex) {
+            // Calculate if we need to shift the visible thumbnail window
+            if (activeIndex >= thumbnailStartIndex + thumbnailsPerView) {
+                // Scroll forward
+                thumbnailStartIndex = Math.min(activeIndex - thumbnailsPerView + 1, galleryImages.length - thumbnailsPerView);
+            } else if (activeIndex < thumbnailStartIndex) {
+                // Scroll backward
+                thumbnailStartIndex = activeIndex;
+            }
 
-            // Update hero image
-            document.getElementById('heroImage').src = currentImage.src;
+            // Re-render visible thumbnails
+            renderThumbnails(activeIndex);
+        }
 
-            // Update active thumbnail
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            thumbnails.forEach(t => t.classList.remove('active'));
-            if (thumbnails[currentImageIndex]) {
-                thumbnails[currentImageIndex].classList.add('active');
+        /**
+         * Render the visible thumbnail window
+         */
+        function renderThumbnails(activeIndex) {
+            const container = document.querySelector('.gallery-thumbnails');
+            container.innerHTML = '';
+
+            const endIndex = Math.min(thumbnailStartIndex + thumbnailsPerView, galleryImages.length);
+
+            for (let i = thumbnailStartIndex; i < endIndex; i++) {
+                const isActive = i === activeIndex;
+                const thumbnail = createThumbnailElement(i, isActive);
+                container.appendChild(thumbnail);
             }
         }
 
-        // Initialize auto-rotation
-        setInterval(rotateImages, 5000)
+        /**
+         * Create a thumbnail DOM element
+         */
+        function createThumbnailElement(index, isActive) {
+            const div = document.createElement('div');
+            div.className = `thumbnail${isActive ? ' active' : ''}`;
+            div.setAttribute('data-index', index);
+            div.setAttribute('onclick', `selectImage(${index})`);
+            div.setAttribute('onkeydown', `handleThumbnailKeydown(event, ${index})`);
+            div.setAttribute('tabindex', isActive ? '0' : '-1');
+            div.setAttribute('role', 'tab');
+            div.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            div.setAttribute('aria-label', `View image ${index + 1}`);
+
+            const img = document.createElement('img');
+            img.src = galleryImages[index].thumb;
+            img.alt = `${galleryImages[index].alt} - Thumbnail`;
+
+            div.appendChild(img);
+            return div;
+        }
+
+        /**
+         * Announce image change to screen readers
+         */
+        function announceImageChange(index) {
+            const announcement = `Viewing image ${index + 1} of ${galleryImages.length}: ${galleryImages[index].alt}`;
+
+            // Use existing counter as live region (already has aria-live)
+            const counter = document.querySelector('.image-counter');
+            if (counter) {
+                counter.setAttribute('aria-label', announcement);
+            }
+        }
+
+        // ===================================
+        // KEYBOARD NAVIGATION
+        // ===================================
+
+        /**
+         * Handle keyboard navigation on thumbnails
+         */
+        function handleThumbnailKeydown(event, index) {
+            switch(event.key) {
+                case 'Enter':
+                case ' ':
+                    event.preventDefault();
+                    selectImage(index);
+                    break;
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    navigateGallery(-1);
+                    focusCurrentThumbnail();
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    navigateGallery(1);
+                    focusCurrentThumbnail();
+                    break;
+                case 'Home':
+                    event.preventDefault();
+                    selectImage(0);
+                    focusCurrentThumbnail();
+                    break;
+                case 'End':
+                    event.preventDefault();
+                    selectImage(galleryImages.length - 1);
+                    focusCurrentThumbnail();
+                    break;
+            }
+        }
+
+        /**
+         * Focus the current active thumbnail
+         */
+        function focusCurrentThumbnail() {
+            setTimeout(() => {
+                const activeThumbnail = document.querySelector('.thumbnail.active');
+                if (activeThumbnail) {
+                    activeThumbnail.focus();
+                }
+            }, 100);
+        }
+
+        /**
+         * Global keyboard shortcuts (arrow keys anywhere on page)
+         */
+        document.addEventListener('keydown', (event) => {
+            // Only handle if gallery is visible and not typing in input
+            if (document.activeElement.tagName === 'INPUT' ||
+                document.activeElement.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                navigateGallery(-1);
+            } else if (event.key === 'ArrowRight') {
+                event.preventDefault();
+                navigateGallery(1);
+            }
+        });
+
+        // ===================================
+        // TOUCH GESTURE SUPPORT
+        // ===================================
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50;
+
+        const galleryHero = document.querySelector('.gallery-hero');
+
+        if (galleryHero) {
+            galleryHero.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                galleryHero.classList.add('swiping');
+            }, { passive: true });
+
+            galleryHero.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                galleryHero.classList.remove('swiping');
+                handleSwipe();
+            }, { passive: true });
+        }
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance > 0) {
+                    // Swipe right = previous image
+                    navigateGallery(-1);
+                } else {
+                    // Swipe left = next image
+                    navigateGallery(1);
+                }
+            }
+        }
+
+        // ===================================
+        // IMAGE PRELOADING
+        // ===================================
+
+        /**
+         * Preload adjacent images for smooth transitions
+         */
+        function preloadAdjacentImages(currentIndex) {
+            const imagesToPreload = [
+                (currentIndex + 1) % galleryImages.length,
+                (currentIndex - 1 + galleryImages.length) % galleryImages.length
+            ];
+
+            imagesToPreload.forEach(index => {
+                const img = new Image();
+                img.src = galleryImages[index].src;
+            });
+        }
+
+        // ===================================
+        // INITIALIZATION
+        // ===================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set total images count
+            const totalImagesElement = document.getElementById('totalImages');
+            if (totalImagesElement) {
+                totalImagesElement.textContent = galleryImages.length;
+            }
+
+            // Preload first few images
+            preloadAdjacentImages(0);
+
+            // Initial render of thumbnails
+            renderThumbnails(0);
+
+            console.log('Tommy Coconut Gallery initialized with', galleryImages.length, 'images');
+        })
 
         // Reviews carousel
         let currentReview = 0;
@@ -1923,7 +2433,7 @@
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'booking_widget_scrolled', {
                     'event_category': 'engagement',
-                    'event_label': 'Dushi Hideaway'
+                    'event_label': 'Happy Hideaway'
                 });
             }
         }
@@ -1972,7 +2482,7 @@
                 // Analytics tracking
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'video_play', {
-                        'video_name': 'dushi_hideaway_aerial_tour',
+                        'video_name': 'happy_hideaway_aerial_tour',
                         'video_location': 'act_2_to_3_transition'
                     });
                 }
