@@ -1,0 +1,2507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Hideaway - Your Private Resort | Tommy Coconut</title>
+    <meta name="description" content="Happy Hideaway: Where we've declared war on vacation stress. Guests call this the 'best Airbnb experience ever.' Your Private Resort with VIP car, boat trip, gourmet services, and zero hidden fees.">
+    
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Cloudinary Configuration -->
+    <script src="cloudinary-config.js"></script>
+
+    <!-- Lodgify Book Now Box Styles - Tommy Coconut Branding -->
+    <style>
+        :root {
+            --ldg-bnb-background: #ffffff;
+            --ldg-bnb-border-radius: 0.42em;
+            --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
+            --ldg-bnb-padding: 14px;
+            --ldg-bnb-input-background: #ffffff;
+            --ldg-bnb-button-border-radius: 3.58em;
+
+            --ldg-bnb-color-primary: #75e6da;
+            --ldg-bnb-color-primary-lighter:#baf3ed;
+            --ldg-bnb-color-primary-darker: #3b736d;
+            --ldg-bnb-color-primary-contrast: #333333;
+            --ldg-component-calendar-cell-selection-bg-color: #75e6da;
+            --ldg-component-calendar-cell-selection-color: #333333;
+            --ldg-component-calendar-cell-selected-bg-color: #baf3ed;
+            --ldg-component-calendar-cell-selected-color: #333333;
+            --ldg-bnb-font-family: inherit;
+        }
+        #lodgify-book-now-box {
+            width: 100%;
+        }
+    </style>
+
+    <style>
+        :root {
+            /* Tommy Coconut Brand Colors */
+            --tc-primary: #62D0C9;
+            --tc-navy-light: #005A5B;
+            --tc-accent: #00CFCF;
+
+            /* Backward compatibility aliases */
+            --primary: var(--tc-primary);
+            --secondary: var(--tc-navy-light);
+            --accent: var(--tc-accent);
+
+            /* Text & Surface Colors */
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-inverse: #FFFFFF;
+            --surface: #F8F9FA;
+            --surface-elevated: #FFFFFF;
+            --white: #FFFFFF;
+
+            /* Typography Scale - Tommy Coconut Design System */
+            --tc-font-hero: clamp(3.2rem, 6vw, 4.5rem);
+            --tc-font-h1: clamp(2.5rem, 5vw, 3.5rem);
+            --tc-font-h2: clamp(2rem, 4vw, 2.5rem);
+            --tc-font-h3: clamp(1.5rem, 3vw, 1.8rem);
+            --tc-font-body-xl: clamp(1.15rem, 2.2vw, 1.375rem);
+            --tc-font-body-lg: 1.125rem;
+            --tc-font-body: 1rem;
+            --tc-font-small: 0.875rem;
+
+            /* Legacy typography aliases */
+            --text-lg: var(--tc-font-body-lg);
+            --text-xl: 1.25rem;
+            --text-sm: var(--tc-font-small);
+
+            /* Spacing System */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+
+            /* Font Weights */
+            --font-weight-light: 300;
+            --weight-regular: 400;
+            --weight-semibold: 600;
+            --weight-bold: 700;
+
+            /* Border Radius */
+            --border-radius: 12px;
+            --radius-md: 0.5rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
+            --radius-full: 50px;
+
+            /* Shadows */
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+            --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.2);
+
+            /* Transitions */
+            --transition-normal: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+
+            /* Brand Extras */
+            --tc-driftwood-sand: #F5E6D3;
+            --teal: #008080;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--surface);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .dushi-word {
+            color: var(--primary);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Floating Conversion Engine */
+        .floating-booking {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(98, 208, 201, 0.3);
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+            padding: var(--space-lg) var(--space-xl);
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .floating-booking.visible {
+            transform: translateY(0);
+        }
+
+        .booking-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .date-selector {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .date-input {
+            padding: var(--space-sm) var(--space-md);
+            border: 2px solid #E5E7EB;
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--tc-font-small);
+            transition: var(--transition-normal);
+        }
+
+        .date-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(98, 208, 201, 0.1);
+        }
+
+        .price-display {
+            text-align: right;
+        }
+
+        .price-amount {
+            font-size: var(--tc-font-h3);
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .price-label {
+            font-size: var(--tc-font-small);
+            color: var(--text-secondary);
+        }
+
+        .welcome-home-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: var(--tc-font-body-lg);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            box-shadow: 0 4px 20px rgba(98, 208, 201, 0.4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .welcome-home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(98, 208, 201, 0.6);
+        }
+
+        /* ===================================
+           HERO GALLERY - REDESIGNED
+           =================================== */
+
+        .gallery-hero {
+            height: 70vh;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        /* Main Hero Image */
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+            opacity: 1;
+        }
+
+        .hero-image.fading {
+            opacity: 0;
+        }
+
+        /* Navigation Container - Centered at Bottom */
+        .gallery-navigation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-2xl);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        /* Image Counter */
+        .image-counter {
+            color: white;
+            font-size: var(--tc-font-small);
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.4);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            letter-spacing: 0.5px;
+        }
+
+        /* Thumbnail Container - CENTERED */
+        .gallery-thumbnails {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+            justify-content: center;
+            max-width: 600px;
+            position: relative;
+        }
+
+        /* Individual Thumbnails */
+        .thumbnail {
+            width: 90px;
+            height: 65px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid transparent;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            position: relative;
+        }
+
+        .thumbnail::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+            opacity: 1;
+        }
+
+        .thumbnail:hover::before {
+            opacity: 0;
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-4px) scale(1.05);
+            border-color: rgba(98, 208, 201, 0.5);
+        }
+
+        .thumbnail.active {
+            border-color: var(--primary);
+            transform: scale(1.08);
+        }
+
+        .thumbnail.active::before {
+            opacity: 0;
+        }
+
+        .thumbnail:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Navigation Arrows - ALWAYS VISIBLE */
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        .gallery-arrow:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(98, 208, 201, 0.4);
+        }
+
+        .gallery-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .gallery-arrow:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 4px;
+        }
+
+        .gallery-arrow-left {
+            left: var(--space-xl);
+        }
+
+        .gallery-arrow-right {
+            right: var(--space-xl);
+        }
+
+        /* Arrow Icons */
+        .gallery-arrow i {
+            pointer-events: none;
+        }
+
+        /* Loading State */
+        .hero-image.loading {
+            opacity: 0.5;
+        }
+
+        /* ===================================
+           MOBILE OPTIMIZATION
+           =================================== */
+
+        @media (max-width: 768px) {
+            .gallery-hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .gallery-navigation {
+                padding: var(--space-lg) var(--space-md);
+            }
+
+            /* Smaller thumbnails on mobile */
+            .thumbnail {
+                width: 64px;
+                height: 48px;
+            }
+
+            /* Slightly smaller arrows on mobile */
+            .gallery-arrow {
+                width: 48px;
+                height: 48px;
+                font-size: 1.25rem;
+            }
+
+            .gallery-arrow-left {
+                left: var(--space-md);
+            }
+
+            .gallery-arrow-right {
+                right: var(--space-md);
+            }
+
+            /* Show only 3 thumbnails on very small screens */
+            .gallery-thumbnails {
+                max-width: 280px;
+            }
+
+            .image-counter {
+                font-size: 0.75rem;
+                padding: var(--space-xs) var(--space-sm);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+
+            .thumbnail {
+                width: 56px;
+                height: 42px;
+            }
+
+            .gallery-arrow {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Touch Gestures */
+        .gallery-hero.swiping {
+            cursor: grabbing;
+        }
+
+        /* Accessibility Enhancements */
+        .skip-gallery {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 100;
+        }
+
+        .skip-gallery:focus {
+            top: var(--space-md);
+            left: var(--space-md);
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-image,
+            .thumbnail,
+            .gallery-arrow {
+                transition: none;
+            }
+        }
+
+        /* Villa Story Section - Act 2 */
+        .villa-story {
+            padding: var(--space-3xl) var(--space-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .villa-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.2;
+        }
+
+        .villa-narrative {
+            font-size: var(--tc-font-body-xl);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .villa-narrative strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Specs Section - Act 3 */
+        .villa-specs {
+            background: var(--surface-elevated);
+            padding: var(--space-3xl) var(--space-xl);
+        }
+
+        .specs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .specs-title {
+            text-align: center;
+            font-size: var(--tc-font-h2);
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05));
+            border-radius: var(--border-radius);
+            transition: var(--transition-normal);
+        }
+
+        .spec-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .spec-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .spec-content h3 {
+            font-size: var(--tc-font-body-xl);
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .spec-content p {
+            color: var(--text-secondary);
+        }
+
+        .spec-wit {
+            color: var(--primary);
+            font-size: var(--tc-font-small);
+            font-style: italic;
+            margin-top: var(--space-xs);
+        }
+
+        /* Win at Vacationing Pass Section - Act 4 */
+        .win-pass {
+            padding: var(--space-3xl) var(--space-xl);
+            background: linear-gradient(135deg, var(--secondary) 0%, #1A4B52 100%);
+            color: white;
+        }
+
+        .win-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .win-title {
+            font-size: var(--tc-font-h2);
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+            color: white;
+        }
+
+        .win-subtitle {
+            font-size: var(--tc-font-body-xl);
+            opacity: 0.95;
+            margin-bottom: var(--space-2xl);
+            color: white;
+        }
+
+        .win-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .win-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: var(--space-2xl);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-normal);
+        }
+
+        .win-item:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .win-item-icon {
+            width: 100%;
+            height: 120px;
+            background: var(--tc-driftwood-sand) !important;
+            color: var(--secondary) !important;
+            margin-bottom: var(--space-lg);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-normal);
+        }
+
+        .win-item-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Pass Icon Styling */
+        .pass-icon {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            border-radius: var(--radius-lg);
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .win-item h3 {
+            font-size: var(--tc-font-h3);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            color: white;
+        }
+
+        .win-item p {
+            line-height: 1.7;
+            opacity: 0.95;
+            font-size: var(--tc-font-body);
+            color: white;
+        }
+
+        .win-highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Reviews Section - Act 5 */
+        .reviews-section {
+            padding: var(--space-3xl) var(--space-xl);
+            background: var(--surface-elevated);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-title {
+            text-align: center;
+            font-size: var(--tc-font-h2);
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .reviews-carousel {
+            position: relative;
+        }
+
+        .review-item {
+            display: none;
+            text-align: center;
+            padding: var(--space-3xl) var(--space-2xl);
+            background: linear-gradient(135deg, rgba(98, 208, 201, 0.06), rgba(0, 207, 207, 0.06));
+            border-radius: var(--radius-xl);
+            margin: var(--space-lg) 0;
+            min-height: 280px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(98, 208, 201, 0.12);
+            transition: var(--transition-normal);
+        }
+
+        .review-item.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .review-stars {
+            font-size: 1.75rem;
+            color: #FFB800;
+            margin-bottom: var(--space-xl);
+            letter-spacing: 4px;
+            text-shadow: 0 2px 4px rgba(255, 184, 0, 0.2);
+        }
+
+        .review-text {
+            font-size: var(--tc-font-body-xl);
+            line-height: 1.8;
+            color: var(--text-primary);
+            font-style: italic;
+            margin-bottom: var(--space-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .review-author {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: var(--tc-font-body);
+            font-style: normal;
+        }
+
+        .review-dots {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-top: var(--space-2xl);
+        }
+
+        .review-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(98, 208, 201, 0.25);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            border: 2px solid transparent;
+        }
+
+        .review-dot:hover {
+            background: rgba(98, 208, 201, 0.5);
+            transform: scale(1.15);
+        }
+
+        .review-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 12px rgba(98, 208, 201, 0.4);
+        }
+
+        /* Tab Buttons - ENHANCED PHASE 3 */
+        .week-tab {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .week-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(98, 208, 201, 0.35);
+        }
+
+        .week-tab:active {
+            transform: translateY(0);
+        }
+
+        /* Tab Content Transitions */
+        .tab-content {
+            animation: fadeInTab 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Universal Link Hover States */
+        a:not(.cta-primary):not(.cta-secondary):not(.btn) {
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        a:not(.cta-primary):not(.cta-secondary):not(.btn):hover {
+            opacity: 0.8;
+        }
+
+        /* Review Dots Enhanced */
+        .review-dot {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .review-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .review-dot:active {
+            transform: scale(1.1);
+        }
+
+        /* Card Hover Effects - Subtle Elevation */
+        .spec-item,
+        .win-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+        }
+
+        /* Thumbnail Interactions */
+        .thumbnail {
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .thumbnail:active {
+            transform: scale(1.05);
+        }
+
+        /* Trust Badge Interactions */
+        .trust-badge {
+            transition: all 0.3s ease;
+        }
+
+        /* FAQ Item Enhanced Hover */
+        .faq-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+        }
+
+        .faq-item:hover {
+            transform: translateX(4px);
+        }
+
+        /* Mobile Responsiveness - PHASE 3 POLISH */
+        @media (max-width: 768px) {
+            /* Floating Booking Bar Optimizations - PERFECTED */
+            .floating-booking {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: var(--space-md) var(--space-lg);
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+                z-index: 1001; /* Above navigation */
+            }
+
+            .booking-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+                text-align: center;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .date-selector {
+                justify-content: center;
+                flex-direction: column;
+                gap: var(--space-sm);
+                width: 100%;
+            }
+
+            .date-input {
+                width: 100%;
+                min-height: 48px; /* iOS touch target */
+                font-size: 16px; /* Prevents iOS zoom */
+                padding: var(--space-md);
+            }
+
+            .price-display {
+                text-align: center;
+                padding: var(--space-md) 0;
+                border-top: 1px solid rgba(0, 207, 207, 0.1);
+                border-bottom: 1px solid rgba(0, 207, 207, 0.1);
+            }
+
+            .price-amount {
+                font-size: var(--tc-font-body-lg);
+            }
+
+            .welcome-home-btn {
+                width: 100%;
+                min-height: 52px; /* Premium touch target */
+                font-size: var(--tc-font-body-lg);
+                padding: var(--space-md) var(--space-lg);
+            }
+
+            /* Comparison Table Mobile Optimization - SMOOTH SCROLL */
+            .why-here-table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+            }
+
+            /* Gallery Thumbnails - TOUCH-FRIENDLY */
+            .gallery-thumbnails {
+                bottom: var(--space-md);
+                left: var(--space-md);
+                right: var(--space-md);
+                gap: var(--space-sm);
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: var(--space-xs);
+            }
+
+            .thumbnail {
+                width: 64px; /* 44px+ touch target */
+                height: 48px;
+                flex-shrink: 0;
+            }
+
+            /* Section Padding - HARMONIOUS RHYTHM */
+            .villa-story,
+            .villa-specs,
+            .win-pass,
+            .reviews-section {
+                padding: var(--space-2xl) var(--space-lg);
+            }
+
+            /* Grid Layouts */
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+
+            .win-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+
+            /* Tab Buttons - TOUCH OPTIMIZED */
+            .week-tab {
+                min-width: 100px;
+                min-height: 48px; /* iOS touch target */
+                padding: var(--space-md) var(--space-lg);
+                font-size: var(--tc-font-body);
+                flex: 1;
+            }
+
+            /* Location Cards Mobile */
+            .location-card {
+                padding: var(--space-lg) !important;
+            }
+
+            /* Trust Badges Mobile */
+            .trust-badge {
+                font-size: var(--tc-font-small);
+                padding: var(--space-sm);
+            }
+
+            /* ============================================ */
+            /* INLINE BOOKING WIDGET - MOBILE STYLES */
+            /* ============================================ */
+
+            /* Widget section spacing */
+            #bookingWidget {
+                padding: var(--space-2xl) var(--space-md) !important;
+            }
+
+            /* Widget container padding */
+            #bookingWidget > div > div:nth-child(3) {
+                padding: var(--space-lg) !important;
+            }
+
+            /* Header text size */
+            #bookingWidget h2 {
+                font-size: var(--tc-font-h2) !important;
+            }
+
+            /* Trust badges stack vertically */
+            #bookingWidget > div > div:nth-child(4) {
+                gap: var(--space-md) !important;
+            }
+
+            /* Hide bullet separators on mobile */
+            #bookingWidget > div > div:nth-child(4) span:nth-of-type(2),
+            #bookingWidget > div > div:nth-child(4) span:nth-of-type(4) {
+                display: none;
+            }
+
+            /* Skeleton loader smaller */
+            .widget-skeleton > div:first-child {
+                height: 30px !important;
+            }
+
+            .widget-skeleton > div:nth-child(2) {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-sm) !important;
+            }
+
+            .widget-skeleton > div:nth-child(2) > div {
+                height: 50px !important;
+            }
+
+            /* Hide widget button larger tap target */
+            #bookingWidget button {
+                padding: var(--space-md) var(--space-xl) !important;
+                font-size: var(--tc-font-body) !important;
+            }
+
+            /* Viewing activity badge smaller */
+            #bookingWidget > div > div:nth-child(2) {
+                font-size: 0.75rem !important;
+                padding: var(--space-sm) !important;
+            }
+        }
+
+        /* Mobile Responsive Styles for New Image Layouts */
+        @media (max-width: 968px) {
+            /* Two-Column Hero Section - Stack on Mobile */
+            .villa-story > div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-xl) !important;
+            }
+
+            /* Hero Title - Center on Mobile */
+            .villa-story .villa-title {
+                text-align: center !important;
+            }
+
+            /* Hero Narrative - Center on Mobile */
+            .villa-story .villa-narrative {
+                text-align: center !important;
+            }
+
+            /* Hero Ratings - Center on Mobile */
+            .villa-story > div > div > div[style*="justify-content: flex-start"] {
+                justify-content: center !important;
+            }
+
+            /* Our Promise - Center on Mobile */
+            .villa-story h3,
+            .villa-story p {
+                text-align: center !important;
+            }
+
+            /* Feature Image - Remove Sticky on Mobile */
+            .villa-story > div > div[style*="position: sticky"] {
+                position: relative !important;
+                top: auto !important;
+            }
+
+            /* Location Hero Image - Adjust Height on Mobile */
+            section[style*="Your Jan Thiel Base"] img[style*="height: 300px"] {
+                height: 200px !important;
+            }
+        }
+
+        /* Additional Mobile Optimizations for Category Images */
+        @media (max-width: 480px) {
+            /* Category Images in Private Oasis - Smaller on Mobile */
+            div[style*="hh-5"] img,
+            div[style*="hh-4"] img,
+            div[style*="hh-7"] img {
+                height: 120px !important;
+            }
+
+            /* Hero Feature Image - Smaller Radius on Mobile */
+            .villa-story img[src*="hh-3"] {
+                border-radius: var(--radius-md) !important;
+            }
+
+            /* Location Image - Smaller Height on Small Screens */
+            section img[src*="hh-8"][style*="height: 300px"] {
+                height: 180px !important;
+            }
+
+            /* ============================================ */
+            /* INLINE BOOKING WIDGET - EXTRA SMALL SCREENS */
+            /* ============================================ */
+
+            /* Even smaller screens */
+            #bookingWidget {
+                padding: var(--space-xl) var(--space-sm) !important;
+            }
+
+            #bookingWidget > div > div:nth-child(3) {
+                padding: var(--space-md) !important;
+            }
+        }
+
+        /* === PHASE 1 IMPROVEMENTS: CTA HIERARCHY & TYPOGRAPHY === */
+
+        /* CTA Hierarchy System */
+        .cta-primary {
+            display: inline-block;
+            padding: var(--space-lg) var(--space-2xl);
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            font-weight: 700;
+            font-size: var(--tc-font-body-xl);
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(98, 208, 201, 0.3);
+            transition: var(--transition-normal);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(98, 208, 201, 0.4);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            padding: var(--space-md) var(--space-2xl);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-full);
+            background: transparent;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: var(--tc-font-body-lg);
+            text-decoration: none;
+            transition: var(--transition-normal);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(98, 208, 201, 0.08);
+            transform: translateY(-1px);
+        }
+
+        /* Typography Standardization */
+        h1, .villa-title {
+            font-weight: 800 !important;
+            line-height: 1.15 !important;
+            letter-spacing: -0.02em;
+        }
+
+        h2, .section-title {
+            font-weight: 700 !important;
+            line-height: 1.25 !important;
+        }
+
+        h3, .subsection-title {
+            font-weight: 700 !important;
+            line-height: 1.4 !important;
+        }
+
+        /* Improved Two-Column Hero for Tablet */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .villa-story > div[style*="grid-template-columns"] {
+                gap: var(--space-2xl) !important;
+            }
+        }
+
+        /* Mobile CTA Optimization */
+        @media (max-width: 768px) {
+            .cta-primary, .cta-secondary {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <!-- Elfsight Platform Script -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <!-- Top Banner - Social Proof -->
+    <div class="top-banner">
+        <div class="container">
+            <a href="reviews.html" class="banner-link">
+                <span class="banner-icon">🏖️</span>
+                <span class="banner-text" style="color: var(--text-inverse);">1,347+ Happy Guests</span>
+                <span class="banner-cta" style="color: var(--text-inverse);">• Read Reviews</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation - Left Logo, Center Nav, Right CTA Layout -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left Logo -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" alt="Tommy Coconut - Where it's all about you. - Curaçao Vacation Rentals">
+                </a>
+            </div>
+
+            <!-- Center Navigation Menu -->
+            <ul class="nav-menu">
+                <li><a href="why-a-private-resort.html">Why a Private Resort?</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <!-- Right CTA Button -->
+            <div class="nav-cta-button">
+                <a href="#bookingWidget" class="btn btn-primary-nav" onclick="bookNow(); return false;">CHECK AVAILABILITY</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Act 1: The Cinematic Reveal -->
+    <section class="gallery-hero" style="margin-top: 120px;"
+             role="region"
+             aria-label="Property image gallery"
+             id="propertyGallery">
+
+        <!-- Skip link for accessibility -->
+        <a href="#propertyContent" class="skip-gallery">Skip gallery</a>
+
+        <!-- Main Hero Image -->
+        <img id="heroImage"
+             src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-1"
+             alt="Happy Hideaway Private Resort - Image 1 of 9"
+             class="hero-image"
+             loading="eager">
+
+        <!-- Left Arrow -->
+        <button class="gallery-arrow gallery-arrow-left"
+                onclick="navigateGallery(-1)"
+                aria-label="Previous image"
+                type="button">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <!-- Right Arrow -->
+        <button class="gallery-arrow gallery-arrow-right"
+                onclick="navigateGallery(1)"
+                aria-label="Next image"
+                type="button">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Navigation Container (centered at bottom) -->
+        <div class="gallery-navigation">
+            <!-- Image Counter -->
+            <div class="image-counter" aria-live="polite" aria-atomic="true">
+                <span id="currentImageNumber">1</span> / <span id="totalImages">9</span>
+            </div>
+
+            <!-- Thumbnail Navigation -->
+            <div class="gallery-thumbnails" role="tablist" aria-label="Property images">
+                <div class="thumbnail active"
+                     data-index="0"
+                     onclick="selectImage(0)"
+                     onkeydown="handleThumbnailKeydown(event, 0)"
+                     tabindex="0"
+                     role="tab"
+                     aria-selected="true"
+                     aria-label="View image 1">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-1"
+                         alt="Happy Hideaway - View 1">
+                </div>
+                <div class="thumbnail"
+                     data-index="1"
+                     onclick="selectImage(1)"
+                     onkeydown="handleThumbnailKeydown(event, 1)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 2">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-2"
+                         alt="Happy Hideaway - View 2">
+                </div>
+                <div class="thumbnail"
+                     data-index="2"
+                     onclick="selectImage(2)"
+                     onkeydown="handleThumbnailKeydown(event, 2)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 3">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-3"
+                         alt="Happy Hideaway - View 3">
+                </div>
+                <div class="thumbnail"
+                     data-index="3"
+                     onclick="selectImage(3)"
+                     onkeydown="handleThumbnailKeydown(event, 3)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 4">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-4"
+                         alt="Happy Hideaway - View 4">
+                </div>
+                <div class="thumbnail"
+                     data-index="4"
+                     onclick="selectImage(4)"
+                     onkeydown="handleThumbnailKeydown(event, 4)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 5">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-5"
+                         alt="Happy Hideaway - View 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next section anchor for skip link -->
+    <div id="propertyContent"></div>
+
+    <!-- Quick Stats Strip - Above the Fold - IMPROVED -->
+    <section style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(98, 208, 201, 0.06) 100%); padding: var(--space-3xl) var(--space-lg); border-bottom: 1px solid rgba(98, 208, 201, 0.15);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-2xl); text-align: center;">
+                <!-- Stat 1: Bedrooms/Baths -->
+                <div style="padding: var(--space-md);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: var(--space-xs);">3 bed / 2 bath</div>
+                    <div style="font-size: var(--tc-font-small); color: var(--text-secondary);">Sleeps 3</div>
+                </div>
+
+                <!-- Stat 2: Pool & Amenities -->
+                <div style="padding: var(--space-md);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: var(--space-xs);">Private pool</div>
+                    <div style="font-size: var(--tc-font-small); color: var(--text-secondary);">Hot tub + cabana</div>
+                </div>
+
+                <!-- Stat 3: EV-SUV -->
+                <div style="padding: var(--space-md);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: var(--space-xs);">EV-SUV</div>
+                    <div style="font-size: var(--tc-font-small); color: var(--text-secondary);">At your door</div>
+                </div>
+
+                <!-- Stat 4: Private Boat -->
+                <div style="padding: var(--space-md);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: var(--space-xs);">Private boat</div>
+                    <div style="font-size: var(--tc-font-small); color: var(--text-secondary);">+ captain</div>
+                </div>
+
+                <!-- Stat 5: Family Concierge -->
+                <div style="padding: var(--space-md);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: var(--space-xs);">Concierge</div>
+                    <div style="font-size: var(--tc-font-small); color: var(--text-secondary);">24/7 family care</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 2: The Soul of the Sanctuary -->
+    <section class="villa-story">
+        <!-- Two-Column Hero Layout - IMPROVED -->
+        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-3xl); align-items: center; margin-bottom: var(--space-3xl);">
+            <!-- Left Column: Content -->
+            <div>
+                <h1 class="villa-title" style="text-align: left; margin-bottom: var(--space-lg); font-weight: 600;">Happy Hideaway — Your Private Resort in Curaçao</h1>
+                <p style="font-size: var(--tc-font-body-xl); margin-bottom: var(--space-lg); font-weight: 600; color: var(--secondary); text-align: left; line-height: 1.6;">
+                    A luxury home + your EV-SUV + private boat & captain + Family Concierge. 3 signature experiences included.
+                </p>
+                <div style="display: flex; align-items: center; justify-content: flex-start; gap: var(--space-md); margin-bottom: var(--space-2xl); flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: var(--space-xs); font-size: var(--tc-font-body-lg);">
+                        <span style="color: #FFD700; font-size: var(--tc-font-body-xl);">★</span>
+                        <span style="font-weight: 700; color: var(--primary);">4.99</span>
+                    </div>
+                    <span style="color: var(--text-secondary);">from 500+ reviews</span>
+                    <span style="color: var(--text-secondary);">·</span>
+                    <span style="color: var(--text-secondary); font-weight: 600;">Jan Thiel base</span>
+                </div>
+                <p style="font-size: var(--tc-font-body-lg); text-align: left; line-height: 1.75; color: var(--text-primary);">
+                    A great vacation isn't about where you go—it's about <strong style="font-weight: 600; color: var(--secondary);">how you feel</strong>. At Happy Hideaway, you don't just check in… you unwind completely. From wheels-down to your last sunset toast, every detail is curated so you can disconnect—no planning, no stress, <strong style="font-weight: 600; color: var(--secondary);">just peace</strong>.
+                </p>
+            </div>
+
+            <!-- Right Column: Feature Image - IMPROVED -->
+            <div style="position: relative;">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_450,ar_4:5,c_fill,g_auto/hh-3"
+                     alt="Happy Hideaway Private Resort - Your tropical sanctuary"
+                     loading="lazy"
+                     style="max-width: 450px; max-height: 550px; width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); object-fit: cover; transition: var(--transition-normal);">
+            </div>
+        </div>
+
+        <!-- CTA: Check Availability (Centered Below Two Columns) -->
+        <div style="text-align: center; margin: var(--space-2xl) 0;">
+            <a href="#bookingWidget" onclick="bookNow(); return false;" class="cta-secondary">
+                Check Availability
+            </a>
+        </div>
+    </section>
+
+    <!-- Why Here Comparison -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: rgba(98, 208, 201, 0.05);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Why Here</h2>
+
+            <!-- PHASE 3: Enhanced table wrapper with smooth scroll -->
+            <div class="why-here-table-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; border-radius: var(--radius-lg); box-shadow: var(--shadow-elevated);">
+                <table style="width: 100%; min-width: 650px; border-collapse: collapse; background: white; border-radius: var(--border-radius); overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, var(--secondary), #1A4B52);">
+                            <th style="padding: var(--space-lg); text-align: left; color: white; font-weight: 600;">You're choosing…</th>
+                            <th style="padding: var(--space-lg); text-align: center; color: rgba(255,255,255,0.8); font-weight: 500;">Hotel / AI</th>
+                            <th style="padding: var(--space-lg); text-align: center; color: rgba(255,255,255,0.8); font-weight: 500;">Vacation rental</th>
+                            <th style="padding: var(--space-lg); text-align: center; color: white; font-weight: 700; background: rgba(98, 208, 201, 0.2);">This Private Resort</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Mobility</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Taxis/queues</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Rental counters</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">EV-SUV at home + free charging</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Sea days</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Group boats</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">DIY captains</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">Private boat + captain included</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(0, 207, 207, 0.1);">
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Agenda</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Their schedule</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Your admin</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">Your schedule, zero friction</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: var(--space-lg); font-weight: 600; color: var(--secondary);">Being expected</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Wristbands</td>
+                            <td style="padding: var(--space-lg); text-align: center; color: var(--text-secondary);">Booking numbers</td>
+                            <td style="padding: var(--space-lg); text-align: center; font-weight: 600; color: var(--primary); background: rgba(98, 208, 201, 0.05);">Pre-intro, right windows</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section - Property Tour From Above -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface);">
+        <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+
+            <!-- Section Header -->
+            <div style="margin-bottom: var(--space-2xl);">
+                <h2 style="font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">
+                    Now, Close Your Eyes and Float Above Your Week
+                </h2>
+                <p style="font-size: var(--tc-font-body-lg); color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7;">
+                    Let's pause the comparisons for a moment. Just watch. See your mornings by that pool, your evenings on that veranda, your family finding their rhythm in this peaceful corner of the Caribbean. No rush. No agenda. Just your people, this place, and time to simply be.
+                </p>
+            </div>
+
+            <!-- Video Container with Thumbnail -->
+            <div id="videoContainer" style="position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-elevated); max-width: 900px; margin: 0 auto; cursor: pointer; transition: var(--transition-normal);"
+                 onclick="playPropertyVideo()"
+                 onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 16px 48px rgba(0, 0, 0, 0.15)'"
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-elevated)'">
+
+                <!-- Video Element (hidden until play) -->
+                <video id="propertyVideo"
+                       style="width: 100%; height: auto; display: none; border-radius: var(--radius-xl);"
+                       controls
+                       controlsList="nodownload"
+                       preload="metadata"
+                       poster="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto,w_1800/Happy_Hideaway_xdwjkp.jpg">
+                    <source src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto/Happy_Hideaway_xdwjkp.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Thumbnail with Play Button Overlay -->
+                <div id="videoThumbnail" style="position: relative; width: 100%; aspect-ratio: 16/9;">
+                    <!-- Thumbnail Image (Cloudinary auto-generates from video) -->
+                    <img src="https://res.cloudinary.com/dhschyq40/video/upload/f_auto,q_auto,w_1800/Happy_Hideaway_xdwjkp.jpg"
+                         alt="Aerial view of Happy Hideaway Private Resort"
+                         loading="lazy"
+                         style="width: 100%; height: 100%; object-fit: cover;">
+
+                    <!-- Play Button Overlay -->
+                    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(2px); transition: var(--transition-normal);">
+                        <div style="width: 80px; height: 80px; background: rgba(255, 255, 255, 0.95); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
+                            <i class="fas fa-play" style="color: var(--primary); font-size: 2rem; margin-left: 4px;"></i>
+                        </div>
+                    </div>
+
+                    <!-- Video Duration Badge -->
+                    <div style="position: absolute; bottom: 16px; right: 16px; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px); padding: var(--space-xs) var(--space-md); border-radius: 20px; font-size: var(--tc-font-small); font-weight: 600; color: white;">
+                        <i class="far fa-clock" style="margin-right: var(--space-xs);"></i> 1:30
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subtle CTA Below Video -->
+            <p style="margin-top: var(--space-2xl); font-size: var(--tc-font-body); color: var(--text-secondary);">
+                Feeling it? Good. That feeling has a calendar →
+            </p>
+
+        </div>
+    </section>
+
+    <!-- Act 3: Your Private Oasis - Merged & Enhanced -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Your Private Oasis</h2>
+            <p style="text-align: center; font-size: var(--tc-font-body-lg); color: var(--text-secondary); margin-bottom: var(--space-2xl); max-width: 700px; margin-left: auto; margin-right: auto;">Everything you need for the perfect week. Nothing you don't.</p>
+
+            <!-- Main Grid: 3 Categories -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-2xl); margin-bottom: var(--space-3xl);">
+
+                <!-- OUTDOORS -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
+                    <!-- Category Image -->
+                    <div style="margin-bottom: var(--space-xl);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/9f97bb52-0859-4d47-85cb-866836c8e0ff_mc4hrr"
+                             alt="Outdoor living at Happy Hideaway"
+                             loading="lazy"
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
+                    </div>
+                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-umbrella-beach" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Outdoors
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Private pool & hot tub</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Shaded cabana with lounge seating</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Alfresco dining for 6</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>BBQ grill & outdoor kitchen</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Breezy veranda with sunrise views</li>
+                    </ul>
+                </div>
+
+                <!-- INDOORS -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
+                    <!-- Category Image -->
+                    <div style="margin-bottom: var(--space-xl);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/2a7ad9dd-6050-4df9-b987-f042913dc877_go3w7a"
+                             alt="Indoor living at Happy Hideaway"
+                             loading="lazy"
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
+                    </div>
+                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-couch" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Indoors
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Open living & dining area</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Chef-ready kitchen (full appliances)</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Sonos sound system</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Smart TV with streaming</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Fast Wi-Fi throughout</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>A/C in all rooms</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7; font-style: italic;"><i class="fas fa-star" style="color: var(--primary); margin-right: var(--space-md);"></i>Peace treaties for kids vs. parents</li>
+                    </ul>
+                </div>
+
+                <!-- SLEEP -->
+                <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.05), rgba(0, 207, 207, 0.05)); padding: var(--space-2xl); border-radius: var(--border-radius); border-left: 4px solid var(--primary); box-shadow: var(--shadow); position: relative; overflow: hidden;">
+                    <!-- Category Image -->
+                    <div style="margin-bottom: var(--space-xl);">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_400,h_160,c_fill,g_auto/hh-10"
+                             alt="Bedrooms at Happy Hideaway"
+                             loading="lazy"
+                             style="width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transition: var(--transition-normal);">
+                    </div>
+                    <h3 style="font-size: var(--tc-font-h3); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md);">
+                        <i class="fas fa-bed" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Sleep
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i><strong>3 bedrooms / 2 bathrooms</strong></li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Legendary bamboo beds</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Premium linens & towels</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Blackout curtains</li>
+                        <li style="padding: var(--space-sm) 0; color: var(--text-secondary); line-height: 1.7;"><i class="fas fa-check" style="color: var(--primary); margin-right: var(--space-md);"></i>Sleeps 3 comfortably</li>
+                        <li style="padding: var(--space-sm) 0; color: white; line-height: 1.7; font-style: italic;"><i class="fas fa-moon" style="color: var(--primary); margin-right: var(--space-md);"></i>Deep sleep & afternoon naps (pure tranquility)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bonus Feature Callout -->
+            <div style="background: linear-gradient(135deg, var(--secondary), #1A4B52); padding: var(--space-2xl); border-radius: var(--border-radius); text-align: center; color: white;">
+                <i class="fas fa-star" style="font-size: 2rem; color: var(--primary); margin-bottom: var(--space-md); display: block;"></i>
+                <p style="font-size: var(--tc-font-body-xl); font-weight: 600; margin: 0; color: white;">Translation: Two full bathrooms means everyone has their own space. Pure morning tranquility.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 4: The 'Win at Vacationing' Pass -->
+    <section class="win-pass dark-section">
+        <div class="win-container">
+            <h2 class="win-title">Your $3,000+ Private Resort Package</h2>
+            <p class="win-subtitle">No counters. No lines. No stress. Your time stays yours.</p>
+            <p style="font-size: var(--tc-font-body-lg); color: rgba(255,255,255,0.95); margin: 1.5rem auto; max-width: 800px; line-height: 1.7; font-weight: 500; text-align: center;">This entire VIP experience is included in your all-inclusive stay. Everything. Always.</p>
+
+            <!-- The Value Stack -->
+            <div style="max-width: 700px; margin: 3rem auto 2rem; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: var(--radius-xl); border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+                <h3 style="font-size: var(--tc-font-h3); font-weight: 700; margin-bottom: 2rem; color: white; text-align: center;">Your Private Resort Package (all included)</h3>
+                <div style="display: grid; gap: 0; text-align: left;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-plane" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Airport Welcome + Transfers</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$125</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-utensils" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Welcome dinner credit ($25 pp, up to $150)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$150</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-car" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>EV-SUV w/navigation & free charging</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$700</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-ship" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Private Half-Day Boat Cruise (w/ Capt. Magic Mike)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$1,000</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-sunset" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Friday Family & Friends Sunset Cruise (6 tickets)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$500</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-umbrella-beach" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Beach Club Access (Papagayo, Zanzibar, Zest, Kokos: entry + parking)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$200</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-water" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Full Beach Kit (inflatable kayak/SUP, snorkels, cooler, portable safe)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$150</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-hiking" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Private Flamingo Hike (with guides + dogs Happy & Lucky) — <em style="color: var(--primary); font-style: italic;">guest favorite</em></span>
+                        <span style="color: rgba(255, 255, 255, 0.5); font-weight: 600; font-size: var(--tc-font-body); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right; font-style: italic;">included</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-broom" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Mid-Stay Housekeeping + Final Clean & Laundry</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$250</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-shopping-basket" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>Grocery Stocking Service (we shop for you—you just cover the receipt)</span>
+                        <span style="color: var(--primary); font-weight: 700; font-size: var(--tc-font-body-lg); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right;">$50</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
+                        <span style="color: white; font-size: var(--tc-font-body); line-height: 1.6; flex: 1;"><i class="fas fa-concierge-bell" style="margin-right: 0.75rem; color: var(--primary); font-size: 1.1em; width: 1.25em; display: inline-block; text-align: center;"></i>24/7 Family Concierge — <em style="color: var(--primary); font-style: italic;">Priceless (read reviews)</em></span>
+                        <span style="color: rgba(255, 255, 255, 0.5); font-weight: 600; font-size: var(--tc-font-body); white-space: nowrap; margin-left: 1.5rem; min-width: 80px; text-align: right; font-style: italic;">included</span>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding: 1.75rem 2rem; border-top: 3px solid var(--primary); background: linear-gradient(135deg, rgba(98, 208, 201, 0.15) 0%, rgba(98, 208, 201, 0.08) 100%); border-radius: var(--radius-md);">
+                        <span style="color: white; font-size: 1.5rem; font-weight: 800; letter-spacing: 0.5px;">Total value:</span>
+                        <span style="color: var(--primary); font-size: 2.5rem; font-weight: 900; text-shadow: 0 2px 12px rgba(98, 208, 201, 0.5);">$3,000+</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Risk Reversal -->
+            <div style="max-width: 700px; margin: 2rem auto 3rem; background: rgba(98, 208, 201, 0.15); backdrop-filter: blur(10px); padding: 1.5rem 2rem; border-radius: var(--border-radius); border: 1px solid rgba(98, 208, 201, 0.3); text-align: center;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
+                    <i class="fas fa-shield-alt" style="font-size: 1.5rem; color: var(--primary);"></i>
+                    <p style="color: white; font-size: var(--tc-font-body-lg); font-weight: 500; margin: 0; line-height: 1.6;">
+                        <strong>Logistics Guarantee:</strong> If an included experience is disrupted (weather, maintenance, etc.), we handle it fast; you stay relaxed.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Money Clarity Protocol -->
+            <div style="max-width: 900px; margin: 0 auto 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
+                    <i class="fas fa-ban" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; display: block;"></i>
+                    <p style="color: white; font-weight: 600; font-size: var(--tc-font-body); margin: 0;">No Surprise Surcharges</p>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
+                    <i class="fas fa-hand-holding-heart" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; display: block;"></i>
+                    <p style="color: white; font-weight: 600; font-size: var(--tc-font-body); margin: 0;">Tips Included</p>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
+                    <i class="fas fa-bolt" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; display: block;"></i>
+                    <p style="color: white; font-weight: 600; font-size: var(--tc-font-body); margin: 0;">Electricity Included</p>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
+                    <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; display: block;"></i>
+                    <p style="color: white; font-weight: 600; font-size: var(--tc-font-body); margin: 0;">🛡️ Logistics Guarantee</p>
+                </div>
+            </div>
+
+            <div class="win-grid">
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/hh-8" alt="Your Island Fleet" class="pass-icon" loading="lazy">
+                    </div>
+                    <h3>Your Island Fleet</h3>
+                    <p><span class="win-highlight">VIP Airport Transfers. EV-SUV Included. Free Charging Station.</span> From touchdown to exploration, your mobility is handled. Drive the island sustainably with GPS pre-loaded with 38 hidden beaches.</p>
+                </div>
+
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/hh-5" alt="Your Private Adventures" class="pass-icon" loading="lazy">
+                    </div>
+                    <h3>Your Private Adventures</h3>
+                    <p><span class="win-highlight">Private Boat Trip. Flamingo Hike with Guide. The Ultimate Beach Kit.</span> Ocean adventures, nature experiences, and beach days—all orchestrated, zero hassle.</p>
+                </div>
+
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/hh-4" alt="Your Dushi Life Service" class="pass-icon" loading="lazy">
+                    </div>
+                    <h3>Your Dushi Life Service</h3>
+                    <p><span class="win-highlight">Pre-Stocked Fridge. First-Night Dinner Prepared. 24/7 Concierge. Professional Housekeeping.</span> Arrive to a stocked kitchen. Enjoy dinner without cooking. Need anything? We're always here.</p>
+                </div>
+
+                <div class="win-item">
+                    <div class="win-item-icon">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_240,h_240,c_fill,g_center/hh-1" alt="Your Personal Hosts" class="pass-icon" loading="lazy">
+                    </div>
+                    <h3>Your Personal Hosts</h3>
+                    <p><span class="win-highlight">More than Hosts—We're Your Island Family.</span> Meet the family behind Tommy Coconut. Our friendly race to see who can help you the fastest is legendary. You'll never feel alone on this island.</p>
+                </div>
+            </div>
+
+            <!-- CTA: Reserve Your Escape -->
+            <div style="text-align: center; margin: var(--space-3xl) auto 0; max-width: 500px;">
+                <a href="#bookingWidget" onclick="bookNow(); return false;" class="cta-primary">
+                    <i class="fas fa-calendar-check" style="margin-right: var(--space-md);"></i>
+                    Reserve Your Escape
+                </a>
+                <p style="color: rgba(255,255,255,0.7); font-size: var(--tc-font-small); margin-top: var(--space-md); text-align: center;">Check dates and pricing in real-time</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 5: Stories From Paradise -->
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <h2 class="reviews-title" style="text-align: center; margin-bottom: 1rem;">Stories from Happy Hideaway</h2>
+            <p style="text-align: center; font-weight: 700; font-size: var(--tc-font-body-lg); color: var(--primary); margin-top: 0.5rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                5.0★ · 51 reviews (Airbnb)
+            </p>
+
+            <!-- Elfsight Airbnb Reviews Widget -->
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <div class="elfsight-app-5ef0de46-eb69-4290-b6ee-3212629c6e39" data-elfsight-app-lazy></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick FAQ Section - The Friction Remover -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface);">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-2xl);">Quick FAQ</h2>
+
+            <div style="display: grid; gap: var(--space-xl);">
+                <!-- FAQ Item 1 -->
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-car-side" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        What vehicle is included?
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
+                        A full-size EV-SUV with ample cargo space, perfect for exploring the island with complimentary home charging.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-umbrella-beach" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        Are beach loungers/umbrellas included for Jan Thiel Beach?
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
+                        The Ultimate Beach Kit includes portable chairs, umbrellas, and coolers. Jan Thiel Beach Club loungers can be reserved separately (we'll handle it).
+                    </p>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-calendar-alt" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        What's the minimum stay?
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
+                        5 nights minimum. This ensures you have enough time to truly relax and experience everything Happy Hideaway offers.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-charging-station" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        How does EV charging work?
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
+                        Free charging station at the villa. Plug in overnight, wake up to a full battery. Simple.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div style="background: var(--surface-elevated); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06); border-left: 4px solid var(--primary); transition: var(--transition-normal);" onmouseover="this.style.boxShadow='0 4px 24px rgba(0, 0, 0, 0.1)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(0, 0, 0, 0.06)'">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: var(--space-lg); display: flex; align-items: center; gap: var(--space-md); line-height: 1.4;">
+                        <i class="fas fa-cloud-sun" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        What if weather disrupts the boat?
+                    </h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin: 0; font-size: var(--tc-font-body); padding-left: 3rem;">
+                        We reschedule for the next clear window, no extra charge. You'll get your full private boat experience—we guarantee it.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location - Walk & Drive - PHASE 3 ENHANCED -->
+    <section style="padding: var(--space-3xl) var(--space-xl); background: var(--surface-elevated);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: var(--tc-font-h2); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">Your Jan Thiel Base</h2>
+            <p style="text-align: center; font-size: var(--tc-font-body-lg); color: var(--text-secondary); margin-bottom: var(--space-3xl); max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.7;">Everything you need within walking distance. The best of Curaçao within a short drive.</p>
+
+            <!-- Location Hero Image -->
+            <div style="margin-bottom: var(--space-3xl);">
+                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1000,h_300,c_fill,g_auto/hh-8"
+                     alt="Jan Thiel location - Your Happy Hideaway base"
+                     loading="lazy"
+                     style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-xl); box-shadow: var(--shadow-elevated); transition: var(--transition-normal);">
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-3xl);">
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-walking" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">WALK 2–8 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">The Pier • Pop's Place • Caracasbaai</div>
+                </div>
+
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-car" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">DRIVE 4–8 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">Jan Thiel (Zanzibar, Zest) • Van den Tweel</div>
+                </div>
+
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-city" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">DRIVE 10–15 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">Willemstad (Punda/Otrobanda) • Mambo</div>
+                </div>
+
+                <div class="location-card" style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); padding: var(--space-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: var(--transition-normal); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.04)'">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md);">
+                        <i class="fas fa-water" style="color: var(--primary); font-size: 1.25rem;"></i>
+                        <div style="font-size: var(--tc-font-small); color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">DRIVE 30–60 MIN</div>
+                    </div>
+                    <div style="color: var(--text-primary); font-size: var(--tc-font-body); line-height: 1.7;">Westpunt beaches (Knip, Grote/Playa Piskadó)</div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(98, 208, 201, 0.12), rgba(0, 207, 207, 0.06)); padding: var(--space-2xl); border-radius: var(--radius-lg); text-align: center; border: 1px solid rgba(98, 208, 201, 0.25); box-shadow: 0 4px 16px rgba(98, 208, 201, 0.1);">
+                <i class="fas fa-lightbulb" style="color: var(--primary); font-size: 1.75rem; margin-bottom: var(--space-md); display: block;"></i>
+                <p style="color: var(--secondary); font-weight: 600; margin: 0; font-size: var(--tc-font-body-lg); line-height: 1.7;">Pro tip: Zest sunset is magic at 17:45. We'll time your table.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- INLINE BOOKING WIDGET SECTION -->
+    <!-- ============================================ -->
+    <section id="bookingWidget" style="padding: calc(var(--space-3xl) + 20px) var(--space-xl) var(--space-3xl); background: linear-gradient(135deg, rgba(98, 208, 201, 0.08), rgba(0, 207, 207, 0.03)); scroll-margin-top: 100px;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+
+            <!-- Header -->
+            <div style="text-align: center; margin-bottom: var(--space-3xl);">
+                <h2 style="font-size: var(--tc-font-h1); font-weight: 700; color: var(--secondary); margin-bottom: var(--space-md);">
+                    <i class="fas fa-calendar-check" style="color: var(--primary); margin-right: var(--space-md);"></i>
+                    Check Availability & Reserve Your Escape
+                </h2>
+                <p style="font-size: var(--tc-font-body-lg); color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                    Select your dates to see real-time availability and instant pricing for Happy Hideaway
+                </p>
+            </div>
+
+            <!-- Social Proof / Viewing Activity (Optional but Recommended) -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-sm); margin-bottom: var(--space-lg); padding: var(--space-md); background: rgba(98, 208, 201, 0.08); border-radius: var(--radius-lg); max-width: 400px; margin: 0 auto var(--space-lg);">
+                <i class="fas fa-users" style="color: var(--primary); font-size: 1.1rem;"></i>
+                <span style="color: var(--text-secondary); font-size: var(--tc-font-small); font-weight: 600;">12 families viewed Happy Hideaway today</span>
+            </div>
+
+            <!-- Lodgify Widget Container -->
+            <div style="padding: var(--space-3xl);">
+
+                <!-- Loading Skeleton (shows until widget loads) -->
+                <div id="widgetSkeleton" class="widget-skeleton" style="display: block;">
+                    <div style="background: #E5E7EB; height: 40px; border-radius: var(--border-radius); margin-bottom: var(--space-lg); animation: pulse 1.5s infinite;"></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-bottom: var(--space-lg);">
+                        <div style="background: #E5E7EB; height: 60px; border-radius: var(--border-radius); animation: pulse 1.5s infinite;"></div>
+                        <div style="background: #E5E7EB; height: 60px; border-radius: var(--border-radius); animation: pulse 1.5s infinite;"></div>
+                    </div>
+                    <div style="background: #E5E7EB; height: 50px; border-radius: 999px; animation: pulse 1.5s infinite;"></div>
+                </div>
+
+                <!-- Lodgify Widget -->
+                <div id="lodgify-book-now-box"
+                    data-rental-id="355309"
+                    data-website-id="271939"
+                    data-slug="tommycoconut"
+                    data-language-code="en"
+                    data-currency-code="USD"
+                    data-version="stable"
+                    data-check-in-label="Check-in"
+                    data-check-out-label="Check-out"
+                    data-guests-label="Guests"
+                    data-guests-singular-label="{{NumberOfGuests}} guest"
+                    data-guests-plural-label="{{NumberOfGuests}} guests"
+                    data-total-price-label="Total price:"
+                    data-select-dates-to-see-price-label="Select dates to see total price"
+                    data-book-button-label="Book Now"
+                    style="display: none;">
+                    <!-- Widget renders here -->
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-xl); margin-top: var(--space-3xl); flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;">
+                    <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 600; font-size: var(--tc-font-small);">Secure booking</span>
+                </div>
+                <span style="color: rgba(0,0,0,0.15);">•</span>
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;">
+                    <i class="fas fa-clock" style="color: var(--primary); font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 600; font-size: var(--tc-font-small);">Instant confirmation</span>
+                </div>
+                <span style="color: rgba(0,0,0,0.15);">•</span>
+                <div style="display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); border-radius: 999px; background: rgba(98, 208, 201, 0.08); transition: all 0.3s ease;">
+                    <i class="fas fa-star" style="color: #FFB800; font-size: 1.1rem;"></i>
+                    <span style="color: var(--text-primary); font-weight: 700; font-size: var(--tc-font-small);">5.0★ rated</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pulse animation for loading skeleton -->
+    <style>
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+    </style>
+
+    <!-- Floating Conversion Engine -->
+    <div class="floating-booking" id="floatingBooking">
+        <div class="booking-content">
+            <div class="price-display">
+                <div class="price-amount">Private Resort Experience</div>
+                <div class="price-label">5-night minimum | 5.0★ rated</div>
+            </div>
+
+            <button class="welcome-home-btn" onclick="bookNow()" aria-label="Check availability for Happy Hideaway">
+                <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                Check Availability
+            </button>
+        </div>
+    </div>
+
+    <!-- Clean Footer -->
+    <footer style="background: var(--primary); padding: var(--space-6) 0 var(--space-4); text-align: center;">
+        <div class="container">            <!-- Tagline -->
+            <div style="margin-bottom: var(--space-6); text-align: center;">
+                <p style="color: var(--white); font-size: var(--text-lg); margin: 0; font-weight: var(--font-weight-light);">Where it's all about you.</p>
+            </div>
+
+            <!-- Social Links -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-bottom: var(--space-6);">
+                <a href="https://www.instagram.com/tommy.coconut/" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="Instagram"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/TommyCoconut" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="Facebook"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/channel/UCGPTXBR5jtvCUchgkIpz7MQ" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="YouTube"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.30 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://bitly.ws/39WZF" target="_blank" rel="noopener" style="color: var(--text-inverse); opacity: 0.7; font-size: var(--text-xl); transition: var(--transition-normal);" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)'" onmouseout="this.style.opacity='0.7'; this.style.transform='scale(1)'">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-label="TikTok"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.10-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                </a>
+            </div>            <!-- Copyright -->
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-4);">
+                <p style="color: var(--text-inverse); opacity: 0.6; font-size: var(--text-sm); margin: 0; text-align: center;">&copy; 2025 Tommy Coconut. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Floating booking bar visibility
+        let isBookingVisible = false;
+
+        function showFloatingBooking() {
+            if (!isBookingVisible) {
+                document.getElementById('floatingBooking').classList.add('visible');
+                isBookingVisible = true;
+            }
+        }
+
+        // Show booking bar when user scrolls down
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                showFloatingBooking();
+            }
+        });
+
+        // ===================================
+        // GALLERY DATA & STATE
+        // ===================================
+
+        const galleryImages = [
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-1',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-1',
+                alt: 'Happy Hideaway - Entrance View'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-2',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-2',
+                alt: 'Happy Hideaway - Pool Area'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-3',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-3',
+                alt: 'Happy Hideaway - Living Room'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-4',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-4',
+                alt: 'Happy Hideaway - Kitchen'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-5',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-5',
+                alt: 'Happy Hideaway - Master Bedroom'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-6',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-6',
+                alt: 'Happy Hideaway - Bathroom'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-7',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-7',
+                alt: 'Happy Hideaway - Outdoor Dining'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-8',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-8',
+                alt: 'Happy Hideaway - Pool Paradise'
+            },
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-9',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-9',
+                alt: 'Happy Hideaway - Sunset Views'
+            }
+        ];
+
+        let currentImageIndex = 0;
+        const thumbnailsPerView = 5; // Show 5 thumbnails at a time
+        let thumbnailStartIndex = 0;
+
+        // ===================================
+        // CORE NAVIGATION FUNCTIONS
+        // ===================================
+
+        /**
+         * Navigate gallery by direction (-1 for previous, +1 for next)
+         */
+        function navigateGallery(direction) {
+            const newIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+            selectImage(newIndex);
+        }
+
+        /**
+         * Select specific image by index
+         */
+        function selectImage(index) {
+            if (index === currentImageIndex) return;
+
+            const heroImage = document.getElementById('heroImage');
+            const oldIndex = currentImageIndex;
+
+            // Fade out current image
+            heroImage.classList.add('fading');
+
+            // Update after fade
+            setTimeout(() => {
+                currentImageIndex = index;
+
+                // Update hero image
+                heroImage.src = galleryImages[index].src;
+                heroImage.alt = `${galleryImages[index].alt} - Image ${index + 1} of ${galleryImages.length}`;
+
+                // Fade in new image
+                heroImage.classList.remove('fading');
+
+                // Update counter
+                document.getElementById('currentImageNumber').textContent = index + 1;
+
+                // Update thumbnails
+                updateThumbnails(index);
+
+                // Announce to screen readers
+                announceImageChange(index);
+
+                // Preload adjacent images
+                preloadAdjacentImages(index);
+            }, 250);
+        }
+
+        /**
+         * Update thumbnail display and active states
+         */
+        function updateThumbnails(activeIndex) {
+            // Calculate if we need to shift the visible thumbnail window
+            if (activeIndex >= thumbnailStartIndex + thumbnailsPerView) {
+                // Scroll forward
+                thumbnailStartIndex = Math.min(activeIndex - thumbnailsPerView + 1, galleryImages.length - thumbnailsPerView);
+            } else if (activeIndex < thumbnailStartIndex) {
+                // Scroll backward
+                thumbnailStartIndex = activeIndex;
+            }
+
+            // Re-render visible thumbnails
+            renderThumbnails(activeIndex);
+        }
+
+        /**
+         * Render the visible thumbnail window
+         */
+        function renderThumbnails(activeIndex) {
+            const container = document.querySelector('.gallery-thumbnails');
+            container.innerHTML = '';
+
+            const endIndex = Math.min(thumbnailStartIndex + thumbnailsPerView, galleryImages.length);
+
+            for (let i = thumbnailStartIndex; i < endIndex; i++) {
+                const isActive = i === activeIndex;
+                const thumbnail = createThumbnailElement(i, isActive);
+                container.appendChild(thumbnail);
+            }
+        }
+
+        /**
+         * Create a thumbnail DOM element
+         */
+        function createThumbnailElement(index, isActive) {
+            const div = document.createElement('div');
+            div.className = `thumbnail${isActive ? ' active' : ''}`;
+            div.setAttribute('data-index', index);
+            div.setAttribute('onclick', `selectImage(${index})`);
+            div.setAttribute('onkeydown', `handleThumbnailKeydown(event, ${index})`);
+            div.setAttribute('tabindex', isActive ? '0' : '-1');
+            div.setAttribute('role', 'tab');
+            div.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            div.setAttribute('aria-label', `View image ${index + 1}`);
+
+            const img = document.createElement('img');
+            img.src = galleryImages[index].thumb;
+            img.alt = `${galleryImages[index].alt} - Thumbnail`;
+
+            div.appendChild(img);
+            return div;
+        }
+
+        /**
+         * Announce image change to screen readers
+         */
+        function announceImageChange(index) {
+            const announcement = `Viewing image ${index + 1} of ${galleryImages.length}: ${galleryImages[index].alt}`;
+
+            // Use existing counter as live region (already has aria-live)
+            const counter = document.querySelector('.image-counter');
+            if (counter) {
+                counter.setAttribute('aria-label', announcement);
+            }
+        }
+
+        // ===================================
+        // KEYBOARD NAVIGATION
+        // ===================================
+
+        /**
+         * Handle keyboard navigation on thumbnails
+         */
+        function handleThumbnailKeydown(event, index) {
+            switch(event.key) {
+                case 'Enter':
+                case ' ':
+                    event.preventDefault();
+                    selectImage(index);
+                    break;
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    navigateGallery(-1);
+                    focusCurrentThumbnail();
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    navigateGallery(1);
+                    focusCurrentThumbnail();
+                    break;
+                case 'Home':
+                    event.preventDefault();
+                    selectImage(0);
+                    focusCurrentThumbnail();
+                    break;
+                case 'End':
+                    event.preventDefault();
+                    selectImage(galleryImages.length - 1);
+                    focusCurrentThumbnail();
+                    break;
+            }
+        }
+
+        /**
+         * Focus the current active thumbnail
+         */
+        function focusCurrentThumbnail() {
+            setTimeout(() => {
+                const activeThumbnail = document.querySelector('.thumbnail.active');
+                if (activeThumbnail) {
+                    activeThumbnail.focus();
+                }
+            }, 100);
+        }
+
+        /**
+         * Global keyboard shortcuts (arrow keys anywhere on page)
+         */
+        document.addEventListener('keydown', (event) => {
+            // Only handle if gallery is visible and not typing in input
+            if (document.activeElement.tagName === 'INPUT' ||
+                document.activeElement.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                navigateGallery(-1);
+            } else if (event.key === 'ArrowRight') {
+                event.preventDefault();
+                navigateGallery(1);
+            }
+        });
+
+        // ===================================
+        // TOUCH GESTURE SUPPORT
+        // ===================================
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50;
+
+        const galleryHero = document.querySelector('.gallery-hero');
+
+        if (galleryHero) {
+            galleryHero.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                galleryHero.classList.add('swiping');
+            }, { passive: true });
+
+            galleryHero.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                galleryHero.classList.remove('swiping');
+                handleSwipe();
+            }, { passive: true });
+        }
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance > 0) {
+                    // Swipe right = previous image
+                    navigateGallery(-1);
+                } else {
+                    // Swipe left = next image
+                    navigateGallery(1);
+                }
+            }
+        }
+
+        // ===================================
+        // IMAGE PRELOADING
+        // ===================================
+
+        /**
+         * Preload adjacent images for smooth transitions
+         */
+        function preloadAdjacentImages(currentIndex) {
+            const imagesToPreload = [
+                (currentIndex + 1) % galleryImages.length,
+                (currentIndex - 1 + galleryImages.length) % galleryImages.length
+            ];
+
+            imagesToPreload.forEach(index => {
+                const img = new Image();
+                img.src = galleryImages[index].src;
+            });
+        }
+
+        // ===================================
+        // INITIALIZATION
+        // ===================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set total images count
+            const totalImagesElement = document.getElementById('totalImages');
+            if (totalImagesElement) {
+                totalImagesElement.textContent = galleryImages.length;
+            }
+
+            // Preload first few images
+            preloadAdjacentImages(0);
+
+            // Initial render of thumbnails
+            renderThumbnails(0);
+
+            console.log('Tommy Coconut Gallery initialized with', galleryImages.length, 'images');
+        })
+
+        // Reviews carousel
+        let currentReview = 0;
+        const reviewItems = document.querySelectorAll('.review-item');
+        const reviewDots = document.querySelectorAll('.review-dot');
+
+        function showReview(index) {
+            reviewItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            reviewDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+
+            currentReview = index;
+        }
+
+        // Auto-rotate reviews
+        setInterval(() => {
+            currentReview = (currentReview + 1) % reviewItems.length;
+            showReview(currentReview);
+        }, 6000);
+
+        // ============================================
+        // UPDATED BOOKING FUNCTIONALITY - INLINE WIDGET
+        // ============================================
+
+        // Scroll to always-visible booking widget
+        function bookNow() {
+            const widgetSection = document.getElementById('bookingWidget');
+            const floatingBar = document.getElementById('floatingBooking');
+
+            // Smooth scroll to widget (centers in viewport)
+            widgetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            // Optional: Hide floating bar temporarily while user interacts
+            if (floatingBar) {
+                setTimeout(() => {
+                    floatingBar.classList.remove('visible');
+                }, 800); // Wait for scroll to complete
+            }
+
+            // Optional: Track event in analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'booking_widget_scrolled', {
+                    'event_category': 'engagement',
+                    'event_label': 'Happy Hideaway'
+                });
+            }
+        }
+
+        // Handle Lodgify widget load completion
+        window.addEventListener('load', function() {
+            // Wait a moment for Lodgify to fully initialize
+            setTimeout(function() {
+                const widget = document.getElementById('lodgify-book-now-box');
+                const skeleton = document.getElementById('widgetSkeleton');
+
+                if (widget && skeleton) {
+                    // Check if widget has loaded content
+                    if (widget.children.length > 0 || widget.innerHTML.trim().length > 0) {
+                        // Hide skeleton, show widget
+                        skeleton.style.display = 'none';
+                        widget.style.display = 'block';
+                    } else {
+                        // Widget didn't load, show error message
+                        skeleton.innerHTML = '<div style="text-align: center; padding: var(--space-2xl); color: var(--text-secondary);"><p style="margin-bottom: var(--space-md); font-weight: 600;">Having trouble loading the booking calendar?</p><p style="margin-bottom: var(--space-lg);">No problem! Contact us directly:</p><a href="mailto:stay@tommycoconut.com" style="color: var(--primary); font-weight: 600; text-decoration: underline;">stay@tommycoconut.com</a><br><br><a href="tel:+15995551234" style="color: var(--primary); font-weight: 600; text-decoration: underline;">+1 (599) 555-1234</a></div>';
+                    }
+                }
+            }, 2000); // Give Lodgify 2 seconds to load
+        });
+
+        // Auto-scroll to widget if URL has #bookingWidget anchor
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hash === '#bookingWidget') {
+                // Small delay to ensure page is loaded
+                setTimeout(() => {
+                    bookNow();
+                }, 500);
+            }
+        });
+
+        // Property Video Player
+        function playPropertyVideo() {
+            const video = document.getElementById('propertyVideo');
+            const thumbnail = document.getElementById('videoThumbnail');
+
+            if (video && thumbnail) {
+                thumbnail.style.display = 'none';
+                video.style.display = 'block';
+                video.play();
+
+                // Analytics tracking
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'video_play', {
+                        'video_name': 'happy_hideaway_aerial_tour',
+                        'video_location': 'act_2_to_3_transition'
+                    });
+                }
+            }
+        }
+
+        // Reset to thumbnail when video ends
+        document.addEventListener('DOMContentLoaded', function() {
+            const propertyVideo = document.getElementById('propertyVideo');
+            if (propertyVideo) {
+                propertyVideo.addEventListener('ended', function() {
+                    this.style.display = 'none';
+                    document.getElementById('videoThumbnail').style.display = 'block';
+                });
+            }
+        });
+    </script>
+
+    <!-- Lodgify Book Now Box Script -->
+    <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+═══════════════════════════════════════════════════════════════════
+   LOCATION MAP IMPLEMENTATION - QUICK REFERENCE CARD
+═══════════════════════════════════════════════════════════════════
+
+📂 ALL FILES LOCATION:
+   /Users/curacaodreamproperty/Downloads/deploy-68b5e9ea92ff1c69a4b32deb/
+
+═══════════════════════════════════════════════════════════════════
+🚀 IMPLEMENT IN 60 SECONDS
+═══════════════════════════════════════════════════════════════════
+
+1. GET API KEY (30 sec)
+   → https://console.cloud.google.com/google/maps-apis/credentials
+   → Click "CREATE CREDENTIALS" → "API key"
+   → Copy the key
+
+2. UPDATE HTML (30 sec)
+   → Open: villa-happy-hideaway.html
+   → Find line 1532
+   → Replace lines 1532-1584 with LOCATION-MAP-IMPLEMENTATION.html
+   → Replace: YOUR_API_KEY_HERE with your key
+   → Save
+
+3. TEST
+   → Open villa-happy-hideaway.html in browser
+   → Scroll to "Your Jan Thiel Base"
+   → Map should load with teal water
+
+═══════════════════════════════════════════════════════════════════
+📚 DOCUMENTATION FILES
+═══════════════════════════════════════════════════════════════════
+
+LOCATION-MAP-COMPLETE-SUMMARY.md
+   → START HERE - Overview and recommendation
+
+QUICK-MAP-IMPLEMENTATION.md
+   → Copy-paste code and 1-minute setup
+
+MAP-IMPLEMENTATION-GUIDE.md
+   → Complete technical documentation
+
+MAP-URL-CUSTOMIZATION-GUIDE.md
+   → How to change colors, zoom, markers
+
+MAP-VISUAL-MOCKUP.md
+   → Visual description of final result
+
+LOCATION-MAP-IMPLEMENTATION.html
+   → Ready-to-use HTML code
+
+═══════════════════════════════════════════════════════════════════
+🎨 DESIGN SPECS
+═══════════════════════════════════════════════════════════════════
+
+COLORS:
+   Water:            #62D0C9 (teal)
+   Property Marker:  #62D0C9 (teal) - Label "H"
+   Destination:      #005A5B (navy) - Labels "1,2,3"
+   Landscape:        #F7F5F2 (cream)
+
+COORDINATES:
+   Happy Hideaway:   12.0924, -68.8796
+   Jan Thiel Beach:  12.0856, -68.8701
+   Willemstad:       12.1139, -68.9324
+   Caracasbaai:      12.0774, -68.8954
+
+DIMENSIONS:
+   Desktop:          1000px × 400px
+   Mobile:           Full width × 250px
+
+═══════════════════════════════════════════════════════════════════
+💰 COST
+═══════════════════════════════════════════════════════════════════
+
+Free Tier:     28,000 map loads/month
+Your Usage:    ~500-2,000 loads/month
+Your Cost:     $0/month
+
+═══════════════════════════════════════════════════════════════════
+✅ RECOMMENDATION
+═══════════════════════════════════════════════════════════════════
+
+KEEP THE LIFESTYLE IMAGE
+
+Why:
+  • Maintains emotional flow (dream → book)
+  • Zero cognitive load
+  • Faster on mobile
+  • Proximity cards already provide location info
+  • Luxury villas sell on feeling, not geography
+
+Use map if:
+  • Location confusion blocks bookings
+  • High bounce rate after location section
+  • Users frequently ask "Where is this?"
+
+═══════════════════════════════════════════════════════════════════
+🔄 SWITCH BACK TO IMAGE
+═══════════════════════════════════════════════════════════════════
+
+Replace map img src with:
+
+https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1000,h_300,c_fill,g_auto/happy-hideaway-8_yqdwdj
+
+═══════════════════════════════════════════════════════════════════
+📊 A/B TEST SETUP
+═══════════════════════════════════════════════════════════════════
+
+See MAP-IMPLEMENTATION-GUIDE.md section "A/B TESTING SETUP" for:
+  • Time-based split
+  • Cookie-based split
+  • Analytics tracking
+
+═══════════════════════════════════════════════════════════════════
+❓ TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════
+
+Map doesn't load:
+  ✓ Check API key is correct
+  ✓ Verify Maps Static API is enabled
+  ✓ Ensure billing is set up (required for free tier)
+
+Wrong colors:
+  ✓ Check format uses 0xHEXCODE not #HEXCODE in URL
+
+Legend not showing:
+  ✓ Test on different screen sizes (desktop vs mobile)
+
+═══════════════════════════════════════════════════════════════════
+📞 SUPPORT
+═══════════════════════════════════════════════════════════════════
+
+Google Maps API:
+   https://developers.google.com/maps/documentation/maps-static
+
+Tommy Coconut Design System:
+   Colors, spacing, typography defined in villa-happy-hideaway.html
+
+═══════════════════════════════════════════════════════════════════
+
+Created: 2025-11-07
+Status:  ✅ Complete and ready to implement
+Decision: Your choice - map is ready, image recommended
