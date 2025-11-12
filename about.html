@@ -170,51 +170,216 @@
     <!-- About Us Section -->
     <section class="section" style="background: linear-gradient(135deg, #FFFFFF 0%, #FAFAF8 100%);">
         <div class="container">
-            <div class="content-spotlight" style="max-width: 1000px; margin: 0 auto;">
-                <h2 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--tc-navy-light); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: var(--space-12); text-align: center;">About Us</h2>
+            <div class="content-spotlight" style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--tc-navy-light); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: var(--space-6); text-align: center;">About Us</h2>
+                <p style="font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.6; text-align: center; max-width: 800px; margin: 0 auto var(--space-12) auto;">We're not a hotel. We're not a rental. We're a family who took the best of both and removed everything that stands between you and a perfect week.</p>
 
-                <!-- What we believe -->
-                <div style="margin-bottom: var(--space-10);">
-                    <h3 style="font-weight: var(--font-weight-bold); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--tc-navy-light); margin-bottom: var(--space-5);">What we believe</h3>
-                    <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7;">Time off is sacred. The people you travel with, the memories you'll retell, the space to breathe—that's the good stuff. But between airport rides, car rentals, reservations and the "what should we do?" spiral, vacations can feel like project management. We decided to change that.</p>
-                </div>
+                <!-- Two-Column Layout for Belief + Private Resort -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); margin-bottom: var(--space-12);">
+                    <!-- What we believe Card -->
+                    <div style="background: var(--surface); border-radius: var(--radius-2xl); padding: var(--space-8); box-shadow: var(--shadow-lg); border: 1px solid rgba(0, 207, 207, 0.08); transition: all var(--transition-normal);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-lg)'">
+                        <div style="width: 56px; height: 56px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-5);">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-weight: var(--font-weight-bold); font-size: var(--text-2xl); color: var(--tc-navy-light); margin-bottom: var(--space-4);">What we believe</h3>
+                        <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">Time off is sacred. The people you travel with, the memories you'll retell, the space to breathe—that's the good stuff.</p>
+                        <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.7);">But between airport rides, car rentals, reservations and the "what should we do?" spiral, vacations can feel like project management. We decided to change that.</p>
+                    </div>
 
-                <!-- What we built: the Private Resort -->
-                <div style="margin-bottom: var(--space-10);">
-                    <h3 style="font-weight: var(--font-weight-bold); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--tc-navy-light); margin-bottom: var(--space-5);">What we built: the Private Resort</h3>
-                    <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7;">We didn't want a hotel's rules or a rental's DIY stress. So we combined the best of both. A Private Resort is a private luxury home curated like a boutique hotel and supported by our concierge. You keep the privacy, kitchen and living spaces that make group travel easy. We handle the moving parts—EV-SUV + charger, airport pickup, Private Boat Day, Friday Beach BBQ, beach-club access, groceries stocking, housekeeping, and the little surprises that make a trip unforgettable.</p>
-                </div>
-
-                <!-- How our concierge works -->
-                <div style="margin-bottom: var(--space-10);">
-                    <h3 style="font-weight: var(--font-weight-bold); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--tc-navy-light); margin-bottom: var(--space-5);">How our concierge works</h3>
-                    <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7;">After you book, our concierge sends a quick questionnaire. Tell us your crew, pace, and must-dos. We design your personal "Dushi Week"—a simple plan that might include daybeds at Zest Beach or Papagayo Beach, Tugboat snorkel then a beach stop at Fuik, a sunset toast at the Fort Nassau, and a sunrise flamingo hike with our trail pros Happy & Lucky. Planners get confirmations; free-spirits get light daily suggestions. Either way, we're on call 08:00–22:00 (and 24/7 for urgent).</p>
-                </div>
-
-                <!-- What's included -->
-                <div style="margin-bottom: var(--space-10);">
-                    <h3 style="font-weight: var(--font-weight-bold); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--tc-navy-light); margin-bottom: var(--space-5);">What's included (and why it matters)</h3>
-                    <div style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.8;">
-                        <p style="margin-bottom: var(--space-4);"><strong style="color: var(--primary);">EV-SUV + home charger:</strong> freedom without gas stops.</p>
-                        <p style="margin-bottom: var(--space-4);"><strong style="color: var(--primary);">Airport welcome & transfers:</strong> wheels-down, stress-off.</p>
-                        <p style="margin-bottom: var(--space-4);"><strong style="color: var(--primary);">Private Boat Day:</strong> your music, your captain, your memories.</p>
-                        <p style="margin-bottom: var(--space-4);"><strong style="color: var(--primary);">Friday Beach BBQ:</strong> food, drinks and island stories on us.</p>
-                        <p style="margin-bottom: var(--space-4);"><strong style="color: var(--primary);">Beach-club entry & parking:</strong> arrive like regulars (you pay the venue for loungers/F&B).</p>
-                        <p style="margin-bottom: var(--space-4);"><strong style="color: var(--primary);">Housekeeping + final clean & laundry:</strong> you're not here to work.</p>
-                        <p style="margin-bottom: 0;"><strong style="color: var(--primary);">Grocery pre-stock:</strong> send a list; we'll fill the fridge (you reimburse the receipt).</p>
+                    <!-- What we built Card -->
+                    <div style="background: var(--surface); border-radius: var(--radius-2xl); padding: var(--space-8); box-shadow: var(--shadow-lg); border: 1px solid rgba(0, 207, 207, 0.08); transition: all var(--transition-normal);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-lg)'">
+                        <div style="width: 56px; height: 56px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-5);">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-weight: var(--font-weight-bold); font-size: var(--text-2xl); color: var(--tc-navy-light); margin-bottom: var(--space-4);">What we built</h3>
+                        <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">We didn't want a hotel's rules or a rental's DIY stress. So we combined the best of both.</p>
+                        <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.7);">A Private Resort is a luxury home curated like a boutique hotel and supported by our concierge. You keep the privacy, kitchen and living spaces. We handle everything else.</p>
                     </div>
                 </div>
 
-                <!-- Zero surprises -->
-                <div style="margin-bottom: var(--space-10);">
-                    <h3 style="font-weight: var(--font-weight-bold); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--tc-navy-light); margin-bottom: var(--space-5);">Zero surprises</h3>
-                    <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7;">We include what most places add as extras: electricity, tips, cleaning. We're transparent on anything you pay directly to others (e.g., loungers and F&B at beach clubs). And with our Logistics Guarantee, if weather or timing changes an included experience, we reschedule or substitute equal/higher value—or credit.</p>
+                <!-- How our concierge works - Full Width Feature Card -->
+                <div style="background: linear-gradient(135deg, var(--primary) 0%, #00B8B8 100%); border-radius: var(--radius-2xl); padding: var(--space-10); box-shadow: var(--shadow-xl); margin-bottom: var(--space-12); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
+                    <div style="position: relative; z-index: 1;">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                            <div style="width: 56px; height: 56px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-weight: var(--font-weight-bold); font-size: var(--text-2xl); color: white; margin: 0;">How our concierge works</h3>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6);">
+                            <div>
+                                <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.95); line-height: 1.7; margin-bottom: var(--space-4);">After you book, we send a quick questionnaire. Tell us your crew, pace, and must-dos.</p>
+                                <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.95); line-height: 1.7);">We design your personal "Dushi Week"—daybeds at Zest or Papagayo, Tugboat snorkel, sunset at Fort Nassau, sunrise flamingo hike with Happy & Lucky.</p>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: var(--radius-xl); padding: var(--space-6); border: 1px solid rgba(255, 255, 255, 0.2);">
+                                <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.95); line-height: 1.7; margin-bottom: var(--space-3);"><strong style="color: white;">Planners:</strong> Full confirmations</p>
+                                <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.95); line-height: 1.7; margin-bottom: var(--space-3);"><strong style="color: white;">Free-spirits:</strong> Light daily suggestions</p>
+                                <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.95); line-height: 1.7; margin: 0;"><strong style="color: white;">24/7:</strong> On call 08:00–22:00 (24/7 urgent)</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Why we do it -->
-                <div style="margin-bottom: 0;">
-                    <h3 style="font-weight: var(--font-weight-bold); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--tc-navy-light); margin-bottom: var(--space-5);">Why we do it</h3>
-                    <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7;">We live in Jan Thiel and love sharing the dushi island life—quiet mornings by Jan Thiel Beach, swims at Tugboat, long porch dinners, and that feeling of belonging from day one. Guests often arrive as clients and leave as family. That's the measure we care about.</p>
+                <!-- What's included - Icon Grid -->
+                <div style="margin-bottom: var(--space-12);">
+                    <h3 style="font-weight: var(--font-weight-bold); font-size: var(--text-2xl); color: var(--tc-navy-light); margin-bottom: var(--space-3); text-align: center;">What's included (and why it matters)</h3>
+                    <p style="font-size: var(--text-base); color: var(--text-secondary); text-align: center; margin-bottom: var(--space-8);">Everything you need, none of the stress.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);">
+                        <!-- EV-SUV -->
+                        <div style="background: var(--surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-md); border: 1px solid rgba(0, 207, 207, 0.06); transition: all var(--transition-normal);" onmouseover="this.style.borderColor='rgba(0, 207, 207, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(0, 207, 207, 0.06)'; this.style.transform='translateY(0)'">
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p style="font-size: var(--text-base); font-weight: var(--font-weight-semibold); color: var(--tc-navy-light); margin-bottom: var(--space-2);">EV-SUV + home charger</p>
+                                    <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin: 0;">Freedom without gas stops.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Airport transfers -->
+                        <div style="background: var(--surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-md); border: 1px solid rgba(0, 207, 207, 0.06); transition: all var(--transition-normal);" onmouseover="this.style.borderColor='rgba(0, 207, 207, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(0, 207, 207, 0.06)'; this.style.transform='translateY(0)'">
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p style="font-size: var(--text-base); font-weight: var(--font-weight-semibold); color: var(--tc-navy-light); margin-bottom: var(--space-2);">Airport welcome & transfers</p>
+                                    <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin: 0;">Wheels-down, stress-off.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Private Boat Day -->
+                        <div style="background: var(--surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-md); border: 1px solid rgba(0, 207, 207, 0.06); transition: all var(--transition-normal);" onmouseover="this.style.borderColor='rgba(0, 207, 207, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(0, 207, 207, 0.06)'; this.style.transform='translateY(0)'">
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
+                                        <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/>
+                                        <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p style="font-size: var(--text-base); font-weight: var(--font-weight-semibold); color: var(--tc-navy-light); margin-bottom: var(--space-2);">Private Boat Day</p>
+                                    <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin: 0;">Your music, your captain, your memories.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Friday Beach BBQ -->
+                        <div style="background: var(--surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-md); border: 1px solid rgba(0, 207, 207, 0.06); transition: all var(--transition-normal);" onmouseover="this.style.borderColor='rgba(0, 207, 207, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(0, 207, 207, 0.06)'; this.style.transform='translateY(0)'">
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p style="font-size: var(--text-base); font-weight: var(--font-weight-semibold); color: var(--tc-navy-light); margin-bottom: var(--space-2);">Friday Beach BBQ</p>
+                                    <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin: 0;">Food, drinks and island stories on us.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Beach-club access -->
+                        <div style="background: var(--surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-md); border: 1px solid rgba(0, 207, 207, 0.06); transition: all var(--transition-normal);" onmouseover="this.style.borderColor='rgba(0, 207, 207, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(0, 207, 207, 0.06)'; this.style.transform='translateY(0)'">
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M8 12h8"/>
+                                        <path d="M12 8v8"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p style="font-size: var(--text-base); font-weight: var(--font-weight-semibold); color: var(--tc-navy-light); margin-bottom: var(--space-2);">Beach-club entry & parking</p>
+                                    <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin: 0;">Arrive like regulars (you pay venue for loungers/F&B).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Housekeeping -->
+                        <div style="background: var(--surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-md); border: 1px solid rgba(0, 207, 207, 0.06); transition: all var(--transition-normal);" onmouseover="this.style.borderColor='rgba(0, 207, 207, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(0, 207, 207, 0.06)'; this.style.transform='translateY(0)'">
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                        <polyline points="22 4 12 14.01 9 11.01"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p style="font-size: var(--text-base); font-weight: var(--font-weight-semibold); color: var(--tc-navy-light); margin-bottom: var(--space-2);">Housekeeping + final clean & laundry</p>
+                                    <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin: 0;">You're not here to work.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Grocery pre-stock -->
+                        <div style="background: var(--surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-md); border: 1px solid rgba(0, 207, 207, 0.06); transition: all var(--transition-normal);" onmouseover="this.style.borderColor='rgba(0, 207, 207, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(0, 207, 207, 0.06)'; this.style.transform='translateY(0)'">
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="9" cy="21" r="1"/>
+                                        <circle cx="20" cy="21" r="1"/>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p style="font-size: var(--text-base); font-weight: var(--font-weight-semibold); color: var(--tc-navy-light); margin-bottom: var(--space-2);">Grocery pre-stock</p>
+                                    <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin: 0;">Send a list; we'll fill the fridge (you reimburse receipt).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Two Cards: Zero Surprises + Why We Do It -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">
+                    <!-- Zero surprises Card -->
+                    <div style="background: var(--surface); border-radius: var(--radius-2xl); padding: var(--space-8); box-shadow: var(--shadow-lg); border: 1px solid rgba(0, 207, 207, 0.08); transition: all var(--transition-normal);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-lg)'">
+                        <div style="width: 56px; height: 56px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-5);">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-weight: var(--font-weight-bold); font-size: var(--text-2xl); color: var(--tc-navy-light); margin-bottom: var(--space-4);">Zero surprises</h3>
+                        <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">We include what most places add as extras: electricity, tips, cleaning. We're transparent on anything you pay directly to others.</p>
+                        <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.7);">With our Logistics Guarantee, if weather or timing changes an included experience, we reschedule or substitute equal/higher value—or credit.</p>
+                    </div>
+
+                    <!-- Why we do it Card -->
+                    <div style="background: var(--surface); border-radius: var(--radius-2xl); padding: var(--space-8); box-shadow: var(--shadow-lg); border: 1px solid rgba(0, 207, 207, 0.08); transition: all var(--transition-normal);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-lg)'">
+                        <div style="width: 56px; height: 56px; background: linear-gradient(135deg, rgba(0, 207, 207, 0.1) 0%, rgba(0, 207, 207, 0.05) 100%); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-5);">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-weight: var(--font-weight-bold); font-size: var(--text-2xl); color: var(--tc-navy-light); margin-bottom: var(--space-4);">Why we do it</h3>
+                        <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">We live in Jan Thiel and love sharing the dushi island life—quiet mornings by Jan Thiel Beach, swims at Tugboat, long porch dinners.</p>
+                        <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.7);">Guests often arrive as clients and leave as family. That's the measure we care about.</p>
+                    </div>
                 </div>
             </div>
         </div>
