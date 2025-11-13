@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>Page Not Found - Tommy Coconut</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Tommy Coconut Complete Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PVETEG7EB4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PVETEG7EB4');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "tb6p3y1vba");
+    </script>
+
+    <style>
+        .error-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 50%, rgba(0, 207, 207, 0.05) 100%);
+            padding: var(--space-10) var(--space-6);
+            text-align: center;
+        }
+
+        .error-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .error-code {
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: var(--font-weight-black);
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: var(--space-6);
+            opacity: 0.2;
+        }
+
+        .error-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: var(--font-weight-bold);
+            color: var(--dark-navy);
+            margin-bottom: var(--space-6);
+            line-height: 1.2;
+        }
+
+        .error-message {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-10);
+            line-height: 1.7;
+        }
+
+        .error-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+            justify-content: center;
+            margin-bottom: var(--space-8);
+        }
+
+        .error-link {
+            display: inline-block;
+            padding: var(--space-4) var(--space-8);
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            transition: all var(--transition-normal);
+            box-shadow: 0 4px 15px rgba(0, 207, 207, 0.3);
+        }
+
+        .error-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 207, 207, 0.4);
+        }
+
+        .error-link.secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+
+        .error-link.secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .helpful-links {
+            margin-top: var(--space-12);
+            padding-top: var(--space-8);
+            border-top: 1px solid rgba(0, 207, 207, 0.2);
+        }
+
+        .helpful-links h3 {
+            font-size: var(--text-lg);
+            color: var(--dark-navy);
+            margin-bottom: var(--space-6);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .quick-link {
+            padding: var(--space-4);
+            background: var(--surface);
+            border: 1px solid rgba(0, 207, 207, 0.15);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: var(--dark-navy);
+            transition: all var(--transition-normal);
+        }
+
+        .quick-link:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 207, 207, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_288/Logo_Tommy_Coconut_Private_Resorts_RAY_wgn7rf" alt="Tommy Coconut - Where it's all about you.">
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="why-a-private-resort.html">Why a Private Resort?</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta-button">
+                <a href="private-resorts.html" class="btn btn-primary-nav">Choose Private Resort</a>
+            </div>
+
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Error Hero Section -->
+    <section class="error-hero">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1 class="error-title">This Page Has Sailed Away...</h1>
+            <p class="error-message">
+                Looks like this page took the boat out for a sunset cruise and forgot to come back.
+                <span class="dushi-word" data-papiamento="Poko stressings" data-translation="No stress, no worries. The island motto for easy living.">Poko stressings</span> –
+                we'll help you find what you're looking for.
+            </p>
+
+            <div class="error-links">
+                <a href="index.html" class="error-link">Back to Home</a>
+                <a href="private-resorts.html" class="error-link">Browse Private Resorts</a>
+                <a href="contact.html" class="error-link secondary">Contact Us</a>
+            </div>
+
+            <div class="helpful-links">
+                <h3>Popular Pages</h3>
+                <div class="quick-links">
+                    <a href="why-a-private-resort.html" class="quick-link">
+                        <strong>Why a Private Resort?</strong>
+                    </a>
+                    <a href="experiences.html" class="quick-link">
+                        <strong>Experiences</strong>
+                    </a>
+                    <a href="about.html" class="quick-link">
+                        <strong>About Us</strong>
+                    </a>
+                    <a href="faq.html" class="quick-link">
+                        <strong>FAQ</strong>
+                    </a>
+                    <a href="treasure-map.html" class="quick-link">
+                        <strong>Find Your Villa</strong>
+                    </a>
+                    <a href="reviews.html" class="quick-link">
+                        <strong>Guest Reviews</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: linear-gradient(135deg, #0A1E2A 0%, #1B3B47 30%, #2C5F5F 70%, #1A4B52 100%); color: var(--text-inverse); padding: var(--space-16) 0 var(--space-8);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-10); margin-bottom: var(--space-10);">
+                <!-- About Column -->
+                <div>
+                    <h3 style="color: var(--primary); font-size: var(--text-xl); margin-bottom: var(--space-4); font-weight: var(--font-weight-bold);">Tommy Coconut</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7; margin-bottom: var(--space-4);">Your Private Resort in Curaçao. Where it's all about you.</p>
+                    <p style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-sm);">Premium villas + EV-SUV + Private boat & captain + Family Concierge</p>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div>
+                    <h4 style="color: white; font-size: var(--text-lg); margin-bottom: var(--space-4); font-weight: var(--font-weight-semibold);">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: var(--space-3);"><a href="private-resorts.html" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color var(--transition-normal);">Private Resorts</a></li>
+                        <li style="margin-bottom: var(--space-3);"><a href="why-a-private-resort.html" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color var(--transition-normal);">Why a Private Resort?</a></li>
+                        <li style="margin-bottom: var(--space-3);"><a href="experiences.html" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color var(--transition-normal);">Experiences</a></li>
+                        <li style="margin-bottom: var(--space-3);"><a href="about.html" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color var(--transition-normal);">About</a></li>
+                        <li style="margin-bottom: var(--space-3);"><a href="faq.html" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color var(--transition-normal);">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div>
+                    <h4 style="color: white; font-size: var(--text-lg); margin-bottom: var(--space-4); font-weight: var(--font-weight-semibold);">Get in Touch</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: var(--space-3);"><a href="tel:+59996707977" style="color: rgba(255, 255, 255, 0.8); text-decoration: none;">+5999 670 7977</a></li>
+                        <li style="margin-bottom: var(--space-3);"><a href="mailto:info@tommycoconut.com" style="color: rgba(255, 255, 255, 0.8); text-decoration: none;">info@tommycoconut.com</a></li>
+                        <li style="margin-bottom: var(--space-3);"><a href="https://wa.me/59996707977" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: var(--font-weight-semibold);">Chat on WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-6); text-align: center;">
+                <p style="color: rgba(255, 255, 255, 0.6); font-size: var(--text-sm); margin: 0;">&copy; 2024 Tommy Coconut. All rights reserved. | <a href="privacy-policy.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dushi Dictionary Initialization -->
+    <script src="assets/js/dushi-dictionary.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

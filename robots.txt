@@ -1,0 +1,27 @@
+# Tommy Coconut - Robots.txt
+# Welcome, search engine friends! Come explore our island paradise.
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tommycoconut.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
+
+# Disallow admin/internal pages if any exist
+Disallow: /admin/
+Disallow: /.netlify/
+Disallow: /netlify/
+
+# Allow all villa pages, experiences, and content
+Allow: /villa-*.html
+Allow: /private-resorts.html
+Allow: /experiences.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /faq.html
+Allow: /reviews.html
+Allow: /treasure-map.html
+Allow: /why-a-private-resort.html
