@@ -184,7 +184,7 @@
                     <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: var(--font-weight-bold); color: var(--dark-navy); margin-bottom: var(--space-4);">Or, Leave Us a Note</h2>
                 </div>
 
-                <form style="background: var(--surface); padding: var(--space-10); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); border: 1px solid rgba(0, 207, 207, 0.08);">
+                <form name="contact" method="POST" data-netlify="true" action="/thank-you.html" style="background: var(--surface); padding: var(--space-10); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); border: 1px solid rgba(0, 207, 207, 0.08);">
                     <div style="margin-bottom: var(--space-6);">
                         <label for="full-name" style="display: block; font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--dark-navy); margin-bottom: var(--space-2);">What should we call you?</label>
                         <input type="text" id="full-name" name="fullName" required placeholder="Your name" style="width: 100%; padding: var(--space-4); border: 2px solid rgba(0, 207, 207, 0.2); border-radius: var(--radius-lg); font-size: var(--text-base); background: var(--surface); transition: border-color var(--transition-normal);" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(0, 207, 207, 0.2)'">

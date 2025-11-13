@@ -1,5 +1,7 @@
 # Tommy Coconut Redirects
-# Preserve SEO value from old Cartel URL to new Clan URL
+# Redirect old team/family pages to About page
 
-/cartel.html    /clan.html    301!
-/cartel         /clan.html    301!
+/cartel.html    /about.html    301!
+/cartel         /about.html    301!
+/clan.html      /about.html    301!
+/clan           /about.html    301!

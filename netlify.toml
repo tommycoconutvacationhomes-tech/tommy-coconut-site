@@ -103,7 +103,13 @@
 # Redirects
 [[redirects]]
   from = "/cartel.html"
-  to = "/clan.html"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/clan.html"
+  to = "/about.html"
   status = 301
   force = true
 
