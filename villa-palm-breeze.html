@@ -1156,74 +1156,272 @@
     </nav>
 
     <!-- Act 1: The Cinematic Reveal -->
-    <section class="gallery-hero" style="margin-top: 120px;">
+    <section class="gallery-hero" style="margin-top: 120px;"
+             role="region"
+             aria-label="Property image gallery"
+             id="propertyGallery">
+
+        <!-- Skip link for accessibility -->
+        <a href="#propertyContent" class="skip-gallery">Skip gallery</a>
+
+        <!-- Main Hero Image -->
         <img id="heroImage"
              src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-1_wu5dfg"
-             alt="Palm Breeze Private Resort - Image 1 of 20" class="hero-image">
+             alt="Palm Breeze Private Resort - Image 1 of 20"
+             class="hero-image"
+             loading="eager">
 
-        <div class="gallery-thumbnails">
-            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-1_wu5dfg', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-1_wu5dfg" alt="Palm Breeze - Pool View">
+        <!-- Left Arrow -->
+        <button class="gallery-arrow gallery-arrow-left"
+                onclick="navigateGallery(-1)"
+                aria-label="Previous image"
+                type="button">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <!-- Right Arrow -->
+        <button class="gallery-arrow gallery-arrow-right"
+                onclick="navigateGallery(1)"
+                aria-label="Next image"
+                type="button">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Navigation Container (centered at bottom) -->
+        <div class="gallery-navigation">
+            <!-- Image Counter -->
+            <div class="image-counter" aria-live="polite" aria-atomic="true">
+                <span id="currentImageNumber">1</span> / <span id="totalImages">20</span>
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-2_pvcnkt', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-2_pvcnkt" alt="Palm Breeze - Outdoor Space">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-3_auq9ij', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-3_auq9ij" alt="Palm Breeze - Pool Deck">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-4_k9d1f9', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-4_k9d1f9" alt="Palm Breeze - EV-SUV">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-5_l8u61h', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-5_l8u61h" alt="Palm Breeze - Hot Tub">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-6_xgupaw', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-6_xgupaw" alt="Palm Breeze - Outdoor Dining">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-7_ggbt55', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-7_ggbt55" alt="Palm Breeze - Palapa">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-8_yirpxt', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-8_yirpxt" alt="Palm Breeze - Living Room">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-9_etvgxn', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-9_etvgxn" alt="Palm Breeze - Master Bedroom">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-10_udwc16', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-10_udwc16" alt="Palm Breeze - Bedroom">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-11_i5gcwq', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-11_i5gcwq" alt="Palm Breeze - Seating Area">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-12_uhpnr4', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-12_uhpnr4" alt="Palm Breeze - Bathroom">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-13_dy4gpn', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-13_dy4gpn" alt="Palm Breeze - Kitchen">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-14_fiuuih', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-14_fiuuih" alt="Palm Breeze - Car Interior">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-15_l1r3ig', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-15_l1r3ig" alt="Palm Breeze - Interior">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-16_xs0hvt', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-16_xs0hvt" alt="Palm Breeze - Exterior">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-17_mnfkq5', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-17_mnfkq5" alt="Palm Breeze - Amenity">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-18_ymwrv2', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-18_ymwrv2" alt="Palm Breeze - Details">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-19_wrtbxs', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-19_wrtbxs" alt="Palm Breeze - Feature">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-20_vrix5m', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-20_vrix5m" alt="Palm Breeze - View">
+
+            <!-- Thumbnail Navigation -->
+            <div class="gallery-thumbnails" role="tablist" aria-label="Property images">
+                <div class="thumbnail active"
+                     data-index="0"
+                     onclick="selectImage(0)"
+                     onkeydown="handleThumbnailKeydown(event, 0)"
+                     tabindex="0"
+                     role="tab"
+                     aria-selected="true"
+                     aria-label="View image 1">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-1_wu5dfg"
+                         alt="Palm Breeze - Pool View">
+                </div>
+                <div class="thumbnail"
+                     data-index="1"
+                     onclick="selectImage(1)"
+                     onkeydown="handleThumbnailKeydown(event, 1)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 2">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-2_pvcnkt"
+                         alt="Palm Breeze - Outdoor Space">
+                </div>
+                <div class="thumbnail"
+                     data-index="2"
+                     onclick="selectImage(2)"
+                     onkeydown="handleThumbnailKeydown(event, 2)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 3">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-3_auq9ij"
+                         alt="Palm Breeze - Pool Deck">
+                </div>
+                <div class="thumbnail"
+                     data-index="3"
+                     onclick="selectImage(3)"
+                     onkeydown="handleThumbnailKeydown(event, 3)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 4">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-4_k9d1f9"
+                         alt="Palm Breeze - EV-SUV">
+                </div>
+                <div class="thumbnail"
+                     data-index="4"
+                     onclick="selectImage(4)"
+                     onkeydown="handleThumbnailKeydown(event, 4)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 5">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-5_l8u61h"
+                         alt="Palm Breeze - Hot Tub">
+                </div>
+                <div class="thumbnail"
+                     data-index="5"
+                     onclick="selectImage(5)"
+                     onkeydown="handleThumbnailKeydown(event, 5)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 6">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-6_xgupaw"
+                         alt="Palm Breeze - Outdoor Dining">
+                </div>
+                <div class="thumbnail"
+                     data-index="6"
+                     onclick="selectImage(6)"
+                     onkeydown="handleThumbnailKeydown(event, 6)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 7">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-7_ggbt55"
+                         alt="Palm Breeze - Palapa">
+                </div>
+                <div class="thumbnail"
+                     data-index="7"
+                     onclick="selectImage(7)"
+                     onkeydown="handleThumbnailKeydown(event, 7)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 8">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-8_yirpxt"
+                         alt="Palm Breeze - Living Room">
+                </div>
+                <div class="thumbnail"
+                     data-index="8"
+                     onclick="selectImage(8)"
+                     onkeydown="handleThumbnailKeydown(event, 8)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 9">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-9_etvgxn"
+                         alt="Palm Breeze - Master Bedroom">
+                </div>
+                <div class="thumbnail"
+                     data-index="9"
+                     onclick="selectImage(9)"
+                     onkeydown="handleThumbnailKeydown(event, 9)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 10">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-10_udwc16"
+                         alt="Palm Breeze - Bedroom">
+                </div>
+                <div class="thumbnail"
+                     data-index="10"
+                     onclick="selectImage(10)"
+                     onkeydown="handleThumbnailKeydown(event, 10)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 11">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-11_i5gcwq"
+                         alt="Palm Breeze - Seating Area">
+                </div>
+                <div class="thumbnail"
+                     data-index="11"
+                     onclick="selectImage(11)"
+                     onkeydown="handleThumbnailKeydown(event, 11)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 12">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-12_uhpnr4"
+                         alt="Palm Breeze - Bathroom">
+                </div>
+                <div class="thumbnail"
+                     data-index="12"
+                     onclick="selectImage(12)"
+                     onkeydown="handleThumbnailKeydown(event, 12)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 13">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-13_dy4gpn"
+                         alt="Palm Breeze - Kitchen">
+                </div>
+                <div class="thumbnail"
+                     data-index="13"
+                     onclick="selectImage(13)"
+                     onkeydown="handleThumbnailKeydown(event, 13)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 14">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-14_fiuuih"
+                         alt="Palm Breeze - Car Interior">
+                </div>
+                <div class="thumbnail"
+                     data-index="14"
+                     onclick="selectImage(14)"
+                     onkeydown="handleThumbnailKeydown(event, 14)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 15">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-15_l1r3ig"
+                         alt="Palm Breeze - Interior">
+                </div>
+                <div class="thumbnail"
+                     data-index="15"
+                     onclick="selectImage(15)"
+                     onkeydown="handleThumbnailKeydown(event, 15)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 16">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-16_xs0hvt"
+                         alt="Palm Breeze - Exterior">
+                </div>
+                <div class="thumbnail"
+                     data-index="16"
+                     onclick="selectImage(16)"
+                     onkeydown="handleThumbnailKeydown(event, 16)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 17">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-17_mnfkq5"
+                         alt="Palm Breeze - Amenity">
+                </div>
+                <div class="thumbnail"
+                     data-index="17"
+                     onclick="selectImage(17)"
+                     onkeydown="handleThumbnailKeydown(event, 17)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 18">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-18_ymwrv2"
+                         alt="Palm Breeze - Details">
+                </div>
+                <div class="thumbnail"
+                     data-index="18"
+                     onclick="selectImage(18)"
+                     onkeydown="handleThumbnailKeydown(event, 18)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 19">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-19_wrtbxs"
+                         alt="Palm Breeze - Feature">
+                </div>
+                <div class="thumbnail"
+                     data-index="19"
+                     onclick="selectImage(19)"
+                     onkeydown="handleThumbnailKeydown(event, 19)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 20">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-20_vrix5m"
+                         alt="Palm Breeze - View">
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Next section anchor for skip link -->
+    <div id="propertyContent"></div>
 
     <!-- Quick Stats Strip - Above the Fold - IMPROVED -->
     <section style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(98, 208, 201, 0.06) 100%); padding: var(--space-3xl) var(--space-lg); border-bottom: 1px solid rgba(98, 208, 201, 0.15);">
@@ -1932,8 +2130,10 @@
             }
         });
 
-        // Gallery functionality
-        // Gallery images for auto-rotation
+        // ===================================
+        // GALLERY SYSTEM - Modern Index-Based Navigation
+        // ===================================
+
         const galleryImages = [
             { src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-1_wu5dfg', thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-1_wu5dfg', alt: 'Palm Breeze - Pool View' },
             { src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-2_pvcnkt', thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-2_pvcnkt', alt: 'Palm Breeze - Outdoor Space' },
@@ -1958,14 +2158,263 @@
         ];
 
         let currentImageIndex = 0;
+        let thumbnailStartIndex = 0;
+        const thumbnailsPerView = 5;
 
-        function changeImage(src, thumbnail) {
-            document.getElementById('heroImage').src = src;
-
-            // Update active thumbnail
-            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-            thumbnail.classList.add('active');
+        /**
+         * Navigate gallery by direction (-1 = previous, 1 = next)
+         */
+        function navigateGallery(direction) {
+            const newIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+            selectImage(newIndex);
         }
+
+        /**
+         * Select specific image by index
+         */
+        function selectImage(index) {
+            if (index === currentImageIndex) return;
+
+            const heroImage = document.getElementById('heroImage');
+            const oldIndex = currentImageIndex;
+
+            // Fade out current image
+            heroImage.classList.add('fading');
+
+            // Update after fade
+            setTimeout(() => {
+                currentImageIndex = index;
+
+                // Update hero image
+                heroImage.src = galleryImages[index].src;
+                heroImage.alt = `${galleryImages[index].alt} - Image ${index + 1} of ${galleryImages.length}`;
+
+                // Fade in new image
+                heroImage.classList.remove('fading');
+
+                // Update counter
+                document.getElementById('currentImageNumber').textContent = index + 1;
+
+                // Update thumbnails
+                updateThumbnails(index);
+
+                // Announce to screen readers
+                announceImageChange(index);
+
+                // Preload adjacent images
+                preloadAdjacentImages(index);
+            }, 250);
+        }
+
+        /**
+         * Update thumbnail display and active states
+         */
+        function updateThumbnails(activeIndex) {
+            // Calculate if we need to shift the visible thumbnail window
+            if (activeIndex >= thumbnailStartIndex + thumbnailsPerView) {
+                // Scroll forward
+                thumbnailStartIndex = Math.min(activeIndex - thumbnailsPerView + 1, galleryImages.length - thumbnailsPerView);
+            } else if (activeIndex < thumbnailStartIndex) {
+                // Scroll backward
+                thumbnailStartIndex = activeIndex;
+            }
+
+            // Re-render visible thumbnails
+            renderThumbnails(activeIndex);
+        }
+
+        /**
+         * Render the visible thumbnail window
+         */
+        function renderThumbnails(activeIndex) {
+            const container = document.querySelector('.gallery-thumbnails');
+            container.innerHTML = '';
+
+            const endIndex = Math.min(thumbnailStartIndex + thumbnailsPerView, galleryImages.length);
+
+            for (let i = thumbnailStartIndex; i < endIndex; i++) {
+                const isActive = i === activeIndex;
+                const thumbnail = createThumbnailElement(i, isActive);
+                container.appendChild(thumbnail);
+            }
+        }
+
+        /**
+         * Create a thumbnail DOM element
+         */
+        function createThumbnailElement(index, isActive) {
+            const div = document.createElement('div');
+            div.className = `thumbnail${isActive ? ' active' : ''}`;
+            div.setAttribute('data-index', index);
+            div.setAttribute('onclick', `selectImage(${index})`);
+            div.setAttribute('onkeydown', `handleThumbnailKeydown(event, ${index})`);
+            div.setAttribute('tabindex', isActive ? '0' : '-1');
+            div.setAttribute('role', 'tab');
+            div.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            div.setAttribute('aria-label', `View image ${index + 1}`);
+
+            const img = document.createElement('img');
+            img.src = galleryImages[index].thumb;
+            img.alt = `${galleryImages[index].alt} - Thumbnail`;
+
+            div.appendChild(img);
+            return div;
+        }
+
+        /**
+         * Announce image change to screen readers
+         */
+        function announceImageChange(index) {
+            const announcement = `Viewing image ${index + 1} of ${galleryImages.length}: ${galleryImages[index].alt}`;
+
+            // Use existing counter as live region (already has aria-live)
+            const counter = document.querySelector('.image-counter');
+            if (counter) {
+                counter.setAttribute('aria-label', announcement);
+            }
+        }
+
+        // ===================================
+        // KEYBOARD NAVIGATION
+        // ===================================
+
+        /**
+         * Handle keyboard navigation on thumbnails
+         */
+        function handleThumbnailKeydown(event, index) {
+            switch(event.key) {
+                case 'Enter':
+                case ' ':
+                    event.preventDefault();
+                    selectImage(index);
+                    break;
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    navigateGallery(-1);
+                    focusCurrentThumbnail();
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    navigateGallery(1);
+                    focusCurrentThumbnail();
+                    break;
+                case 'Home':
+                    event.preventDefault();
+                    selectImage(0);
+                    focusCurrentThumbnail();
+                    break;
+                case 'End':
+                    event.preventDefault();
+                    selectImage(galleryImages.length - 1);
+                    focusCurrentThumbnail();
+                    break;
+            }
+        }
+
+        /**
+         * Focus the current active thumbnail
+         */
+        function focusCurrentThumbnail() {
+            setTimeout(() => {
+                const activeThumbnail = document.querySelector('.thumbnail.active');
+                if (activeThumbnail) {
+                    activeThumbnail.focus();
+                }
+            }, 100);
+        }
+
+        /**
+         * Global keyboard shortcuts (arrow keys anywhere on page)
+         */
+        document.addEventListener('keydown', (event) => {
+            // Only handle if gallery is visible and not typing in input
+            if (document.activeElement.tagName === 'INPUT' ||
+                document.activeElement.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                navigateGallery(-1);
+            } else if (event.key === 'ArrowRight') {
+                event.preventDefault();
+                navigateGallery(1);
+            }
+        });
+
+        // ===================================
+        // TOUCH GESTURE SUPPORT
+        // ===================================
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50;
+
+        const galleryHero = document.querySelector('.gallery-hero');
+
+        if (galleryHero) {
+            galleryHero.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                galleryHero.classList.add('swiping');
+            }, { passive: true });
+
+            galleryHero.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                galleryHero.classList.remove('swiping');
+                handleSwipe();
+            }, { passive: true });
+        }
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance > 0) {
+                    // Swipe right = previous image
+                    navigateGallery(-1);
+                } else {
+                    // Swipe left = next image
+                    navigateGallery(1);
+                }
+            }
+        }
+
+        // ===================================
+        // IMAGE PRELOADING
+        // ===================================
+
+        /**
+         * Preload adjacent images for smooth transitions
+         */
+        function preloadAdjacentImages(currentIndex) {
+            const imagesToPreload = [
+                (currentIndex + 1) % galleryImages.length,
+                (currentIndex - 1 + galleryImages.length) % galleryImages.length
+            ];
+
+            imagesToPreload.forEach(index => {
+                const img = new Image();
+                img.src = galleryImages[index].src;
+            });
+        }
+
+        // ===================================
+        // INITIALIZATION
+        // ===================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set total images count
+            const totalImagesElement = document.getElementById('totalImages');
+            if (totalImagesElement) {
+                totalImagesElement.textContent = galleryImages.length;
+            }
+
+            // Preload first few images
+            preloadAdjacentImages(0);
+
+            // Render initial thumbnails
+            renderThumbnails(0);
+        });
 
         function playVideo() {
             // Open video modal or redirect to video URL
@@ -2003,25 +2452,6 @@
                 });
             }
         });
-
-        // Auto-rotate gallery images
-        function rotateImages() {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            const currentImage = galleryImages[currentImageIndex];
-
-            // Update hero image
-            document.getElementById('heroImage').src = currentImage.src;
-
-            // Update active thumbnail
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            thumbnails.forEach(t => t.classList.remove('active'));
-            if (thumbnails[currentImageIndex]) {
-                thumbnails[currentImageIndex].classList.add('active');
-            }
-        }
-
-        // Initialize auto-rotation
-        setInterval(rotateImages, 5000)
 
         // Reviews carousel
         let currentReview = 0;
