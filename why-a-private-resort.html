@@ -264,27 +264,6 @@
             color: var(--tc-primary);
         }
 
-        .comparison-cta {
-            text-align: center;
-            margin-top: var(--space-16);
-            padding: var(--space-12) var(--container-padding);
-            background: linear-gradient(135deg, rgba(98, 208, 201, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-            border-radius: var(--radius-2xl);
-        }
-
-        .comparison-cta h2 {
-            font-size: var(--text-3xl);
-            margin-bottom: var(--space-6);
-            color: var(--teal);
-        }
-
-        .comparison-cta .cta-buttons {
-            display: flex;
-            gap: var(--space-4);
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .comparison-table-desktop {
@@ -304,14 +283,29 @@
                 font-size: var(--text-lg);
             }
 
-            .comparison-cta .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            /* Final Closer - Mobile Optimization */
+            .final-closer-section {
+                padding: 80px 0 !important;
             }
 
-            .comparison-cta .cta-buttons .btn {
-                width: 100%;
-                max-width: 320px;
+            .final-closer-section h2 {
+                font-size: 2rem !important;
+            }
+
+            .final-closer-section p {
+                font-size: 1.125rem !important;
+            }
+
+            .final-closer-section [style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 16px !important;
+            }
+
+            .final-closer-section a {
+                width: 100% !important;
+                min-width: auto !important;
+                padding: 18px 32px !important;
+                font-size: 1.125rem !important;
             }
         }
     </style>
@@ -365,9 +359,88 @@
     <!-- Main Comparison Section -->
     <section class="comparison-section">
         <div class="container">
-            <!-- Page Introduction -->
+            <!-- We Believe - Philosophy Hero Section -->
+            <div style="max-width: 1400px; margin: 0 auto var(--space-16); padding: 0 var(--container-padding);">
+
+                <!-- Main Content Card -->
+                <div style="background: linear-gradient(to bottom, #FAFAF8 0%, #FFFFFF 100%); border-radius: var(--radius-2xl); padding: clamp(3rem, 8vw, 5rem) clamp(2rem, 6vw, 4rem); box-shadow: 0 12px 48px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(98, 208, 201, 0.08);">
+
+                    <!-- Title Section -->
+                    <div style="text-align: center; margin-bottom: clamp(3rem, 6vw, 4rem);">
+                        <h1 style="font-weight: 400; font-size: clamp(2.5rem, 5.5vw, 4.25rem); color: var(--tc-navy); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: var(--space-6);">We believe time off is sacred.</h1>
+                        <div style="width: 80px; height: 3px; background: linear-gradient(to right, transparent, var(--tc-primary), transparent); margin: 0 auto;"></div>
+                    </div>
+
+                    <!-- Opening Statement -->
+                    <div style="max-width: 920px; margin: 0 auto var(--space-12);">
+                        <p style="font-size: clamp(1.375rem, 2.5vw, 1.75rem); font-weight: 400; color: var(--tc-navy-light); line-height: 1.5; text-align: center; margin-bottom: var(--space-10);">That's why we built the <strong style="font-weight: 600; color: var(--tc-primary);">Private Resort</strong>—a private home with resort-level service, where it's all about you.</p>
+
+                        <p style="font-size: var(--text-xl); color: var(--charcoal); line-height: 1.7; text-align: center; margin-bottom: var(--space-8);">We're the Tommy Coconut family in Jan Thiel, Curaçao. You keep the privacy of a home; our concierge delivers five-star ease.</p>
+                    </div>
+
+                    <!-- Stats Highlight - Elevated Position -->
+                    <div style="background: white; border-radius: var(--radius-xl); padding: calc(var(--space-8) + 4px) var(--space-6); margin: 0 auto var(--space-12); max-width: 680px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(98, 208, 201, 0.12); text-align: center;">
+                        <p style="font-size: var(--text-base); color: var(--charcoal); line-height: 1.6; margin-bottom: var(--space-4); font-weight: 400;">Guests call it effortless. We call it doing things the right way.</p>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-3); flex-wrap: wrap;">
+                            <div style="display: flex; gap: 2px;">
+                                <svg style="width: 24px; height: 24px; color: #FFB800;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg style="width: 24px; height: 24px; color: #FFB800;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg style="width: 24px; height: 24px; color: #FFB800;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg style="width: 24px; height: 24px; color: #FFB800;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg style="width: 24px; height: 24px; color: #FFB800;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p style="font-size: clamp(1.5rem, 2.8vw, 1.875rem); font-weight: 700; color: var(--tc-navy); margin: 0; letter-spacing: -0.01em;">4.99</p>
+                            <p style="font-size: var(--text-lg); color: var(--charcoal); margin: 0; font-weight: 500;">across 500+ stays</p>
+                        </div>
+                    </div>
+
+                    <!-- What's Included - Clean Grid -->
+                    <div style="max-width: 1100px; margin: 0 auto var(--space-10);">
+                        <p style="font-size: var(--text-lg); color: var(--tc-navy-light); text-align: center; margin-bottom: var(--space-6); font-weight: 600;">We plan your Dushi Week</p>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-5); margin-bottom: var(--space-6);">
+                            <div style="background: white; padding: var(--space-5); border-radius: var(--radius-lg); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); border: 1px solid rgba(98, 208, 201, 0.08); text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">🚙</div>
+                                <p style="font-size: var(--text-base); font-weight: 600; color: var(--tc-navy); margin: 0;">EV-SUV + Charging</p>
+                            </div>
+                            <div style="background: white; padding: var(--space-5); border-radius: var(--radius-lg); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); border: 1px solid rgba(98, 208, 201, 0.08); text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">✈️</div>
+                                <p style="font-size: var(--text-base); font-weight: 600; color: var(--tc-navy); margin: 0;">Airport Transfers</p>
+                            </div>
+                            <div style="background: white; padding: var(--space-5); border-radius: var(--radius-lg); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); border: 1px solid rgba(98, 208, 201, 0.08); text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">🛥️</div>
+                                <p style="font-size: var(--text-base); font-weight: 600; color: var(--tc-navy); margin: 0;">Private Boat Day</p>
+                            </div>
+                            <div style="background: white; padding: var(--space-5); border-radius: var(--radius-lg); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); border: 1px solid rgba(98, 208, 201, 0.08); text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">🔥</div>
+                                <p style="font-size: var(--text-base); font-weight: 600; color: var(--tc-navy); margin: 0;">Friday Beach BBQ</p>
+                            </div>
+                            <div style="background: white; padding: var(--space-5); border-radius: var(--radius-lg); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); border: 1px solid rgba(98, 208, 201, 0.08); text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">🏖️</div>
+                                <p style="font-size: var(--text-base); font-weight: 600; color: var(--tc-navy); margin: 0;">Beach-Club Access</p>
+                            </div>
+                            <div style="background: white; padding: var(--space-5); border-radius: var(--radius-lg); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); border: 1px solid rgba(98, 208, 201, 0.08); text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">✨</div>
+                                <p style="font-size: var(--text-base); font-weight: 600; color: var(--tc-navy); margin: 0;">Daily Housekeeping</p>
+                            </div>
+                        </div>
+
+                        <p style="font-size: var(--text-lg); font-style: italic; color: var(--tc-navy); text-align: center; line-height: 1.5; margin: 0 auto var(--space-8); font-weight: 500;">—so you never feel like a tourist</p>
+
+                        <p style="font-size: var(--text-base); color: var(--charcoal); text-align: center; line-height: 1.6; max-width: 720px; margin: 0 auto;"><strong style="font-weight: 600; color: var(--tc-navy);">No hidden fees:</strong> electricity, tips, and cleaning included. Available 08:00–22:00 (24/7 for urgent needs). Backed by our Logistics Guarantee.</p>
+                    </div>
+
+                    <!-- Closing Statement -->
+                    <div style="text-align: center; padding-top: var(--space-8); border-top: 1px solid rgba(98, 208, 201, 0.12);">
+                        <p style="font-size: clamp(1.625rem, 3vw, 2.125rem); font-weight: 300; color: var(--tc-navy); line-height: 1.4; margin: 0; letter-spacing: -0.01em;">Vacation is holy.<br><strong style="font-weight: 600;">We'll protect yours.</strong></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Comparison Introduction (moved below philosophy) -->
             <div class="comparison-intro">
-                <h1>How a Private Resort beats Hotels, Rentals & All-Inclusives</h1>
+                <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: var(--weight-light); margin-bottom: var(--space-4); color: var(--teal);">How a Private Resort beats Hotels, Rentals & All-Inclusives</h2>
                 <p class="subtitle">Where it's all about you.</p>
             </div>
 
@@ -564,12 +637,26 @@
             </div>
 
             <!-- Call to Action -->
-            <div class="comparison-cta">
-                <h2>Ready to experience your Private Resort?</h2>
-                <div class="cta-buttons">
-                    <a href="treasure-map.html" class="btn btn-primary btn-lg">Design my dushi week</a>
+            <section class="final-closer-section" style="padding: 160px 0; background: linear-gradient(to bottom, #FFFFFF, #F8FFFE, #FAFAF8); margin-top: var(--space-16);">
+                <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 32px; text-align: center;">
+                    <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; color: var(--tc-navy-light); margin-bottom: 24px; line-height: 1.3; letter-spacing: -0.01em;">
+                        Ready to experience your Private Resort?
+                    </h2>
+                    <p style="font-size: 1.25rem; font-weight: 400; color: var(--charcoal); line-height: 1.7; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                        The island is your resort. Experience freedom without friction with your own private villa, EV-SUV, signature experiences, and the Tommy Coconut family ready to welcome yours.
+                    </p>
+
+                    <!-- Large Dual CTAs -->
+                    <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
+                        <a href="private-resorts.html" class="btn-concierge-primary">
+                            Choose Private Resort
+                        </a>
+                        <a href="treasure-map.html" class="btn-concierge-secondary">
+                            Design my dushi week
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
     </section>
 
