@@ -61,8 +61,8 @@ Properties: Happy Hideaway, Castaway Beach, Palm Breeze, Bayside Hill, Dushi Hid
 1. In Google Business Profile dashboard
 2. Go to "Get more reviews"
 3. Copy your short review link
-4. It will look like: `https://g.page/r/YOUR_ID/review`
-5. **Save this URL** - you'll use it everywhere
+4. **Your Review Link:** `https://g.page/r/CZLeACxdzFq3EBM/review`
+5. **This URL is now configured** - ready to use everywhere
 
 ---
 
@@ -84,7 +84,7 @@ Would you mind leaving a quick Google review about your {{villa_name}} experienc
 
 It takes 60 seconds and helps future guests find us.
 
-👉 [Leave Review on Google]({{google_review_link}})
+👉 [Leave Review on Google](https://g.page/r/CZLeACxdzFq3EBM/review)
 
 Your honest feedback helps us get better—and helps families discover the Dushi Life.
 
@@ -111,7 +111,7 @@ Just one last gentle nudge about leaving a Google review.
 If you've already done it—thank you! ❤️
 
 If not, here's that link again:
-👉 [Leave Review (60 sec)]({{google_review_link}})
+👉 [Leave Review (60 sec)](https://g.page/r/CZLeACxdzFq3EBM/review)
 
 Either way, thanks for staying with us.
 
@@ -173,7 +173,7 @@ Quick favor?
 Would you mind leaving a Google review?
 
 Takes 60 seconds:
-{{google_review_link}}
+https://g.page/r/CZLeACxdzFq3EBM/review
 
 Helps future guests find us 🙏
 
@@ -261,7 +261,7 @@ Tommy Coconut
 <div class="review-request" style="text-align: center; padding: 40px; background: #f8f8f8; border-radius: 12px; margin: 40px 0;">
   <h3>Love Tommy Coconut? Tell Google! 🙏</h3>
   <p>Your review helps future guests discover the Dushi Life</p>
-  <a href="https://g.page/r/YOUR_ID/review"
+  <a href="https://g.page/r/CZLeACxdzFq3EBM/review"
      class="btn btn-primary"
      target="_blank">
      Leave a Google Review
@@ -277,13 +277,13 @@ Director of Relations
 Tommy Coconut Private Resorts
 
 ⭐ Love your stay? Leave us a Google review!
-👉 https://g.page/r/YOUR_ID/review
+👉 https://g.page/r/CZLeACxdzFq3EBM/review
 ```
 
 **Location 3: Footer of Website**
 ```html
 <div class="footer-review">
-  <a href="https://g.page/r/YOUR_ID/review" target="_blank">
+  <a href="https://g.page/r/CZLeACxdzFq3EBM/review" target="_blank">
     Leave us a Google Review ⭐
   </a>
 </div>
@@ -338,7 +338,7 @@ Would you mind leaving a Google review to help future guests find us?
 
 It's the same great experience—just easier to book!
 
-👉 [Leave Google Review]({{google_review_link}})
+👉 [Leave Google Review](https://g.page/r/CZLeACxdzFq3EBM/review)
 
 As a thank you, we'd love to offer you 10% off your next stay (booked direct).
 
