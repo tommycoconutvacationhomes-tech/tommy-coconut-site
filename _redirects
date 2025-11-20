@@ -1,10 +1,6 @@
 # Tommy Coconut Redirects
-
-# Domain redirect - old domain to new domain
-https://tommycoconutvacations.com/*  https://tommycoconutprivateresorts.com/:splat  301!
-https://www.tommycoconutvacations.com/*  https://tommycoconutprivateresorts.com/:splat  301!
-
 # Redirect old team/family pages to About page
+
 /cartel.html    /about.html    301!
 /cartel         /about.html    301!
 /clan.html      /about.html    301!
