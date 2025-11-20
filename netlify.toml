@@ -18,7 +18,7 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     
     # CORS - Restrict to specific domains
-    Access-Control-Allow-Origin = "https://tommycoconut.com"
+    Access-Control-Allow-Origin = "https://tommycoconutprivateresorts.com"
     
     # Content Security Policy
     Content-Security-Policy = """
