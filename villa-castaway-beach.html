@@ -2150,227 +2150,311 @@
         // ===================================
 
         const galleryImages = [
-            // 1. Marina/harbor aerial - Lead with the "wow" location
+            // 1. Pool and villa aerial view
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-1_wuy05s',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-1_wuy05s',
-                alt: 'Aerial view of Jan Thiel marina with boats and turquoise Caribbean waters'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Drone_And_Pool_Area-6_gctaen',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Drone_And_Pool_Area-6_gctaen',
+                alt: 'Aerial view of private pool and villa property'
             },
-            // 2. Living room with white sofa and ocean art
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-4_sifcq4',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-4_sifcq4',
-                alt: 'Modern living room with white sofa and coastal artwork'
-            },
-            // 3. Bedroom with wooden headboard
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-33_lbjedl',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-33_lbjedl',
-                alt: 'Serene bedroom with natural wood headboard and crisp white linens'
-            },
-            // 4. Outdoor terrace with wicker seating
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-27_gkemmp',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-27_gkemmp',
-                alt: 'Covered terrace with wicker lounge seating overlooking the pool'
-            },
-            // 5. Blue EV-SUV vehicle
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-65_hx4m6s',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-65_hx4m6s',
-                alt: 'Blue electric EV-SUV included with your stay'
-            },
-            // 6. Living room different angle
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-5_zizli3',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-5_zizli3',
-                alt: 'Open-concept living space with contemporary furnishings'
-            },
-            // 7. Living room white sectional detail
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-7_llgu6d',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-7_llgu6d',
-                alt: 'Comfortable white sectional sofa in bright living area'
-            },
-            // 8. Living room close-up
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-7_uybqvs',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-7_uybqvs',
-                alt: 'Coastal-inspired living room styling with neutral tones'
-            },
-            // 9. Rattan chair detail
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-8_ice4sq',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-8_ice4sq',
-                alt: 'Natural rattan accent chair with tropical design details'
-            },
-            // 10. Living room with TV and surfboard artwork
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-15_mwtmea',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-15_mwtmea',
-                alt: 'Entertainment area with flat-screen TV and surf-inspired artwork'
-            },
-            // 11. Living room pillows/styling
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-15_rkewya',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-15_rkewya',
-                alt: 'Thoughtful interior styling with curated accent pillows'
-            },
-            // 12. Living room modern furniture
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-18_ifsp5u',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-18_ifsp5u',
-                alt: 'Contemporary furniture throughout the social spaces'
-            },
-            // 13. Outdoor covered terrace
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-29_diaaxz',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-29_diaaxz',
-                alt: 'Shaded outdoor living area perfect for tropical evenings'
-            },
-            // 14. Open terrace/balcony space
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-21_fzhzyx',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-21_fzhzyx',
-                alt: 'Private terrace with marina and ocean views'
-            },
-            // 15. Decorative storage/styling
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-18_uhnzb2',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-18_uhnzb2',
-                alt: 'Elegant design details and functional storage solutions'
-            },
-            // 16. Bedroom with wall art
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-34_lfjrta',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-34_lfjrta',
-                alt: 'Guest bedroom with carefully selected artwork'
-            },
-            // 17. Bathroom modern vanity
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-44_fp75mv',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-44_fp75mv',
-                alt: 'Modern bathroom vanity with premium fixtures'
-            },
-            // 18. Bedroom with TV and guitar on wall
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-39_fagn2m',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-39_fagn2m',
-                alt: 'Bedroom with entertainment center and decorative guitar accent'
-            },
-            // 19. Bedroom headboard close-up
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-40_erfohp',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-40_erfohp',
-                alt: 'Quality bedding and headboard craftsmanship detail'
-            },
-            // 20. Bedroom nightstand styling
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-42_u2htkk',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-42_u2htkk',
-                alt: 'Bedside styling with reading light and coastal touches'
-            },
-            // 21. Bathroom walk-in shower
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-45_tngc97',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-45_tngc97',
-                alt: 'Spacious walk-in shower with modern tilework'
-            },
-            // 22. Bathroom toilet detail
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-47_bb0ylq',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-47_bb0ylq',
-                alt: 'Contemporary bathroom fixtures and finishes'
-            },
-            // 23. Bathroom sink/vanity
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-49_spiutz',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-49_spiutz',
-                alt: 'Clean bathroom vanity with ample counter space'
-            },
-            // 24. Master bedroom headboard detail
-            {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-31_thfrud',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-31_thfrud',
-                alt: 'Master bedroom with premium bedding and statement headboard'
-            },
-            // 25. Bedroom with natural light
+            // 2. Bedroom with natural light
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-22_me5enq',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-22_me5enq',
                 alt: 'Sun-filled bedroom with views and natural ventilation'
             },
-            // 26. Wine cooler in hallway
+            // 3. Living room with white sofa and ocean art
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-57_exeefk',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-57_exeefk',
-                alt: 'Built-in wine cooler for chilled refreshments'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-4_fnkacy',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-4_fnkacy',
+                alt: 'Modern living room with white sofa and coastal artwork'
             },
-            // 27. Pool and marina aerial
+            // 4. Interior space view
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-58_puncwc',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-58_puncwc',
-                alt: 'Aerial view showing private pool and proximity to marina'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-16_qxmwrr',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-16_qxmwrr',
+                alt: 'Bright and airy interior living space'
             },
-            // 28. Marina aerial view
+            // 5. Tommy Coconut vehicle
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-21_ev7cgt',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-21_ev7cgt',
-                alt: 'Jan Thiel marina from above with crystal-clear waters'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/TC-Car-4_bq2v0p',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/TC-Car-4_bq2v0p',
+                alt: 'Tommy Coconut courtesy vehicle included with your stay'
             },
-            // 29. Beach/family experience (using available outdoor image)
+            // 6. Open terrace/balcony space
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-21_fzhzyx',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-21_fzhzyx',
+                alt: 'Private terrace with marina and ocean views'
+            },
+            // 7. Marina/harbor aerial view
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-1_wuy05s',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-1_wuy05s',
+                alt: 'Aerial view of Jan Thiel marina with boats and turquoise Caribbean waters'
+            },
+            // 8. Beach/family experience
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-66_gcdekt',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-66_gcdekt',
                 alt: 'Family beach experience and Caribbean lifestyle'
             },
-            // 30. Kitchen modern white with appliances
+            // 9. Exterior property view
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-69_nqbpfw',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-69_nqbpfw',
-                alt: 'Modern white kitchen with stainless appliances and breakfast bar'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-84_ps4bmi',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-84_ps4bmi',
+                alt: 'Villa exterior with tropical landscaping'
             },
-            // 31. Outdoor dining and pool
+            // 10. Living room close-up
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-70_uwnn0n',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-70_uwnn0n',
-                alt: 'Outdoor dining area beside the private pool'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-7_uybqvs',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-7_uybqvs',
+                alt: 'Coastal-inspired living room styling with neutral tones'
             },
-            // 32. Family arrival with concierge and welcome
+            // 11. Outdoor covered terrace
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-71_qhyxbt',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-71_qhyxbt',
-                alt: 'Welcome arrival experience with family concierge service'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-29_diaaxz',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-29_diaaxz',
+                alt: 'Shaded outdoor living area perfect for tropical evenings'
             },
-            // 33. Tommy boat (turquoise boat)
+            // 12. Interior detail
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-73_ywqloc',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-73_ywqloc',
-                alt: 'Private turquoise boat for your included boat day experience'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-37_i6qxws',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-37_i6qxws',
+                alt: 'Stylish interior detail and design elements'
             },
-            // 34. Family dining on boat
+            // 13. Bedroom with wall art
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-34_lfjrta',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-34_lfjrta',
+                alt: 'Guest bedroom with carefully selected artwork'
+            },
+            // 14. Master bedroom headboard detail
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-31_thfrud',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-31_thfrud',
+                alt: 'Master bedroom with premium bedding and statement headboard'
+            },
+            // 15. Bedroom interior
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-35-min_hcieuf',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-35-min_hcieuf',
+                alt: 'Comfortable bedroom with quality furnishings'
+            },
+            // 16. Bedroom detail view
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-36-min_unoikq',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-36-min_unoikq',
+                alt: 'Bedroom detail showing attention to comfort'
+            },
+            // 17. Family dining on boat
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-74_afw28c',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-74_afw28c',
                 alt: 'Family enjoying dining experience aboard private boat'
             },
-            // 35. Family at historic Fort cannons
+            // 18. Living room different angle
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-76_eti2d9',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-76_eti2d9',
-                alt: 'Guided tour experience at historic Fort with Caribbean views'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-5_zizli3',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-5_zizli3',
+                alt: 'Open-concept living space with contemporary furnishings'
             },
-            // 36. Additional pool/lifestyle image
+            // 19. Rattan chair detail
             {
-                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-79_pvvi0x',
-                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-79_pvvi0x',
-                alt: 'Private pool and outdoor living spaces'
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-8_ice4sq',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-8_ice4sq',
+                alt: 'Natural rattan accent chair with tropical design details'
             },
-            // 37. Lifestyle/experience closing image
+            // 20. Interior living space
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-61_dt42pj',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-61_dt42pj',
+                alt: 'Well-appointed living area with modern amenities'
+            },
+            // 21. Kitchen/dining area
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-69_o867vm',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-69_o867vm',
+                alt: 'Modern kitchen with full appliances and dining space'
+            },
+            // 22. Living room modern furniture
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-18_ifsp5u',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-18_ifsp5u',
+                alt: 'Contemporary furniture throughout the social spaces'
+            },
+            // 23. Interior space
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-17_hkwsgt',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-17_hkwsgt',
+                alt: 'Stylish interior common space'
+            },
+            // 24. Outdoor terrace with wicker seating
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-27_gkemmp',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-27_gkemmp',
+                alt: 'Covered terrace with wicker lounge seating overlooking the pool'
+            },
+            // 25. Outdoor dining and pool
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-70_uwnn0n',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-70_uwnn0n',
+                alt: 'Outdoor dining area beside the private pool'
+            },
+            // 26. Blue EV-SUV vehicle
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-65_hx4m6s',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-65_hx4m6s',
+                alt: 'Blue electric EV-SUV included with your stay'
+            },
+            // 27. Lifestyle/experience closing image
             {
                 src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-82_luxmzq',
                 thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-82_luxmzq',
                 alt: 'Complete Caribbean vacation experience at Castaway Beach'
+            },
+            // 28. Bedroom nightstand styling
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-42_u2htkk',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-42_u2htkk',
+                alt: 'Bedside styling with reading light and coastal touches'
+            },
+            // 29. Bedroom headboard close-up
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-40_erfohp',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-40_erfohp',
+                alt: 'Quality bedding and headboard craftsmanship detail'
+            },
+            // 30. Bedroom with TV and guitar on wall
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-39_fagn2m',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-39_fagn2m',
+                alt: 'Bedroom with entertainment center and decorative guitar accent'
+            },
+            // 31. Bathroom detail
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-56_tuupq2',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-56_tuupq2',
+                alt: 'Modern bathroom with quality fixtures and finishes'
+            },
+            // 32. Wine cooler amenity
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-57_exeefk',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-57_exeefk',
+                alt: 'Built-in wine cooler for chilled refreshments'
+            },
+            // 33. Pool area view
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-80_gk8xph',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-80_gk8xph',
+                alt: 'Private pool and outdoor entertaining space'
+            },
+            // 34. Bathroom sink/vanity
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-49_spiutz',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-49_spiutz',
+                alt: 'Clean bathroom vanity with ample counter space'
+            },
+            // 35. Bathroom detail
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-45_hfd8o5',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-45_hfd8o5',
+                alt: 'Bathroom with modern fixtures and tiling'
+            },
+            // 36. Pool and marina aerial
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Castaway_Beach_NEW-58_puncwc',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Castaway_Beach_NEW-58_puncwc',
+                alt: 'Aerial view showing private pool and proximity to marina'
+            },
+            // 37. Aerial pool view
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Drone_And_Pool_Area-4_nhsbxr',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Drone_And_Pool_Area-4_nhsbxr',
+                alt: 'Aerial view of pool area and surroundings'
+            },
+            // 38. Drone aerial perspective
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Drone_And_Pool_Area-19_ueudye',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Drone_And_Pool_Area-19_ueudye',
+                alt: 'Drone view of property and location'
+            },
+            // 39. Aerial property view
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Drone_And_Pool_Area-17_vuqda5',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Drone_And_Pool_Area-17_vuqda5',
+                alt: 'Aerial perspective of villa and pool area'
+            },
+            // 40. Additional property view
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-5_pctvlj',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-5_pctvlj',
+                alt: 'Property exterior and landscaping'
+            },
+            // 41. Villa exterior view
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Villa_Palm_Breeze-90_o04ybf',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Villa_Palm_Breeze-90_o04ybf',
+                alt: 'Villa exterior architecture and design'
+            },
+            // 42. Outdoor entertainment area
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/IMG_3131_i5mb0u',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/IMG_3131_i5mb0u',
+                alt: 'Outdoor entertaining and relaxation space'
+            },
+            // 43. Outdoor living space
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/IMG_3134_v3hg0m',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/IMG_3134_v3hg0m',
+                alt: 'Outdoor living and dining area'
+            },
+            // 44. Exterior amenity
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/IMG_3132_gu9jmu',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/IMG_3132_gu9jmu',
+                alt: 'Exterior amenities and features'
+            },
+            // 45. Tropical setting
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/dc7a8996-0041-4f81-8a67-22d015ece10f_ddggso',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/dc7a8996-0041-4f81-8a67-22d015ece10f_ddggso',
+                alt: 'Tropical landscaping and outdoor setting'
+            },
+            // 46. Aerial island view
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/DJI_0903_mbbrs9',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/DJI_0903_mbbrs9',
+                alt: 'Aerial view of Curaçao coastline and turquoise waters'
+            },
+            // 47. Coastal view
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/07c611f8-b76b-4ae9-a800-f06dd3897c2b_igqhj8',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/07c611f8-b76b-4ae9-a800-f06dd3897c2b_igqhj8',
+                alt: 'Caribbean coastal scenery and views'
+            },
+            // 48. Island landscape
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/2bb548fd-a201-48ac-afab-a148328d64a3_mdh8gv',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/2bb548fd-a201-48ac-afab-a148328d64a3_mdh8gv',
+                alt: 'Curaçao landscape and natural beauty'
+            },
+            // 49. Additional amenity
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-6_zluk7j',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-6_zluk7j',
+                alt: 'Villa amenities and features'
+            },
+            // 50. Property feature
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/hh-10_rguppi',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/hh-10_rguppi',
+                alt: 'Additional property features and details'
+            },
+            // 51. Experience view
+            {
+                src: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/ebe3fa48-c031-4325-88e2-b1d579ed4d5a_m8wko1',
+                thumb: 'https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/ebe3fa48-c031-4325-88e2-b1d579ed4d5a_m8wko1',
+                alt: 'Caribbean vacation experience and lifestyle'
             }
         ];
 
