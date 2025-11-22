@@ -1332,41 +1332,108 @@
     </nav>
 
     <!-- Act 1: The Cinematic Reveal -->
-    <section class="gallery-hero" style="margin-top: 120px;">
+    <section class="gallery-hero"
+             style="margin-top: 120px;"
+             role="region"
+             aria-label="Property image gallery"
+             id="propertyGallery">
+
+        <!-- Skip link for accessibility -->
+        <a href="#propertyContent" class="skip-gallery">Skip gallery</a>
+
+        <!-- Main Hero Image -->
         <img id="heroImage"
              src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/Bayside_Hill_Second_Edit-1_y7ouof"
-             alt="Bayside Hill Private Resort - Image 1 of 12" class="hero-image">
+             alt="Bayside Hill Private Resort - Image 1 of 12"
+             class="hero-image"
+             loading="eager">
 
-        <div class="gallery-thumbnails">
-            <div class="thumbnail active" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Bayside Hill">
+        <!-- Left Arrow -->
+        <button class="gallery-arrow gallery-arrow-left"
+                onclick="navigateGallery(-1)"
+                aria-label="Previous image"
+                type="button">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <!-- Right Arrow -->
+        <button class="gallery-arrow gallery-arrow-right"
+                onclick="navigateGallery(1)"
+                aria-label="Next image"
+                type="button">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Navigation Container (centered at bottom) -->
+        <div class="gallery-navigation">
+            <!-- Image Counter -->
+            <div class="image-counter" aria-live="polite" aria-atomic="true">
+                <span id="currentImageNumber">1</span> / <span id="totalImages">12</span>
             </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Bayside Hill">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Bayside Hill">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Bayside Hill">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Bayside Hill">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Bayside Hill">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Bayside Hill">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Bayside Hill">
-            </div>
-            <div class="thumbnail" onclick="changeImage('https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/bayside-hill_qfdp8l', this)">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/bayside-hill_qfdp8l" alt="Bayside Hill">
+
+            <!-- Thumbnail Navigation -->
+            <div class="gallery-thumbnails" role="tablist" aria-label="Property images">
+                <div class="thumbnail active"
+                     data-index="0"
+                     onclick="selectImage(0)"
+                     onkeydown="handleThumbnailKeydown(event, 0)"
+                     tabindex="0"
+                     role="tab"
+                     aria-selected="true"
+                     aria-label="View image 1">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Bayside_Hill_Second_Edit-1_y7ouof"
+                         alt="Bayside Hill - View 1">
+                </div>
+                <div class="thumbnail"
+                     data-index="1"
+                     onclick="selectImage(1)"
+                     onkeydown="handleThumbnailKeydown(event, 1)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 2">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Bayside_Hill_Second_Edit-2_m8tgvd"
+                         alt="Bayside Hill - View 2">
+                </div>
+                <div class="thumbnail"
+                     data-index="2"
+                     onclick="selectImage(2)"
+                     onkeydown="handleThumbnailKeydown(event, 2)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 3">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Bayside_Hill_Second_Edit-3_hytuwx"
+                         alt="Bayside Hill - View 3">
+                </div>
+                <div class="thumbnail"
+                     data-index="3"
+                     onclick="selectImage(3)"
+                     onkeydown="handleThumbnailKeydown(event, 3)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 4">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Bayside_Hill_Second_Edit-4_wtvbfi"
+                         alt="Bayside Hill - View 4">
+                </div>
+                <div class="thumbnail"
+                     data-index="4"
+                     onclick="selectImage(4)"
+                     onkeydown="handleThumbnailKeydown(event, 4)"
+                     tabindex="-1"
+                     role="tab"
+                     aria-selected="false"
+                     aria-label="View image 5">
+                    <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_150/Bayside_Hill_Second_Edit-5_c2ckkp"
+                         alt="Bayside Hill - View 5">
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Next section anchor for skip link -->
+    <div id="propertyContent"></div>
 
     <!-- Quick Stats Strip - Above the Fold - IMPROVED -->
     <section style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(98, 208, 201, 0.06) 100%); padding: var(--space-3xl) var(--space-lg); border-bottom: 1px solid rgba(98, 208, 201, 0.15);">
@@ -2131,38 +2198,245 @@
         ];
 
         let currentImageIndex = 0;
+        const thumbnailsPerView = 5; // Show 5 thumbnails at a time
+        let thumbnailStartIndex = 0;
 
-        function changeImage(src, thumbnail) {
-            document.getElementById('heroImage').src = src;
+        // ===================================
+        // CORE NAVIGATION FUNCTIONS
+        // ===================================
 
-            // Update active thumbnail
-            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-            thumbnail.classList.add('active');
+        /**
+         * Navigate gallery by direction (-1 for previous, +1 for next)
+         */
+        function navigateGallery(direction) {
+            const newIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+            selectImage(newIndex);
         }
+
+        /**
+         * Select specific image by index
+         */
+        function selectImage(index) {
+            if (index === currentImageIndex) return;
+
+            const heroImage = document.getElementById('heroImage');
+            const oldIndex = currentImageIndex;
+
+            // Fade out current image
+            heroImage.classList.add('fading');
+
+            // Update after fade
+            setTimeout(() => {
+                currentImageIndex = index;
+
+                // Update hero image
+                heroImage.src = galleryImages[index].src;
+                heroImage.alt = `${galleryImages[index].alt} - Image ${index + 1} of ${galleryImages.length}`;
+
+                // Fade in new image
+                heroImage.classList.remove('fading');
+
+                // Update counter
+                document.getElementById('currentImageNumber').textContent = index + 1;
+
+                // Update thumbnails
+                updateThumbnails(index);
+
+                // Announce to screen readers
+                announceImageChange(index);
+
+                // Preload adjacent images
+                preloadAdjacentImages(index);
+            }, 250);
+        }
+
+        /**
+         * Update thumbnail display and active states
+         */
+        function updateThumbnails(activeIndex) {
+            // Calculate if we need to shift the visible thumbnail window
+            if (activeIndex >= thumbnailStartIndex + thumbnailsPerView) {
+                // Scroll forward
+                thumbnailStartIndex = Math.min(activeIndex - thumbnailsPerView + 1, galleryImages.length - thumbnailsPerView);
+            } else if (activeIndex < thumbnailStartIndex) {
+                // Scroll backward
+                thumbnailStartIndex = activeIndex;
+            }
+
+            // Re-render visible thumbnails
+            renderThumbnails(activeIndex);
+        }
+
+        /**
+         * Render the visible thumbnail window
+         */
+        function renderThumbnails(activeIndex) {
+            const container = document.querySelector('.gallery-thumbnails');
+            container.innerHTML = '';
+
+            const endIndex = Math.min(thumbnailStartIndex + thumbnailsPerView, galleryImages.length);
+
+            for (let i = thumbnailStartIndex; i < endIndex; i++) {
+                const isActive = i === activeIndex;
+                const thumbnail = createThumbnailElement(i, isActive);
+                container.appendChild(thumbnail);
+            }
+        }
+
+        /**
+         * Create a thumbnail DOM element
+         */
+        function createThumbnailElement(index, isActive) {
+            const div = document.createElement('div');
+            div.className = `thumbnail${isActive ? ' active' : ''}`;
+            div.setAttribute('data-index', index);
+            div.setAttribute('onclick', `selectImage(${index})`);
+            div.setAttribute('onkeydown', `handleThumbnailKeydown(event, ${index})`);
+            div.setAttribute('tabindex', isActive ? '0' : '-1');
+            div.setAttribute('role', 'tab');
+            div.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            div.setAttribute('aria-label', `View image ${index + 1}`);
+
+            const img = document.createElement('img');
+            img.src = galleryImages[index].thumb;
+            img.alt = `${galleryImages[index].alt} - Thumbnail`;
+
+            div.appendChild(img);
+            return div;
+        }
+
+        /**
+         * Announce image change to screen readers
+         */
+        function announceImageChange(index) {
+            const announcement = `Viewing image ${index + 1} of ${galleryImages.length}: ${galleryImages[index].alt}`;
+
+            // Use existing counter as live region (already has aria-live)
+            const counter = document.querySelector('.image-counter');
+            if (counter) {
+                counter.setAttribute('aria-label', announcement);
+            }
+        }
+
+        // ===================================
+        // KEYBOARD NAVIGATION
+        // ===================================
+
+        /**
+         * Handle keyboard navigation on thumbnails
+         */
+        function handleThumbnailKeydown(event, index) {
+            switch(event.key) {
+                case 'Enter':
+                case ' ':
+                    event.preventDefault();
+                    selectImage(index);
+                    break;
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    navigateGallery(-1);
+                    focusCurrentThumbnail();
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    navigateGallery(1);
+                    focusCurrentThumbnail();
+                    break;
+                case 'Home':
+                    event.preventDefault();
+                    selectImage(0);
+                    focusCurrentThumbnail();
+                    break;
+                case 'End':
+                    event.preventDefault();
+                    selectImage(galleryImages.length - 1);
+                    focusCurrentThumbnail();
+                    break;
+            }
+        }
+
+        /**
+         * Focus the current active thumbnail
+         */
+        function focusCurrentThumbnail() {
+            setTimeout(() => {
+                const activeThumbnail = document.querySelector('.thumbnail.active');
+                if (activeThumbnail) {
+                    activeThumbnail.focus();
+                }
+            }, 100);
+        }
+
+        /**
+         * Global keyboard shortcuts (arrow keys anywhere on page)
+         */
+        document.addEventListener('keydown', function(event) {
+            // Only handle if gallery is in viewport and not in an input
+            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            switch(event.key) {
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    navigateGallery(-1);
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    navigateGallery(1);
+                    break;
+            }
+        });
+
+        // ===================================
+        // PERFORMANCE OPTIMIZATIONS
+        // ===================================
+
+        /**
+         * Preload adjacent images for smooth transitions
+         */
+        function preloadAdjacentImages(currentIndex) {
+            const preloadIndexes = [
+                (currentIndex + 1) % galleryImages.length,
+                (currentIndex - 1 + galleryImages.length) % galleryImages.length
+            ];
+
+            preloadIndexes.forEach(index => {
+                const img = new Image();
+                img.src = galleryImages[index].src;
+            });
+        }
+
+        // ===================================
+        // AUTO-ROTATION (Optional - can be disabled)
+        // ===================================
+
+        let autoRotateInterval = null;
+
+        function startAutoRotate() {
+            autoRotateInterval = setInterval(() => {
+                navigateGallery(1);
+            }, 5000);
+        }
+
+        function stopAutoRotate() {
+            if (autoRotateInterval) {
+                clearInterval(autoRotateInterval);
+                autoRotateInterval = null;
+            }
+        }
+
+        // Stop auto-rotation when user interacts
+        document.querySelector('.gallery-hero')?.addEventListener('mouseenter', stopAutoRotate);
+        document.querySelector('.gallery-hero')?.addEventListener('click', stopAutoRotate);
+
+        // Start auto-rotation on page load (optional - can be removed)
+        // startAutoRotate();
 
         function playVideo() {
             // Open video modal or redirect to video URL
             window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/villa-bayside-hill-tour', '_blank');
         }
-
-        // Auto-rotate gallery images
-        function rotateImages() {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            const currentImage = galleryImages[currentImageIndex];
-
-            // Update hero image
-            document.getElementById('heroImage').src = currentImage.src;
-
-            // Update active thumbnail
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            thumbnails.forEach(t => t.classList.remove('active'));
-            if (thumbnails[currentImageIndex]) {
-                thumbnails[currentImageIndex].classList.add('active');
-            }
-        }
-
-        // Initialize auto-rotation
-        setInterval(rotateImages, 5000)
 
         // Reviews carousel
         let currentReview = 0;
