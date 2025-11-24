@@ -1125,5 +1125,23 @@
             }
         }
     </style>
+
+    <script>
+        // Force hero video to play
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroVideo = document.querySelector('section video');
+            if (heroVideo) {
+                // Try to play the video
+                heroVideo.play().catch(function(error) {
+                    console.log('Autoplay was prevented:', error);
+                    // If autoplay fails, try again after user interaction
+                    document.addEventListener('click', function playOnClick() {
+                        heroVideo.play();
+                        document.removeEventListener('click', playOnClick);
+                    }, { once: true });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
