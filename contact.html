@@ -46,36 +46,74 @@
     
     <!-- Mobile-Optimized Contact Styles -->
     <style>
+        /* Hero Section Responsive Styles */
+        .hero-family-section {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
         @media (max-width: 768px) {
+            .hero-family-section {
+                min-height: 500px !important;
+            }
+
+            .hero-family-section h1 {
+                font-size: 2.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .hero-family-section p {
+                font-size: 1.05rem !important;
+                padding: 0 1rem;
+            }
+
             .instant-call-btn, .instant-whatsapp-btn {
                 min-width: 280px !important;
                 padding: 20px 24px !important;
                 font-size: 1.1rem !important;
                 margin-bottom: 0.5rem;
             }
-            
+
             .contact-form .form-row {
                 flex-direction: column !important;
             }
-            
+
             .contact-form .form-group {
                 margin-bottom: 1.5rem;
             }
-            
+
             .contact-form input,
             .contact-form select,
             .contact-form textarea {
                 font-size: 16px !important; /* Prevents iOS zoom */
                 padding: 12px 16px !important;
             }
-            
+
             .treasure-map-integration {
                 padding: 1.5rem !important;
                 margin-bottom: 1.5rem !important;
             }
-            
+
             .treasure-map-integration h3 {
                 font-size: 1.2rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-family-section {
+                min-height: 450px !important;
+            }
+
+            .hero-family-section h1 {
+                font-size: 2rem !important;
+            }
+
+            .hero-family-section p {
+                font-size: 0.95rem !important;
             }
         }
     </style>
@@ -126,23 +164,24 @@
             </div>
         </div>
     </nav>
-    <!-- Page Header -->
-    <section class="section" style="background: linear-gradient(135deg, #FAFAF8 0%, #FFFFFF 100%); padding-top: calc(var(--section-padding) * 1.2); text-align: center;" id="main-content">
-        <div class="container">
-            <div class="content-spotlight">
-                <h1 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(3.2rem, 6vw, 4.5rem); color: var(--dark-navy); letter-spacing: -0.02em; line-height: 1.1; text-shadow: 0 1px 2px rgba(0, 47, 61, 0.1); margin-bottom: var(--space-8);">Let's Start the Conversation</h1>
-            </div>
+    <!-- Hero Family Photo Section with Text Overlay -->
+    <section class="hero-family-section" style="position: relative; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--dark-navy);" id="main-content">
+        <!-- Hero Background Image -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+            <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/2e5dd4bc-78c0-4b4f-923f-2037acc33c5b_bagjpn"
+                 alt="The Tommy Coconut Family - Your warm and welcoming hosts ready to make your Curaçao vacation perfect"
+                 style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
         </div>
-    </section>
 
-    <!-- Family Photo Section -->
-    <section class="section" style="background: var(--surface); padding: 0;">
-        <div class="container">
-            <div style="max-width: 1000px; margin: 0 auto; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
-                <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1200/photo_shoot_family_in_white_mxzlam" alt="The Tommy Coconut Family in white - Your warm and welcoming hosts ready to make your Curaçao vacation perfect" style="width: 100%; height: 400px; object-fit: cover;">
-            </div>
-            <div style="text-align: center; margin-top: var(--space-8);">
-                <p class="section-subtitle" style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 300; color: var(--text-secondary); max-width: 900px; margin: 0 auto;">Whether you have a specific question, are ready to start planning the details of your trip, or just want to say <span class="dushi-word" data-papiamento="Bon Bini" data-translation="Welcome! The traditional warm greeting of our island, and our promise to you.">'Bon Bini,'</span> we'd love to hear from you. Here, starting a conversation is always <span class="dushi-word" data-papiamento="poko stressings" data-translation="No stress, no worries. The island motto for easy living.">poko stressings</span> (no stress). A real member of the Tommy Coconut family reads and responds to every single message.</p>
+        <!-- Gradient Overlay for Text Readability -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 61, 92, 0.45), rgba(0, 61, 92, 0.25)); z-index: 2;"></div>
+
+        <!-- Hero Text Content -->
+        <div class="container" style="position: relative; z-index: 3; text-align: center; padding: var(--space-12) var(--space-6);">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h1 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(3.2rem, 6vw, 4.5rem); color: white; letter-spacing: -0.02em; line-height: 1.1; text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); margin-bottom: var(--space-6);">Let's Start the Conversation</h1>
+
+                <p style="font-size: clamp(1.15rem, 2.2vw, 1.375rem); line-height: 1.7; font-weight: 400; color: rgba(255, 255, 255, 0.95); text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); max-width: 800px; margin: 0 auto;">Whether you have a specific question, are ready to start planning the details of your trip, or just want to say <span style="color: var(--primary); font-weight: 600; font-style: italic;" data-papiamento="Bon Bini" data-translation="Welcome! The traditional warm greeting of our island, and our promise to you.">'Bon Bini,'</span> we'd love to hear from you. Here, starting a conversation is always <span style="color: var(--primary); font-weight: 600; font-style: italic;" data-papiamento="poko stressings" data-translation="No stress, no worries. The island motto for easy living.">poko stressings</span> (no stress). A real member of the Tommy Coconut family reads and responds to every single message.</p>
             </div>
         </div>
     </section>
