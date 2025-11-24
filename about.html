@@ -157,43 +157,19 @@
         </div>
     </section>
 
-    <!-- Family Hero Section with Text Overlay -->
-    <section class="section family-hero-section" style="position: relative; padding: 0; margin: var(--space-2xl) 0; overflow: hidden;">
-        <div class="family-hero-container" style="position: relative; width: 100%; height: clamp(500px, 60vh, 700px); max-width: 1400px; margin: 0 auto; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
-            <!-- Hero Image -->
-            <img
-                src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_1920/2e5dd4bc-78c0-4b4f-923f-2037acc33c5b_bagjpn"
-                alt="The Tommy Coconut Family - Let's Start the Conversation"
-                style="width: 100%; height: 100%; object-fit: cover; object-position: center;"
-                loading="lazy"
-            >
-
-            <!-- Gradient Overlay for Text Readability -->
-            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0, 47, 61, 0.35) 0%, rgba(0, 90, 91, 0.45) 50%, rgba(0, 90, 91, 0.6) 100%);"></div>
-
-            <!-- Text Overlay Content -->
-            <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-2xl); text-align: center; z-index: 2;">
-                <h2 style="font-weight: 800; font-size: clamp(2.5rem, 6vw, 4.5rem); color: white; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: var(--space-6); text-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), 0 2px 12px rgba(0, 0, 0, 0.2); max-width: 900px;">
-                    Let's Start the Conversation
-                </h2>
-                <div style="width: 80px; height: 4px; background: var(--tc-primary); border-radius: 2px; margin-bottom: var(--space-6); box-shadow: 0 2px 12px rgba(98, 208, 201, 0.5);"></div>
-                <p style="font-size: clamp(1.125rem, 2.5vw, 1.5rem); color: white; line-height: 1.6; max-width: 700px; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4); font-weight: 500;">
-                    From one family to another — your perfect island escape starts here
-                </p>
-            </div>
-        </div>
-    </section>
-
     <!-- Family Story Section -->
     <section class="section" style="background: var(--surface);">
         <div class="container">
             <div class="section-zigzag">
                 <div class="zigzag-item">
-                    <div class="scene-story" style="max-width: 100%; text-align: center; margin: 0 auto;">
-                        <h2 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--tc-navy-light); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: var(--space-8); text-decoration: underline; text-decoration-color: var(--primary); text-underline-offset: 8px;">From one Family to another</h2>
-                        <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-5); max-width: 800px; margin-left: auto; margin-right: auto;">But how does a man who values a hammock over a board meeting share his philosophy? He doesn't build a corporation; he builds a family.</p>
-                        <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-5); max-width: 800px; margin-left: auto; margin-right: auto;">Tommy knew he couldn't be the one to greet every guest (he's notoriously bad with schedules and far too fond of his afternoon nap). So he sought out a family that already embodied the Dushi Life—a family with salt in their veins and stima in their hearts.</p>
-                        <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; max-width: 800px; margin-left: auto; margin-right: auto;">He didn't just hire us. He adopted us. We are the custodians of his philosophy, the architects of your experience.</p>
+                    <div class="scene-visual">
+                        <img src="https://res.cloudinary.com/dhschyq40/image/upload/f_auto,q_auto,w_800/IMG_5045-EDIT_slb3bb" alt="The Tommy Coconut Family - Welcoming your family to our family" style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl);">
+                    </div>
+                    <div class="scene-story">
+                        <h2 style="font-weight: var(--font-weight-extra-bold); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--tc-navy-light); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: var(--space-6); text-decoration: underline; text-decoration-color: var(--primary); text-underline-offset: 8px;">From one Family to another</h2>
+                        <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">But how does a man who values a hammock over a board meeting share his philosophy? He doesn't build a corporation; he builds a family.</p>
+                        <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">Tommy knew he couldn't be the one to greet every guest (he's notoriously bad with schedules and far too fond of his afternoon nap). So he sought out a family that already embodied the Dushi Life—a family with salt in their veins and stima in their hearts.</p>
+                        <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7;">He didn't just hire us. He adopted us. We are the custodians of his philosophy, the architects of your experience.</p>
                     </div>
                 </div>
             </div>
@@ -480,28 +456,6 @@
                 padding: 0 !important;
             }
 
-            /* Family Hero Section - Mobile */
-            .family-hero-section {
-                margin: var(--space-lg) 0 !important;
-            }
-
-            .family-hero-container {
-                height: clamp(400px, 50vh, 500px) !important;
-                border-radius: var(--radius-lg) !important;
-                margin: 0 var(--space-4) !important;
-            }
-
-            .family-hero-container h2 {
-                font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
-                margin-bottom: var(--space-4) !important;
-                padding: 0 var(--space-4) !important;
-            }
-
-            .family-hero-container p {
-                font-size: clamp(1rem, 3vw, 1.25rem) !important;
-                padding: 0 var(--space-4) !important;
-            }
-
             /* Treasure Carousel */
             .treasure-carousel {
                 height: 300px !important;
@@ -536,15 +490,6 @@
 
         @media (max-width: 480px) {
             /* Extra Small Screens */
-            .family-hero-container {
-                height: clamp(350px, 45vh, 450px) !important;
-                margin: 0 var(--space-3) !important;
-            }
-
-            .family-hero-container h2 {
-                font-size: clamp(1.5rem, 7vw, 2rem) !important;
-            }
-
             .treasure-carousel {
                 height: 250px !important;
             }
