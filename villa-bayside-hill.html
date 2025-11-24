@@ -2766,6 +2766,25 @@
             window.open('https://res.cloudinary.com/dhschyq40/video/upload/tommy-coconut/villas/villa-bayside-hill-tour', '_blank');
         }
 
+        function playPropertyVideo() {
+            const video = document.getElementById('propertyVideo');
+            const thumbnail = document.getElementById('videoThumbnail');
+
+            if (video && thumbnail) {
+                thumbnail.style.display = 'none';
+                video.style.display = 'block';
+                video.play();
+
+                // Analytics tracking
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'video_play', {
+                        'video_name': 'bayside_hill_aerial_tour',
+                        'video_location': 'property_overview_section'
+                    });
+                }
+            }
+        }
+
         // Reviews carousel
         let currentReview = 0;
         const reviewItems = document.querySelectorAll('.review-item');
