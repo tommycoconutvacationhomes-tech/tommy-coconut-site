@@ -14,10 +14,11 @@
   --white: #FFFFFF;          /* Official white for dark sections */
   
   /* Brand Colors - Unified Palette */
-  --tc-primary: #62D0C9;
-  --tc-primary-hover: #4FBDB6;
-  --tc-primary-light: rgba(98, 208, 201, 0.1);
-  --tc-primary-medium: rgba(98, 208, 201, 0.3);
+  /* OFFICIAL PRIMARY: #00CFCF (Brighter Turquoise) */
+  --tc-primary: #00CFCF;
+  --tc-primary-hover: #00B8B8;
+  --tc-primary-light: rgba(0, 207, 207, 0.1);
+  --tc-primary-medium: rgba(0, 207, 207, 0.3);
   
   --tc-navy: #002F3D;
   --tc-navy-light: #005A5B;
@@ -65,7 +66,7 @@
   --tc-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
   --tc-shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.2);
   --tc-shadow-2xl: 0 24px 48px rgba(0, 0, 0, 0.25);
-  --tc-shadow-glow: 0 0 40px rgba(98, 208, 201, 0.3);
+  --tc-shadow-glow: 0 0 40px rgba(0, 207, 207, 0.3);
   
   /* Transitions */
   --tc-transition-fast: 150ms ease;
@@ -115,12 +116,12 @@
 .tc-btn-primary {
   background: var(--tc-primary);
   color: white;
-  box-shadow: 0 6px 20px rgba(98, 208, 201, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 207, 207, 0.3);
 }
 
 .tc-btn-primary:hover {
   background: var(--tc-primary-hover);
-  box-shadow: 0 8px 25px rgba(98, 208, 201, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 207, 207, 0.4);
 }
 
 .tc-btn-secondary {
@@ -173,7 +174,7 @@
   box-shadow: var(--tc-shadow-lg);
   overflow: hidden;
   transition: all var(--tc-transition-normal);
-  border: 1px solid rgba(98, 208, 201, 0.08);
+  border: 1px solid rgba(0, 207, 207, 0.08);
 }
 
 .tc-card:hover {
@@ -258,7 +259,7 @@
   border-radius: var(--tc-radius-2xl);
   box-shadow: var(--tc-shadow-xl);
   transition: all var(--tc-transition-normal);
-  border: 1px solid rgba(98, 208, 201, 0.08);
+  border: 1px solid rgba(0, 207, 207, 0.08);
 }
 
 .tc-testimonial:hover {
@@ -432,10 +433,10 @@
 
 @keyframes tc-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(98, 208, 201, 0.3);
+    box-shadow: 0 0 20px rgba(0, 207, 207, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(98, 208, 201, 0.5);
+    box-shadow: 0 0 40px rgba(0, 207, 207, 0.5);
   }
 }
 
@@ -507,9 +508,9 @@
 .tc-gap-3 { gap: var(--tc-space-lg); }
 
 /* Border Utilities */
-.tc-border { border: 1px solid rgba(98, 208, 201, 0.2); }
-.tc-border-top { border-top: 1px solid rgba(98, 208, 201, 0.2); }
-.tc-border-bottom { border-bottom: 1px solid rgba(98, 208, 201, 0.2); }
+.tc-border { border: 1px solid rgba(0, 207, 207, 0.2); }
+.tc-border-top { border-top: 1px solid rgba(0, 207, 207, 0.2); }
+.tc-border-bottom { border-bottom: 1px solid rgba(0, 207, 207, 0.2); }
 
 /* Shadow Utilities */
 .tc-shadow-sm { box-shadow: var(--tc-shadow-sm); }
