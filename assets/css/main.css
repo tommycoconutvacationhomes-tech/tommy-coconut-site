@@ -286,10 +286,22 @@ h2 {
 .section-title {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 600;
-    color: var(--tc-navy);
+    color: var(--teal);
     line-height: 1.2;
     letter-spacing: -0.01em;
     margin-bottom: var(--space-6);
+}
+
+/* Light variant for dark backgrounds or image overlays */
+.section-title-light {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-6);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25),
+                 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 h3 { 
