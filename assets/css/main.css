@@ -275,10 +275,20 @@ h1 {
     margin-bottom: var(--space-8);
 }
 
-h2 { 
+h2 {
     font-size: clamp(2rem, 3vw, var(--text-4xl));
     font-weight: var(--weight-light);
     line-height: 1.2;
+    margin-bottom: var(--space-6);
+}
+
+/* Section Title - Standardized styling for all section headings on light backgrounds */
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: var(--tc-navy);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
     margin-bottom: var(--space-6);
 }
 
@@ -795,8 +805,8 @@ a:hover, a:focus {
     justify-content: center;
     align-items: center;
     gap: var(--space-1);
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     cursor: pointer;
     position: absolute;
     right: var(--gutter);
@@ -1252,7 +1262,7 @@ a:hover, a:focus {
 
     .nav-cta-button a {
         padding: var(--space-2) var(--space-4) !important;
-        font-size: 11px !important;
+        font-size: 14px !important;
     }
 
     .nav-toggle {
@@ -3134,5 +3144,14 @@ a:hover, a:focus {
 
     .comparison-accordion {
         gap: 16px;
+    }
+}
+
+/* Accessibility: Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
